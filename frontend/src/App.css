@@ -1,0 +1,59 @@
+/* frontend/src/App.css */
+
+/* --- CSS Variables (for easy color management) --- */
+:root {
+  --color-primary-amber: #FFC300;
+  --color-primary-deep-orange: #FF5733;
+  --color-primary-neon-orange: #FF8C00;
+  --color-primary-ruby: #800000;
+  --color-highlight-ruby: #e60000;
+  --color-ruby-shadow: #3f0000;
+  --color-secondary-dark-blue: #001F3F;
+  --color-neutral-black: #000000;
+  --color-neutral-dark-gray: #333333;
+  --color-neutral-medium-gray: #666666;
+  --color-neutral-light-gray: #CCCCCC;
+  --color-neutral-white: #FFFFFF;
+  --color-accent-blue: #00FFFF; /* Added for consistency */
+}
+
+/* --- Global Styles --- */
+body {
+  font-family: 'Open Sans', sans-serif; /* Use Open Sans for body text */
+  background-color: var(--color-neutral-black); /* Black background */
+  color: var(--color-neutral-light-gray); /* Light gray text */
+  margin: 0; /* Remove default body margin */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Montserrat for headings */
+  font-weight: 700; /* Bold headings */
+  color: var(--color-primary-amber);  /* Amber/Honey Yellow for headings */
+}
+
+/* --- App Component Styles --- */
+.App-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.content {
+  padding: 20px;
+}
+
+/* --- DataTraceability Component Styles --- */
+.data-traceability {
+  background-color: var(--color-neutral-black);
+  padding: 20px;
+  border: 1px solid var(--color-neutral-medium-gray);
+  border-radius: 5px;
+  color: var(--color-neutral-light-gray);
+}
+
+.data-traceability-graph {
+  /* Make sure the graph has a defined height! */
+  height: 500px;  /* Adjust as needed */
+}
+
+/* --- Add more component-specific styles here as needed --- */
+

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkAlike Documentation</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif; /* Use Open Sans */
+            margin: 0;
+            display: flex; /* Use flexbox for layout */
+            min-height: 100vh; /* Ensure full viewport height */
+            background-color: #000; /* Black background */
+            color: #eee; /* Very light gray text - better contrast */
+        }
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif; /* Montserrat for headings */
+            font-weight: 700; /* Bold headings */
+            color: #FFC300;  /* Amber/Honey Yellow for headings */
+        }
+        a {
+            color: #F86B03; /* Deep Orange for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #FF8C00;
+        }
+        /* Sidebar Styles */
+        #sidebar {
+            width: 250px;
+            background-color: #212121; /* Darker gray sidebar */
+            padding: 20px;
+            overflow-y: auto; /* Allow scrolling if content overflows */
+            border-right: 1px solid #444;
+        }
+
+        /* Main Content Styles */
+        #content {
+            flex: 1; /* Take up remaining space */
+            padding: 20px;
+        }
+        .nav-link {
+            cursor: pointer;
+            padding: .5rem 1rem;
+            color: #F86B03; /* Deep Orange for links */
+            display: block; /* Make links block-level for easier clicking */
+            text-decoration: none; /* Remove underlines */
+        }
+
+        .nav-link:hover {
+            background-color: #333; /* Darker background on hover */
+            color: #FF8C00;
+        }
+
+        .nav-link.active {
+            background-color: #F86B03; /* Active link style */
+            color: white;
+        }
+        .section-content {
+            display: none;
+            margin-bottom: 20px;
+        }
+      pre {
+          background-color: #333;
+          color: #eee;
+          padding: 10px;
+          border: 1px solid #666;
+          border-radius: 4px;
+          overflow-x: auto;
+      }
+      code {
+          font-family: 'Courier New', Courier, monospace;
+      }
+      .mermaid {
+        overflow: auto;
+      }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.0/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+
+<nav id="sidebar">
+    <h1>ThinkAlike Project Documentation</h1>
+    <ul class="nav flex-column" id="nav-links">
+    </ul>
+</nav>
+<main id="content" class="markdown-body">
+</main>
+
+<script>
+    $(document).ready(function() {
+        // Configure marked.js options
+        marked.setOptions({
+            gfm: true,
+            breaks: false,
+            sanitize: false,
+            smartLists: true,
+            smartypants: false
+        });
+
+        const files = [
+            "onboarding_guide.md",
+            "quickstart_guide.md",
+            "style_guide.md",
+            "CODE_OF_CONDUCT.md",
+            "CONTRIBUTING.md",
+            "INSTALLATION.md",
+            "ThinkAlike_Architectural_Design_Specifications.md",
+            "ThinkAlike_Data_Model_Schema.md",
+            "ThinkAlike_Security_and_Privacy_Implementation_Plan.md",
+            "ThinkAlike_Testing_and_Validation_Plan.md",
+            "ThinkAlike__MVP_Implementation_Guide.md",
+            "funding_model.md",
+            "project_overview.md",
+            "ai_driven_workflow.md",
+            "code_documentation_template.md",
+            "API_schema.json"
+        ];
+
+        // Function to generate navigation links in the sidebar
+        function generateNavLinks() {
+            const navLinks = files.map(file => {
+                const fileName = file.replace('.md', '').replace('.json', '').replace(/_/g, ' ').replace(/-/g, ' ');
+                return `<li class="nav-item">
+                            <a class="nav-link" data-file="${file}" href="#">${fileName}</a>
+                        </li>`;
+            }).join('');
+            $('#nav-links').html(navLinks);
+
+            // Event listener for sidebar navigation links
+            $('.nav-link').click(function(event) {
+                event.preventDefault();
+                $('#sidebar .nav-link').removeClass('active');
+                $(this).addClass('active');
+                const file = $(this).data('file');
+                loadContent(file); // Changed function name
+            });
+        }
+
+
+        // Function to check if a file exists
+        function fileExists(file) {
+            try {
+                let request = new XMLHttpRequest();
+                request.open("HEAD", file, false); // Use synchronous request for simplicity
+                request.send();
+                return request.status !== 404; // Check if file was found
+            } catch (error) {
+                console.warn(`Error checking file existence: ${file}`);
+                return false; // Consider the file as not existing in case of any error
+            }
+        }
+
+        // Function to load and render Markdown or JSON content using AJAX
+        function loadContent(file) { // Changed function name
+            // Check if the file exists before attempting to load
+            if (!fileExists(file)) {
+                console.error(`File not found: ${file}`);
+                $('#content').html(`<p>Error: Could not find content for ${file}.</p>`);
+                return; // Exit the function if the file does not exist
+            }
+            $.ajax({
+                url: file,
+                dataType: 'text',
+                success: function(data) {
+                    console.log(`Loading file: ${file}`);
+
+                    // Check if the file is JSON
+                    if (file.endsWith('.json')) {
+                        try {
+                            const jsonData = JSON.parse(data);
+                            const formattedJSON = JSON.stringify(jsonData, null, 2);
+                            $('#content').html(`<pre><code class="language-json">${formattedJSON}</code></pre>`);
+                            hljs.highlightAll(); // Highlight
+                        } catch (error) {
+                            console.error(`Error parsing JSON from ${file}: ${error}`);
+                            $('#content').html(`<p>Error parsing JSON from ${file}.</p>`);
+                        }
+                    } else {
+                        // Convert Markdown to HTML using marked.js
+                        const htmlContent = marked.parse(data);
+                        $('#content').html(htmlContent);
+
+                        // Initialize Mermaid after rendering Markdown
+                        setTimeout(function() {
+                            mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+                        }, 500);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error(`Error loading file: ${file} - ${xhr.status} ${xhr.statusText}`);
+                    $('#content').html(`<p>Error loading content: ${xhr.status} ${xhr.statusText}</p>`);
+                }
+            });
+        }
+
+        // Generate navigation links in the sidebar
+        generateNavLinks();
+
+        // Load the default file on page load (onboarding_guide.md)
+        loadContent('onboarding_guide.md');
+        $('.nav-link[data-file="onboarding_guide.md"]').addClass('active'); // Set as active
+
+        // Initialize highlight.js
+        hljs.highlightAll();
+    });
+</script>
+
+</body>
+</html>

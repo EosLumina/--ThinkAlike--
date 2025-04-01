@@ -1,0 +1,12 @@
+.data-traceability {
+    background-color: #000000; /* Black background */
+    padding: 20px;
+    border: 1px solid #666666; /* Medium gray border */
+    border-radius: 5px;
+    color: #CCCCCC; /* Light gray text */
+}
+
+.data-traceability-graph {
+    /* Make sure the graph has a defined height! */
+    height: 500px;  /* Adjust as needed */
+}
