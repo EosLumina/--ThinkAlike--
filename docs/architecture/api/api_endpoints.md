@@ -466,6 +466,196 @@ This section details each API endpoint, categorized by resource.
         *   `401 Unauthorized`: Authentication token is missing or invalid.
         *   `500 Internal Server Error`: Unexpected server error during logging.
 
+**4.5 /location Resource**
+
+*   `POST /api/v1/location/share_live`
+    *   **Summary:** Initiates a live location sharing session with a specified user or group.
+    *   **Description:** Allows users to share their live location for a specified duration with a recipient (user or group). Implements secure data sharing protocols and provides UI components for workflow validation and user confirmation.
+    *   **Method:** `POST`
+    *   **Request Body (JSON):**
+        ```json
+        {
+          "recipientId": "string (ID of user or group to share with)",
+          "durationMinutes": "integer (Time in minutes for sharing to remain active)",
+          "message": "string (Optional message to accompany sharing request)"
+        }
+        ```
+    *   **Authentication:** Bearer Authentication required.
+    *   **Responses:**
+        *   `201 Created`: Live location sharing session initiated successfully.
+            ```json
+            {
+              "shareId": "string (Unique identifier for this sharing session)",
+              "expiresAt": "string (ISO timestamp when sharing will expire)",
+              "message": "Location sharing initiated successfully",
+              "ui_validation": {
+                 "type": "object",
+                 "description": "UI components providing confirmation and security workflow feedback"
+              }
+            }
+            ```
+        *   `400 Bad Request`: Invalid request data.
+        *   `401 Unauthorized`: Authentication token missing or invalid.
+        *   `403 Forbidden`: Insufficient permissions for this operation.
+        *   `500 Internal Server Error`: Unexpected server error.
+
+*   `POST /api/v1/location/stop_sharing`
+    *   **Summary:** Stop an active location sharing session.
+    *   **Description:** Immediately terminates an active location sharing session initiated by the current user. Implements secure data handling protocols with UI confirmation of sharing termination.
+    *   **Method:** `POST`
+    *   **Request Body (JSON):**
+        ```json
+        {
+          "shareId": "string (ID of the sharing session to terminate)"
+        }
+        ```
+    *   **Authentication:** Bearer Authentication required.
+    *   **Responses:**
+        *   `200 OK`: Location sharing successfully terminated.
+            ```json
+            {
+              "message": "Location sharing terminated successfully",
+              "shareId": "string (ID of the terminated sharing session)",
+              "ui_validation": {
+                "type": "object",
+                "description": "UI components providing confirmation of sharing termination"
+              }
+            }
+            ```
+        *   `400 Bad Request`: Invalid shareId or request data.
+        *   `401 Unauthorized`: Authentication token missing or invalid.
+        *   `403 Forbidden`: User is not the owner of the specified sharing session.
+        *   `404 Not Found`: Sharing session not found or already expired.
+        *   `500 Internal Server Error`: Unexpected server error.
+
+*   `GET /api/v1/location/active_shares`
+    *   **Summary:** List active location sharing sessions.
+    *   **Description:** Returns all currently active location sharing sessions for the authenticated user, both initiated by them and shared with them.
+    *   **Method:** `GET`
+    *   **Authentication:** Bearer Authentication required.
+    *   **Responses:**
+        *   `200 OK`: Returns list of active sharing sessions.
+            ```json
+            {
+              "initiated": [
+                {
+                  "shareId": "string (ID of sharing session)",
+                  "recipientId": "string (ID of user/group receiving location)",
+                  "recipientName": "string (Name of recipient)",
+                  "expiresAt": "string (ISO timestamp when sharing expires)"
+                }
+              ],
+              "received": [
+                {
+                  "shareId": "string (ID of sharing session)",
+                  "senderId": "string (ID of user sharing location)",
+                  "senderName": "string (Name of sender)",
+                  "expiresAt": "string (ISO timestamp when sharing expires)"
+                }
+              ],
+              "ui_validation": {
+                "type": "object",
+                "description": "UI components for displaying and managing active shares"
+              }
+            }
+            ```
+        *   `401 Unauthorized`: Authentication token missing or invalid.
+        *   `500 Internal Server Error`: Unexpected server error.
+
+*   `GET /api/v1/location/proximity`
+    *   **Summary:** Retrieve proximity data for event attendees.
+    *   **Description:** Provides anonymized proximity information for users who have opted into sharing at a specific event. Implements privacy-preserving proximity calculations and returns approximate distance ranges rather than exact coordinates.
+    *   **Method:** `GET`
+    *   **Parameters:**
+        *   `eventId` (query parameter, string, required): The ID of the event for which to retrieve proximity data.
+    *   **Authentication:** Bearer Authentication required.
+    *   **Responses:**
+        *   `200 OK`: Returns anonymized proximity data for opted-in users.
+            ```json
+            {
+              "users": [
+                {
+                  "userId": "string (ID of a user at the event)",
+                  "approxProximity": "string (e.g., 'Within 200m', 'Nearby')",
+                  "lastUpdated": "string (ISO timestamp of last location update)"
+                }
+              ],
+              "ui_validation": {
+                "type": "object",
+                "description": "UI components for location data visualization and privacy controls"
+              }
+            }
+            ```
+        *   `400 Bad Request`: Invalid request parameters.
+        *   `401 Unauthorized`: Authentication token missing or invalid.
+        *   `403 Forbidden`: User has not opted into the event's proximity sharing.
+        *   `404 Not Found`: Event not found or no proximity data available.
+        *   `500 Internal Server Error`: Unexpected server error.
+
+*   `POST /api/v1/events/{eventId}/proximity_opt_in`
+    *   **Summary:** Opt into proximity sharing for a specific event.
+    *   **Description:** Allows users to opt into location-based proximity sharing within a specific event's geographic boundaries and timeframe. Implements strong consent protocols with clear UI workflow for user confirmation.
+    *   **Method:** `POST`
+    *   **Parameters:**
+        *   `eventId` (path parameter, string, required): The ID of the event to opt into for proximity sharing.
+    *   **Request Body (JSON):**
+        ```json
+        {
+          "duration": "integer (Optional: Duration in minutes to override default event duration)"
+        }
+        ```
+    *   **Authentication:** Bearer Authentication required.
+    *   **Responses:**
+        *   `200 OK`: Successfully opted into event proximity sharing.
+            ```json
+            {
+              "message": "Successfully opted into proximity sharing",
+              "eventId": "string (ID of the event)",
+              "eventName": "string (Name of the event)",
+              "expiresAt": "string (ISO timestamp when opt-in expires)",
+              "ui_validation": {
+                "type": "object",
+                "description": "UI components providing confirmation and privacy controls"
+              }
+            }
+            ```
+        *   `400 Bad Request`: Invalid request parameters.
+        *   `401 Unauthorized`: Authentication token missing or invalid.
+        *   `403 Forbidden`: User is not a participant in the event.
+        *   `404 Not Found`: Event not found.
+        *   `500 Internal Server Error`: Unexpected server error.
+
+*   `GET /api/v1/events/{eventId}/nearby_attendees`
+    *   **Summary:** Get anonymized proximity data for event attendees.
+    *   **Description:** Returns anonymized information about other attendees who have opted into proximity sharing at the same event. Implements privacy-preserving distance calculations to show approximate proximity without revealing exact locations.
+    *   **Method:** `GET`
+    *   **Parameters:**
+        *   `eventId` (path parameter, string, required): The ID of the event to retrieve attendee proximity data for.
+    *   **Authentication:** Bearer Authentication required.
+    *   **Responses:**
+        *   `200 OK`: Returns anonymized proximity data for nearby attendees.
+            ```json
+            {
+              "attendees": [
+                {
+                  "userId": "string (ID of an attendee)",
+                  "displayName": "string (Public display name)",
+                  "proximityCategory": "string (e.g., 'Nearby', 'Within venue')",
+                  "lastUpdated": "string (ISO timestamp of last location update)"
+                }
+              ],
+              "ui_validation": {
+                "type": "object",
+                "description": "UI components for visualizing attendee proximity"
+              }
+            }
+            ```
+        *   `400 Bad Request`: Invalid request parameters.
+        *   `401 Unauthorized`: Authentication token missing or invalid.
+        *   `403 Forbidden`: User has not opted into the event's proximity sharing.
+        *   `404 Not Found`: Event not found or no proximity data available.
+        *   `500 Internal Server Error`: Unexpected server error.
+
 **5. Components (OpenAPI/Swagger Style)**
 
 The API specification is maintained in a separate specification file rather than being inline Markdown. The snippet below shows the security scheme definition which is consistent.
@@ -479,26 +669,18 @@ components:
       bearerFormat: JWT
 ```
 
-VI. Data Models (Detailed Data Schemas)
-========================================
+**6. Data Models (Detailed Data Schemas)**
 
-(This section remains largely the same, pointing to external documents or specific sections for detailed schemas)
+Schema definitions are documented separately in the following files or sections:
 
-Detailed data model specifications for request and response bodies, as well as database schema definitions, are documented separately in the following files or sections:
-
-- **User Profile and Authentication:**
+- **Matching Mode:**
   Refer to the endpoint specifications above for inline examples. See also:
-  `docs/architecture/database/unified_data_model_schema.md`.
+  `docs/architecture/modes/matching_mode/MATCHING_MODE_SPEC.md`
+  for the UserProfile (expanded), ValueProfile, Connection, and ConnectionRequest models.
 
 - **Narrative Mode:**
   See:
   `docs/architecture/modes/narrative_mode/NARRATIVE_MODE_SPEC.md`
-  for the NarrativeNode and UserNarrative models.
-
-- **Matching Mode:**
-  See:
-  `docs/architecture/modes/matching_mode/MATCHING_MODE_SPEC.md`
-  for the UserProfile (expanded), ValueProfile, Connection, and ConnectionRequest models.
 
 - **Community Mode:**
   See:
@@ -514,18 +696,16 @@ Detailed data model specifications for request and response bodies, as well as d
   Refer to:
   `docs/architecture/database/unified_data_model_schema.md`.
 
-VII. Future Endpoints and Extensibility
-=========================================
-
-(This section remains conceptually the same)
+**7. Future Endpoints and Extensibility**
 
 This document represents the initial set of API endpoints. Future endpoints will be added for more granular community features (forums, posts, governance actions), advanced matching functionalities, detailed verification system interactions, notifications, and potential external integrations. The API is designed for modularity and extensibility. Updates will be reflected in revised versions of this document and potentially within a formal OpenAPI specification.
 
-VIII. Revision History
+**8. Revision History**
 
 To maintain the accuracy and relevance of this API specification as the ThinkAlike platform evolves, this Revision History section will track significant updates and modifications made to this document over time. Please refer to this section to understand the changes and ensure you are always working with the latest version of the API specification.
 
-Version	Date	Author (Eos Lumina)	Description of Changes
-1.0 March 26, 2025	Eos Lumina	Initial Draft Creation - Comprehensive specification of API Endpoints for Users, Narrative, Matching, and Communities Resources. Includes base URL, authentication details, endpoint specifications, and initial component definitions. Establishes document as the "Source of Truth" for ThinkAlike API.
+Version | Date | Author | Description of Changes
+------- | ---- | ------ | ---------------------
+1.0 | March 26, 2025 | Eos Lumina | Initial Draft Creation - Comprehensive specification of API Endpoints for Users, Narrative, Matching, and Communities Resources. Includes base URL, authentication details, endpoint specifications, and initial component definitions. Establishes document as the "Source of Truth" for ThinkAlike API.
+
 (Future revisions will be added here, detailing specific changes)
-... more revisions to be added as the API evolves ...

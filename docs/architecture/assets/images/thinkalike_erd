@@ -1,0 +1,18 @@
+// ThinkAlike ER Diagram
+digraph {
+	node [shape=record]
+	Users [label="{Users | <user_id> user_id (PK)| username| email| password_hash| created_at| is_active| full_name}"]
+	Profiles [label="{Profiles | <profile_id> profile_id (PK)| <user_id> user_id (FK)| bio| birthdate| location| profile_picture_url| static_location_city| static_location_country}"]
+	Communities [label="{Communities | <community_id> community_id (PK)| community_name| description| created_at}"]
+	Matches [label="{Matches | <match_id> match_id (PK)| user_id_1| user_id_2| match_data| compatibility_score| created_at}"]
+	Events [label="{Events | <event_id> event_id (PK)| <community_id> community_id (FK)| event_name| description| location| start_time| end_time| geofence_parameters| created_at}"]
+	LiveLocationShares [label="{LiveLocationShares | <share_id> share_id (PK)| <user_id> user_id (FK)| <recipient_id> recipient_id (FK)| start_time| end_time| active}"]
+	EventProximityOptIns [label="{EventProximityOptIns | <event_id> event_id (PK)| <user_id> user_id (FK)| opt_in_time| opt_out_time}"]
+	Profiles:user_id -> Users:user_id
+	Matches:user_id_1 -> Users:user_id
+	Matches:user_id_2 -> Users:user_id
+	LiveLocationShares:user_id -> Users:user_id
+	Events:community_id -> Communities:community_id
+	EventProximityOptIns:event_id -> Events:event_id
+	EventProximityOptIns:user_id -> Users:user_id
+}
