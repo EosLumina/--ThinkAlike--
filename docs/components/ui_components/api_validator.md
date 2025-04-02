@@ -23,23 +23,31 @@ This component supports the testing and validation strategies outlined in the [T
 The `APIValidator` component can be rendered in different contexts:
 
 ### 2.1 Status Indicator
+
 * **Purpose:** Displays the immediate success or failure state of the API call.
+
 * **UI Elements:**
   * **Icon/Color:** Uses simple icons (✅/❌/⏳) and color coding
-    - Green for success (2xx status)
-    - Red for errors (4xx/5xx)
-    - Yellow/Orange for in progress or redirects (3xx/pending)
+    
+    * Green for success (2xx status)
+    * Red for errors (4xx/5xx)
+    * Yellow/Orange for in progress or redirects (3xx/pending)
+  
   * **Text:** Concise status text (e.g., "OK", "Error", "Pending", "Created").
 
 ### 2.2 Request Details (Collapsible/Expandable)
+
 * **Purpose:** Show the data sent to the API.
+
 * **UI Elements:**
   * Endpoint URL and HTTP method
   * Optionally, key request headers (with sensitive values masked)
   * Pretty-printed JSON payload (with sensitive fields masked)
 
 ### 2.3 Response Details (Collapsible/Expandable)
+
 * **Purpose:** Display the data received from the API.
+
 * **UI Elements:**
   * HTTP status code display
   * Optionally, response headers
@@ -47,7 +55,9 @@ The `APIValidator` component can be rendered in different contexts:
   * Frontend validation results (if available), with a link to a `DataValidationError` component when needed
 
 ### 2.4 Timestamp & Duration
+
 * **Purpose:** Provide timing context for the API call.
+
 * **UI Elements:**
   * Display of request initiation time
   * Duration until response (in milliseconds)
@@ -61,6 +71,7 @@ The `APIValidator` component can be rendered in different contexts:
 3. **State Update:** Captured data such as endpoint, method, payload, response code, response body, duration, and validation status are passed to the `APIValidator` via props or shared state.
 4. **Rendering:** The component renders the relevant sections (Status, Request Details, Response Details, and Timing) with collapsible controls.
 5. **Display Context:**
+
    * Globally in a developer console panel (logging recent API calls)
    * Locally, near the triggering element (e.g., as a toast notification)
 
@@ -86,9 +97,11 @@ graph TD
 **Framework:** React
 
 **Data Capture:**
+
 Create a wrapper function around standard fetch or axios instances to record request details, execute the API call, capture response/error details (with timing), optionally perform frontend validation, and then update the shared state or pass data via props.
 
 **State Management:**
+
 * Use the Context API or a state management library for a global log.
 * For local display, component state or props can be used.
 
@@ -154,9 +167,11 @@ export default APIValidator;
 ```
 
 **Masking:**
+
 Implement robust utility functions for masking sensitive data (e.g., passwords, tokens, PII) in both request and response displays. This example uses a basic function.
 
 **Configuration:**
+
 Allow customization (e.g., via props or context) for default visibility of details, masking level, and whether the component is active.
 
 ---
@@ -164,46 +179,55 @@ Allow customization (e.g., via props or context) for default visibility of detai
 ## 6. Testing Instructions
 
 * **Successful Call:**
-  - Mock a successful API call (2xx status).
-  - Verify that APIValidator displays a green status, correct endpoint/method, masked request payload, valid response body, and accurate timing.
+
+  * Mock a successful API call (2xx status).
+  * Verify that APIValidator displays a green status, correct endpoint/method, masked request payload, valid response body, and accurate timing.
 
 * **Client Error Call:**
-  - Mock a client error (4xx status).
-  - Verify red status, proper error code, and relevant request/response details.
+
+  * Mock a client error (4xx status).
+  * Verify red status, proper error code, and relevant request/response details.
 
 * **Server Error Call:**
-  - Mock a server error (5xx status).
-  - Verify red status, correct code, and a generic error message.
+
+  * Mock a server error (5xx status).
+  * Verify red status, correct code, and a generic error message.
 
 * **Data Validation (Frontend):**
-  - Mock a successful API call but with response data failing frontend validation.
-  - Verify that the API status is green but also displays the frontend validation failure.
+
+  * Mock a successful API call but with response data failing frontend validation.
+  * Verify that the API status is green but also displays the frontend validation failure.
 
 * **Masking:**
-  - Verify sensitive fields (e.g., passwords, tokens) are correctly masked (displayed as ***MASKED***).
+
+  * Verify sensitive fields (e.g., passwords, tokens) are correctly masked (displayed as ***MASKED***).
 
 * **Expand/Collapse:**
-  - Ensure the "Show/Hide Req/Res" buttons toggle the details sections.
+
+  * Ensure the "Show/Hide Req/Res" buttons toggle the details sections.
 
 * **Performance:**
-  - Render multiple APIValidator instances and verify the UI remains responsive.
+
+  * Render multiple APIValidator instances and verify the UI remains responsive.
 
 ---
 
 ## 7. Dependencies & Integration
 
 * **Depends On:**
-  - API service wrapper/interceptor function.
-  - Global state or prop drilling mechanism for `apiCallData`.
-  - Utility for masking sensitive data.
-  - Reusable StatusIcon component (optional).
-  - [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md) for colors and styles.
+
+  * API service wrapper/interceptor function.
+  * Global state or prop drilling mechanism for `apiCallData`.
+  * Utility for masking sensitive data.
+  * Reusable StatusIcon component (optional).
+  * [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md) for colors and styles.
 
 * **Integrates With:**
-  - Any UI component that triggers an API call.
-  - Developer Tools panel (for global logging).
-  - Potentially the DataValidationError component for detailed error displays.
-  - Automated UI testing frameworks (e.g., Cypress, Playwright).
+
+  * Any UI component that triggers an API call.
+  * Developer Tools panel (for global logging).
+  * Potentially the DataValidationError component for detailed error displays.
+  * Automated UI testing frameworks (e.g., Cypress, Playwright).
 
 ---
 

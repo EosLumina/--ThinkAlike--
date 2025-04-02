@@ -78,12 +78,10 @@ graph LR
     F[User Interaction (Submit Button)] --> G{onSubmit Validation};
     G -- Validation OK? --> H(Call onSubmit Prop);
     G -- Validation Failed? --> E;
-    H -- formData --> I[Parent Component Logic];
-    I -- Calls --> J[API Service];
-    J -- Response/Error --> I;
-    I -- Success? --> K(Success Feedback / Navigation);
-    I -- Validation Error? --> L{Update serverErrors Prop};
-    L --> B;
+    H --> I[API Call (Parent Component)];
+    I -- Success --> J[Display Success / Navigate];
+    I -- Failure --> K[Return Errors to UserForm];
+    K --> E;
 ```
 
 ---
