@@ -179,24 +179,33 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
 ### ThinkAlike Architectural Diagram (Mermaid):
 
 ```mermaid
-graph TB
-    %% Add proper spacing and layout
+flowchart TB
+    %% Title nodes for each layer that don't participate in connections
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
     
-    subgraph UILayer["Presentation Layer<br>(UI)"]
+    %% Add spacing between sections
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+    
+    subgraph ui_section[" "]
         UserInterface["User Interface"]
     end
     
-    subgraph APP["Application Layer<br/>(Ethical Workflow Engine)"]
-        API["Backend API<br/>(FastAPI)"]
-        Logic["Business Logic &<br/>Data Processing"]
-        AI["AI Services<br/>(Ethical AI Models)"]
-        Verification["Verification<br/>System"]
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
     end
     
-    subgraph DATA["Data Layer<br/>(Ethical Data Repository)"]
-        DB["PostgreSQL<br/>Database"]
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
     end
     
+    %% Connections remain the same
     UserInterface --> API
     API --> Logic
     API --> Verification
@@ -210,13 +219,14 @@ graph TB
     AI --> UserInterface
     Verification --> UserInterface
     
-    %% Improved color scheme for better visibility
-    classDef layerFill fill:#d4f1f9,stroke:#333,stroke-width:4px,color:#000;
-    class UILayer layerFill;
-    class APP layerFill;
-    class DATA layerFill;
+    %% Styling
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px;
     
-    %% Make the links/arrows more visible
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+    
+    %% Make connections visible
     linkStyle default stroke:#0066cc,stroke-width:2px;
 ```
 
