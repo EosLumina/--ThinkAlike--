@@ -22,21 +22,21 @@ Ready to contribute? We need your help to build the future of ethical connection
 
 To set up a local development environment and start contributing:
 
-1.  **Follow the [Quickstart Guide](quickstart_guide.md).** This provides step-by-step instructions.
+1.  **Follow the [Quickstart Guide](core/installation.md).** This provides step-by-step instructions.
 
-For a more comprehensive overview of the project, including our core values, architecture, and contribution guidelines, please see the full [Onboarding Guide](onboarding_guide.md).
+For a more comprehensive overview of the project, including our core values, architecture, and contribution guidelines, please see the full [Onboarding Guide](core/onboarding_guide.md).
 
 ## Technology Stack
 
-*   **Frontend:** React
-*   **Backend:** Python (FastAPI)
-*   **Database:** SQLite (for development), PostgreSQL (planned for production)
-*   **AI:** Initially a simple rule-based system for matching and data traceability visualization. Future plans include exploring more advanced models (e.g., collaborative filtering, natural language processing) for enhanced personalization and community features.
+*   **Frontend:** React  
+*   **Backend:** Python (FastAPI)  
+*   **Database:** SQLite (for development), PostgreSQL (planned for production)  
+*   **AI:** Initially a simple rule-based system for matching and data traceability visualization. Future plans include exploring more advanced models (e.g., collaborative filtering, natural language processing) for enhanced personalization and community features.  
 *   **Documentation:** Markdown, rendered with `marked.js` and `mermaid.js`
 
 ## Contributing
 
-We welcome contributions from everyone! Please see our [CONTRIBUTING.md](CONTRIBUTING.md) file for detailed instructions on how to get involved. We especially encourage contributions that:
+We welcome contributions from everyone! Please see our [CONTRIBUTING.md](core/contributing.md) file for detailed instructions on how to get involved. We especially encourage contributions that:
 
 *   Improve the UI/UX and accessibility: Help us make ThinkAlike a joy to use for everyone.
 *   Enhance the data traceability features: Contribute to the core of our ethical commitment by building visualizations and tools that empower users to understand their data.

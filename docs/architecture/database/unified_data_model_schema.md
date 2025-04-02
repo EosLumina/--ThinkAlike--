@@ -1,27 +1,29 @@
 # ThinkAlike Data Model Schema
 
-**Table of Contents**
+## Table of Contents
 
-1. [Introduction](#1-introduction)
-2. [Entity Relationship Diagram (ERD)](#2-entity-relationship-diagram-erd)
-3. [Data Dictionary](#3-data-dictionary)
-    * [3.1 Users Table](#31-users-table)
-    * [3.2 Profiles Table](#32-profiles-table)
-    * [3.3 Communities Table](#33-communities-table)
-    * [3.4 Matches Table](#34-matches-table)
-    * [3.5 Interactions Table](#35-interactions-table)
-    * [3.6 AI Models Table](#36-ai-models-table)
-    * [3.7 Settings Table](#37-settings-table)
-    * [3.8 UI Components Table](#38-ui-components-table)
-    * [3.9 Events Table](#39-events-table)
-    * [3.10 LiveLocationShares Table](#310-livelocationshares-table)
-    * [3.11 EventProximityOptIns Table](#311-eventproximityoptins-table)
-    * [3.12 EventAttendees Table](#312-eventattendees-table)
-4. [Relationships](#4-relationships)
-5. [Data Validation](#5-data-validation)
-6. [Ethical Considerations](#6-ethical-considerations)
+- [ThinkAlike Data Model Schema](#thinkalike-data-model-schema)
+  - [Table of Contents](#table-of-contents)
+  - [1. Introduction](#1-introduction)
+  - [2. Entity Relationship Diagram (ERD)](#2-entity-relationship-diagram-erd)
+  - [3. Data Dictionary](#3-data-dictionary)
+    - [3.1 Users Table](#31-users-table)
+    - [3.2 Profiles Table](#32-profiles-table)
+    - [3.3 Communities Table](#33-communities-table)
+    - [3.4 Matches Table](#34-matches-table)
+    - [3.5 Interactions Table](#35-interactions-table)
+    - [3.6 AI Models Table](#36-ai-models-table)
+    - [3.7 Settings Table](#37-settings-table)
+    - [3.8 UI Components Table](#38-ui-components-table)
+    - [3.9 Events Table](#39-events-table)
+    - [3.10 LiveLocationShares Table](#310-livelocationshares-table)
+    - [3.11 EventProximityOptIns Table](#311-eventproximityoptins-table)
+    - [3.12 EventAttendees Table](#312-eventattendees-table)
+  - [4. Relationships](#4-relationships)
+  - [5. Data Validation](#5-data-validation)
+  - [6. Ethical Considerations](#6-ethical-considerations)
 
-**1. Introduction**
+## 1. Introduction
 
 This document describes the data models and database schema used in the ThinkAlike platform.
 
@@ -29,7 +31,7 @@ This document describes the data models and database schema used in the ThinkAli
 
 **Note:** The examples below use PostgreSQL syntax. For SQLite (development), some data types might need slight adjustments (e.g., `TEXT` instead of `VARCHAR`).
 
-**2. Entity Relationship Diagram (ERD)**
+## 2. Entity Relationship Diagram (ERD)
 
 ![ThinkAlike ER Diagram](../assets/images/thinkalike_erd.png)
 
@@ -64,11 +66,11 @@ The inter-entity relationships are defined as follows:
 * An EventProximityOptIns entity records user opt-ins for proximity sharing at specific events.
 * An EventAttendees entity tracks user attendance and RSVP status for events.
 
-**3. Data Dictionary**
+## 3. Data Dictionary
 
 This section provides a detailed data dictionary, delineating each table and its constituent columns, including data types, constraints, and intended purpose. Ethical considerations and UI validation are explicitly highlighted within the purpose descriptions for each column.
 
-**3.1 Users Table**
+### 3.1 Users Table
 
 * **user_id (UUID, Primary Key):** A unique identifier assigned to each user account.
   * _Purpose:_ To serve as the primary key for the Users table, enabling efficient and unambiguous identification of individual users within the system.
@@ -85,7 +87,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **full_name (VARCHAR(100)):** A text field storing the user's full name, used for display purposes within the platform.
   * _Purpose:_ To capture user's full name for display purposes and to enhance user recognition within the platform. UI components clearly indicate where and how the full name is displayed, ensuring user awareness and control over the presentation of their identity.
 
-**3.2 Profiles Table**
+### 3.2 Profiles Table
 
 * **profile_id (UUID, Primary Key):** A unique identifier for each user profile entry.
   * _Purpose:_ To serve as the primary key for the Profiles table, enabling efficient tracking and retrieval of user profile data and facilitating relationships with other database entities. UI components are designed to provide clear traceability of profile IDs for data management and workflow validation purposes.
@@ -108,7 +110,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **updated_at (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** When the profile was last updated.
   * _Purpose:_ To track profile modifications for versioning and change history purposes.
 
-**3.3 Communities Table**
+### 3.3 Communities Table
 
 * **community_id (UUID, Primary Key):** A unique identifier for each community group.
   * _Purpose:_ To track communities separately by ID and to link them with UI, AI, and other related data structures, always with clear reusable UI components for testing performance and data integrity, based on code workflow implementation validation standards and user freedom as a key parameter.
@@ -125,7 +127,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **privacy_type (VARCHAR(20), NOT NULL, DEFAULT 'public'):** The privacy setting for the community ('public', 'private', 'secret').
   * _Purpose:_ To control visibility and access to community content and membership.
 
-**3.4 Matches Table**
+### 3.4 Matches Table
 
 * **match_id (UUID, Primary Key):** A unique identifier for each user-user match record.
   * _Purpose:_ To allow proper tracking of each user connection for AI integration and data validation purposes, while also testing for performance, security and traceability with data driven user feedback through reusable UI validation components.
@@ -144,7 +146,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **updated_at (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** The date and time when the match was last updated.
   * _Purpose:_ To track when match status or data was last modified.
 
-**3.5 Interactions Table**
+### 3.5 Interactions Table
 
 * **interaction_id (UUID, Primary Key):** A unique identifier for each user-platform interaction record.
   * _Purpose:_ For system data tracking and to measure real user engagement with different workflow components. Also to track performance, data security and transparency of those interactions. UI components provide clear traceability of interaction IDs for data management and workflow validation purposes.
@@ -159,7 +161,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **timestamp (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** A timestamp indicating the date and time of the user interaction event.
   * _Purpose:_ To track interaction timestamps, enabling temporal analysis of user behavior patterns and contributing to system performance monitoring and workflow optimization.
 
-**3.6 AI Models Table**
+### 3.6 AI Models Table
 
 * **model_id (UUID, Primary Key):** A unique identifier for each AI model implemented within the ThinkAlike platform.
   * _Purpose:_ To have data traceability over each model for testing, implementation, and design documentation, for clear workflow data traceability for architectural validations. UI components are designed to track and validate model IDs for data management and workflow analysis.
@@ -172,7 +174,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **created_at (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** The date and time when that model version was implemented.
   * _Purpose:_ To have control over AI implementation cycles and for performance traceability, with real time data feedback for workflow implementation improvements with data driven results. UI components visualize model creation timestamps, enabling developers to track model evolution and correlate versioning with performance metrics and ethical validation results.
 
-**3.7 Settings Table**
+### 3.7 Settings Table
 
 * **setting_id (UUID, Primary Key):** A unique identifier for each user-defined setting.
   * _Purpose:_ To track all settings changes and to test the performance of different approaches, from user action to implementation data workflow. UI components are designed to track and validate setting IDs for data management and workflow analysis related to user preferences.
@@ -183,7 +185,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **setting_parameters (JSON):** Parameters for the chosen setting, with dynamic UI components to also manage data security and access control protocols for that specific user preference.
   * _Purpose:_ Data traceability for UI and data workflows and user freedom to choose their best interaction experience with technology, while also testing what data parameters are the most important for different UI interaction settings workflows. UI components dynamically adjust based on setting parameters, providing real-time feedback on configuration changes and validating user-defined preferences within the platform.
 
-**3.8 UI Components Table**
+### 3.8 UI Components Table
 
 * **ui_component_id (UUID, Primary Key):** A unique identifier for each UI reusable component.
   * _Purpose:_ To track each reusable UI element to validate if it is performing its workflow as designed and if its reusable attributes are being properly implemented during code architecture validations. UI component IDs facilitate data-driven analysis of component usage patterns and performance metrics across the platform.
@@ -198,7 +200,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **created_at (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** The date and time when the component was created.
   * _Purpose:_ To keep track of development cycles and also to test how new components perform, in comparison with older implementations, during data handling cycles. Component creation timestamps enable tracking of UI development history and facilitate performance comparisons between different component versions, supporting iterative UI improvement and optimization.
 
-**3.9 Events Table**
+### 3.9 Events Table
 
 * **event_id (UUID, Primary Key):** A unique identifier for each event.
   * _Purpose:_ To serve as the primary key for the Events table, enabling efficient tracking and retrieval of event data and facilitating relationships with other entities.
@@ -225,7 +227,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **is_active (BOOLEAN, NOT NULL, DEFAULT TRUE):** Whether the event is active or cancelled.
   * _Purpose:_ To allow events to be cancelled or deactivated without deleting them from the database.
 
-**3.10 LiveLocationShares Table**
+### 3.10 LiveLocationShares Table
 
 * **share_id (UUID, Primary Key):** Primary key for tracking individual sharing sessions.
   * _Purpose:_ To uniquely identify each live location sharing session, enabling efficient tracking and retrieval of sharing data.
@@ -244,7 +246,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **created_at (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** When the sharing relationship was created.
   * _Purpose:_ To track creation time for auditing and administration purposes.
 
-**3.11 EventProximityOptIns Table**
+### 3.11 EventProximityOptIns Table
 
 * **event_id (UUID, Foreign Key, References Events(event_id) ON DELETE CASCADE, NOT NULL):** The specific event.
   * _Purpose:_ To establish referential integrity and track the event associated with the proximity sharing opt-in.
@@ -257,7 +259,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **PRIMARY KEY (event_id, user_id):** Composite primary key ensuring each user can only have one opt-in record per event.
   * _Purpose:_ To enforce data integrity by preventing duplicate opt-in records.
 
-**3.12 EventAttendees Table**
+### 3.12 EventAttendees Table
 
 * **event_id (UUID, Foreign Key, References Events(event_id) ON DELETE CASCADE, NOT NULL):** The event being attended.
   * _Purpose:_ Part of the composite primary key that links this record to a specific event.
@@ -272,7 +274,7 @@ This section provides a detailed data dictionary, delineating each table and its
 * **PRIMARY KEY (event_id, user_id):** Composite primary key ensuring each user can only have one attendance record per event.
   * _Purpose:_ To enforce data integrity by preventing duplicate attendance records.
 
-**4. Relationships**
+## 4. Relationships
 
 The relationships between tables are meticulously implemented with clear SQL logic for reusable components and with UI data workflow visualization to be fully traceable, by highlighting those relationships between tables for data access and validation workflow implementations. These relationships are crucial for maintaining data integrity, enforcing referential constraints, and enabling efficient data retrieval across the ThinkAlike platform.
 
@@ -288,7 +290,7 @@ The relationships between tables are meticulously implemented with clear SQL log
 * **Many-to-Many:** Users can opt into proximity sharing for multiple events, and events can have multiple users opted in through the EventProximityOptIns entity.
 * **Many-to-Many:** Users can attend multiple events, and events can have multiple attendees through the EventAttendees entity.
 
-**5. Data Validation**
+## 5. Data Validation
 
 Data integrity is paramount within ThinkAlike. Robust data validation mechanisms are implemented at multiple levels:
 
@@ -296,7 +298,7 @@ Data integrity is paramount within ThinkAlike. Robust data validation mechanisms
 * **Backend Validation:** Server-side validation is rigorously enforced within FastAPI endpoints, utilizing Pydantic models to define data schemas and validate incoming data against predefined criteria. Backend validation is essential for security and data integrity, ensuring that only valid and authorized data is persisted within the system.
 * **Database Constraints:** Database-level constraints (e.g., `NOT NULL`, `UNIQUE`, `CHECK` constraints) are employed to enforce data integrity at the database level, providing a final layer of data validation and preventing data inconsistencies or corruption.
 
-**6. Ethical Considerations**
+## 6. Ethical Considerations
 
 Ethical considerations are not merely supplementary guidelines but are deeply embedded within the ThinkAlike data model schema, influencing every aspect of data design and handling. Key ethical considerations include:
 
@@ -305,7 +307,3 @@ Ethical considerations are not merely supplementary guidelines but are deeply em
 * **Security and Privacy by Design:** Security and privacy are architecturally integrated into the data model schema, with data encryption protocols, access control mechanisms, and data anonymization strategies implemented to safeguard user data and uphold privacy best practices.
 * **Bias Mitigation and Fairness:** Data validation workflows and AI model testing procedures are designed to proactively detect and mitigate potential biases within data and algorithms, ensuring fairness and equity for all users within the ThinkAlike ecosystem.
 * **Transparency and Accountability:** The data model schema is designed to be transparent, with clear documentation and metadata associated with each table and column, providing users with the ability to understand the data they are interacting with and the processes that shape it. The platform is designed to be accountable, with clear data usage policies, audit trails, and transparency in data handling practices, ensuring that users can trust the platform's data handling processes.
-
----
-
-**Document End - Data Model Schema.md**
