@@ -208,10 +208,14 @@ graph LR
     AI --> UserInterface
     Verification --> UserInterface
 
-    classDef layerFill fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
+    %% Improved color scheme for better visibility
+    classDef layerFill fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
     class UILayer layerFill;
     class APP layerFill;
     class DATA layerFill;
+    
+    %% Make the links/arrows more visible
+    linkStyle default stroke:#0066cc,stroke-width:2px;
 ```
 
 ---
