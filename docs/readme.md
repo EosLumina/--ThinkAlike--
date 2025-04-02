@@ -22,9 +22,15 @@ Ready to contribute? We need your help to build the future of ethical connection
 
 To set up a local development environment and start contributing:
 
+<<<<<<< HEAD
 1.  **Follow the [Quickstart Guide](core/installation.md).** This provides step-by-step instructions.
 
 For a more comprehensive overview of the project, including our core values, architecture, and contribution guidelines, please see the full [Onboarding Guide](core/onboarding_guide.md).
+=======
+1.  **Follow the [Quickstart Guide](docs/guides/implementation_guides/mvp_implementation_guide.md).** This provides step-by-step instructions.
+
+For a more comprehensive overview of the project, including our core values, architecture, and contribution guidelines, please see the full [Onboarding Guide](docs/core/onboarding_guide.md).
+>>>>>>> ddf4d3bdfe9f7ac22c04ff940ea0d710d43d95fb
 
 ## Technology Stack
 
@@ -36,7 +42,11 @@ For a more comprehensive overview of the project, including our core values, arc
 
 ## Contributing
 
+<<<<<<< HEAD
 We welcome contributions from everyone! Please see our [CONTRIBUTING.md](core/contributing.md) file for detailed instructions on how to get involved. We especially encourage contributions that:
+=======
+We welcome contributions from everyone! Please see our [CONTRIBUTING.md](docs/core/contributing.md) file for detailed instructions on how to get involved. We especially encourage contributions that:
+>>>>>>> ddf4d3bdfe9f7ac22c04ff940ea0d710d43d95fb
 
 *   Improve the UI/UX and accessibility: Help us make ThinkAlike a joy to use for everyone.
 *   Enhance the data traceability features: Contribute to the core of our ethical commitment by building visualizations and tools that empower users to understand their data.
