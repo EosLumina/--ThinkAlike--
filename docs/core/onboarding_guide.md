@@ -180,18 +180,18 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
 
 ```mermaid
 graph LR
-    subgraph "Presentation Layer (UI)"
+    subgraph UI [Presentation Layer (UI)]
         UI[User Interface]
     end
 
-    subgraph "Application Layer (Ethical Workflow Engine)"
+    subgraph APP [Application Layer (Ethical Workflow Engine)]
         API[Backend API (FastAPI)]
         Logic[Business Logic & Data Processing]
         AI[AI Services (Ethical AI Models)]
         Verification[Verification System]
     end
 
-    subgraph "Data Layer (Ethical Data Repository)"
+    subgraph DATA [Data Layer (Ethical Data Repository)]
         DB[PostgreSQL Database]
     end
 
@@ -209,9 +209,9 @@ graph LR
     Verification --> UI
 
     classDef layerFill fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
-    class "Presentation Layer (UI)" layerFill;
-    class "Application Layer (Ethical Workflow Engine)" layerFill;
-    class "Data Layer (Ethical Data Repository)" layerFill;
+    class UI layerFill;
+    class APP layerFill;
+    class DATA layerFill;
 ```
 
 ---
