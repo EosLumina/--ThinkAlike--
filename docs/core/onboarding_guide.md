@@ -180,8 +180,8 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
 
 ```mermaid
 graph LR
-    subgraph UI [Presentation Layer (UI)]
-        UI[User Interface]
+    subgraph UILayer [Presentation Layer (UI)]
+        UserInterface[User Interface]
     end
 
     subgraph APP [Application Layer (Ethical Workflow Engine)]
@@ -195,7 +195,7 @@ graph LR
         DB[PostgreSQL Database]
     end
 
-    UI --> API
+    UserInterface --> API
     API --> Logic
     API --> Verification
     API --> AI
@@ -204,12 +204,12 @@ graph LR
     Verification --> DB
     DB --> Logic
     DB --> AI
-    Logic --> UI
-    AI --> UI
-    Verification --> UI
+    Logic --> UserInterface
+    AI --> UserInterface
+    Verification --> UserInterface
 
     classDef layerFill fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
-    class UI layerFill;
+    class UILayer layerFill;
     class APP layerFill;
     class DATA layerFill;
 ```
@@ -403,7 +403,7 @@ ThinkAlike is an open-source project, and we wholeheartedly welcome contribution
 
 ### ThinkAlike Communication Channels - Stay Connected!
 
-* **GitHub Repository:** https://github.com/Willeede/thinkalike_project - The Central Hub! Code, Issues, Documentation, Project Management, Pull Requests. Watch this repository to stay updated on project activity!
+* **GitHub Repository:** https://github.com/EosLumina/--ThinkAlike--/ - The Central Hub! Code, Issues, Documentation, Project Management, Pull Requests. Watch this repository to stay updated on project activity!
 * **Discord Server:** [Insert ThinkAlike Discord Server Link HERE] - Real-time Collaboration & Community! Join our Discord server for real-time discussions, questions, announcements, community building, and direct interaction with fellow contributors and the project team. This is the best place to ask questions, get help, and connect with the ThinkAlike community!
 
 ### Key Project Resources and Documentation - Your Knowledge Base:
