@@ -78,7 +78,7 @@ graph TD
     D -- User Interaction (Hover/Click) --> E[Detailed Rationale/Logs Displayed];
     D -- Optional Link --> F[Verification System Interface];
 
-    classDef backendNode fill:#ccf,stroke:#333,stroke-width:2px;
+    classDef backendNode fill:#f9f9f9,stroke:#333,stroke-width:2px;
     class C backendNode;
 ```
 
