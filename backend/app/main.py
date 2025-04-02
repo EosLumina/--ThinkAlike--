@@ -4,14 +4,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
 # Update import paths to match your project structure
-from api.agent_routes import router as agent_router
-from api.feedback_routes import router as feedback_router
+from backend.app.api.agent_routes import router as agent_router
+from backend.app.api.feedback_routes import router as feedback_router
 
 app = FastAPI(title="ThinkAlike")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "http://localhost:3000",  # Keep for local dev
+        "https://thinkalike-frontend.onrender.com",  # Add your deployed frontend URL
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

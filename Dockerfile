@@ -10,12 +10,17 @@ COPY backend/requirements.txt .
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application code
+# Install gunicorn for running FastAPI in production
+RUN pip install gunicorn
+
+# Copy only the necessary files for the backend
 COPY backend /app/backend
+
+# Copy only the necessary files for the frontend
 COPY frontend /app/frontend
 
 # Expose the port the app runs on
 EXPOSE 8000
 
 # Command to run the backend server
-CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["gunicorn", "backend.app.main:app", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8000"]

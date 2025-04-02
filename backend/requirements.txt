@@ -12,7 +12,6 @@ cryptography==44.0.0
 cycler==0.12.1
 entrypoints==0.4
 filelock==3.17.0
-Flask
 Flask-Cors
 fonttools==4.55.8
 fsspec==2024.12.0
@@ -66,4 +65,3 @@ tzdata==2025.1
 tzlocal==5.2
 urllib3==2.3.0
 uvicorn
-Flask==2.0.1
