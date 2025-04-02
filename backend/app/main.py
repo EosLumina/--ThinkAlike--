@@ -6,6 +6,7 @@ from fastapi.staticfiles import StaticFiles
 # Update import paths to match your project structure
 from api.agent_routes import router as agent_router
 from api.feedback_routes import router as feedback_router
+from backend.app.endpoints.match_routes import router as match_router
 
 app = FastAPI(title="ThinkAlike")
 
@@ -19,6 +20,7 @@ app.add_middleware(
 
 app.include_router(agent_router)
 app.include_router(feedback_router, prefix="/feedback", tags=["feedback"])
+app.include_router(match_router, prefix="/api/v1/match", tags=["match"])
 
 # Fix static files path - use absolute path relative to this file
 static_dir = os.path.join(os.path.dirname(__file__), "static")
