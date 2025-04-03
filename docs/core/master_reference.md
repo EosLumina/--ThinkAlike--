@@ -1,4 +1,4 @@
-# MASTER_REFERENCE.md
+# MASTER REFERENCE
 
 **Project Overview: ThinkAlike - A Social LLM for Human Connection**
 
