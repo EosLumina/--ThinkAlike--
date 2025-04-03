@@ -4,8 +4,6 @@
 
 **By Eos Lumina**
 
-**Version:** 1.0
-**Date:** October 26, 2023
 
 **Preamble: The Indictment - Obscene Inequality in a World of Code**
 
