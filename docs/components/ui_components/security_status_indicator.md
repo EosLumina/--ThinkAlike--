@@ -17,11 +17,11 @@ The Security Status Indicator is typically integrated into a persistent part of 
 * **UI Elements:**
   * **Core Icon/Badge:** A primary visual element (e.g., a stylized padlock or shield icon).
   * **Color-Coding:** The icon's background or fill color changes dynamically based on the assessed security level, using the defined palette from the style guide:
-    * **Green (`#2ECC71`):** Default state indicating secure protocols are active (e.g., HTTPS connection stable, backend encryption verified).
+    * **Blue (`#3498DB`):** Default state indicating secure protocols are active (e.g., HTTPS connection stable, backend encryption verified).
     * **Amber/Honey Yellow (`#FFC300`):** Warning state indicating potential vulnerabilities or sub-optimal configurations.
     * **Neon Orange/Red (`#FF8C00` or `#FF5733`):** Alert state indicating active security risks or detected threats.
   * **Subtle Animations (Optional):**
-    * *Green:* Gentle pulse or static.
+    * *Blue:* Gentle pulse or static.
     * *Yellow:* Slow, intermittent blink or glow.
     * *Red:* Noticeable, faster pulse or glow to draw attention.
 
@@ -63,7 +63,7 @@ The Security Status Indicator is typically integrated into a persistent part of 
 
 ## 3. Actionable Parameters (User Validation & Awareness)
 
-* **Data Security Status:** Users can validate that the platform is operating under secure conditions (Green status) or notice when it deviates (Yellow/Red).
+* **Data Security Status:** Users can validate that the platform is operating under secure conditions (Blue status) or notice when it deviates (Yellow/Red).
 
 * **Transparency Validation:** Users can audit specific security measures via the protocol log.
 
@@ -115,7 +115,7 @@ export default SecurityStatusIndicator;
 ## 5. Testing Instructions
 
 * **State Transition Tests:**
-  Simulate various API responses to verify that the indicator updates its color (Green, Yellow, Red), icons, and animations accordingly.
+  Simulate various API responses to verify that the indicator updates its color (Blue, Yellow, Red), icons, and animations accordingly.
 
 * **Protocol Log Functionality:**
   Ensure that hovering or clicking the indicator triggers the popover and displays correct log entries with proper timestamps.
@@ -135,7 +135,7 @@ export default SecurityStatusIndicator;
 ## 6. UI Mockup Placeholder
 
 Refer to the project's central design repository (e.g., Figma, Zeplin) for approved visual mockups of the Security Status Indicator in its various states.
-[Placeholder: Link or embed visual mockup of the Security Status Indicator (Green, Yellow, Red states with popover) here]
+[Placeholder: Link or embed visual mockup of the Security Status Indicator (Blue, Yellow, Red states with popover) here]
 
 ## 7. Dependencies & Integration
 
