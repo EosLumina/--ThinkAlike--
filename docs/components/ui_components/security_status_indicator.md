@@ -101,3 +101,58 @@ function SecurityStatusIndicator() {
 }
 
 export default SecurityStatusIndicator;
+```
+
+* **API Integration:**
+  * Fetch the initial status from `GET /api/security/status`.
+  * Use periodic polling or WebSocket connections for real-time updates.
+  * Fetch logs from `GET /api/security/logs` with appropriate filtering.
+
+* **Reusability:** Design `StatusIcon` and `ProtocolLogPopover` so they can be reused if similar patterns are needed elsewhere.
+
+* **Validation Integration:** The status determination relies on backend validations; the UI reflects this status and handles errors gracefully (using principles similar to `APIValidator`).
+
+## 5. Testing Instructions
+
+* **State Transition Tests:**
+  Simulate various API responses to verify that the indicator updates its color (Green, Yellow, Red), icons, and animations accordingly.
+
+* **Protocol Log Functionality:**
+  Ensure that hovering or clicking the indicator triggers the popover and displays correct log entries with proper timestamps.
+
+* **Breach Alert Simulation:**
+  Simulate a breach alert via WebSocket or context update and verify that the indicator switches to red, an alert icon appears, and a notification is displayed with an actionable link.
+
+* **API Error Handling:**
+  Simulate API failures for status or logs. Verify that the component enters a fallback state (e.g., Yellow with "Status unavailable"), without crashing, and logs errors accordingly.
+
+* **Accessibility Tests (WCAG):**
+  Ensure sufficient color contrast, keyboard navigability, and that screen readers output meaningful information (e.g., using ARIA attributes such as `aria-live` and `aria-label`).
+
+* **Responsiveness Tests:**
+  Check the indicator's legibility and functionality across different screen sizes and resolutions.
+
+## 6. UI Mockup Placeholder
+
+Refer to the project's central design repository (e.g., Figma, Zeplin) for approved visual mockups of the Security Status Indicator in its various states.
+[Placeholder: Link or embed visual mockup of the Security Status Indicator (Green, Yellow, Red states with popover) here]
+
+## 7. Dependencies & Integration
+
+* **Depends On:**
+  * Backend API endpoints: `/api/security/status` and `/api/security/logs`
+  * Backend real-time notification system (e.g., WebSockets) for breach alerts.
+  * Global state management (React Context API, Zustand, Redux)
+  * ThinkAlike Style Guide for color and icon standards.
+
+* **Integrates With:**
+  * Main application layout (Header, Footer)
+  * Security & Privacy Center (via link in the indicator)
+  * Optionally, principles from `APIValidator` for secure API calling methods.
+
+## 8. Future Enhancements
+
+* More granular status reporting (specific indicators for different types of encryption).
+* User configuration for alert thresholds (e.g., notify on Yellow status).
+* Integration with browser security APIs (if applicable and secure).
+* Historical status log view within the Security Center.
