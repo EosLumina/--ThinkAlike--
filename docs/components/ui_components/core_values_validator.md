@@ -24,6 +24,7 @@ The `CoreValuesValidator` typically renders as a compact summary or a more detai
 ### 2.1 Ethical Alignment Score/Indicator
 
 * **Purpose:** Provide an immediate, high-level assessment of ethical alignment for a specific context (e.g., an API call's data usage, an AI recommendation's potential bias).
+
 * **UI Elements:**
   * **Visual Score:** Could be a numerical score (e.g., 0-100), a qualitative rating (e.g., "High Alignment", "Potential Concern", "Violation Detected"), or a graphical indicator (e.g., a gauge, a spectrum bar).
   * **Color-Coding:** Uses project-defined colors to signify alignment level:
@@ -35,6 +36,7 @@ The `CoreValuesValidator` typically renders as a compact summary or a more detai
 ### 2.2 Principle Breakdown (Detailed View)
 
 * **Purpose:** Show how the specific action/data/output aligns with *individual* core ethical principles.
+
 * **UI Elements:**
   * **List/Grid View:** Displays a list or grid of relevant core ethical principles (e.g., "Data Minimization", "User Control", "Transparency", "Bias Mitigation", "Authenticity").
   * **Per-Principle Status:** For each principle, shows a specific status indicator (icon, color code, checkmark/cross) indicating adherence or potential violation in the current context.
@@ -43,6 +45,7 @@ The `CoreValuesValidator` typically renders as a compact summary or a more detai
 ### 2.3 Identified Concerns/Violations Log
 
 * **Purpose:** Clearly list any specific ethical concerns or violations flagged by the validation process.
+
 * **UI Elements:**
   * **Log List:** A clear list detailing each identified issue.
   * **Severity Level:** Indicates the severity of the concern (e.g., Low, Medium, High, Critical).
@@ -52,6 +55,7 @@ The `CoreValuesValidator` typically renders as a compact summary or a more detai
 ### 2.4 Link to Verification System / Evidence
 
 * **Purpose:** Connect the UI validation display to underlying evidence or detailed reports from the backend Verification System.
+
 * **UI Elements:** A link or button labeled "View Details in Verification System" or "See Ethical Audit Trail".
 
 ---
@@ -60,9 +64,11 @@ The `CoreValuesValidator` typically renders as a compact summary or a more detai
 
 1. **Context Provision:** The parent component rendering the `CoreValuesValidator` provides it with context about the action, data, or AI output being evaluated (e.g., API call details, AI recommendation data, user workflow step).
 2. **Validation Trigger:** Validation can be triggered:
-  * **Frontend Heuristics:** Simple checks performed directly in the frontend based on data patterns or UI state (e.g., checking if sensitive data is being displayed without masking).
-  * **Backend Verification Call:** The frontend makes an API call to the backend Verification System (e.g., `POST /api/verification/validate`) sending the relevant context.
-  * **Pre-computed Data:** The necessary validation data/score might already be included in the response from the primary API call being validated (e.g., an AI matching response includes ethical alignment scores).
+
+   * **Frontend Heuristics:** Simple checks performed directly in the frontend based on data patterns or UI state (e.g., checking if sensitive data is being displayed without masking).
+   * **Backend Verification Call:** The frontend makes an API call to the backend Verification System (e.g., `POST /api/verification/validate`) sending the relevant context.
+   * **Pre-computed Data:** The necessary validation data/score might already be included in the response from the primary API call being validated (e.g., an AI matching response includes ethical alignment scores).
+
 3. **Data Processing:** The `CoreValuesValidator` receives validation results (scores, principle statuses, violation details) either directly via props or from the Verification System API response.
 4. **Rendering:** The component renders the appropriate visual elements (Score, Principle Breakdown, Concerns Log) based on the received validation data.
 5. **User Interaction:** Users can hover/click for details, view violation logs, and potentially link to the Verification System for deeper dives.
@@ -84,30 +90,27 @@ graph TD
 
 ## 4. Code Implementation Notes
 
-Framework: React.
+**Framework:** React.
 
-Props:
+**Props:**
 
-validationContext: (Object) Data describing the item being validated (e.g., { type: 'AI_RECOMMENDATION', data: recommendationObject }, { type: 'DATA_HANDLING', workflow: 'profile_update', fields: ['email', 'password'] }).
+* **validationContext:** (Object) Data describing the item being validated (e.g., { type: 'AI_RECOMMENDATION', data: recommendationObject }, { type: 'DATA_HANDLING', workflow: 'profile_update', fields: ['email', 'password'] }).
+* **validationResults:** (Object, Optional) Pre-computed results if validation happens elsewhere (e.g., { overallScore: 85, principles: { transparency: 'ok', bias: 'warning' }, concerns: [...] }). If not provided, the component might trigger its own backend call based on validationContext.
+* **displayMode:** (Enum: 'compact', 'detailed') Controls rendering detail.
 
-validationResults: (Object, Optional) Pre-computed results if validation happens elsewhere (e.g., { overallScore: 85, principles: { transparency: 'ok', bias: 'warning' }, concerns: [...] }). If not provided, the component might trigger its own backend call based on validationContext.
+**Logic:**
 
-displayMode: (Enum: 'compact', 'detailed') Controls rendering detail.
+* Component logic maps validationResults data to the appropriate UI elements and styling.
+* Handles fetching validation results from the backend if validationResults prop is not provided.
+* Manages internal state for displaying detailed sections (e.g., expanding principle breakdowns).
 
-Logic:
+**Ethical Principle Mapping:** Requires a clear mapping (e.g., a configuration object) between principle IDs/names used in the validation data and their display labels and icons in the UI.
 
-Component logic maps validationResults data to the appropriate UI elements and styling.
+**Integration with Verification API:** Define the request/response structure for interacting with the backend Verification System API.
 
-Handles fetching validation results from the backend if validationResults prop is not provided.
+**Styling:** Use project styles (style_guide.md) for colors, icons, and typography, ensuring clear visual distinction between alignment levels.
 
-Manages internal state for displaying detailed sections (e.g., expanding principle breakdowns).
-
-Ethical Principle Mapping: Requires a clear mapping (e.g., a configuration object) between principle IDs/names used in the validation data and their display labels and icons in the UI.
-
-Integration with Verification API: Define the request/response structure for interacting with the backend Verification System API.
-
-Styling: Use project styles (style_guide.md) for colors, icons, and typography, ensuring clear visual distinction between alignment levels.
-
+```jsx
 // Example React Component Structure (Conceptual)
 
 import React from 'react';
@@ -186,22 +189,23 @@ function CoreValuesValidator({ validationContext, validationResults, displayMode
 }
 
 export default CoreValuesValidator;
+```
 
 ## 5. Testing Instructions
 
-Alignment State Rendering: Provide mocked validationResults data representing high, medium, and low ethical alignment scores and various principle statuses (ok, warning, violation). Verify the component renders the correct colors, icons, scores, and status texts for each case.
+* **Alignment State Rendering:** Provide mocked validationResults data representing high, medium, and low ethical alignment scores and various principle statuses (ok, warning, violation). Verify the component renders the correct colors, icons, scores, and status texts for each case.
 
-Principle Breakdown Accuracy: For detailed mode, verify that all principles passed in the validationResults.principles object are displayed correctly with their corresponding statuses and that hover/click reveals the correct rationale.
+* **Principle Breakdown Accuracy:** For detailed mode, verify that all principles passed in the validationResults.principles object are displayed correctly with their corresponding statuses and that hover/click reveals the correct rationale.
 
-Concerns Log Display: Provide mocked validationResults.concerns data with different severity levels. Verify the log displays correctly, lists all concerns, shows severity, and includes actionable links if provided.
+* **Concerns Log Display:** Provide mocked validationResults.concerns data with different severity levels. Verify the log displays correctly, lists all concerns, shows severity, and includes actionable links if provided.
 
-Backend Integration (If applicable): If the component fetches data, mock the fetchEthicalValidation API call. Test successful fetch, loading state, and error handling (displaying an error message if the API call fails).
+* **Backend Integration (If applicable):** If the component fetches data, mock the fetchEthicalValidation API call. Test successful fetch, loading state, and error handling (displaying an error message if the API call fails).
 
-Contextual Rendering: Test rendering the component in both 'compact' and 'detailed' displayMode.
+* **Contextual Rendering:** Test rendering the component in both 'compact' and 'detailed' displayMode.
 
-Integration with Parent Components: Test rendering the CoreValuesValidator within parent components (like AI Transparency Log or a testing dashboard) ensuring validationContext or validationResults are passed correctly.
+* **Integration with Parent Components:** Test rendering the CoreValuesValidator within parent components (like AI Transparency Log or a testing dashboard) ensuring validationContext or validationResults are passed correctly.
 
-Accessibility: Ensure colors have sufficient contrast, interactive elements are keyboard navigable, and ARIA attributes are used appropriately to convey status to screen readers.
+* **Accessibility:** Ensure colors have sufficient contrast, interactive elements are keyboard navigable, and ARIA attributes are used appropriately to convey status to screen readers.
 
 ## 6. UI Mockup Placeholder
 
@@ -211,31 +215,23 @@ Refer to the project's central design repository for visual mockups.
 
 ## 7. Dependencies & Integration
 
-Depends On:
+**Depends On:**
 
-Data (validationContext or validationResults prop).
+* Data (validationContext or validationResults prop).
+* Backend Verification System API (optional, if fetching results).
+* Core Ethical Principle definitions (for mapping/display).
+* ThinkAlike Style Guide (colors, icons, typography).
 
-Backend Verification System API (optional, if fetching results).
+**Integrates With:**
 
-Core Ethical Principle definitions (for mapping/display).
-
-ThinkAlike Style Guide (colors, icons, typography).
-
-Integrates With:
-
-Testing dashboards and developer tools.
-
-Potentially Data Explorer Panel or AI Transparency Log for user-facing ethical insights.
-
-Automated testing frameworks (asserting on the rendered status/scores).
+* Testing dashboards and developer tools.
+* Potentially Data Explorer Panel or AI Transparency Log for user-facing ethical insights.
+* Automated testing frameworks (asserting on the rendered status/scores).
 
 ## 8. Future Enhancements
 
-More sophisticated visualization options for ethical alignment (e.g., radar charts).
-
-Direct feedback mechanism within the component for users/testers to report inaccuracies in ethical validation.
-
-Deeper integration with the Verification System to show audit trail snippets directly.
-
-Configuration options to customize which principles are displayed or prioritized.
+* More sophisticated visualization options for ethical alignment (e.g., radar charts).
+* Direct feedback mechanism within the component for users/testers to report inaccuracies in ethical validation.
+* Deeper integration with the Verification System to show audit trail snippets directly.
+* Configuration options to customize which principles are displayed or prioritized.
 
