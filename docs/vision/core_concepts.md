@@ -1,7 +1,4 @@
-# ThinkAlike: Core Concepts Explained
-
-**Version:** 1.0
-**Date:** March 26, 2025
+# Core Concepts Explained
 
 ---
 
