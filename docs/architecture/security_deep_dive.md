@@ -7,7 +7,7 @@
 
 ## 1. Introduction
 
-This document provides a detailed technical exploration of ThinkAlike's security architecture, controls, and processes. It expands upon the foundational policies outlined in the [`Security and Privacy Plan`](./security_and_privacy_plan.md) and aligns with the [`Ethical Guidelines`](../core/ethics/ethical_guidelines.md). The goal is to detail the specific mechanisms employed to protect user data, ensure system integrity, and build trust through robust, transparent security practices.
+This document provides a detailed technical exploration of ThinkAlike's security architecture, controls, and processes. It expands upon the foundational policies outlined in the [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) and aligns with the [`ethical-guidelines.md`](../core/ethics/ethical-guidelines.md). The goal is to detail the specific mechanisms employed to protect user data, ensure system integrity, and build trust through robust, transparent security practices.
 
 Security in ThinkAlike is not an afterthought but a core design principle, integrating "Security by Design" and "Privacy by Design" throughout the application lifecycle. We also embrace "Security by Transparency" where appropriate, making our approaches (though not sensitive keys or configurations) understandable.
 
@@ -22,7 +22,7 @@ Our technical security architecture adheres to these guiding principles:
 *   **Secure Defaults:** Out-of-the-box configurations prioritize security. Opt-in for less secure options only where necessary and justified.
 *   **Zero Trust (Aspirational Goal):** While full implementation may be complex, we adopt a Zero Trust mindset – never trust, always verify. Authenticate and authorize requests rigorously, even between internal components where feasible.
 *   **Fail Secure:** Components should default to a secure state in case of failure (e.g., deny access if an authorization check fails unexpectedly).
-*   **Transparency & Auditability:** Security controls and events should be logged and auditable (within operational security constraints). Components like the [`Security Status Indicator`](../components/ui_components/Security_Status_Indicator.md) provide user-facing transparency.
+*   **Transparency & Auditability:** Security controls and events should be logged and auditable (within operational security constraints). Components like the [`security-status-indicator.md`](../components/ui_components/security-status-indicator.md) provide user-facing transparency.
 
 ---
 
@@ -32,14 +32,14 @@ This section outlines major threat categories and the primary technical controls
 
 | Threat Category                 | Description                                                                 | Primary Mitigations                                                                                                                                                                                                                            | Supporting Docs                                                                                                                                        |
 | :------------------------------ | :-------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Authentication Bypass**       | Attacker gains access without valid credentials.                            | Strong password hashing (bcrypt/Argon2), secure JWT implementation (short expiry, HTTPS-only, refresh tokens), rate limiting on login endpoints, MFA (recommended/required), secure session management (HttpOnly cookies for frontend sessions).      | [`Security & Privacy Plan`](./security_and_privacy_plan.md) Sec 1                                                                                       |
-| **Authorization Escalation**    | Attacker gains privileges beyond their intended role.                       | Strict Role-Based Access Control (RBAC) enforced at API level (FastAPI Dependencies), validating JWT claims against required permissions for each endpoint, secure admin interfaces.                                                            | [`Security & Privacy Plan`](./security_and_privacy_plan.md) Sec 2                                                                                       |
-| **Data Exposure (Transit)**   | Eavesdropping on data sent between client/server or internal services.      | TLS 1.2+ (HTTPS) enforced for all external traffic, secure configuration (disabling weak ciphers), consideration of mTLS for internal service-to-service communication if architecture becomes microservice-based.                            | [`Security & Privacy Plan`](./security_and_privacy_plan.md) Sec 3                                                                                       |
-| **Data Exposure (At Rest)**     | Unauthorized access to data stored in databases, backups, or file storage.    | Database-level encryption (PostgreSQL TDE or cloud provider equivalent), application-level encryption for highly sensitive fields (TBD), encryption of backups, secure key management (Vault/KMS), strict database access controls.                  | [`Security & Privacy Plan`](./security_and_privacy_plan.md) Sec 3, [`Unified Data Model`](../database/unified_data_model_schema.md)                     |
-| **Injection Attacks (SQLi, XSS)** | Malicious code/queries injected via user input to compromise data/sessions. | **Backend:** Parameterized queries (via SQLAlchemy ORM), rigorous input validation (Pydantic models), context-aware output encoding. **Frontend:** Framework-level XSS protection (React default encoding), Content Security Policy (CSP) header. | [`Security & Privacy Plan`](./security_and_privacy_plan.md) Sec 4, [`Code Style Guide`](../guides/developer_guides/code_style_guide.md)               |
-| **Denial of Service (DoS/DDoS)** | Overwhelming system resources to cause unavailability.                      | Cloud provider DDoS mitigation (Render), API Rate Limiting (e.g., using `slowapi` for FastAPI), efficient resource usage (optimized queries, async processing), potential CDN use for frontend assets.                                             | [`Security & Privacy Plan`](./security_and_privacy_plan.md) Sec 4                                                                                       |
+| **Authentication Bypass**       | Attacker gains access without valid credentials.                            | Strong password hashing (bcrypt/Argon2), secure JWT implementation (short expiry, HTTPS-only, refresh tokens), rate limiting on login endpoints, MFA (recommended/required), secure session management (HttpOnly cookies for frontend sessions).      | [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) Sec 1                                                                                       |
+| **Authorization Escalation**    | Attacker gains privileges beyond their intended role.                       | Strict Role-Based Access Control (RBAC) enforced at API level (FastAPI Dependencies), validating JWT claims against required permissions for each endpoint, secure admin interfaces.                                                            | [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) Sec 2                                                                                       |
+| **Data Exposure (Transit)**   | Eavesdropping on data sent between client/server or internal services.      | TLS 1.2+ (HTTPS) enforced for all external traffic, secure configuration (disabling weak ciphers), consideration of mTLS for internal service-to-service communication if architecture becomes microservice-based.                            | [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) Sec 3                                                                                       |
+| **Data Exposure (At Rest)**     | Unauthorized access to data stored in databases, backups, or file storage.    | Database-level encryption (PostgreSQL TDE or cloud provider equivalent), application-level encryption for highly sensitive fields (TBD), encryption of backups, secure key management (Vault/KMS), strict database access controls.                  | [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) Sec 3, [`unified-data-model-schema.md`](../database/unified-data-model-schema.md)                     |
+| **Injection Attacks (SQLi, XSS)** | Malicious code/queries injected via user input to compromise data/sessions. | **Backend:** Parameterized queries (via SQLAlchemy ORM), rigorous input validation (Pydantic models), context-aware output encoding. **Frontend:** Framework-level XSS protection (React default encoding), Content Security Policy (CSP) header. | [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) Sec 4, [`code-style-guide.md`](../guides/developer_guides/code-style-guide.md)               |
+| **Denial of Service (DoS/DDoS)** | Overwhelming system resources to cause unavailability.                      | Cloud provider DDoS mitigation (Render), API Rate Limiting (e.g., using `slowapi` for FastAPI), efficient resource usage (optimized queries, async processing), potential CDN use for frontend assets.                                             | [`security-and-privacy-plan.md`](./security-and-privacy-plan.md) Sec 4                                                                                       |
 | **Insecure Dependencies**       | Exploiting known vulnerabilities in third-party libraries.                  | Regular dependency scanning (`pip-audit`, `npm audit`, Dependabot/Snyk), prompt patching/updating of vulnerable packages, software composition analysis (SCA).                                                                         | SDL Practices (Sec 5 below)                                                                                                                            |
-| **Verification System Bypass**  | Tampering with ethical checks or audit logs.                                | Secure API endpoints for Verification System, integrity checks on logged data, RBAC limiting access to verification configuration/logs, monitoring for anomalous verification results.                                                      | [`Verification System Spec`](../verification_system/verification_system.md), [`Verification System Data Models`](../verification_system/Verification_System_Data_Models.md) |
+| **Verification System Bypass**  | Tampering with ethical checks or audit logs.                                | Secure API endpoints for Verification System, integrity checks on logged data, RBAC limiting access to verification configuration/logs, monitoring for anomalous verification results.                                                      | [`verification-system.md`](../verification_system/verification-system.md), [`verification-system-data-models.md`](../verification_system/verification-system-data-models.md) |
 | **Insecure Configuration**      | Misconfiguration of servers, databases, cloud services, or frameworks.      | Infrastructure as Code (IaC) where possible, configuration reviews, security linters, adherence to security benchmarks (e.g., CIS).                                                                                                         | SDL Practices (Sec 5 below)                                                                                                                            |
 
 ---
@@ -127,5 +127,30 @@ This section outlines major threat categories and the primary technical controls
 *   **Incident Response:** Follow the documented Incident Response Plan (to be fully developed), emphasizing quick containment, thorough analysis, responsible disclosure (if user data impacted), and post-mortem improvements.
 
 ---
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend
+    participant AuthService
+    participant BackendAPI
+    participant Database
+
+    User->>Frontend: Enter credentials
+    Frontend->>AuthService: Send credentials
+    AuthService->>Database: Validate credentials
+    Database-->>AuthService: Credentials valid
+    AuthService-->>Frontend: Issue JWT
+    Frontend-->>User: Store JWT
+
+    User->>Frontend: Make API request with JWT
+    Frontend->>BackendAPI: Send request with JWT
+    BackendAPI->>AuthService: Validate JWT
+    AuthService-->>BackendAPI: JWT valid
+    BackendAPI->>Database: Process request
+    Database-->>BackendAPI: Return data
+    BackendAPI-->>Frontend: Return response
+    Frontend-->>User: Display data
+```
 
 This deep dive provides a technical foundation. Continuous vigilance, regular updates, and adaptation to new threats are essential for maintaining ThinkAlike's security posture.
