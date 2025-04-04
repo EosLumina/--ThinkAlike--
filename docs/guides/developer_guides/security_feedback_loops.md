@@ -1,4 +1,4 @@
-# Design Document: Security and Privacy Actionable Feedback Loops
+# Security and Privacy Actionable Feedback Loops
 
 ---
 
