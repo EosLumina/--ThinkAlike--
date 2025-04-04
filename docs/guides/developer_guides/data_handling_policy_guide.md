@@ -1,4 +1,4 @@
-# ThinkAlike Data Handling Policy: Transparency, User Control, and Ethical Data Practices
+# Data Handling Policy: Transparency, User Control, and Ethical Data Practices
 
 **1. Introduction: Our Commitment to Ethical Data Handling**
 
