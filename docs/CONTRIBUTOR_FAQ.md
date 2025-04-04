@@ -1,7 +1,4 @@
-# ThinkAlike: Contributor FAQ (Frequently Asked Questions)
-
-**Version:** 1.0
-**Date:** March 26, 2025
+# Contributor FAQ (Frequently Asked Questions)
 
 ---
 
