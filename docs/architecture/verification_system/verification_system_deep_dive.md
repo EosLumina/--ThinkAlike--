@@ -114,3 +114,15 @@ Developers should:
 
 The Verification System is critical infrastructure for building trust and ensuring that ThinkAlike adheres to its ethical and operational principles. Its design requires careful consideration and iterative refinement as the platform evolves.
 
+```mermaid
+sequenceDiagram
+    participant MainSystem
+    participant VerificationService
+
+    MainSystem->>VerificationService: Initiate Verification
+    VerificationService->>MainSystem: Request Context Data
+    MainSystem-->>VerificationService: Provide Context Data
+    VerificationService->>VerificationService: Evaluate Rules
+    VerificationService-->>MainSystem: Return Verification Result
+    MainSystem->>MainSystem: Process Result
+```

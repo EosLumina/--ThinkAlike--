@@ -1,10 +1,10 @@
-# API ENDPOINTS - ThinkAlike Platform
+# api endpoints - thinkalike platform
 
-**1. Introduction**
+**1. introduction**
 
-This document provides a comprehensive specification of all API endpoints for the ThinkAlike platform backend. It details the request methods, URL paths, request/response formats, authentication requirements, and data validation procedures for each endpoint. This document is intended for frontend developers, backend engineers, and AI agents interacting with the ThinkAlike API. All API implementations are designed to adhere to the ethical data handling guidelines and transparency principles outlined in the [MASTER_REFERENCE.md](../../core/master_reference.md) document. Data traceability and UI-driven validation are integral components of each API workflow.
+This document provides a comprehensive specification of all API endpoints for the ThinkAlike platform backend. It details the request methods, URL paths, request/response formats, authentication requirements, and data validation procedures for each endpoint. This document is intended for frontend developers, backend engineers, and AI agents interacting with the ThinkAlike API. All API implementations are designed to adhere to the ethical data handling guidelines and transparency principles outlined in the [master reference](../../core/master_reference.md) document. Data traceability and UI-driven validation are integral components of each API workflow.
 
-**2. API Base URL**
+**2. api base url**
 
 The base URL for all API endpoints in the production environment is:
 
@@ -12,15 +12,15 @@ The base URL for all API endpoints in the production environment is:
 
 *(Note: For local development, use `http://localhost:8000/api/v1` or similar)*
 
-**3. Authentication and Authorization**
+**3. authentication and authorization**
 
 All API endpoints, unless explicitly stated otherwise, require **Bearer Authentication** using JWT (JSON Web Tokens). Authorization is role-based, with specific endpoints requiring appropriate user roles and privileges as detailed in the endpoint specifications below. UI components are designed to handle authentication workflows and to provide visual feedback to users regarding authentication status and access permissions.
 
-**4. API Endpoints**
+**4. api endpoints**
 
 This section details each API endpoint, categorized by resource.
 
-**4.1 /users Resource & Authentication**
+**4.1 /users resource & authentication**
 
 *   `POST /api/v1/auth/register`
     *   **Purpose:** User registration / account creation.
@@ -258,7 +258,7 @@ This section details each API endpoint, categorized by resource.
             ```
         *   `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, `500 Internal Server Error` (Similar to `GET /users/{userId}`).
 
-**4.2 /communities Resource**
+**4.2 /communities resource**
 
 *   `POST /api/v1/communities`
     *   **Summary:** Create a community.
@@ -353,7 +353,7 @@ This section details each API endpoint, categorized by resource.
             ```
         *   `500 Internal Server Error`: Unexpected server error.
 
-**4.3 /match Resource**
+**4.3 /match resource**
 
 *   `POST /api/v1/match`
     *   **Summary:** Generate potential matches based on user profile and preferences.
@@ -417,7 +417,7 @@ This section details each API endpoint, categorized by resource.
         *   `401 Unauthorized`: Authentication token is missing or invalid.
         *   `500 Internal Server Error`: Unexpected server error during matching process.
 
-**4.4 /interactions Resource**
+**4.4 /interactions resource**
 
 *   `POST /api/v1/interactions`
     *   **Summary:** Record a user interaction event.
@@ -466,7 +466,7 @@ This section details each API endpoint, categorized by resource.
         *   `401 Unauthorized`: Authentication token is missing or invalid.
         *   `500 Internal Server Error`: Unexpected server error during logging.
 
-**4.5 /location Resource**
+**4.5 /location resource**
 
 *   `POST /api/v1/location/share_live`
     *   **Summary:** Initiates a live location sharing session with a specified user or group.
@@ -656,7 +656,7 @@ This section details each API endpoint, categorized by resource.
         *   `404 Not Found`: Event not found or no proximity data available.
         *   `500 Internal Server Error`: Unexpected server error.
 
-**5. Components (OpenAPI/Swagger Style)**
+**5. components (openapi/swagger style)**
 
 The API specification is maintained in a separate specification file rather than being inline Markdown. The snippet below shows the security scheme definition which is consistent.
 
@@ -669,38 +669,38 @@ components:
       bearerFormat: JWT
 ```
 
-**6. Data Models (Detailed Data Schemas)**
+**6. data models (detailed data schemas)**
 
 Schema definitions are documented separately in the following files or sections:
 
 - **Matching Mode:**
   Refer to the endpoint specifications above for inline examples. See also:
-  `docs/architecture/modes/matching_mode/MATCHING_MODE_SPEC.md`
+  `docs/architecture/modes/matching_mode/matching_mode_spec.md`
   for the UserProfile (expanded), ValueProfile, Connection, and ConnectionRequest models.
 
 - **Narrative Mode:**
   See:
-  `docs/architecture/modes/narrative_mode/NARRATIVE_MODE_SPEC.md`
+  `docs/architecture/modes/narrative_mode/narrative_mode_spec.md`
 
 - **Community Mode:**
   See:
-  `docs/architecture/modes/community_mode/COMMUNITY_MODE_SPEC.md`
+  `docs/architecture/modes/community_mode/community_mode_spec.md`
   for the CommunityProfile, CommunityMembership, Forum, and Resource models.
 
 - **Verification System:**
   See:
-  `docs/architecture/verification_system/Verification_System_Data_Models.md`
+  `docs/architecture/verification_system/verification_system_data_models.md`
   for the AuditLogEntry, AlgorithmVerificationStatus, and TraceableProcess models.
 
 - **Database Schema (Comprehensive):**
   Refer to:
   `docs/architecture/database/unified_data_model_schema.md`.
 
-**7. Future Endpoints and Extensibility**
+**7. future endpoints and extensibility**
 
 This document represents the initial set of API endpoints. Future endpoints will be added for more granular community features (forums, posts, governance actions), advanced matching functionalities, detailed verification system interactions, notifications, and potential external integrations. The API is designed for modularity and extensibility. Updates will be reflected in revised versions of this document and potentially within a formal OpenAPI specification.
 
-**8. Revision History**
+**8. revision history**
 
 To maintain the accuracy and relevance of this API specification as the ThinkAlike platform evolves, this Revision History section will track significant updates and modifications made to this document over time. Please refer to this section to understand the changes and ensure you are always working with the latest version of the API specification.
 

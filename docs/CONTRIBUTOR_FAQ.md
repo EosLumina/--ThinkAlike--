@@ -4,7 +4,7 @@
 
 Welcome to the ThinkAlike contributor community! We're excited you're interested in helping build a platform for genuine connection based on ethical principles. This FAQ addresses common questions potential contributors might have.
 
-If your question isn't answered here, please check the main [`CONTRIBUTING.md`](../core/contributing.md) guide or ask in our community channel ([Link to Communication Channel - TODO: Add Link]).
+If your question isn't answered here, please check the main [`CONTRIBUTING.md`](../core/contributing.md) guide or ask in our community channel ([https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH)).
 
 ---
 
@@ -35,8 +35,8 @@ A: Follow the detailed steps in the [`Installation Guide`](../core/installation.
 **Q4: What are the main tools used for project management and communication?**
 
 A:
-*   **GitHub:** Our central hub for code hosting, version control, issue tracking ([Link - TODO]), pull requests, project boards, and documentation.
-*   **[Primary Communication Channel - e.g., Discord/Slack]:** [Link - TODO] This is where we have real-time discussions, ask questions, share updates, and build community. Please join!
+*   **GitHub:** Our central hub for code hosting, version control, issue tracking ([https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues)), pull requests, project boards, and documentation.
+*   **[Primary Communication Channel - e.g., Discord/Slack]:** [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) This is where we have real-time discussions, ask questions, share updates, and build community. Please join!
 
 ## Making Contributions
 
