@@ -1,4 +1,4 @@
-# Guide: Building a Backend API Endpoint in ThinkAlike
+# Building a Backend API Endpoint 
 
 This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing, request/response modeling, service layer interaction, database access, testing, and integration with the Verification System.
 
