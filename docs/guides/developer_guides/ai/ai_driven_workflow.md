@@ -1,4 +1,4 @@
-# ThinkAlike: AI-Driven Workflows
+# AI-Driven Workflows
 
 This document describes the AI-driven workflows within the ThinkAlike platform, focusing on how AI is used to enhance user experience, facilitate connections, and ensure ethical data handling. It includes detailed examples of key workflows.
 
