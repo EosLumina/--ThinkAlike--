@@ -1,4 +1,4 @@
-# COMMUNITY MODE SPECIFICATION - ThinkAlike Project
+# COMMUNITY MODE SPECIFICATION 
 
 **Document Purpose:**
 
