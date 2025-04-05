@@ -14,25 +14,26 @@ ThinkAlike is not just another tech project; it is a **transformative, open-sour
 
 **Our Revolutionary Goals:**
 
-*   **Discover Yourself (Narrative Mode):**  Embark on a journey of self-discovery within ThinkAlike's Narrative Mode, exploring your core values, beliefs, aspirations, and your vision for a better digital future.  Create your personal narrative and define your ethical compass within our platform.
-*   **Connect with Like-Minded Individuals (Matching Mode):**  Utilize ThinkAlike's ethically weighted Matching Mode to discover and forge genuine connections with individuals who share your deeply held values and principles. Move beyond superficial interactions and build relationships that matter.
-*   **Build Meaningful Real-World Relationships (Matching & Community Modes):**  Transition online interactions into authentic, meaningful relationships in the real world. ThinkAlike is designed to be a bridge, connecting like-minded individuals not just digitally, but in tangible, real-world communities.
-*   **Contribute to a Better Future (All Modes & Community):** Become an active participant in a global community dedicated to building ethical AI and responsible technology. Your contributions to ThinkAlike, whether code, design, documentation, or community building, are direct actions towards creating a more humane digital world.
-*   **Collaborate and Build Decentralized Communities (Community Mode):**  Empower the creation of self-governing, value-aligned communities within ThinkAlike's Community Mode.  Build new forms of decentralized, democratic organization, powered by technology that always respects user agency and freedom.
+* **Discover Yourself (Narrative Mode):**  Embark on a journey of self-discovery within ThinkAlike's Narrative Mode, exploring your core values, beliefs, aspirations, and your vision for a better digital future.  Create your personal narrative and define your ethical compass within our platform.
+* **Connect with Like-Minded Individuals (Matching Mode):**  Utilize ThinkAlike's ethically weighted Matching Mode to discover and forge genuine connections with individuals who share your deeply held values and principles. Move beyond superficial interactions and build relationships that matter.
+* **Build Meaningful Real-World Relationships (Matching & Community Modes):**  Transition online interactions into authentic, meaningful relationships in the real world. ThinkAlike is designed to be a bridge, connecting like-minded individuals not just digitally, but in tangible, real-world communities.
+* **Contribute to a Better Future (All Modes & Community):** Become an active participant in a global community dedicated to building ethical AI and responsible technology. Your contributions to ThinkAlike, whether code, design, documentation, or community building, are direct actions towards creating a more humane digital world.
+* **Collaborate and Build Decentralized Communities (Community Mode):**  Empower the creation of self-governing, value-aligned communities within ThinkAlike's Community Mode.  Build new forms of decentralized, democratic organization, powered by technology that always respects user agency and freedom.
 
 **Our Core Objective: High-Performance, Ethical, and User-Centered Technology**
 
 ThinkAlike is not just about lofty ideals; it is about building concrete, high-performing technology that embodies those ideals in every line of code and every UI component. Our core objective is to demonstrate that technology can be:
 
-*   **Human-Centered and Empowering:**  AI assists, not replaces, human agency. Technology empowers users to make informed choices and control their digital experiences, rather than being manipulated or controlled by algorithms.
-*   **Ethically Sound and Transparent:**  Data is a tool for empowerment, not exploitation. Data workflows are transparent, auditable, and designed to enhance user agency, with UI validation components ensuring ethical data handling practices are rigorously implemented and visible.
-*   **Architecturally Robust and User-Validated:**  The UI serves as a "validation framework component," ensuring that code implementation is directly aligned with real user experience and that architectural design choices are continuously validated through user feedback and data traceability.
+* **Human-Centered and Empowering:**  AI assists, not replaces, human agency. Technology empowers users to make informed choices and control their digital experiences, rather than being manipulated or controlled by algorithms.
+* **Ethically Sound and Transparent:**  Data is a tool for empowerment, not exploitation. Data workflows are transparent, auditable, and designed to enhance user agency, with UI validation components ensuring ethical data handling practices are rigorously implemented and visible.
+* **Architecturally Robust and User-Validated:**  The UI serves as a "validation framework component," ensuring that code implementation is directly aligned with real user experience and that architectural design choices are continuously validated through user feedback and data traceability.
 
 ThinkAlike is more than just a platform; it is a **movement**. We are building a global community of contributors and users united by a shared vision: to reclaim the digital realm for humanity, to build technology that serves ethical values, and to forge genuine human connections in an increasingly digital world. Join us, comrade, and become part of the ThinkAlike Revolution!
 
 ---
 
 ## Table of Contents
+
 1. [1.1. Core Goals for MVP Implementation](#11-core-goals-for-mvp-implementation-action-driven-ethical-workflow-framework)
 2. [1.2. Core Values - The Ethical Compass of ThinkAlike](#12-core-values---the-ethical-compass-of-thinkalike)
 3. [1.3. Architectural Overview - Building Blocks of ThinkAlike](#13-architectural-overview---building-blocks-of-thinkalike)
@@ -43,6 +44,7 @@ ThinkAlike is more than just a platform; it is a **movement**. We are building a
 ---
 
 ## 1.1. Core Goals for MVP Implementation: Action-Driven Ethical Workflow Framework
+
 This section outlines the ThinkAlike MVP’s driving objectives, showing how ethical principles guide the technology from inception. By anchoring functionality in user empowerment and transparent data handling, it paves the way toward a more humane digital experience.
 
 The ThinkAlike platform’s MVP (Minimum Viable Product) implementation is laser-focused on rigorously testing our core goals across every architectural layer. Our MVP is not just about demonstrating basic functionality; it is about creating an **action-driven ethical workflow framework** that will guide all future development.
@@ -51,65 +53,67 @@ Every technological component of our AI data integration plan, even in this earl
 
 **ThinkAlike's MVP aims to definitively demonstrate that:**
 
-*   **Technology Enhances User Freedom:** ThinkAlike technology empowers users to make truly informed choices, exercise meaningful control over their digital identities and interactions, and experience a sense of liberation within the digital realm, rather than feeling constrained or manipulated.
-*   **Data is a Tool for Empowerment, Not Exploitation:**  ThinkAlike demonstrably utilizes data transparently and ethically, solely as a tool to provide users with valuable insights, enhance their agency, and facilitate value-aligned connections. Data is *not* used for opaque algorithmic manipulation, surveillance capitalism, or purposes that do not directly benefit the user and align with their explicit consent and ethical expectations.
-*   **UI Validates Ethical Implementation: "Validation Framework Component":** The ThinkAlike User Interface is not merely a visual presentation layer; it serves as a **"Validation Framework Component,"** actively and demonstrably validating the ethical implementation of the entire platform. Through UI components like `DataTraceability`, `APIValidator`, and `CoreValuesValidator`, the UI provides:
-    *   **Real-time Data Flow Visualization:** Makes data flows transparent and understandable to both users and developers, ensuring accountability and revealing the inner workings of AI-driven features.
-    *   **Actionable Feedback Loops:** Provides clear and immediate feedback loops to validate data input, AI processing, and API interactions, ensuring data integrity and workflow correctness at every stage.
-    *   **Ethical Parameter Monitoring:** Visually monitors key ethical parameters and metrics, allowing for continuous ethical auditing and validation of AI behavior and platform-wide adherence to Enlightenment 2.0 principles.
+* **Technology Enhances User Freedom:** ThinkAlike technology empowers users to make truly informed choices, exercise meaningful control over their digital identities and interactions, and experience a sense of liberation within the digital realm, rather than feeling constrained or manipulated.
+* **Data is a Tool for Empowerment, Not Exploitation:**  ThinkAlike demonstrably utilizes data transparently and ethically, solely as a tool to provide users with valuable insights, enhance their agency, and facilitate value-aligned connections. Data is *not* used for opaque algorithmic manipulation, surveillance capitalism, or purposes that do not directly benefit the user and align with their explicit consent and ethical expectations.
+* **UI Validates Ethical Implementation: "Validation Framework Component":** The ThinkAlike User Interface is not merely a visual presentation layer; it serves as a **"Validation Framework Component,"** actively and demonstrably validating the ethical implementation of the entire platform. Through UI components like `DataTraceability`, `APIValidator`, and `CoreValuesValidator`, the UI provides:
+  * **Real-time Data Flow Visualization:** Makes data flows transparent and understandable to both users and developers, ensuring accountability and revealing the inner workings of AI-driven features.
+  * **Actionable Feedback Loops:** Provides clear and immediate feedback loops to validate data input, AI processing, and API interactions, ensuring data integrity and workflow correctness at every stage.
+  * **Ethical Parameter Monitoring:** Visually monitors key ethical parameters and metrics, allowing for continuous ethical auditing and validation of AI behavior and platform-wide adherence to Enlightenment 2.0 principles.
 
 The ThinkAlike MVP is not the final product; it is the crucial foundation upon which we will build a truly revolutionary platform. It is a working demonstration – in code, design, and user experience – of our core values and our unwavering commitment to a more humane digital future. By achieving these MVP goals, we will prove that ethical, transparent, and user-empowering technology is not just a utopian dream, but a tangible reality that we are actively building, together.
 
 ---
 
 ## 1.2. Core Values - The Ethical Compass of ThinkAlike
+
 This section explores the fundamental principles that underpin ThinkAlike’s mission. Emphasizing ethics and humanity in technology, these values shape every decision, ensuring contributors align with the project’s commitment to a people-centered future.
 
 ThinkAlike is not driven by profit, hype, or technological determinism. We are guided by a deeply held set of **core values**, which serve as the ethical compass for every decision we make, every line of code we write, and every feature we design. These values are the bedrock of Enlightenment 2.0 and the soul of the ThinkAlike project:
 
-1.  **Human-Centered Approach: Prioritizing Human Dignity and Well-being:**
+1. **Human-Centered Approach: Prioritizing Human Dignity and Well-being:**
     At ThinkAlike, humanity comes first. We fundamentally believe that technology must serve human needs, enhance human capabilities, and foster genuine human flourishing. Technology is not an end in itself, but a tool to empower individuals and build a better world for all. Human dignity, agency, and well-being are paramount and will always take precedence over technological advancement or purely economic metrics.
 
-2.  **Ethical AI: Responsible, Transparent, and User-Controlled Artificial Intelligence:**
+2. **Ethical AI: Responsible, Transparent, and User-Controlled Artificial Intelligence:**
     We are committed to ethical AI development and deployment. AI within ThinkAlike is not intended to replace human agency or make decisions for users. Instead, AI serves as a powerful tool to augment human intelligence, empower informed choices, and facilitate value-driven connections. We are dedicated to building AI systems that are:
-    *   **Transparent and Explainable:**  AI decision-making processes are designed to be understandable and auditable, not opaque "black boxes."
-    *   **User-Controlled:**  Users retain meaningful control over how AI interacts with them, their data, and their digital experiences.
-    *   **Bias-Mitigated:**  We actively work to identify, mitigate, and prevent biases in our AI models and algorithms, striving for fairness and equity in AI-driven features.
-    *   **Ethically Validated:**  All AI implementations undergo rigorous ethical validation and continuous monitoring to ensure alignment with ThinkAlike's core values and ethical guidelines.
+    * **Transparent and Explainable:**  AI decision-making processes are designed to be understandable and auditable, not opaque "black boxes."
+    * **User-Controlled:**  Users retain meaningful control over how AI interacts with them, their data, and their digital experiences.
+    * **Bias-Mitigated:**  We actively work to identify, mitigate, and prevent biases in our AI models and algorithms, striving for fairness and equity in AI-driven features.
+    * **Ethically Validated:**  All AI implementations undergo rigorous ethical validation and continuous monitoring to ensure alignment with ThinkAlike's core values and ethical guidelines.
 
-3.  **Transparency & Traceability: Building Trust Through Openness and Accountability:**
+3. **Transparency & Traceability: Building Trust Through Openness and Accountability:**
     Trust is the foundation of any ethical and sustainable system. ThinkAlike is built on a foundation of radical transparency and data traceability. We believe that openness fosters accountability, empowers users, and builds genuine trust in technology. This commitment to transparency is manifested in:
-    *   **Open Source Codebase:**  The ThinkAlike codebase is intended to be fully open source (to be finalized based on licensing decisions), allowing for community scrutiny, auditability, and collaborative development.
-    *   **Public Documentation:**  We are committed to providing comprehensive and publicly accessible documentation for all aspects of the project, from architectural design specs to API endpoints to ethical guidelines. This Onboarding Manual is a key part of our commitment to transparent communication.
-    *   **UI-Driven Data Flow Visualization:**  The `DataTraceability` component in the UI provides users with a visual representation of data flows within the platform, making data processing and AI workflows understandable and auditable directly within the user interface.
-    *   **Verification System for Ethical Auditing:**  The Verification System is designed to provide a robust framework for continuous ethical auditing and validation of ThinkAlike's AI implementations, data handling practices, and overall platform behavior, ensuring ongoing accountability and adherence to our ethical principles.
+    * **Open Source Codebase:**  The ThinkAlike codebase is intended to be fully open source (to be finalized based on licensing decisions), allowing for community scrutiny, auditability, and collaborative development.
+    * **Public Documentation:**  We are committed to providing comprehensive and publicly accessible documentation for all aspects of the project, from architectural design specs to API endpoints to ethical guidelines. This Onboarding Manual is a key part of our commitment to transparent communication.
+    * **UI-Driven Data Flow Visualization:**  The `DataTraceability` component in the UI provides users with a visual representation of data flows within the platform, making data processing and AI workflows understandable and auditable directly within the user interface.
+    * **Verification System for Ethical Auditing:**  The Verification System is designed to provide a robust framework for continuous ethical auditing and validation of ThinkAlike's AI implementations, data handling practices, and overall platform behavior, ensuring ongoing accountability and adherence to our ethical principles.
 
-4.  **User Empowerment: Digital Sovereignty and Agency in the Digital Realm:**
+4. **User Empowerment: Digital Sovereignty and Agency in the Digital Realm:**
     Enlightenment 2.0 places **user empowerment** at the heart of digital systems. Users are not passive consumers or data sources; they are **active agents** with a right to control their digital experiences, data, and the technologies that shape their lives. This is about **digital sovereignty** – the right of individuals and communities to govern their own digital destinies.
-    *   **User Agency and Choice:**  Designing technology that maximizes user agency, providing meaningful choices and avoiding manipulative or coercive design patterns.
-    *   **Data Sovereignty and Privacy:**  Empowering users with ownership and control over their personal data, ensuring robust privacy protections and minimizing data extraction.
-    *   **Decentralized Control and Governance:**  Favoring decentralized platforms and governance models that distribute power to users and communities, rather than centralizing it in corporations or institutions.
-    *   **Participatory Design and Development:**  Involving users in the design and development process, ensuring technology is built *with* and *for* the people, not just *for profit*.
-    *   **Right to Understand and Modify Technology:**  Promoting digital literacy and empowering users to understand and, where possible, modify the technologies they use, fostering a culture of technological empowerment, not dependence.
+    * **User Agency and Choice:**  Designing technology that maximizes user agency, providing meaningful choices and avoiding manipulative or coercive design patterns.
+    * **Data Sovereignty and Privacy:**  Empowering users with ownership and control over their personal data, ensuring robust privacy protections and minimizing data extraction.
+    * **Decentralized Control and Governance:**  Favoring decentralized platforms and governance models that distribute power to users and communities, rather than centralizing it in corporations or institutions.
+    * **Participatory Design and Development:**  Involving users in the design and development process, ensuring technology is built *with* and *for* the people, not just *for profit*.
+    * **Right to Understand and Modify Technology:**  Promoting digital literacy and empowering users to understand and, where possible, modify the technologies they use, fostering a culture of technological empowerment, not dependence.
 
-5.  **Authenticity: Fostering Genuine Human Connection and Value-Based Relationships:**
+5. **Authenticity: Fostering Genuine Human Connection and Value-Based Relationships:**
     In a digital world often dominated by superficiality and inauthenticity, ThinkAlike is a sanctuary for **genuine human connection.** We believe that technology can and should be used to foster meaningful relationships, build real community, and enhance human well-being, not to promote superficiality, isolation, or inauthentic interactions.
-    *   **Value-Based Matching (Mode 2):**  The Matching Mode algorithm prioritizes connections based on shared values and principles, moving beyond superficial criteria like profile photos or fleeting interests.
-    *   **Narrative Mode for Self-Expression (Mode 1):**  Narrative Mode empowers users to articulate their authentic selves, share their personal stories, and express their core values through their narratives, fostering deeper and more meaningful connections.
-    *   **Community Mode for Value-Aligned Groups (Mode 3):**  Community Mode enables the formation of groups centered around shared values and common purpose, creating digital spaces for genuine belonging and collaborative action.
-    *   **Discouraging Superficiality and Gamification:**  ThinkAlike consciously avoids design patterns and features that incentivize superficiality, social comparison, or the gamification of human connection, prioritizing genuine interaction over fleeting "engagement" metrics.
+    * **Value-Based Matching (Mode 2):**  The Matching Mode algorithm prioritizes connections based on shared values and principles, moving beyond superficial criteria like profile photos or fleeting interests.
+    * **Narrative Mode for Self-Expression (Mode 1):**  Narrative Mode empowers users to articulate their authentic selves, share their personal stories, and express their core values through their narratives, fostering deeper and more meaningful connections.
+    * **Community Mode for Value-Aligned Groups (Mode 3):**  Community Mode enables the formation of groups centered around shared values and common purpose, creating digital spaces for genuine belonging and collaborative action.
+    * **Discouraging Superficiality and Gamification:**  ThinkAlike consciously avoids design patterns and features that incentivize superficiality, social comparison, or the gamification of human connection, prioritizing genuine interaction over fleeting "engagement" metrics.
 
-6.  **Inclusivity: Accessible and Ethical Technology for All:**
+6. **Inclusivity: Accessible and Ethical Technology for All:**
     Enlightenment 2.0 and ThinkAlike are not exclusive movements; they are for **all of humanity.** We are committed to building technology that is **accessible, inclusive, and beneficial to everyone**, regardless of background, technical expertise, or ability. Inclusivity is reflected in:
-    *   **Accessibility-Focused Design:**  We strive to design ThinkAlike to be accessible to users with disabilities, adhering to accessibility guidelines (WCAG) and ensuring UI components and content are usable by everyone.
-    *   **Multilingual Support (Future):**  We plan to expand ThinkAlike to support multiple languages in the future, breaking down linguistic barriers and fostering global community participation.
-    *   **Open and Welcoming Community:**  We are committed to building a ThinkAlike community that is welcoming, diverse, and inclusive, where all contributors and users feel valued and respected.
-    *   **Addressing Digital Divides:**  We are mindful of digital divides and strive to create a platform that is usable and beneficial even for users with limited bandwidth or less advanced devices (through progressive enhancement and performance optimization).
-    *   **Ethical Technology for the Common Good:**  Our overarching goal is to build ethical technology that serves the common good and contributes to a more just and equitable world for all, not just a privileged few.
+    * **Accessibility-Focused Design:**  We strive to design ThinkAlike to be accessible to users with disabilities, adhering to accessibility guidelines (WCAG) and ensuring UI components and content are usable by everyone.
+    * **Multilingual Support (Future):**  We plan to expand ThinkAlike to support multiple languages in the future, breaking down linguistic barriers and fostering global community participation.
+    * **Open and Welcoming Community:**  We are committed to building a ThinkAlike community that is welcoming, diverse, and inclusive, where all contributors and users feel valued and respected.
+    * **Addressing Digital Divides:**  We are mindful of digital divides and strive to create a platform that is usable and beneficial even for users with limited bandwidth or less advanced devices (through progressive enhancement and performance optimization).
+    * **Ethical Technology for the Common Good:**  Our overarching goal is to build ethical technology that serves the common good and contributes to a more just and equitable world for all, not just a privileged few.
 
 ---
 
 ## 1.3. Architectural Overview - Building Blocks of ThinkAlike
+
 Here, you’ll see how ThinkAlike’s three-tier structure—UI, application logic, and data—cooperates to deliver robust functionality. Each layer operates seamlessly to maintain transparency, modularity, and ethical workflows, reinforcing user trust at every interaction.
 
 ThinkAlike is built upon a robust and modular three-tier architecture, designed for scalability, maintainability, and ethical implementation. Understanding this architecture is crucial for all contributors to the project.
@@ -158,9 +162,11 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
 3. **Data Layer (Database & Storage) - The Ethical Data Repository:**
 
    ### Technology
+
    * **PostgreSQL (Recommended):** A robust open-source RDBMS.
 
    ### Key Responsibilities
+
    * **Persistent Data Storage:** User accounts, profiles, narratives, interests, connections, etc.
    * **Data Integrity & Consistency:** Enforced by schema design and validation.
    * **Data Security & Privacy (At Rest):** Encryption, access control, and regular audits per <span style="color:blue">SECURITY_CONSIDERATIONS.md</span>.
@@ -168,6 +174,7 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
    * **Data Traceability Support:** Logging creation, modification, and access events for audits (surfaced in the Verification System).
 
    ### Key Components
+
    * **PostgreSQL Database Server**
    * **docs/architecture/database/DATABASE_SCHEMA.md**
    * **Database Migrations (Alembic)**
@@ -176,7 +183,7 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
    > **Planned Enhancements**
    > Additional sections in the “Data Handling Policy” (future) may specify encryption-at-rest details, retention policies, and further security best practices.
 
-### ThinkAlike Architectural Diagram (Mermaid):
+### ThinkAlike Architectural Diagram (Mermaid)
 
 ```mermaid
 flowchart TB
@@ -233,11 +240,12 @@ flowchart TB
 ---
 
 ## 1.4. UI Components - Building Blocks for User Experience
+
 This section details the reusable React components that bring ThinkAlike’s vision to life on screen. Through careful design choices, each element promotes clarity, accessibility, and alignment with core ethical standards for every user journey.
 
 The ThinkAlike UI is built using a reusable UI Component Library in React, ensuring a consistent visual style, efficient development, and maintainability. Key UI components include (but are not limited to):
 
-### Layout Components:
+### Layout Components
 
 * **AppLayout:** Provides the main application layout structure, header, sidebar, and content areas.
 * **PageContainer:** Reusable container for standard page layouts with consistent padding and margins.
@@ -245,7 +253,7 @@ The ThinkAlike UI is built using a reusable UI Component Library in React, ensur
 * **Grid:** Layout component for arranging content in a responsive grid.
 * **FlexContainer:** Layout component for flexible content arrangement using Flexbox.
 
-### Input and Form Components:
+### Input and Form Components
 
 * **TextInput:** Styled text input field with validation and error handling.
 * **TextAreaInput:** Styled text area input for larger text input with validation and error handling.
@@ -255,7 +263,7 @@ The ThinkAlike UI is built using a reusable UI Component Library in React, ensur
 * **Form:** Reusable form component to manage form state, validation, and submission workflows.
 * **Button:** Versatile button component with various styles and states (primary, secondary, danger, loading, etc.).
 
-### Data Display and Visualization Components:
+### Data Display and Visualization Components
 
 * **ProfileCard:** Component for displaying user profiles in a compact card format.
 * **UserProfileView:** Component for displaying detailed user profiles.
@@ -269,13 +277,13 @@ The ThinkAlike UI is built using a reusable UI Component Library in React, ensur
 * **Alert:** Reusable alert component for displaying success, error, warning, and information messages to the user.
 * **Badge:** Component for displaying badges or tags to highlight user attributes, community roles, or other relevant information.
 
-### Navigation Components:
+### Navigation Components
 
 * **NavigationBar:** Main application navigation bar, providing access to core Modes and platform features.
 * **Sidebar:** Optional sidebar component for secondary navigation or contextual menus.
 * **LinkButton:** Styled button component that acts as a navigation link.
 
-### AI-Specific UI Components:
+### AI-Specific UI Components
 
 * **AIWaveformIndicator:** Visually represents AI activity and processing state using a waveform animation (as seen in wireframes).
 * **AITriangleIndicator:** A distinct triangle indicator that appears in the UI to highlight AI-driven features and recommendations, ensuring user awareness of AI involvement.
@@ -292,6 +300,7 @@ All UI components are designed to be:
 ---
 
 ## 1.5. Data Handling - Ethical Data Stewardship and User Privacy
+
 In this portion, we discuss how ThinkAlike responsibly collects, stores, and manages data. Prioritizing consent, minimal collection, and clear user control, our data handling embodies integrity and cultivates trust across the platform.
 
 ThinkAlike is founded on a deep commitment to ethical data handling and user privacy. We believe that user data is a sacred trust, and we are dedicated to being responsible and transparent stewards of that data. Our core data handling principles are:
@@ -319,6 +328,7 @@ ThinkAlike is founded on a deep commitment to ethical data handling and user pri
 ---
 
 ## 1.6. AI Models - Ethical, Explainable, and User-Centric Artificial Intelligence
+
 This section focuses on ThinkAlike’s AI approach, stressing augmentation over automation. By highlighting transparent engineering, bias mitigation, and user governance, it ensures AI features foster meaningful human connections without compromising ethics.
 
 ThinkAlike utilizes AI to enhance user experience and facilitate value-based connections, but we are committed to an ethical and human-centered approach to AI. AI within ThinkAlike is not intended to be a replacement for human judgment or agency; instead, it is designed to be a tool for user empowerment, self-discovery, and the fostering of genuine human relationships.
@@ -347,6 +357,7 @@ Key Principles Guiding our AI Model Development:
 ---
 
 ## 1.7. Testing - Ensuring Quality, Reliability, and Ethical Integrity
+
 This part outlines the project’s rigorous testing strategies—covering code reliability, security checks, and ethical validation. Through consistent reviews and systematic audits, ThinkAlike preserves its user-first promise and upholds platform integrity.
 
 Testing is not an afterthought in ThinkAlike; it is a core development practice woven into every stage of the project lifecycle. We are committed to rigorous and comprehensive testing to ensure:
@@ -358,7 +369,7 @@ Testing is not an afterthought in ThinkAlike; it is a core development practice 
 * **Data Validation and Traceability:** Rigorously testing data validation workflows and data traceability mechanisms, utilizing UI components like APIValidator and DataTraceability to ensure data integrity, transparency, and auditable data handling practices throughout the platform.
 * **Ethical Validation of AI Implementations:** Dedicated ethical validation testing procedures, utilizing the CoreValuesValidator UI component and backend Verification System logic, to ensure AI models, algorithms, and AI-driven workflows adhere to ThinkAlike's core values and ethical guidelines. This includes specific tests for bias detection, algorithmic transparency, user control validation, and fairness metrics.
 
-### ThinkAlike Testing Methodologies:
+### ThinkAlike Testing Methodologies
 
 * **Unit Tests:** Focused testing of individual code components (functions, classes, modules) in isolation to ensure they function correctly and reliably. Unit tests are written for both frontend (React components) and backend (Python modules) code.
 * **Integration Tests:** Testing the interactions and data flow between different components and modules, verifying that they work together seamlessly and as intended. Integration tests are crucial for validating the integration between frontend and backend, API endpoints, and AI Services.
@@ -371,7 +382,7 @@ Testing is not an afterthought in ThinkAlike; it is a core development practice 
 
 (Detailed documentation on how to run tests, contribute tests, and interpret test results will be added to a dedicated "Testing Framework Documentation" file - future enhancement).
 
-### UI Feedback in Testing Workflows:
+### UI Feedback in Testing Workflows
 
 UI components are not only for user interaction; they are also integral to our testing workflows. Reusable UI components like APIValidator, DataValidationError, and CoreValuesValidator are strategically used throughout the testing process to:
 
@@ -382,11 +393,11 @@ UI components are not only for user interaction; they are also integral to our t
 
 ---
 
-## 1.8. How to Contribute - Join the Revolution!
+## 1.8. How to Contribute - Join the Revolution
 
 ThinkAlike is an open-source project, and we wholeheartedly welcome contributions from comrades around the world! Your skills, passion, and commitment to a better digital future are invaluable to our movement. Here's how to get involved and contribute to the ThinkAlike Revolution:
 
-### Your First Steps - Getting Started as a ThinkAlike Contributor:
+### Your First Steps - Getting Started as a ThinkAlike Contributor
 
 * **Read the ThinkAlike Manifesto and Core Values (This Onboarding Manual!):** Immerse yourself in the project's vision, understand our core principles, and internalize the ethical and philosophical foundations of ThinkAlike. This Onboarding Manual is your essential starting point!
 * **Introduce Yourself on Communication Channels (Discord - Link Below):** Join our community Discord server (link provided below) and introduce yourself! Let us know your name, your skills, your areas of interest, and what motivates you to contribute to ThinkAlike. Connect with fellow contributors, ask questions, and become part of the ThinkAlike community.
@@ -397,7 +408,7 @@ ThinkAlike is an open-source project, and we wholeheartedly welcome contribution
 * **Review Project Documentation (The docs/ Folder - Your Guide!):** Become intimately familiar with the ThinkAlike documentation in the docs/ folder. Read the Architectural Design Specs, API Endpoints documentation, Ethical Guidelines, and other relevant documents to gain a deep understanding of the project's technical design, ethical framework, and overall vision. The docs/ folder is your knowledge base for all things ThinkAlike.
 * **Reach Out with Questions (Discord - Link Below):** If you have any questions, big or small, don't hesitate to ask! Post your questions in the relevant channels on our Discord server. We are a collaborative and supportive community, and we are always happy to help new contributors get involved and succeed.
 
-### Making Your Contribution - The ThinkAlike Workflow:
+### Making Your Contribution - The ThinkAlike Workflow
 
 * **Fork the Repository (GitHub):** Before making any code changes, create your own fork of the ThinkAlike repository on GitHub. This will create a personal copy of the repository under your GitHub account where you can safely make your contributions.
 * **Create a Feature Branch (Local Git):** For each contribution you want to make (e.g., fixing a bug, adding a new feature, improving documentation), create a new feature branch in your local Git repository. Use a clear and descriptive branch name (e.g., fix-login-bug, add-user-profile-video-upload, improve-onboarding-manual). This isolates your changes and keeps your work organized.
@@ -417,12 +428,12 @@ ThinkAlike is an open-source project, and we wholeheartedly welcome contribution
   * Be patient and persistent – code review is an essential part of the development process, and it may take time to get your PR merged into the main branch.
 * **Contribution Merged! (GitHub):** Once your Pull Request has been reviewed, approved, and any necessary revisions have been made, your contribution will be merged into the main branch of the ThinkAlike repository! Congratulations, comrade! You are now a published contributor to the ThinkAlike Revolution!
 
-### ThinkAlike Communication Channels - Stay Connected!
+### ThinkAlike Communication Channels - Stay Connected
 
-* **GitHub Repository:** https://github.com/EosLumina/--ThinkAlike--/ - The Central Hub! Code, Issues, Documentation, Project Management, Pull Requests. Watch this repository to stay updated on project activity!
+* **GitHub Repository:** <https://github.com/EosLumina/--ThinkAlike--/> - The Central Hub! Code, Issues, Documentation, Project Management, Pull Requests. Watch this repository to stay updated on project activity!
 * **Discord Server:** [Insert ThinkAlike Discord Server Link HERE] - Real-time Collaboration & Community! Join our Discord server for real-time discussions, questions, announcements, community building, and direct interaction with fellow contributors and the project team. This is the best place to ask questions, get help, and connect with the ThinkAlike community!
 
-### Key Project Resources and Documentation - Your Knowledge Base:
+### Key Project Resources and Documentation - Your Knowledge Base
 
 * **This Onboarding Manual ( INSTALLATION.md):** Your Starting Point! Step-by-step guide to setting up your development environment, project overview, core values, architecture, and contribution workflows.
 * **Source of Truth - Master Reference (docs/core/source_of_truth/SOURCE_OF_TRUTH_MASTER_REFERENCE.md):** The Definitive Guide! The central, authoritative document for all ThinkAlike project details, vision, architecture, and specifications. Consult this document first for any questions or clarifications!
@@ -437,7 +448,7 @@ ThinkAlike is an open-source project, and we wholeheartedly welcome contribution
 
 (Remember to replace the bracketed placeholders above with the actual links to your documentation files and Discord server once they are finalized!)
 
-### Actionable Tasks: Your First Steps in ThinkAlike - Code Injection Commences!
+### Actionable Tasks: Your First Steps in ThinkAlike - Code Injection Commences
 
 Ready to inject some ethical code and build the revolution? Here are your immediate actionable tasks to get started and make your mark on the ThinkAlike project:
 
@@ -450,7 +461,7 @@ Ready to inject some ethical code and build the revolution? Here are your immedi
 * **Review Project Documentation (Knowledge is Power!):** Become a master of the ThinkAlike documentation! The more you understand the project, the more effectively you can contribute.
 * **Reach Out with Questions (Don't Hesitate - We are Here to Help!):** If you have any questions, big or small, don't hesitate to ask! Post your questions in the relevant channels on our Discord server – we are a supportive community and eager to help you succeed!
 
-### Start Contributing! - Build the Revolution with Us!
+### Start Contributing! - Build the Revolution with Us
 
 Congratulations, comrade! By following this Onboarding Manual, you are now fully equipped to join the ThinkAlike Revolution! You are part of a growing movement to build a more ethical, transparent, and human-centered digital future. Your contributions, in any form, are vital and deeply appreciated.
 

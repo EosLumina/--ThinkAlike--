@@ -11,7 +11,7 @@ Welcome to the **DataTraceability Component** documentation—a **LEGENDARY** te
 
 ---
 
-## 4.2 Usage Examples - See DataTraceability in Action!
+## 4.2 Usage Examples - See DataTraceability in Action
 
 To illustrate the versatility and power of the DataTraceability component, we present a few concise code examples showcasing its integration into your React application. Each example highlights different facets of the component and demonstrates its ease of use and adaptability.
 

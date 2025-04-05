@@ -58,6 +58,7 @@ A critical aspect is defining flexible and maintainable rules. Possible approach
 - **Configuration-Based Rules (YAML):** For simpler checks.
 
   *Example:*
+
   ```yaml
   rules:
     - id: CONTENT_POLICY_NO_HATE_SPEECH
@@ -69,9 +70,11 @@ A critical aspect is defining flexible and maintainable rules. Possible approach
         model_ref: "hate_speech_classifier_v1.2"
       action_on_fail: block
   ```
+
 - **Python-Based Rules:** Define rules as functions or classes for complex logic.
 
   *Example:*
+
   ```python
   from backend.models import User
   from backend.services.consent_service import has_consent
@@ -83,6 +86,7 @@ A critical aspect is defining flexible and maintainable rules. Possible approach
           return False
       return has_consent(user, "consent_profile_matching_v1")
   ```
+
 - **Domain Specific Language (DSL):** A custom approach that may be more powerful but complex to implement initially.
 
 **Recommendation:** Start with a hybrid approach combining YAML/JSON for common rule types and Python functions for complex, custom validations.
@@ -114,3 +118,15 @@ Developers should:
 
 The Verification System is critical infrastructure for building trust and ensuring that ThinkAlike adheres to its ethical and operational principles. Its design requires careful consideration and iterative refinement as the platform evolves.
 
+```mermaid
+sequenceDiagram
+    participant MainSystem
+    participant VerificationService
+
+    MainSystem->>VerificationService: Initiate Verification
+    VerificationService->>MainSystem: Request Context Data
+    MainSystem-->>VerificationService: Provide Context Data
+    VerificationService->>VerificationService: Evaluate Rules
+    VerificationService-->>MainSystem: Return Verification Result
+    MainSystem->>MainSystem: Process Result
+```

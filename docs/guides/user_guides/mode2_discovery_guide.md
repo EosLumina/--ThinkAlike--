@@ -31,22 +31,22 @@ Upon entering Matching Mode, you will be presented with your personalized **User
 
 * **Interactive Network Exploration:**
   The User Node Network is designed to be fully interactive and explorable. Utilize the following features to navigate the connection landscape:
-    * **Pan and Zoom:**
+  * **Pan and Zoom:**
       Pan and zoom within the network to explore different regions and clusters of User Nodes, visually scanning the breadth of potential connections available within ThinkAlike.
-    * **Node Hover for Profile Summary:**
+  * **Node Hover for Profile Summary:**
       Hover your mouse cursor (or tap on touch devices) over any User Node (AI Clone) to reveal a concise profile summary. This summary typically includes the user's key values, primary interests, and a brief excerpt from their Personal Narrative, providing a quick glimpse into their profile and helping you to assess at a glance if they might be a potentially interesting connection.
 
 * **Click for Video Intro and Full Profile:**
   Click or tap on a User Node (AI Clone) to access the user's **short video intro** and their complete profile view. This detailed profile view provides a comprehensive understanding of the user, including:
-    * **Short Video Intro:**
+  * **Short Video Intro:**
       Watch the user's self-recorded video introduction, gaining a more dynamic and personal impression beyond static text and images. This video intro is a key element for understanding user personality and communication style.
-    * **Personal Narrative:**
+  * **Personal Narrative:**
       Read the user's full Personal Narrative, created in Narrative Mode (Mode 1), providing deeper insights into their values, motivations, and vision for a better digital world.
-    * **Explicitly Stated Values:**
+  * **Explicitly Stated Values:**
       Review the user's explicitly stated core values and ethical principles, clearly outlining their guiding beliefs and commitments.
-    * **Matching Percentage (Personalized Compatibility Score):**
+  * **Matching Percentage (Personalized Compatibility Score):**
       Examine the prominently displayed **Matching Percentage**, quantifying the degree of value alignment between your Value Profile and the profile of this User Node, providing a data-driven indicator of potential compatibility.
-    * **Shared Communities (If Any):**
+  * **Shared Communities (If Any):**
       See if you and this user are members of any of the same ThinkAlike communities in Community Mode (Mode 3), indicating potential shared interests and community affiliations.
 
 ---

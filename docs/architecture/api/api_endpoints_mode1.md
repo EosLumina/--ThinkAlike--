@@ -16,13 +16,14 @@ These endpoints facilitate the stateful progression through the narrative, inter
 
 ### 2.1 Narrative Flow Management
 
-*   `GET /api/v1/narrative/start`
-    *   **Purpose:** Initiate a new Mode 1 narrative ("Whispering Woods") or resume an existing session for the authenticated user.
-    *   **Description:** Retrieves the starting narrative node (scene description, initial prompt, first choices) for a user beginning Mode 1, or fetches their last saved position if they left mid-adventure. This is the entry point for the Mode 1 experience.
-    *   **Method:** `GET`
-    *   **Authentication:** Required.
-    *   **Responses:**
-        *   `200 OK`: Successfully retrieved the starting or current narrative state.
+* `GET /api/v1/narrative/start`
+  * **Purpose:** Initiate a new Mode 1 narrative ("Whispering Woods") or resume an existing session for the authenticated user.
+  * **Description:** Retrieves the starting narrative node (scene description, initial prompt, first choices) for a user beginning Mode 1, or fetches their last saved position if they left mid-adventure. This is the entry point for the Mode 1 experience.
+  * **Method:** `GET`
+  * **Authentication:** Required.
+  * **Responses:**
+    * `200 OK`: Successfully retrieved the starting or current narrative state.
+
             ```json
             {
               "narrativeNode": { // The current step/scene data
@@ -54,16 +55,18 @@ These endpoints facilitate the stateful progression through the narrative, inter
               }
             }
             ```
-        *   `401 Unauthorized`: Authentication required.
-        *   `404 Not Found`: Narrative definition unavailable or user state error.
-        *   `500 Internal Server Error`: Backend or AI Narrative Engine error retrieving state.
 
-*   `POST /api/v1/narrative/choice`
-    *   **Purpose:** Submit the user's selected choice for the current narrative step and retrieve the subsequent step or outcome.
-    *   **Description:** The core interaction endpoint for Mode 1. The frontend sends the `choiceId` selected by the user for the `currentNodeId` within the active `sessionId`. The backend interacts with the AI Narrative Engine and the matching logic to determine the next narrative state (including potential updates to the user's implicit Value Profile) and returns the corresponding `narrativeNode`. This endpoint drives the story forward and the underlying matching calculation.
-    *   **Method:** `POST`
-    *   **Authentication:** Required.
-    *   **Request Body (JSON):**
+    * `401 Unauthorized`: Authentication required.
+    * `404 Not Found`: Narrative definition unavailable or user state error.
+    * `500 Internal Server Error`: Backend or AI Narrative Engine error retrieving state.
+
+* `POST /api/v1/narrative/choice`
+  * **Purpose:** Submit the user's selected choice for the current narrative step and retrieve the subsequent step or outcome.
+  * **Description:** The core interaction endpoint for Mode 1. The frontend sends the `choiceId` selected by the user for the `currentNodeId` within the active `sessionId`. The backend interacts with the AI Narrative Engine and the matching logic to determine the next narrative state (including potential updates to the user's implicit Value Profile) and returns the corresponding `narrativeNode`. This endpoint drives the story forward and the underlying matching calculation.
+  * **Method:** `POST`
+  * **Authentication:** Required.
+  * **Request Body (JSON):**
+
         ```json
         {
           "sessionId": "string (Required, identifier for the ongoing narrative playthrough)",
@@ -71,8 +74,10 @@ These endpoints facilitate the stateful progression through the narrative, inter
           "chosenChoiceId": "string (Required, ID of the choice the user selected)"
         }
         ```
-    *   **Responses:**
-        *   `200 OK`: Choice successfully processed. Returns the next narrative state, which might be another step or the final match reveal.
+
+  * **Responses:**
+    * `200 OK`: Choice successfully processed. Returns the next narrative state, which might be another step or the final match reveal.
+
             ```json
             // --- If narrative continues ---
             {
@@ -146,7 +151,9 @@ These endpoints facilitate the stateful progression through the narrative, inter
               }
             }
             ```
-        *   `400 Bad Request`: Invalid input (e.g., invalid `chosenChoiceId` for `currentNodeId`, invalid `sessionId`).
+
+    * `400 Bad Request`: Invalid input (e.g., invalid `chosenChoiceId` for `currentNodeId`, invalid `sessionId`).
+
             ```json
              {
                "message": "Invalid choice or session state for narrative progression.",
@@ -156,19 +163,20 @@ These endpoints facilitate the stateful progression through the narrative, inter
                }
              }
             ```
-        *   `401 Unauthorized`: Authentication required.
-        *   `404 Not Found`: Narrative definition error (`currentNodeId` has no path for `chosenChoiceId`).
-        *   `409 Conflict`: Invalid session state or sequence error.
-        *   `500 Internal Server Error`: Error in backend logic, AI Narrative Engine, or matching calculation during choice processing.
+
+    * `401 Unauthorized`: Authentication required.
+    * `404 Not Found`: Narrative definition error (`currentNodeId` has no path for `chosenChoiceId`).
+    * `409 Conflict`: Invalid session state or sequence error.
+    * `500 Internal Server Error`: Error in backend logic, AI Narrative Engine, or matching calculation during choice processing.
 
 ---
 
 ## 3. Data Models
 
-*   **`NarrativeNode`**: Represents a single step/scene in the Mode 1 interactive narrative. Key fields: `nodeId`, `nodeType`, `content`, `choices`, `isEnding`, `matchData`. See structure in `GET /start` response. Note `matchData` is populated only on the final reveal node.
-*   **`NarrativeChoice`**: Represents a selectable option within a `choice_point` node. Key fields: `choiceId`, `text`. The associated *value implication* is handled by the backend logic/AI based on the `choiceId`.
-*   **`NarrativeSessionState`**: Contains identifiers (`sessionId`) and potentially progress indicators needed to maintain the user's state through the narrative flow.
-*   **`MatchRevealData`**: Structure containing details of the revealed "perfect match" if the narrative path and matching score threshold are met. Key fields: `matchedUserId`, `matchingPercentage`, `keySharedValues`, `aiCloneData`, `connectionUnlocked`.
+* **`NarrativeNode`**: Represents a single step/scene in the Mode 1 interactive narrative. Key fields: `nodeId`, `nodeType`, `content`, `choices`, `isEnding`, `matchData`. See structure in `GET /start` response. Note `matchData` is populated only on the final reveal node.
+* **`NarrativeChoice`**: Represents a selectable option within a `choice_point` node. Key fields: `choiceId`, `text`. The associated *value implication* is handled by the backend logic/AI based on the `choiceId`.
+* **`NarrativeSessionState`**: Contains identifiers (`sessionId`) and potentially progress indicators needed to maintain the user's state through the narrative flow.
+* **`MatchRevealData`**: Structure containing details of the revealed "perfect match" if the narrative path and matching score threshold are met. Key fields: `matchedUserId`, `matchingPercentage`, `keySharedValues`, `aiCloneData`, `connectionUnlocked`.
 
 *(Refer to the Mode 1 Spec (`mode1_narrative_onboarding_spec.md`) for more detailed conceptual data models if needed)*.
 
@@ -182,9 +190,9 @@ Standard HTTP error codes (400, 401, 404, 409, 500) are used. Error responses sh
 
 ## 5. Key Considerations for Mode 1 API
 
-*   **State Management:** The backend needs robust state management for each user's `NarrativeSessionState`.
-*   **AI Integration:** Endpoints need to efficiently interact with the AI Narrative Engine to get subsequent nodes based on choices and potentially update the underlying (implicit) Value Profile used by the matching algorithm.
-*   **Matching Logic Trigger:** The logic determining if/when the `match_reveal` node is returned (based on accumulated choices and matching score) resides in the backend, triggered during the processing of `POST /narrative/choice`.
-*   **Idempotency:** Consider if `POST /narrative/choice` needs to be idempotent in case of network retries (though typically advancing state isn't idempotent). Session state management should handle potential replays gracefully.
+* **State Management:** The backend needs robust state management for each user's `NarrativeSessionState`.
+* **AI Integration:** Endpoints need to efficiently interact with the AI Narrative Engine to get subsequent nodes based on choices and potentially update the underlying (implicit) Value Profile used by the matching algorithm.
+* **Matching Logic Trigger:** The logic determining if/when the `match_reveal` node is returned (based on accumulated choices and matching score) resides in the backend, triggered during the processing of `POST /narrative/choice`.
+* **Idempotency:** Consider if `POST /narrative/choice` needs to be idempotent in case of network retries (though typically advancing state isn't idempotent). Session state management should handle potential replays gracefully.
 
 ---

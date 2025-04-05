@@ -234,4 +234,3 @@ Refer to the project's central design repository for visual mockups.
 * Direct feedback mechanism within the component for users/testers to report inaccuracies in ethical validation.
 * Deeper integration with the Verification System to show audit trail snippets directly.
 * Configuration options to customize which principles are displayed or prioritized.
-

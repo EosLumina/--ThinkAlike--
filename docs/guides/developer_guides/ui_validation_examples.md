@@ -15,11 +15,12 @@ Refer to the individual component specification documents in [`docs/components/u
 
 ## 2. Example: Using `CoreValuesValidator` for Content Moderation Hints
 
-*   **Purpose:** To provide real-time feedback to users (and developers during testing) about whether their input aligns with community content guidelines or ethical principles *before* submission.
-*   **Component Spec:** [`docs/components/ui_components/CoreValuesValidator.md`](../../components/ui_components/CoreValuesValidator.md)
-*   **Scenario:** A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the [`Ethical Guidelines`](../../core/ethics/ethical_guidelines.md).
+* **Purpose:** To provide real-time feedback to users (and developers during testing) about whether their input aligns with community content guidelines or ethical principles *before* submission.
+* **Component Spec:** [`docs/components/ui_components/CoreValuesValidator.md`](../../components/ui_components/CoreValuesValidator.md)
+* **Scenario:** A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the [`Ethical Guidelines`](../../core/ethics/ethical_guidelines.md).
 
-*   **Conceptual React Implementation:**
+* **Conceptual React Implementation:**
+
     ```jsx
     import React, { useState, useCallback, useMemo } from 'react';
     import CoreValuesValidator from '../../components/ui_components/CoreValuesValidator'; // Adjust import path
@@ -94,19 +95,21 @@ Refer to the individual component specification documents in [`docs/components/u
 
     export default CommunityPostForm;
     ```
-*   **Explanation:** The `CoreValuesValidator` is embedded directly within the form. As the user types (debounced), it validates the `postContent` against specific `ethicalRules`. The results (`isValid`, `issues`) are fed back to the parent form via the `onValidationResult` callback. The parent form then updates its state to display appropriate UI feedback (warnings, status messages) and controls the submit button's disabled state based on validation success. This provides an immediate, in-context ethical check.
+
+* **Explanation:** The `CoreValuesValidator` is embedded directly within the form. As the user types (debounced), it validates the `postContent` against specific `ethicalRules`. The results (`isValid`, `issues`) are fed back to the parent form via the `onValidationResult` callback. The parent form then updates its state to display appropriate UI feedback (warnings, status messages) and controls the submit button's disabled state based on validation success. This provides an immediate, in-context ethical check.
 
 ---
 
 ## 3. Example: Using `APIValidator` in Development/Debug Mode
 
-*   **Purpose:** To transparently show developers the details of API requests and responses during development, helping to debug communication issues and validate data against schemas.
-*   **Component Spec:** [`docs/components/ui_components/APIValidator.md`](../../components/ui_components/APIValidator.md)
-*   **Scenario:** A developer is working on the user profile update feature and wants to see the exact payload sent to the backend and the response received, including validation status against an expected schema.
+* **Purpose:** To transparently show developers the details of API requests and responses during development, helping to debug communication issues and validate data against schemas.
+* **Component Spec:** [`docs/components/ui_components/APIValidator.md`](../../components/ui_components/APIValidator.md)
+* **Scenario:** A developer is working on the user profile update feature and wants to see the exact payload sent to the backend and the response received, including validation status against an expected schema.
 
-*   **Conceptual Implementation (API Client Wrapper & Global Log):**
+* **Conceptual Implementation (API Client Wrapper & Global Log):**
 
-    *   **API Client Wrapper (`apiClient.js` or similar):**
+  * **API Client Wrapper (`apiClient.js` or similar):**
+
         ```javascript
         import axios from 'axios';
         import { apiValidationLogStore } from './stores/apiValidationLogStore'; // Example Zustand/Context store
@@ -179,7 +182,9 @@ Refer to the individual component specification documents in [`docs/components/u
 
         export default apiClient;
         ```
-    *   **Global Validator Display (`DeveloperToolsPanel.jsx`):**
+
+  * **Global Validator Display (`DeveloperToolsPanel.jsx`):**
+
         ```jsx
         import React from 'react';
         import APIValidator from '../../components/ui_components/APIValidator'; // Adjust path
@@ -209,17 +214,19 @@ Refer to the individual component specification documents in [`docs/components/u
 
         // Include <DeveloperToolsPanel /> somewhere in your main App layout
         ```
-*   **Explanation:** This setup uses Axios interceptors (a common pattern) to automatically capture request/response data *only* in development mode. It stores this log data in a global state (e.g., using Zustand or React Context). A dedicated `DeveloperToolsPanel` component subscribes to this store and renders each log entry using the `APIValidator` component, providing a live feed of API interactions for the developer. The `APIValidator` itself focuses purely on displaying the structured `apiCallData` it receives.
+
+* **Explanation:** This setup uses Axios interceptors (a common pattern) to automatically capture request/response data *only* in development mode. It stores this log data in a global state (e.g., using Zustand or React Context). A dedicated `DeveloperToolsPanel` component subscribes to this store and renders each log entry using the `APIValidator` component, providing a live feed of API interactions for the developer. The `APIValidator` itself focuses purely on displaying the structured `apiCallData` it receives.
 
 ---
 
 ## 4. Example: Using `DataTraceability` for AI Recommendation Insight
 
-*   **Purpose:** To provide users with transparency into *why* a specific recommendation (e.g., a potential match in Mode 2, a suggested community in Mode 3) was made by an AI model.
-*   **Component Spec:** [`docs/components/ui_components/DataTraceability.md`](../../components/ui_components/DataTraceability.md)
-*   **Scenario:** A user sees a suggested community ("Ethical Tech Collaborators") in Mode 3 and wants to understand which of their profile values or activities led to this suggestion.
+* **Purpose:** To provide users with transparency into *why* a specific recommendation (e.g., a potential match in Mode 2, a suggested community in Mode 3) was made by an AI model.
+* **Component Spec:** [`docs/components/ui_components/DataTraceability.md`](../../components/ui_components/DataTraceability.md)
+* **Scenario:** A user sees a suggested community ("Ethical Tech Collaborators") in Mode 3 and wants to understand which of their profile values or activities led to this suggestion.
 
-*   **Conceptual React Implementation:**
+* **Conceptual React Implementation:**
+
     ```jsx
     import React, { useState } from 'react';
     import DataTraceability from '../../components/ui_components/DataTraceability'; // Adjust path
@@ -275,7 +282,8 @@ Refer to the individual component specification documents in [`docs/components/u
 
     export default CommunityRecommendation;
     ```
-*   **Explanation:** This component displays a community recommendation. A button allows the user to fetch and view the traceability data *on demand*. When clicked, it calls a hypothetical backend endpoint (`/recommendations/.../trace`) that returns data specifically formatted for the `DataTraceability` component (nodes representing user values/activities, edges representing influence, potentially weighted). The `DataTraceability` component then renders this graph, making the AI's reasoning transparent to the user.
+
+* **Explanation:** This component displays a community recommendation. A button allows the user to fetch and view the traceability data *on demand*. When clicked, it calls a hypothetical backend endpoint (`/recommendations/.../trace`) that returns data specifically formatted for the `DataTraceability` component (nodes representing user values/activities, edges representing influence, potentially weighted). The `DataTraceability` component then renders this graph, making the AI's reasoning transparent to the user.
 
 ---
 

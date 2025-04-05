@@ -8,11 +8,11 @@ The **UserForm** component is a standardized, reusable React component designed 
 
 This component is essential for various workflows, including user registration, profile editing, community creation, settings configuration, and potentially interacting with specific features within Modes 1, 2, or 3. It embodies ThinkAlike's principles by ensuring:
 
-*   **Clarity:** Form fields are clearly labeled and presented.
-*   **Validation:** Data integrity is maintained through built-in validation, with clear error feedback.
-*   **User Empowerment:** Users receive immediate feedback and understand input requirements.
-*   **Consistency:** Provides a uniform look and feel for all data input tasks.
-*   **Accessibility:** Built with accessibility standards in mind.
+* **Clarity:** Form fields are clearly labeled and presented.
+* **Validation:** Data integrity is maintained through built-in validation, with clear error feedback.
+* **User Empowerment:** Users receive immediate feedback and understand input requirements.
+* **Consistency:** Provides a uniform look and feel for all data input tasks.
+* **Accessibility:** Built with accessibility standards in mind.
 
 It integrates closely with individual input components (like `TextInput`, `SelectDropdown`) and validation feedback components (`DataValidationError`).
 
@@ -22,34 +22,34 @@ It integrates closely with individual input components (like `TextInput`, `Selec
 
 The `UserForm` component typically orchestrates several other reusable UI components:
 
-*   **Form Fields:** Instances of specific input components like:
-    *   `TextInput`
-    *   `TextAreaInput`
-    *   `SelectDropdown`
-    *   `Checkbox` / `RadioGroup`
-    *   (Potentially specialized inputs like date pickers, file uploads)
+* **Form Fields:** Instances of specific input components like:
+  * `TextInput`
+  * `TextAreaInput`
+  * `SelectDropdown`
+  * `Checkbox` / `RadioGroup`
+  * (Potentially specialized inputs like date pickers, file uploads)
 
-*   **Labels:** Associated with each form field for clarity (often part of the input component itself).
-*   **Validation Feedback:** Instances of `DataValidationError` displayed near fields when validation fails.
-*   **Submission Button:** An `ActionButton` component to trigger form submission.
-*   **General Form Feedback Area:** A space to display overall form submission status (e.g., "Profile Updated Successfully", "Submission Failed: Please check errors below") or general API errors using the `Alert` component.
+* **Labels:** Associated with each form field for clarity (often part of the input component itself).
+* **Validation Feedback:** Instances of `DataValidationError` displayed near fields when validation fails.
+* **Submission Button:** An `ActionButton` component to trigger form submission.
+* **General Form Feedback Area:** A space to display overall form submission status (e.g., "Profile Updated Successfully", "Submission Failed: Please check errors below") or general API errors using the `Alert` component.
 
 ---
 
 ## 3. Core Functionality
 
-*   **State Management:** Manages the state of all input fields within the form (their current values). This is often handled internally using React state hooks or, preferably, delegated to a form management library like `react-hook-form` for efficiency and feature richness.
+* **State Management:** Manages the state of all input fields within the form (their current values). This is often handled internally using React state hooks or, preferably, delegated to a form management library like `react-hook-form` for efficiency and feature richness.
 
-*   **Client-Side Validation:** Performs validation checks as the user types (on change/blur) or upon submission, based on rules defined (e.g., via a schema prop). Provides immediate feedback using `DataValidationError`.
+* **Client-Side Validation:** Performs validation checks as the user types (on change/blur) or upon submission, based on rules defined (e.g., via a schema prop). Provides immediate feedback using `DataValidationError`.
 
-*   **Submission Handling:**
-    *   Prevents submission if client-side validation fails.
-    *   Calls a provided `onSubmit` prop function when validation passes, passing the structured form data.
-    *   Handles the loading/pending state of the submission button (`ActionButton`).
+* **Submission Handling:**
+  * Prevents submission if client-side validation fails.
+  * Calls a provided `onSubmit` prop function when validation passes, passing the structured form data.
+  * Handles the loading/pending state of the submission button (`ActionButton`).
 
-*   **Backend Error Display:** Receives and displays backend validation errors (passed back via props after an API submission fails) next to the relevant fields or in the general feedback area.
+* **Backend Error Display:** Receives and displays backend validation errors (passed back via props after an API submission fails) next to the relevant fields or in the general feedback area.
 
-*   **Accessibility:** Ensures proper label association (`htmlFor`), keyboard navigation, and ARIA attributes for form elements.
+* **Accessibility:** Ensures proper label association (`htmlFor`), keyboard navigation, and ARIA attributes for form elements.
 
 ---
 
@@ -65,8 +65,8 @@ The `UserForm` component typically orchestrates several other reusable UI compon
 8. **API Call (Parent Component):** The parent component typically handles the actual API submission using the `formData`.
 9. **Backend Response Handling (Parent Component):** Parent receives API response.
 10. **Feedback / Backend Error Display:**
-    *   If API call is successful, parent might display a success message (e.g., using `Alert`) or navigate away.
-    *   If API call fails with validation errors, parent passes these errors back to the `UserForm` (e.g., via a `serverErrors` prop), which then displays them using `DataValidationError`. General API errors are shown in the form’s feedback area.
+    * If API call is successful, parent might display a success message (e.g., using `Alert`) or navigate away.
+    * If API call fails with validation errors, parent passes these errors back to the `UserForm` (e.g., via a `serverErrors` prop), which then displays them using `DataValidationError`. General API errors are shown in the form’s feedback area.
 
 ```mermaid
 graph LR
@@ -93,13 +93,13 @@ graph LR
 
 ### Props
 
-*   **onSubmit**: (Function, Required) Callback function executed on successful validation and submission. Receives form data object as an argument. Async-compatible.
-*   **initialData**: (Object, Optional) Pre-populates form fields.
-*   **validationSchema**: (Object, Optional) Schema defining validation rules (e.g., Yup schema for `react-hook-form` or a custom format).
-*   **serverErrors**: (Object, Optional) An object mapping field names to backend error messages (e.g., `{ email: "Email already exists." }`).
-*   **isLoading**: (Boolean, Optional) Controls the loading state of the submission button. Passed down to `ActionButton`.
-*   **children**: (ReactNode, Required) The actual form field components (`TextInput`, `SelectDropdown`, etc.) are passed as children.
-*   **className**: (String, Optional) Additional CSS class.
+* **onSubmit**: (Function, Required) Callback function executed on successful validation and submission. Receives form data object as an argument. Async-compatible.
+* **initialData**: (Object, Optional) Pre-populates form fields.
+* **validationSchema**: (Object, Optional) Schema defining validation rules (e.g., Yup schema for `react-hook-form` or a custom format).
+* **serverErrors**: (Object, Optional) An object mapping field names to backend error messages (e.g., `{ email: "Email already exists." }`).
+* **isLoading**: (Boolean, Optional) Controls the loading state of the submission button. Passed down to `ActionButton`.
+* **children**: (ReactNode, Required) The actual form field components (`TextInput`, `SelectDropdown`, etc.) are passed as children.
+* **className**: (String, Optional) Additional CSS class.
 
 ### Implementation Strategy (with `react-hook-form`)
 

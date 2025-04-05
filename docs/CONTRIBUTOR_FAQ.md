@@ -1,13 +1,10 @@
-# ThinkAlike: Contributor FAQ (Frequently Asked Questions)
-
-**Version:** 1.0
-**Date:** March 26, 2025
+# Contributor FAQ (Frequently Asked Questions)
 
 ---
 
 Welcome to the ThinkAlike contributor community! We're excited you're interested in helping build a platform for genuine connection based on ethical principles. This FAQ addresses common questions potential contributors might have.
 
-If your question isn't answered here, please check the main [`CONTRIBUTING.md`](../core/contributing.md) guide or ask in our community channel ([Link to Communication Channel - TODO: Add Link]).
+If your question isn't answered here, please check the main [`CONTRIBUTING.md`](../core/contributing.md) guide or ask in our community channel ([https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH)).
 
 ---
 
@@ -20,14 +17,15 @@ A: We highly recommend starting with the **"Recommended Reading Path"** outlined
 **Q2: What skills do I need to contribute?**
 
 A: We welcome contributors with a wide range of skills!
-*   **Frontend:** React, TypeScript/JavaScript, CSS, HTML, understanding UI/UX principles, experience with state management and API integration.
-*   **Backend:** Python, FastAPI (or willingness to learn), SQLAlchemy (or ORMs), database design (PostgreSQL/SQLite), REST API principles, authentication (JWT).
-*   **AI/ML:** Python, experience with NLP libraries (like spaCy, Transformers) or ML frameworks (Scikit-learn, PyTorch, TensorFlow) for tasks like text analysis, recommendation systems, or ethical AI validation (interest in XAI and bias mitigation is a plus!).
-*   **UI/UX Design:** Figma (or similar), understanding user-centered design, accessibility (WCAG), creating wireframes, mockups, prototypes, visual design systems.
-*   **Testing/QA:** Experience with testing frameworks (Pytest, Jest, React Testing Library, Cypress), writing test cases, manual testing, performance testing, security testing, accessibility testing.
-*   **Documentation:** Strong writing skills, experience with Markdown, ability to explain technical concepts clearly.
-*   **Ethics & Policy:** Background in applied ethics, AI ethics, data privacy law (GDPR/CCPA), policy writing, community moderation principles.
-*   **DevOps/Infrastructure:** Experience with Docker, CI/CD (GitHub Actions), cloud deployment (Render), database administration (PostgreSQL).
+
+* **Frontend:** React, TypeScript/JavaScript, CSS, HTML, understanding UI/UX principles, experience with state management and API integration.
+* **Backend:** Python, FastAPI (or willingness to learn), SQLAlchemy (or ORMs), database design (PostgreSQL/SQLite), REST API principles, authentication (JWT).
+* **AI/ML:** Python, experience with NLP libraries (like spaCy, Transformers) or ML frameworks (Scikit-learn, PyTorch, TensorFlow) for tasks like text analysis, recommendation systems, or ethical AI validation (interest in XAI and bias mitigation is a plus!).
+* **UI/UX Design:** Figma (or similar), understanding user-centered design, accessibility (WCAG), creating wireframes, mockups, prototypes, visual design systems.
+* **Testing/QA:** Experience with testing frameworks (Pytest, Jest, React Testing Library, Cypress), writing test cases, manual testing, performance testing, security testing, accessibility testing.
+* **Documentation:** Strong writing skills, experience with Markdown, ability to explain technical concepts clearly.
+* **Ethics & Policy:** Background in applied ethics, AI ethics, data privacy law (GDPR/CCPA), policy writing, community moderation principles.
+* **DevOps/Infrastructure:** Experience with Docker, CI/CD (GitHub Actions), cloud deployment (Render), database administration (PostgreSQL).
 
 Even if you're learning, your enthusiasm and willingness to adhere to our values are highly appreciated!
 
@@ -38,8 +36,9 @@ A: Follow the detailed steps in the [`Installation Guide`](../core/installation.
 **Q4: What are the main tools used for project management and communication?**
 
 A:
-*   **GitHub:** Our central hub for code hosting, version control, issue tracking ([Link - TODO]), pull requests, project boards, and documentation.
-*   **[Primary Communication Channel - e.g., Discord/Slack]:** [Link - TODO] This is where we have real-time discussions, ask questions, share updates, and build community. Please join!
+
+* **GitHub:** Our central hub for code hosting, version control, issue tracking ([https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues)), pull requests, project boards, and documentation.
+* **[Primary Communication Channel - e.g., Discord/Slack]:** [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) This is where we have real-time discussions, ask questions, share updates, and build community. Please join!
 
 ## Making Contributions
 
@@ -50,15 +49,16 @@ A: Check the GitHub Issue Tracker ([Link - TODO]). Look for issues tagged `good 
 **Q6: What's the process for submitting code changes?**
 
 A: We follow a standard Fork & Pull Request workflow:
-1.  Assign/Claim an issue on GitHub.
-2.  Fork the main repository.
-3.  Clone your fork locally.
-4.  Create a descriptive feature branch (e.g., `feat/123-add-profile-editing`).
-5.  Make your changes, adhering to the [`Code Style Guide`](./developer_guides/code_style_guide.md) and including tests.
-6.  Commit your changes using the [Conventional Commits](https://www.conventionalcommits.org/) format.
-7.  Push the branch to your fork.
-8.  Open a Pull Request (PR) back to the main repository's `main` branch.
-9.  Link the issue your PR addresses. Describe your changes clearly.
+
+1. Assign/Claim an issue on GitHub.
+2. Fork the main repository.
+3. Clone your fork locally.
+4. Create a descriptive feature branch (e.g., `feat/123-add-profile-editing`).
+5. Make your changes, adhering to the [`Code Style Guide`](./developer_guides/code_style_guide.md) and including tests.
+6. Commit your changes using the [Conventional Commits](https://www.conventionalcommits.org/) format.
+7. Push the branch to your fork.
+8. Open a Pull Request (PR) back to the main repository's `main` branch.
+9. Link the issue your PR addresses. Describe your changes clearly.
 10. Engage in the code review process, address feedback, and wait for approval and merge.
 (See [`CONTRIBUTING.md`](../core/contributing.md) for full details).
 
@@ -69,10 +69,11 @@ A: It's a specification for formatting commit messages (e.g., `feat: ...`, `fix:
 **Q8: What are the expectations for code quality and testing?**
 
 A: We strive for "Perfect Coding" – code that is clean, readable, maintainable, efficient, *and* ethically sound/transparent.
-*   Follow the [`Code Style Guide`](./developer_guides/code_style_guide.md).
-*   Write meaningful unit and integration tests for your code. See the [`Testing and Validation Plan`](./developer_guides/testing_and_validation_plan.md).
-*   Ensure your code integrates with and respects the "UI as Validation Framework" where applicable. See [`UI Validation Examples`](./developer_guides/ui_validation_examples.md).
-*   Document new functions, classes, or complex logic clearly. Use the [`Code Documentation Template`](../templates/code_documentation_template.md).
+
+* Follow the [`Code Style Guide`](./developer_guides/code_style_guide.md).
+* Write meaningful unit and integration tests for your code. See the [`Testing and Validation Plan`](./developer_guides/testing_and_validation_plan.md).
+* Ensure your code integrates with and respects the "UI as Validation Framework" where applicable. See [`UI Validation Examples`](./developer_guides/ui_validation_examples.md).
+* Document new functions, classes, or complex logic clearly. Use the [`Code Documentation Template`](../templates/code_documentation_template.md).
 
 **Q9: What is the "UI as Validation Framework"?**
 

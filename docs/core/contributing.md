@@ -68,17 +68,19 @@ ThinkAlike follows a standard Git-based workflow, emphasizing transparency and c
 
     ```bash
     git clone https://github.com/YOUR_USERNAME/thinkalike_project.git # Replace with YOUR fork's URL
+
     cd thinkalike_project
     ```
 
 3. **Create a Feature Branch:** For *each* contribution, create a *new* branch from the `main` branch. Use a descriptive branch name that reflects the purpose of your contribution, following the naming conventions outlined below.
 4. **Make Your Changes:** Implement your contribution, adhering to the [Code Style Guidelines](#code-style-guidelines) and best practices. Write code that is not only functional but also **transparent, well-documented, and ethically sound**.
 5. **Test Thoroughly - Emphasizing UI Validation:** *Before* submitting your changes, test them *rigorously*, focusing on **UI-driven data validation** and workflow integrity. This includes:
-  * **Unit Tests:** Write unit tests to verify the functionality of individual code components, using UI outputs to validate code behavior.
-  * **Integration Tests:** Test the interactions between different system components, highlighting data flow and UI validation points for each integration step.
-  * **UI Tests:** Use the UI testing framework to validate the appearance, behavior, and **data transparency** of UI components.
-  * **Manual Testing:** Manually test your changes in a browser or simulator, paying close attention to **data traceability** and **UI feedback loops** that validate ethical implementation.
-6. **Commit Your Changes:** Commit your changes with clear and descriptive commit messages, following the [Commit Message Guidelines](#commit-message-guidelines).
+
+* **Unit Tests:** Write unit tests to verify the functionality of individual code components, using UI outputs to validate code behavior.
+* **Integration Tests:** Test the interactions between different system components, highlighting data flow and UI validation points for each integration step.
+* **UI Tests:** Use the UI testing framework to validate the appearance, behavior, and **data transparency** of UI components.
+* **Manual Testing:** Manually test your changes in a browser or simulator, paying close attention to **data traceability** and **UI feedback loops** that validate ethical implementation.
+
 7. **Push to Your Fork:** Push your branch to your forked repository on GitHub:
 
     ```bash
@@ -222,6 +224,7 @@ We encourage the use of AI coding assistants like Copilot or Gemini to improve y
 * **To understand a component:**
 
     > "Explain the purpose and functionality of the following React component in the ThinkAlike project, including how it contributes to data traceability and user empowerment, and the meaning of each prop and the expected data types:
+>
     > ```jsx
     > [Paste component code here]
     > ```"
@@ -229,6 +232,7 @@ We encourage the use of AI coding assistants like Copilot or Gemini to improve y
 * **To write a test (emphasizing UI validation):**
 
     > "Write a unit test for the following Python function using pytest, focusing on data validation and using UI data feedback loops to verify the correctness of the output and its alignment with ethical data handling principles:
+>
     > ```python
     > [Paste function code here]
     > ```"
@@ -236,6 +240,7 @@ We encourage the use of AI coding assistants like Copilot or Gemini to improve y
 * **To refactor code (for ethical clarity):**
 
     > "Refactor the following JavaScript code in the ThinkAlike project to improve readability, transparency, and ethical clarity. Explain the changes you made and how they enhance data traceability and user understanding of the workflow:
+>
     > ```javascript
     > [Paste code snippet here]
     > ```"
@@ -243,6 +248,7 @@ We encourage the use of AI coding assistants like Copilot or Gemini to improve y
 * **To write documentation (emphasizing data transparency):**
 
     > "Write a concise documentation comment (in JSDoc format) for the following React component in ThinkAlike, explicitly explaining how it contributes to data transparency and user control within the platform:
+>
     > ```jsx
     > [Paste component code here]
     > ```"
