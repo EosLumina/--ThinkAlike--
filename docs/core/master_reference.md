@@ -155,7 +155,7 @@ ThinkAlike, functioning as a "Social LLM," incorporates core features designed t
 * The "Philosophical Manifesto of Eos Lumina" provides the guiding source code for the project.
 * Community Principles inform the design patterns, emphasizing decentralization and user empowerment.
 
-**V. Call to Action: Join the Enlightenment 2.0 Revolution**
+## V. Call to Action: Join the Enlightenment 2.0 Revolution
 
 ThinkAlike represents a manifesto meticulously encoded within a technological platform, embodying Enlightenment 2.0 principles. It is a call to action to build a digital future characterized by ethical technology, transparency, and user empowerment.
 

@@ -52,7 +52,7 @@ This section details each API endpoint, categorized by resource.
       ```
 
     * `400 Bad Request`: Invalid request data (e.g., missing fields, invalid email format, username already taken, password too short).
-    
+
       ```json
       {
         "message": "Error message describing the invalid request data.",

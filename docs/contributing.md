@@ -89,8 +89,10 @@ ThinkAlike follows a standard Git-based workflow, emphasizing transparency and c
     git clone https://github.com/YOUR_USERNAME/thinkalike_project.git  # Replace with YOUR fork's URL
 
     cd thinkalike_project
-    ```plaintext
+    ```
+
 3. **Create a Feature Branch:** For *each* contribution, create a *new* branch from the `main` branch. Use a descriptive branch name that reflects the purpose of your contribution, following the naming conventions outlined below.
+
 4. **Make Your Changes:** Implement your contribution, adhering to the [Code Style Guidelines](#code-style-guidelines) and best practices. Write code that is not only functional but also **transparent, well-documented, and ethically sound**.
 5. **Test Thoroughly - Emphasizing UI Validation:** *Before* submitting your changes, test them *rigorously*, focusing on **UI-driven data validation** and workflow integrity. This includes:
     - **Unit Tests:** Write unit tests to verify the functionality of individual code components, using UI outputs to validate code behavior.
@@ -102,7 +104,7 @@ ThinkAlike follows a standard Git-based workflow, emphasizing transparency and c
 
     ```bash
     git push origin your-branch-name
-    ```plaintext
+    ```
 
 8. **Create a Pull Request (PR):** Create a pull request to the main ThinkAlike repository, providing a clear and detailed description of your changes, referencing relevant issues, and including screenshots or GIFs if UI changes are involved.
 9. **Code Review and Collaboration:** Engage in code review and address feedback from project maintainers and community members, collaborating to refine your contribution and ensure its quality and ethical alignment.
@@ -136,13 +138,13 @@ We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0
 
 **Commit Message Structure:**
 
-```
+```plaintext
 <type>[optional scope]: <description>
+```
 
 [optional body]
 
 [optional footer(s)]
-```
 
 - **`<type>`:** Must be one of the following:
   - `feat`: (feature)
@@ -217,12 +219,14 @@ We encourage the use of AI coding assistants like Copilot or Gemini to improve c
 
 **Example Prompts for AI Assistants:**
 
-- To understand a component:
+- **To understand a component:**
+
     > "Explain the purpose and functionality of the following React component in the ThinkAlike project, including how it contributes to data traceability and user empowerment, and the meaning of each prop and the expected data types:
->
+    >
     > ```jsx
     > [Paste component code here]
     > ```"
+
 - To write tests, refactor code, document, or debug—always include context and ethical considerations alongside the required functionality.
 
 Thank you for contributing to ThinkAlike! Together, we can build a more ethical and human-centered digital world.

@@ -1,6 +1,6 @@
 # ThinkAlike: Connect With Purpose
 
-**Connecting Like-Minded Individuals**
+## Connecting Like-Minded Individuals
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH) [![GitHub Actions Docs CI Workflow Status](https://github.com/EosLumina/--ThinkAlike--/workflows/Docs%20CI%20Workflow/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions?query=workflow%3A%22Docs+CI+Workflow%22) ---
@@ -15,14 +15,9 @@ A unique aspect of this project is our **UI-Driven Validation approach**: the Us
 
 What makes ThinkAlike different?
 
-* **Ethical AI Matching:** Intelligent matchmaking based on shared values, interests, and lifestyles, *not* superficial metrics or manipulative algorithms.  
-* **Data Traceability:** A unique, interactive visualization (the "Data Traceability" component) that shows users *exactly* how their data is being used and how it influences AI decisions. Full transparency and control.  
-* **User Empowerment:** Users have complete control over their data, their privacy settings, and their interactions with the AI and other users.  
-* **Community Building:** Tools to create and join communities based on shared interests and goals, fostering real-world connections.  
-* **Open Source and Transparent:** The entire codebase is open source and available on GitHub, encouraging community contributions and scrutiny.  
-* **UI-Driven Development:** A unique approach where the UI itself serves as a testing and validation framework for code, data, and AI, promoting ethical and user-centered development.  
-* **Collective Empowerment:** Features to support group collaboration, shared data understanding, and collective decision-making.  
-* **Commitment to Social Reinvestment:** A long-term vision to reinvest any surplus capital generated back into society to address systemic issues like homelessness, hunger, healthcare, and education, moving beyond profit maximization.
+* **Ethical AI Matching:** Intelligent matchmaking based on shared values, interests, and lifestyles, *not* superficial metrics or manipulative algorithms.
+* **Data Traceability:** A unique, interactive visualization (the "Data Traceability" component) that shows users *exactly* how their data is being used and how it influences AI decisions. Full transparency and control.
+* **User Empowerment:** Users have complete control over their data, their privacy settings, and their interactions with the AI and other users.
 
 ## Getting Started (Quickly!)
 
@@ -35,6 +30,7 @@ Ready to contribute? We need your help to build the future of ethical connection
    Follow the [Quickstart Guide](docs/guides/implementation_guides/mvp_implementation_guide.md). This also provides step-by-step instructions.
 
 For a more comprehensive overview of the project—including our core values, architecture, and contribution guidelines—please see the [Onboarding Guide](docs/core/onboarding_guide.md).
+
 * **Ethical AI & Value-Based Matching:** Intelligent connections based on deep value alignment, interests, and lifestyles – rejecting superficial metrics and manipulative algorithms. ([Ethical Guidelines](docs/core/ethics/ethical_guidelines.md))
 * **Radical Transparency & Data Traceability:** Unique, interactive visualizations (e.g., the `DataTraceability` component) show users *exactly* how their data informs AI decisions. No black boxes. ([Component Spec](docs/components/ui_components/data_traceability.md) | [DataTraceability Documentation](docs/ui/datatraceability_documentation.md))
 * **User Empowerment & Sovereignty:** Complete user control over data, privacy, AI interactions, and community participation. Your data belongs to you. ([Core Concepts Explained](docs/vision/core_concepts.md))
@@ -56,9 +52,9 @@ For a more comprehensive overview of the project—including our core values, ar
 
 ThinkAlike guides users through distinct stages:
 
-1.  **Mode 1: Narrative Onboarding & Match Reveal:** AI-guided self-discovery and initial value-based match suggestions. ([Mode 1 Spec](docs/architecture/modes/mode1_narrative_onboarding_spec.md))
-2.  **Mode 2: Profile Discovery & Connection:** User-driven exploration of potential connections with transparent matching scores and compatibility tests. ([Mode 2 Spec](docs/architecture/modes/mode2_profile_discovery_spec.md))
-3.  **Mode 3: Community Building:** Tools for decentralized, value-aligned community creation and interaction. ([Community Mode Spec](docs/architecture/modes/community_mode/community_mode_spec.md))
+1. **Mode 1: Narrative Onboarding & Match Reveal:** AI-guided self-discovery and initial value-based match suggestions. ([Mode 1 Spec](docs/architecture/modes/mode1_narrative_onboarding_spec.md))
+2. **Mode 2: Profile Discovery & Connection:** User-driven exploration of potential connections with transparent matching scores and compatibility tests. ([Mode 2 Spec](docs/architecture/modes/mode2_profile_discovery_spec.md))
+3. **Mode 3: Community Building:** Tools for decentralized, value-aligned community creation and interaction. ([Community Mode Spec](docs/architecture/modes/community_mode/community_mode_spec.md))
 
 ## Technology Stack
 
@@ -77,8 +73,8 @@ ThinkAlike guides users through distinct stages:
 
 Want to get coding quickly?
 
-1.  **Primary Setup:** Use the main **[`Installation Guide`](docs/core/installation.md)**.
-2.  **Alternative (MVP Focus):** The **[`MVP Implementation Guide`](docs/guides/implementation_guides/mvp_implementation_guide.md)** might be useful for focusing on core features.
+1. **Primary Setup:** Use the main **[`Installation Guide`](docs/core/installation.md)**.
+2. **Alternative (MVP Focus):** The **[`MVP Implementation Guide`](docs/guides/implementation_guides/mvp_implementation_guide.md)** might be useful for focusing on core features.
 
 *See the full Getting Started section below for essential context before contributing.*
 
@@ -95,12 +91,12 @@ Want to get coding quickly?
 
 Ready to contribute code, docs, or design?
 
-1.  **Onboarding (Highly Recommended):** Start with the **[`Onboarding Guide`](docs/core/onboarding_guide.md)** for a full project introduction, values, and architecture.
-2.  **Understand the Core:** Review the **[`MASTER_REFERENCE.md`](docs/core/master_reference/master_reference.md)** (Source of Truth), **[`Ethical Guidelines`](docs/core/ethics/ethical_guidelines.md)**, and **[`Ethos.md`](docs/ethos.md)**. This context is crucial.
-3.  **Setup Locally:** Follow the **[`Installation Guide`](docs/core/installation.md)** or the alternative [`MVP Implementation Guide`](docs/guides/implementation_guides/mvp_implementation_guide.md).
-4.  **Troubleshooting:** Refer to the **[`Troubleshooting Guide`](docs/architecture/deployment_troubleshooting.md)** if you hit issues.
-5.  **How to Contribute:** ***Before coding***, read **[`CONTRIBUTING.md`](docs/core/contributing.md)** carefully for workflow, standards, and processes.
-6.  **Explore Key Code:** Check out the **DataTraceability component** at [`ui/src/components/DataTraceability.jsx`](ui/src/components/DataTraceability.jsx) *(Link may need updating)* and related docs linked below.
+1. **Onboarding (Highly Recommended):** Start with the **[`Onboarding Guide`](docs/core/onboarding_guide.md)** for a full project introduction, values, and architecture.
+2. **Understand the Core:** Review the **[`MASTER_REFERENCE.md`](docs/core/master_reference/master_reference.md)** (Source of Truth), **[`Ethical Guidelines`](docs/core/ethics/ethical_guidelines.md)**, and **[`Ethos.md`](docs/ethos.md)**. This context is crucial.
+3. **Setup Locally:** Follow the **[`Installation Guide`](docs/core/installation.md)** or the alternative [`MVP Implementation Guide`](docs/guides/implementation_guides/mvp_implementation_guide.md).
+4. **Troubleshooting:** Refer to the **[`Troubleshooting Guide`](docs/architecture/deployment_troubleshooting.md)** if you hit issues.
+5. **How to Contribute:** ***Before coding***, read **[`CONTRIBUTING.md`](docs/core/contributing.md)** carefully for workflow, standards, and processes.
+6. **Explore Key Code:** Check out the **DataTraceability component** at [`ui/src/components/DataTraceability.jsx`](ui/src/components/DataTraceability.jsx) *(Link may need updating)* and related docs linked below.
 
 ## Contributing
 
@@ -133,6 +129,7 @@ This project is licensed under the MIT License—see the [LICENSE](LICENSE) file
 Visual assets (images, logos, and the `style_guide.md` file) are licensed under the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
 We encourage modifications to the code, but request that any derivative works respect the core visual style and branding of the ThinkAlike project.
+
 * **Code:** [MIT License](LICENSE).
 * **Documentation & Visual Assets:** [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Please respect attribution, non-commercial use, and no derivatives for `docs/` content, logos, and style guide assets to maintain project identity.
 

@@ -87,7 +87,7 @@ ThinkAlike follows a standard Git-based workflow, emphasizing transparency and c
     git push origin your-branch-name
     ```
 
-8. **Create a Pull Request (PR):** Create a pull request to the main ThinkAlike repository, providing a clear and detailed description of your changes, referencing relevant issues, and including screenshots or GIFs if UI changes are involved.
+2. **Create a Pull Request (PR):** Create a pull request to the main ThinkAlike repository, providing a clear and detailed description of your changes, referencing relevant issues, and including screenshots or GIFs if UI changes are involved.
 9. **Code Review and Collaboration:** Engage in code review and address feedback from project maintainers and community members, collaborating to refine your contribution and ensure its quality and ethical alignment.
 10. **Merge:** Once your PR is approved and passes all tests, a project maintainer will merge it into the `main` branch.
 
