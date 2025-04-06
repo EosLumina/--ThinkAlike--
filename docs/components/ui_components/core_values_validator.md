@@ -1,4 +1,4 @@
-# Design Document: CoreValuesValidator UI Component
+# Design Document: Corevaluesvalidator Ui Component
 
 ---
 
@@ -67,20 +67,54 @@ The `CoreValuesValidator` typically renders as a compact summary or a more detai
 4.  **Rendering:** The component renders the appropriate visual elements (Score, Principle Breakdown, Concerns Log) based on the received validation data.
 5.  **User Interaction:** Users can hover/click for details, view violation logs, and potentially link to the Verification System for deeper dives.
 
-```mermaid
-graph TD
-    A[Action/Data/AI Output Context] --> B{CoreValuesValidator Component};
-    subgraph Optional Backend Validation
-        B -- Request Validation --> C[Backend Verification API];
-        C -- Validation Results --> B;
-    end
-    B -- Renders --> D[Ethical Alignment UI];
-    D -- User Interaction (Hover/Click) --> E[Detailed Rationale/Logs Displayed];
-    D -- Optional Link --> F[Verification System Interface];
+`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
 
-    classDef backendNode fill:#ccf,stroke:#333,stroke-width:2px;
-    class C backendNode;
-```
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[" "]
+        UI["User Interface"]
+    end
+
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
+    end
+
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
+    end
+
+    UI --> API
+    API --> Logic
+    API --> Verification
+    API --> AI
+    Logic --> DB
+    AI --> DB
+    Verification --> DB
+    DB --> Logic
+    DB --> AI
+    Logic --> UI
+    AI --> UI
+    Verification --> UI
+
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+`
+
 
 ## 4. Code Implementation Notes
 
@@ -238,4 +272,5 @@ Direct feedback mechanism within the component for users/testers to report inacc
 Deeper integration with the Verification System to show audit trail snippets directly.
 
 Configuration options to customize which principles are displayed or prioritized.
+
 

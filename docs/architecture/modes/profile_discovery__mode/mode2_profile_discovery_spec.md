@@ -1,4 +1,4 @@
-# MATCHING MODE SPECIFICATION - ThinkAlike Project
+# Matching Mode Specification - Project
 
 **Document Purpose:**
 

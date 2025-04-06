@@ -1,4 +1,4 @@
-# Design Document: Security Status Indicator UI Component
+# Design Document: Security Status Indicator Ui Component
 
 ## 1. Introduction and Description
 

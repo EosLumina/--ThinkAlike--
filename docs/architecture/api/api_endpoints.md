@@ -1,4 +1,4 @@
-# API ENDPOINTS - ThinkAlike Platform
+# Api Endpoints - Platform
 
 **1. Introduction**
 

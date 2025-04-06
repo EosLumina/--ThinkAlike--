@@ -1,4 +1,4 @@
-# ThinkAlike: Standard Data Output Schema Specification
+# Standard Data Output Schema Specification
 
 ---
 

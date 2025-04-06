@@ -1,4 +1,4 @@
-# ThinkAlike Onboarding Manual
+# Onboarding Manual
 
 **Welcome to the ThinkAlike project!**
 
@@ -178,21 +178,31 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
 
 ### ThinkAlike Architectural Diagram (Mermaid):
 
-```mermaid
-graph LR
-    subgraph "Presentation Layer (UI)"
-        UI[User Interface]
+`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
+
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[" "]
+        UI["User Interface"]
     end
 
-    subgraph "Application Layer (Ethical Workflow Engine)"
-        API[Backend API (FastAPI)]
-        Logic[Business Logic & Data Processing]
-        AI[AI Services (Ethical AI Models)]
-        Verification[Verification System]
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
     end
 
-    subgraph "Data Layer (Ethical Data Repository)"
-        DB[PostgreSQL Database]
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
     end
 
     UI --> API
@@ -208,11 +218,14 @@ graph LR
     AI --> UI
     Verification --> UI
 
-    classDef layerFill fill:#f9f,stroke:#333,stroke-width:2px,color:#000;
-    class "Presentation Layer (UI)" layerFill;
-    class "Application Layer (Ethical Workflow Engine)" layerFill;
-    class "Data Layer (Ethical Data Repository)" layerFill;
-```
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+`
+
 
 ---
 
@@ -403,7 +416,7 @@ ThinkAlike is an open-source project, and we wholeheartedly welcome contribution
 
 ### ThinkAlike Communication Channels - Stay Connected!
 
-* **GitHub Repository:** https://github.com/Willeede/thinkalike_project - The Central Hub! Code, Issues, Documentation, Project Management, Pull Requests. Watch this repository to stay updated on project activity!
+* **GitHub Repository:** https://github.com/EosLumina/--ThinkAlike-- - The Central Hub! Code, Issues, Documentation, Project Management, Pull Requests. Watch this repository to stay updated on project activity!
 * **Discord Server:** [Insert ThinkAlike Discord Server Link HERE] - Real-time Collaboration & Community! Join our Discord server for real-time discussions, questions, announcements, community building, and direct interaction with fellow contributors and the project team. This is the best place to ask questions, get help, and connect with the ThinkAlike community!
 
 ### Key Project Resources and Documentation - Your Knowledge Base:
@@ -439,3 +452,5 @@ Ready to inject some ethical code and build the revolution? Here are your immedi
 Congratulations, comrade! By following this Onboarding Manual, you are now fully equipped to join the ThinkAlike Revolution! You are part of a growing movement to build a more ethical, transparent, and human-centered digital future. Your contributions, in any form, are vital and deeply appreciated.
 
 Let's build a better digital world, together. Welcome to ThinkAlike!
+
+

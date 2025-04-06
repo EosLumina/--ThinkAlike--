@@ -1,4 +1,4 @@
-# API ENDPOINTS - ThinkAlike Project Backend - Narrative Mode (Mode 1)
+# Api Endpoints - Project Backend - Narrative Mode (mode 1)
 
 ---
 

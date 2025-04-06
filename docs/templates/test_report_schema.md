@@ -1,4 +1,4 @@
-# ThinkAlike: Standard Test Report Schema Specification
+# Standard Test Report Schema Specification
 
 ---
 

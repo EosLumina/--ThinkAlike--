@@ -1,4 +1,4 @@
-# Design Document: Customizable UI Tests
+# Customizable Ui Tests
 
 ---
 

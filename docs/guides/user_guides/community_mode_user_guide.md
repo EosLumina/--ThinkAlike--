@@ -1,4 +1,4 @@
-# User Guide: Community Mode - Connect, Collaborate, and Build Together (Mode 3)
+# User Guide: Community Mode - Connect, Collaborate, and Build Together (mode 3)
 
 **Welcome to ThinkAlike Community Mode (Mode 3)**
 

@@ -1,4 +1,4 @@
-# Guide: Building a Backend API Endpoint in ThinkAlike
+# Building a Backend Api Endpoint
 
 This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing, request/response modeling, service layer interaction, database access, testing, and integration with the Verification System.
 
@@ -59,7 +59,7 @@ class ProfileResponse(BaseModel):
         orm_mode = True  # To allow conversion from SQLAlchemy models
 ```
 
-### 2.2. Create/Update Router
+## 2.2. Create/Update Router
 Locate the appropriate `APIRouter` file (e.g., in `backend/routes/user_routes.py`) or create a new one if needed.
 
 - Define the endpoint function using the correct FastAPI decorator.
@@ -111,7 +111,7 @@ async def update_user_profile(
     return updated_profile
 ```
 
-### 2.3. Implement Service Logic
+## 2.3. Implement Service Logic
 In the service layer (e.g., `backend/services/profile_service.py`), encapsulate the business logic for your endpoint.
 
 - Accept necessary parameters such as the DB session, user ID, and input data.
@@ -155,7 +155,7 @@ class ProfileService:
         return updated_user
 ```
 
-### 2.4. Add CRUD Operations (if necessary)
+## 2.4. Add CRUD Operations (if necessary)
 If new database interactions are required, add reusable CRUD functions (e.g., in `backend/crud/crud_user.py`). These should handle basic SQLAlchemy operations such as get, create, update, and delete.
 
 ### 2.5. Register the Router

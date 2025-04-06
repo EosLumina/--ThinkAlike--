@@ -1,4 +1,4 @@
-# ThinkAlike: AI-Driven Workflows
+# Ai-driven Workflows
 
 This document describes the AI-driven workflows within the ThinkAlike platform, focusing on how AI is used to enhance user experience, facilitate connections, and ensure ethical data handling. It includes detailed examples of key workflows.
 
@@ -132,53 +132,52 @@ The following data workflows are central to the AI's functionality, demonstratin
 
 The following diagram illustrates the specific flow for the Personalized Narrative Generation workflow:
 
-```mermaid
-graph LR
-    %% Define Entities & Layers
-    subgraph "Presentation Layer (UI)"
-        direction LR
-        UI[User Interface (Client)]
+`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
+
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[" "]
+        UI["User Interface"]
     end
 
-    subgraph "Application Layer (Backend)"
-        direction LR
-        API[API Endpoint </br> /api/narrative/...]:::control
-        AI[Narrative Engine </br> (AI Service)]:::control
-        Logic[Business Logic </br> (Optional State/Context)]
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
     end
 
-    subgraph "Data Layer"
-        direction LR
-        DB[(Database </br> Narrative State)]
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
     end
 
-    %% Define Flow & Messages (FEMCED Inspired)
-    UI -- 1. Event: User Makes Choice </br> Message: Choice Data (JSON) --> API
-    API -- 2. Control: Route Request </br> Message: Processed Input --> AI
-    AI -- 3. Control: Generate Text </br> Data: Use Context, User Choice --> API
-    API -- 4. Message: Narrative Text Response (JSON) --> UI
+    UI --> API
+    API --> Logic
+    API --> Verification
+    API --> AI
+    Logic --> DB
+    AI --> DB
+    Verification --> DB
+    DB --> Logic
+    DB --> AI
+    Logic --> UI
+    AI --> UI
+    Verification --> UI
 
-    %% Optional state management flow
-    Logic -- Reads Narrative State --> DB
-    API -- Reads/Writes Context --> Logic
-    Logic -- Writes Narrative State --> DB
-    DB -- Returns Narrative State --> Logic
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+`
 
 
-    %% Styling
-    classDef entity fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef control fill:#ccf,stroke:#333,stroke-width:2px;
-    classDef data fill:#9cf,stroke:#333,stroke-width:2px;
-
-    class UI entity;
-    class API,AI control;
-    class Logic,DB data;
-
-    linkStyle default stroke:#333,stroke-width:1px;
-    linkStyle 0 stroke:blue,stroke-width:2px; /* UI -> API */
-    linkStyle 1 stroke:green,stroke-width:2px; /* API -> AI */
-    linkStyle 2 stroke:red,stroke-width:2px; /* AI -> API */
-    linkStyle 3 stroke:blue,stroke-width:2px; /* API -> UI */
-    %% Optional link styling for state management
-    linkStyle 4,5,6,7 stroke:#aaa,stroke-width:1px,stroke-dasharray: 5 5;
-```

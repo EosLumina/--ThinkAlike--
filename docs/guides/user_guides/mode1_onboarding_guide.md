@@ -1,4 +1,4 @@
-# User Guide: Narrative Mode - Embark on Your Journey of Self-Discovery and Value-Based Matching (Mode 1)
+# User Guide: Narrative Mode - Embark on Your Journey of Self-discovery and Value-based Matching (mode 1)
 
 **Welcome to ThinkAlike Narrative Mode (Mode 1)!**
 

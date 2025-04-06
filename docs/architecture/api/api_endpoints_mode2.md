@@ -1,4 +1,4 @@
-# API ENDPOINTS - ThinkAlike Project Backend - Mode 2: User Discovery & Connection
+# Api Endpoints - Project Backend - Mode 2: User Discovery & Connection
 
 ---
 

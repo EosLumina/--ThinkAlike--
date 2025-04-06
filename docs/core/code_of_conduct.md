@@ -1,4 +1,4 @@
-# ThinkAlike Project - Code of Conduct - Building a Respectful and Inclusive Community
+# Project - Code of Conduct - Building a Respectful and Inclusive Community
 
 **Version 1.0 - Draft - Work in Progress**
 

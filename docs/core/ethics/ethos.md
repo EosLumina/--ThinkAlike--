@@ -1,5 +1,5 @@
 <!-- ethos.md -->
-# ThinkAlike: A Manifesto for Human Connection and Technological Enlightenment
+# A Manifesto for Human Connection and Technological Enlightenment
 
 This document articulates the core beliefs and principles that guide the ThinkAlike project. We are committed to using technology as a tool for human betterment, ethical growth, and enlightenment, not as a means of manipulation or control. This is not just an ideal framework, but a way of working and a fundamental design choice.
 

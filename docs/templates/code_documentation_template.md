@@ -1,4 +1,4 @@
-# Code Documentation: [Component/Module Name]
+# Code Documentation: [component/module Name]
 
 ## 1. Purpose
 A clear description of what this code component or module does within the ThinkAlike project, and which workflow it follows.

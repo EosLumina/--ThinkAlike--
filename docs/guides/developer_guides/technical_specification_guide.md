@@ -1,4 +1,4 @@
-# ThinkAlike: Technical Specification Guide
+# Technical Specification Guide
 
 **1. Introduction**
 

@@ -1,4 +1,4 @@
-# ThinkAlike: Developer Workflow Guide
+# Developer Workflow Guide
 
 This guide provides a practical, step-by-step workflow for common development tasks within the ThinkAlike project. It integrates information from various guides like [`contributing.md`](../../core/contributing.md), [`installation.md`](../../core/installation.md), style guides, and testing procedures.
 

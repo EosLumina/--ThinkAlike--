@@ -1,4 +1,4 @@
-# ThinkAlike Project - Developer Guide: Matching Algorithm
+# Project - Developer Guide: Matching Algorithm
 
 **Audience:** Developers contributing to the implementation, maintenance, and enhancement of the ThinkAlike Value-Based Matching Algorithm.
 

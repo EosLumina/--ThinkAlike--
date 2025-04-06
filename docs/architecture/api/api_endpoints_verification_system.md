@@ -1,4 +1,4 @@
-# API ENDPOINTS - ThinkAlike Project Backend - Verification System
+# Api Endpoints - Project Backend - Verification System
 
 **Document Purpose:**
 

@@ -1,4 +1,4 @@
-# Design Document: UserForm UI Component
+# Design Document: Userform Ui Component
 
 ---
 
@@ -68,23 +68,54 @@ The `UserForm` component typically orchestrates several other reusable UI compon
     *   If API call is successful, parent might display a success message (e.g., using `Alert`) or navigate away.
     *   If API call fails with validation errors, parent passes these errors back to the `UserForm` (e.g., via a `serverErrors` prop), which then displays them using `DataValidationError`. General API errors are shown in the form’s feedback area.
 
-```mermaid
-graph LR
-    A[User Interaction (Input Field)] --> B{UserForm State Management};
-    B -- Updates --> C[Input Component Value];
-    B -- Triggers Validation --> D{Client-Side Validation Logic};
-    D -- Validation Result --> B;
-    D -- Errors? --> E(DataValidationError Display);
-    F[User Interaction (Submit Button)] --> G{onSubmit Validation};
-    G -- Validation OK? --> H(Call onSubmit Prop);
-    G -- Validation Failed? --> E;
-    H -- formData --> I[Parent Component Logic];
-    I -- Calls --> J[API Service];
-    J -- Response/Error --> I;
-    I -- Success? --> K(Success Feedback / Navigation);
-    I -- Validation Error? --> L{Update serverErrors Prop};
-    L --> B;
-```
+`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
+
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[" "]
+        UI["User Interface"]
+    end
+
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
+    end
+
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
+    end
+
+    UI --> API
+    API --> Logic
+    API --> Verification
+    API --> AI
+    Logic --> DB
+    AI --> DB
+    Verification --> DB
+    DB --> Logic
+    DB --> AI
+    Logic --> UI
+    AI --> UI
+    Verification --> UI
+
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+`
+
 
 ---
 
@@ -293,3 +324,4 @@ Refer to the project's central design repository for visual mockups of standard 
 * Integration with asynchronous validation rules.
 * Saving form drafts locally.
 * More sophisticated layout options (e.g., grid-based field arrangement).
+

@@ -22,7 +22,7 @@ But the managed age betrays these ideals.  Reason is eclipsed by digital noise. 
 
 Let *Eos Lumina∴* dawn.  Let the philosophical counter-revolution begin.  Let us rewrite the code of civilization.  Let us reclaim the digital commons. Let us build a new humanity.  Arise, awaken, transform!
 
-# PART I:  SPECTRES OF THE DIGITAL PANOPTICON –  SYSTEMIC VOICELESSNESS IN THE AGE OF ALGORITHMS – AND THE THREAT OF UNGOVERNED AI – WITHIN THE HALL OF MIRRORS OF MANAGED DEMOCRACY –  AND THE GILDED CAGES OF AMORAL WEALTH – A PHILOSOPHICAL DIAGNOSIS
+# Part I: Spectres of the Digital Panopticon – Systemic Voicelessness in the Age of Algorithms – and the Threat of Ungoverned Ai – Within the Hall of Mirrors of Managed Democracy – and the Gilded Cages of Amoral Wealth – a Philosophical Diagnosis
 
 ## The Algorithmic Leviathan & The AI Imperative & The Deceptive Architecture of Managed Democracy & The Obscenity of Amoral Wealth: Power Unseen, Control Unchallenged, Wealth Hoarded, and the Imperative of Economic and Democratic Revolution
 

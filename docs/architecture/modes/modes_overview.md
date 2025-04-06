@@ -1,4 +1,4 @@
-# MODES OVERVIEW - ThinkAlike Project
+# Modes Overview - Project
 
 **Document Purpose:**
 

@@ -1,4 +1,4 @@
-# Design Document: APIValidator UI Component
+# Design Document: Apivalidator Ui Component
 
 ---
 
@@ -68,16 +68,54 @@ The `APIValidator` component can be rendered in different contexts:
 
 ## 4. Mermaid Diagram of Data Flow
 
-```mermaid
-graph TD
-    A[UI Action (e.g., Button Click)] --> B{API Service Function Call};
-    B -- Request Details Captured --> C[APIValidator State];
-    B -- Sends Request --> D[Backend API Endpoint];
-    D -- Sends Response --> B;
-    B -- Response/Error Captured --> C;
-    C -- Props/Context Update --> E(APIValidator Component);
-    E -- Renders --> F[Visual Feedback in UI];
-```
+`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
+
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[" "]
+        UI["User Interface"]
+    end
+
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
+    end
+
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
+    end
+
+    UI --> API
+    API --> Logic
+    API --> Verification
+    API --> AI
+    Logic --> DB
+    AI --> DB
+    Verification --> DB
+    DB --> Logic
+    DB --> AI
+    Logic --> UI
+    AI --> UI
+    Verification --> UI
+
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+`
+
 
 ---
 
@@ -214,4 +252,5 @@ Allow customization (e.g., via props or context) for default visibility of detai
 * More sophisticated integration for data validation display.
 * Option to replay specific API calls (for debugging).
 * Integration with backend tracing IDs for end-to-end request tracking.
+
 

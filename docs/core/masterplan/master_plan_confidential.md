@@ -1,4 +1,4 @@
-# **CONFIDENTIAL - FOR INTERNAL USE ONLY - DO NOT SHARE EXTERNALLY**
+# **confidential - for Internal Use Only - Do Not Share Externally**
 
 This document outlines the confidential Master Plan for the ThinkAlike project. It contains sensitive information regarding project strategy, development roadmap, key milestones, resource allocation, and confidential considerations. This document is intended for internal team members and authorized personnel only.
 

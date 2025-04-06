@@ -1,4 +1,4 @@
-# ThinkAlike Installation Guide
+# Installation Guide
 
 **Welcome to ThinkAlike! - Read This First!**
 
@@ -6,7 +6,7 @@ This guide provides step-by-step instructions for setting up your local developm
 
 Following these instructions **exactly** will help you get your local environment running smoothly.
 
-**Reference:** Always consult the [SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md](master_reference.md) for the overarching project vision, ethical principles, and architectural guidelines.
+**Reference:** Always consult the [SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md](master_refernce.md) for the overarching project vision, ethical principles, and architectural guidelines.
 
 ---
 
@@ -14,7 +14,7 @@ Following these instructions **exactly** will help you get your local environmen
 
 If you're familiar with Python/Node environments, here are the essential commands (run from project root, assuming prerequisites are met):
 
-1.  `git clone https://github.com/Willeede/thinkalike_project.git ThinkAlike`
+1.  `git clone https://github.com/EosLumina/--ThinkAlike--.git ThinkAlike`
 2.  `cd ThinkAlike`
 3.  `python -m venv venv`
 4.  `.\venv\Scripts\Activate.ps1` (Windows PowerShell) OR `source venv/bin/activate` (macOS/Linux)
@@ -63,7 +63,7 @@ Ensure you have the following software installed *before* cloning the project:
 *   Navigate to the directory where you want to store the project (e.g., `C:\`).
 *   Clone the repository:
     ```powershell
-    git clone https://github.com/Willeede/thinkalike_project.git ThinkAlike
+    git clone https://github.com/EosLumina/--ThinkAlike--.git ThinkAlike
     ```
 *   Navigate into the project directory:
     ```powershell
@@ -202,3 +202,5 @@ Run the backend and frontend servers simultaneously in **separate terminals**.
 ---
 
 You should now have a working local development environment for ThinkAlike! Refer to `CONTRIBUTING.md` and other documentation for development guidelines.
+
+

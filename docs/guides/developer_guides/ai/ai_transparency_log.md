@@ -1,4 +1,4 @@
-# AI Transparency Log
+# Ai Transparency Log
 
 **Description:**
 A user-readable log that outlines the data that influences AI decisions, the parameters being used, and ethical implications, with actionable tools to validate and modify those choices. The AI Transparency Log is a critical UI component for fulfilling ThinkAlike's commitment to algorithmic transparency and user trust. It empowers users to understand the inner workings of the platform's AI systems, fostering a sense of control and informed engagement with AI-driven functionalities.

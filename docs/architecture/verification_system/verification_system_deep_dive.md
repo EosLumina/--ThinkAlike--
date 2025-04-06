@@ -28,28 +28,54 @@ We propose a **dedicated backend service or an isolated module** within the main
 
 Below is an example [Mermaid diagram](https://mermaid.js.org) illustrating the architecture:
 
-```mermaid
-graph LR
-    subgraph MainBackend [Main Backend (FastAPI)]
-        API[API Endpoints]
-        SVC[Business Logic Services]
-        DB[Database Access]
+`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]
+
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[" "]
+        UI["User Interface"]
     end
 
-    subgraph Verification [Verification System Module]
-        RE[Rule Engine]
-        RS[(Rule Store)]
-        VIA[Internal Verification API]
-        AL[Audit Logger]
+    subgraph app_section[" "]
+        API["Backend API (FastAPI)"]
+        Logic["Business Logic & Data Processing"]
+        AI["AI Services (Ethical AI Models)"]
+        Verification["Verification System"]
     end
 
-    API -- Triggers Verification --> VIA
-    SVC -- Triggers Verification --> VIA
-    VIA --> RE
-    RE -- Reads Rules --> RS
-    RE -- Context Data --> DB
-    VIA -- Logs Results --> AL
-```
+    subgraph data_section[" "]
+        DB["PostgreSQL Database"]
+    end
+
+    UI --> API
+    API --> Logic
+    API --> Verification
+    API --> AI
+    Logic --> DB
+    AI --> DB
+    Verification --> DB
+    DB --> Logic
+    DB --> AI
+    Logic --> UI
+    AI --> UI
+    Verification --> UI
+
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+`
+
 
 ## 3. Defining Verification Rules
 
@@ -113,4 +139,5 @@ Developers should:
 - **Machine Learning Integration:** If rules trigger ML models (e.g., content classifiers), verify that these models align with ethical guidelines. See the [AI Model Development Guide](ai_model_development_guide.md) for more details.
 
 The Verification System is critical infrastructure for building trust and ensuring that ThinkAlike adheres to its ethical and operational principles. Its design requires careful consideration and iterative refinement as the platform evolves.
+
 

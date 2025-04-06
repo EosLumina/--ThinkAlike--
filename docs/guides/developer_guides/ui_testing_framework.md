@@ -1,4 +1,4 @@
-# Design Document: ThinkAlike UI Component Testing Framework
+# Design Document: Ui Component Testing Framework
 
 ---
 

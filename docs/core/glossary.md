@@ -1,4 +1,4 @@
-# ThinkAlike Project Glossary
+# Project Glossary
 
 ## Introduction
 

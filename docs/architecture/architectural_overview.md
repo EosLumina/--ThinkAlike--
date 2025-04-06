@@ -1,4 +1,4 @@
-# ARCHITECTURAL OVERVIEW - ThinkAlike Project
+# Architectural Overview - Project
 
 **Document Purpose:**
 

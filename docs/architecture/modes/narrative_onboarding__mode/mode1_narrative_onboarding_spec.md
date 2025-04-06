@@ -1,4 +1,4 @@
-# NARRATIVE MODE SPECIFICATION - ThinkAlike Project
+# Narrative Mode Specification - Project
 
 **Document Purpose:**
 

@@ -1,4 +1,4 @@
-# ThinkAlike: Unified AI Model Development Guide
+# Unified Ai Model Development Guide
 
 ## 1. Introduction
 

@@ -1,4 +1,4 @@
-# ENLIGHTENMENT 2.0 PRINCIPLES - Core Tenets of a Humane Digital Future
+# Enlightenment 2.0 Principles - Core Tenets of a Humane Digital Future
 
 **Document Purpose:**
 

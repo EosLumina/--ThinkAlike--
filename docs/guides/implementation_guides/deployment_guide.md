@@ -1,4 +1,4 @@
-# ThinkAlike: Deployment Guide (Render)
+# Deployment Guide (render)
 
 ---
 

@@ -1,4 +1,4 @@
-# API ENDPOINTS - ThinkAlike Project Backend - Community Mode
+# Api Endpoints - Project Backend - Community Mode
 
 **Document Purpose:**
 

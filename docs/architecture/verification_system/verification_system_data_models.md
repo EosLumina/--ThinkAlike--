@@ -1,4 +1,4 @@
-# ThinkAlike: Verification System Data Models
+# Verification System Data Models
 
 ---
 

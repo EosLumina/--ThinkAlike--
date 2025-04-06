@@ -1,4 +1,4 @@
-# User Guide: Matching Mode - Find Your Value-Aligned Connections (Mode 2)
+# User Guide: Matching Mode - Find Your Value-aligned Connections (mode 2)
 
 **Welcome to ThinkAlike Matching Mode (Mode 2)!**
 
