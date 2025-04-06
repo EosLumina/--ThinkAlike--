@@ -15,25 +15,25 @@ In the interest of fostering an open and welcoming environment, we, as contribut
 
 We expect all participants in the ThinkAlike community to:
 
-*   Be Respectful and Kind
-*   Be Inclusive and Welcoming
-*   Be Collaborative and Cooperative
-*   Be Constructive and Helpful
-*   Use Welcoming and Inclusive Language
-*   Be Mindful of Your Impact
+* Be Respectful and Kind
+* Be Inclusive and Welcoming
+* Be Collaborative and Cooperative
+* Be Constructive and Helpful
+* Use Welcoming and Inclusive Language
+* Be Mindful of Your Impact
 
 **3. Unacceptable Behaviors - Actions that Betray the Revolution**
 
 The following behaviors are considered unacceptable within the ThinkAlike community:
 
-*   Harassment
-*   Discrimination
-*   Hate Speech
-*   Personal Attacks
-*   Public or Private Harassment
-*   Unwelcome Sexual Attention
-*   Sustained Disruption
-*   Any other conduct which could reasonably be considered inappropriate
+* Harassment
+* Discrimination
+* Hate Speech
+* Personal Attacks
+* Public or Private Harassment
+* Unwelcome Sexual Attention
+* Sustained Disruption
+* Any other conduct which could reasonably be considered inappropriate
 
 **4. Reporting Violations - Upholding the Ethical Code**
 
@@ -41,26 +41,26 @@ If you experience or witness behavior that violates this Code of Conduct, please
 
 **How to Report:**
 
-*   [**To be determined:**  Specify the reporting mechanism - e.g., email address, dedicated issue tracker, etc.]
+* [**To be determined:**  Specify the reporting mechanism - e.g., email address, dedicated issue tracker, etc.]
 
 **5. Enforcement and Consequences - Justice for the Revolution**
 
 Project maintainers and the Code of Conduct enforcement team are responsible for clarifying and enforcing this Code of Conduct and will take corrective action in response to reported violations. Enforcement actions may include:
 
-*   Private Warning
-*   Public Warning
-*   Temporary Ban
-*   Permanent Ban
+* Private Warning
+* Public Warning
+* Temporary Ban
+* Permanent Ban
 
 **6. Scope - Boundaries of the Revolutionary Zone**
 
 This Code of Conduct applies to all spaces within the ThinkAlike project community, including:
 
-*   GitHub repositories
-*   GitHub Discussions forums
-*   Project chat channels (if any)
-*   Project mailing lists (if any)
-*   Project-related events (online and offline)
+* GitHub repositories
+* GitHub Discussions forums
+* Project chat channels (if any)
+* Project mailing lists (if any)
+* Project-related events (online and offline)
 
 **7. Attribution - Standing on the Shoulders of Ethical Giants**
 

@@ -100,10 +100,10 @@ This feature typically resides within a dedicated "Testing & Validation Center" 
 
 * **Data Testing via UI:** Users define test data directly in action blocks (for example, `Enter Text`) or use mock data injection. Assertions (such as `Expect Text Equals` or `Expect Data Point Validates`) then verify the system's handling of this UI-defined data.
 * **Code Validation via UI:** Tests defined in the UI validate behavior resulting from code execution:
-    * UI state changes are validated (e.g., `Expect Element Visible`, `Expect Text Equals`).
-    * Frontend logic triggering API calls is validated by asserting on subsequent UI changes or by inspecting the API call itself (`Call API`, `Expect API Response Status`).
-    * Backend code is implicitly validated by asserting on the API responses and the resulting data/UI state changes.
-    * Ethical code implementation is validated using specific ethical assertions (`Expect Ethical Score Above`), which rely on CoreValuesValidator logic (potentially involving backend verification calls).
+  * UI state changes are validated (e.g., `Expect Element Visible`, `Expect Text Equals`).
+  * Frontend logic triggering API calls is validated by asserting on subsequent UI changes or by inspecting the API call itself (`Call API`, `Expect API Response Status`).
+  * Backend code is implicitly validated by asserting on the API responses and the resulting data/UI state changes.
+  * Ethical code implementation is validated using specific ethical assertions (`Expect Ethical Score Above`), which rely on CoreValuesValidator logic (potentially involving backend verification calls).
 
 ---
 
@@ -111,15 +111,15 @@ This feature typically resides within a dedicated "Testing & Validation Center" 
 
 * **Framework:** React.
 * **Core Challenge: Test Execution Engine:** How to translate UI-defined steps into actual browser actions and assertions:
-    * **Frontend Engine:** Use testing-library or custom simulation to simulate clicks, typing, and element state checks within the React component tree (good for component-level tests, but limited for true end-to-end (E2E) testing).
-    * **Browser Automation Integration (Recommended for E2E):** The UI acts as a script generator – the Scenario Builder creates a test script (in Cypress, Playwright, or Selenium format). A separate process (triggered via a backend API call or integrated local test runner) then executes this script against a running instance of the application.
-    * **Backend Orchestration:** The UI sends the scenario definition (in JSON format) to a backend testing service (e.g., via `POST /api/testing/run`). The backend then uses Selenium Grid, Playwright Service, or a similar tool to spin up browser instances, execute the steps, and report results back. This approach is scalable and robust but requires additional backend infrastructure.
+  * **Frontend Engine:** Use testing-library or custom simulation to simulate clicks, typing, and element state checks within the React component tree (good for component-level tests, but limited for true end-to-end (E2E) testing).
+  * **Browser Automation Integration (Recommended for E2E):** The UI acts as a script generator – the Scenario Builder creates a test script (in Cypress, Playwright, or Selenium format). A separate process (triggered via a backend API call or integrated local test runner) then executes this script against a running instance of the application.
+  * **Backend Orchestration:** The UI sends the scenario definition (in JSON format) to a backend testing service (e.g., via `POST /api/testing/run`). The backend then uses Selenium Grid, Playwright Service, or a similar tool to spin up browser instances, execute the steps, and report results back. This approach is scalable and robust but requires additional backend infrastructure.
 * **Scenario Definition Format:** Define a clear JSON schema for representing test scenarios (including steps, actions, assertions, and parameters).
 * **Component Communication:** Use appropriate state management for the Scenario Builder and for displaying test results.
 * **Security:** Critical if users can define tests:
-    * Sanitize all user inputs (selectors, text values, URLs).
-    * Restrict certain actions and assertions based on user roles – for example, non-developers should have limited access to actions like `Call API` or arbitrary script execution.
-    * If using a backend execution engine, run tests in isolated environments (e.g., Docker containers) and validate API calls triggered by tests against user permissions.
+  * Sanitize all user inputs (selectors, text values, URLs).
+  * Restrict certain actions and assertions based on user roles – for example, non-developers should have limited access to actions like `Call API` or arbitrary script execution.
+  * If using a backend execution engine, run tests in isolated environments (e.g., Docker containers) and validate API calls triggered by tests against user permissions.
 * **Modularity:** Design Action Blocks and Assertion Blocks as pluggable modules so that the framework can be extended easily.
 
 ---
@@ -127,22 +127,22 @@ This feature typically resides within a dedicated "Testing & Validation Center" 
 ## 5. Testing Instructions (Testing the Test Feature Itself)
 
 * **Scenario Builder:**
-    * Verify drag-and-drop or step-by-step sequencing works correctly.
-    * Test adding, removing, and reordering steps.
-    * Test the configuration panel for each Action/Assertion block – ensure parameters are saved and loaded correctly.
-    * Test the Element Selector Tool integration – verify it accurately captures CSS selectors.
-    * Test the Save/Load Scenario functionality.
+  * Verify drag-and-drop or step-by-step sequencing works correctly.
+  * Test adding, removing, and reordering steps.
+  * Test the configuration panel for each Action/Assertion block – ensure parameters are saved and loaded correctly.
+  * Test the Element Selector Tool integration – verify it accurately captures CSS selectors.
+  * Test the Save/Load Scenario functionality.
 * **Test Execution:**
-    * Create simple scenarios (e.g., navigate to a URL and check heading text) and run them. Confirm correct execution and a pass status.
-    * Create scenarios designed to fail (e.g., expect a non-existent element or incorrect text) and verify proper failure status and error reporting.
-    * Test scenarios that involve various Action/Assertion types (including API calls, ethical checks, and accessibility checks).
-    * Validate handling of timeouts and errors during test execution.
+  * Create simple scenarios (e.g., navigate to a URL and check heading text) and run them. Confirm correct execution and a pass status.
+  * Create scenarios designed to fail (e.g., expect a non-existent element or incorrect text) and verify proper failure status and error reporting.
+  * Test scenarios that involve various Action/Assertion types (including API calls, ethical checks, and accessibility checks).
+  * Validate handling of timeouts and errors during test execution.
 * **Results Display:**
-    * Confirm that the dashboard and detailed reports accurately reflect the outcomes of test runs.
-    * Ensure that logs, screenshots (if implemented), performance charts, and ethical/accessibility reports display correctly.
+  * Confirm that the dashboard and detailed reports accurately reflect the outcomes of test runs.
+  * Ensure that logs, screenshots (if implemented), performance charts, and ethical/accessibility reports display correctly.
 * **Security:**
-    * Try injecting malicious scripts or selectors via parameter inputs. Verify that sanitization prevents XSS or unintended actions.
-    * Test that role-based access to the feature works as expected.
+  * Try injecting malicious scripts or selectors via parameter inputs. Verify that sanitization prevents XSS or unintended actions.
+  * Test that role-based access to the feature works as expected.
 
 ---
 
@@ -156,17 +156,17 @@ Refer to the project's central design repository for visual mockups.
 ## 7. Dependencies & Integration
 
 * **Depends On:**
-    * Core reusable UI components (Buttons, Inputs, Modals, Lists).
-    * Potentially the Data Explorer Panel (for data point selection).
-    * CoreValuesValidator (for ethical assertions).
-    * Accessibility audit libraries (e.g., axe-core).
-    * Backend Testing Service/API (if using backend or hybrid execution).
-    * Browser automation frameworks (Cypress, Playwright, Selenium – depending on the chosen execution engine).
-    * [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md).
+  * Core reusable UI components (Buttons, Inputs, Modals, Lists).
+  * Potentially the Data Explorer Panel (for data point selection).
+  * CoreValuesValidator (for ethical assertions).
+  * Accessibility audit libraries (e.g., axe-core).
+  * Backend Testing Service/API (if using backend or hybrid execution).
+  * Browser automation frameworks (Cypress, Playwright, Selenium – depending on the chosen execution engine).
+  * [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md).
 * **Integrates With:**
-    * The overall platform's authentication/authorization to control access.
-    * The Developer Tools panel or a dedicated Testing section.
-    * The CI/CD pipeline (potentially triggering saved UI tests via an API).
+  * The overall platform's authentication/authorization to control access.
+  * The Developer Tools panel or a dedicated Testing section.
+  * The CI/CD pipeline (potentially triggering saved UI tests via an API).
 
 ---
 

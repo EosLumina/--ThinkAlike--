@@ -14,6 +14,7 @@ Growing public disillusionment with mainstream social media platforms due to pri
 
 **User(s)/Actors:**
 A diverse range of individuals and groups, including:
+
 - **Privacy-conscious individuals:** Seeking a social platform that genuinely respects user data and privacy rights.
 - **Ethical Content Creators:** Looking for a platform that values authentic content and fair content distribution, rather than algorithm-driven virality and engagement metrics at all costs.
 - **Civil Discourse Advocates:** Seeking online spaces that foster respectful dialogue, constructive debate, and a more civil and less toxic social environment.
@@ -23,6 +24,7 @@ A diverse range of individuals and groups, including:
 Primarily **Community Mode (Mode 3)** and **Matching Mode (Mode 2)**, with **Narrative Mode (Mode 1)** playing a crucial onboarding and value-alignment role for new users.
 
 **Scenario Description/Narrative:**
+
 1. **The Exodus from Unethical Platforms:**
    Driven by increasing awareness of the ethical failings of mainstream social media giants, a significant wave of users begins to migrate away from these platforms, seeking alternatives that align with their values of privacy, authenticity, and ethical technology.
 2. **ThinkAlike Emerges as a Beacon:**
@@ -37,6 +39,7 @@ Primarily **Community Mode (Mode 3)** and **Matching Mode (Mode 2)**, with **Nar
    Fueled by its value-driven architecture and user empowerment principles, ThinkAlike becomes a thriving and vibrant ethical alternative to mainstream social media, demonstrating that a different kind of digital public square is possible – one that prioritizes human well-being, ethical values, and genuine connection over algorithmic manipulation and corporate profit.
 
 **Value Demonstrated:**
+
 - **Ethical Alternative to Mainstream Social Media:**
   ThinkAlike provides a viable and compelling ethical alternative to the dominant, often exploitative, paradigms of social networking, offering users a platform that aligns with their values and respects their digital rights.
 - **User Empowerment and Data Sovereignty:**
@@ -56,6 +59,7 @@ Primarily **Community Mode (Mode 3)** and **Matching Mode (Mode 2)**, with **Nar
 Growing need for effective and ethically grounded activist movements to address pressing social, political, and environmental challenges. Existing centralized social media platforms, while used for organizing, are also vulnerable to censorship, surveillance, and manipulation.
 
 **User(s)/Actors:**
+
 - **Grassroots Activist Groups:**
   Local and global activist organizations working on various social justice, environmental protection, and human rights causes.
 - **Individual Activists and Advocates:**
@@ -67,6 +71,7 @@ Growing need for effective and ethically grounded activist movements to address 
 Primarily **Community Mode (Mode 3)**, with **Matching Mode (Mode 2)** facilitating the formation of effective activist teams, and **Narrative Mode (Mode 1)** potentially used for onboarding new activists into movement principles.
 
 **Scenario Description/Narrative:**
+
 1. **Activist Communities Flourish in Mode 3:**
    ThinkAlike's Community Mode becomes a fertile ground for the growth of decentralized activist networks. Activist groups focused on climate justice, digital rights, economic equality, and various other causes create dedicated communities within ThinkAlike, leveraging its decentralized and value-aligned architecture.
 2. **Decentralized Organization and Secure Communication:**
@@ -79,6 +84,7 @@ Primarily **Community Mode (Mode 3)**, with **Matching Mode (Mode 2)** facilitat
    ThinkAlike facilitates collaboration and resource sharing between different activist communities in Mode 3. Communities focused on related causes (e.g., climate justice and economic equality) can form alliances, share resources, cross-promote campaigns, and coordinate joint actions across the decentralized ThinkAlike network, amplifying their collective impact and building a broader, interconnected movement for social change.
 
 **Value Demonstrated:**
+
 - **Decentralized and Secure Activist Infrastructure:**
   ThinkAlike provides a decentralized and secure infrastructure for activist organizing, moving beyond the vulnerabilities of centralized social media platforms and empowering grassroots movements with greater autonomy and resilience.
 - **Ethical and Value-Driven Mobilization:**
@@ -98,6 +104,7 @@ Primarily **Community Mode (Mode 3)**, with **Matching Mode (Mode 2)** facilitat
 Increasing recognition of the need for ethical considerations in professional fields, particularly in rapidly evolving areas like Artificial Intelligence. Professionals are seeking networks and platforms that go beyond superficial skill-based networking and facilitate connections based on shared values and ethical commitments.
 
 **User(s)/Actors:**
+
 - **Ethical AI Researchers:**
   AI researchers and academics focused on responsible AI development, bias mitigation, transparency, and AI ethics.
 - **Ethical Tech Entrepreneurs:**
@@ -111,6 +118,7 @@ Increasing recognition of the need for ethical considerations in professional fi
 Primarily **Matching Mode (Mode 2)** and **Community Mode (Mode 3)**, with **Narrative Mode (Mode 1)** playing a role in establishing user value profiles and signaling ethical commitments within professional profiles.
 
 **Scenario Description/Narrative:**
+
 1. **Lena's Professional Need - Value-Driven AI Collaboration:**
    Lena, a leading researcher in Ethical AI, recognizes the limitations of traditional professional networking platforms like LinkedIn, which often prioritize superficial connections based on job titles and skills, lacking a focus on deeper value alignment. She seeks a platform that can connect her with other professionals who genuinely share her commitment to ethical AI principles, fostering collaborations and partnerships based on shared values, not just transactional networking.
 2. **ThinkAlike as Ethical Professional Hub - Beyond Skill-Based Networking:**
@@ -132,6 +140,7 @@ Primarily **Matching Mode (Mode 2)** and **Community Mode (Mode 3)**, with **Nar
    ThinkAlike, through its Modes 1, 2, and 3, becomes a powerful catalyst for the growth of a value-driven ethical AI ecosystem. It empowers ethical AI researchers, entrepreneurs, investors, and policymakers to connect, collaborate, and build a more responsible and human-centered future for Artificial Intelligence, all within a platform that explicitly prioritizes ethical values and facilitates genuine, value-aligned professional relationships.
 
 **Value Demonstrated:**
+
 - **Ethical Professional Networking - Beyond Superficial Connections:**
   ThinkAlike provides a platform for professional networking that goes beyond superficial skill-based connections, enabling users to build genuinely value-aligned professional relationships based on shared ethical commitments.
 - **Value-Driven Collaboration and Innovation in Specific Industries:**

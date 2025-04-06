@@ -15,11 +15,12 @@ These endpoints are organized by the core functionalities of the Verification Sy
 
 **A. Ethical Guideline Endpoints (`/api/verification/guidelines`)** *(Admin-Authenticated)*
 
-*   `GET /api/verification/guidelines`
-    *   **Purpose:** Get a list of all Ethical Guidelines defined in the system.
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Response (200 OK, JSON):** Array of Ethical Guideline objects:
+* `GET /api/verification/guidelines`
+  * **Purpose:** Get a list of all Ethical Guidelines defined in the system.
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Response (200 OK, JSON):** Array of Ethical Guideline objects:
+
         ```json
         [
           {
@@ -34,22 +35,24 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... more guideline objects
         ]
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
-*   `GET /api/verification/guidelines/{guidelineId}`
-    *   **Purpose:** Get details for a specific Ethical Guideline.
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Response (200 OK, JSON):** Detailed Ethical Guideline object (same format as in list response).
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
-    *   *(Potentially Admin endpoints for managing guidelines - POST, PUT, DELETE - to be specified if guideline management via API is needed)*
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+* `GET /api/verification/guidelines/{guidelineId}`
+  * **Purpose:** Get details for a specific Ethical Guideline.
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Response (200 OK, JSON):** Detailed Ethical Guideline object (same format as in list response).
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
+  * *(Potentially Admin endpoints for managing guidelines - POST, PUT, DELETE - to be specified if guideline management via API is needed)*
 
 **B. Algorithm Verification Endpoints (`/api/verification/algorithms`)** *(Admin-Authenticated)*
 
-*   `GET /api/verification/algorithms`
-    *   **Purpose:** Get a list of algorithms under verification (initially primarily the Matching Algorithm, but can be expanded).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects:
+* `GET /api/verification/algorithms`
+  * **Purpose:** Get a list of algorithms under verification (initially primarily the Matching Algorithm, but can be expanded).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects:
+
         ```json
         [
           {
@@ -63,12 +66,14 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... more algorithm verification status objects
         ]
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
-*   `GET /api/verification/algorithms/{algorithmId}`
-    *   **Purpose:** Get detailed verification status and information for a specific algorithm.
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Response (200 OK, JSON):** AlgorithmVerificationDetails object:
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+* `GET /api/verification/algorithms/{algorithmId}`
+  * **Purpose:** Get detailed verification status and information for a specific algorithm.
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Response (200 OK, JSON):** AlgorithmVerificationDetails object:
+
         ```json
         {
           "algorithmId": "UUID",
@@ -82,12 +87,14 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... other detailed verification information
         }
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
-*   `GET /api/verification/algorithms/{algorithmId}/ethical-rationale`
-    *   **Purpose:** Get the documented ethical rationale for a specific algorithm.
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially Publicly Accessible in future for increased transparency*
-    *   **Response (200 OK, JSON):**
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
+* `GET /api/verification/algorithms/{algorithmId}/ethical-rationale`
+  * **Purpose:** Get the documented ethical rationale for a specific algorithm.
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially Publicly Accessible in future for increased transparency*
+  * **Response (200 OK, JSON):**
+
         ```json
         {
           "algorithmId": "UUID",
@@ -96,21 +103,23 @@ These endpoints are organized by the core functionalities of the Verification Sy
           "rationaleDocumentLink": "URL (link to full rationale document - optional)"
         }
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
-*   `GET /api/verification/algorithms/{algorithmId}/audit-logs`
-    *   **Purpose:** Get audit logs for a specific algorithm (changes, verification attempts, reviews).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Response (200 OK, JSON):** Array of AuditLogEntry objects (related to the specified algorithm).
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
+* `GET /api/verification/algorithms/{algorithmId}/audit-logs`
+  * **Purpose:** Get audit logs for a specific algorithm (changes, verification attempts, reviews).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Response (200 OK, JSON):** Array of AuditLogEntry objects (related to the specified algorithm).
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
 
 **C. Data Traceability Endpoints (`/api/verification/datatraceability`)** *(Admin-Authenticated - Potentially User-Accessible for limited data in future)*
 
-*   `GET /api/verification/datatraceability/processes`
-    *   **Purpose:** Get a list of processes with data traceability implemented (e.g., Matching Algorithm, User Data Handling, etc.).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially User-Accessible in future for limited process info*
-    *   **Response (200 OK, JSON):** Array of TraceableProcess objects:
+* `GET /api/verification/datatraceability/processes`
+  * **Purpose:** Get a list of processes with data traceability implemented (e.g., Matching Algorithm, User Data Handling, etc.).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially User-Accessible in future for limited process info*
+  * **Response (200 OK, JSON):** Array of TraceableProcess objects:
+
         ```json
         [
           {
@@ -123,12 +132,14 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... more traceable process objects
         ]
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
-*   `GET /api/verification/datatraceability/processes/{processId}`
-    *   **Purpose:** Get detailed information and visualization data for a specific traceable process.
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially User-Accessible in future for limited data visualization*
-    *   **Response (200 OK, JSON):** TraceableProcessDetails object:
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+* `GET /api/verification/datatraceability/processes/{processId}`
+  * **Purpose:** Get detailed information and visualization data for a specific traceable process.
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially User-Accessible in future for limited data visualization*
+  * **Response (200 OK, JSON):** TraceableProcessDetails object:
+
         ```json
         {
           "processId": "UUID",
@@ -142,20 +153,22 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... other detailed process information
         }
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
 
 **D. Audit Log Endpoints (`/api/verification/audit-logs`)** *(Admin-Authenticated)*
 
-*   `GET /api/verification/audit-logs`
-    *   **Purpose:** Get a general audit log of Verification System activities (admin-only access).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Query Parameters (Optional):**
-        *   `filterBy`: "enum ['guideline', 'algorithm', 'datatraceability', 'admin_actions', ...]" - Filter logs by category.
-        *   `sortBy`: "enum ['timestamp', 'adminUser', 'actionType', ...]" - Sort logs by different criteria.
-        *   `page`: "integer" - Page number for pagination.
-        *   `pageSize`: "integer" - Number of log entries per page.
-    *   **Response (200 OK, JSON):** Paginated list of AuditLogEntry objects:
+* `GET /api/verification/audit-logs`
+  * **Purpose:** Get a general audit log of Verification System activities (admin-only access).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Query Parameters (Optional):**
+    * `filterBy`: "enum ['guideline', 'algorithm', 'datatraceability', 'admin_actions', ...]" - Filter logs by category.
+    * `sortBy`: "enum ['timestamp', 'adminUser', 'actionType', ...]" - Sort logs by different criteria.
+    * `page`: "integer" - Page number for pagination.
+    * `pageSize`: "integer" - Number of log entries per page.
+  * **Response (200 OK, JSON):** Paginated list of AuditLogEntry objects:
+
         ```json
         {
           "auditLogs": [
@@ -175,21 +188,23 @@ These endpoints are organized by the core functionalities of the Verification Sy
           "totalPages": "integer"
         }
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
-*   `GET /api/verification/audit-logs/{logId}`
-    *   **Purpose:** Get details for a specific audit log entry.
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication - Verification System management privileges)
-    *   **Response (200 OK, JSON):** Detailed AuditLogEntry object (same format as in list response).
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+* `GET /api/verification/audit-logs/{logId}`
+  * **Purpose:** Get details for a specific audit log entry.
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication - Verification System management privileges)
+  * **Response (200 OK, JSON):** Detailed AuditLogEntry object (same format as in list response).
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
 
 **E. Platform Verification Status Endpoints (`/api/verification/status`)** *(Potentially Publicly Accessible in Future for Transparency Reporting)*
 
-*   `GET /api/verification/status/platform`
-    *   **Purpose:** Get overall platform verification status summary (high-level overview of verified components).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future for transparency reporting*
-    *   **Response (200 OK, JSON):** PlatformVerificationStatusSummary object:
+* `GET /api/verification/status/platform`
+  * **Purpose:** Get overall platform verification status summary (high-level overview of verified components).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future for transparency reporting*
+  * **Response (200 OK, JSON):** PlatformVerificationStatusSummary object:
+
         ```json
         {
           "platformVerificationStatus": "enum ['verified', 'partially_verified', 'unverified']",
@@ -203,12 +218,14 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... other summary status information
         }
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
-*   `GET /api/verification/status/modes`
-    *   **Purpose:** Get verification status for each Mode (Narrative, Matching, Community).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future*
-    *   **Response (200 OK, JSON):** Array of ModeVerificationStatus objects:
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+* `GET /api/verification/status/modes`
+  * **Purpose:** Get verification status for each Mode (Narrative, Matching, Community).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future*
+  * **Response (200 OK, JSON):** Array of ModeVerificationStatus objects:
+
         ```json
         [
           {
@@ -225,13 +242,14 @@ These endpoints are organized by the core functionalities of the Verification Sy
           // ... more ModeVerificationStatus objects (for each Mode)
         ]
         ```
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
-*   `GET /api/verification/status/algorithms`
-    *   **Purpose:** Get verification status for specific algorithms (detailed algorithm verification statuses).
-    *   **Method:** GET
-    *   **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future*
-    *   **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects (detailed status for each verified algorithm - same format as GET /api/verification/algorithms).
-    *   **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
+* `GET /api/verification/status/algorithms`
+  * **Purpose:** Get verification status for specific algorithms (detailed algorithm verification statuses).
+  * **Method:** GET
+  * **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future*
+  * **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects (detailed status for each verified algorithm - same format as GET /api/verification/algorithms).
+  * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
 
 **III. Data Models (Refer to Verification System Specification):**
 

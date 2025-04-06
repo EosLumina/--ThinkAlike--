@@ -1,6 +1,8 @@
 // filepath: C:\--ThinkAlike--\docs\guides\developer_guides\matching_algorithm_guide.md
 # Project - Developer Guide: Matching Algorithm
 
+# Matching Algorithm
+
 **Audience:** Developers contributing to the implementation, maintenance, and enhancement of the ThinkAlike Value-Based Matching Algorithm.
 
 ---
@@ -91,9 +93,9 @@ The Matching Algorithm operates as a key component within ThinkAlike's backend a
 A key innovation of the ThinkAlike Matching Algorithm is its implementation of "Ethical Weighting." This section provides developers with specific guidance on how to implement ethical weighting effectively and ethically within the algorithm.
 
 * **Define Value Categories and Ethical Weights:**
-    * **Establish Value Taxonomy:**
+  * **Establish Value Taxonomy:**
       Clearly define a taxonomy of core values relevant to Enlightenment 2.0 principles and the ThinkAlike project mission. This taxonomy should encompass categories such as "Transparency," "User Empowerment," "Data Privacy," "Community," "Ethical AI," "Social Justice," etc. (Refer to the Ethical Guidelines and Manifesto for a comprehensive list of core values).
-    * **Assign Ethical Weights to Value Categories:**
+  * **Assign Ethical Weights to Value Categories:**
       Assign numerical "ethical weights" to each value category, reflecting their relative importance in the ThinkAlike ethical framework. Values that are deemed more central to Enlightenment 2.0 principles and user well-being should be assigned higher weights. These weights should be carefully considered, transparently documented within the Verification System, and potentially subject to community review and feedback.
       *Example (Illustrative - Weights are for example only and need careful deliberation):*
 
@@ -109,21 +111,22 @@ A key innovation of the ThinkAlike Matching Algorithm is its implementation of "
         "Efficiency": 0.3       // Lower ethical weight - Primarily a technical/practical consideration
       }
       ```
-    * **Document Rationale for Ethical Weights:**
+
+  * **Document Rationale for Ethical Weights:**
       Meticulously document the rationale and ethical reasoning behind the assigned weights for each value category within the Verification System. This documentation should explain *why* certain values are prioritized over others and justify the specific numerical weights assigned, ensuring transparency and auditability of the ethical weighting scheme.
 
 * **Implement Weighting in Matching Algorithm Logic:**
-    * **Modify Similarity Scoring Functions:**
+  * **Modify Similarity Scoring Functions:**
       Adapt the similarity scoring functions within the Matching Algorithm to incorporate ethical weights. This could involve:
-        * **Weighted Summation:**
+    * **Weighted Summation:**
           Calculate the overall Matching Percentage as a weighted summation of value alignment scores, where each value category's contribution to the overall score is multiplied by its corresponding ethical weight.
-        * **Hierarchical Weighting:**
+    * **Hierarchical Weighting:**
           Implement a hierarchical weighting scheme where matches based on higher-weighted ethical values are prioritized more strongly in the ranking and presentation of match results.
                 * **Algorithmic Bias Mitigation Techniques:**
                   Integrate bias mitigation techniques into the weighting scheme to prevent unintended biases from being amplified by the ethical weights. Ensure that the weighting scheme does not disproportionately disadvantage or exclude any user groups based on demographic factors or other protected characteristics.
 
 * **Ensure Transparency and User Understanding of Ethical Weighting:**
-    * **Explain Ethical Weighting in User Documentation (Onboarding Manual, User Guides):**
+  * **Explain Ethical Weighting in User Documentation (Onboarding Manual, User Guides):**
       Clearly explain the concept of "Ethical Weighting" in user-facing documentation, **particularly in the Onboarding Manual (Mode 1 Narrative) and User Guides for Matching Mode and Community Mode, ensuring users understand *why* and *how* value alignment is prioritized in ThinkAlike's connection and community building processes.**
 
 ---
@@ -139,5 +142,6 @@ A key innovation of the ThinkAlike Matching Algorithm is its implementation of "
 ---
 End of Project - Developer Guide: Matching Algorithm
 ---
+
 
 

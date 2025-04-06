@@ -90,7 +90,7 @@ ThinkAlike follows a standard GitHub Fork & Pull Request workflow, emphasizing t
 2.  **Fork the Repository:** Create your own fork of the main ThinkAlike repository ([https://github.com/EosLumina/--ThinkAlike--](https://github.com/EosLumina/--ThinkAlike--)) on GitHub.
 3.  **Clone Your Fork:** Clone your forked repository to your local machine:
 
-        git clone https://github.com/YOUR_USERNAME/--ThinkAlike--.git # Replace YOUR_USERNAME
+git clone https://github.com/YOUR_USERNAME/--ThinkAlike--.git # Replace YOUR_USERNAME
         cd --ThinkAlike--
 
 4.  **Create a Feature Branch:** For *each* contribution, create a *new* branch from the `main` branch. Use a descriptive name following the convention: `type/issue-number-short-description` (e.g., `feat/123-profile-video`). Refer to [`Issue Labels Guide`](../guides/developer_guides/Issue_Labels_Guide.md) for types (`feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `ui`, `ci`, `build`).
@@ -102,6 +102,23 @@ ThinkAlike follows a standard GitHub Fork & Pull Request workflow, emphasizing t
 6.  **Keep Updated:** Regularly rebase or merge the `main` branch from the upstream (original) repository into your feature branch to incorporate the latest changes (`git fetch upstream`, `git rebase upstream/main`).
 7.  **Push to Your Fork:** Push your branch to your forked repository on GitHub:
 
+```bash
+    git clone https://github.com/YOUR_USERNAME/thinkalike_project.git # Replace with YOUR fork's URL
+
+    cd thinkalike_project
+    ```
+
+3. **Create a Feature Branch:** For *each* contribution, create a *new* branch from the `main` branch. Use a descriptive branch name that reflects the purpose of your contribution, following the naming conventions outlined below.
+4. **Make Your Changes:** Implement your contribution, adhering to the [Code Style Guidelines](#code-style-guidelines) and best practices. Write code that is not only functional but also **transparent, well-documented, and ethically sound**.
+5. **Test Thoroughly - Emphasizing UI Validation:** *Before* submitting your changes, test them *rigorously*, focusing on **UI-driven data validation** and workflow integrity. This includes:
+
+* **Unit Tests:** Write unit tests to verify the functionality of individual code components, using UI outputs to validate code behavior.
+* **Integration Tests:** Test the interactions between different system components, highlighting data flow and UI validation points for each integration step.
+* **UI Tests:** Use the UI testing framework to validate the appearance, behavior, and **data transparency** of UI components.
+* **Manual Testing:** Manually test your changes in a browser or simulator, paying close attention to **data traceability** and **UI feedback loops** that validate ethical implementation.
+
+7. **Push to Your Fork:** Push your branch to your forked repository on GitHub:
+
         git push origin your-branch-name
 
 8.  **Create a Pull Request (PR):** Open a pull request from your branch on your fork to the `main` branch of the main ThinkAlike repository.
@@ -109,6 +126,9 @@ ThinkAlike follows a standard GitHub Fork & Pull Request workflow, emphasizing t
     * Provide a clear description of your changes. Link the relevant issue (e.g., `Closes #123`). Include screenshots/GIFs for UI changes.
     * Ensure all automated checks (CI) pass.
 9.  **Code Review and Collaboration:** Engage constructively with feedback from project maintainers and community members. Reviewers will check for functionality, code quality, testing, documentation, **ethical alignment**, security, data traceability, and UI/UX integration.
+
+2. **Create a Pull Request (PR):** Create a pull request to the main ThinkAlike repository, providing a clear and detailed description of your changes, referencing relevant issues, and including screenshots or GIFs if UI changes are involved.
+9. **Code Review and Collaboration:** Engage in code review and address feedback from project maintainers and community members, collaborating to refine your contribution and ensure its quality and ethical alignment.
 10. **Merge:** Once your PR is approved and passes all tests, a project maintainer will merge it into the `main` branch.
 
 **Important Documentation Note:** If your PR adds, removes, renames, or moves any documentation files within the `docs/` directory, **please update the `files` array in `docs/index.html`** within the same Pull Request. This ensures the documentation portal navigation remains accurate.
@@ -218,11 +238,23 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 
 * **Refactoring (Ethical Clarity):**
 
+> "Explain the purpose and functionality of the following React component in the ThinkAlike project, including how it contributes to data traceability and user empowerment, and the meaning of each prop and the expected data types:
+>
+    > ```jsx
+    > [Paste component code here]
+    > ```"
+
         Refactor this ThinkAlike JS code for readability, transparency, ethical clarity.
         Explain changes and how they enhance data traceability/user understanding:
         [Paste code]
 
 * **Documentation (Transparency Focus):**
+
+> "Write a unit test for the following Python function using pytest, focusing on data validation and using UI data feedback loops to verify the correctness of the output and its alignment with ethical data handling principles:
+>
+    > ```python
+    > [Paste function code here]
+    > ```"
 
         Write a JSDoc comment for this ThinkAlike React component, explaining how it
         promotes data transparency and user control:
@@ -230,12 +262,24 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 
 * **Debugging (Ethical Lens):**
 
+> "Refactor the following JavaScript code in the ThinkAlike project to improve readability, transparency, and ethical clarity. Explain the changes you made and how they enhance data traceability and user understanding of the workflow:
+>
+    > ```javascript
+    > [Paste code snippet here]
+    > ```"
+
         Explain error: [Error message].
         Analyze the code for potential ethical issues (data handling/bias).
         Code:
         [Paste code]
 
 * **Writing Commit Messages:**
+
+> "Write a concise documentation comment (in JSDoc format) for the following React component in ThinkAlike, explicitly explaining how it contributes to data transparency and user control within the platform:
+>
+    > ```jsx
+    > [Paste component code here]
+    > ```"
 
         Write a conventional commit message for this change per ThinkAlike guidelines,
         emphasizing improvements to data traceability or ethical alignment:
@@ -255,4 +299,6 @@ Thank you for contributing to building a more ethical and human-centered digital
 End of Contributing to ThinkAlike
 ---
 
+
+> "Write a conventional commit message for this change, following the ThinkAlike project guidelines and emphasizing how the change improves data
 

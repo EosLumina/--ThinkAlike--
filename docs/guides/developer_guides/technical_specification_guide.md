@@ -56,11 +56,11 @@ ThinkAlike uses AI to enhance user connections and understanding, always guided 
 The UI is a central architectural component that facilitates user interactions, validates data flows, tests code implementation, and enhances user understanding.
 
 * **Core UI Principles:**
-  - **Simplicity, Clarity, and Ease of Use:** The UI must be intuitive and accessible to all users.
-  - **Transparency:** The UI must clearly show data handling processes and AI implementations.
-  - **User Control:** The UI must empower users to control their data, their choices, and their workflow.
-  - **Ethical Design:** The UI must reflect data security and ethical implementation guidelines.
-  - **Data Visualization:** The UI must help users understand complex data and its transformation, using reusable components for different types of information and workflow cycles.
+  * **Simplicity, Clarity, and Ease of Use:** The UI must be intuitive and accessible to all users.
+  * **Transparency:** The UI must clearly show data handling processes and AI implementations.
+  * **User Control:** The UI must empower users to control their data, their choices, and their workflow.
+  * **Ethical Design:** The UI must reflect data security and ethical implementation guidelines.
+  * **Data Visualization:** The UI must help users understand complex data and its transformation, using reusable components for different types of information and workflow cycles.
 
 * **Reusable UI Components:**
   Reusable UI components are used to build data visualization interfaces for data access and handling (buttons, forms, modals, etc.). These components must work as data validation tools and as architectural components for workflow implementation, following reusable design patterns with clear implementation guidelines.
@@ -141,9 +141,6 @@ This Technical Specification Guide provides a detailed overview of the core impl
 ---
 
 *End of Technical Specification Guide*
-
-
-
 ---
 **Document Details**
 - Title: Technical Specification Guide
@@ -153,5 +150,4 @@ This Technical Specification Guide provides a detailed overview of the core impl
 ---
 End of Technical Specification Guide
 ---
-
 

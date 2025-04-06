@@ -1,6 +1,8 @@
 // filepath: C:\--ThinkAlike--\docs\guides\developer_guides\building_backend_endpoint.md
 # Building a Backend Api Endpoint
 
+# Building a Backend API Endpoint
+
 This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing, request/response modeling, service layer interaction, database access, testing, and integration with the Verification System.
 
 **Prerequisites:**
@@ -38,10 +40,13 @@ This guide details the process for creating new API endpoints within the ThinkAl
 ## 2. Implementation Steps
 
 ### 2.1. Define Models (Pydantic)
+
 In the designated area (e.g., `backend/models/schemas/`), define the Pydantic models for your request and response.
 
 ```python
+
 # Example: backend/models/schemas/profile_schemas.py
+
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
@@ -58,9 +63,12 @@ class ProfileResponse(BaseModel):
 
     class Config:
         orm_mode = True  # To allow conversion from SQLAlchemy models
+
 ```
 
 ## 2.2. Create/Update Router
+
+### 2.2. Create/Update Router
 Locate the appropriate `APIRouter` file (e.g., in `backend/routes/user_routes.py`) or create a new one if needed.
 
 - Define the endpoint function using the correct FastAPI decorator.
@@ -69,17 +77,21 @@ Locate the appropriate `APIRouter` file (e.g., in `backend/routes/user_routes.py
 - Implement authentication/authorization checks with FastAPI dependencies.
 
 ```python
+
 # Example: backend/routes/user_routes.py
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from .. import crud, models, services
 from ..dependencies import get_db, get_current_active_user  # Assuming these exist
+
 from ..models.schemas import profile_schemas
 
 router = APIRouter(
     prefix="/users",
     tags=["users"],
     dependencies=[Depends(get_current_active_user)],  # Apply auth to all routes here
+
     responses={404: {"description": "Not found"}},
 )
 
@@ -94,8 +106,10 @@ async def update_user_profile(
     db: Session = Depends(get_db),
     current_user: models.User = Depends(get_current_active_user),
     profile_service: services.ProfileService = Depends(services.ProfileService)  # Inject service
+
 ):
     # Authorization check: Ensure user can only update their own profile (or admin)
+
     if user_id != current_user.id and not current_user.is_superuser:
          raise HTTPException(
              status_code=status.HTTP_403_FORBIDDEN,
@@ -103,6 +117,7 @@ async def update_user_profile(
          )
 
     # Call the service layer to handle the logic
+
     updated_profile = await profile_service.update_profile(
         db=db, user_id=user_id, profile_update_data=profile_data
     )
@@ -113,6 +128,8 @@ async def update_user_profile(
 ```
 
 ## 2.3. Implement Service Logic
+
+### 2.3. Implement Service Logic
 In the service layer (e.g., `backend/services/profile_service.py`), encapsulate the business logic for your endpoint.
 
 - Accept necessary parameters such as the DB session, user ID, and input data.
@@ -121,7 +138,9 @@ In the service layer (e.g., `backend/services/profile_service.py`), encapsulate 
 - Return results or raise exceptions as needed.
 
 ```python
+
 # Example: backend/services/profile_service.py
+
 from sqlalchemy.orm import Session
 from fastapi import HTTPException, status
 from .. import crud, models
@@ -140,6 +159,7 @@ class ProfileService:
         update_data = profile_update_data.dict(exclude_unset=True)
 
         # Verification Hook Example (Pre-Update)
+
         if 'display_name' in update_data:
              is_valid, reason = await self.verification_service.verify_action(
                  action="update_display_name",
@@ -152,14 +172,18 @@ class ProfileService:
                  )
 
         # Update user data using CRUD operations
+
         updated_user = crud.user.update(db=db, db_obj=db_user, obj_in=update_data)
         return updated_user
 ```
 
 ## 2.4. Add CRUD Operations (if necessary)
+
+### 2.4. Add CRUD Operations (if necessary)
 If new database interactions are required, add reusable CRUD functions (e.g., in `backend/crud/crud_user.py`). These should handle basic SQLAlchemy operations such as get, create, update, and delete.
 
 ### 2.5. Register the Router
+
 Ensure your new or updated router is included in the main FastAPI application. In `backend/main.py`, add:
 
 ```python
@@ -175,18 +199,22 @@ app.include_router(user_routes.router)
 ## 3. Testing
 
 ### Unit Testing (Services)
+
 - Write tests for your service methods in isolation.
 - Mock the database session, CRUD functions, and the Verification System calls.
 - Ensure your validations and data transformations are correct.
 
 ### Integration Testing (Endpoints)
+
 - Use FastAPI’s `TestClient` to send requests to your endpoints.
 - Verify status codes, response bodies, and database state changes.
 - Test authentication/authorization enforcement.
 - Optionally, mock Verification System calls if they are complex or external.
 
 ```python
+
 # Example Integration Test Snippet (backend/tests/api/v1/test_users.py)
+
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 from .... import models
@@ -196,6 +224,7 @@ def test_update_own_profile(client: TestClient, db: Session, normal_user_token_h
     update_data = {"display_name": "Updated Name Test"}
     response = client.put(
         f"/api/v1/users/{normal_user.id}/profile",  # Adjust prefix as needed
+
         headers=normal_user_token_headers,
         json=update_data,
     )
@@ -205,18 +234,22 @@ def test_update_own_profile(client: TestClient, db: Session, normal_user_token_h
     assert data["user_id"] == normal_user.id
 
     # Verify DB change
+
     db.refresh(normal_user)
     assert normal_user.display_name == "Updated Name Test"
 
 def test_update_other_user_profile_forbidden(client: TestClient, db: Session, normal_user_token_headers: dict) -> None:
     # Assuming another user with ID 999 exists
+
     update_data = {"display_name": "Forbidden Update"}
     response = client.put(
         f"/api/v1/users/999/profile",  # Adjust prefix as needed
+
         headers=normal_user_token_headers,
         json=update_data,
     )
     assert response.status_code == 403  # Or 401 depending on auth setup
+
 ```
 
 ---
@@ -231,8 +264,6 @@ def test_update_other_user_profile_forbidden(client: TestClient, db: Session, no
 ---
 
 By following this structured approach—covering design, implementation, tests, and manual verification—you ensure new backend endpoints are robust, secure, and fully aligned with ThinkAlike’s core principles.
-
-
 ---
 **Document Details**
 - Title: Building a Backend Api Endpoint
@@ -242,5 +273,4 @@ By following this structured approach—covering design, implementation, tests, 
 ---
 End of Building a Backend Api Endpoint
 ---
-
 
