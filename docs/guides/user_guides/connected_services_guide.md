@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\user_guides\connected_services_guide.md
 # Managing Connected Services & Data Sources
 
 ---
@@ -102,3 +103,15 @@ You are always in control and can disconnect a service easily:
 ---
 
 By providing these clear controls and transparent processes, ThinkAlike aims to make third-party data integration an empowering and trustworthy optional feature for enhancing your connection experience.
+
+---
+**Document Details**
+- Title: Managing Connected Services & Data Sources
+- Type: User Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Managing Connected Services & Data Sources
+---
+
+

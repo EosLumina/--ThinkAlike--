@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\core\code_of_conduct.md
 # Project - Code of Conduct - Building a Respectful and Inclusive Community
 
 **Version 1.0 - Draft - Work in Progress**
@@ -70,3 +71,15 @@ This Code of Conduct is adapted from the [Contributor Covenant](https://www.cont
 **We are building a revolution - a revolution of ethical technology, user empowerment, and a respectful and inclusive community. Let's uphold these values in every interaction!**
 
 **This document is a work in progress and will be continuously updated as the ThinkAlike project evolves.**
+
+---
+**Document Details**
+- Title: Project - Code of Conduct - Building a Respectful and Inclusive Community
+- Type: Core Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Project - Code of Conduct - Building a Respectful and Inclusive Community
+---
+
+

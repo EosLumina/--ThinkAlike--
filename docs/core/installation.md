@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\core\installation.md
 # Installation Guide
 
 **Welcome to ThinkAlike! - Read This First!**
@@ -202,5 +203,17 @@ Run the backend and frontend servers simultaneously in **separate terminals**.
 ---
 
 You should now have a working local development environment for ThinkAlike! Refer to `CONTRIBUTING.md` and other documentation for development guidelines.
+
+
+
+---
+**Document Details**
+- Title: Installation Guide
+- Type: Core Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Installation Guide
+---
 
 

@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\pull_request_process.md
 # Pull Request Process Guide
 
 ---
@@ -199,3 +200,15 @@ For major features that take weeks to develop:
 ---
 
 By following this pull request process, we maintain high code quality while allowing for efficient collaboration among all ThinkAlike contributors.
+
+---
+**Document Details**
+- Title: Pull Request Process Guide
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Pull Request Process Guide
+---
+
+

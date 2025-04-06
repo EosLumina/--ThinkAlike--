@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_community_mode.md
 # Api Endpoints - Project Backend - Community Mode
 
 **Document Purpose:**
@@ -233,3 +234,15 @@ API endpoints will use standard HTTP status codes to indicate success or failure
 This document represents the initial set of Community Mode API endpoints. Future endpoints will be added as Community Mode features evolve and expand, particularly for more detailed forum functionality, direct/liquid democracy tools, and resource sharing mechanisms.  All new Community Mode API endpoints will be documented in updated versions of this document.
 
 ---
+
+---
+**Document Details**
+- Title: Api Endpoints - Project Backend - Community Mode
+- Type: Architecture Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Api Endpoints - Project Backend - Community Mode
+---
+
+

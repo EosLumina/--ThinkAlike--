@@ -1,8 +1,28 @@
-# Git Workflow Guide
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\git_workflow.md
+# Git Workflow Standard
 
 ---
 
 ## 1. Introduction
+
+Defines the Git workflow and branching strategy used across the project.
+
+```mermaid
+gitGraph
+    commit
+    branch develop
+    checkout develop
+    commit
+    branch feature
+    checkout feature
+    commit
+    commit
+    checkout develop
+    merge feature
+    commit
+    checkout main
+    merge develop
+```
 
 This document outlines the standard Git workflow for the ThinkAlike project. Following a consistent workflow ensures that our codebase remains organized, maintainable, and that team members can collaborate effectively. This guide covers branching strategy, commit guidelines, and best practices for using Git in our development process.
 
@@ -296,4 +316,13 @@ pip install pre-commit && pre-commit install  # for backend
 
 ---
 
-By following this Git workflow consistently, we maintain a clean, understandable project history and enable efficient collaboration across the team.
+**Document Details**
+- Title: Git Workflow Standard
+- Type: Development Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Git Workflow Standard
+
+
+

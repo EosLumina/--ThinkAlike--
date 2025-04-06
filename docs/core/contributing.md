@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\core\contributing.md
 # Contributing to ThinkAlike
 
 Thank you for your interest in contributing to ThinkAlike! We welcome contributions from everyone, and we believe that a diverse and inclusive community is essential for building a truly ethical and innovative platform. Every contribution, no matter how small, is valuable and contributes to our mission of building a more humane and transparent digital world.
@@ -243,3 +244,15 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 ---
 
 Thank you for contributing to building a more ethical and human-centered digital world with ThinkAlike!
+
+---
+**Document Details**
+- Title: Contributing to ThinkAlike
+- Type: Core Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Contributing to ThinkAlike
+---
+
+

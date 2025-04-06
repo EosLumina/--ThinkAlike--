@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\user_guides\mode2_discovery_guide.md
 # User Guide: Matching Mode - Find Your Value-aligned Connections (mode 2)
 
 **Welcome to ThinkAlike Matching Mode (Mode 2)!**
@@ -89,3 +90,15 @@ Matching Mode empowers you to take a proactive and user-driven approach to findi
   Mode 2 provides an efficient and user-friendly path to discovering and establishing genuinely value-aligned relationships, combining user agency with intelligent AI-driven guidance to navigate the ThinkAlike network and find your tribe.
 
 ---
+
+---
+**Document Details**
+- Title: User Guide: Matching Mode - Find Your Value-aligned Connections (mode 2)
+- Type: User Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of User Guide: Matching Mode - Find Your Value-aligned Connections (mode 2)
+---
+
+

@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\components\ui_components\connected_services_manager.md
 # UI Component Specification: ConnectedServicesManager
 
 ---
@@ -278,3 +279,15 @@ Integrates With:
 * Backend OAuth handling logic and token storage.
 
 This component is central to providing users with meaningful control over third-party data integration, directly implementing ThinkAlike's core values of transparency and user sovereignty.
+
+---
+**Document Details**
+- Title: UI Component Specification: ConnectedServicesManager
+- Type: Component Specification
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of UI Component Specification: ConnectedServicesManager
+---
+
+

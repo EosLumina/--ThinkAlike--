@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ai\ai_driven_workflow.md
 # Ai-driven Workflows
 
 This document describes the AI-driven workflows within the ThinkAlike platform, focusing on how AI is used to enhance user experience, facilitate connections, and ensure ethical data handling. It includes detailed examples of key workflows.
@@ -179,5 +180,17 @@ flowchart TB
 
     linkStyle default stroke:#0066cc,stroke-width:2px;
 `
+
+
+
+---
+**Document Details**
+- Title: Ai-driven Workflows
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Ai-driven Workflows
+---
 
 

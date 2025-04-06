@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\issue_labels_guide.md
 # GitHub Issue Labels Guide
 
 ---
@@ -125,3 +126,15 @@ These help new contributors find suitable tasks.
 *   **Maintainers/Triagers:** Ensure issues are correctly labeled with `type:`, `priority:`, and `status:` labels. Assign `area:` labels accurately. Use labels to manage project boards and milestones.
 
 Consistent labeling makes the issue tracker significantly more organized and useful for everyone involved in the ThinkAlike project.
+
+---
+**Document Details**
+- Title: GitHub Issue Labels Guide
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of GitHub Issue Labels Guide
+---
+
+

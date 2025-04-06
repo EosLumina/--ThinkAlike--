@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\connected_services_guide.md
 # Managing Connected Services & Data Sources
 
 ---
@@ -98,3 +99,15 @@ You can disconnect a service and revoke ThinkAlike's access at any time:
 *   ThinkAlike uses this data **only** to enhance your experience as described and consented to, never for unrelated advertising or sale to third parties.
 
 Managing your connected services gives you powerful control over how different facets of your digital life can enrich your ThinkAlike experience, always guided by your explicit consent and our commitment to transparency.
+
+---
+**Document Details**
+- Title: Managing Connected Services & Data Sources
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Managing Connected Services & Data Sources
+---
+
+

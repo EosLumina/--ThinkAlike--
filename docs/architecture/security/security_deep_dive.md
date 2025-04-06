@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\architecture\security\security_deep_dive.md
 # Architectural Overview - Project
 
 **Document Purpose:**
@@ -75,4 +76,16 @@ The ThinkAlike architecture is designed with scalability and future evolution in
 This document provides a high-level overview. For more detailed architectural specifications, please refer to the documents within the `docs/architecture/` folder and its subfolders, as linked throughout this document.
 
 ---
+
+
+---
+**Document Details**
+- Title: Architectural Overview - Project
+- Type: Architecture Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Architectural Overview - Project
+---
+
 

@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\customizable_ui_tests.md
 # Customizable Ui Tests
 
 ---
@@ -179,3 +180,15 @@ This feature typically resides within a dedicated "Testing & Validation Center" 
 *   AI-assisted test generation based on user flows or requirements.
 
 ---
+
+---
+**Document Details**
+- Title: Customizable Ui Tests
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Customizable Ui Tests
+---
+
+

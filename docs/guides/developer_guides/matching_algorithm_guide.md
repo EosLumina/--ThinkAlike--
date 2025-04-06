@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\matching_algorithm_guide.md
 # Project - Developer Guide: Matching Algorithm
 
 **Audience:** Developers contributing to the implementation, maintenance, and enhancement of the ThinkAlike Value-Based Matching Algorithm.
@@ -128,3 +129,15 @@ A key innovation of the ThinkAlike Matching Algorithm is its implementation of "
 ---
 
 *End of Matching Algorithm Guide segment*
+
+---
+**Document Details**
+- Title: Project - Developer Guide: Matching Algorithm
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Project - Developer Guide: Matching Algorithm
+---
+
+

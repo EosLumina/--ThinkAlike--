@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\components\ui_components\core_values_validator.md
 # Design Document: Corevaluesvalidator Ui Component
 
 ---
@@ -272,5 +273,17 @@ Direct feedback mechanism within the component for users/testers to report inacc
 Deeper integration with the Verification System to show audit trail snippets directly.
 
 Configuration options to customize which principles are displayed or prioritized.
+
+
+
+---
+**Document Details**
+- Title: Design Document: Corevaluesvalidator Ui Component
+- Type: Component Specification
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Design Document: Corevaluesvalidator Ui Component
+---
 
 

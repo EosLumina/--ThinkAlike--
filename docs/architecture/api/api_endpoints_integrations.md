@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_integrations.md
 # API Endpoints - Backend - External Integrations
 
 ---
@@ -174,3 +175,15 @@ Refer to [`API_ENDPOINTS.md`](api_endpoints.md) for general API conventions, aut
 *   Standard HTTP error codes used; error responses include `message`.
 
 ---
+
+---
+**Document Details**
+- Title: API Endpoints - Backend - External Integrations
+- Type: Architecture Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of API Endpoints - Backend - External Integrations
+---
+
+

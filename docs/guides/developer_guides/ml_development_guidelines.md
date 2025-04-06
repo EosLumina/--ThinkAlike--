@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ml_development_guidelines.md
 # ML Development Guidelines
 
 ---
@@ -688,3 +689,15 @@ Document the following for engineering handoffs:
 ---
 
 By following these ML development guidelines, ThinkAlike ensures that our machine learning systems are robust, fair, explainable, and maintainable, while delivering maximum value to our users.
+
+---
+**Document Details**
+- Title: ML Development Guidelines
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of ML Development Guidelines
+---
+
+

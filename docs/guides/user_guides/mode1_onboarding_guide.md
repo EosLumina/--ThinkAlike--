@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\user_guides\mode1_onboarding_guide.md
 # User Guide: Narrative Mode - Embark on Your Journey of Self-discovery and Value-based Matching (mode 1)
 
 **Welcome to ThinkAlike Narrative Mode (Mode 1)!**
@@ -46,3 +47,15 @@ The AI Agent is your constant companion and guide throughout the Narrative Mode 
 ## 5. Understanding the "Perfect Match" Reveal: The Climax of Your Narrative Journey
 
 The culmination of your Narrative Mode adventure is the potential reveal of a "perfect match" – a User Node profile that ThinkAlike's AI has identified as exhibiting a particularly strong value alignment with your own, based on your choices and interactions throughout the "Whispering Woods" narrative. This "perfect match" reveal is designed to be a rewarding and exciting moment, signifying the successful convergence of your authentic self with the discovery of a truly compatible connection.
+
+---
+**Document Details**
+- Title: User Guide: Narrative Mode - Embark on Your Journey of Self-discovery and Value-based Matching (mode 1)
+- Type: User Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of User Guide: Narrative Mode - Embark on Your Journey of Self-discovery and Value-based Matching (mode 1)
+---
+
+

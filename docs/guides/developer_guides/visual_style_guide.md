@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\visual_style_guide.md
 # Style Guide
 
 This document outlines the visual style and branding guidelines for the ThinkAlike platform. We aim for a "Zenith of Excellence" aesthetic: clean, modern, professional, high-tech, and futuristic, while conveying trust, transparency, and ethical excellence.
@@ -103,3 +104,15 @@ ThinkAlike is committed to empowering not just individuals, but also groups of u
 - **Shared Data Visualization:** Groups should be able to see how their collective data is being used, similar to the individual DataTraceability component, but at a group level. (See mockup: [link to mockup image - to be created])
 - **Collaborative Settings:** Groups should have mechanisms to collectively define their privacy settings, data sharing preferences, and AI interaction parameters. This could involve voting mechanisms or consensus-building tools.
 - **Collective Action:** The platform should facilitate collective action and decision-making, enabling groups to work together towards shared goals.
+
+---
+**Document Details**
+- Title: Style Guide
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Style Guide
+---
+
+

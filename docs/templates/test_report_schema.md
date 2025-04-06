@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\templates\test_report_schema.md
 # Standard Test Report Schema Specification
 
 ---
@@ -221,3 +222,15 @@ UI testing dashboards (like the one potentially built for the Customizable UI Te
 - Add fields for linking test cases to requirements or user stories.
 - Include code coverage metrics within the report.
 - Define more specific schemas for `results[*].error`, `accessibilityViolations`, etc.
+
+---
+**Document Details**
+- Title: Standard Test Report Schema Specification
+- Type: Technical Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Standard Test Report Schema Specification
+---
+
+

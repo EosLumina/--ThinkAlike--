@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\user_guides\community_mode_user_guide.md
 # User Guide: Community Mode - Connect, Collaborate, and Build Together (mode 3)
 
 **Welcome to ThinkAlike Community Mode (Mode 3)**
@@ -88,3 +89,15 @@ ThinkAlike Community Mode empowers users not only to join and participate in com
     *   **Becoming a Community Moderator or Leader (If Desired):**  Volunteer to serve as a community moderator or leader, taking on responsibilities for upholding community guidelines, facilitating discussions, and guiding the community towards its shared goals (if leadership roles are established within the community's governance model).
 
 ---
+
+---
+**Document Details**
+- Title: User Guide: Community Mode - Connect, Collaborate, and Build Together (mode 3)
+- Type: User Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of User Guide: Community Mode - Connect, Collaborate, and Build Together (mode 3)
+---
+
+

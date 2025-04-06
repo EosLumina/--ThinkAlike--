@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\developer_workflow.md
 # Developer Workflow Guide
 
 This guide provides a practical, step-by-step workflow for common development tasks within the ThinkAlike project. It integrates information from various guides like [`contributing.md`](../../core/contributing.md), [`installation.md`](../../core/installation.md), style guides, and testing procedures.
@@ -77,3 +78,15 @@ This guide provides a practical, step-by-step workflow for common development ta
 7.  **Commit:** Use a `fix:` prefix in your Conventional Commit message (e.g., `fix: prevent duplicate profile submissions`).
 
 This guide provides a framework. Always refer to the specific linked documents for detailed standards and implementation patterns. Communicate early and often if you encounter roadblocks!
+
+---
+**Document Details**
+- Title: Developer Workflow Guide
+- Type: Developer Guide
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Developer Workflow Guide
+---
+
+

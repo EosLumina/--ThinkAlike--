@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\templates\data_output_schema.md
 # Standard Data Output Schema Specification
 
 ---
@@ -165,4 +166,16 @@ This standard output format can be used in various scenarios:
 - Integrate schema validation (e.g., using JSON Schema) for generated outputs during testing.
 
 ---
+
+
+---
+**Document Details**
+- Title: Standard Data Output Schema Specification
+- Type: Technical Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Standard Data Output Schema Specification
+---
+
 

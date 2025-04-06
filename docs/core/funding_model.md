@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\core\funding_model.md
 # Funding Model: Sustaining an Ethical, Open-source Project
 
 This document details the funding model for the ThinkAlike project, emphasizing its commitment to creating a transparent, sustainable, and ethically-driven platform that empowers user agency. ThinkAlike is being built as a public good to enhance human connection, not primarily as a profit-generating enterprise. Our funding model reflects this, prioritizing ethical sustainability, community ownership, and user empowerment.
@@ -81,3 +82,15 @@ Models under consideration (dependent on funding):
 A public ledger (e.g., via Open Collective) will track all income and expenses. Regular financial reports will be shared with the community. UI components within the platform may be developed to visualize funding goals and allocation for users and donors.
 
 This model aims for flexibility and adaptation, always prioritizing ThinkAlike's ethical mission and long-term service to its community.
+
+---
+**Document Details**
+- Title: Funding Model: Sustaining an Ethical, Open-source Project
+- Type: Core Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Funding Model: Sustaining an Ethical, Open-source Project
+---
+
+

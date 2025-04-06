@@ -1,3 +1,4 @@
+// filepath: C:\--ThinkAlike--\docs\core\project_overview.md
 # Project Overview
 
 ## Introduction
@@ -89,3 +90,15 @@ Access all project documentation via the live portal: [https://thinkalike-projec
 
 * **Code:** Licensed under the [MIT License](LICENSE) (see the `LICENSE` file in the root directory).
 * **Documentation & Visual Assets:** Licensed under [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Please respect attribution, non-commercial use, and no derivatives. See [`README.md`](../readme.md) for more details.
+
+---
+**Document Details**
+- Title: Project Overview
+- Type: Core Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-05
+---
+End of Project Overview
+---
+
+
