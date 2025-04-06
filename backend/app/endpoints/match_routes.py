@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List
 from backend.auth.auth_handler import get_current_user
-from backend.database.database import get_db
+from backend.database.database import get_db  # Fixed import path
 from backend.database.models import User
 
 router = APIRouter()
