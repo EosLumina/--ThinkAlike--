@@ -3,6 +3,20 @@
 
 Thank you for your interest in contributing to ThinkAlike! We welcome contributions from everyone, and we believe that a diverse and inclusive community is essential for building a truly ethical and innovative platform. Every contribution, no matter how small, is valuable and contributes to our mission of building a more humane and transparent digital world.
 
+## Quick Overview
+
+This page provides a comprehensive guide to contributing. For a more concise overview, you can also refer to:
+
+**➡️ [View Simplified Contribution Guidelines (`docs/contributing.md`)](../contributing.md)**
+
+### Ways You Can Help - Quick Summary
+
+*   **Code:** Frontend (React/TS), Backend (Python/FastAPI), AI/ML.
+*   **Design:** UI/UX, Accessibility.
+*   **Documentation:** Writing guides, improving clarity, fixing errors.
+*   **Testing:** Writing automated tests, manual testing, ethical validation.
+*   **Community:** Helping others, moderation, outreach.
+
 This guide provides detailed information on how to contribute to the project. Please read it carefully before submitting your first contribution.
 
 **Crucially, ensure you understand the project's foundations by reviewing the [`SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md`](docs/master_reference.md) document first. This is essential reading and serves as the definitive guide for all aspects of the ThinkAlike project, including its overarching vision, ethical principles, and architectural guidelines. Also review the [`Onboarding Guide`](docs/onboarding_guide.md) for project context.**
@@ -242,7 +256,7 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 >
     > ```jsx
     > [Paste component code here]
-    > ```"
+    > ```
 
         Refactor this ThinkAlike JS code for readability, transparency, ethical clarity.
         Explain changes and how they enhance data traceability/user understanding:
@@ -254,7 +268,7 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 >
     > ```python
     > [Paste function code here]
-    > ```"
+    > ```
 
         Write a JSDoc comment for this ThinkAlike React component, explaining how it
         promotes data transparency and user control:
@@ -266,7 +280,7 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 >
     > ```javascript
     > [Paste code snippet here]
-    > ```"
+    > ```
 
         Explain error: [Error message].
         Analyze the code for potential ethical issues (data handling/bias).
@@ -279,7 +293,7 @@ We encourage using AI assistants (Copilot, Gemini) to improve efficiency, but **
 >
     > ```jsx
     > [Paste component code here]
-    > ```"
+    > ```
 
         Write a conventional commit message for this change per ThinkAlike guidelines,
         emphasizing improvements to data traceability or ethical alignment:
@@ -298,7 +312,4 @@ Thank you for contributing to building a more ethical and human-centered digital
 ---
 End of Contributing to ThinkAlike
 ---
-
-
-> "Write a conventional commit message for this change, following the ThinkAlike project guidelines and emphasizing how the change improves data
 
