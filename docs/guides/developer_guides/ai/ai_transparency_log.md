@@ -49,6 +49,16 @@ A user-readable log that outlines the data that influences AI decisions, the par
     * **Performance and Scalability Tests (Graph Rendering):** Conduct performance tests to evaluate the rendering efficiency and scalability of the Data Influence Map, particularly when visualizing complex data influence networks with a large number of data points and relationships, ensuring smooth and responsive UI performance even with data-intensive visualizations.
     * **User Understandability Evaluations:** Conduct user-centric evaluations with representative user groups to assess the understandability and user-friendliness of the Data Influence Map, gathering feedback on whether users find the visualization helpful in understanding AI decision-making processes and identifying areas for UI improvement or enhanced data representation clarity.
 
+## 2.2 Data Influence Map (Often using `DataTraceability` Component)
+
+* **Purpose:** Provide a dynamic, visual graph representation telling the **data story** behind a *specific* AI decision selected from the log. It shows the *key data points* (internal Value Profile elements, consented external data insights, recent interactions) that most significantly influenced the outcome.
+* **UI Elements:**
+  * Renders an interactive node-link graph using the [`DataTraceability`](../../../components/ui_components/data_traceability.md) component.
+  * **Nodes:** Represent key input data points (e.g., `Value: Transparency`, `Goodreads Interest: Philosophy`, `Recent Interaction: Mode 1 Choice X`). The AI decision/output is often the central node.
+  * **Edges:** Represent the *influence pathway* and *contribution strength*. Edge styling (thickness/color) or labels indicate the weight or nature of the influence (e.g., "High Positive Influence", "Shared Item"). Explicitly show links from raw external data -> derived internal value/interest -> final decision where possible.
+  * **Interactivity:** Users hover/click nodes/edges for details on the data point and *how* it contributed to the specific outcome (linking back to XAI methods or rule-based logic explanations).
+* **Data Source:** Requires structured data from the backend detailing specific inputs, their derived meanings (if mapped to values), their calculated influence/importance (from XAI or logic), and the final AI output instance. This data structure needs to support "storytelling" connections.
+
 * **Ethical Parameter Definitions:**
   A clear and accessible display of the ethical guidelines and parameters that are explicitly considered and enforced by the AI during its decision-making processes, promoting ethical transparency and user awareness of the values guiding AI behavior.
   * **Implementation:**
