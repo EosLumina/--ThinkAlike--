@@ -80,6 +80,13 @@ Ready to contribute code, docs, or design?
 5.  **How to Contribute:** ***Before coding***, read **[`CONTRIBUTING.md`](docs/core/contributing.md)** carefully for workflow, standards, and processes.
 6.  **Explore Key Code:** Check out the **DataTraceability component** at [`ui/src/components/DataTraceability.jsx`](ui/src/components/DataTraceability.jsx) *(Link may need updating)* and related docs linked below.
 
+## Documentation Structure
+
+- [Architecture](docs/architecture/architectural_overview.md)
+- [Developer Guides](docs/guides/developer_guides/README.md)
+- [Core Concepts](docs/core/project_overview.md)
+- [User Guides](docs/guides/user_guides/README.md)
+
 ## Contributing
 
 We welcome all contributions! See [`CONTRIBUTING.md`](docs/core/contributing.md) for details. Help is needed in:
