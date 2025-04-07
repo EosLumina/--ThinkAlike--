@@ -1,5 +1,7 @@
 # ThinkAlike Master Reference
 
+*(Note: This document is the central authoritative reference. Refer to the [Glossary](../glossary.md) for term definitions and [Core Concepts Explained](../../vision/core_concepts.md) for deeper dives.)*
+
 ## Project Overview: ThinkAlike - A Social LLM for Human Connection
 
 Imagine a world where technology truly understands the nuances of human connection. That's the vision behind ThinkAlike.
@@ -60,6 +62,8 @@ ThinkAlike is intentionally positioned as a counter-narrative to the techno-dyst
 * **Rejecting Technological Determinism:** ThinkAlike explicitly and unequivocally rejects the pervasive notion of technological determinism—the often-uncritical assumption that technology autonomously dictates societal trajectories and human outcomes. Instead, it firmly embraces a human-centered approach to technological development, prioritizing ethical considerations, user-articulated values, and human agency as the guiding forces shaping technological innovation.
 * **Challenging "Praxis Tech Dystopia":** In direct and conscious opposition to the encroaching "Praxis Tech Dystopia" [Reference to "Praxis Tech Dystopia as the Next America" article], ThinkAlike resolutely prioritizes rigorous ethical reflection, sustained philosophical inquiry, and the centrality of user agency over the uncritical and often ethically unmoored imperative of rapid technological implementation.
 * **Reclaiming Artificial Intelligence for Humanistic Endeavors:** ThinkAlike directly and proactively challenges the increasingly prevalent dystopian portrayal of Artificial Intelligence as an inherently manipulative, surveillance-oriented, and control-seeking force. Instead, it endeavors to demonstrably illustrate that AI can be ethically developed, transparently deployed, and humanistically purposed as a powerful tool to empower users and facilitate positive, authentic social interactions.
+
+(See the [`Architectural Overview`](../../architecture/architectural_overview.md) and [`Architectural Design Specifications`](../../architecture/design/architectural_design_specifications.md).)
 
 ThinkAlike, with its foundational commitment to decentralization of power, unwavering user empowerment, and intrinsically collaborative, community-driven development model, resonates deeply with the principles of positive anarchism. In marked contrast to anarcho-capitalist or "dark enlightenment" interpretations of digital freedom, which often prioritize unrestrained individualism and the commodification of digital space, ThinkAlike embodies a **constructive, ethically grounded, and socially responsible anarchism** that proactively seeks to:
 
@@ -149,6 +153,8 @@ ThinkAlike, functioning as a "Social LLM," incorporates core features designed t
 * Optional Direct/Liquid Democracy tools enable participatory governance.
 * Community autonomy and self-governance are prioritized.
 * Features for mutual aid and collaborative action are integrated.
+
+[`The ThinkAlike Manifesto`](../manifesto/manifesto.md) provides the "why" and the ultimate direction. Developers use it as a design compass, ensuring implementation choices align with the project's revolutionary, user-empowering, *anti-authoritarian*, human-connection-focused vision.
 
 #### IV. Call to Action
 

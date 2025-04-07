@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\database\unified_data_model_schema.md
 # Data Model Schema
 
 ## Table of Contents
@@ -34,7 +33,7 @@ This document describes the data models and database schema used in the ThinkAli
 
 ## 2. Entity Relationship Diagram (ERD)
 
-![ThinkAlike ER Diagram](../assets/images/thinkalike_erd.png)
+![ThinkAlike ER Diagram](../../assets/images/erd.png)
 
 The ThinkAlike database architecture is predicated on a relational model, structured around several core entities that are interconnected to facilitate seamless data flow and maintain data integrity. These core entities, while not exhaustive, include:
 
@@ -311,8 +310,8 @@ Ethical considerations are not merely supplementary guidelines but are deeply em
 
 ---
 
-
 ---
+
 **Document Details**
 - Title: Data Model Schema
 - Type: Architecture Documentation

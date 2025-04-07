@@ -6,7 +6,7 @@
 
 This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 1 (Narrative Onboarding & Match Reveal) functionality.** It supplements the main `API_ENDPOINTS.md` and details the routes, methods, request/response formats, authentication, and functionality required to drive the interactive "Whispering Woods" choose-your-own-adventure experience. This mode serves as the primary onboarding mechanism, introduces core project values, elicits initial user Value Profile data, and culminates in a potential AI-driven "perfect match" reveal.
 
-Refer to `API_ENDPOINTS.md` for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication**.
+Refer to [`API_ENDPOINTS.md`](../api/api_endpoints.md) for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication**.
 
 These endpoints facilitate the stateful progression through the narrative, interaction with the AI Narrative Engine, and the final match reveal based on the user's choices.
 

@@ -2,7 +2,7 @@
 
 **1. Introduction**
 
-The `DataTraceability.jsx` React component serves as a cornerstone of the ThinkAlike platform's commitment to transparency and user empowerment.  This document provides a comprehensive technical specification for this component, detailing its purpose, functionality, architecture, data handling, and integration within the ThinkAlike ecosystem.  `DataTraceability.jsx` is not merely a UI element; it is a **validation framework**, a **testing tool**, and a **window into the system's inner workings**, empowering users to understand and audit data flows and algorithmic processes, in accordance with the ethical principles outlined in the [MASTER_REFERENCE.md](master_refernce.md) document.
+The `DataTraceability.jsx` React component serves as a cornerstone of the ThinkAlike platform's commitment to transparency and user empowerment.  This document provides a comprehensive technical specification for this component, detailing its purpose, functionality, architecture, data handling, and integration within the ThinkAlike ecosystem.  `DataTraceability.jsx` is not merely a UI element; it is a **validation framework**, a **testing tool**, and a **window into the system's inner workings**, empowering users to understand and audit data flows and algorithmic processes, in accordance with the ethical principles outlined in the [`MASTER_REFERENCE.md`](../../core/master_reference/master_reference.md) document.
 
 **2. Purpose and Functionality: Visualizing Data Flow and Algorithmic Processes**
 
