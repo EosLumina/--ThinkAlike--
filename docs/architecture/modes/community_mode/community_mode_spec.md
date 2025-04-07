@@ -1,8 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\modes\community_mode\community_mode_spec.md
-# Community Mode Specification (Mode 3)
-
----
-
 ## 1. Introduction & Vision
 
 **Community Mode (Mode 3)** embodies the **Positive Anarchism** principle of ThinkAlike's [Enlightenment 2.0 Philosophy](../../../core/enlightenment_2_0/enlightenment_2_0_principles.md). It provides users with the infrastructure and tools to create, discover, join, manage, and participate in **decentralized, self-governing, value-aligned communities**.
