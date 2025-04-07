@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_integrations.md
 # API Endpoints - Backend - External Integrations
 
 ---
