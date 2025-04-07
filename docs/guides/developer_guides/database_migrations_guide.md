@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\database_migrations_guide.md
 # Database Migration Guide
 
 ## 1. Introduction
