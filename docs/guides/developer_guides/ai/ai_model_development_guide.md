@@ -1,7 +1,5 @@
 # Unified Ai Model Development Guide
 
-# Unified AI Model Development Guide
-
 ## 1. Introduction
 
 This document serves as the unified guide for developers working on **Artificial Intelligence (AI) models** for the ThinkAlike project. It outlines the **key principles, ethical considerations, recommended frameworks, workflow, requirements, and UI integration strategy** for AI model development within the project.
