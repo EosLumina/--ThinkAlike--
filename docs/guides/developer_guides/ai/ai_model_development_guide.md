@@ -1,4 +1,4 @@
-# Unified Ai Model Development Guide
+# Unified AI Model Development Guide
 
 ## 1. Introduction
 

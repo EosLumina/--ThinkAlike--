@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\security\security_deep_dive.md
 # Security Architecture Deep Dive
 
 ---

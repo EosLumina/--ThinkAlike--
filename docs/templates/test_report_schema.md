@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\templates\test_report_schema.md
 # Standard Test Report Schema Specification
 
 **Version:** 1.0

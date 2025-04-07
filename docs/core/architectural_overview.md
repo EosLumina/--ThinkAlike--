@@ -1,13 +1,5 @@
 # Technical Architecture Specification
 
-## 1. Introduction
-
-This document outlines the major components, layers, and design principles that underpin the platform. It serves as an entry point to understanding the overall technical structure and provides links to more detailed specifications.
-
-## 2. System Architecture
-
-# Architectural Overview - ThinkAlike Project
-
 ## Document Purpose
 
 This document provides a **high-level overview of the ThinkAlike project's architecture.** It outlines the major components, layers, and design principles that underpin the platform. This document serves as an entry point to understanding the overall technical structure of ThinkAlike and provides links to more detailed architectural specifications for specific modules and components.
@@ -103,6 +95,14 @@ flowchart LR
 4. **API Module:** Defines the communication interface between the frontend and backend, enabling modular development and clear separation of concerns (see `docs/architecture/api/api_endpoints.md`).
 
 ## Key Architectural Principles
+
+* **Ethical by Design:** Ethical considerations are baked into the architecture from the ground up, guided by the Ethical Guidelines (`docs/core/ethics/ethical_guidelines.md`) and enforced by the Verification System.
+* **User-Centricity:** The architecture prioritizes user needs, user empowerment, and user agency, ensuring the platform serves users ethically and effectively.
+* **Decentralization (Especially in Community Mode):** Mode 3 is architected for decentralization, empowering communities and minimizing central platform control.
+* **Transparency and Data Traceability:** The architecture supports radical transparency and data traceability, enabling users and auditors to understand data flows and algorithm processes.
+* **Modularity and Maintainability:** The modular design promotes code organization, maintainability, and scalability, allowing for future feature additions and platform evolution.
+* **API-Driven Communication:** Utilizing a well-defined API for frontend-backend communication ensures clear interfaces and facilitates independent development of frontend and backend components.
+* **Security First:** Security considerations are integrated into every layer of the architecture, ensuring user data protection and platform resilience against vulnerabilities (see `docs/architecture/security/security_considerations.md`).
 
 * **Ethical by Design:** Ethical considerations are baked into the architecture from the ground up, guided by the Ethical Guidelines (`docs/core/ethics/ethical_guidelines.md`) and enforced by the Verification System.
 * **User-Centricity:** The architecture prioritizes user needs, user empowerment, and user agency, ensuring the platform serves users ethically and effectively.

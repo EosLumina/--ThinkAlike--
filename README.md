@@ -1,4 +1,4 @@
-# ThinkAlike: Architecting Our Future
+# ThinkAlike
 
 **Connecting Like-Minded Individuals for Authentic Connection & Systemic Change**
 

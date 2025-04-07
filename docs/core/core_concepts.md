@@ -87,4 +87,50 @@ Refer to the [`Master Reference`](../core/master_reference.md) for formal defini
 
 ---
 
+## Core Values and Philosophical Principles
+
+### Core Values: Our Guiding Principles
+
+* **Human-Centered Approach:** We champion human dignity, agency, and well-being above all else. Technology serves user choice and freedom, validated by our UI.
+* **Ethical AI:** We develop AI that is transparent, accountable, and designed to amplify human capabilities, while respecting privacy, security, and human autonomy. Data parameters will always be clear and actionable.
+* **Transparency & Traceability:** All processes are traceable via clear UI, rejecting “black box” technologies.
+* **User Empowerment:** Our technology enhances user agency and self-determination, using data to support, not dictate, individual needs.
+* **Authenticity & Meaningful Connections:** We foster genuine, value-based relationships that extend beyond fleeting interactions into the real world.
+* **Social Responsibility:** We are dedicated to social equity and creating a positive impact, enhancing user skills, and solving real-world problems.
+* **User Sovereignty:** Users remain in charge of their data, decisions, and architectural preferences.
+* **Community-Driven Growth:** Our system is shaped by data, user experience, and unwavering ethical commitment.
+
+### Philosophical Principles: Our Underlying Beliefs
+
+* **Technological Enlightenment:** We are inspired by reason, knowledge, and progress, using technology as an instrument for self-knowledge, empathy, and critical thinking.
+* **Humanism:** We elevate empathy, compassion, and respect for all.
+* **Positive Anarchism:** We embrace self-organization, autonomy, and voluntary cooperation.
+* **Natural Laws:** We are inspired by natural systems of adaptability, resilience, and sustainability.
+* **Data as a Tool for Progress:** Data empowers human choice and highlights user agency, and will be used to promote human betterment.
+
+---
+
 Understanding these core concepts provides the necessary context for interpreting ThinkAlike's features, technical documentation, and overarching goals. They represent the "why" behind the "what" and "how" of the project.
+
+## Merged Ethos: Core Values and Philosophical Principles
+
+This document articulates the core beliefs and principles that guide the ThinkAlike project. We are committed to using technology as a tool for human betterment, ethical growth, and enlightenment, not as a means of manipulation or control. This is not just an ideal framework, but a way of working and a fundamental design choice.
+
+### Core Values: Our Guiding Principles
+
+* **Human-Centered Approach:** We champion human dignity, agency, and well-being above all else. Technology serves user choice and freedom, validated by our UI.
+* **Ethical AI:** We develop AI that is transparent, accountable, and designed to amplify human capabilities, while respecting privacy, security, and human autonomy. Data parameters will always be clear and actionable.
+* **Transparency & Traceability:** All processes are traceable via clear UI, rejecting “black box” technologies.
+* **User Empowerment:** Our technology enhances user agency and self-determination, using data to support, not dictate, individual needs.
+* **Authenticity & Meaningful Connections:** We foster genuine, value-based relationships that extend beyond fleeting interactions into the real world.
+* **Social Responsibility:** We are dedicated to social equity and creating a positive impact, enhancing user skills, and solving real-world problems.
+* **User Sovereignty:** Users remain in charge of their data, decisions, and architectural preferences.
+* **Community-Driven Growth:** Our system is shaped by data, user experience, and unwavering ethical commitment.
+
+### Philosophical Principles: Our Underlying Beliefs
+
+* **Technological Enlightenment:** We are inspired by reason, knowledge, and progress, using technology as an instrument for self-knowledge, empathy, and critical thinking.
+* **Humanism:** We elevate empathy, compassion, and respect for all.
+* **Positive Anarchism:** We embrace self-organization, autonomy, and voluntary cooperation.
+* **Natural Laws:** We are inspired by natural systems of adaptability, resilience, and sustainability.
+* **Data as a Tool for Progress:** Data empowers human choice and highlights user agency, and will be used to promote human betterment.

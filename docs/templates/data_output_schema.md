@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\templates\data_output_schema.md
 # Standard Data Output Schema Specification
 
 ---

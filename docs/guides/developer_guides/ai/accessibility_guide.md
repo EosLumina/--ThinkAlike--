@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ai\accessibility_guide.md
 # Accessibility Implementation Guide (A11y)
 
 ---

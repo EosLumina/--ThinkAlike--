@@ -1,26 +1,20 @@
-// filepath: C:\--ThinkAlike--\docs\core\blueprint.md
 # Blueprint
 
-======================================================================
-
-**THINKALIKE**
-
+## THINKALIKE
 CONNECTING LIKE MINDED INDIVIDUALS
 
-**BLUEPRINT**
+## BLUEPRINT
 
 ======================================================================
 
-**Modes / Features / Implementation**
+## Modes / Features / Implementation
 
 This section presents the core functionality and unique characteristics of ThinkAlike, highlighting that architectural approach that combines AI, user data and design into a powerful workflow, to create transparency in each stage, with high standards of implementation through clear action steps driven by ethics
 ---
 
-Mode 1 - Overview and Core Features (Dynamic Narrative Structure, Evaluation of Personality and Preferences, Compatibility Filtering)**
+### Mode 1 - Overview and Core Features
 
----
-
-**>Mode 1 / Shape Your Story. Create Real Bonds.**
+#### Mode 1 / Shape Your Story. Create Real Bonds.
 
 **- AI-Powered Narrative Journey: Empowering User Choice Through a Personalized Data Exploration Workflow**
 
@@ -67,7 +61,7 @@ Mode 1 - Overview and Core Features (Dynamic Narrative Structure, Evaluation of 
 
 ---
 
-> **Mode 2 / Connections that Matter. Matching beyond the surface.**
+### Mode 2 - Connections that Matter. Matching beyond the surface.
 
 **- Personalized Matching & Discovery: User Driven Exploration with AI Data Transparency.**
 
@@ -78,6 +72,12 @@ Mode 1 - Overview and Core Features (Dynamic Narrative Structure, Evaluation of 
  BLUEPRINT - Mode 2 - Core Features (Dynamic Profile Exploration, Intelligent Compatibility Interaction)**
 
 * **Core Features:**
+
+    1. **Dynamic Profile Exploration:**
+        * Users navigate a visually appealing interface that presents a curated list of profiles and photos. All UI elements must also serve for “data validation" about what each type of design provides as feedback (if some parameters are too limited, if some colors are not accessible for all users, if the text is too dense to be easily understood, or if the use of those UI elements can make data "harder to get from or understand, or use”). All UI elements “must make design, testing and ethical workflows” as parts of the same implementation. UI workflow must be part of that implementation workflow.
+        * Detailed profile information (age, location, interests, a brief bio and also a video to add more context) empower users to make informed choices, and also, to explore which workflows are more suited for them. UI implementations have, not just design needs, but also they have to act as a testing parameter and a validation framework where all pieces work together to empower users based on their unique preferences: Ethical workflow parameters must be valid and visible in UI. The best code must also "show off what it is meant to do from the very first contact of a UI component with user actions and what value it offers to the intended purpose of a specific data point, or the absence of such data or workflows results”. Test what that UI component reflects back to the architectural intent.
+
+    2. **Intelligent Compatibility Interaction:**
 
     1. **Dynamic Profile Exploration:**
         * Users navigate a visually appealing interface that presents a curated list of profiles and photos. All UI elements must also serve for “data validation" about what each type of design provides as feedback (if some parameters are too limited, if some colors are not accessible for all users, if the text is too dense to be easily understood, or if the use of those UI elements can make data "harder to get from or understand, or use”). All UI elements “must make design, testing and ethical workflows” as parts of the same implementation. UI workflow must be part of that implementation workflow.

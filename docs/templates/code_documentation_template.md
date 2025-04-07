@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\templates\code_documentation_template.md
 # Code Documentation: [component/module Name]
 
 ## 1. Purpose

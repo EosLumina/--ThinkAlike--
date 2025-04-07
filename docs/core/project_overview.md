@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\core\project_overview.md
 # Project Overview
 
 ## Introduction

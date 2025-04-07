@@ -1,9 +1,6 @@
 # Deployment & Installation Troubleshooting Guide
 
-**Version:** 1.0
-**Date:** March 26, 2025
 
----
 ## 1. Introduction
 
 This guide addresses common issues encountered during the local installation process ([`docs/core/installation.md`](../core/installation.md)) and deployment to the Render cloud platform ([`docs/guides/implementation_guides/deployment_guide.md`](../guides/implementation_guides/deployment_guide.md)). Use this guide when you encounter errors or unexpected behavior during setup or deployment.

@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\core\glossary.md
 # Project Glossary
 
 ## Introduction

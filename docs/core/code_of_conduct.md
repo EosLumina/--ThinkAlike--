@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\core\code_of_conduct.md
 # Project - Code of Conduct - Building a Respectful and Inclusive Community
 
 **Version 1.0 - Draft - Work in Progress**

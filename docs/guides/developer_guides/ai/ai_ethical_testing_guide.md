@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ai\ai_ethical_testing_guide.md
 # AI Ethical Testing Guide
 
 ---

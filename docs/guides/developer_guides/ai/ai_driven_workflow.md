@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ai\ai_driven_workflow.md
 # Ai-driven Workflows
 
 # AI-Driven Workflows
