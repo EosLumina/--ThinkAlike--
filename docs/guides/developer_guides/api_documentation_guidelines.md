@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\api_documentation_guidelines.md
 # API Documentation Standard
 
 ## 1. Introduction
