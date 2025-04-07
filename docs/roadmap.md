@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\roadmap.md
 # Project Roadmap: ThinkAlike
 Architecting the Foundations for Enlightenment 2.0
 
