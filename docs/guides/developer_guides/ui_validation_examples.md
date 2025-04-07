@@ -1,4 +1,4 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ui_validation_examples.md
+
 # Design Document: Ui Component Testing Framework
 
 ---
