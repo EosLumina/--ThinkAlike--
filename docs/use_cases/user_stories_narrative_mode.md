@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\use_cases\user_stories_narrative_mode.md
 # User Stories: Narrative Mode
 
 This document outlines user stories illustrating how users might interact with and benefit from ThinkAlike's **Narrative Mode**. These stories are designed to showcase the intended user experience and highlight the value proposition of the Narrative Mode as an AI-driven, choose-your-own-adventure onboarding and **primary matching** game.
