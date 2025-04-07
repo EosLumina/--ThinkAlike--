@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\code_style_guide.md
 # Code Style Guide
 
 **1. Introduction: Achieving "Perfect Coding" - Clarity, Consistency, and Ethical Implementation**
