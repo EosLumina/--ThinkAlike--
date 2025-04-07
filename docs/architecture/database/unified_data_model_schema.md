@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\database\unified_data_model_schema.md
 # Data Model Schema
 
 ## Table of Contents
