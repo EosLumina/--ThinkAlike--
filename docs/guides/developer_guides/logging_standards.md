@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\logging_standards.md
 # Logging Standards and Best Practices
 
 ---
