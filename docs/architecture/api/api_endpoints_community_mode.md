@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_community_mode.md
 # Api Endpoints - Project Backend - Community Mode
 
 **Document Purpose:**
