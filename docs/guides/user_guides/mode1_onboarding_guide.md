@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\user_guides\mode1_onboarding_guide.md
 # User Guide: Narrative Mode - Embark on Your Journey of Self-discovery and Value-based Matching (mode 1)
 
 **Welcome to ThinkAlike Narrative Mode (Mode 1)!**

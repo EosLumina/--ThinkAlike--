@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\implementation_guides\deployment_guide.md
 # Deployment Guide (render)
 
 ---

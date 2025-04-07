@@ -1,4 +1,3 @@
-<!-- filepath: c:\--ThinkAlike--\docs\guides\developer_guides\matching_algorithm_guide.md -->
 # Developer Guide: Value-Based Matching Algorithm
 
 ---

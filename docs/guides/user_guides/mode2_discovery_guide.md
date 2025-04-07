@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\user_guides\mode2_discovery_guide.md
 # User Guide: Matching Mode - Find Your Value-aligned Connections (mode 2)
 
 **Welcome to ThinkAlike Matching Mode (Mode 2)!**
