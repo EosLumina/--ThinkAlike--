@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\git_workflow.md
 # Git Workflow Standard
 
 ---
