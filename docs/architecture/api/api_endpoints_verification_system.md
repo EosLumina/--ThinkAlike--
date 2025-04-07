@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_verification_system.md
 # Api Endpoints - Project Backend - Verification System
 
 **Document Purpose:**
