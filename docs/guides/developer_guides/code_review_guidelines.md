@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\code_review_guidelines.md
 # Code Review Guidelines
 
 ---
