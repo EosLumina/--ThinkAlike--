@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\issue_labels_guide.md
 # GitHub Issue Labels Guide
 
 ---
