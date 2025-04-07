@@ -1,4 +1,4 @@
-# Customizable UI Testsn Plan
+# Customizable UI Test Plan
 
 ## 1. Introduction and Description
 This document outlines the comprehensive testing and validation strategy for the ThinkAlike platform. It details the methodologies, test types, and specific test cases to ensure that all aspects of the system, from the UI to the AI models, meet our performance, security, ethical and user experience standards. This plan is meant to empower not only developers and testers, but all members of the project, by providing clear data insights about what must be tested, validated and implemented during the whole project workflow life cycle. UI must be used as a key tool to validate all those processes, acting as a dynamic "test bench" and a window into system behavior.
