@@ -68,22 +68,22 @@ ThinkAlike, with its foundational commitment to decentralization of power, unwav
 
 ThinkAlike is designed for broad accessibility, initially targeting standard computing devices while holding a long-term vision for dedicated hardware.
 
-* **Cross-Platform Compatibility (Core Goal):**  
-  The primary goal is to ensure ThinkAlike is accessible and fully functional across common user devices, including:  
-  * **Web Browsers:** Via the core React frontend application.  
-  * **Mobile Devices (Phones/Tablets):** Primarily through responsive web design. Native mobile applications (iOS/Android) are a potential future development path, likely using cross-platform frameworks (like React Native) or PWAs.  
+* **Cross-Platform Compatibility (Core Goal):**
+  The primary goal is to ensure ThinkAlike is accessible and fully functional across common user devices, including:
+  * **Web Browsers:** Via the core React frontend application.
+  * **Mobile Devices (Phones/Tablets):** Primarily through responsive web design. Native mobile applications (iOS/Android) are a potential future development path, likely using cross-platform frameworks (like React Native) or PWAs.
   * **Desktop Computers:** Via the web application. Dedicated desktop applications are a lower priority.
 
-* **Standalone Device (Long-Term Vision - “ThinkAlike Console”):**  
-  A longer-term, ambitious goal involves exploring the potential development of a dedicated standalone hardware device optimized for the ThinkAlike experience.  
-  * **Concept:** This device (“ThinkAlike Console”) could offer enhanced privacy features (local processing/storage where feasible), unique tactile interfaces for narrative interaction, dedicated secure communication channels, or specialized sensors for richer (but always user-consented and ethically vetted) context awareness.  
-  * **Purpose:** Provide an integrated hardware-software ecosystem fully aligned with Enlightenment 2.0 principles, potentially offering a higher degree of user control, data security, and a focused user experience free from distractions or compromises of general-purpose devices.  
+* **Standalone Device (Long-Term Vision - “ThinkAlike Console”):**
+  A longer-term, ambitious goal involves exploring the potential development of a dedicated standalone hardware device optimized for the ThinkAlike experience.
+  * **Concept:** This device (“ThinkAlike Console”) could offer enhanced privacy features (local processing/storage where feasible), unique tactile interfaces for narrative interaction, dedicated secure communication channels, or specialized sensors for richer (but always user-consented and ethically vetted) context awareness.
+  * **Purpose:** Provide an integrated hardware-software ecosystem fully aligned with Enlightenment 2.0 principles, potentially offering a higher degree of user control, data security, and a focused user experience free from distractions or compromises of general-purpose devices.
   * **Feasibility:** This is a complex undertaking requiring significant hardware design, manufacturing, and software adaptation. It is considered a post-MVP, long-term research and development goal, contingent on project success, funding, and community interest/expertise.
 
-* **Software Adaptation:**  
-  Achieving this multi-platform goal requires:  
-  * **Responsive Frontend Design:** Ensuring the React UI adapts effectively to various screen sizes.  
-  * **API-Centric Backend:** The FastAPI backend serves data consistently, regardless of the client platform.  
+* **Software Adaptation:**
+  Achieving this multi-platform goal requires:
+  * **Responsive Frontend Design:** Ensuring the React UI adapts effectively to various screen sizes.
+  * **API-Centric Backend:** The FastAPI backend serves data consistently, regardless of the client platform.
   * **Platform-Specific Considerations:** Future native mobile or dedicated device development would require specific SDKs, UI adaptations, and potentially different software versions/build targets.
 
 ## II. Project Architecture and Modules: A Weaponized System for Systemic Change
@@ -94,13 +94,13 @@ ThinkAlike transcends the limitations of a mere technological project; it stands
 
 ThinkAlike's architecture is deliberately structured around three core, interdependent modules, conceptually represented as Borromean Rings, signifying their essential interconnectedness:
 
-1. **Mode 1: Narrative Mode (Onboarding and Ideological Injection)**  
+1. **Mode 1: Narrative Mode (Onboarding and Ideological Injection)**
    Functions as an interactive onboarding mechanism and a vehicle for disseminating Enlightenment 2.0 ideology.
 
-2. **Mode 2: Matching Mode (Value-Based Connection Engine)**  
+2. **Mode 2: Matching Mode (Value-Based Connection Engine)**
    Serves as the platform's core matching functionality, connecting users based on shared values and fostering authentic interpersonal relationships.
 
-3. **Mode 3: Community Mode (Decentralized Organization and Action)**  
+3. **Mode 3: Community Mode (Decentralized Organization and Action)**
    Empowers users to create and manage self-governing communities, facilitating collaborative action and resource sharing.
 
 ### B. Verification System (The Ethical Knot)

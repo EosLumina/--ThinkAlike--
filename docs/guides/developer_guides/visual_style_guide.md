@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\visual_style_guide.md
 # Style Guide
 
 This document outlines the visual style and branding guidelines for the ThinkAlike platform. We aim for a "Zenith of Excellence" aesthetic: clean, modern, professional, high-tech, and futuristic, while conveying trust, transparency, and ethical excellence.
@@ -7,17 +6,17 @@ This document outlines the visual style and branding guidelines for the ThinkAli
 
 | Color                       | HEX Code    | Usage                                                                                                                               |
 | ---------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| **Primary Colors:*-           |             |                                                                                                                                    |
+| **Primary Colors:**          |             |                                                                                                                                    |
 | Amber/Honey Yellow (Neutral) | `#FFC300`     | AI indicator (idle state), base color for some UI elements, subtle highlights.                                                    |
 | Deep Mandarine Orange (Active)         | `#F86B03`     | AI indicator (active/processing state), data visualization, progress indicators.                                               |
 | Neon Orange (Highlight)     | `#FF8C00`     | Calls to action, important notifications, errors, interactive elements. Use sparingly.                                          |
 | Deep Ruby (Connection)       | `#800000`     | Indicates a successful, real-world connection established between users.                                                          |
-| Ruby Highlight (Optional)   | `#e60000`    | *Use very sparingly*. For visual highlights *only- (not for text).                                                                 |
+| Ruby Highlight (Optional)   | `#e60000`    | *Use very sparingly*. For visual highlights *only* (not for text).                                                                 |
 | Ruby Shadow                 |  `#3f0000`     | Optional, for subtle gradients and outlines.                                                                              |
-| **Secondary Colors:*-        |             |                                                                                                                                    |
+| **Secondary Colors:**        |             |                                                                                                                                    |
 | Dark Blue (Waveform/Accents)| `#001F3F`     | Sinusoidal waveform on the AI indicator, subtle UI accents.                                                                       |
-| Electric Blue (Accent)      | `#00FFFF`     |  **Use sparingly.*- Highlights, AI communication/information, specific data types, hover/active states, loading indicators. *Never for body text.- |
-| **Neutral Colors:*-          |             |                                                                                                                                    |
+| Electric Blue (Accent)      | `#00FFFF`     |  **Use sparingly.** Highlights, AI communication/information, specific data types, hover/active states, loading indicators. *Never for body text.* |
+| **Neutral Colors:**          |             |                                                                                                                                    |
 | Black (Background)          | `#000000`     | Main background color.                                                                                                           |
 | Dark Gray (Text)            | `#333333`     | Body text.                                                                                                                      |
 | Medium Gray (UI Elements)   | `#666666`     | UI elements, separators, less prominent text.                                                                                    |
@@ -26,8 +25,8 @@ This document outlines the visual style and branding guidelines for the ThinkAli
 
 ## Typography
 
-- **Primary Font (Headings):*- [Montserrat](https://fonts.google.com/specimen/Montserrat) (Google Fonts) - Used for headings and prominent text. Weights: 400 (Regular), 700 (Bold).
-- **Secondary Font (Body Text):*- [Open Sans](https://fonts.google.com/specimen/Open+Sans) (Google Fonts) - Used for body text and less prominent UI elements. Weight: 400 (Regular).
+- **Primary Font (Headings):** [Montserrat](https://fonts.google.com/specimen/Montserrat) (Google Fonts) - Used for headings and prominent text. Weights: 400 (Regular), 700 (Bold).
+- **Secondary Font (Body Text):** [Open Sans](https://fonts.google.com/specimen/Open+Sans) (Google Fonts) - Used for body text and less prominent UI elements. Weight: 400 (Regular).
 
 **Implementation (HTML - in `frontend/public/index.html`):**
 
@@ -41,7 +40,7 @@ This document outlines the visual style and branding guidelines for the ThinkAli
 
 ```css
 body {
-  font-family: 'Open Sans', sans-serif; /- Corrected to Open Sans */
+  font-family: 'Open Sans', sans-serif; /* Corrected to Open Sans */
 }
 
 h1, h2, h3 {
@@ -59,16 +58,16 @@ h1, h2, h3 {
 
 ## UI Components
 
-**Nodes Map:*- UI elements should be visually represented as interconnected nodes, with lines indicating relationships and data flow. (See example images in `docs/assets/images/` - You'll need to add the correct relative paths after uploading the images.)
+**Nodes Map:** UI elements should be visually represented as interconnected nodes, with lines indicating relationships and data flow. (See example images in `docs/assets/images/` - You'll need to add the correct relative paths after uploading the images.)
 
 - Colors: Nodes and data connections should use the core color palette defined above. The electric blue (`#00FFFF`) can be used to represent a specific category of data or to highlight active/selected nodes.
 
-**AI Agent Indicator:*- A circular shape with a dynamic, multi-hued orange/red light at its center against a black background.
+**AI Agent Indicator:** A circular shape with a dynamic, multi-hued orange/red light at its center against a black background.
 
-- **Pulsating Light:*- The central light pulsates with a period of 1.5 seconds (adjustable), smoothly transitioning between `#FFC300` (brighter yellow-orange) and `#F86B03` (deeper orange). The intensity change should follow an ease-in-out timing function.
-- **Blue Variant:*- The blue color (`#001F3F`) can be used to indicate a different state of the AI agent (e.g., providing information, communicating with the user). The waveform color can change from blue, to orange and finally to ruby red, to represent the transition from AI interaction to real world connection.
-- **Sinusoidal Waveform:*- A sinusoidal waveform with a wavelength of 20 pixels (adjustable) and an amplitude of 5 pixels (adjustable) travels across the circle from left to right over a duration of 1 second (adjustable). The waveform color is `#001F3F` (dark blue).
-- **Triangle Indicator:*- A subtle, triangle shape using color `#800000`. The triangle should be within the circle, and should become clearly visible (increasing in opacity or brightness) when a direct, real-world connection is established between two users. The change must be smooth.
+- **Pulsating Light:** The central light pulsates with a period of 1.5 seconds (adjustable), smoothly transitioning between `#FFC300` (brighter yellow-orange) and `#F86B03` (deeper orange). The intensity change should follow an ease-in-out timing function.
+- **Blue Variant:** The blue color (`#001F3F`) can be used to indicate a different state of the AI agent (e.g., providing information, communicating with the user). The waveform color can change from blue, to orange and finally to ruby red, to represent the transition from AI interaction to real world connection.
+- **Sinusoidal Waveform:** A sinusoidal waveform with a wavelength of 20 pixels (adjustable) and an amplitude of 5 pixels (adjustable) travels across the circle from left to right over a duration of 1 second (adjustable). The waveform color is `#001F3F` (dark blue).
+- **Triangle Indicator:** A subtle, triangle shape using color `#800000`. The triangle should be within the circle, and should become clearly visible (increasing in opacity or brightness) when a direct, real-world connection is established between two users. The change must be smooth.
 
 ### Animation Parameters
 
@@ -101,10 +100,9 @@ h1, h2, h3 {
 
 ThinkAlike is committed to empowering not just individuals, but also groups of users. This means providing tools for:
 
-<<<<<<< HEAD:docs/guides/developer_guides/visual_style_guide.md
-- **Shared Data Visualization:*- Groups should be able to see how their collective data is being used, similar to the individual DataTraceability component, but at a group level. (See mockup: [link to mockup image - to be created])
-- **Collaborative Settings:*- Groups should have mechanisms to collectively define their privacy settings, data sharing preferences, and AI interaction parameters. This could involve voting mechanisms or consensus-building tools.
-- **Collective Action:*- The platform should facilitate collective action and decision-making, enabling groups to work together towards shared goals.
+- **Shared Data Visualization:** Groups should be able to see how their collective data is being used, similar to the individual DataTraceability component, but at a group level. (See mockup: [link to mockup image - to be created])
+- **Collaborative Settings:** Groups should have mechanisms to collectively define their privacy settings, data sharing preferences, and AI interaction parameters. This could involve voting mechanisms or consensus-building tools.
+- **Collective Action:** The platform should facilitate collective action and decision-making, enabling groups to work together towards shared goals.
 
 ---
 **Document Details**
@@ -114,12 +112,4 @@ ThinkAlike is committed to empowering not just individuals, but also groups of u
 - Last Updated: 2025-04-05
 ---
 End of Style Guide
----
-
-
-=======
-- **Shared Data Visualization:*- Groups should be able to see how their collective data is being used, similar to the individual DataTraceability component, but at a group level. (See mockup: [link to mockup image - to be created])
-- **Collaborative Settings:*- Groups should have mechanisms to collectively define their privacy settings, data sharing preferences, and AI interaction parameters. This could involve voting mechanisms or consensus-building tools.
-- **Collective Action:*- The platform should facilitate collective action and decision-making, enabling groups to work together towards shared goals.
->>>>>>> 3a57519cd550a6cfbef2f8b3368ffe1894c41278:docs/guides/developer_guides/style_guide.md
 

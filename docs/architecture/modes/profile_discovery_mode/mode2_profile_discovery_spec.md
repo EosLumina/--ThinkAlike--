@@ -129,7 +129,7 @@ requestTimestamp: Timestamp
   * `GET`: Returns the current user's matching preferences.
   * `PUT`: Updates the current user's matching preferences.
 
-**VI.  Technical Considerations:**
+**VI. Technical Considerations:**
 
 * **Matching Algorithm Complexity and Performance:**  The value-based matching algorithm needs to be efficient and scalable to handle a growing user base. Consider algorithm optimization techniques and database indexing for performance.
 * **Ethical Weighting Implementation:**  Carefully implement the "Ethical Weighting" mechanism in the algorithm, ensuring it is transparent, auditable, and avoids unintended biases or discriminatory outcomes.
@@ -157,6 +157,66 @@ The Matching Mode and its core matching algorithm are deeply integrated with the
 * **Data Traceability for Matching Process:** The data flow within the matching process is traceable through the Verification System and visualized in `DataTraceability.jsx`, allowing users to understand how their data is used in matching and ensuring transparency.
 * **Continuous Ethical Monitoring and Review:** The Verification System will be used for continuous monitoring and ethical review of the matching algorithm's performance and impact, ensuring ongoing adherence to Ethical Guidelines and allowing for iterative refinement and improvement with ethical considerations at the forefront.
 * **User Feedback Integration for Algorithm Improvement:** User feedback on match quality and algorithm transparency, collected through platform mechanisms, will be integrated into the Verification System's review process to inform iterative improvements to the matching algorithm and enhance its ethical effectiveness.
+
+**VIII. Sequence Diagram for Profile Discovery Mode:**
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant FrontendUI as React Frontend
+    participant BackendAPI as FastAPI Backend
+    participant AIMatching as AI Matching Engine
+    participant AINarrative as AI Narrative Engine
+    participant DB as Database
+
+    User->>FrontendUI: Enters Mode 2 / Browses Network
+    FrontendUI->>BackendAPI: GET /api/v1/discovery/network (with filters/sort?)
+    BackendAPI->>AIMatching: Request Potential Matches/Scores for User
+    AIMatching->>DB: Read Value Profiles
+    AIMatching-->>BackendAPI: Return Ranked User IDs & Scores
+    BackendAPI->>DB: Fetch Summaries & AI Clone Data for Ranked Users
+    DB-->>BackendAPI: Return User Summaries/Clone Data
+    BackendAPI-->>FrontendUI: Return Paginated List of User Nodes
+
+    FrontendUI->>User: Display User Nodes (AI Clones + Summaries + Match %)
+    User->>FrontendUI: Clicks on a User Node Profile
+    FrontendUI->>BackendAPI: GET /api/v1/discovery/profile/{targetUserId}
+    BackendAPI->>DB: Fetch Detailed Profile Data (respecting privacy)
+    DB-->>BackendAPI: Return Profile Data
+    BackendAPI-->>FrontendUI: Return Detailed Profile
+
+    FrontendUI->>User: Display Detailed Profile & "Connect" button
+    User->>FrontendUI: Clicks "Connect" (Initiate Test)
+    FrontendUI->>BackendAPI: POST /api/v1/connection/initiate_test (targetUserId)
+    BackendAPI->>DB: Check Eligibility (No existing connection/block/recent fail)
+    alt Eligible
+        BackendAPI->>DB: Create Narrative Compatibility Test Session State
+        BackendAPI->>AINarrative: Get *First* Node of Compatibility Test
+        AINarrative-->>BackendAPI: Return First Narrative Node
+        BackendAPI-->>FrontendUI: 201 Created (testSessionId, firstNarrativeNode)
+        FrontendUI->>User: Display First Step of Compatibility Test
+    else Not Eligible
+        BackendAPI-->>FrontendUI: 400/403/409 Error (e.g., Already Connected)
+        FrontendUI->>User: Display Error Message
+    end
+
+    loop Narrative Compatibility Test Interaction
+        User->>FrontendUI: Selects Choice in Test
+        FrontendUI->>BackendAPI: POST /api/v1/connection/test/choice (testSessionId, currentNodeId, chosenChoiceId)
+        BackendAPI->>AINarrative: Process Compatibility Test Choice (testSessionId, choiceId)
+        AINarrative->>AINarrative: Calculate/Update Test Score, Determine Next Node or Outcome
+        AINarrative-->>BackendAPI: Return Next Node OR Final Outcome Status
+        BackendAPI->>DB: Update Test Session State (Progress/Completed/Score)
+        alt Test Continues
+             BackendAPI-->>FrontendUI: Return Next Narrative Node
+             FrontendUI->>User: Display Next Test Step
+        else Test Concludes
+             BackendAPI->>DB: Update Connection Request/Status (if enabled)
+             BackendAPI-->>FrontendUI: Return Final Outcome (connection_enabled/denied)
+             FrontendUI->>User: Display Outcome (e.g., "Connection Enabled!" or "Alignment not met")
+        end
+    end
+```
 
 **Conclusion:**
 

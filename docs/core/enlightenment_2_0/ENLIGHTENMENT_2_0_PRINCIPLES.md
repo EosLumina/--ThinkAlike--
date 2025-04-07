@@ -1,8 +1,6 @@
-// filepath: C:\--ThinkAlike--\docs\core\enlightenment_2_0\enlightenment_2_0_principles.md
 # Enlightenment 2.0 Principles - Core Tenets of a Humane Digital Future
 
 **Document Purpose:**
-
 This document details the **core principles of Enlightenment 2.0**, the philosophical foundation upon which the ThinkAlike project is built.  These principles are not merely abstract ideals; they are actionable guidelines for designing ethical technology, building just digital societies, and fostering a more humane future in the digital age.
 
 **Core Principles:**

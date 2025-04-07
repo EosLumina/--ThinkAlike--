@@ -15,7 +15,7 @@ A unique aspect of this project is our **UI-Driven Validation approach**: the Us
 
 What makes ThinkAlike different?
 
-* **Ethical AI & Value-Based Matching:** Intelligent connections based on deep value alignment, interests, and lifestyles  rejecting superficial metrics and manipulative algorithms. ([Ethical Guidelines](docs/core/ethics/ethical_guidelines.md))
+* **Ethical AI & Value-Based Matching:** Intelligent connections based on deep value alignment, interests, and lifestyles rejecting superficial metrics and manipulative algorithms. ([Ethical Guidelines](docs/core/ethics/ethical_guidelines.md))
 * **Radical Transparency & Data Traceability:** Unique, interactive visualizations (e.g., the \DataTraceability\ component) show users *exactly* how their data informs AI decisions. No black boxes. ([Component Spec](docs/components/ui_components/data_traceability.md))
 * **User Empowerment & Sovereignty:** Complete user control over data, privacy, AI interactions, and community participation. Your data belongs to you. ([Core Concepts Explained](docs/vision/core_concepts.md))
 * **UI as Validation Framework:** The UI actively validates code, data flow, performance, and ethical compliance during development. ([UI Validation Examples](docs/guides/developer_guides/ui_validation_examples.md))

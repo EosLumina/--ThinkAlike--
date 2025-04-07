@@ -1,5 +1,5 @@
-// filepath: C:\--ThinkAlike--\docs\core\eos_lumina_message.md
 # Eos Lumina: A Call to Architect Enlightenment 2.0
+
 ## Action Plan for Real-world Transformation - v2.0
 
 ### A Declaration of Necessity

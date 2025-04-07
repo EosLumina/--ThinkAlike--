@@ -223,25 +223,91 @@ End of Technical Architecture Specification
 ---
 
 ```mermaid
-graph TD
-    subgraph MainBackend [Main Backend (FastAPI)]
-        API[API Endpoints]
-        SVC[Business Logic Services]
-        DB[Database Access]
+graph LR
+    subgraph "User Interface (Browser)"
+        direction TB
+        User(👤 User) --> FrontendUI[React Frontend UI];
+        FrontendUI -- API Calls (HTTPS/JWT) --> BackendAPI;
+        subgraph "UI Components"
+            direction TB
+            DisplayComponents[Display Components (DataDisplay, etc.)]
+            FormComponents[Input Components (UserForm, etc.)]
+            ValidationUI[Validation UI Components <br>(APIValidator, CoreValuesValidator,<br>DataTraceability, SecurityStatusIndicator)]
+        end
+        FrontendUI --> DisplayComponents;
+        FrontendUI --> FormComponents;
+        FrontendUI --> ValidationUI;
+        ValidationUI -- Displays Status/Data --> FrontendUI;
+        style ValidationUI fill:#fce38a,stroke:#a37a00
+        note right of ValidationUI : UI acts as Validation Framework
     end
 
-    subgraph Verification [Verification System Module]
-        RE[Rule Engine]
-        RS[(Rule Store)]
-        VIA[Internal Verification API]
-        AL[Audit Logger]
-    end
+    subgraph "Backend Application (Server)"
+        direction TB
+        BackendAPI[FastAPI Backend API Gateway];
+        subgraph "Core Services / Logic"
+            AuthService[Authentication Service];
+            UserProfileService[User/Profile Service];
+            Mode1Service[Mode 1 Service (Narrative)];
+            Mode2Service[Mode 2 Service (Discovery/Connection)];
+            Mode3Service[Mode 3 Service (Community)];
+            IntegrationService[External Integration Service];
+        end
+        subgraph "AI Modules"
+            NarrativeEngine[AI Narrative Engine];
+            MatchingEngine[AI Matching Engine];
+            CloneEngine[AI Clone Persona Engine <br>(Audiovisual Analysis)];
+            VoiceEngine[AI Voice Profile Engine]; // Added based on clarification
+            CommunityEngine[AI Community Engine (Future)];
+        end
+        VerificationSystem[Verification System <br>(Ethical/Functional Rules)];
+        BackendAPI --> AuthService;
+        BackendAPI --> UserProfileService;
+        BackendAPI --> Mode1Service;
+        BackendAPI --> Mode2Service;
+        BackendAPI --> Mode3Service;
+        BackendAPI --> IntegrationService;
+        BackendAPI -- Request Validation --> VerificationSystem;
 
-    API -- Triggers Verification --> VIA
-    SVC -- Triggers Verification --> VIA
-    VIA --> RE
-    RE -- Reads Rules --> RS
-    RE -- Context Data --> DB
-    VIA -- Logs Results --> AL
+        AuthService <--> Database[(Database <br> PostgreSQL/SQLite)];
+        UserProfileService <--> Database;
+        Mode1Service <--> Database;
+        Mode2Service <--> Database;
+        Mode3Service <--> Database;
+        IntegrationService <--> Database;
+        VerificationSystem <--> Database;
+
+        Mode1Service --> NarrativeEngine;
+        Mode2Service --> MatchingEngine;
+        UserProfileService -- Trigger --> CloneEngine;
+        UserProfileService -- Trigger --> VoiceEngine; // Added
+        IntegrationService --> ExternalAPIs[3rd Party Services <br>(Goodreads, Spotify API, etc.)];
+
+        NarrativeEngine -- Interaction Data --> MatchingEngine;
+        NarrativeEngine <--> Database; -- (Narrative State)
+        MatchingEngine <--> Database; -- (Match Scores/Data)
+        CloneEngine --> Database; -- (Store Visual Clone Params)
+        VoiceEngine --> Database; -- (Store Voice Clone Params) // Added
+
+        AuthService -- Validation Req --> VerificationSystem;
+        UserProfileService -- Validation Req --> VerificationSystem;
+        Mode1Service -- Validation Req --> VerificationSystem;
+        Mode2Service -- Validation Req --> VerificationSystem;
+        Mode3Service -- Validation Req --> VerificationSystem;
+        IntegrationService -- Validation Req --> VerificationSystem;
+        MatchingEngine -- Ethical Audit Req --> VerificationSystem;
+        CloneEngine -- Ethical Audit Req --> VerificationSystem;
+        VoiceEngine -- Ethical Audit Req --> VerificationSystem; // Added
+
+        VerificationSystem -- Validation Result --> BackendAPI; // Or relevant Service
+        VerificationSystem -- Logs --> AuditLogDB[(Verification Audit Log <br>in Database)];
+
+        style VerificationSystem fill:#95e1d3,stroke:#0d5c4d
+        style FrontendUI fill:#f9f,stroke:#333
+        style BackendAPI fill:#ccf,stroke:#333
+        style Database fill:#fcf,stroke:#333
+        style AuditLogDB fill:#fcf,stroke:#333
+        style ExternalAPIs fill:#f38181,stroke:#9a1f1f
+    end
 ```
 

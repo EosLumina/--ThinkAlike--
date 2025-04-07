@@ -156,6 +156,49 @@ contributorPledgeStatus: Enum ['offered', 'accepted', 'declined']
 * Community contribution mechanisms for documentation.
 * More advanced narrative analytics to track user engagement and onboarding effectiveness.
 
+**VIII. Sequence Diagram for Narrative Mode Interaction:**
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant FrontendUI as React Frontend
+    participant BackendAPI as FastAPI Backend
+    participant AINarrative as AI Narrative Engine
+    participant AIMatching as AI Matching Engine
+    participant DB as Database
+
+    User->>FrontendUI: Enters/Resumes Mode 1
+    FrontendUI->>BackendAPI: GET /api/v1/narrative/start
+    BackendAPI->>DB: Fetch User State / Start New Session
+    DB-->>BackendAPI: Return Session State / Initial Node Info
+    BackendAPI->>AINarrative: Get Initial/Current Narrative Node (using state)
+    AINarrative-->>BackendAPI: Return Narrative Node Data
+    BackendAPI-->>FrontendUI: Return Narrative Node & Session State
+
+    loop Narrative Interaction
+        FrontendUI->>User: Display Narrative Node (Text, Image?, Choices)
+        User->>FrontendUI: Selects Choice (choiceId)
+        FrontendUI->>BackendAPI: POST /api/v1/narrative/choice (sessionId, currentNodeId, chosenChoiceId)
+        BackendAPI->>AINarrative: Process Choice (sessionId, choiceId, context)
+        AINarrative->>AIMatching: Send Interaction Data for Value Profile Update/Scoring
+        AIMatching->>DB: Read/Update User Value Profile Metrics
+        AIMatching-->>AINarrative: Return Potential Match Status / Score Update
+        AINarrative->>AINarrative: Determine Next Node ID based on Choice & Match Status
+        AINarrative-->>BackendAPI: Return Next Narrative Node Data (or Final Outcome)
+        BackendAPI->>DB: Update Narrative Session State
+        alt Narrative Continues
+            BackendAPI-->>FrontendUI: Return Next Narrative Node & Updated Session State
+        else Match Reveal Triggered
+            BackendAPI->>DB: Fetch Matched User's AI Clone Data (Visual & Voice Params)
+            DB-->>BackendAPI: Return Clone Data
+            BackendAPI-->>FrontendUI: Return 'match_reveal' Node (with AI Clone data) & Final Session State
+        else Narrative Ends (No Match)
+            BackendAPI-->>FrontendUI: Return 'narrative_end' Node & Final Session State
+        end
+    end
+    FrontendUI->>User: Display Next Step / AI Clone Reveal / End Message
+```
+
 ---
 
 ---
@@ -166,7 +209,6 @@ contributorPledgeStatus: Enum ['offered', 'accepted', 'declined']
 - Last Updated: 2025-04-05
 ---
 End of Narrative Mode Specification - Project
----
 
 
 

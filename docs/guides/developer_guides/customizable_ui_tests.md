@@ -1,7 +1,5 @@
 # Customizable UI Tests
 
----
-
 ## 1. Introduction and Description
 
 The **Customizable UI Tests** feature embodies ThinkAlike's commitment to **UI as a Validation Framework** and **User Empowerment** in a profound way. It provides an integrated interface within the ThinkAlike platform itself, empowering both developers/testers and potentially authorized users (such as community admins or power users) to **define, configure, execute, and analyze custom testing scenarios directly through the user interface**.

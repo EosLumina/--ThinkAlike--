@@ -1,11 +1,10 @@
-// filepath: C:\--ThinkAlike--\docs\core\master_reference\master_reference.md
 # Source of Truth - ThinkAlike Project - Master Reference
 ---
 
 ## Table of Contents
 
-1.  [Project Overview: ThinkAlike - A Social LLM for Human Connection](#project-overview-thinkalike---a-social-llm-for-human-connection)
-2.  [I. Project Vision and Philosophy: Enlightenment 2.0](#i-project-vision-and-philosophy-enlightenment-20)
+1. Project Overview
+2. I. Project Vision and Philosophy: Enlightenment 2.0
     * [A. Reclaiming Enlightenment Ideals for the Digital Age](#a-reclaiming-enlightenment-ideals-for-the-digital-age)
     * [B. Core Tenets of Enlightenment 2.0 in ThinkAlike](#b-core-tenets-of-enlightenment-20-in-thinkalike)
     * [C. Positive Anarchism: Decentralization for Liberation, Not Domination](#c-positive-anarchism-decentralization-for-liberation-not-domination)

@@ -1,9 +1,4 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ui_testing_framework.md
-# Design Document: Ui Component Testing Framework
-
 # Design Document: UI Component Testing Framework
-
----
 
 ## 1. Introduction: UI as a Real-Time Validation Engine
 

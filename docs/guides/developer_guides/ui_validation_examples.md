@@ -109,6 +109,50 @@ By implementing this framework, ThinkAlike aims to build a uniquely transparent,
 
 ---
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant FrontendUI as React Frontend
+    participant FormComp as UserForm Component
+    participant ValidationComp as CoreValuesValidator / APIValidator (UI)
+    participant BackendAPI as FastAPI Backend
+    participant VerifySys as Verification System
+    participant DB as Database
+
+    User->>FormComp: Enters data into profile form
+    FormComp->>ValidationComp: (Optional/Dev Mode) Validate Field Data (e.g., CoreValuesValidator)
+    ValidationComp-->>FormComp: Display Inline Feedback
+
+    User->>FrontendUI: Clicks "Save Profile"
+    FrontendUI->>FormComp: Trigger Submit Handler
+    FormComp->>FormComp: Perform Client-Side Validation
+    alt Client Validation Fails
+        FormComp->>User: Display Field Errors
+    else Client Validation Passes
+        FormComp->>FrontendUI: Call onSubmit prop with formData
+        FrontendUI->>ValidationComp: (Dev Mode) Trigger APIValidator.validateRequest(formData, schema)
+        ValidationComp-->>FrontendUI: Log/Display Request Validation Attempt
+        FrontendUI->>BackendAPI: PUT /api/v1/users/me (formData)
+
+        BackendAPI->>VerifySys: POST /api/v1/verification/validate/data (context: profile_update, data: formData)
+        VerifySys->>DB: Read Ethical Rules / Context (Optional)
+        VerifySys-->>BackendAPI: Return Validation Result (e.g., {status: 'pass'})
+
+        alt Verification Fails
+            BackendAPI-->>FrontendUI: 400 Bad Request (Validation Failed: [Reason])
+            FrontendUI->>ValidationComp: (Dev Mode) Trigger APIValidator.validateResponse(errorResponse)
+            ValidationComp-->>FrontendUI: Log/Display API Error Validation
+            FrontendUI->>User: Display Specific Error Message
+        else Verification Passes
+            BackendAPI->>DB: Update User Profile in Database
+            DB-->>BackendAPI: Confirm Write Success
+            BackendAPI-->>FrontendUI: 200 OK (updatedProfileData)
+            FrontendUI->>ValidationComp: (Dev Mode) Trigger APIValidator.validateResponse(successResponse, schema)
+            ValidationComp-->>FrontendUI: Log/Display Response Validation
+            FrontendUI->>User: Display Success Message
+        end
+    end
+```
 
 ---
 **Document Details**

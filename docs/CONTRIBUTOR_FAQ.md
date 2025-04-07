@@ -1,7 +1,5 @@
 # Contributor FAQ (Frequently Asked Questions)
 
----
-
 Welcome to the ThinkAlike contributor community! We're excited you're interested in helping build a platform for genuine connection based on ethical principles. This FAQ addresses common questions potential contributors might have.
 
 If your question isn't answered here, please check the main [`CONTRIBUTING.md`](../core/contributing.md) guide or ask in our community channel ([https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH)).
