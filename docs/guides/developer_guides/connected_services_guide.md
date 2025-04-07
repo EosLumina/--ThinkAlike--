@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\connected_services_guide.md
 # Managing Connected Services & Data Sources
 
 ---
