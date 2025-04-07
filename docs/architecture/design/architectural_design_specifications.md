@@ -45,6 +45,50 @@ Data flow management within ThinkAlike is meticulously designed to ensure transp
 * **UI-Driven Data Validation:** Data validation workflows are integrated into the UI, providing users and developers with real-time feedback on data integrity, data transformation processes, and system behavior. UI components act as active validation tools throughout data workflows.
 * **Data Provenance and Audit Logs:** Data traceability is maintained through comprehensive audit logs and data provenance tracking mechanisms. UI components allow authorized users and auditors to trace data back to its origin and verify data processing steps.
 
+**Diagram: Conceptual Value Profile Data Flow**
+
+```mermaid
+flowchart LR
+    subgraph Input Sources
+        A1[Profile Edit UI<br>(Explicit Values)]
+        A2[Mode 1 Narrative Choices<br>(Implicit/Explicit Values)]
+        A3[Consented External Service Data<br>(e.g., Goodreads Interests)]
+        A4[Platform Interactions<br>(Anonymized/Aggregated - Future?)]
+    end
+
+    subgraph Backend Processing
+        B1[UserProfileService]
+        B2[Mode1Service / NarrativeEngine]
+        B3[IntegrationService / DataMapper]
+        B4[AIMatchingEngine (Analysis)]
+        B5[VerificationSystem (Checks)]
+    end
+
+    subgraph Storage
+        C[(Value Profile<br>in Database)]
+    end
+
+    A1 --> B1;
+    A2 --> B2;
+    A3 --> B3;
+    A4 -- Optional --> B4;
+
+    B1 -- Processed Edits --> C;
+    B2 -- Derived Values --> C;
+    B3 -- Mapped Interests --> C;
+    B4 -- Potential Refinements --> C;
+
+    B1 -- Validate --> B5;
+    B2 -- Validate --> B5;
+    B3 -- Validate --> B5;
+    B4 -- Validate --> B5;
+
+    B5 -- Validation Status --> B1;
+    B5 -- Validation Status --> B2;
+    B5 -- Validation Status --> B3;
+    B5 -- Validation Status --> B4;
+```
+
 **7. AI Model Architecture: Ethical and Transparent Algorithms**
 
 ThinkAlike's AI models are developed and implemented according to a rigorous set of ethical guidelines and transparency principles:

@@ -218,6 +218,31 @@ sequenceDiagram
     end
 ```
 
+**Diagram: Matching Mode Interaction Sequence**
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Frontend as Matching Dashboard
+    participant Backend as FastAPI Backend
+    participant MatchingService as Matching Algorithm
+    participant DB as Database
+
+    User->>Frontend: Access Matching Mode
+    Frontend->>Backend: Request potential matches
+    Backend->>MatchingService: Calculate matches based on Value Profiles & Preferences
+    MatchingService->>DB: Query user data & preferences
+    DB-->>MatchingService: Return relevant data
+    MatchingService-->>Backend: Provide ranked match list
+    Backend-->>Frontend: Return match list and recommendations
+    User->>Frontend: Selects a match and clicks "Connect"
+    Frontend->>Backend: Sends connection request
+    Backend->>DB: Record connection request
+    DB-->>Backend: Confirm request storage
+    Backend-->>Frontend: Acknowledge connection request
+    Frontend->>User: Display connection pending status
+```
+
 **Conclusion:**
 
 Matching Mode is a cornerstone of ThinkAlike, designed to be a powerful and ethical engine for value-based human connection.  Its sophisticated, ethically weighted, and user-controlled matching algorithm, combined with transparent visualization and deep integration with the Verification System, aims to provide a truly unique and empowering alternative to the superficial and often manipulative matching systems prevalent in mainstream online platforms.  Continuous development, user feedback, and unwavering adherence to ethical principles will be crucial to realizing the full potential of Matching Mode and its contribution to a more connected and humane digital world.
