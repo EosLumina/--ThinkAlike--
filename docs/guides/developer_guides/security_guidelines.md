@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\security_guidelines.md
 # Security Standard
 
 ## 1. Introduction
