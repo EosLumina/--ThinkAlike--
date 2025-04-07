@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ml_development_guidelines.md
 # ML Development Guidelines
 
 ---
