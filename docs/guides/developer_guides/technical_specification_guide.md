@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\technical_specification_guide.md
 # Technical Specification Guide
 
 **1. Introduction**

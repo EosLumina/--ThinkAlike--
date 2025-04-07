@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\external_api_integration_guide.md
 # External API Integration Guide
 
 ## 1. Introduction

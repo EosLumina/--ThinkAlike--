@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\testing_standards.md
 # Testing Standards and Best Practices
 
 ---

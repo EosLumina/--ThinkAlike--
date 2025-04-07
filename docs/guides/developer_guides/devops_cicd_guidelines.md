@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\devops_cicd_guidelines.md
 # DevOps and CI/CD Guidelines
 
 ## 1. Introduction
