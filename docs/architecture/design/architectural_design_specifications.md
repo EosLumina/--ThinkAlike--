@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\design\architectural_design_specifications.md
 # Architectural Design Specifications
 
 **1. Introduction**
