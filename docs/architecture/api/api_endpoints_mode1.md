@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_mode1.md
 # API Endpoints - Mode 1: Narrative Onboarding & Match Reveal
 
 ---

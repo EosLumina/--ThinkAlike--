@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ai\ai_model_development_guide.md
 # Unified Ai Model Development Guide
 
 # Unified AI Model Development Guide
@@ -8,6 +7,10 @@
 This document serves as the unified guide for developers working on **Artificial Intelligence (AI) models** for the ThinkAlike project. It outlines the **key principles, ethical considerations, recommended frameworks, workflow, requirements, and UI integration strategy** for AI model development within the project.
 
 ThinkAlike aims to leverage AI to **enhance user experiences, foster authentic connections, guide self-discovery, improve matching processes, and promote ethical data practices.** AI is intended to act as a guide, enhancing human capabilities and connections, always driven by the core values of **authenticity, empowerment, and transparency**. **AI models are at the *core* of several key features** of the ThinkAlike platform.
+
+### Introduction
+
+AI models in ThinkAlike function as specialized nodes within a broader **Human-Artificial Swarm Intelligence (HASI)**. They are designed to collaborate with users and other systems, augmenting human capabilities and facilitating connection within strict ethical boundaries, rather than operating as autonomous decision-makers. This collaborative framework ensures that AI serves as a tool for empowerment and alignment with Enlightenment 2.0 principles.
 
 This guide emphasizes the importance of **ethical design by design, user control, transparent data handling, and continuous validation, particularly through the User Interface (UI)** which acts as a real data validation framework. It serves as a clear path for development teams to build AI components that are not only powerful but also intrinsically aligned with the core values of the project. All AI implementations are designed to be validated by reusable UI components, empowering users while they interact with our architecture.
 

@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\use_cases\user_persona_profiles.md
 # User Persona Profiles
 
 # ThinkAlike: User Persona Profiles

@@ -74,6 +74,54 @@ Help grow and support the ThinkAlike community:
 * Organizing events (online/real-world).
 * Spreading the word (blog posts, social media).
 
+## Our Development Methodology: Human & AI Swarming
+
+ThinkAlike embraces **Swarming** (similar to Mob Programming) as a primary method for collaborative code development, documentation writing, and complex problem-solving. We believe this approach aligns strongly with our core values of collaboration, knowledge sharing, transparency, and collective ownership.
+
+**What is Swarming?**
+
+In our context, Swarming means a group of contributors (developers, designers, testers, documenters) working **together, on the same task, at the same time, typically sharing one screen** within a virtual environment. We rotate roles frequently to ensure active participation and learning.
+
+Furthermore, our development process itself leverages a form of **Human-Artificial Swarm Intelligence**. We utilize AI assistants (like VS Code Copilot, specialized internal agents TBD) as active collaborators *within* our human swarms and individual workflows. AI assists with code generation, documentation drafting, testing, and analysis, augmenting our collective capabilities. However, **human oversight, critical judgment, and ethical validation remain paramount** for all AI contributions, adhering to the guidelines in our [AI Driven Workflow guide](../../guides/developer_guides/ai/ai_driven_workflow.md). Our goal is a synergistic partnership where both human and artificial intelligence contribute to building ThinkAlike ethically and effectively.
+
+**Why Swarming?**
+
+- **High-Bandwidth Communication:** Real-time discussion and problem-solving.
+- **Knowledge Sharing:** Team members learn from each other constantly.
+- **Higher Code Quality:** Multiple eyes on the code lead to fewer bugs and better design.
+- **Reduced Blockers:** The group can overcome obstacles more quickly.
+- **Alignment with Values:** Embodies collaboration and collective effort.
+
+**Roles within a Swarm:**
+
+Roles typically rotate every short interval (e.g., 10-20 minutes):
+
+- **Driver:** Controls the keyboard/editor, translating the Navigator's instructions into code/text. Focuses on the immediate task.
+- **Navigator:** Guides the Driver on *what* to do next at a tactical level (e.g., "Let's create a function called...", "Add a test case for..."). Thinks slightly ahead.
+- **Mob/Swarm Members:** Observe, research, anticipate problems, suggest alternatives, review code as it's written, answer questions, look up documentation. Thinks strategically.
+
+**Tools We Use:**
+
+- **Video Conferencing:** [e.g., Discord Stage/VC, Google Meet, Zoom - Specify Tool] with reliable screen sharing.
+- **Remote Control/Pairing (Optional):** Tools like VS Code Live Share, Tuple, Pop might be used for shared control.
+- **Shared Timer:** For role rotations (e.g., mobti.me, built-in timer).
+- **Virtual Whiteboard (Optional):** For design/architecture discussions (e.g., Miro, Excalidraw).
+- **Git Collaboration:** Often using tools like `git mob` ([https://github.com/rkotze/git-mob](https://github.com/rkotze/git-mob)) or agreed-upon commit message conventions to co-author commits.
+
+**How to Participate in Swarming Sessions:**
+
+1. **Find Sessions:** Check the [**Swarming Schedule / Calendar Link - TODO**] or the dedicated `#swarm-sessions` channel on our [Communication Platform - Link TODO]. Sessions might focus on specific features, bugs, or documentation tasks from the [GitHub Issues - Link TODO].
+2. **Prerequisites:** Ensure you have the local development environment set up ([Installation Guide](./installation.md)). Familiarity with the issue being tackled is helpful but not always required – learning is part of the process!
+3. **Join the Call:** Join the scheduled video call link.
+4. **Introduce Yourself:** Briefly say hello when you join.
+5. **Observe & Engage:** Initially, feel free to observe. Ask clarifying questions in the chat or briefly unmute. Offer suggestions or research findings when appropriate. Be ready to take on the Driver or Navigator role when it's your turn (or feel free to pass initially if you're just learning).
+
+**Output & Workflow Integration:**
+
+- **Code Commits:** Code produced during a swarm is typically committed at the end of the session or logical checkpoints. We use [Specify Commit Method - e.g., `git mob` co-authoring, or designated committer with co-authors listed in message].
+- **Pull Requests:** The output of a swarm focused on a specific issue usually results in a Pull Request, following the standard PR process outlined below, but attributed to the swarm participants. Review might be expedited given the collaborative nature of its creation, but still requires checks.
+- **Individual Work:** While swarming is preferred for complex tasks and feature development, individual work on smaller bugs, documentation fixes, or pre-swarm research is still welcome and necessary. Follow the standard Fork & PR workflow described below for individual contributions.
+
 ## Getting Started
 
 Before you start contributing:

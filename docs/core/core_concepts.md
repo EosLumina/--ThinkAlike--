@@ -57,14 +57,4 @@ Refer to the [`Master Reference`](../core/master_reference.md) for formal defini
 
 ---
 
-## 9. Human-Artificial Swarm Intelligence (HASI)
-
-* **Concept:** ThinkAlike operates on a model of Human-Artificial Swarm Intelligence. This combines the agency, values, and lived experience of human users (Human Nodes) with the pattern-recognition, analysis, and facilitation capabilities of specialized AI modules (AI Nodes). It is **not** about AI controlling humans, but about **synergistic collaboration** towards shared goals.
-* **Mechanism:** Interactions flow between human users and AI modules via the platform's API and UI. Human choices provide input and direction. AI nodes process information, identify potential connections or insights based on learned patterns and ethical rules, and provide suggestions or automated assistance (like narrative generation or match scoring). The Verification System acts as an alignment mechanism for AI nodes.
-* **Emergence:** The goal is for authentic connection, community formation, and even project development itself (through human swarming supported by AI tools) to *emerge* from these distributed interactions, rather than being solely dictated by a central algorithm or authority.
-* **In ThinkAlike:** This concept underpins the interaction between users, the various AI engines (Narrative, Matching, Clone, Voice Profile), and the Verification System, all working within the ethical framework towards fostering connection and realizing Enlightenment 2.0 principles.
-* **See Also:** [`Master Reference`](../core/master_reference.md), [`Architectural Overview`](../architecture/architectural_overview.md)
-
----
-
 Understanding these core concepts provides the necessary context for interpreting ThinkAlike's features, technical documentation, and overarching goals. They represent the "why" behind the "what" and "how" of the project.

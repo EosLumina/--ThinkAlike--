@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\architectural_overview.md
 # Technical Architecture Specification
 
 ## 1. Introduction

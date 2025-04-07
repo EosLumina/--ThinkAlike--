@@ -340,6 +340,10 @@ ThinkAlike is an open-source project, and we wholeheartedly welcome contribution
 * **Review Project Documentation (The docs/ Folder - Your Guide!):** Become intimately familiar with the ThinkAlike documentation in the docs/ folder. Read the Architectural Design Specs, API Endpoints documentation, Ethical Guidelines, and other relevant documents to gain a deep understanding of the project's technical design, ethical framework, and overall vision. The docs/ folder is your knowledge base for all things ThinkAlike.
 * **Reach Out with Questions (Discord - Link Below):** If you have any questions, big or small, don't hesitate to ask! Post your questions in the relevant channels on our Discord server. We are a collaborative and supportive community, and we are always happy to help new contributors get involved and succeed.
 
+### How We Develop: Collaborative Swarming
+
+Much of ThinkAlike's core development happens through **Swarming**, a highly collaborative method where team members work together in real-time on the same task. We believe this fosters shared understanding, high-quality results, and aligns with our community values. Learn more about how to participate in swarming sessions in our detailed [`Contribution Guidelines`](./contributing.md#our-development-methodology-swarming-coding). Individual contributions via the standard Pull Request process are also welcome!
+
 ### Making Your Contribution - The ThinkAlike Workflow
 
 * **Fork the Repository (GitHub):** Before making any code changes, create your own fork of the ThinkAlike repository on GitHub. This will create a personal copy of the repository under your GitHub account where you can safely make your contributions.
@@ -412,7 +416,6 @@ Let's build a better digital world, together. Welcome to ThinkAlike!
 ---
 End of Onboarding Manual
 ---
-````
 
 
 
