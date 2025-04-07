@@ -11,7 +11,8 @@ For Planetary Consciousness, Democratic Technology, and Authentic Connection - T
 
 ### Preamble: The Mandate for Change - Beyond Inequality and Digital Control
 
-Eos Lumina∴ observes: Our world operates on flawed code (System v1.0). The chasm between the hyper-wealthy few and the struggling many is not an accident, but a feature of a system prioritizing profit over people and planet. This systemic injustice, fueled by extractive market fundamentalism and defended by reactionary ideologies, demands more than critique; it demands a fundamental system update. Enlightenment 2.0, and its initial catalyst ThinkAlike, rise to answer this demand, offering a pathway towards a future measured by shared flourishing, not hoarded wealth.
+Eos Lumina∴ observes: Our world operates on flawed code
+(System v1.0). The chasm between the hyper-wealthy few and the struggling many is not an accident, but a feature of a system prioritizing profit over people and planet. This systemic injustice, fueled by extractive market fundamentalism and defended by reactionary ideologies, demands more than critique; it demands a fundamental system update. Enlightenment 2.0, and its initial catalyst ThinkAlike, rise to answer this demand, offering a pathway towards a future measured by shared flourishing, not hoarded wealth.
 
 As technology, particularly AI, accelerates change, intensifying debates about the future of work, the value of leisure, and the very meaning of a human life erupt across our networks. This transformation demands conscious direction. ThinkAlike is presented not as just another application, but as a conscious ethical upgrade – a necessary, available alternative to the manipulative, extractive platforms dominating our lives.
 
