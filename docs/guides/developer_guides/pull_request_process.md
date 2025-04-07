@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\pull_request_process.md
 # Pull Request Process Guide
 
 ---
