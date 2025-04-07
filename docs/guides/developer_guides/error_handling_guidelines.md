@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\error_handling_guidelines.md
 # Error Handling Guidelines
 
 ---

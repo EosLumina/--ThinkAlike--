@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\database_design_guidelines.md
 # Database Design Guidelines
 
 ---

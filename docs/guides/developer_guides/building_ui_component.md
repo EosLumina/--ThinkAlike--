@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\building_ui_component.md
 # Guide: Building a Backend Api Endpoint in
 
 This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing, request/response modeling, service layer interaction, database access, testing, and integration with the Verification System.

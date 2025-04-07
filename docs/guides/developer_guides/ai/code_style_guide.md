@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\ai\code_style_guide.md
 # Ai Transparency Log
 
 **Description:**

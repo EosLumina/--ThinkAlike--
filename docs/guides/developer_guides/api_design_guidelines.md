@@ -1,4 +1,3 @@
-// filepath: c:\--ThinkAlike--\docs\guides\developer_guides\api_design_guidelines.md
 # API Design Guidelines
 
 

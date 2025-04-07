@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\frontend_development_guidelines.md
 # Frontend Development Standard
 
 ## 1. Introduction

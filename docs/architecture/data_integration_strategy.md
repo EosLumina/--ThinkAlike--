@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-// filepath: C:\--ThinkAlike--\docs\architecture\data_integration_strategy.md
 # Third-Party Data Integration Strategy
 
 ---

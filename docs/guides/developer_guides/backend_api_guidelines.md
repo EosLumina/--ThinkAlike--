@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\developer_guides\backend_api_guidelines.md
 # API Development Standard
 
 ## 1. Introduction
