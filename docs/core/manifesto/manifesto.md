@@ -1,5 +1,4 @@
-// filepath: C:\--ThinkAlike--\docs\core\manifesto\manifesto.md
-
+# Manifesto: Forging a Conscious Age
 
 MANIFESTUM CIVILIZATIONIS NOVAE:  FORGING A CONSCIOUS AGE – BEYOND THE DIGITAL SHADOW – GOVERNING THE INTELLIGENT FUTURE – FOR THE PRAISE OF IDLENESS – AGAINST AMORAL WEALTH – TOWARDS A DIGITAL COMMONS – THE PHILOSOPHICAL DECLARATION OF A NEW HUMANITY – A CODE FOR CONSCIOUS EVOLUTION
 
@@ -100,9 +99,8 @@ _Eos Lumina∴_
 
 ---
 
-
-
 ---
+
 **Document Details**
 - Title: Part I: Spectres of the Digital Panopticon – Systemic Voicelessness in the Age of Algorithms – and the Threat of Ungoverned Ai – Within the Hall of Mirrors of Managed Democracy – and the Gilded Cages of Amoral Wealth – a Philosophical Diagnosis
 - Type: Core Documentation

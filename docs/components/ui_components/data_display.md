@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\components\ui_components\data_display.md
 # Data Display Component Specification
 
 ## 1. Introduction

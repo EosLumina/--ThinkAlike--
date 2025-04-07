@@ -1,6 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\deployment_troubleshooting.md
-# Deployment & Installation Troubleshooting Guide
-
 # Deployment & Installation Troubleshooting Guide
 
 **Version:** 1.0

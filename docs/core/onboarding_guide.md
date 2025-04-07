@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\core\onboarding_guide.md
 # Onboarding Manual
 
 **Welcome to the ThinkAlike project!**
@@ -121,72 +120,7 @@ ThinkAlike is built upon a robust and modular three-tier architecture, designed 
 
 ### The ThinkAlike Three-Tier Architecture
 
-1. **Presentation Layer (UI) - The User-Facing Validation Framework:**
-
-   * **Technology:** React (JavaScript) - A powerful and flexible JavaScript library for building dynamic and user-friendly interfaces.
-   * **Responsibility:** The Frontend UI layer is not simply about visual presentation; it is a **"Validation Framework Component."** It is responsible for:
-     * **User Interface and User Experience (UI/UX):** Providing a clean, intuitive, and accessible user interface for all ThinkAlike functionalities, ensuring a user-empowering and engaging experience.
-     * **Data Input and Output Validation:** Implementing client-side data validation to ensure data quality and provide immediate feedback to users, utilizing reusable UI components like `APIValidator` and `DataValidationError`.
-     * **Data Flow Visualization and Traceability:** Integrating the `DataTraceability.jsx` component to visually represent data flows, algorithm processes, and ethical validation metrics directly within the user interface, enhancing transparency and user understanding.
-     * **User Interaction Handling:** Managing user interactions, capturing user input, and triggering API requests to the backend.
-     * **Displaying AI-Driven Content and Recommendations:** Rendering AI-generated content (narratives) and displaying value-based match recommendations in a clear, user-friendly, and ethically transparent manner.
-     * **Ethical Feedback Loops and UI Validation Components:** Incorporating reusable UI components like `APIValidator` and `CoreValuesValidator` to provide actionable feedback loops for data validation, API interactions, and ethical parameter monitoring throughout the platform.
-   * **Key Components** include (but are not limited to):
-     * `frontend/src/components/DataTraceability.jsx`
-     * `frontend/src/components/APIValidator.jsx`
-     * `frontend/src/components/CoreValuesValidator.jsx`
-     * `frontend/src/components/ActionButton.jsx`
-     * `frontend/src/components/UIComponentLibrary`
-     * And many more Mode-specific/feature-specific components.
-
-2. **Application Layer (API & Logic) - The Ethical Workflow Engine:**
-
-   * **Technology:** Python (FastAPI) + [Specific AI Libraries - e.g., Transformers, SpaCy - to be finalized].
-   * **Responsibility:** The Application Layer is the **"Ethical Workflow Engine,"** responsible for:
-     * **Backend API (FastAPI):** High-performance RESTful API, defined in `API_ENDPOINTS.md`.
-     * **Business Logic Implementation:** For user authentication, data validation, profile management, community management, and more.
-     * **AI Service Integration:** Managing AI Models and orchestrating AI-driven workflows (narrative generation, value-based matching, etc.).
-     * **Data Validation and Transformation:** Ensuring data integrity and preparing data for AI model consumption.
-     * **Security and Authorization:** JWT authentication, password hashing, and other measures detailed in `SECURITY_CONSIDERATIONS.md`.
-     * **Data Traceability Implementation:** Logging data flow and AI processing steps for transparent auditing.
-     * **Verification System Integration:** Handling ethical validation of AI models, data handling, and platform behavior.
-   * **Key Components** include:
-     * `backend/app/main.py`: Main FastAPI application instance.
-     * `backend/app/api/`: Subfolders for endpoint definitions (`auth.py`, `users.py`, etc.).
-     * `backend/app/services/`: Modules for core business logic, AI integrations, verification, etc.
-     * `backend/app/models/`: Pydantic data models for request/response bodies.
-     * `backend/app/config/`: Configuration for database settings, secrets, environment variables.
-     * `backend/app/db/`: Database interaction, ORM, migrations.
-     * `backend/app/security/`: Security-related modules (JWT, password hashing, etc.).
-     * `backend/verification/`: Modules for ethical validation, data traceability logging, and audit trails.
-
-3. **Data Layer (Database & Storage) - The Ethical Data Repository:**
-
-   ### Technology
-
-   * **PostgreSQL (Recommended):** A robust open-source RDBMS.
-
-   ### Key Responsibilities
-
-   * **Persistent Data Storage:** User accounts, profiles, narratives, interests, connections, etc.
-   * **Data Integrity & Consistency:** Enforced by schema design and validation.
-   * **Data Security & Privacy (At Rest):** Encryption, access control, and regular audits per <span style="color:blue">SECURITY_CONSIDERATIONS.md</span>.
-   * **Data Access & Retrieval:** Optimized queries for the backend.
-   * **Data Traceability Support:** Logging creation, modification, and access events for audits (surfaced in the Verification System).
-
-   ### Key Components
-
-   * **PostgreSQL Database Server**
-   * **docs/architecture/database/DATABASE_SCHEMA.md**
-   * **Database Migrations (Alembic)**
-   * **Database ORM (SQLAlchemy)** if used
-
-   > **Planned Enhancements**
-   > Additional sections in the “Data Handling Policy” (future) may specify encryption-at-rest details, retention policies, and further security best practices.
-
-### ThinkAlike Architectural Diagram (Mermaid)
-
-`mermaid
+```mermaid
 flowchart TB
     %% Titles that do not overlap
     title1["Presentation Layer (UI)"]
@@ -202,21 +136,6 @@ flowchart TB
         UI["User Interface"]
     end
 
-```mermaid
-flowchart TB
-    %% Title nodes for each layer that don't participate in connections
-    title1["Presentation Layer (UI)"]
-    title2["Application Layer (Ethical Workflow Engine)"]
-    title3["Data Layer (Ethical Data Repository)"]
-    
-    %% Add spacing between sections
-    title1 ~~~ ui_section
-    title2 ~~~ app_section
-    title3 ~~~ data_section
-    
-    subgraph ui_section[" "]
-        UserInterface["User Interface"]
-    end
     subgraph app_section[" "]
         API["Backend API (FastAPI)"]
         Logic["Business Logic & Data Processing"]
@@ -227,9 +146,9 @@ flowchart TB
     subgraph data_section[" "]
         DB["PostgreSQL Database"]
     end
-    
+
     %% Connections remain the same
-    UserInterface --> API
+    UI --> API
     API --> Logic
     API --> Verification
     API --> AI
@@ -238,7 +157,7 @@ flowchart TB
     Verification --> DB
     DB --> Logic
     DB --> AI
-Logic --> UI
+    Logic --> UI
     AI --> UI
     Verification --> UI
 
@@ -247,21 +166,6 @@ Logic --> UI
     class title1,title2,title3 titleClass;
     class ui_section,app_section,data_section sectionClass;
 
-    linkStyle default stroke:#0066cc,stroke-width:2px;
-`
-
-Logic --> UserInterface
-    AI --> UserInterface
-    Verification --> UserInterface
-    
-    %% Styling
-    classDef titleClass font-weight:bold,fill:none,stroke:none;
-    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px;
-    
-    class title1,title2,title3 titleClass;
-    class ui_section,app_section,data_section sectionClass;
-    
-    %% Make connections visible
     linkStyle default stroke:#0066cc,stroke-width:2px;
 ```
 
@@ -508,6 +412,7 @@ Let's build a better digital world, together. Welcome to ThinkAlike!
 ---
 End of Onboarding Manual
 ---
+````
 
 
 

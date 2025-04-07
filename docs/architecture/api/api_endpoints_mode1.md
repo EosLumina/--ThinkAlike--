@@ -1,15 +1,13 @@
 // filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_mode1.md
-# Api Endpoints - Project Backend - Narrative Mode (mode 1)
-
-# API ENDPOINTS - ThinkAlike Project Backend - Mode 1: Narrative Onboarding & Match Reveal
+# API Endpoints - Mode 1: Narrative Onboarding & Match Reveal
 
 ---
 
 ## 1. Introduction
 
-This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 1 (Narrative Onboarding & Match Reveal) functionality.** It supplements the main [`API_ENDPOINTS.md`](api_endpoints.md) and details the routes, methods, request/response formats, authentication, and functionality required to drive the interactive "Whispering Woods" choose-your-own-adventure experience. This mode serves as the primary onboarding mechanism, introduces core project values, elicits initial user Value Profile data, and culminates in a potential AI-driven "perfect match" reveal.
+This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 1 (Narrative Onboarding & Match Reveal) functionality.** It supplements the main `API_ENDPOINTS.md` and details the routes, methods, request/response formats, authentication, and functionality required to drive the interactive "Whispering Woods" choose-your-own-adventure experience. This mode serves as the primary onboarding mechanism, introduces core project values, elicits initial user Value Profile data, and culminates in a potential AI-driven "perfect match" reveal.
 
-Refer to [`API_ENDPOINTS.md`](api_endpoints.md) for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication**.
+Refer to `API_ENDPOINTS.md` for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication**.
 
 These endpoints facilitate the stateful progression through the narrative, interaction with the AI Narrative Engine, and the final match reveal based on the user's choices.
 
@@ -202,13 +200,14 @@ Standard HTTP error codes (400, 401, 404, 409, 500) are used. Error responses sh
 
 ---
 **Document Details**
-- Title: Api Endpoints - Project Backend - Narrative Mode (mode 1)
-- Type: Architecture Documentation
+- Title: API Endpoints - Mode 1: Narrative Onboarding & Match Reveal
+- Type: API Documentation
 - Version: 1.0.0
 - Last Updated: 2025-04-05
 ---
-End of Api Endpoints - Project Backend - Narrative Mode (mode 1)
+End of API Endpoints - Mode 1: Narrative Onboarding & Match Reveal
 ---
+````markdown
 
 
 

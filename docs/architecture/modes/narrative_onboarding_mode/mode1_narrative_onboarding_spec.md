@@ -1,32 +1,31 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\modes\narrative_onboarding_mode\mode1_narrative_onboarding_spec.md
 # Narrative Mode Specification - Project
 
 **Document Purpose:**
 
-This document provides a **detailed specification for Narrative Mode** within the ThinkAlike project.  It outlines the functionality, features, user flows, data models, and technical considerations for implementing Narrative Mode, which serves as the onboarding, ideological injection, and documentation hub of the platform.
+This document provides a **detailed specification for Narrative Mode** within the ThinkAlike project. It outlines the functionality, features, user flows, data models, and technical considerations for implementing Narrative Mode, which serves as the onboarding, ideological injection, and documentation hub of the platform.
 
-**I.  Core Functionality and Features:**
+**I. Core Functionality and Features:**
 
 Narrative Mode serves several key purposes:
 
 1. **User Onboarding and Platform Introduction:**
-    * **Interactive Onboarding Narrative:**  Presents a compelling and engaging interactive narrative that guides new users through the core concepts of ThinkAlike, its mission, and its ethical principles (Enlightenment 2.0).
-    * **Feature Discovery and Tutorials:**  Integrates interactive tutorials and feature highlights to introduce users to the functionalities of each Mode (Narrative, Matching, Community) and how to use them effectively.
-    * **Value Proposition and Benefits:**  Clearly communicates the user value proposition of ThinkAlike, emphasizing its ethical upgrade, user empowerment, and potential for authentic connection.
-    * **Call to Action to Participate:**  Concludes the onboarding narrative with a clear call to action, encouraging users to create their personal narratives and begin exploring the platform.
+    * **Interactive Onboarding Narrative:** Presents a compelling and engaging interactive narrative that guides new users through the core concepts of ThinkAlike, its mission, and its ethical principles (Enlightenment 2.0).
+    * **Feature Discovery and Tutorials:** Integrates interactive tutorials and feature highlights to introduce users to the functionalities of each Mode (Narrative, Matching, Community) and how to use them effectively.
+    * **Value Proposition and Benefits:** Clearly communicates the user value proposition of ThinkAlike, emphasizing its ethical upgrade, user empowerment, and potential for authentic connection.
+    * **Call to Action to Participate:** Concludes the onboarding narrative with a clear call to action, encouraging users to create their personal narratives and begin exploring the platform.
 
 2. **"Philosophical Manifesto of Eos Lumina" Embodiment:**
-    * **Interactive Manifesto Presentation:**  Presents the full "Philosophical Manifesto of Eos Lumina" in a dynamic and engaging digital format, moving beyond a static document.
-    * **Thematic Exploration of Manifesto Principles:**  Allows users to explore the Manifesto's core principles (Positive Anarchism, Ethical Humanism, Radical Transparency, User Empowerment, Authentic Connection, Redefined Progress) in an interactive and thematic way.
-    * **Multimedia Integration (Optional):**  Potentially incorporates multimedia elements (images, audio, video) to enhance the Manifesto's presentation and impact (future enhancement).
-    * **User Annotation and Reflection (Optional):**  Potentially allows users to annotate, highlight, and save sections of the Manifesto for personal reflection and engagement (future enhancement).
+    * **Interactive Manifesto Presentation:** Presents the full "Philosophical Manifesto of Eos Lumina" in a dynamic and engaging digital format, moving beyond a static document.
+    * **Thematic Exploration of Manifesto Principles:** Allows users to explore the Manifesto's core principles (Positive Anarchism, Ethical Humanism, Radical Transparency, User Empowerment, Authentic Connection, Redefined Progress) in an interactive and thematic way.
+    * **Multimedia Integration (Optional):** Potentially incorporates multimedia elements (images, audio, video) to enhance the Manifesto's presentation and impact (future enhancement).
+    * **User Annotation and Reflection (Optional):** Potentially allows users to annotate, highlight, and save sections of the Manifesto for personal reflection and engagement (future enhancement).
 
 3. **Personal Narrative Creation and Profile Building:**
-    * **Guided Narrative Creation Flow:**  Provides a structured and guided flow for users to create their personal narratives, prompting them to articulate their values, interests, motivations, and vision.
-    * **Value Elicitation Prompts:**  Includes prompts and questions specifically designed to elicit user values and ethical principles, ensuring these are central to their narratives.
-    * **Rich Text Editor and Formatting Options:**  Offers a rich text editor with formatting options to allow users to create compelling and well-structured narratives.
-    * **Privacy Settings for Narrative Visibility:**  Allows users to control the visibility of their narratives (e.g., public, only to matched users, private).
-    * **Narrative Storage and Management:**  Provides secure and private storage for user narratives and allows users to easily edit and update them over time.
+    * **Guided Narrative Creation Flow:** Provides a structured and guided flow for users to create their personal narratives, prompting them to articulate their values, interests, motivations, and vision.
+    * **Value Elicitation Prompts:** Includes prompts and questions specifically designed to elicit user values and ethical principles, ensuring these are central to their narratives.
+    * **Rich Text Editor and Formatting Options:** Offers a rich text editor with formatting options to allow users to create compelling and well-structured narratives.
+    * **Privacy Settings for Narrative Visibility:** Allows users to control the visibility of their narratives (e.g., public, only to matched users, private).
+    * **Narrative Storage and Management:** Provides secure and private storage for user narratives and allows users to easily edit and update them over time.
 
 4. **AI Agent as Your Guide, Storyteller, and Mirror:**
     * **Narrative Facilitation:** Guides the user through the "Whispering Woods" adventure, presenting choices and adapting the story.
@@ -37,12 +36,12 @@ Narrative Mode serves several key purposes:
     * **Initial Matching:** Uses the accumulated Value Profile data and Alignment Score to potentially reveal a "perfect match" (AI Clone) as the narrative conclusion.
 
 5. **Documentation Hub and Project Knowledge Base:**
-    * **Centralized Access to Project Documentation:**  Acts as a central hub for accessing all project documentation, including the "Source of Truth," Architectural Design Specs, Ethical Guidelines, API documentation, and user guides.
-    * **Categorized and Searchable Documentation:**  Organizes documentation into logical categories and provides search functionality to allow users (and developers) to easily find specific information.
-    * **Version Control and Update Tracking (Links to External System):**  Provides links to the version-controlled documentation repository (e.g., GitHub), allowing users to access the latest versions and track updates.
-    * **Community Contribution to Documentation (Future Enhancement):**  Potentially allows for community contributions and feedback on documentation (future enhancement, e.g., through a linked wiki or collaborative documentation platform).
+    * **Centralized Access to Project Documentation:** Acts as a central hub for accessing all project documentation, including the "Source of Truth," Architectural Design Specs, Ethical Guidelines, API documentation, and user guides.
+    * **Categorized and Searchable Documentation:** Organizes documentation into logical categories and provides search functionality to allow users (and developers) to easily find specific information.
+    * **Version Control and Update Tracking (Links to External System):** Provides links to the version-controlled documentation repository (e.g., GitHub), allowing users to access the latest versions and track updates.
+    * **Community Contribution to Documentation (Future Enhancement):** Potentially allows for community contributions and feedback on documentation (future enhancement, e.g., through a linked wiki or collaborative documentation platform).
 
-**II.  User Flows and Interactions:**
+**II. User Flows and Interactions:**
 
 1. **New User Onboarding Flow:**
     * User lands on ThinkAlike platform (e.g., `index.html`).
@@ -87,8 +86,8 @@ Narrative Mode serves several key purposes:
         * If lower match/no sufficient match: Narrative concludes with guidance towards Mode 2 discovery. Optionally suggest contributor next steps if pledge accepted.
 
 **III. Data Model (Example - Conceptual):**
-Use code with caution.
-Markdown
+
+```markdown
 NarrativeNode {
 nodeId: UUID (Unique Identifier)
 nodeType: Enum ['section', 'tutorial', 'prompt', 'manifesto_point', ...] // Type of narrative node
@@ -118,6 +117,7 @@ e2oAlignmentScore: Float // Internal alignment score
 contributorPledgeStatus: Enum ['offered', 'accepted', 'declined']
 // ... other session state properties
 }
+```
 
 **IV. UI Components (Specific to Narrative Mode):**
 
@@ -128,7 +128,7 @@ contributorPledgeStatus: Enum ['offered', 'accepted', 'declined']
 
 **V. API Endpoints (Backend - Examples):**
 
-* `/api/narrative/onboarding`:  Returns data for the interactive onboarding narrative flow (structure and content of NarrativeNodes).
+* `/api/narrative/onboarding`: Returns data for the interactive onboarding narrative flow (structure and content of NarrativeNodes).
 * `/api/narrative/manifesto`: Returns data for the interactive Manifesto presentation (structure and content of Manifesto NarrativeNodes).
 * `/api/narrative/user-narrative`: (Authenticated)
   * `GET`: Returns the current user's narrative (if it exists).
@@ -139,17 +139,17 @@ contributorPledgeStatus: Enum ['offered', 'accepted', 'declined']
 * `/api/documentation/content/{documentName}`: Returns the content of a specific documentation file (e.g., Markdown content).
 * `/api/v1/contributor/agree`: Updates user role/flag upon acceptance of the Contributor Pledge.
 
-**VI.  Technical Considerations:**
+**VI. Technical Considerations:**
 
-* **Interactive Narrative Engine Implementation:**  Careful design and implementation of the interactive narrative engine is crucial for creating an engaging and user-friendly onboarding and Manifesto experience. Consider using a graph-based data structure or a state management library to manage the non-linear narrative flow.
-* **Content Management System (CMS) for Documentation (Optional):**  For larger-scale documentation management and community contributions, consider integrating a lightweight CMS or static site generator to manage documentation files more efficiently (future enhancement).
-* **Performance Optimization:**  Optimize performance for loading and rendering potentially large narrative content and documentation files, especially for users with slower internet connections.
-* **Accessibility:**  Design Narrative Mode to be accessible to users with disabilities, adhering to accessibility guidelines (WCAG) for UI components and content presentation.
+* **Interactive Narrative Engine Implementation:** Careful design and implementation of the interactive narrative engine is crucial for creating an engaging and user-friendly onboarding and Manifesto experience. Consider using a graph-based data structure or a state management library to manage the non-linear narrative flow.
+* **Content Management System (CMS) for Documentation (Optional):** For larger-scale documentation management and community contributions, consider integrating a lightweight CMS or static site generator to manage documentation files more efficiently (future enhancement).
+* **Performance Optimization:** Optimize performance for loading and rendering potentially large narrative content and documentation files, especially for users with slower internet connections.
+* **Accessibility:** Design Narrative Mode to be accessible to users with disabilities, adhering to accessibility guidelines (WCAG) for UI components and content presentation.
 * **AI Agent Persona Consistency:** Requires careful design and prompt engineering to maintain a consistent, helpful, non-manipulative tone across its multiple roles (storyteller, guide, assessor, recruiter).
 * **Contextual Guidance Implementation:** Needs backend logic to map narrative nodes to potential UI tutorial triggers and frontend ability to display these contextually (e.g., highlighting UI elements referenced by agent).
 * **Alignment Scoring Logic:** Define and implement the algorithm for calculating the internal "E2.0 Alignment Score" based on narrative choices (requires careful ethical design and testing).
 
-**VII.  Future Enhancements:**
+**VII. Future Enhancements:**
 
 * Multimedia integration within the Manifesto and onboarding narrative (images, audio, video).
 * User annotation and highlighting features for the Manifesto.
@@ -201,7 +201,6 @@ sequenceDiagram
 
 ---
 
----
 **Document Details**
 - Title: Narrative Mode Specification - Project
 - Type: Architecture Documentation

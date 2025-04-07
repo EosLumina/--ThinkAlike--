@@ -1,4 +1,4 @@
-# Style Guide
+# Visual Style Guide
 
 This document outlines the visual style and branding guidelines for the ThinkAlike platform. We aim for a "Zenith of Excellence" aesthetic: clean, modern, professional, high-tech, and futuristic, while conveying trust, transparency, and ethical excellence.
 

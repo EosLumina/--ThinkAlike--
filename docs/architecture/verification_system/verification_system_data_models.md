@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\verification_system\verification_system_data_models.md
 # Verification System Data Models
 
 ---

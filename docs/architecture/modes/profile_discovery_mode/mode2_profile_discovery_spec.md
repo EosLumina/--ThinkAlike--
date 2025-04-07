@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\modes\profile_discovery_mode\mode2_profile_discovery_spec.md
 # Matching Mode Specification - Project
 
 **Document Purpose:**
@@ -163,66 +162,6 @@ The Matching Mode and its core matching algorithm are deeply integrated with the
 ```mermaid
 sequenceDiagram
     participant User
-    participant FrontendUI as React Frontend
-    participant BackendAPI as FastAPI Backend
-    participant AIMatching as AI Matching Engine
-    participant AINarrative as AI Narrative Engine
-    participant DB as Database
-
-    User->>FrontendUI: Enters Mode 2 / Browses Network
-    FrontendUI->>BackendAPI: GET /api/v1/discovery/network (with filters/sort?)
-    BackendAPI->>AIMatching: Request Potential Matches/Scores for User
-    AIMatching->>DB: Read Value Profiles
-    AIMatching-->>BackendAPI: Return Ranked User IDs & Scores
-    BackendAPI->>DB: Fetch Summaries & AI Clone Data for Ranked Users
-    DB-->>BackendAPI: Return User Summaries/Clone Data
-    BackendAPI-->>FrontendUI: Return Paginated List of User Nodes
-
-    FrontendUI->>User: Display User Nodes (AI Clones + Summaries + Match %)
-    User->>FrontendUI: Clicks on a User Node Profile
-    FrontendUI->>BackendAPI: GET /api/v1/discovery/profile/{targetUserId}
-    BackendAPI->>DB: Fetch Detailed Profile Data (respecting privacy)
-    DB-->>BackendAPI: Return Profile Data
-    BackendAPI-->>FrontendUI: Return Detailed Profile
-
-    FrontendUI->>User: Display Detailed Profile & "Connect" button
-    User->>FrontendUI: Clicks "Connect" (Initiate Test)
-    FrontendUI->>BackendAPI: POST /api/v1/connection/initiate_test (targetUserId)
-    BackendAPI->>DB: Check Eligibility (No existing connection/block/recent fail)
-    alt Eligible
-        BackendAPI->>DB: Create Narrative Compatibility Test Session State
-        BackendAPI->>AINarrative: Get *First* Node of Compatibility Test
-        AINarrative-->>BackendAPI: Return First Narrative Node
-        BackendAPI-->>FrontendUI: 201 Created (testSessionId, firstNarrativeNode)
-        FrontendUI->>User: Display First Step of Compatibility Test
-    else Not Eligible
-        BackendAPI-->>FrontendUI: 400/403/409 Error (e.g., Already Connected)
-        FrontendUI->>User: Display Error Message
-    end
-
-    loop Narrative Compatibility Test Interaction
-        User->>FrontendUI: Selects Choice in Test
-        FrontendUI->>BackendAPI: POST /api/v1/connection/test/choice (testSessionId, currentNodeId, chosenChoiceId)
-        BackendAPI->>AINarrative: Process Compatibility Test Choice (testSessionId, choiceId)
-        AINarrative->>AINarrative: Calculate/Update Test Score, Determine Next Node or Outcome
-        AINarrative-->>BackendAPI: Return Next Node OR Final Outcome Status
-        BackendAPI->>DB: Update Test Session State (Progress/Completed/Score)
-        alt Test Continues
-             BackendAPI-->>FrontendUI: Return Next Narrative Node
-             FrontendUI->>User: Display Next Test Step
-        else Test Concludes
-             BackendAPI->>DB: Update Connection Request/Status (if enabled)
-             BackendAPI-->>FrontendUI: Return Final Outcome (connection_enabled/denied)
-             FrontendUI->>User: Display Outcome (e.g., "Connection Enabled!" or "Alignment not met")
-        end
-    end
-```
-
-**Diagram: Matching Mode Interaction Sequence**
-
-```mermaid
-sequenceDiagram
-    participant User
     participant Frontend as Matching Dashboard
     participant Backend as FastAPI Backend
     participant MatchingService as Matching Algorithm
@@ -243,13 +182,8 @@ sequenceDiagram
     Frontend->>User: Display connection pending status
 ```
 
-**Conclusion:**
-
-Matching Mode is a cornerstone of ThinkAlike, designed to be a powerful and ethical engine for value-based human connection.  Its sophisticated, ethically weighted, and user-controlled matching algorithm, combined with transparent visualization and deep integration with the Verification System, aims to provide a truly unique and empowering alternative to the superficial and often manipulative matching systems prevalent in mainstream online platforms.  Continuous development, user feedback, and unwavering adherence to ethical principles will be crucial to realizing the full potential of Matching Mode and its contribution to a more connected and humane digital world.
-
 ---
 
----
 **Document Details**
 - Title: Matching Mode Specification - Project
 - Type: Architecture Documentation
@@ -258,6 +192,7 @@ Matching Mode is a cornerstone of ThinkAlike, designed to be a powerful and ethi
 ---
 End of Matching Mode Specification - Project
 ---
+````markdown
 
 
 

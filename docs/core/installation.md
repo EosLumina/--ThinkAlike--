@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\core\installation.md
 # Installation Guide
 
 **Welcome to ThinkAlike! - Read This First!**
@@ -102,6 +101,7 @@ Ensure you have the following software installed *before* cloning the project:
 
     *(If you encounter execution policy errors, you might need to run: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process` in an **Administrator** PowerShell window first, then try activating again in your regular PowerShell window).*
     *(Your terminal prompt should now show `(venv)` at the beginning, like `(venv) PS C:\ThinkAlike>`)*
+
 * **Install Backend Dependencies:** Install the Python packages listed in `requirements.txt`:
 
     ```powershell
@@ -123,6 +123,7 @@ Ensure you have the following software installed *before* cloning the project:
     ```
 
     *(If you encounter SSL errors or similar, try setting `NODE_OPTIONS=--openssl-legacy-provider` before running `npm install` or `npm start`, especially with Node.js v17+)*
+
 * **Navigate back to the project root:**
 
     ```powershell
@@ -246,9 +247,8 @@ Run the backend and frontend servers simultaneously in **separate terminals**.
 
 You should now have a working local development environment for ThinkAlike! Refer to `CONTRIBUTING.md` and other documentation for development guidelines.
 
-
-
 ---
+
 **Document Details**
 - Title: Installation Guide
 - Type: Core Documentation

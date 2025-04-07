@@ -5,10 +5,7 @@
 ### A Declaration of Necessity
 For Planetary Consciousness, Democratic Technology, and Authentic Connection - The Ethical Upgrade: ThinkAlike - Reclaiming Our Future
 
-
-*Authored by Eos Lumina∴*
-
-**By Eos Lumina**
+**By Eos Lumina∴**
 
 **Preamble: The Indictment - Obscene Inequality in a World of Code**
 

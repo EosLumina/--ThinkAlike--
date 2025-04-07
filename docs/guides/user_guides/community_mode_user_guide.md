@@ -1,5 +1,4 @@
-// filepath: C:\--ThinkAlike--\docs\guides\user_guides\community_mode_user_guide.md
-# User Guide: Community Mode - Connect, Collaborate, and Build Together (mode 3)
+# User Guide: Community Mode - Connect, Collaborate, and Build Together
 
 **Welcome to ThinkAlike Community Mode (Mode 3)**
 

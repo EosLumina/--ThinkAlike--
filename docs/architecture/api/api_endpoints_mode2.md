@@ -1,13 +1,12 @@
-// filepath: C:\--ThinkAlike--\docs\architecture\api\api_endpoints_mode2.md
-# Api Endpoints - Project Backend - Mode 2: User Discovery & Connection
+# API Endpoints - Mode 2: User Discovery & Connection
 
 ---
 
 ## 1. Introduction
 
-This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 2 (User Discovery & Connection) functionality.** It supplements the main [`API_ENDPOINTS.md`](api_endpoints.md) and details the routes, methods, request/response formats, authentication, and functionality related to **user-driven browsing of potential matches (User Nodes/AI Clones), viewing detailed profiles, and initiating/managing the Narrative Compatibility Tests** required before direct connections are established in this Mode.
+This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 2 (User Discovery & Connection) functionality.** It supplements the main `API_ENDPOINTS.md` and details the routes, methods, request/response formats, authentication, and functionality related to **user-driven browsing of potential matches (User Nodes/AI Clones), viewing detailed profiles, and initiating/managing the Narrative Compatibility Tests** required before direct connections are established in this Mode.
 
-Refer to [`API_ENDPOINTS.md`](api_endpoints.md) for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication**.
+Refer to `API_ENDPOINTS.md` for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication**.
 
 Mode 2 allows users to proactively explore the network based on Value Profiles and Matching Percentages, initiating connections only after successfully navigating a narrative compatibility gate.
 
@@ -246,13 +245,13 @@ Error bodies include a `message` field and may also contain `ui_validation_compo
 ---
 
 ---
+
 **Document Details**
-- Title: Api Endpoints - Project Backend - Mode 2: User Discovery & Connection
-- Type: Architecture Documentation
+- Title: API Endpoints - Mode 2: User Discovery & Connection
+- Type: API Documentation
 - Version: 1.0.0
 - Last Updated: 2025-04-05
 ---
-End of Api Endpoints - Project Backend - Mode 2: User Discovery & Connection
----
+End of API Endpoints - Mode 2: User Discovery & Connection
 
 
