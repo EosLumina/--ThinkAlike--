@@ -40,6 +40,7 @@ ThinkAlike is more than just a platform; it is a **movement**. We are building a
 4. [UI Components](#4-ui-components)
 5. [Data Handling](#5-data-handling)
 6. [AI Models - Ethical Explainable and User-Centric Artificial Intelligence](#6-ai-models---ethical-explainable-and-user-centric-artificial-intelligence)
+7. [Community Links](#7-community-links)
 
 ---
 
@@ -259,12 +260,28 @@ ThinkAlike is founded on a deep commitment to ethical data handling and user pri
 
 ---
 
+## 6. AI Models - Ethical Explainable and User-Centric Artificial Intelligence
+
+This section will be added in future updates.
+
+---
+
+## 7. Community Links
+
+- **GitHub Repository:** [https://github.com/EosLumina/--ThinkAlike--](https://github.com/EosLumina/--ThinkAlike--)
+- **GitHub Issues:** [https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues)
+- **GitHub Discussions:** [https://github.com/EosLumina/--ThinkAlike--/discussions](https://github.com/EosLumina/--ThinkAlike--/discussions)
+- **GitHub Actions:** [https://github.com/EosLumina/--ThinkAlike--/actions](https://github.com/EosLumina/--ThinkAlike--/actions)
+
+---
+
 **Document Details**
 - Title: Onboarding Manual
 - Type: Core Documentation
 - Version: 1.0.0
 - Last Updated: 2025-04-06
 ---
+```
 
 
 

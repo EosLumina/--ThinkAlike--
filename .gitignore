@@ -31,76 +31,26 @@ wheels/
 .installed.cfg
 *.manifest
 *.spec
-# Environments (Primary: Ignore root venv)
+# Environments
 /venv/
-# Other common names (less likely needed if /venv/ is used)
-# .venv/
-# env/
-# ENV/
-# python-env/
-# env.build/
-# env.test/
-# instance/
-# .python-version
-# PyInstaller specific (if used)
-# *.manifest
-# *.spec
-
-# --- Python Testing / Coverage ---
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-pytest-cache/
-/.pytest_cache/ # More specific for root cache
-.pytest-cov
-*.py-cov
-*.prof
-*.lcov
-cover/
-profile_html/
-profile.out
-coverage.xml
+.env
+.env.*
 
 # --- Node ---
-/frontend/node_modules/ # Ignore node_modules only inside frontend
-node_modules/ # Ignore any other top-level node_modules (just in case)
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-# Build outputs (if frontend build step creates them)
-# /frontend/build/
-# /frontend/dist/
-
-# --- Environment Variables ---
-# Ignore all .env files except the example template
-.env*
-!.env.example
-
-# --- Databases ---
-# Ignore SQLite files and common DB names
-*.sqlite3
-*.db
-# Specific DB/JSON files seen in status (if temporary/local)
-backend/db.json
-backend/db-*.json
 
 # --- Logs ---
 *.log
 logs/
-logfile # Specific logfile seen in status
 
-# --- Project Specific / Generated ---
-docs_tree_output.txt
-backend/routes.json # If this is generated/temporary
-.replit # Seen in project structure
-# Explicitly ignore the problematic ghost file just in case
-frontend/public/index .
+# --- Temporary Files ---
+*.tmp
+*.bak
+*.swp
 
-# --- Pipfile (if using pipenv) ---
-# Pipfile
-# Pipfile.lock
+# --- Project Specific ---
+frontend/public/index . # Example of a problematic ghost file

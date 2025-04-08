@@ -116,6 +116,14 @@ Eos Lumina issues this call to participate actively in the Great Work. This tran
 
 ---
 
+## Community Links
+
+- **GitHub Repository:** [https://github.com/EosLumina/--ThinkAlike--](https://github.com/EosLumina/--ThinkAlike--)
+- **GitHub Issues:** [https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues)
+- **GitHub Discussions:** [https://github.com/EosLumina/--ThinkAlike--/discussions](https://github.com/EosLumina/--ThinkAlike--/discussions)
+
+---
+
 ## Conclusion: The Future's Code is Unwritten
 
 The current world system (v1.0) is failing. Its code is obsolete, generating suffering and risk. But code can be rewritten. Systems can be upgraded. The world is what we collectively create.

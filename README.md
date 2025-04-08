@@ -1,12 +1,12 @@
-# ThinkAlike
+# ThinkAlike: Architecting Our Future
+
+## Introduction
 
 **Connecting Like-Minded Individuals for Authentic Connection & Systemic Change**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH) <!-- TODO: Replace YOUR_DISCORD_ID -->
-[![Docs CI Status](https://github.com/EosLumina/--ThinkAlike--/workflows/Docs%20CI%20Workflow/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions?query=workflow%3A%22Docs+CI+Workflow%22) <!-- Verify Workflow Name -->
-<!-- TODO: Add Build Status Badge -->
-<!-- TODO: Add Coverage Badge -->
+[![Discord](https://img.shields.io/discord/YOUR_DISCORD_ID?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH)
+[![Docs CI Status](https://github.com/EosLumina/--ThinkAlike--/workflows/Docs%20CI%20Workflow/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions?query=workflow%3A%22Docs+CI+Workflow%22)
 
 ---
 
@@ -15,6 +15,15 @@
 We leverage AI to **enhance** human connection, *not* replace it. Our development is guided by principles of **transparency, user agency, ethical data handling,** and the concept of **"Enlightenment 2.0,"** actively challenging exploitative tech paradigms. ThinkAlike is more than an app; it's a movement towards a more human-centered digital world, built collaboratively and openly.
 
 A unique aspect of this project is our **UI-Driven Validation approach**: the User Interface itself serves as a critical testing and validation tool, ensuring our technology remains trustworthy, user-centric, and aligned with our ethical commitments in real-time.
+
+---
+
+## Community Links
+
+- **GitHub Repository:** [https://github.com/EosLumina/--ThinkAlike--](https://github.com/EosLumina/--ThinkAlike--)
+- **GitHub Issues:** [https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues)
+- **GitHub Discussions:** [https://github.com/EosLumina/--ThinkAlike--/discussions](https://github.com/EosLumina/--ThinkAlike--/discussions)
+- **GitHub Actions:** [https://github.com/EosLumina/--ThinkAlike--/actions](https://github.com/EosLumina/--ThinkAlike--/actions)
 
 ---
 
@@ -115,10 +124,18 @@ Ready to contribute code, docs, or design?
 
 * **Discord:** [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) - ***Primary channel for interaction.***
 * **GitHub Issues:** Bug reports & feature requests ([https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues))
-* **GitHub Discussions:** Broader ideas & Q&A ([Link Here - TODO: Enable/Link Discussions if applicable])
+* **GitHub Discussions:** Broader ideas & Q&A ([https://github.com/EosLumina/--ThinkAlike--/discussions](https://github.com/EosLumina/--ThinkAlike--/discussions))
 * **Project Email:** [ThinkAlikeAI@proton.me](mailto:ThinkAlikeAI@proton.me) (General inquiries)
 * **Lead Design Architect:** [Eos.Lumina@proton.me](mailto:Eos.Lumina@proton.me) (Design/UI/UX/Vision questions)
 
 ---
 
 **The Future's Code is Unwritten. JOIN THE BUILD. IGNITE THE CHANGE.**
+
+---
+**Document Details**
+- Title: ThinkAlike Readme
+- Type: Readme Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-06
+---

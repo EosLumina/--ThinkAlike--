@@ -128,6 +128,12 @@ Security protocols and reusable security workflow modules are constantly updated
 Exploring New Technologies
 Continued R&D explores new technologies and methods like advanced encryption, privacy-enhancing technologies, and zero-trust frameworks to enhance data protection, user privacy, adapt to evolving needs, and improve platform scalability for new implementation requirements. Each integration is carefully assessed for compatibility with ThinkAlike’s ethical and architectural model.
 
+## Community Links
+
+- **GitHub Repository:** [https://github.com/EosLumina/--ThinkAlike--](https://github.com/EosLumina/--ThinkAlike--)
+- **GitHub Issues:** [https://github.com/EosLumina/--ThinkAlike--/issues](https://github.com/EosLumina/--ThinkAlike--/issues)
+- **GitHub Discussions:** [https://github.com/EosLumina/--ThinkAlike--/discussions](https://github.com/EosLumina/--ThinkAlike--/discussions)
+
 ---
 **Document Details**
 - Title: Security and Privacy Plan
