@@ -40,6 +40,12 @@ Tailored for ThinkAlike’s architecture, this guide outlines performance benchm
 - **Documentation & Sharing:**
   Maintain detailed records of performance tests, optimization efforts, and scalability plans — sharing findings through ThinkAlike’s internal dashboards and GitHub repositories.
 
+## Verification of Latest Changes
+- **Content Verification:**
+  Ensure the latest changes in the `docs/guides/performance_scalability_guidelines.md` file align with the proposed updates.
+- **Formatting Check:**
+  Confirm the file is correctly formatted and free of errors.
+
 ---
 **Document Details**
 - Title: Performance & Scalability Guidelines for ThinkAlike
