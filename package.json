@@ -1,5 +1,13 @@
 {
   "dependencies": {
     "react-force-graph-2d": "^1.27.0"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "eslint": "^9.24.0",
+    "jest": "^29.7.0"
   }
 }
