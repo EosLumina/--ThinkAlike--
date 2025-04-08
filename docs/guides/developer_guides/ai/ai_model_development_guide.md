@@ -48,6 +48,10 @@ All AI models developed and implemented for ThinkAlike **must be guided by the c
 
     The performance, ethical implications, and user value of implemented AI must be continuously tested and validated using real-world data from user interactions. The UI serves as a key architectural testing and validation component to track results with accuracy and clarity.
 
+* ### **Echo Chamber Mitigation:**
+
+    AI models must actively promote exposure to diverse perspectives while respecting user values. This includes designing algorithms that balance value alignment with diversity, avoiding self-reinforcing feedback loops, and providing users with tools to explore alternative viewpoints.
+
 ## 3. AI Models in ThinkAlike
 
 ThinkAlike utilizes various AI models, all adhering to the core principles and validated through the UI framework:

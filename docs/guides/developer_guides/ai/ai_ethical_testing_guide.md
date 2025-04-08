@@ -1,7 +1,5 @@
 # AI Ethical Testing Guide
 
----
-
 ## 1. Introduction: Ensuring AI Aligns with Our Values
 
 This guide outlines the specific methodologies, procedures, and tools for conducting **Ethical Testing** of Artificial Intelligence (AI) models and AI-driven workflows within the ThinkAlike platform. Ethical testing is a non-negotiable component of our development lifecycle, crucial for ensuring that our AI implementations align with the [ThinkAlike Ethical Guidelines](../../../core/ethics/ethical_guidelines.md), the principles of [Enlightenment 2.0](../../../core/enlightenment_2_0/ENLIGHTENMENT_2_0_PRINCIPLES.md), and our commitment to user empowerment, fairness, transparency, and accountability.
@@ -53,6 +51,19 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 *   **Methodologies:** Edge case input testing (incomplete data, unusual values), adversarial testing exploration, failure mode analysis (how does the system handle AI service errors?).
 *   **Tools & Techniques:** Custom test data generation, error handling checks in tests, **UI Validation** (testing how UI components display AI errors or fallback states gracefully).
 
+### 3.6 Echo Chamber Mitigation Testing
+
+* **Objective:** Ensure AI systems promote exposure to diverse perspectives and avoid reinforcing narrow, homogeneous viewpoints.
+* **Methodologies:**
+  - **Diversity Metrics:** Evaluate the diversity of recommended connections, communities, or content using metrics like entropy or distribution spread.
+  - **Counterfactual Testing:** Simulate user profiles with varying preferences to assess whether the system introduces diverse perspectives.
+  - **Feedback Loop Analysis:** Test for self-reinforcing feedback loops in recommendations that could lead to echo chambers.
+* **Tools & Techniques:**
+  - Statistical libraries (e.g., NumPy, Pandas) for diversity analysis.
+  - Custom scripts to simulate user interactions and measure diversity outcomes.
+  - **UI Validation:** Use components like `DataTraceability` to visualize recommendation diversity and ensure transparency in how suggestions are generated.
+* **Reporting:** Include diversity metrics and echo chamber risk assessments in the [Test Report Schema](../../../templates/test_report_schema.md).
+
 ---
 
 ## 4. Testing Process & Reporting
@@ -71,7 +82,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 
 *   **Verification System:** Backend system providing APIs for complex ethical checks (bias calculation, rule validation). See [Verification System Integration Guide](../Verification_System_Integration_Guide.md).
 *   **UI Components:** [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md), [`DataTraceability`](../../../components/ui_components/data_traceability.md), [`AI Transparency Log`](../ai/ai_transparency_log.md) elements are used *within* tests.
-*   **Libraries:** Fairlearn, AIF360 (Fairness); SHAP, LIME (XAI); Pytest, Jest, Cypress (Test Runners).
+*   **Libraries:** Fairlearn, AIF360 (Fairness); SHAP, LIME (XAI); Pytest, Jest, Cypress (Test Runners); NumPy, Pandas (Diversity Metrics).
 
 ---
 
@@ -83,8 +94,6 @@ By rigorously applying these methodologies, ThinkAlike aims to ensure its AI sys
 - Type: Developer Guide
 - Version: 1.0.0
 - Last Updated: 2025-04-05
----
-End of AI Ethical Testing Guide
 ---
 
 

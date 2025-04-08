@@ -1,7 +1,5 @@
 # Accessibility Implementation Guide (A11y)
 
----
-
 ## 1. Introduction
 
 Accessibility (a11y) is fundamental to ThinkAlike's values of **Ethical Humanism** and **Inclusivity**. This guide provides developers practical guidelines for building an accessible React frontend, ensuring usability for people with diverse abilities, including those using assistive technologies.
