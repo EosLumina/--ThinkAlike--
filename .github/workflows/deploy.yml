@@ -28,5 +28,3 @@ jobs:
         run: |
           echo "Deploying to production..."
           # Add deployment commands here
-          # Deploy updated performance_scalability_guidelines.md
-          cp docs/guides/performance_scalability_guidelines.md /path/to/production/docs/guides/

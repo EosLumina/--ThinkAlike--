@@ -27,7 +27,3 @@ jobs:
 
       - name: Run Tests
         run: pytest
-
-      - name: Validate Documentation
-        run: |
-          markdownlint docs/guides/performance_scalability_guidelines.md
