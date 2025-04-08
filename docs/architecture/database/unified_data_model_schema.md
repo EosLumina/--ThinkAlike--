@@ -33,7 +33,7 @@ This document describes the data models and database schema used in the ThinkAli
 
 ## 2. Entity Relationship Diagram (ERD)
 
-![ThinkAlike ER Diagram](../../assets/images/erd.png)
+![ThinkAlike ER Diagram](../../assets/images/erd.png) <!-- Ensure `erd.png` exists in the specified path -->
 
 The ThinkAlike database architecture is predicated on a relational model, structured around several core entities that are interconnected to facilitate seamless data flow and maintain data integrity. These core entities, while not exhaustive, include:
 
@@ -316,14 +316,8 @@ Ethical considerations are not merely supplementary guidelines but are deeply em
 - Title: Data Model Schema
 - Type: Architecture Documentation
 - Version: 1.0.0
-- Last Updated: 2025-04-05
+- Last Updated: 2025-04-06
 ---
 End of Data Model Schema
 ---
-
-- **Data Minimization:** The database schema is designed to collect only data that is strictly necessary for core platform functionalities, minimizing the collection of superfluous personal information and adhering to data minimization principles.
-- **Transparency and User Control:** UI components are meticulously designed to provide users with transparent visibility into data handling processes, empowering them to understand what data is collected, how it is utilized, and to exercise granular control over their personal information.
-- **Security and Privacy by Design:** Security and privacy are architecturally integrated into the data model schema, with data encryption protocols, access control mechanisms, and data anonymization strategies implemented to safeguard user data and uphold privacy best practices.
-- **Bias Mitigation and Fairness:** Data validation workflows and AI model testing procedures are designed to proactively detect and mitigate potential biases within data and algorithms, ensuring fairness and equity for all users within the ThinkAlike ecosystem.
-- **Transparency and Accountability:** The data model schema is designed to be transparent, with clear documentation and metadata associated with each table and column, providing users with the ability to understand the data they are interacting with and the processes that shape it. The platform is designed to be accountable, with clear data usage policies, audit trails, and transparency in data handling practices, ensuring that users can trust the platform's data handling processes.
 

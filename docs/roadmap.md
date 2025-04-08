@@ -82,6 +82,10 @@ Theme 6: Verification System - Phase 1 (Ethical Kernel v1.0 & Audit Trail)
 
 Key Result: Foundational Verification System is operational for comprehensive audit logging and initial automated ethical rule checks, acting as the system's conscience.
 
+Theme 7: AI-Assisted Community Tools (Mode 3 - Phase 2)
+- Milestone 7.1: Develop and deploy optional AI tools for discussion summarization and perspective mapping within community forums (opt-in per community). Ensure transparency and user understanding.
+- Milestone 7.2: Implement AI-assisted content flagging system for human moderator review, including bias testing and clear explanations for flags. Develop moderator interface for managing flags.
+
 ## 6. Long-Term Vision (Beyond 12 Months) - "Phase 3: Expanding the Ecosystem & Deepening Consciousness"
 (Priorities to be shaped by Swarm Intelligence via community feedback & contribution)
 
@@ -95,6 +99,8 @@ Key Result: Foundational Verification System is operational for comprehensive au
 - Native Mobile Apps: Develop cross-platform applications (React Native?).
 - "ThinkAlike Console" (Hardware): Feasibility study and potential R&D for dedicated hardware promoting mindful interaction.
 - Social Reinvestment Engine: Establish transparent, community-governed mechanisms (Foundation/DAO) for allocating any surplus capital towards societal goals outlined in the Manifesto (Funding Model).
+- Advanced Community Governance AI: Explore AI tools for proposal drafting assistance, resource allocation simulation (presenting scenarios, not decisions), and potentially more sophisticated deliberation support, always prioritizing human control.
+- Platform Value Trend Analysis: Ethically explore highly anonymized, aggregated cross-community value expression data (with multi-layered consent) for potential research insights into societal trends (requires dedicated ethical board review before implementation).
 
 ## 7. How to Contribute to the Great Work
 This project belongs to the community. Its success depends on collective participation. You can contribute by:

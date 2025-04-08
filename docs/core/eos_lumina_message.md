@@ -129,11 +129,9 @@ Let the power of the many, dedicated to the service of all, reshape our world.
 
 ---
 
-## Document Details
-- Title:A Call to Architect Enlightenment 2.0
+**Document Details**
+- Title: A Call to Architect Enlightenment 2.0
 - Type: Core Documentation
 - Version: 2.5
 - Last Updated: 2025-04-06
 ---
-
-End of A Call to Architect Enlightenment 2.0

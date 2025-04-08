@@ -26,7 +26,7 @@ A unique aspect of this project is our **UI-Driven Validation approach**: the Us
 * **User Empowerment & Sovereignty:** Complete user control over data, privacy, AI interactions, and community participation. Your data belongs to you. ([Core Concepts Explained](docs/vision/core_concepts.md))
 * **UI as Validation Framework:** Our innovative approach uses the UI itself as an active tool for testing and validating code, data flow, performance, and ethical compliance in real-time. ([UI Validation Examples](docs/guides/developer_guides/ui_validation_examples.md))
 * **Decentralized Community Building (Mode 3):** Tools for creating, discovering, and participating in user-governed communities based on shared values. ([Community Mode Spec](docs/architecture/modes/community_mode/community_mode_spec.md))
-* **Open Source & Community-Driven:** Built collaboratively via **Swarming** and individual contributions, inviting global scrutiny. ([Contributing Guide](docs/CONTRIBUTING.md))
+* **Open Source & Community-Driven:** Built collaboratively via **Swarming** and individual contributions, inviting global scrutiny. ([Contributing Guide](docs/core/contributing.md))
 
 ---
 
@@ -44,7 +44,7 @@ A unique aspect of this project is our **UI-Driven Validation approach**: the Us
 
 ThinkAlike guides users through distinct stages:
 
-1. **Mode 1: Narrative Onboarding & Match Reveal:** AI-guided self-discovery and initial value-based match suggestions. ([Mode 1 Spec](docs/architecture/modes/mode1_narrative_onboarding_spec.md))
+1. **Mode 1: Narrative Onboarding & Match Reveal:** AI-guided self-discovery and initial value-based match suggestions. ([Mode 1 Spec](docs/architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec.md))
 2. **Mode 2: Profile Discovery & Connection:** User-driven exploration of potential connections with transparent matching scores and compatibility tests. ([Mode 2 Spec](docs/architecture/modes/mode2_profile_discovery_spec.md))
 3. **Mode 3: Community Building:** Tools for decentralized, value-aligned community creation and interaction. ([Community Mode Spec](docs/architecture/modes/community_mode/community_mode_spec.md))
 
@@ -87,7 +87,7 @@ Want to get coding quickly?
 Ready to contribute code, docs, or design?
 
 1. **Onboarding (Highly Recommended):** Start with the **[Onboarding Guide](docs/core/onboarding_guide.md)** for a full project introduction, values, and architecture.
-2. **Understand the Core:** Review the **[MASTER_REFERENCE.md](docs/core/master_reference/master_reference.md)** (Source of Truth), **[Ethical Guidelines](docs/core/ethics/ethical_guidelines.md)**, and **[Ethos.md](docs/ethos.md)**. This context is crucial.
+2. **Understand the Core:** Review the **[MASTER_REFERENCE.md](docs/core/master_reference.md)** (Source of Truth), **[Ethical Guidelines](docs/core/ethics/ethical_guidelines.md)**, and **[Ethos.md](docs/core/ethos.md)**. This context is crucial.
 3. **Setup Locally:** Follow the **[Installation Guide](docs/core/installation.md)** or the alternative [MVP Implementation Guide](docs/guides/implementation_guides/mvp_implementation_guide.md).
 4. **Troubleshooting:** Refer to the **[Troubleshooting Guide](docs/architecture/deployment_troubleshooting.md)** if you hit issues.
 5. **How to Contribute:** ***Before coding***, read **[CONTRIBUTING.md](docs/core/contributing.md)** carefully for workflow, standards, and processes.
@@ -95,26 +95,11 @@ Ready to contribute code, docs, or design?
 
 ---
 
-## Contributing
-
-We welcome all contributions! See [CONTRIBUTING.md](docs/core/contributing.md) for details. Help is needed in:
-
-* UI/UX & Accessibility Improvements
-* Data Traceability Feature Enhancements
-* Ethical AI Model Development & Refinement
-* Writing Tests (Unit, Integration, UI, Ethical)
-* Improving Documentation Clarity
-* Building our Community
-
-Find tasks on [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues) (look for `good first issue` or `help wanted`). See [Task Priorities](docs/project/management/task_priorities.md) and the [Roadmap](docs/development/management/roadmap.md).
-
----
-
 ## Documentation
 
 * **Live Portal:** [https://thinkalike-project.onrender.com/](https://thinkalike-project.onrender.com/) (or current live docs URL)
-* **Source of Truth:** [docs/core/master_reference/master_reference.md](docs/core/master_reference/master_reference.md)
-* **Dive Deeper:** Explore [Ethos](docs/ethos.md), [Core UI Components](docs/ui/core_ui_components.md), [UI/UX Style Guide](docs/design/media/UI_UX_Style_Guide.md), [DataTraceability Component Documentation](docs/ui/datatraceability_documentation.md).
+* **Source of Truth:** [docs/core/master_reference.md](docs/core/master_reference.md)
+* **Dive Deeper:** Explore [Ethos](docs/ethos.md), [Core UI Components](docs/ui/core_ui_components.md), [Visual Style Guide](docs/guides/developer_guides/visual_style_guide.md), [DataTraceability Component Documentation](docs/ui/datatraceability_documentation.md).
 * *Browse the full `docs/` directory for comprehensive info.*
 
 ---

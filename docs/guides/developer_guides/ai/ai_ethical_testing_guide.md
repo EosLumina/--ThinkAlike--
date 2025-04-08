@@ -13,7 +13,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 *   **Proactive & Continuous:** Integrated throughout the AI lifecycle (data, training, deployment, monitoring).
 *   **Holistic Assessment:** Evaluates fairness, bias, transparency, explainability, privacy impact, user agency, and value alignment.
 *   **Data-Driven:** Uses diverse datasets, targeted test cases, quantitative metrics, and qualitative analysis.
-*   **Transparency Focused:** Aims to uncover hidden biases and opaque processes. Results surfaced via UI components like [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md) or the [`AI Transparency Log`](../ai/ai_transparency_log.md).
+*   **Transparency Focused:** Aims to uncover hidden biases and opaque processes. Results surfaced via UI components like [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md) or the [`AI Transparency Log`](ai_transparency_log.md).
 *   **User-Centric:** Prioritizes outcomes that are fair, equitable, and empowering for all users.
 *   **Actionable Results:** Testing yields clear insights for concrete improvements in AI models or processes.
 
@@ -30,7 +30,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 ### 3.2 Transparency and Explainability Testing (XAI Validation)
 
 *   **Objective:** Verify AI decision-making is understandable, auditable, and accurately represented.
-*   **Methodologies:** Model interpretability checks (for simpler models), Feature Importance analysis (SHAP, LIME), validation of the [`AI Transparency Log`](../ai/ai_transparency_log.md) accuracy, validation of [`DataTraceability`](../../../components/ui_components/data_traceability.md) component visualizations against known data flows and XAI results.
+*   **Methodologies:** Model interpretability checks (for simpler models), Feature Importance analysis (SHAP, LIME), validation of the [`AI Transparency Log`](ai_transparency_log.md) accuracy, validation of [`DataTraceability`](../../../components/ui_components/data_traceability.md) component visualizations against known data flows and XAI results.
 *   **Tools & Techniques:** XAI libraries (SHAP, LIME), log analysis, **UI Validation** (testing `DataTraceability.jsx` rendering against ground truth; validating user-facing explanations).
 
 ### 3.3 Privacy Compliance Testing
@@ -81,8 +81,15 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 ## 5. Tools and Integration
 
 *   **Verification System:** Backend system providing APIs for complex ethical checks (bias calculation, rule validation). See [Verification System Integration Guide](../Verification_System_Integration_Guide.md).
-*   **UI Components:** [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md), [`DataTraceability`](../../../components/ui_components/data_traceability.md), [`AI Transparency Log`](../ai/ai_transparency_log.md) elements are used *within* tests.
+*   **UI Components:** [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md), [`DataTraceability`](../../../components/ui_components/data_traceability.md), [`AI Transparency Log`](ai_transparency_log.md) elements are used *within* tests.
 *   **Libraries:** Fairlearn, AIF360 (Fairness); SHAP, LIME (XAI); Pytest, Jest, Cypress (Test Runners); NumPy, Pandas (Diversity Metrics).
+
+---
+
+## References
+- [AI Transparency Log](ai_transparency_log.md)
+- [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+- [Master Reference](../../../core/master_reference.md)
 
 ---
 

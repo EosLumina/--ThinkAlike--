@@ -66,6 +66,21 @@ Mode 3 serves as the "Output Layer" or "Collective Intelligence" hub of the Thin
   * **(Future) Proposal System:** A formal mechanism for submitting proposals for changes (rules, projects) with discussion and voting phases.
   * **(Future) Liquid/Direct Democracy:** More advanced voting/delegation mechanisms if a community opts for higher formality.
 
+### 2.5 AI-Assisted Governance & Deliberation (Optional & Transparent)
+
+To enhance community self-governance without replacing human judgment, ThinkAlike plans to offer optional, transparent AI assistance tools that communities can choose to enable:
+
+* **AI Deliberation Aids:** Tools to help process and understand discussions within community forums:
+  * *Argument Summarization:* AI generates concise summaries of long threads upon request, helping members grasp key points quickly. (Requires NLP models, results clearly labeled as AI-generated).
+  * *Perspective Mapping:* AI analyzes arguments (not user sentiment) to create visual maps of different viewpoints on a proposal, fostering better understanding of the conversational landscape. (Transparency on analysis method is key).
+* **AI Moderation Assistance:**
+  * *Content Flagging:* AI models (trained on general hate speech/spam and potentially fine-tuned with *community-specific* guidelines) can automatically flag content that *potentially* violates rules for **human moderator review**. AI *never* takes automated censorship actions. Flagging logic and thresholds should be transparent to the community moderators.
+  * *Requires:* Clear appeals process, human moderators retain final decision-making power, regular audits for AI bias ([AI Ethical Testing Guide](../../../guides/developer_guides/ai/ai_ethical_testing_guide.md)).
+* **AI Proposal Assistance (Future):** AI could help members format governance proposals or check them against existing community rules before submission.
+* **Resource Simulation (Advanced Future):** For communities managing resources, AI might simulate outcomes of different allocation proposals based on community-defined goals, presenting scenarios to inform *human* decision-making via polls or voting.
+
+**Ethical Imperatives:** All AI governance tools must be strictly **opt-in** at the community level, operate with **maximum transparency** (logged via [AI Transparency Log](../../../guides/developer_guides/ai/ai_transparency_log.md), explained in UI), be regularly audited for **bias**, and always **support, not supplant, human deliberation and decision-making.**
+
 ---
 
 ## 3. User Flows (High-Level Examples)
@@ -168,6 +183,12 @@ Dedicated backend endpoints (typically under `/api/v1/communities/`) should cove
 * Integration with real‑world mutual aid networks.
 
 ---
+
+## References
+- [Mode 1 Spec](../narrative_onboarding_mode/mode1_narrative_onboarding_spec.md)
+- [Mode 2 Spec](../mode2_profile_discovery_spec.md)
+- [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+- [Master Reference](../../../core/master_reference.md)
 
 Community Mode is where ThinkAlike's vision for decentralized, value‑driven collaboration truly takes shape. Its success depends on empowering users with effective tools while upholding our core ethical principles.
 

@@ -128,6 +128,11 @@ _Eos Lumina∴_
 *   **Short Manifesto (README.md):** [README.md](README.md) - A concise and impactful introduction to the core vision.
 *   **Detailed Project Overview (README_detailed.md):** [README_detailed.md](README_detailed.md) -  A comprehensive guide to ThinkAlike's features, principles, and how to contribute.
 
+## Related Documents
+- [Enlightenment 2.0 Principles](../enlightenment_2_0/ENLIGHTENMENT_2_0_PRINCIPLES.md)
+- [Ethical Guidelines](../ethics/ethical_guidelines.md)
+- [Master Reference](../master_reference.md)
+
 ---
 
 ---

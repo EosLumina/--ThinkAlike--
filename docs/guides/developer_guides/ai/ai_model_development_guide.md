@@ -1,4 +1,4 @@
-# Unified AI Model Development Guide
+# AI Model Development Guide
 
 ## 1. Introduction
 
@@ -51,6 +51,8 @@ All AI models developed and implemented for ThinkAlike **must be guided by the c
 * ### **Echo Chamber Mitigation:**
 
     AI models must actively promote exposure to diverse perspectives while respecting user values. This includes designing algorithms that balance value alignment with diversity, avoiding self-reinforcing feedback loops, and providing users with tools to explore alternative viewpoints.
+
+* **See Also:** [`AI Transparency Log Guide`](../ai/ai_transparency_log.md), [`Matching Algorithm Guide`](../matching_algorithm_guide.md), [`Mode 1 Spec`](../../../architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec.md), [`Mode 2 Spec`](../../../architecture/modes/mode2_profile_discovery_spec.md), [`Data Handling Policies`](../data_handling_policy_guide.md), [`Security & Privacy Plan`](../../../architecture/security/security_and_privacy_plan.md)
 
 ## 3. AI Models in ThinkAlike
 
@@ -156,18 +158,23 @@ AI models must undergo constant improvement based on data analysis, user experie
 * **Model Updates:** Regularly update AI models with new data to improve performance, ethical compliance, and user satisfaction, all validated by UI-based implementation workflows. Also with clear testable UI reusable components to highlight the scope and value of those new AI implementation versions.
 * **New Implementation Parameters:** New implementation parameters should always be tested from the user point of view, to see if technology is improving user power, data access, and their sense of agency and freedom through high transparent data-based workflows during all phases of development. Always ensure results are visualized by the UI as actionable feedback loops for code validation and architectural transparency.
 
+## References
+- [AI Transparency Log](ai_transparency_log.md)
+- [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+- [Master Reference](../../../core/master_reference.md)
+
 ---
 
 This guide serves as a living document that will be updated as new insights and implementation approaches emerge from both user experiences and testing phases. All implementation decisions must always be guided by the core values of the project: user empowerment, ethical design, and transparency as its main goals, with technology serving as the tool for their implementation and fulfillment.
 
 ---
 **Document Details**
-- Title: Unified Ai Model Development Guide
+- Title: AI Model Development Guide
 - Type: Developer Guide
 - Version: 1.0.0
 - Last Updated: 2025-04-05
 ---
-End of Unified Ai Model Development Guide
+End of AI Model Development Guide
 ---
 
 

@@ -1,4 +1,4 @@
-# ThinkAlike Master Reference
+# Master Reference
 
 ## Project Overview: ThinkAlike - A Social LLM for Human Connection
 
@@ -159,6 +159,11 @@ ThinkAlike, functioning as a "Social LLM," incorporates core features designed t
 * Empirical evaluation of ThinkAlike's impact on user connection and ethical AI implementation.
 * Comparative analysis of ThinkAlike's architecture with other ethical AI projects.
 * Exploration of the scalability and sustainability of community-driven, open-source Enlightenment 2.0 projects.
+
+## References
+- [Manifesto](manifesto/manifesto.md)
+- [Enlightenment 2.0 Principles](enlightenment_2_0/ENLIGHTENMENT_2_0_PRINCIPLES.md)
+- [Ethical Guidelines](ethics/ethical_guidelines.md)
 
 **References:**
 

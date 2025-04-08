@@ -5,7 +5,7 @@ CONNECTING LIKE MINDED INDIVIDUALS
 
 ## BLUEPRINT
 
-======================================================================
+===========================================================
 
 ## Modes / Features / Implementation
 

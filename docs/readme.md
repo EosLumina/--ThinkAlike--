@@ -1,5 +1,7 @@
 # ThinkAlike: Architecting Our Future
 
+## Introduction
+
 **Connecting Like-Minded Individuals for Authentic Connection & Systemic Change**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -114,7 +116,7 @@ Find tasks on [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues
 
 * **Live Portal:** [https://thinkalike-project.onrender.com/](https://thinkalike-project.onrender.com/) (or current live docs URL)
 * **Source of Truth:** [docs/core/master_reference/master_reference.md](docs/core/master_reference/master_reference.md)
-* **Dive Deeper:** Explore [Ethos](docs/ethos.md), [Core UI Components](docs/ui/core_ui_components.md), [UI/UX Style Guide](docs/design/media/UI_UX_Style_Guide.md), [DataTraceability Component Documentation](docs/ui/datatraceability_documentation.md).
+* **Dive Deeper:** Explore [Ethos](docs/ethos.md), [Core UI Components](docs/ui/core_ui_components.md), **UI/UX Style Guide:** [Visual Style Guide](guides/developer_guides/visual_style_guide.md), [DataTraceability Component Documentation](docs/ui/datatraceability_documentation.md).
 * *Browse the full `docs/` directory for comprehensive info.*
 
 ---
@@ -135,5 +137,10 @@ Find tasks on [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues
 * **Lead Design Architect:** [Eos.Lumina@proton.me](mailto:Eos.Lumina@proton.me) (Design/UI/UX/Vision questions)
 
 ---
-
+**Document Details**
+- Title: ThinkAlike Readme
+- Type: Readme Documentation
+- Version: 1.0.0
+- Last Updated: 2025-04-06
+---
 **The Future's Code is Unwritten. JOIN THE BUILD. IGNITE THE CHANGE.**
