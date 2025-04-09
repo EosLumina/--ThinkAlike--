@@ -18,9 +18,9 @@ This page provides a comprehensive guide to contributing. For a more concise ove
 
 This guide provides detailed information on how to contribute to the project. Please read it carefully before submitting your first contribution.
 
-**Crucially, ensure you understand the project's foundations by reviewing the [`SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md`](docs/master_reference.md) document first. This is essential reading and serves as the definitive guide for all aspects of the ThinkAlike project, including its overarching vision, ethical principles, and architectural guidelines. Also review the [`Onboarding Guide`](docs/onboarding_guide.md) for project context.**
+**Crucially, ensure you understand the project's foundations by reviewing the [`SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md`](docs/core/master_reference/master_reference.md) document first. This is essential reading and serves as the definitive guide for all aspects of the ThinkAlike project, including its overarching vision, ethical principles, and architectural guidelines. Also review the [`Onboarding Guide`](docs/core/onboarding_guide.md) for project context.**
 
-Adherence to our [`Code of Conduct`](./code_of_conduct.md) is expected in all project interactions.
+Adherence to our [`Code of Conduct`](docs/core/code_of_conduct.md) is expected in all project interactions.
 
 ## Ways to Contribute
 
@@ -31,14 +31,14 @@ Contribute to the frontend (React/TS planned), backend (Python/FastAPI), or AI m
 * Implementing new features enhancing user empowerment, data traceability, and ethical connection.
 * Fixing bugs and ensuring platform robustness and reliability.
 * Refactoring and optimizing existing code for performance, maintainability, and ethical clarity.
-* Writing comprehensive unit, integration, and UI tests, emphasizing UI-driven data validation and workflow testing. ([`Testing Plan`](../guides/developer_guides/testing_and_validation_plan.md))
+* Writing comprehensive unit, integration, and UI tests, emphasizing UI-driven data validation and workflow testing. ([`Testing Plan`](docs/guides/developer_guides/testing_and_validation_plan.md))
 
 ### UI/UX Design
 Help design and improve the user interface and user experience, focusing on **UI as a Validation Framework**, **Data Transparency**, and **Accessibility**:
 * Creating UI mockups and prototypes embodying ethical design principles and user empowerment.
 * Designing reusable UI components facilitating data visualization, user control, and workflow transparency.
 * Conducting user research and gathering feedback to validate UI/UX choices and ensure user-centricity.
-* Improving platform accessibility, ensuring inclusivity and usability for all users. ([`Accessibility Guide`](../guides/developer_guides/Accessibility_Guide.md))
+* Improving platform accessibility, ensuring inclusivity and usability for all users. ([`Accessibility Guide`](docs/guides/developer_guides/Accessibility_Guide.md))
 
 ### Documentation
 Improve project documentation, write guides, and create onboarding materials, ensuring **clarity, accuracy, and accessibility** for all:
@@ -49,7 +49,7 @@ Improve project documentation, write guides, and create onboarding materials, en
 
 ### Testing
 Help ensure platform quality, security, and ethical integrity through rigorous testing:
-* Writing unit, integration, and UI tests, focusing on **UI-driven data validation** and **workflow testing**. ([`Testing Plan`](../guides/developer_guides/testing_and_validation_plan.md))
+* Writing unit, integration, and UI tests, focusing on **UI-driven data validation** and **workflow testing**. ([`Testing Plan`](docs/guides/developer_guides/testing_and_validation_plan.md))
 * Performing manual testing, reporting bugs with detailed data traceability information.
 * Participating in user acceptance testing (UAT), providing user-centric and ethical feedback.
 * Developing new testing methodologies enhancing data validation, ethical compliance, and UI workflow integrity.
@@ -59,12 +59,12 @@ Contribute to AI model development, training, and ethical validation, ensuring *
 * Developing new AI models aligned with Enlightenment 2.0 principles.
 * Improving existing models (performance, ethical behavior, data traceability).
 * Creating quality datasets, ensuring ethical sourcing and bias mitigation.
-* Implementing ethical AI guidelines and bias mitigation techniques at code/algorithmic level with clear UI validation parameters. ([`AI Dev Guide`](../guides/developer_guides/ai/ai_model_development_guide.md))
+* Implementing ethical AI guidelines and bias mitigation techniques at code/algorithmic level with clear UI validation parameters. ([`AI Dev Guide`](docs/guides/developer_guides/ai/ai_model_development_guide.md))
 
 ### Ethical and Security Expertise
 Help ensure adherence to ethical principles and security best practices ("Security by Transparency"):
 * Participating in ethical reviews (platform, AI, data handling).
-* Identifying and mitigating security vulnerabilities (data privacy, access control). ([`Security Plan`](../architecture/security/security_and_privacy_plan.md))
+* Identifying and mitigating security vulnerabilities (data privacy, access control). ([`Security Plan`](docs/architecture/security/security_and_privacy_plan.md))
 * Contributing to transparent ethical guidelines, security policies, and data governance frameworks.
 
 ### Community Engagement
@@ -82,7 +82,7 @@ ThinkAlike embraces **Swarming** (similar to Mob Programming) as a primary metho
 
 In our context, Swarming means a group of contributors (developers, designers, testers, documenters) working **together, on the same task, at the same time, typically sharing one screen** within a virtual environment. We rotate roles frequently to ensure active participation and learning.
 
-Furthermore, our development process itself leverages a form of **Human-Artificial Swarm Intelligence**. We utilize AI assistants (like VS Code Copilot, specialized internal agents TBD) as active collaborators *within* our human swarms and individual workflows. AI assists with code generation, documentation drafting, testing, and analysis, augmenting our collective capabilities. However, **human oversight, critical judgment, and ethical validation remain paramount** for all AI contributions, adhering to the guidelines in our [AI Driven Workflow guide](../../guides/developer_guides/ai/ai_driven_workflow.md). Our goal is a synergistic partnership where both human and artificial intelligence contribute to building ThinkAlike ethically and effectively.
+Furthermore, our development process itself leverages a form of **Human-Artificial Swarm Intelligence**. We utilize AI assistants (like VS Code Copilot, specialized internal agents TBD) as active collaborators *within* our human swarms and individual workflows. AI assists with code generation, documentation drafting, testing, and analysis, augmenting our collective capabilities. However, **human oversight, critical judgment, and ethical validation remain paramount** for all AI contributions, adhering to the guidelines in our [AI Driven Workflow guide](docs/guides/developer_guides/ai/ai_driven_workflow.md). Our goal is a synergistic partnership where both human and artificial intelligence contribute to building ThinkAlike ethically and effectively.
 
 **Why Swarming?**
 
@@ -111,7 +111,7 @@ Roles typically rotate every short interval (e.g., 10-20 minutes):
 **How to Participate in Swarming Sessions:**
 
 1. **Find Sessions:** Check the [**Swarming Schedule / Calendar Link - TODO**] or the dedicated `#swarm-sessions` channel on our [Communication Platform - Link TODO]. Sessions might focus on specific features, bugs, or documentation tasks from the [GitHub Issues - Link TODO].
-2. **Prerequisites:** Ensure you have the local development environment set up ([Installation Guide](./installation.md)). Familiarity with the issue being tackled is helpful but not always required – learning is part of the process!
+2. **Prerequisites:** Ensure you have the local development environment set up ([Installation Guide](docs/core/installation.md)). Familiarity with the issue being tackled is helpful but not always required – learning is part of the process!
 3. **Join the Call:** Join the scheduled video call link.
 4. **Introduce Yourself:** Briefly say hello when you join.
 5. **Observe & Engage:** Initially, feel free to observe. Ask clarifying questions in the chat or briefly unmute. Offer suggestions or research findings when appropriate. Be ready to take on the Driver or Navigator role when it's your turn (or feel free to pass initially if you're just learning).
@@ -126,17 +126,17 @@ Roles typically rotate every short interval (e.g., 10-20 minutes):
 
 Before you start contributing:
 
-1.  **Read the [SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md](docs/master_reference.md).** (ESSENTIAL READING - Start here!)
-2.  **Read the [Onboarding Guide](docs/onboarding_guide.md).** Also potentially useful: [Quickstart Guide](docs/guides/mvp_implementation_guide.pdf).
+1.  **Read the [SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md](docs/core/master_reference/master_reference.md).** (ESSENTIAL READING - Start here!)
+2.  **Read the [Onboarding Guide](docs/core/onboarding_guide.md).** Also potentially useful: [Quickstart Guide](docs/guides/mvp_implementation_guide.pdf).
 3.  **Explore the [GitHub Repository](https://github.com/EosLumina/--ThinkAlike--).** Familiarize yourself with the project structure and codebase.
-4.  **Setup Locally:** Follow the [`Installation Guide`](./installation.md). Use the [`Troubleshooting Guide`](../architecture/deployment_troubleshooting.md) if needed.
+4.  **Setup Locally:** Follow the [`Installation Guide`](docs/core/installation.md). Use the [`Troubleshooting Guide`](docs/architecture/deployment_troubleshooting.md) if needed.
 5.  **Join our Community:** Introduce yourself on our [Discord Server](https://discord.gg/TnAcWezH). Let us know your interests!
 6.  **Find an Issue:** Check the [Issues Tab](https://github.com/EosLumina/--ThinkAlike--/issues).
 
 ## Finding Something to Work On
 
 1.  **Issue Tracker:** Explore the [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues) page.
-2.  **Labels:** Filter by labels defined in the [`Issue Labels Guide`](../guides/developer_guides/Issue_Labels_Guide.md), such as:
+2.  **Labels:** Filter by labels defined in the [`Issue Labels Guide`](docs/guides/developer_guides/issue_labels_guide.md), such as:
     * `good first issue`: Great for newcomers.
     * `help wanted`: Areas needing community support.
     * `area: frontend`, `area: backend`, `area: documentation`, `area: testing`, `area: ai / ml`, etc.
@@ -156,11 +156,11 @@ git clone https://github.com/YOUR_USERNAME/--ThinkAlike--.git # Replace YOUR_USE
 cd --ThinkAlike--
 ```
 
-4.  **Create a Feature Branch:** For *each* contribution, create a *new* branch from the `main` branch. Use a descriptive name following the convention: `type/issue-number-short-description` (e.g., `feat/123-profile-video`). Refer to [`Issue Labels Guide`](../guides/developer_guides/Issue_Labels_Guide.md) for types (`feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `ui`, `ci`, `build`).
+4.  **Create a Feature Branch:** For *each* contribution, create a *new* branch from the `main` branch. Use a descriptive name following the convention: `type/issue-number-short-description` (e.g., `feat/123-profile-video`). Refer to [`Issue Labels Guide`](docs/guides/developer_guides/issue_labels_guide.md) for types (`feat`, `fix`, `docs`, `test`, `refactor`, `chore`, `ui`, `ci`, `build`).
 5.  **Develop & Commit:** Implement your contribution:
-    * Adhere to the [`Code Style Guide`](../guides/developer_guides/code_style_guide.md) and best practices. Write code that is transparent, well-documented, and ethically sound.
-    * **Test Thoroughly:** *Before* committing, test rigorously, focusing on **UI-driven data validation** and workflow integrity. Add relevant tests (Unit, Integration, UI) following the [`Testing Plan`](../guides/developer_guides/testing_and_validation_plan.md). Use "UI as Validation" principles ([`UI Validation Examples`](../guides/developer_guides/ui_validation_examples.md)). Perform manual testing, checking data traceability and UI feedback loops.
-    * **Document Code:** Use the [`Code Documentation Template`](../templates/code_documentation_template.md) for significant changes.
+    * Adhere to the [`Code Style Guide`](docs/guides/developer_guides/code_style_guide.md) and best practices. Write code that is transparent, well-documented, and ethically sound.
+    * **Test Thoroughly:** *Before* committing, test rigorously, focusing on **UI-driven data validation** and workflow integrity. Add relevant tests (Unit, Integration, UI) following the [`Testing Plan`](docs/guides/developer_guides/testing_and_validation_plan.md). Use "UI as Validation" principles ([`UI Validation Examples`](docs/guides/developer_guides/ui_validation_examples.md)). Perform manual testing, checking data traceability and UI feedback loops.
+    * **Document Code:** Use the [`Code Documentation Template`](docs/templates/code_documentation_template.md) for significant changes.
     * **Commit:** Use clear, descriptive commit messages following the [Conventional Commits](#commit-message-guidelines) format.
 6.  **Keep Updated:** Regularly rebase or merge the `main` branch from the upstream (original) repository into your feature branch to incorporate the latest changes (`git fetch upstream`, `git rebase upstream/main`).
 7.  **Push to Your Fork:** Push your branch to your forked repository on GitHub:
@@ -180,7 +180,7 @@ git push origin your-branch-name
 
 ## Code Style Guidelines
 
-We are committed to "Perfect Coding" – technically excellent, ethically sound, transparent code. Please adhere to the detailed guidelines in the [`docs/guides/developer_guides/code_style_guide.md`](../guides/developer_guides/code_style_guide.md) file.
+We are committed to "Perfect Coding" – technically excellent, ethically sound, transparent code. Please adhere to the detailed guidelines in the [`docs/guides/developer_guides/code_style_guide.md`](docs/guides/developer_guides/code_style_guide.md) file.
 
 **Key aspects:**
 * **Readability & Clarity:** Accessible, maintainable, auditable code.
@@ -192,7 +192,7 @@ We are committed to "Perfect Coding" – technically excellent, ethically sound,
 ## Documentation Guidelines
 
 Comprehensive, accessible documentation is crucial. Follow these guidelines:
-* **"Source of Truth" Alignment:** Consistent with [`MASTER_REFERENCE.md`](docs/master_reference.md).
+* **"Source of Truth" Alignment:** Consistent with [`MASTER_REFERENCE.md`](docs/core/master_reference/master_reference.md).
 * **Format:** Use Markdown.
 * **Principles:** Adhere to Clarity, Conciseness, Accuracy, Completeness, Structure (as per Source of Truth).
 * **Examples/UI Integration:** Include code examples, UI screenshots, diagrams. Emphasize UI's role in validation.
@@ -240,7 +240,7 @@ All contributions undergo code review by maintainers and community members.
 **Review Focus:**
 * **Functionality:** Correct and efficient implementation.
 * **Code Quality:** Clean, readable, documented, maintainable, follows style guide.
-* **Ethical Compliance:** Adheres to [`Ethical Guidelines`](./ethics/ethical_guidelines.md), promotes transparency, user empowerment.
+* **Ethical Compliance:** Adheres to [`Ethical Guidelines`](docs/core/ethics/ethical_guidelines.md), promotes transparency, user empowerment.
 * **Testing:** Adequate tests (Unit, Integration, UI) validating code, robustness, ethical integrity via UI validation.
 * **Data Traceability:** Clear data flows, effective use of UI for visualization/validation.
 * **Security:** Secure coding practices, data privacy.
