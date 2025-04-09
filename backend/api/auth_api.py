@@ -48,7 +48,7 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     """Register a new user"""
     # Check if username exists
     db_user_username = db.query(User).filter(User.username == user.username).first()
-    if db_user_username:
+    if db_user_username is not None:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Username already registered"
@@ -56,7 +56,7 @@ async def register_user(user: UserCreate, db: Session = Depends(get_db)):
     
     # Check if email exists
     db_user_email = db.query(User).filter(User.email == user.email).first()
-    if db_user_email:
+    if db_user_email is not None:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Email already registered"
@@ -106,7 +106,7 @@ async def login_for_access_token(
         )
     
     # Check if user is active
-    if not user.is_active:
+    if user is None or user.is_active is False:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Account is disabled",

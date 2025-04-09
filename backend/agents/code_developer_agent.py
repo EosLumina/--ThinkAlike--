@@ -11,7 +11,7 @@ class CodeDeveloperAgent(BaseAgent):
         self.logger.info(f"CodeDeveloperAgent ({self.agent_id}) started...")
         while self.running:
             message = self.receive_message(timeout=5) # Check for messages every 5 seconds
-            if message:
+            if message is not None:
                 self.process_message(message)
             else:
                 # Agent can perform other tasks when no messages are in queue (optional)

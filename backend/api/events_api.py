@@ -84,10 +84,10 @@ async def list_events(
     """
     query = db.query(Event)
     
-    if community_id:
+    if community_id is not None:
         query = query.filter(Event.community_id == community_id)
     
-    if upcoming_only:
+    if upcoming_only is not None:
         query = query.filter(Event.end_time >= datetime.now())
     
     events = query.order_by(Event.start_time).all()

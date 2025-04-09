@@ -3,6 +3,7 @@ from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import datetime, timedelta
 import uuid
+from sqlalchemy import update
 from ..auth.auth_handler import get_current_user
 from ..database.models import User, LiveLocationShare, EventProximityOptIn, Event
 from ..database.database import get_db
@@ -92,11 +93,11 @@ async def share_live_location(
     recipient = db.query(User).filter(User.user_id == request.recipientId).first()
     if not recipient:
         raise HTTPException(status_code=400, detail="Invalid recipient ID")
-    
+
     # Create sharing session
     share_id = str(uuid.uuid4())
     expires_at = datetime.now() + timedelta(minutes=request.durationMinutes)
-    
+
     new_share = LiveLocationShare(
         share_id=share_id,
         user_id=current_user.user_id,
@@ -105,10 +106,10 @@ async def share_live_location(
         end_time=expires_at,
         active=True
     )
-    
+
     db.add(new_share)
     db.commit()
-    
+
     return {
         "shareId": share_id,
         "expiresAt": expires_at.isoformat(),
@@ -136,14 +137,14 @@ async def stop_sharing(
         LiveLocationShare.user_id == current_user.user_id,
         LiveLocationShare.active == True
     ).first()
-    
+
     if not share:
         raise HTTPException(status_code=404, detail="Sharing session not found or already expired")
-    
-    # Terminate the session
-    share.active = False
+
+    # Fix: Use SQLAlchemy-safe assignment with setattr instead of direct assignment
+    setattr(share, 'active', False)
     db.commit()
-    
+
     return {
         "message": "Location sharing terminated successfully",
         "shareId": request.shareId,
@@ -166,36 +167,36 @@ async def get_active_shares(
         LiveLocationShare.user_id == current_user.user_id,
         LiveLocationShare.active == True
     ).all()
-    
+
     # Get shares shared with the user
     received_shares = db.query(LiveLocationShare).filter(
         LiveLocationShare.recipient_id == current_user.user_id,
         LiveLocationShare.active == True
     ).all()
-    
+
     # Format the response
     initiated = []
     for share in initiated_shares:
         recipient = db.query(User).filter(User.user_id == share.recipient_id).first()
-        if recipient:
+        if recipient is not None:
             initiated.append({
                 "shareId": share.share_id,
                 "recipientId": share.recipient_id,
                 "recipientName": recipient.username,
                 "expiresAt": share.end_time.isoformat()
             })
-    
+
     received = []
     for share in received_shares:
         sender = db.query(User).filter(User.user_id == share.user_id).first()
-        if sender:
+        if sender is not None:
             received.append({
                 "shareId": share.share_id,
                 "senderId": share.user_id,
                 "senderName": sender.username,
                 "expiresAt": share.end_time.isoformat()
             })
-    
+
     return {
         "initiated": initiated,
         "received": received,
@@ -219,24 +220,24 @@ async def get_proximity(
     event = db.query(Event).filter(Event.event_id == eventId).first()
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
-    
+
     # Check if user has opted in
     user_opt_in = db.query(EventProximityOptIn).filter(
         EventProximityOptIn.event_id == eventId,
         EventProximityOptIn.user_id == current_user.user_id,
         EventProximityOptIn.opt_out_time == None
     ).first()
-    
+
     if not user_opt_in:
         raise HTTPException(status_code=403, detail="You must opt into proximity sharing for this event")
-    
+
     # Get other opted-in users
     opt_ins = db.query(EventProximityOptIn, User).join(User).filter(
         EventProximityOptIn.event_id == eventId,
         EventProximityOptIn.user_id != current_user.user_id,
         EventProximityOptIn.opt_out_time == None
     ).all()
-    
+
     # In a real implementation, we would calculate actual proximity
     # Here we just return mock data with privacy-preserving categories
     proximity_data = []
@@ -250,7 +251,7 @@ async def get_proximity(
             "approxProximity": random.choice(categories),
             "lastUpdated": datetime.now().isoformat()
         })
-    
+
     return {
         "users": proximity_data,
         "ui_validation": {
@@ -263,7 +264,7 @@ async def get_proximity(
 @router.post("/events/{eventId}/proximity_opt_in", response_model=OptInResponse)
 async def opt_in_to_proximity(
     eventId: str = Path(..., description="ID of the event to opt into"),
-    request: OptInRequest = None,
+    request: Optional[OptInRequest] = None,  # Fix: Make request explicitly Optional
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
@@ -274,36 +275,36 @@ async def opt_in_to_proximity(
     event = db.query(Event).filter(Event.event_id == eventId).first()
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
-    
+
     # Determine expiration time
     if request and request.duration:
         expires_at = datetime.now() + timedelta(minutes=request.duration)
     else:
         # Default to event end time
         expires_at = event.end_time
-    
+
     # Check if user is already opted in
     existing_opt_in = db.query(EventProximityOptIn).filter(
         EventProximityOptIn.event_id == eventId,
         EventProximityOptIn.user_id == current_user.user_id,
         EventProximityOptIn.opt_out_time == None
     ).first()
-    
-    if existing_opt_in:
-        # Update existing opt-in
-        existing_opt_in.opt_in_time = datetime.now()
+
+    if existing_opt_in is not None:  # Fix: SQLAlchemy-safe comparison
+        # Fix: Use SQLAlchemy-safe assignment with setattr
+        setattr(existing_opt_in, 'opt_in_time', datetime.now())
         db.commit()
     else:
         # Create new opt-in
         new_opt_in = EventProximityOptIn(
             event_id=eventId,
             user_id=current_user.user_id,
-            opt_in_time=datetime.now(),
+            opt_in_time=datetime.now(),  # This is fine in constructor
             opt_out_time=None
         )
         db.add(new_opt_in)
         db.commit()
-    
+
     return {
         "message": "Successfully opted into proximity sharing",
         "eventId": eventId,
@@ -329,24 +330,24 @@ async def get_nearby_attendees(
     event = db.query(Event).filter(Event.event_id == eventId).first()
     if not event:
         raise HTTPException(status_code=404, detail="Event not found")
-    
+
     # Check if user has opted in
     user_opt_in = db.query(EventProximityOptIn).filter(
         EventProximityOptIn.event_id == eventId,
         EventProximityOptIn.user_id == current_user.user_id,
         EventProximityOptIn.opt_out_time == None
     ).first()
-    
+
     if not user_opt_in:
         raise HTTPException(status_code=403, detail="You must opt into proximity sharing for this event")
-    
+
     # Get other opted-in users
     opt_ins = db.query(EventProximityOptIn, User).join(User).filter(
         EventProximityOptIn.event_id == eventId,
         EventProximityOptIn.user_id != current_user.user_id,
         EventProximityOptIn.opt_out_time == None
     ).all()
-    
+
     # In a real implementation, we'd calculate actual proximity
     # Here we just return mock data for demonstration
     nearby_attendees = []
@@ -359,7 +360,7 @@ async def get_nearby_attendees(
             "proximityCategory": random.choice(categories),
             "lastUpdated": datetime.now().isoformat()
         })
-    
+
     return {
         "attendees": nearby_attendees,
         "ui_validation": {

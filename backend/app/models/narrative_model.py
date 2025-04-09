@@ -1,7 +1,9 @@
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
-from .database import Base
+
+# Fix the database import
+from ..db.database import Base
 
 class UserNarratives(Base):
     __tablename__ = 'user_narratives'

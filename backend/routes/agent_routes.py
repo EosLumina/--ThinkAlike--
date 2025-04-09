@@ -1,34 +1,43 @@
-from fastapi import APIRouter
-from typing import List
-from ..services import agent_service  # Import your agent_service
-# from ..models import Agent, Task, Document  # Import your Pydantic models - COMMENTED OUT for placeholder models
+from fastapi import APIRouter, Depends, HTTPException, Path
+from typing import List, Optional
+from sqlalchemy.orm import Session
 
-router = APIRouter()
+# Fix missing imports
+from backend.app.models.agent import Agent, Task, Document
+from backend.services.agent_service import AgentService
+from backend.app.db.database import get_db
 
-@router.get("/agents", response_model=List[Agent], tags=["agents"])
-async def list_agents():
-    """
-    Lists all available agents.
-    """
-    return agent_service.list_agents()
+router = APIRouter(prefix="/api/agents", tags=["agents"])
 
-@router.get("/agents/{agent_id}/tasks", response_model=List[Task], tags=["agents"])
-async def get_agent_tasks(agent_id: str):
-    """
-    Retrieves tasks associated with a specific agent.
-    """
-    return agent_service.get_agent_tasks(agent_id)
+@router.get("/", response_model=List[dict])
+async def get_agents(db: Session = Depends(get_db)):
+    """Get all available agents"""
+    agent_svc = AgentService(db)
+    return agent_svc.get_all_agents()  # Use the method we defined in agent_service.py
 
-@router.get("/agents/{agent_id}/tasks/{task_id}/documents", response_model=List[Document], tags=["agents"])
-async def get_agent_task_documents(agent_id: str, task_id: str):
-    """
-    Retrieves documents associated with a specific task for an agent.
-    """
-    return agent_service.get_agent_task_documents(agent_id, task_id)
+@router.get("/{agent_id}/tasks", response_model=List[dict])
+async def get_tasks(agent_id: int = Path(...), db: Session = Depends(get_db)):
+    """Get tasks for a specific agent"""
+    agent_svc = AgentService(db)
+    agent = agent_svc.get_agent(agent_id)
+    if not agent:
+        raise HTTPException(status_code=404, detail="Agent not found")
+    return agent.tasks
 
-@router.get("/agents/{agent_id}/tasks/{task_id}/documents/{document_id}", response_model=Document, tags=["agents"])
-async def get_document(agent_id: str, task_id: str, document_id: str):
-    """
-    Retrieves a specific document associated with a task for an agent.
-    """
-    return agent_service.get_document(agent_id, task_id, document_id)
+@router.get("/{agent_id}/documents", response_model=List[dict])
+async def get_documents(agent_id: int = Path(...), db: Session = Depends(get_db)):
+    """Get documents processed by a specific agent"""
+    agent_svc = AgentService(db)
+    agent = agent_svc.get_agent(agent_id)
+    if not agent:
+        raise HTTPException(status_code=404, detail="Agent not found")
+    # Return mock documents for now
+    return [{"id": 1, "title": "Sample Document", "processed_by": agent.name}]
+
+@router.get("/documents/{document_id}", response_model=dict)
+async def get_document(document_id: int = Path(...), db: Session = Depends(get_db)):
+    """Get a specific document"""
+    document = db.query(Document).filter(Document.document_id == document_id).first()
+    if not document:
+        raise HTTPException(status_code=404, detail="Document not found")
+    return {"id": document.document_id, "title": document.title, "content": document.content}

@@ -1,11 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from typing import Any
+from typing import Any, List, Optional
 from backend.app.models.narrative_model import UserNarratives
-from backend.app.database import get_db
-from backend.auth import get_current_user
-from backend.app.models.user_model import User
+from backend.app.db.database import get_db
+from backend.app.core.security import get_current_user
+from backend.app.models.user import User
 
 router = APIRouter()
 

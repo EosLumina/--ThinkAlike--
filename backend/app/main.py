@@ -3,33 +3,49 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
-# Update import paths to match your project structure
-from api.agent_routes import router as agent_router
-from api.feedback_routes import router as feedback_router
-from backend.app.endpoints.match_routes import router as match_router
+from .core.config import settings
+from .api.api_v1.api import api_router
 
-app = FastAPI(title="ThinkAlike")
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+# Create FastAPI app
+app = FastAPI(
+    title=settings.PROJECT_NAME,
+    openapi_url=f"{settings.API_V1_STR}/openapi.json",
 )
 
-app.include_router(agent_router)
-app.include_router(feedback_router, prefix="/feedback", tags=["feedback"])
-app.include_router(match_router, prefix="/api/v1/match", tags=["match"])
+# Set up CORS middleware
+if settings.BACKEND_CORS_ORIGINS is not None:
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
+else:
+    # Development fallback - allow localhost
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["http://localhost:3000"],
+        allow_credentials=True,
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
-# Fix static files path - use absolute path relative to this file
+# Include routers
+app.include_router(api_router, prefix=settings.API_V1_STR)
+
 static_dir = os.path.join(os.path.dirname(__file__), "static")
 if os.path.exists(static_dir):
     app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
+# Root endpoint
 @app.get("/")
 async def root():
-    return {"message": "Welcome to ThinkAlike API!"}
+    return {
+        "message": "Welcome to ThinkAlike API",
+        "docs_url": "/docs",
+        "api_v1": settings.API_V1_STR
+    }
 
 @app.get("/api/v1/graph")
 async def get_graph_data():
