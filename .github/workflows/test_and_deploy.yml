@@ -30,5 +30,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Production
+        if: success()
         run: |
           echo "Deploying application..."
