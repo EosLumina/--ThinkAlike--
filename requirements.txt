@@ -1,43 +1,10 @@
-# Core Backend Framework
-fastapi==0.104.1
-uvicorn[standard]==0.24.0.post1
-pydantic>=1.10,<3
-python-dotenv==1.0.0
-requests==2.31.0
-SQLAlchemy==2.0.23
-PyMySQL==1.1.0
-
-# AI/ML Libraries
-altair
-pandas
-tensorflow
-torch
-scikit-learn
-transformers
-fairlearn
-shap
-lime
-
-# Data Validation and Testing
-great-expectations
-pytest
-pytest-cov
-pytest-asyncio
-mypy
-flake8
-
-# Visualization and Frontend Integration
-matplotlib
-seaborn
-plotly
-dash
-
-# Security and Authentication
-bcrypt
-passlib
-pyjwt
-
-# Miscellaneous Utilities
-typing-extensions>=4.5.0
-annotated-types
-mermaid-js
+fastapi>=0.95.0
+uvicorn>=0.21.1
+sqlalchemy>=2.0.9
+alembic>=1.10.3
+python-dotenv>=1.0.0
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+pydantic[email]>=1.10.7
+psycopg2-binary>=2.9.6
+python-multipart>=0.0.6

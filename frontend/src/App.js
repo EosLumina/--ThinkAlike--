@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate, useParams } from 'react-router-dom';
-import axios from 'axios';
 import CircularProgress from '@mui/material/CircularProgress';
+import CssBaseline from '@mui/material/CssBaseline';
 import Typography from '@mui/material/Typography';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Navigate, Route, BrowserRouter as Router, Routes, useParams } from 'react-router-dom';
 
 // Components
 import DataTraceability from './components/DataTraceability';
 import Navigation from './components/Navigation';
-import LocationSharing from './components/location/LocationSharing';
 import EventProximity from './components/location/EventProximity';
+import LocationSharing from './components/location/LocationSharing';
 
 // Contexts
 import { AuthProvider } from './contexts/AuthContext';
@@ -89,7 +89,7 @@ function App() {
           <Router>
             <div className="App">
               <Navigation />
-              
+
               <section className="content">
                 {loading ? (
                   <div className="loading-container">

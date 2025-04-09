@@ -67,51 +67,59 @@ The ThinkAlike MVP aims to demonstrate the core concept of connecting users base
 ### Phase 1: Backend Foundation (Highest Priority)
 
 - [ ] **1.1. Database Setup (SQLite + SQLAlchemy):**
-  - Finalize `schema.sql` for users (with hashed passwords), nodes (with `user_id`), and connections tables.
-  - Implement SQLAlchemy models (`app/models.py`).
-  - Set up database initialization (`app/__init__.py`).
+  - Create a schema.sql file with essential tables (users, nodes, connections)
+  - Implement initial SQLAlchemy models
+  - Create database initialization script
 
-- [ ] **1.2. Implement User Authentication:**
-  - Add Flask-Login (or JWT equivalent) to the backend.
-  - Create routes for `/register`, `/login`, `/logout`.
-  - Implement password hashing (`werkzeug.security`).
-  - Protect relevant API endpoints using `@login_required` (or JWT decorator).
+- [ ] **1.2. Core API Endpoints:**
+  - Implement authentication endpoints (register, login, logout)
+  - Create basic CRUD for user profile
+  - Implement node creation/retrieval endpoints
+  - Add simple matching endpoint
 
-- [ ] **1.3. Implement Node & Connection CRUD (using DB):**
-  - Convert all existing API endpoints (`/api/nodes`, `/api/nodes/<id>`, `/api/connections`, `/api/connections/<id>`) to use SQLAlchemy to interact with the SQLite database.
-  - Ensure all endpoints are associated with the logged-in user (`current_user`).
-  - Implement robust error handling and input validation for all endpoints.
+- [ ] **1.3. Basic Verification System:**
+  - Create simple validation rules for user input
+  - Implement core ethical checks
+  - Set up audit logging foundation
 
-- [ ] **1.4. Basic `/api/match` Endpoint:**
-  - Create a placeholder `/api/match` endpoint that simply returns a list of all users except the current user (no actual matching logic yet).
+### Phase 2: Frontend Essentials
 
----
+- [ ] **2.1. User Interface Shell:**
+  - Implement login/registration screens
+  - Create main navigation structure
+  - Build profile creation/editing UI
 
-### Phase 2: Frontend Core UI & Local Integration
+- [ ] **2.2. Node Creation Interface:**
+  - Implement the UI for creating and managing nodes
+  - Add simple visualization for existing nodes
 
-- [ ] **2.1. Refactor Frontend Component:** Rename `Notes.js` to `Nodes.js` (or `ProfileBuilder.js`). Adapt `App.js` import.
-- [ ] **2.2. Implement Node CRUD UI (`Nodes.js`/`ProfileBuilder.js`):**
-  - Connect the existing UI elements (inputs, buttons) to the backend API endpoints for creating, reading, updating, and deleting nodes.
-  - Fetch and display the logged-in user's nodes.
-- [ ] **2.3. Basic `UserProfile.js`:** Create a component to display basic user info (fetched from a new `/api/users/<id>` endpoint on the backend).
-- [ ] **2.4. Basic `UserDiscovery.js`:** Create a component that fetches data from the placeholder `/api/match` endpoint and displays a simple list of usernames.
-- [ ] **2.5. Frontend Routing (`App.js`):** Ensure `App.js` includes routes for `UserProfile.js` and `UserDiscovery.js`.
-- [ ] **2.6. Local Testing:** Test all Node CRUD operations and the basic user discovery flow locally using `npm start` (frontend) and `python -m uvicorn main:app --reload` (backend).
+- [ ] **2.3. Simple Data Traceability:**
+  - Create basic version of DataTraceability component
+  - Implement simple graph visualization
 
----
+### Phase 3: Integration & Testing
 
-### Phase 3: Basic Connection Mechanism
+- [ ] **3.1. Frontend-Backend Integration:**
+  - Connect all frontend components to API endpoints
+  - Test full user journey (registration → profile → nodes)
 
-- [ ] **3.1. Connection Request API (Backend):** Add endpoints to handle sending, accepting, and rejecting connection requests (e.g., `POST /api/connections/requests`, `PUT /api/connections/requests/<request_id>`). Update the database schema if necessary.
-- [ ] **3.2. Connection Request UI (Frontend):** Add buttons/UI elements in `UserDiscovery.js` or `UserProfile.js` to send connection requests. Add a section to display pending requests and allow accepting/rejecting.
+- [ ] **3.2. Unit & Integration Tests:**
+  - Write basic test suite for critical paths
+  - Set up testing framework
 
----
+### Phase 4: Deployment
 
-### Phase 4: DataTraceability Visualization (Refined)
+- [ ] **4.1. Docker Configuration:**
+  - Create Dockerfiles for frontend and backend
+  - Set up Docker Compose for local development
 
-- [ ] **4.1. Integrate Real Data:** Modify `DataTraceability.jsx` to fetch and display relevant graph data based on the current context (e.g., the user's own profile, or a visualization comparing the user to a potential match fetched via `/api/match`). Remove placeholder data/logic.
-- [ ] **4.2. Basic Styling:** Apply the "Cyberpunk Data Stream" styling basics (colors, fonts) to the graph nodes and edges.
-- [ ] **4.3. Working Tooltips:** Ensure tooltips function correctly using `react-force-graph-2d`'s built-in mechanisms (`nodeLabel`, `linkLabel`).
+- [ ] **4.2. CI/CD Pipeline:**
+  - Set up GitHub Actions for automated testing
+  - Configure automatic deployment to Render
+
+- [ ] **4.3. Documentation:**
+  - Update installation guide
+  - Create contributor quick start guide
 
 ---
 

@@ -81,6 +81,27 @@ If your application uses database migrations (e.g., with Alembic):
 * **Option 1 (Manual via Shell):** Once the service is deployed, use Render's "Shell" tab for your backend service to run migration commands (e.g., `alembic upgrade head`). You'll need to activate the virtual environment first within the shell if applicable.
 * **Option 2 (Startup Script):** Modify your service's Start Command or use a separate startup script (`render_startup.sh`) to automatically run migrations *before* starting the Gunicorn server. Be cautious with this approach to avoid issues during startup failures.
 
+### 3.4 Azure Deployment Alternative
+
+While Render is our primary recommended deployment platform, Azure offers robust services that may be preferable for teams with existing Azure experience or enterprise requirements:
+
+1. **Azure App Service** for hosting the FastAPI backend:
+   * Create an App Service Plan (Basic B1 or higher recommended)
+   * Deploy from GitHub using Azure App Service Deployment Center
+   * Configure environment variables in Application Settings
+
+2. **Azure Static Web Apps** for the React frontend:
+   * Connect to your GitHub repository
+   * Configure build settings (build command: `npm run build`, output location: `build`)
+   * Set up environment variables for API connection
+
+3. **Azure Database for PostgreSQL** instead of Render PostgreSQL:
+   * Create a managed PostgreSQL server
+   * Configure firewall rules to allow connections from App Service
+   * Update connection strings in App Service configuration
+
+This alternative deployment path provides additional scaling options and integration with Azure's security and monitoring tools.
+
 ---
 
 ## 4. Frontend Deployment (Render Static Site)

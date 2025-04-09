@@ -1,4 +1,4 @@
-# Core Concepts Explained
+# Architecture Concepts
 
 ## 1. Introduction
 
@@ -34,8 +34,8 @@
 
 ---
 **Document Details**
-- Title: Core Concepts Explained
-- Type: Vision Documentation
+- Title: Architecture Concepts
+- Type: Architecture Documentation
 - Version: 1.0.0
 - Last Updated: 2025-04-06
 ---
