@@ -61,9 +61,9 @@ jobs:
     - name: Run tests
       run: |
         if [ -d "backend" ]; then
-          pytest backend/ --doctest-modules --junitxml=junit/test-results.xml --cov=backend --cov-report=xml || true
+          pytest backend/ --doctest-modules --junitxml=junit/test-results.xml --cov=backend --cov-report=xml
         else
-          pytest --doctest-modules --junitxml=junit/test-results.xml || true
+          pytest --doctest-modules --junitxml=junit/test-results.xml
         fi
 
   deploy:
