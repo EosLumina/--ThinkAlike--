@@ -8,6 +8,7 @@ on:
 
 jobs:
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +32,7 @@ jobs:
 
   deploy:
     needs: test
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    if: success() && github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     steps:
