@@ -12,8 +12,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         """Set up the AIApplicationDeveloper instance before each test."""
         self.developer = AIApplicationDeveloper()
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_success(self, mock_model, mock_tokenizer):
         """Test the generate_code method with valid input."""
         # Mock the tokenizer and model behavior
@@ -30,8 +30,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         generated_code = self.developer.generate_code(description, language, max_length)
         self.assertEqual(generated_code, "print('Hello, World!')")
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_invalid_description(self, mock_model, mock_tokenizer):
         """Test the generate_code method when an exception occurs."""
         # Configure the tokenizer and model to return empty output
@@ -46,8 +46,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         generated_code = self.developer.generate_code(description, language, max_length)
         self.assertEqual(generated_code, "")
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_different_languages(self, mock_model, mock_tokenizer):
         """Test generate_code with different programming languages."""
         languages = ["Python", "JavaScript", "Go"]
@@ -63,8 +63,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
             result = self.developer.generate_code(description, language, max_length)
             self.assertEqual(result, "// Hello, World!")
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_parameters(self, mock_model, mock_tokenizer):
         """Verify that generate_code correctly implements all parameters."""
         description = "Print a greeting message"
@@ -80,8 +80,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         result = self.developer.generate_code(description, language, max_length)
         self.assertEqual(result, "print('Hello, World!')")
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_max_length_short(self, mock_model, mock_tokenizer):
         """Test generate_code with a short max_length to ensure shorter code
         generation."""
@@ -96,8 +96,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         result = self.developer.generate_code(description, language, max_length)
         self.assertEqual(result, "print()")
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_max_length_large(self, mock_model, mock_tokenizer):
         """Test generate_code with a large max_length to ensure longer code
         generation."""
@@ -116,8 +116,8 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         result = self.developer.generate_code(description, language, max_length)
         self.assertEqual(result, "def complex_function():\n    pass")
 
-    @patch("ai_application_developer.AutoTokenizer")
-    @patch("ai_application_developer.AutoModelForSeq2SeqLM")
+    @patch("backend.app.development.ai_application_developer.AutoTokenizer")
+    @patch("backend.app.development.ai_application_developer.AutoModelForSeq2SeqLM")
     def test_generate_code_error_handling(self, mock_model, mock_tokenizer):
         """Test generate_code's response when an error occurs during code
         generation."""
@@ -131,12 +131,9 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         result = self.developer.generate_code(description, language, max_length)
         self.assertEqual(result, "")
 
-    @patch("ai_application_developer.AIApplicationDeveloper.create_test_cases")
+    @patch("backend.app.development.ai_application_developer.AIApplicationDeveloper.create_test_cases")
     def test_create_test_cases_valid_code(self, mock_create_test_cases):
-        """Test the create_test_cases method with valid code and description.
-
-        Validate that the output contains the Test class.
-        """
+        """Test create_test_cases with valid code and description."""
         code = "def add(a, b):\n    return a + b"
         description = "Adds two numbers together."
         mock_create_test_cases.return_value = (
@@ -151,13 +148,9 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         result = self.developer.create_test_cases(code, description)
         self.assertIn("class TestAdd(unittest.TestCase):", result)
 
-    @patch("ai_application_developer.AIApplicationDeveloper.create_test_cases")
+    @patch("backend.app.development.ai_application_developer.AIApplicationDeveloper.create_test_cases")
     def test_create_test_cases_invalid_code(self, mock_create_test_cases):
-        """Test create_test_cases with invalid code.
-
-        Ensure that the method returns an empty string when an exception
-        is detected.
-        """
+        """Test create_test_cases with invalid code."""
         code = "def add(a, b)\n    return a + b"  # Missing colon
         description = "Adds two numbers together."
         mock_create_test_cases.return_value = ""
@@ -166,30 +159,24 @@ class TestAIApplicationDeveloper(unittest.TestCase):
         self.assertEqual(result, "")
 
     def test_debug_code_no_errors(self):
-        """Test debug_code with valid code that has no syntax errors.
-
-        Verify that it returns the correct message.
-        """
+        """Test debug_code with valid code that has no syntax errors."""
         code = "def add(a, b):\n    return a + b"
         result = self.developer.debug_code(code)
         self.assertEqual(result, "No syntax errors detected.")
 
     def test_debug_code_syntax_error(self):
-        """Test debug_code with code that has a syntax error.
-
-        Verify that the error is reported correctly.
-        """
+        """Test debug_code with code that has a syntax error."""
         code = "def add(a, b)\n    return a + b"  # Missing colon
         result = self.developer.debug_code(code)
         self.assertIn("SyntaxError in code:", result)
 
-    @patch("ai_application_developer.AIApplicationDeveloper.log_error")
+    @patch("backend.app.development.ai_application_developer.AIApplicationDeveloper.log_error")
     def test_debug_code_unexpected_error(self, mock_log_error):
         """Test debug_code handling of unexpected exceptions."""
         code = "def add(a, b):\n    return a + b"
 
         with patch(
-            "ai_application_developer.ast.parse",
+            "backend.app.development.ai_application_developer.ast.parse",
             side_effect=Exception("Unexpected error"),
         ):
             result = self.developer.debug_code(code)

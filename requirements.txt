@@ -8,3 +8,7 @@ passlib[bcrypt]>=1.7.4
 pydantic[email]>=1.10.7
 psycopg2-binary>=2.9.6
 python-multipart>=0.0.6
+ai_application_developer
+backend.app.development
+backend.app.documentation
+backend.app.verification
