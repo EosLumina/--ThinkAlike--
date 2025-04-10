@@ -1,0 +1,34 @@
+name: Lint Workflows
+
+on:
+  push:
+    paths:
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly on Sunday at midnight
+
+jobs:
+  lint:
+    name: Lint GitHub Actions Workflows
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Install actionlint
+        run: |
+          curl -sL https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash | bash
+          # Make actionlint executable
+          chmod +x ./actionlint
+          # Add to PATH only in GitHub Actions environment
+          if [ -n "$GITHUB_PATH" ]; then
+            echo "$GITHUB_WORKSPACE" >> $GITHUB_PATH
+          fi
+      
+      - name: Run actionlint
+        run: |
+          # Exclude dependabot.yml from the check as it's now correctly located in .github/
+          ./actionlint $(find .github/workflows -name "*.yml" | grep -v "dependabot.yml")
