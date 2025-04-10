@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import MagicMock, patch
 
-from ai_application_developer import AIApplicationDeveloper
+from backend.app.development.ai_application_developer import AIApplicationDeveloper
 
 
 class TestAIApplicationDeveloper(unittest.TestCase):

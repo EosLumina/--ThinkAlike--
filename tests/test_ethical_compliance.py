@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import MagicMock, patch
 
 import pandas as pd
-from ethical_validator import (EthicalDataset, log_error,
+from backend.app.verification.ethical_validator import (EthicalDataset, log_error,
                                validate_ethical_requirements)
 
 
@@ -10,10 +10,10 @@ class TestEthicalCompliance(unittest.TestCase):
     """Test suite for the validate_ethical_requirements function in
     test_ethical_compliance.py."""
 
-    @patch("ethical_validator.pd.read_csv")
-    @patch("ethical_validator.EthicalDataset.validate_biased_language")
-    @patch("ethical_validator.EthicalDataset.validate_sensitive_data")
-    @patch("ethical_validator.log_error")
+    @patch("backend.app.verification.ethical_validator.pd.read_csv")
+    @patch("backend.app.verification.ethical_validator.EthicalDataset.validate_biased_language")
+    @patch("backend.app.verification.ethical_validator.EthicalDataset.validate_sensitive_data")
+    @patch("backend.app.verification.ethical_validator.log_error")
     def test_validate_ethical_requirements_pass(
         self,
         mock_log_error,
@@ -32,10 +32,10 @@ class TestEthicalCompliance(unittest.TestCase):
         self.assertTrue(result)
         mock_log_error.assert_not_called()
 
-    @patch("ethical_validator.pd.read_csv")
-    @patch("ethical_validator.EthicalDataset.validate_biased_language")
-    @patch("ethical_validator.EthicalDataset.validate_sensitive_data")
-    @patch("ethical_validator.log_error")
+    @patch("backend.app.verification.ethical_validator.pd.read_csv")
+    @patch("backend.app.verification.ethical_validator.EthicalDataset.validate_biased_language")
+    @patch("backend.app.verification.ethical_validator.EthicalDataset.validate_sensitive_data")
+    @patch("backend.app.verification.ethical_validator.log_error")
     def test_validate_ethical_requirements_biased_language(
         self,
         mock_log_error,
@@ -54,10 +54,10 @@ class TestEthicalCompliance(unittest.TestCase):
         self.assertFalse(result)
         mock_log_error.assert_not_called()
 
-    @patch("ethical_validator.pd.read_csv")
-    @patch("ethical_validator.EthicalDataset.validate_biased_language")
-    @patch("ethical_validator.EthicalDataset.validate_sensitive_data")
-    @patch("ethical_validator.log_error")
+    @patch("backend.app.verification.ethical_validator.pd.read_csv")
+    @patch("backend.app.verification.ethical_validator.EthicalDataset.validate_biased_language")
+    @patch("backend.app.verification.ethical_validator.EthicalDataset.validate_sensitive_data")
+    @patch("backend.app.verification.ethical_validator.log_error")
     def test_validate_ethical_requirements_sensitive_data(
         self,
         mock_log_error,
@@ -78,8 +78,8 @@ class TestEthicalCompliance(unittest.TestCase):
         self.assertFalse(result)
         mock_log_error.assert_not_called()
 
-    @patch("ethical_validator.pd.read_csv", side_effect=FileNotFoundError)
-    @patch("ethical_validator.log_error")
+    @patch("backend.app.verification.ethical_validator.pd.read_csv", side_effect=FileNotFoundError)
+    @patch("backend.app.verification.ethical_validator.log_error")
     def test_validate_ethical_requirements_file_not_found(
         self, mock_log_error, mock_read_csv
     ):
@@ -89,8 +89,8 @@ class TestEthicalCompliance(unittest.TestCase):
         self.assertFalse(result)
         mock_log_error.assert_called_with(f"File not found: {file_path}")
 
-    @patch("ethical_validator.pd.read_csv", side_effect=pd.errors.EmptyDataError)
-    @patch("ethical_validator.log_error")
+    @patch("backend.app.verification.ethical_validator.pd.read_csv", side_effect=pd.errors.EmptyDataError)
+    @patch("backend.app.verification.ethical_validator.log_error")
     def test_validate_ethical_requirements_empty_data(
         self, mock_log_error, mock_read_csv
     ):
@@ -101,9 +101,9 @@ class TestEthicalCompliance(unittest.TestCase):
         mock_log_error.assert_called_with(f"No data: {file_path} is empty.")
 
     @patch(
-        "test_ethical_compliance.pd.read_csv", side_effect=Exception("Unexpected error")
+        "tests.test_ethical_compliance.pd.read_csv", side_effect=Exception("Unexpected error")
     )
-    @patch("test_ethical_compliance.log_error")
+    @patch("tests.test_ethical_compliance.log_error")
     def test_validate_ethical_requirements_unexpected_error(
         self, mock_log_error, mock_read_csv
     ):
