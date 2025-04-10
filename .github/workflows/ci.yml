@@ -54,17 +54,27 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-        if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+        if [ -f requirements.txt]; then pip install -r requirements.txt; fi
+        if [ -f backend/requirements.txt]; then pip install -r backend/requirements.txt; fi
         pip install pytest pytest-cov
 
     - name: Run tests
       run: |
-        if [ -d "backend" ]; then
+        if [ -d "backend"]; then
           pytest backend/ --doctest-modules --junitxml=junit/test-results.xml --cov=backend --cov-report=xml || true
         else
           pytest --doctest-modules --junitxml=junit/test-results.xml || true
-        fi
+
+    - name: Fix common issues
+      run: |
+        python backend/fix_project.py
+
+    - name: Delete unused branches
+      run: |
+        git fetch --prune
+        for branch in $(git branch -r | grep -v '\->' | grep -v 'main' | grep -v 'master'); do
+          git branch -d $branch
+        done
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && success()

@@ -30,6 +30,17 @@ jobs:
       run: |
         mkdocs build
 
+    - name: Fix common issues
+      run: |
+        python backend/fix_project.py
+
+    - name: Delete unused branches
+      run: |
+        git fetch --prune
+        for branch in $(git branch -r | grep -v '\->' | grep -v 'main' | grep -v 'master'); do
+          git branch -d $branch
+        done
+
     - name: Deploy documentation
       uses: peaceiris/actions-gh-pages@v3
       if: success() && github.ref == 'refs/heads/main'
