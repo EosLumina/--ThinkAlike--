@@ -1,35 +1,35 @@
-name: Deploy to Production
+name: Build and Deploy
 
 on:
   push:
     branches: [ main ]
-    paths-ignore:
-      - 'docs/**'
-      - '**.md'
+  workflow_dispatch:
 
 jobs:
-  deploy:
-    needs: build
+  build_and_deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install -e .
 
-    - name: Build application
-      run: |
-        echo "Building application..."
+      - name: Run tests
+        run: |
+          python -m pytest
 
-    - name: Deploy to production
-      if: success() && github.ref == 'refs/heads/main'
-      run: |
-        echo "Deploying to production..."
+      - name: Package application
+        run: |
+          mkdir -p dist
+          cp -r backend dist/
+          echo "Application packaged for deployment"
