@@ -101,9 +101,9 @@ class TestEthicalCompliance(unittest.TestCase):
         mock_log_error.assert_called_with(f"No data: {file_path} is empty.")
 
     @patch(
-        "tests.test_ethical_compliance.pd.read_csv", side_effect=Exception("Unexpected error")
+        "backend.app.verification.ethical_validator.pd.read_csv", side_effect=Exception("Unexpected error")
     )
-    @patch("tests.test_ethical_compliance.log_error")
+    @patch("backend.app.verification.ethical_validator.log_error")
     def test_validate_ethical_requirements_unexpected_error(
         self, mock_log_error, mock_read_csv
     ):
