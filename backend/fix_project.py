@@ -1,13 +1,14 @@
 """
 This script helps fix common issues in the ThinkAlike project structure.
-Run it from the root directory to create necessary __init__.py files
-and update import paths.
+Run it from the root directory to create necessary __init__.py files,
+update import paths, delete unused branches, and analyze workflows.
 """
 
 import os
 import sys
 from pathlib import Path
 import re
+import subprocess
 
 def create_init_files():
     """Create __init__.py files in all directories under backend/app."""
@@ -77,10 +78,54 @@ def get_db():
 """)
         print(f"Created {database_py}")
 
+def delete_unused_branches():
+    """Delete unused branches from the repository."""
+    print("Deleting unused branches...")
+    result = subprocess.run(['git', 'fetch', '--prune'], capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"Error fetching branches: {result.stderr}")
+        return
+
+    branches = subprocess.run(['git', 'branch', '-r'], capture_output=True, text=True)
+    if branches.returncode != 0:
+        print(f"Error listing branches: {branches.stderr}")
+        return
+
+    for branch in branches.stdout.splitlines():
+        branch = branch.strip()
+        if branch not in ['origin/main', 'origin/master']:
+            delete_result = subprocess.run(['git', 'branch', '-d', branch], capture_output=True, text=True)
+            if delete_result.returncode == 0:
+                print(f"Deleted branch: {branch}")
+            else:
+                print(f"Error deleting branch {branch}: {delete_result.stderr}")
+
+def analyze_and_fix_workflows():
+    """Analyze and fix workflow problems."""
+    print("Analyzing and fixing workflow problems...")
+    workflows_dir = Path('.github/workflows')
+    if not workflows_dir.exists():
+        print(f"Workflows directory {workflows_dir} not found!")
+        return
+
+    for workflow_file in workflows_dir.glob('*.yml'):
+        with open(workflow_file, 'r') as f:
+            content = f.read()
+
+        # Example fix: ensure all workflows use the latest actions/checkout version
+        updated_content = re.sub(r'uses: actions/checkout@v[0-9]+', 'uses: actions/checkout@v3', content)
+
+        if content != updated_content:
+            with open(workflow_file, 'w') as f:
+                f.write(updated_content)
+            print(f"Updated {workflow_file}")
+
 if __name__ == "__main__":
     print("Fixing ThinkAlike project structure...")
     create_init_files()
     ensure_db_directory()
+    delete_unused_branches()
+    analyze_and_fix_workflows()
     print("Done! The structure has been updated.")
     print("Remember to install required packages:")
     print("pip install python-jose[cryptography] passlib[bcrypt]")
