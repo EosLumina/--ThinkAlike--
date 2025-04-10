@@ -1,6 +1,6 @@
 import unittest
 
-from doc_parser import (create_doc_list, extract_code_comments,
+from backend.app.documentation.doc_parser import (create_doc_list, extract_code_comments,
                         transform_markdown)
 
 
