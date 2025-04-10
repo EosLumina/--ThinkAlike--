@@ -33,3 +33,8 @@ jobs:
           mkdir -p dist
           cp -r backend dist/
           echo "Application packaged for deployment"
+
+      - name: Deploy application
+        run: |
+          echo "Deploying application..."
+          # Add your deployment commands here
