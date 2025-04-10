@@ -1,13 +1,26 @@
-from fastapi import APIRouter, Depends, HTTPException, Query, Path
+from fastapi import APIRouter, Depends, HTTPException, Query, Path, status
 from typing import List, Optional
 from pydantic import BaseModel, Field
 from datetime import datetime, timedelta
 import uuid
-from sqlalchemy import update
-from ..auth.auth_handler import get_current_user
-from ..database.models import User, LiveLocationShare, EventProximityOptIn, Event
-from ..database.database import get_db
+import random
+from sqlalchemy import select, or_, and_
 from sqlalchemy.orm import Session
+
+from ..auth.auth_handler import get_current_user
+from ..database.models import User, LiveLocationShare, EventProximityOptIn, Event, Profile, Match, LocationPreference
+from ..database.database import get_db
+
+# Define FriendLocationResponse directly here if it doesn't exist in response_models
+class FriendLocationResponse(BaseModel):
+    user_id: str
+    username: str
+    full_name: str
+    profile_picture_url: Optional[str]
+    location_type: str  # Indicates precision level
+    latitude: float
+    longitude: float
+    compatibility_score: Optional[float]
 
 router = APIRouter(prefix="/api/v1/location", tags=["location"])
 
@@ -78,6 +91,11 @@ class NearbyAttendeesResponse(BaseModel):
     attendees: List[NearbyAttendee]
     ui_validation: dict
 
+class LocationPreferenceModel(BaseModel):
+    share_location: bool
+    location_precision: str  # "precise", "neighborhood", "city"
+    visible_to: str  # "none", "matches", "all"
+
 # ----- API Endpoints -----
 
 @router.post("/share_live", response_model=ShareLocationResponse, status_code=201)
@@ -141,7 +159,7 @@ async def stop_sharing(
     if not share:
         raise HTTPException(status_code=404, detail="Sharing session not found or already expired")
 
-    # Fix: Use SQLAlchemy-safe assignment with setattr instead of direct assignment
+    # Use SQLAlchemy-safe assignment with setattr
     setattr(share, 'active', False)
     db.commit()
 
@@ -244,7 +262,6 @@ async def get_proximity(
     for opt_in, user in opt_ins:
         # This would use actual location data in a real implementation
         # Here we just assign random proximity categories for demonstration
-        import random
         categories = ["Nearby", "Within 200m", "Within venue", "At entrance"]
         proximity_data.append({
             "userId": user.user_id,
@@ -264,7 +281,7 @@ async def get_proximity(
 @router.post("/events/{eventId}/proximity_opt_in", response_model=OptInResponse)
 async def opt_in_to_proximity(
     eventId: str = Path(..., description="ID of the event to opt into"),
-    request: Optional[OptInRequest] = None,  # Fix: Make request explicitly Optional
+    request: Optional[OptInRequest] = None,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
@@ -290,8 +307,8 @@ async def opt_in_to_proximity(
         EventProximityOptIn.opt_out_time == None
     ).first()
 
-    if existing_opt_in is not None:  # Fix: SQLAlchemy-safe comparison
-        # Fix: Use SQLAlchemy-safe assignment with setattr
+    if existing_opt_in is not None:
+        # Use SQLAlchemy-safe assignment with setattr
         setattr(existing_opt_in, 'opt_in_time', datetime.now())
         db.commit()
     else:
@@ -299,7 +316,7 @@ async def opt_in_to_proximity(
         new_opt_in = EventProximityOptIn(
             event_id=eventId,
             user_id=current_user.user_id,
-            opt_in_time=datetime.now(),  # This is fine in constructor
+            opt_in_time=datetime.now(),
             opt_out_time=None
         )
         db.add(new_opt_in)
@@ -352,7 +369,6 @@ async def get_nearby_attendees(
     # Here we just return mock data for demonstration
     nearby_attendees = []
     for opt_in, user in opt_ins:
-        import random
         categories = ["Nearby", "Within venue", "Just arrived", "Within 500m"]
         nearby_attendees.append({
             "userId": user.user_id,
@@ -369,3 +385,209 @@ async def get_nearby_attendees(
             "consent_validated": True
         }
     }
+
+@router.put("/preferences", response_model=LocationPreferenceModel)
+async def update_location_preferences(
+    preferences: LocationPreferenceModel,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Update user's location sharing preferences"""
+    # Get or create location preference
+    location_pref = db.query(LocationPreference).filter(
+        LocationPreference.user_id == current_user.user_id
+    ).first()
+
+    if not location_pref:
+        location_pref = LocationPreference(
+            user_id=current_user.user_id,
+            share_location=preferences.share_location,
+            location_precision=preferences.location_precision,
+            visible_to=preferences.visible_to
+        )
+        db.add(location_pref)
+    else:
+        # Use SQLAlchemy's setattr() instead of direct assignment
+        setattr(location_pref, "share_location", preferences.share_location)
+        setattr(location_pref, "location_precision", preferences.location_precision)
+        setattr(location_pref, "visible_to", preferences.visible_to)
+
+    db.commit()
+
+    return preferences
+
+@router.get("/preferences", response_model=LocationPreferenceModel)
+async def get_location_preferences(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get user's location sharing preferences"""
+    location_pref = db.query(LocationPreference).filter(
+        LocationPreference.user_id == current_user.user_id
+    ).first()
+
+    if not location_pref:
+        return LocationPreferenceModel(
+            share_location=False,
+            location_precision="city",
+            visible_to="friends"
+        )
+
+    # Extract scalar values from SQLAlchemy columns
+    share_location = db.scalar(select(location_pref.share_location))
+    location_precision = db.scalar(select(location_pref.location_precision))
+    visible_to = db.scalar(select(location_pref.visible_to))
+
+    return LocationPreferenceModel(
+        share_location=share_location if share_location is not None else False,
+        location_precision=location_precision if location_precision is not None else "city",
+        visible_to=visible_to if visible_to is not None else "none"
+    )
+
+@router.get("/friends-map", response_model=List[FriendLocationResponse])
+async def get_friend_locations(
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get locations of friends who have opted in to location sharing"""
+    # Check if current user has enabled location viewing
+    user_pref = db.query(LocationPreference).filter(
+        LocationPreference.user_id == current_user.user_id
+    ).first()
+
+    # Use SQLAlchemy's safe evaluation pattern
+    share_str = db.scalar(select(user_pref.share_location)) if user_pref else None
+    if share_str is None or not share_str:
+        raise HTTPException(
+            status_code=400,
+            detail="You must enable location sharing to see others' locations"
+        )
+
+    # Get all matches for current user
+    matches = db.query(Match).filter(
+        or_(
+            Match.user_id_1 == current_user.user_id,
+            Match.user_id_2 == current_user.user_id
+        )
+    ).all()
+
+    match_user_ids = []
+    for match in matches:
+        match_user_ids.append(
+            db.scalar(select(match.user_id_2).where(match.user_id_1 == current_user.user_id)) or db.scalar(select(match.user_id_1).where(match.user_id_2 == current_user.user_id))
+        )
+
+    # Get profiles and location preferences for matches
+    friend_locations = []
+
+    for match_id in match_user_ids:
+        profile = db.query(Profile).filter(Profile.user_id == match_id).first()
+        user = db.query(User).filter(User.user_id == match_id).first()
+        loc_pref = db.query(LocationPreference).filter(
+            LocationPreference.user_id == match_id
+        ).first()
+
+        # Skip if any required data is missing
+        if not profile or not user or not loc_pref:
+            continue
+
+        # Safely extract values from SQLAlchemy columns
+        share_location = db.scalar(select(loc_pref.share_location))
+        visible_to = db.scalar(select(loc_pref.visible_to))
+        location_precision = db.scalar(select(loc_pref.location_precision))
+
+        # Only include users who've opted to share location and have location data
+        if (share_location and
+            profile.latitude is not None and
+            profile.longitude is not None):
+
+            # Determine visibility level
+            visible = False
+            if visible_to == "all":
+                visible = True
+            elif visible_to == "matches":
+                # They're already in the match_user_ids list, so they're a match
+                visible = True
+
+            if visible:
+                # Apply location precision (fuzzing for privacy)
+                location_lat = None
+                location_lng = None
+                if profile.latitude is not None and profile.longitude is not None:
+                    latitude_value = db.scalar(select(profile.latitude))
+                    location_lat = float(latitude_value) if latitude_value is not None else 0.0
+                    longitude_value = db.scalar(select(profile.longitude))
+                    location_lng = float(longitude_value) if longitude_value is not None else 0.0
+
+                # Only proceed if we have valid location data
+                if location_lat is not None and location_lng is not None:
+                    # Extract scalar values from SQLAlchemy columns
+                    latitude_value = db.scalar(select(profile.latitude))
+                    lat_val = float(latitude_value) if latitude_value is not None else None
+                    longitude_value = db.scalar(select(profile.longitude))
+                    lng_val = float(longitude_value) if longitude_value is not None else None
+
+                    # Fix for type issues with latitude and longitude
+                    latitude = db.scalar(select(profile.latitude)) if profile.latitude is not None else 0.0
+                    longitude = db.scalar(select(profile.longitude)) if profile.longitude is not None else 0.0
+
+                    # Ensure apply_location_precision is called with valid float arguments
+                    lat, lng = apply_location_precision(
+                        float(latitude) if latitude is not None else 0.0,
+                        float(longitude) if longitude is not None else 0.0,
+                        "city"
+                    )
+
+                    # Find compatibility score
+                    match_record = next(
+                        (m for m in matches if m.user_id_1 == match_id or m.user_id_2 == match_id),
+                        None
+                    )
+
+                    # Extract scalar values and use proper type conversion
+                    compatibility_score_val = None
+                    if match_record and hasattr(match_record, 'compatibility_score'):
+                        if match_record.compatibility_score is not None:
+                            try:
+                                compatibility_score_val = float(db.scalar(select(match_record.compatibility_score)) or 0.0) if match_record and match_record.compatibility_score is not None else None
+                            except (TypeError, ValueError):
+                                pass
+
+                    # Extract the value before using in conditional
+                    profile_url = None
+                    if profile.profile_picture_url is not None:
+                        profile_url = db.scalar(select(profile.profile_picture_url))
+
+                    # Create response objects with properly converted values
+                    friend_locations.append(
+                        FriendLocationResponse(
+                            user_id=str(user.user_id),
+                            username=str(user.username),
+                            full_name=str(user.full_name),
+                            profile_picture_url=profile_url,
+                            location_type=str(location_precision) if location_precision else "city",
+                            latitude=lat,
+                            longitude=lng,
+                            compatibility_score=float(compatibility_score_val) if compatibility_score_val is not None else None
+                        )
+                    )
+
+    return friend_locations
+
+def apply_location_precision(lat: float, lng: float, precision: str) -> tuple:
+    """Apply fuzzing to coordinates based on precision level"""
+    if precision == "precise":
+        return lat, lng
+    elif precision == "neighborhood":
+        # Add small random offset (roughly ~1km)
+        lat_offset = random.uniform(-0.009, 0.009)
+        lng_offset = random.uniform(-0.009, 0.009)
+        return lat + lat_offset, lng + lng_offset
+    elif precision == "city":
+        # Add larger random offset (roughly ~5km)
+        lat_offset = random.uniform(-0.045, 0.045)
+        lng_offset = random.uniform(-0.045, 0.045)
+        return lat + lat_offset, lng + lng_offset
+
+    # Default to neighborhood level
+    return lat, lng
