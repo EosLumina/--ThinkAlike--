@@ -1,38 +1,48 @@
 # Building a Backend API Endpoint
 
-This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing, request/response modeling, service layer interaction, database access, testing, and integration with the Verification System.
+This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing,
+request/response modeling, service layer interaction, database access, testing, and integration with the Verification
+System.
 
-**Prerequisites:**
+* *Prerequisites:**
 
-- Familiarity with Python 3.10+, FastAPI, Pydantic, SQLAlchemy, and RESTful API principles.
-- Understanding of the project's [Code Style Guide](./code_style_guide.md) (Backend section).
-- Familiarity with the [Architectural Overview](../../architecture/architectural_overview.md) and the role of the Verification System (see [Verification System Deep Dive](../../architecture/verification_system/verification_system_deep_dive.md)).
-- A local backend environment set up as per the [Installation Guide](../../core/installation.md).
+* Familiarity with Python 3.10+, FastAPI, Pydantic, SQLAlchemy, and RESTful API principles.
 
----
+* Understanding of the project's [Code Style Guide](./code_style_guide.md) (Backend section).
+
+* Familiarity with the [Architectural Overview](../../architecture/architectural_overview.md) and the role of the
+
+Verification System (see [Verification System Deep
+Dive](../../architecture/verification_system/verification_system_deep_dive.md)).
+
+* A local backend environment set up as per the [Installation Guide](../../core/installation.md).
+
+* --
 
 ## 1. Planning & Design
 
-- **Define the Endpoint:**
-  - Determine the purpose, HTTP method (GET, POST, PUT, DELETE, etc.), and URL path following RESTful conventions.
-- **Define the Request:**
-  - Specify path parameters, query parameters, and the request body structure.
-  - Use Pydantic models to validate request bodies.
-- **Define the Response:**
-  - Specify success response status codes (e.g., 200, 201, 204) and body structures using Pydantic models.
-  - Define error responses (e.g., 400, 401, 403, 404, 500) and their potential body structures.
-- **Service Logic:**
-  - Identify the business logic that must be executed; this should reside within the service layer.
-- **Data Access:**
-  - Identify data interactions (both read/write) with the database.
-- **Verification Needs:**
-  - Determine if and when the operation should trigger ethical and functional validations via the Verification System.
-- **Permissions:**
-  - Define the required authentication/authorization level (e.g., authenticated user, specific role).
-- **Documentation:**
-  - Update or add the new endpoint definition in the relevant API documentation file (e.g., `docs/architecture/api/api_endpoints_modeX.md`).
+* **Define the Endpoint:**
+  * Determine the purpose, HTTP method (GET, POST, PUT, DELETE, etc.), and URL path following RESTful conventions.
+* **Define the Request:**
+  * Specify path parameters, query parameters, and the request body structure.
+  * Use Pydantic models to validate request bodies.
+* **Define the Response:**
+  * Specify success response status codes (e.g., 200, 201, 204) and body structures using Pydantic models.
+  * Define error responses (e.g., 400, 401, 403, 404, 500) and their potential body structures.
+* **Service Logic:**
+  * Identify the business logic that must be executed; this should reside within the service layer.
+* **Data Access:**
+  * Identify data interactions (both read/write) with the database.
+* **Verification Needs:**
+  * Determine if and when the operation should trigger ethical and functional validations via the Verification System.
+* **Permissions:**
+  * Define the required authentication/authorization level (e.g., authenticated user, specific role).
+* **Documentation:**
+  * Update or add the new endpoint definition in the relevant API documentation file (e.g.,
 
----
+`docs/architecture/api/api_endpoints_modeX.md`).
+
+* --
 
 ## 2. Implementation Steps
 
@@ -66,12 +76,16 @@ class ProfileResponse(BaseModel):
 ## 2.2. Create/Update Router
 
 ### 2.2. Create/Update Router
+
 Locate the appropriate `APIRouter` file (e.g., in `backend/routes/user_routes.py`) or create a new one if needed.
 
-- Define the endpoint function using the correct FastAPI decorator.
-- Use type hints for path/query parameters and the request body.
-- Leverage FastAPI’s dependency injection (`Depends`) for database sessions and service layers.
-- Implement authentication/authorization checks with FastAPI dependencies.
+* Define the endpoint function using the correct FastAPI decorator.
+
+* Use type hints for path/query parameters and the request body.
+
+* Leverage FastAPI’s dependency injection (`Depends`) for database sessions and service layers.
+
+* Implement authentication/authorization checks with FastAPI dependencies.
 
 ```python
 
@@ -122,17 +136,22 @@ async def update_user_profile(
         raise HTTPException(status_code=404, detail="User not found")
 
     return updated_profile
+
 ```
 
 ## 2.3. Implement Service Logic
 
 ### 2.3. Implement Service Logic
+
 In the service layer (e.g., `backend/services/profile_service.py`), encapsulate the business logic for your endpoint.
 
-- Accept necessary parameters such as the DB session, user ID, and input data.
-- Integrate a Verification Hook: Call the Verification System’s API/interface at the appropriate junction.
-- Interact with the database using CRUD functions or direct SQLAlchemy operations.
-- Return results or raise exceptions as needed.
+* Accept necessary parameters such as the DB session, user ID, and input data.
+
+* Integrate a Verification Hook: Call the Verification System’s API/interface at the appropriate junction.
+
+* Interact with the database using CRUD functions or direct SQLAlchemy operations.
+
+* Return results or raise exceptions as needed.
 
 ```python
 
@@ -145,7 +164,7 @@ from ..models.schemas import profile_schemas
 from .verification_service import VerificationService  # Assuming a service to interact with Verification System
 
 class ProfileService:
-    def __init__(self, verification_service: VerificationService = VerificationService()):
+    def **init**(self, verification_service: VerificationService = VerificationService()):
         self.verification_service = verification_service
 
     async def update_profile(self, db: Session, user_id: int, profile_update_data: profile_schemas.ProfileUpdate) -> models.User | None:
@@ -172,41 +191,49 @@ class ProfileService:
 
         updated_user = crud.user.update(db=db, db_obj=db_user, obj_in=update_data)
         return updated_user
+
 ```
 
 ## 2.4. Add CRUD Operations (if necessary)
 
 ### 2.4. Add CRUD Operations (if necessary)
-If new database interactions are required, add reusable CRUD functions (e.g., in `backend/crud/crud_user.py`). These should handle basic SQLAlchemy operations such as get, create, update, and delete.
+
+If new database interactions are required, add reusable CRUD functions (e.g., in `backend/crud/crud_user.py`). These
+should handle basic SQLAlchemy operations such as get, create, update, and delete.
 
 ### 2.5. Register the Router
 
 Ensure your new or updated router is included in the main FastAPI application. In `backend/main.py`, add:
 
 ```python
+
 from fastapi import FastAPI
 from backend.routes import user_routes
 
 app = FastAPI()
 app.include_router(user_routes.router)
+
 ```
 
----
+* --
 
 ## 3. Testing
 
 ### Unit Testing (Services)
 
-- Write tests for your service methods in isolation.
-- Mock the database session, CRUD functions, and the Verification System calls.
-- Ensure your validations and data transformations are correct.
+* Write tests for your service methods in isolation.
+
+* Mock the database session, CRUD functions, and the Verification System calls.
+* Ensure your validations and data transformations are correct.
 
 ### Integration Testing (Endpoints)
 
-- Use FastAPI’s `TestClient` to send requests to your endpoints.
-- Verify status codes, response bodies, and database state changes.
-- Test authentication/authorization enforcement.
-- Optionally, mock Verification System calls if they are complex or external.
+* Use FastAPI’s `TestClient` to send requests to your endpoints.
+
+* Verify status codes, response bodies, and database state changes.
+* Test authentication/authorization enforcement.
+
+* Optionally, mock Verification System calls if they are complex or external.
 
 ```python
 
@@ -249,25 +276,31 @@ def test_update_other_user_profile_forbidden(client: TestClient, db: Session, no
 
 ```
 
----
+* --
 
 ## 4. Manual Testing
 
-- Run the backend server locally.
-- Use tools like curl, Postman, or the Swagger UI (accessible at `/docs`) to manually test the endpoint.
-- Integrate with the frontend and perform end-to-end testing.
-- Test various valid and invalid inputs to ensure endpoint robustness.
+* Run the backend server locally.
 
----
+* Use tools like curl, Postman, or the Swagger UI (accessible at `/docs`) to manually test the endpoint.
+* Integrate with the frontend and perform end-to-end testing.
 
-By following this structured approach—covering design, implementation, tests, and manual verification—you ensure new backend endpoints are robust, secure, and fully aligned with ThinkAlike’s core principles.
----
-**Document Details**
-- Title: Building a Backend Api Endpoint
-- Type: Developer Guide
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of Building a Backend Api Endpoint
----
+* Test various valid and invalid inputs to ensure endpoint robustness.
 
+* --
+
+## By following this structured approach—covering design, implementation, tests, and manual verification—you ensure new
+
+backend endpoints are robust, secure, and fully aligned with ThinkAlike’s core principles
+
+## Document Details
+
+* Title: Building a Backend Api Endpoint
+
+* Type: Developer Guide
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of Building a Backend Api Endpoint

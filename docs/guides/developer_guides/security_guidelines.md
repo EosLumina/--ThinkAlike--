@@ -5,6 +5,7 @@
 Defines security requirements and practices across the platform.
 
 ```mermaid
+
 flowchart TB
     subgraph Security_Layers
         Auth[Authentication]
@@ -16,15 +17,19 @@ flowchart TB
     Auth --> Access
     Access --> Data
     Data --> Audit
+
 ```
 
----
+* --
 
 ## 1. Introduction
 
-This document outlines the security standards and best practices for the ThinkAlike project. Security is a fundamental aspect of our development process, not an afterthought. These guidelines ensure that we build secure applications that protect user data, maintain privacy, and prevent unauthorized access. All team members are responsible for applying these security practices in their work.
+This document outlines the security standards and best practices for the ThinkAlike project. Security is a fundamental
+aspect of our development process, not an afterthought. These guidelines ensure that we build secure applications that
+protect user data, maintain privacy, and prevent unauthorized access. All team members are responsible for applying
+these security practices in their work.
 
----
+* --
 
 ## 2. Security Principles
 
@@ -45,7 +50,7 @@ This document outlines the security standards and best practices for the ThinkAl
 * **Product Management**: Prioritize security requirements
 * **QA**: Include security testing in test plans
 
----
+* --
 
 ## 3. Authentication and Authorization
 
@@ -59,7 +64,9 @@ This document outlines the security standards and best practices for the ThinkAl
   * Support multi-factor authentication (MFA)
 
 ```python
+
 # Example password validation
+
 def validate_password(password):
     """Validate password against security requirements."""
     errors = []
@@ -75,6 +82,7 @@ def validate_password(password):
         errors.append("Password is not strong enough")
 
     return len(errors) == 0, errors
+
 ```
 
 ### 3.2 Authentication Implementation
@@ -86,7 +94,9 @@ def validate_password(password):
 * Use HTTPS for all authentication traffic
 
 ```python
+
 # Example password hashing with Argon2
+
 from argon2 import PasswordHasher
 
 ph = PasswordHasher(
@@ -108,6 +118,7 @@ def verify_password(stored_hash, password):
         return True
     except:
         return False
+
 ```
 
 ### 3.3 Token-Based Authentication
@@ -119,6 +130,7 @@ def verify_password(stored_hash, password):
 * Never store sensitive data in tokens
 
 ```javascript
+
 // Example JWT implementation
 const jwt = require('jsonwebtoken');
 const fs = require('fs');
@@ -155,6 +167,7 @@ function generateTokens(userId) {
 
   return { accessToken, refreshToken };
 }
+
 ```
 
 ### 3.4 Authorization
@@ -166,7 +179,9 @@ function generateTokens(userId) {
 * Implement API rate limiting
 
 ```python
+
 # Example permission-based authorization
+
 class Permission(enum.Enum):
     READ_PUBLIC = "read:public"
     READ_PRIVATE = "read:private"
@@ -175,6 +190,7 @@ class Permission(enum.Enum):
     ADMIN = "admin"
 
 # Role definitions with permissions
+
 ROLES = {
     "guest": [Permission.READ_PUBLIC],
     "user": [Permission.READ_PUBLIC, Permission.READ_PRIVATE, Permission.WRITE_OWN],
@@ -191,9 +207,10 @@ def check_permission(user, required_permission):
 
     user_permissions = ROLES.get(user.role, [])
     return required_permission in user_permissions
+
 ```
 
----
+* --
 
 ## 4. Secure Coding Practices
 
@@ -206,7 +223,9 @@ def check_permission(user, required_permission):
 * Sanitize data before display or storage
 
 ```python
+
 # Example input validation
+
 from pydantic import BaseModel, EmailStr, validator
 from typing import List, Optional
 
@@ -231,6 +250,7 @@ class UserRegistration(BaseModel):
         if not is_valid:
             raise ValueError(errors[0])
         return v
+
 ```
 
 ### 4.2 Output Encoding
@@ -241,6 +261,7 @@ class UserRegistration(BaseModel):
 * Never render raw HTML from untrusted sources
 
 ```javascript
+
 // React example with proper output encoding
 const UserProfile = ({ userData }) => {
   // React automatically escapes values to prevent XSS
@@ -267,6 +288,7 @@ const UserProfile = ({ userData }) => {
     </div>
   );
 };
+
 ```
 
 ### 4.3 SQL Injection Prevention
@@ -277,22 +299,27 @@ const UserProfile = ({ userData }) => {
 * Apply least privilege database accounts
 
 ```python
+
 # Example using SQLAlchemy ORM (safe)
+
 def get_user(username):
     return db.session.query(User).filter(User.username == username).first()
 
 # Example using parameterized query (safe)
+
 def get_user_raw(username):
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
     return cursor.fetchone()
 
 # NEVER DO THIS (unsafe)
+
 def get_user_unsafe(username):
     cursor = connection.cursor()
     # VULNERABLE TO SQL INJECTION!
     cursor.execute(f"SELECT * FROM users WHERE username = '{username}'")
     return cursor.fetchone()
+
 ```
 
 ### 4.4 Cross-Site Scripting (XSS) Prevention
@@ -304,17 +331,19 @@ def get_user_unsafe(username):
 * Apply the principle of least privilege for JavaScript
 
 ```html
+
 <!-- Example Content Security Policy header -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
-  script-src 'self' https://trusted-cdn.example.com;
-  style-src 'self' https://trusted-cdn.example.com;
-  img-src 'self' https://trusted-cdn.example.com data:;
-  connect-src 'self' https://api.thinkalike.com;
-  font-src 'self' https://trusted-cdn.example.com;
+  script-src 'self' <https://trusted-cdn.example.com>;
+  style-src 'self' <https://trusted-cdn.example.com>;
+  img-src 'self' <https://trusted-cdn.example.co>m data:;
+  connect-src 'self' <https://api.thinkalike.com>;
+  font-src 'self' <https://trusted-cdn.example.com>;
   frame-src 'none';
   object-src 'none'
 ">
+
 ```
 
 ### 4.5 Cross-Site Request Forgery (CSRF) Protection
@@ -325,10 +354,12 @@ def get_user_unsafe(username):
 * Use proper session management
 
 ```python
+
 # Example CSRF protection in Flask
+
 from flask_wtf.csrf import CSRFProtect
 
-app = Flask(__name__)
+app = Flask(**name**)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 csrf = CSRFProtect(app)
 
@@ -338,9 +369,10 @@ def update_profile():
     # The request has been CSRF protected
     # Process the form data
     return jsonify(success=True)
+
 ```
 
----
+* --
 
 ## 5. Data Protection
 
@@ -361,11 +393,13 @@ def update_profile():
 * Encrypt backups
 
 ```python
+
 # Example field-level encryption for sensitive data
+
 from cryptography.fernet import Fernet
 
 class EncryptedField:
-    def __init__(self, key_provider):
+    def **init**(self, key_provider):
         self.key_provider = key_provider
 
     def encrypt(self, plaintext):
@@ -383,6 +417,7 @@ class EncryptedField:
         key = self.key_provider.get_key_for_ciphertext(ciphertext)
         f = Fernet(key)
         return f.decrypt(ciphertext.encode()).decode()
+
 ```
 
 ### 5.3 Encryption in Transit
@@ -394,7 +429,9 @@ class EncryptedField:
 * Apply HTTP security headers
 
 ```nginx
+
 # Example Nginx TLS configuration
+
 server {
     listen 443 ssl http2;
     server_name api.thinkalike.com;
@@ -419,6 +456,7 @@ server {
 
     # ...rest of configuration
 }
+
 ```
 
 ### 5.4 Secure File Handling
@@ -430,7 +468,9 @@ server {
 * Implement proper access controls for files
 
 ```python
+
 # Example secure file upload validation
+
 def validate_file_upload(file):
     # Check file size
     if file.size > MAX_UPLOAD_SIZE:
@@ -452,9 +492,10 @@ def validate_file_upload(file):
     secure_filename = str(uuid.uuid4()) + os.path.splitext(filename)[1]
 
     return secure_filename
+
 ```
 
----
+* --
 
 ## 6. Infrastructure Security
 
@@ -467,7 +508,9 @@ def validate_file_upload(file):
 * Apply security groups and access controls
 
 ```terraform
+
 # Example secure AWS configuration using Terraform
+
 resource "aws_security_group" "api_sg" {
   name        = "api-security-group"
   description = "Security group for API servers"
@@ -502,6 +545,7 @@ resource "aws_security_group" "api_sg" {
 }
 
 # S3 bucket with encryption
+
 resource "aws_s3_bucket" "data_bucket" {
   bucket = "thinkalike-data-${var.environment}"
   acl    = "private"
@@ -525,6 +569,7 @@ resource "aws_s3_bucket" "data_bucket" {
     enabled = true
   }
 }
+
 ```
 
 ### 6.2 Container Security
@@ -536,44 +581,55 @@ resource "aws_s3_bucket" "data_bucket" {
 * Implement network policies
 
 ```dockerfile
+
 # Example secure Dockerfile
+
 FROM python:3.10-slim AS builder
 
 WORKDIR /app
 
 # Install dependencies
+
 COPY requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 
 # Final stage
+
 FROM python:3.10-slim
 
 # Create non-root user
+
 RUN groupadd -g 1000 appuser && \
     useradd -r -u 1000 -g appuser appuser
 
 WORKDIR /app
 
 # Install dependencies
+
 COPY --from=builder /app/wheels /wheels
 COPY --from=builder /app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
 # Copy application code
+
 COPY . .
 
 # Set permissions
+
 RUN chown -R appuser:appuser /app
 USER appuser
 
 # Set security-related environment variables
+
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     PIP_NO_CACHE_DIR=off \
     PIP_DISABLE_PIP_VERSION_CHECK=on
 
 # Run the application
+
 CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "app.wsgi:application"]
+
 ```
 
 ### 6.3 Network Security
@@ -585,7 +641,9 @@ CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "3", "app.wsgi:applicati
 * Implement DDoS protection
 
 ```yaml
+
 # Example Kubernetes Network Policy
+
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
@@ -596,41 +654,51 @@ spec:
     matchLabels:
       app: api
   policyTypes:
-  - Ingress
-  - Egress
+  * Ingress
+  * Egress
+
   ingress:
-  - from:
-    - namespaceSelector:
+  * from:
+    * namespaceSelector:
+
         matchLabels:
           name: frontend
     ports:
-    - protocol: TCP
+    * protocol: TCP
+
       port: 8000
-  - from:
-    - namespaceSelector:
+  * from:
+    * namespaceSelector:
+
         matchLabels:
           name: monitoring
     ports:
-    - protocol: TCP
+    * protocol: TCP
+
       port: 9090  # Metrics endpoint
   egress:
-  - to:
-    - namespaceSelector:
+  * to:
+    * namespaceSelector:
+
         matchLabels:
           name: database
     ports:
-    - protocol: TCP
+    * protocol: TCP
+
       port: 5432
-  - to:
-    - namespaceSelector:
+  * to:
+    * namespaceSelector:
+
         matchLabels:
           name: redis
     ports:
-    - protocol: TCP
+    * protocol: TCP
+
       port: 6379
+
 ```
 
----
+* --
 
 ## 7. Security Testing and Monitoring
 
@@ -643,7 +711,9 @@ spec:
 * Run dependency vulnerability scanning
 
 ```yaml
+
 # Example GitHub Action for security scanning
+
 name: Security Scan
 
 on:
@@ -652,35 +722,36 @@ on:
   pull_request:
     branches: [ main, develop ]
   schedule:
-    - cron: '0 0 * * 0'  # Weekly scan
+    * cron: '0 0 * * 0'  # Weekly scan
 
 jobs:
   security-scan:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      * uses: actions/checkout@v3
+      * name: Run SAST (Semgrep)
 
-      - name: Run SAST (Semgrep)
         uses: returntocorp/semgrep-action@v1
         with:
           config: p/owasp-top-ten
+      * name: Check for dependency vulnerabilities
 
-      - name: Check for dependency vulnerabilities
         run: |
           npm install
           npm audit --audit-level=high
+      * name: Run container security scan
 
-      - name: Run container security scan
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'thinkalike/api:latest'
           format: 'sarif'
           output: 'trivy-results.sarif'
+      * name: Upload scan results
 
-      - name: Upload scan results
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: 'trivy-results.sarif'
+
 ```
 
 ### 7.2 Security Monitoring
@@ -692,11 +763,16 @@ jobs:
 * Perform regular log reviews
 
 ```yaml
+
 # Example Prometheus Alert Rules
+
 groups:
-- name: SecurityAlerts
+
+* name: SecurityAlerts
+
   rules:
-  - alert: HighLoginFailureRate
+  * alert: HighLoginFailureRate
+
     expr: rate(login_failures_total[5m]) > 10
     for: 5m
     labels:
@@ -704,8 +780,8 @@ groups:
     annotations:
       summary: High login failure rate
       description: "{{ $labels.instance }} has high login failure rate: {{ $value }}"
+  * alert: UnauthorizedAccessAttempts
 
-  - alert: UnauthorizedAccessAttempts
     expr: rate(unauthorized_access_attempts_total[5m]) > 5
     for: 3m
     labels:
@@ -713,8 +789,8 @@ groups:
     annotations:
       summary: Unauthorized access attempts detected
       description: "{{ $labels.instance }} has unauthorized access attempts: {{ $value }}"
+  * alert: AbnormalDatabaseAccess
 
-  - alert: AbnormalDatabaseAccess
     expr: rate(database_query_count{is_admin_query="true"}[5m]) > 100
     for: 5m
     labels:
@@ -722,6 +798,7 @@ groups:
     annotations:
       summary: Abnormal rate of admin database queries
       description: "High rate of admin queries detected: {{ $value }}"
+
 ```
 
 ### 7.3 Incident Response
@@ -732,7 +809,7 @@ groups:
 * Implement communication protocols
 * Conduct post-incident reviews
 
----
+* --
 
 ## 8. Secure Development Lifecycle
 
@@ -765,8 +842,11 @@ groups:
 * Have a vulnerability remediation process
 
 ```python
+
 # Example pre-commit hook to check dependencies
-#!/usr/bin/env python3
+
+# !/usr/bin/env python3
+
 import subprocess
 import sys
 
@@ -801,9 +881,10 @@ def check_dependencies():
 
 if not check_dependencies():
     sys.exit(1)
+
 ```
 
----
+* --
 
 ## 9. Compliance and Privacy
 
@@ -830,16 +911,20 @@ if not check_dependencies():
 * Make logs searchable for investigations
 
 ```python
+
 # Example security audit logging
+
 import logging
 from datetime import datetime
 import json
 
 # Setup secure audit logger
+
 audit_logger = logging.getLogger('security_audit')
 audit_logger.setLevel(logging.INFO)
 
 # Ensure logs go to a secure location
+
 secure_handler = logging.FileHandler('/var/log/thinkalike/security_audit.log')
 audit_logger.addHandler(secure_handler)
 
@@ -859,6 +944,7 @@ def log_security_event(event_type, user_id, resource_id=None, status="success", 
     audit_logger.info(json.dumps(event))
 
 # Example usage
+
 def change_user_role(admin_user, target_user_id, new_role):
     # Check permissions
     if not admin_user.has_permission('admin:users'):
@@ -890,9 +976,10 @@ def change_user_role(admin_user, target_user_id, new_role):
     )
 
     return user
+
 ```
 
----
+* --
 
 ## 10. Mobile Application Security
 
@@ -912,6 +999,7 @@ def change_user_role(admin_user, target_user_id, new_role):
 * Consider device trust evaluation
 
 ```swift
+
 // Example iOS secure data storage using Keychain
 import Security
 
@@ -950,9 +1038,10 @@ class SecureStorage {
         }
     }
 }
+
 ```
 
----
+* --
 
 ## 11. Security Documentation
 
@@ -977,16 +1066,16 @@ class SecureStorage {
 * Record risk treatment decisions
 * Track security debt
 
----
+* --
 
-**Document Details**
-- Title: Security Standard
-- Type: Development Guide
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of Security Standard
----
+## Document Details
 
+* Title: Security Standard
 
+* Type: Development Guide
 
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of Security Standard

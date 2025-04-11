@@ -2,17 +2,30 @@
 
 ## 1. Introduction and Description
 
-The **APIValidator** is a reusable React UI component designed to provide **transparent feedback on interactions between the ThinkAlike frontend and its backend API endpoints**. It serves as a key element of the **"UI as Validation Framework"**, intercepting or receiving data about API calls and displaying their status, request details, response data, and validation results directly within the UI during development, testing, or in specific diagnostic contexts.
+The **APIValidator** is a reusable React UI component designed to provide **transparent feedback on interactions between
+the ThinkAlike frontend and its backend API endpoints**. It serves as a key element of the **"UI as Validation
+Framework"**, intercepting or receiving data about API calls and displaying their status, request details, response
+data, and validation results directly within the UI during development, testing, or in specific diagnostic contexts.
 
 Its primary purposes are to:
 
 * **Demystify Backend Communication:** Make the process of API communication visible and understandable.
-* **Validate Data Flow:** Confirm that data sent to the API meets expectations and that responses are correctly structured.
-* **Aid Debugging:** Provide immediate insights into API call success/failure, request payloads, and response bodies.
-* **Enhance Transparency:** Offer, in controlled scenarios, users a window into how their actions trigger backend processes.
-* **Integrate with Testing:** Serve as a target for assertions in automated UI tests and provide visual confirmation during manual testing.
+* **Validate Data Flow:** Confirm that data sent to the API meets expectations and that responses are correctly
 
-This component supports the testing and validation strategies outlined in the [Testing and Validation Plan](../../guides/developer_guides/testing_and_validation_plan.md) and the data flow transparency goals in the [Technical Specification Guide](../../guides/developer_guides/technical_specification_guide.md).
+structured.
+
+* **Aid Debugging:** Provide immediate insights into API call success/failure, request payloads, and response bodies.
+* **Enhance Transparency:** Offer, in controlled scenarios, users a window into how their actions trigger backend
+
+processes.
+
+* **Integrate with Testing:** Serve as a target for assertions in automated UI tests and provide visual confirmation
+
+during manual testing.
+
+This component supports the testing and validation strategies outlined in the [Testing and Validation
+Plan](../../guides/developer_guides/testing_and_validation_plan.md) and the data flow transparency goals in the
+[Technical Specification Guide](../../guides/developer_guides/technical_specification_guide.md).
 
 ## 2. UI Components / Elements
 
@@ -55,13 +68,22 @@ The `APIValidator` component can be rendered in different contexts:
 ## 3. Data Flow and Interaction
 
 1. **Trigger:** A UI action (e.g., button click) initiates an API call via a service function.
-2. **Interception/Wrapping:** The API service function (or its wrapper around fetch/axios) records the request details before sending the call and captures the response/error after completion.
-3. **State Update:** Captured data such as endpoint, method, payload, response code, response body, duration, and validation status are passed to the `APIValidator` via props or shared state.
-4. **Rendering:** The component renders the relevant sections (Status, Request Details, Response Details, and Timing) with collapsible controls.
-5. **Display Context:**
+2. **Interception/Wrapping:** The API service function (or its wrapper around fetch/axios) records the request details
 
-   * Globally in a developer console panel (logging recent API calls)
-   * Locally, near the triggering element (e.g., as a toast notification)
+before sending the call and captures the response/error after completion.
+
+1. **State Update:** Captured data such as endpoint, method, payload, response code, response body, duration, and
+
+validation status are passed to the `APIValidator` via props or shared state.
+
+1. **Rendering:** The component renders the relevant sections (Status, Request Details, Response Details, and Timing)
+
+with collapsible controls.
+
+1. **Display Context:**
+
+    * Globally in a developer console panel (logging recent API calls)
+  * Locally, near the triggering element (e.g., as a toast notification)
 
 ## 4. Mermaid Diagram of Data Flow
 
@@ -114,6 +136,7 @@ flowchart TB
 `
 
 ```mermaid
+
 graph TD
     A["UI Action (e.g., Button Click)"] --> B{"API Service Function Call"};
     B -- "Request Details Captured" --> C["APIValidator State"];
@@ -122,23 +145,28 @@ graph TD
     B -- "Response/Error Captured" --> C;
     C -- "Props/Context Update" --> E("APIValidator Component");
     E -- "Renders" --> F["Visual Feedback in UI"];
+
 ```
 
 ## 5. Code Implementation Notes
 
-**Framework:** React
+* *Framework:** React
 
-**Data Capture:**
-Create a wrapper function around standard fetch or axios instances to record request details, execute the API call, capture response/error details (with timing), optionally perform frontend validation, and then update the shared state or pass data via props.
+* *Data Capture:**
 
-**State Management:**
+Create a wrapper function around standard fetch or axios instances to record request details, execute the API call,
+capture response/error details (with timing), optionally perform frontend validation, and then update the shared state
+or pass data via props.
+
+* *State Management:**
 
 * Use the Context API or a state management library for a global log.
 * For local display, component state or props can be used.
 
-**Component Structure (Conceptual Example):**
+* *Component Structure (Conceptual Example):**
 
 ```jsx
+
 import React, { useState } from 'react';
 import StatusIcon from './StatusIcon'; // Reusable icon
 // Import masking utilities
@@ -195,19 +223,26 @@ function APIValidator({ apiCallData }) {
 }
 
 export default APIValidator;
+
 ```
 
-**Masking:**
-Implement robust utility functions for masking sensitive data (e.g., passwords, tokens, PII) in both request and response displays. This example uses a basic function.
+* *Masking:**
 
-**Configuration:**
-Allow customization (e.g., via props or context) for default visibility of details, masking level, and whether the component is active.
+Implement robust utility functions for masking sensitive data (e.g., passwords, tokens, PII) in both request and
+response displays. This example uses a basic function.
+
+* *Configuration:**
+
+Allow customization (e.g., via props or context) for default visibility of details, masking level, and whether the
+component is active.
 
 ## 6. Testing Instructions
 
 * **Successful Call:**
   * Mock a successful API call (2xx status).
-  * Verify that APIValidator displays a green status, correct endpoint/method, masked request payload, valid response body, and accurate timing.
+  * Verify that APIValidator displays a green status, correct endpoint/method, masked request payload, valid response
+
+body, and accurate timing.
 
 * **Client Error Call:**
   * Mock a client error (4xx status).
@@ -251,14 +286,17 @@ Allow customization (e.g., via props or context) for default visibility of detai
 * Copy-to-clipboard functionality for request/response data.
 * More sophisticated integration for data validation display.
 * Option to replay specific API calls (for debugging).
-* Integration with backend tracing IDs for end-to-end request tracking.
----
-**Document Details**
-- Title: Design Document: Apivalidator Ui Component
-- Type: Component Specification
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of Design Document: Apivalidator Ui Component
----
 
+## * Integration with backend tracing IDs for end-to-end request tracking
+
+## Document Details
+
+* Title: Design Document: Apivalidator Ui Component
+
+* Type: Component Specification
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of Design Document: Apivalidator Ui Component

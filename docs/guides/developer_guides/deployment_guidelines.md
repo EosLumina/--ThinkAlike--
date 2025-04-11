@@ -1,12 +1,14 @@
 # Deployment Guidelines
 
----
+* --
 
 ## 1. Introduction
 
-This document outlines the deployment standards and practices for the ThinkAlike project. Following these guidelines ensures consistent, reliable, and secure deployments across all environments. These practices apply to all components of the ThinkAlike platform, including backend services, frontend applications, and supporting infrastructure.
+This document outlines the deployment standards and practices for the ThinkAlike project. Following these guidelines
+ensures consistent, reliable, and secure deployments across all environments. These practices apply to all components of
+the ThinkAlike platform, including backend services, frontend applications, and supporting infrastructure.
 
----
+* --
 
 ## 2. Deployment Environments
 
@@ -43,15 +45,19 @@ ThinkAlike uses multiple environments to ensure quality and stability:
 * Maintain parity between environments where possible
 
 ```
+
 # Example environment variable schema
+
 # .env.example (Do not include actual values in version control)
 
 # App Configuration
+
 APP_ENV=development|testing|staging|production
 APP_DEBUG=true|false
 APP_PORT=3000
 
 # Database Configuration
+
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=thinkalike
@@ -59,19 +65,23 @@ DB_USER=dbuser
 DB_PASSWORD=secretpassword
 
 # API Configuration
+
 API_TIMEOUT_MS=5000
 API_RATE_LIMIT=100
 
 # Authentication
+
 AUTH_SECRET_KEY=secret
 AUTH_TOKEN_EXPIRY=86400
 
 # External Services
-ML_SERVICE_URL=http://ml-service:8080
+
+ML_SERVICE_URL=<http://ml-service:808>0
 ANALYTICS_API_KEY=apikey
+
 ```
 
----
+* --
 
 ## 3. Containerization
 
@@ -89,47 +99,59 @@ ThinkAlike services are containerized using Docker for consistency across enviro
 ### 3.2 Example Dockerfile (Backend)
 
 ```dockerfile
+
 # Build stage
+
 FROM python:3.10-slim AS builder
 
 WORKDIR /app
 
 # Install dependencies
+
 COPY requirements.txt .
 RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 
 # Runtime stage
+
 FROM python:3.10-slim
 
 # Create non-root user
+
 RUN groupadd -g 1001 appuser && \
     useradd -r -u 1001 -g appuser appuser
 
 WORKDIR /app
 
 # Install dependencies
+
 COPY --from=builder /app/wheels /wheels
 COPY --from=builder /app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 
 # Copy application code
+
 COPY ./app ./app
 
 # Set permissions
+
 RUN chown -R appuser:appuser /app
 USER appuser
 
 # Configure environment
+
 EXPOSE 8000
 ENV PYTHONUNBUFFERED=1
 
 # Run the application
+
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 ```
 
 ### 3.3 Example Docker Compose
 
 ```yaml
+
 version: '3.8'
 
 services:
@@ -138,18 +160,21 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "8000:8000"
+      * "8000:8000"
+
     environment:
-      - DB_HOST=db
-      - DB_PORT=5432
-      - DB_NAME=thinkalike
-      - DB_USER=${DB_USER}
-      - DB_PASSWORD=${DB_PASSWORD}
+      * DB_HOST=db
+      * DB_PORT=5432
+      * DB_NAME=thinkalike
+      * DB_USER=${DB_USER}
+      * DB_PASSWORD=${DB_PASSWORD}
+
     depends_on:
-      - db
+      * db
+
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      test: ["CMD", "curl", "-f", "<http://localhost:8000/health>"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -157,19 +182,23 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "3000:80"
+      * "3000:80"
+
     depends_on:
-      - api
+      * api
+
     restart: unless-stopped
 
   db:
     image: postgres:14-alpine
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      * postgres_data:/var/lib/postgresql/data
+
     environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=thinkalike
+      * POSTGRES_USER=${DB_USER}
+      * POSTGRES_PASSWORD=${DB_PASSWORD}
+      * POSTGRES_DB=thinkalike
+
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "${DB_USER}"]
@@ -179,9 +208,10 @@ services:
 
 volumes:
   postgres_data:
+
 ```
 
----
+* --
 
 ## 4. CI/CD Pipeline
 
@@ -203,6 +233,7 @@ ThinkAlike uses automated CI/CD pipelines for consistent and reliable deployment
 ### 4.2 Example GitHub Actions Workflow
 
 ```yaml
+
 name: CI/CD Pipeline
 
 on:
@@ -215,26 +246,26 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      * uses: actions/checkout@v3
+      * name: Set up Python
 
-      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+      * name: Install dependencies
 
-      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
+      * name: Lint with flake8
 
-      - name: Lint with flake8
         run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+      * name: Test with pytest
 
-      - name: Test with pytest
         run: pytest --cov=app tests/
+      * name: Upload coverage to Codecov
 
-      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
 
   build:
@@ -242,18 +273,18 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
-      - uses: actions/checkout@v3
+      * uses: actions/checkout@v3
+      * name: Set up Docker Buildx
 
-      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+      * name: Login to DockerHub
 
-      - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      * name: Build and push
 
-      - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -267,7 +298,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop'
     steps:
-      - name: Deploy to Staging
+      * name: Deploy to Staging
+
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.STAGING_HOST }}
@@ -284,9 +316,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     environment:
       name: production
-      url: https://thinkalike.com
+      url: <https://thinkalike.co>m
     steps:
-      - name: Deploy to Production
+      * name: Deploy to Production
+
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.PROD_HOST }}
@@ -296,9 +329,10 @@ jobs:
             cd /opt/thinkalike
             docker-compose pull
             docker-compose up -d
+
 ```
 
----
+* --
 
 ## 5. Infrastructure as Code (IaC)
 
@@ -309,6 +343,7 @@ ThinkAlike uses Infrastructure as Code to manage and provision resources:
 All cloud resources are defined and managed using Terraform:
 
 ```hcl
+
 # Example Terraform configuration for AWS resources
 
 provider "aws" {
@@ -359,7 +394,8 @@ module "ecs" {
   }
 }
 
-# Additional resources like RDS, Elasticache, etc.
+# Additional resources like RDS, Elasticache, etc
+
 ```
 
 ### 5.2 IaC Best Practices
@@ -372,7 +408,7 @@ module "ecs" {
 * Include documentation within code
 * Review IaC changes like regular code
 
----
+* --
 
 ## 6. Deployment Strategies
 
@@ -406,7 +442,7 @@ Choose deployment strategies based on:
 * Availability requirements
 * Environment (staging vs production)
 
----
+* --
 
 ## 7. Database Migrations
 
@@ -421,7 +457,9 @@ Choose deployment strategies based on:
 ### 7.2 Migration Process
 
 ```python
+
 # Example migration using Alembic for Python/SQLAlchemy
+
 """add user preferences table
 
 Revision ID: a1b2c3d4e5f6
@@ -432,11 +470,10 @@ Create Date: 2023-01-15 10:30:00.000000
 from alembic import op
 import sqlalchemy as sa
 
-
 # revision identifiers
+
 revision = 'a1b2c3d4e5f6'
 down_revision = 'g7h8i9j0k1l2'
-
 
 def upgrade():
     op.create_table(
@@ -453,10 +490,10 @@ def upgrade():
     )
     op.create_index(op.f('ix_user_preferences_user_id'), 'user_preferences', ['user_id'])
 
-
 def downgrade():
     op.drop_index(op.f('ix_user_preferences_user_id'), table_name='user_preferences')
     op.drop_table('user_preferences')
+
 ```
 
 ### 7.3 Database Migration Guidelines
@@ -467,7 +504,7 @@ def downgrade():
 * Schedule complex migrations during off-peak hours
 * Back up the database before applying migrations in production
 
----
+* --
 
 ## 8. Monitoring and Observability
 
@@ -503,32 +540,36 @@ ThinkAlike uses the following observability tools:
 * PagerDuty for alerting and on-call management
 
 ```yaml
+
 # Example Prometheus configuration
+
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: 'api'
+  * job_name: 'api'
+
     metrics_path: '/metrics'
     static_configs:
-      - targets: ['api:8000']
+      * targets: ['api:8000']
+  * job_name: 'node-exporter'
 
-  - job_name: 'node-exporter'
     static_configs:
-      - targets: ['node-exporter:9100']
+      * targets: ['node-exporter:9100']
 
 alerting:
   alertmanagers:
-    - static_configs:
-      - targets:
-        - 'alertmanager:9093'
+    * static_configs:
+      * targets:
+        * 'alertmanager:9093'
 
 rule_files:
-  - "/etc/prometheus/rules/*.rules"
+  * "/etc/prometheus/rules/*.rules"
+
 ```
 
----
+* --
 
 ## 9. Rollback Procedures
 
@@ -537,7 +578,9 @@ rule_files:
 Configure automated rollbacks based on health checks:
 
 ```yaml
+
 # Example Kubernetes rollout strategy
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -560,10 +603,12 @@ spec:
         app: thinkalike-api
     spec:
       containers:
-      - name: api
+      * name: api
+
         image: thinkalike/api:latest
         ports:
-        - containerPort: 8000
+        * containerPort: 8000
+
         livenessProbe:
           httpGet:
             path: /health
@@ -576,6 +621,7 @@ spec:
             port: 8000
           initialDelaySeconds: 5
           periodSeconds: 5
+
 ```
 
 ### 9.2 Manual Rollback Procedures
@@ -585,18 +631,21 @@ For situations requiring manual rollback:
 1. **Identify the Problem**: Confirm that a rollback is necessary
 2. **Communicate**: Notify team members about the rollback
 3. **Execute Rollback**: Deploy the previous known-good version
+
    ```bash
+
    # Example rollback command for Docker Compose
    docker-compose down
    git checkout v1.2.3  # Previous stable version
    docker-compose build
    docker-compose up -d
    ```
-4. **Verify**: Confirm that the rollback resolves the issue
-5. **Root Cause Analysis**: Investigate what went wrong
-6. **Document**: Record the incident and resolution
 
----
+1. **Verify**: Confirm that the rollback resolves the issue
+2. **Root Cause Analysis**: Investigate what went wrong
+3. **Document**: Record the incident and resolution
+
+* --
 
 ## 10. Security Considerations
 
@@ -618,7 +667,9 @@ For situations requiring manual rollback:
 * Implement access controls for secrets
 
 ```yaml
+
 # Example Vault configuration for secret management
+
 api_version: 1
 
 auth:
@@ -628,18 +679,23 @@ auth:
     role: "api-role"
 
 secrets:
-- name: SECRET_KEY
+
+* name: SECRET_KEY
+
   path: secret/data/thinkalike/api
   key: secret_key
-- name: DB_PASSWORD
+* name: DB_PASSWORD
+
   path: secret/data/thinkalike/db
   key: password
-- name: API_TOKENS
+* name: API_TOKENS
+
   path: secret/data/thinkalike/integrations
   key: api_tokens
+
 ```
 
----
+* --
 
 ## 11. Documentation and Runbooks
 
@@ -661,18 +717,21 @@ Create runbooks for common deployment issues:
 * Authentication problems
 * Data inconsistency issues
 
----
+* --
 
-By following these deployment guidelines, ThinkAlike ensures reliable, secure, and consistent deployments across all environments, minimizing downtime and maintaining high service quality.
+By following these deployment guidelines, ThinkAlike ensures reliable, secure, and consistent deployments across all
+environments, minimizing downtime and maintaining high service quality.
 
----
-**Document Details**
-- Title: Deployment Guidelines
-- Type: Developer Guide
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of Deployment Guidelines
----
+* --
 
+## Document Details
 
+* Title: Deployment Guidelines
+
+* Type: Developer Guide
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of Deployment Guidelines

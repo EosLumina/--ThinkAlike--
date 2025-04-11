@@ -1,12 +1,15 @@
 # Testing Standards and Best Practices
 
----
+* --
 
 ## 1. Introduction
 
-This document outlines the testing standards and best practices for the ThinkAlike project. Thorough testing is essential for building reliable, maintainable software and ensuring a high-quality user experience. These guidelines ensure consistent testing practices across all components of the platform and help developers write effective tests that catch issues early in the development process.
+This document outlines the testing standards and best practices for the ThinkAlike project. Thorough testing is
+essential for building reliable, maintainable software and ensuring a high-quality user experience. These guidelines
+ensure consistent testing practices across all components of the platform and help developers write effective tests that
+catch issues early in the development process.
 
----
+* --
 
 ## 2. Testing Principles
 
@@ -24,6 +27,7 @@ This document outlines the testing standards and best practices for the ThinkAli
 ThinkAlike follows the test pyramid approach:
 
 ```
+
     /\
    /  \
   /    \       E2E Tests (10%)
@@ -36,14 +40,15 @@ ThinkAlike follows the test pyramid approach:
 |        |
 |        |     Unit Tests (70%)
 |        |
-|________|
+|********|
+
 ```
 
 * **Unit Tests**: Test individual components in isolation
 * **Integration Tests**: Test interactions between components
 * **End-to-End Tests**: Test complete user flows
 
----
+* --
 
 ## 3. Unit Testing
 
@@ -59,7 +64,9 @@ ThinkAlike follows the test pyramid approach:
 Follow the Arrange-Act-Assert (AAA) pattern:
 
 ```python
+
 # Example unit test following AAA pattern
+
 def test_user_calculation_with_valid_input():
     # Arrange
     user = User(id=123, subscription_level="premium")
@@ -70,6 +77,7 @@ def test_user_calculation_with_valid_input():
 
     # Assert
     assert result == expected_score
+
 ```
 
 ### 3.3 Mock Objects
@@ -79,7 +87,9 @@ def test_user_calculation_with_valid_input():
 * Only mock what is necessary for the test
 
 ```python
+
 # Example of appropriate mocking
+
 @patch('app.services.payment_service.PaymentProcessor')
 def test_subscription_renewal(mock_payment_processor):
     # Arrange
@@ -94,6 +104,7 @@ def test_subscription_renewal(mock_payment_processor):
     assert result.success is True
     assert user.subscription_ends_at > datetime.now()
     mock_processor.process_payment.assert_called_once()
+
 ```
 
 ### 3.4 Test Coverage
@@ -103,7 +114,7 @@ def test_subscription_renewal(mock_payment_processor):
 * Identify and test complex code paths
 * Regularly review test coverage reports
 
----
+* --
 
 ## 4. Integration Testing
 
@@ -125,7 +136,9 @@ Test all API endpoints for:
 * Edge cases and error handling
 
 ```python
+
 # Example API integration test
+
 def test_create_user_api():
     # Arrange
     test_client = app.test_client()
@@ -153,6 +166,7 @@ def test_create_user_api():
     # Verify user was actually created in the database
     created_user = User.query.filter_by(username=user_data['username']).first()
     assert created_user is not None
+
 ```
 
 ### 4.3 Database Testing
@@ -163,7 +177,9 @@ def test_create_user_api():
 * Test transaction handling
 
 ```python
+
 # Example database integration test
+
 def test_user_preference_cascade_delete():
     # Arrange
     user = User(username="testuser", email="test@example.com")
@@ -182,6 +198,7 @@ def test_user_preference_cascade_delete():
     # Verify preference was cascade deleted
     found_preference = UserPreference.query.filter_by(user_id=user.id).first()
     assert found_preference is None
+
 ```
 
 ### 4.4 Test Fixtures
@@ -191,7 +208,9 @@ def test_user_preference_cascade_delete():
 * Clean up test data after tests complete
 
 ```python
+
 # Example test fixtures
+
 @pytest.fixture
 def test_user():
     """Create a test user for use in tests."""
@@ -218,9 +237,10 @@ def auth_client(test_user):
     token = create_access_token(identity=test_user.id)
     client.environ_base['HTTP_AUTHORIZATION'] = f'Bearer {token}'
     return client
+
 ```
 
----
+* --
 
 ## 5. End-to-End Testing
 
@@ -239,6 +259,7 @@ def auth_client(test_user):
 * Test browser compatibility
 
 ```typescript
+
 // Example E2E test with Cypress
 describe('User Registration', () => {
   it('should allow a new user to register', () => {
@@ -267,6 +288,7 @@ describe('User Registration', () => {
     });
   });
 });
+
 ```
 
 ### 5.3 Test Data Management
@@ -284,7 +306,7 @@ describe('User Registration', () => {
 * Add proper waiting mechanisms for asynchronous operations
 * Run E2E tests in a CI/CD pipeline
 
----
+* --
 
 ## 6. Test-Driven Development (TDD)
 
@@ -310,7 +332,7 @@ ThinkAlike encourages test-driven development:
 * Refactoring critical components
 * Performance optimization
 
----
+* --
 
 ## 7. Testing Tools and Frameworks
 
@@ -322,8 +344,11 @@ ThinkAlike encourages test-driven development:
 * **API**: Postman, Insomnia
 
 ```python
+
 # Example pytest configuration
+
 # pytest.ini
+
 [pytest]
 testpaths = tests
 python_files = test_*.py
@@ -334,6 +359,7 @@ markers =
     integration: Integration tests
     e2e: End-to-end tests
     slow: Tests that take longer to run
+
 ```
 
 ### 7.2 Frontend Testing
@@ -344,6 +370,7 @@ markers =
 * **Visual Testing**: Percy, Chromatic
 
 ```javascript
+
 // Example Jest configuration
 // jest.config.js
 module.exports = {
@@ -368,6 +395,7 @@ module.exports = {
     },
   },
 };
+
 ```
 
 ### 7.3 Mobile Testing
@@ -383,7 +411,7 @@ module.exports = {
 * **Profiling**: cProfile, Chrome DevTools
 * **Benchmarking**: Benchmark.js, pytest-benchmark
 
----
+* --
 
 ## 8. Test Environment Management
 
@@ -401,7 +429,9 @@ module.exports = {
 * Store test results and artifacts
 
 ```yaml
+
 # Example GitHub Actions workflow for testing
+
 name: Run Tests
 
 on: [push, pull_request]
@@ -417,31 +447,33 @@ jobs:
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: thinkalike_test
         ports:
-          - 5432:5432
+          * 5432:5432
+
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-      - uses: actions/checkout@v3
+      * uses: actions/checkout@v3
+      * name: Set up Python
 
-      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
+      * name: Install dependencies
 
-      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
+      * name: Run unit tests
 
-      - name: Run unit tests
         run: pytest tests/unit -v
+      * name: Run integration tests
 
-      - name: Run integration tests
         run: pytest tests/integration -v
+      * name: Upload coverage reports
 
-      - name: Upload coverage reports
         uses: codecov/codecov-action@v3
+
 ```
 
 ### 8.3 Test Data Management
@@ -451,7 +483,7 @@ jobs:
 * Reset test data between test runs
 * Consider database snapshots for faster test setup
 
----
+* --
 
 ## 9. Test Documentation
 
@@ -487,7 +519,7 @@ Generate test reports that include:
 * Performance metrics
 * Known issues
 
----
+* --
 
 ## 10. Test Maintenance
 
@@ -512,7 +544,7 @@ Generate test reports that include:
 * Check test quality and readability
 * Verify test independence
 
----
+* --
 
 ## 11. Specialized Testing Types
 
@@ -544,7 +576,7 @@ Generate test reports that include:
 * Endurance testing for long-running stability
 * Scalability testing
 
----
+* --
 
 ## 12. Testing in Special Contexts
 
@@ -556,10 +588,11 @@ Generate test reports that include:
 * Test service discovery and registration
 
 ```javascript
+
 // Example Pact consumer test
 // consumer.pact.spec.js
 describe('User Service Client', () => {
-  const userService = new UserServiceClient('http://localhost:8080');
+  const userService = new UserServiceClient('<http://localhost:8080')>;
 
   it('can retrieve user details by ID', async () => {
     // Set up Pact mock
@@ -593,6 +626,7 @@ describe('User Service Client', () => {
     });
   });
 });
+
 ```
 
 ### 12.2 Testing Machine Learning Components
@@ -609,7 +643,7 @@ describe('User Service Client', () => {
 * Test failure recovery
 * Test scaling behavior
 
----
+* --
 
 ## 13. Acceptance Testing
 
@@ -620,7 +654,9 @@ describe('User Service Client', () => {
 * Include both functional and non-functional requirements
 
 ```gherkin
+
 # Example BDD scenario
+
 Feature: User Registration
 
   Scenario: Successful user registration
@@ -634,6 +670,7 @@ Feature: User Registration
     Then I should be redirected to the dashboard
     And I should see a welcome message
     And I should receive a confirmation email
+
 ```
 
 ### 13.2 User Acceptance Testing (UAT)
@@ -643,18 +680,22 @@ Feature: User Registration
 * Document UAT results and sign-offs
 * Address feedback from UAT in a timely manner
 
----
+* --
 
-By following these testing standards, ThinkAlike ensures that our software is reliable, maintainable, and delivers a high-quality user experience. Thorough testing reduces defects, increases confidence in releases, and enables faster, safer development.
+By following these testing standards, ThinkAlike ensures that our software is reliable, maintainable, and delivers a
+high-quality user experience. Thorough testing reduces defects, increases confidence in releases, and enables faster,
+safer development.
 
----
-**Document Details**
-- Title: Testing Standards and Best Practices
-- Type: Developer Guide
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of Testing Standards and Best Practices
----
+* --
 
+## Document Details
 
+* Title: Testing Standards and Best Practices
+
+* Type: Developer Guide
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of Testing Standards and Best Practices

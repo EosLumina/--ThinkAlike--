@@ -1,12 +1,14 @@
 # ML Development Guidelines
 
----
+* --
 
 ## 1. Introduction
 
-This document outlines the best practices and standards for machine learning development at ThinkAlike. As ML is central to our recommendation and matching systems, following these guidelines ensures our models are accurate, fair, explainable, and maintainable. These standards apply to all ML components across the platform.
+This document outlines the best practices and standards for machine learning development at ThinkAlike. As ML is central
+to our recommendation and matching systems, following these guidelines ensures our models are accurate, fair,
+explainable, and maintainable. These standards apply to all ML components across the platform.
 
----
+* --
 
 ## 2. ML Development Lifecycle
 
@@ -15,9 +17,11 @@ This document outlines the best practices and standards for machine learning dev
 ThinkAlike follows a structured ML development lifecycle:
 
 ```
+
 Problem Definition → Data Collection → Exploratory Analysis →
 Feature Engineering → Model Development → Evaluation →
 Deployment → Monitoring → Iteration
+
 ```
 
 ### 2.2 Documentation Requirements
@@ -34,7 +38,7 @@ Document the following for each ML initiative:
 * **Limitations**: Known limitations and constraints
 * **Ethical considerations**: Bias and fairness assessment
 
----
+* --
 
 ## 3. Data Management
 
@@ -53,7 +57,9 @@ Document the following for each ML initiative:
 * **Labeling**: Document labeling procedures and quality metrics
 
 ```python
+
 # Example data splitting with proper seeding
+
 from sklearn.model_selection import train_test_split
 
 def split_dataset(X, y, test_size=0.2, val_size=0.2, random_state=42):
@@ -77,6 +83,7 @@ def split_dataset(X, y, test_size=0.2, val_size=0.2, random_state=42):
     logger.info(f"Test set: {len(X_test)} samples")
 
     return (X_train, y_train), (X_val, y_val), (X_test, y_test)
+
 ```
 
 ### 3.3 Feature Engineering
@@ -87,15 +94,17 @@ def split_dataset(X, y, test_size=0.2, val_size=0.2, random_state=42):
 * **Versioning**: Version feature engineering code alongside models
 
 ```python
+
 # Example feature engineering class with proper documentation
+
 class UserFeatureTransformer:
     """Transforms raw user data into features for recommendation models.
 
     This transformer handles:
-    - Missing value imputation
-    - Categorical encoding
-    - Feature normalization
-    - Feature interaction creation
+    * Missing value imputation
+    * Categorical encoding
+    * Feature normalization
+    * Feature interaction creation
 
     Attributes:
         categorical_features (list): List of categorical feature names
@@ -103,7 +112,7 @@ class UserFeatureTransformer:
         encoders (dict): Dictionary mapping feature names to fitted encoders
     """
 
-    def __init__(self, categorical_features, numerical_features):
+    def **init**(self, categorical_features, numerical_features):
         self.categorical_features = categorical_features
         self.numerical_features = numerical_features
         self.encoders = {}
@@ -131,9 +140,10 @@ class UserFeatureTransformer:
         """
         # Implementation details...
         return transformed_features
+
 ```
 
----
+* --
 
 ## 4. Model Development
 
@@ -157,7 +167,9 @@ Document the rationale for model selection.
 * **Resource utilization**: Monitor and optimize computational resource usage
 
 ```python
+
 # Example hyperparameter tuning with logging
+
 from sklearn.model_selection import GridSearchCV
 from mlflow import log_params, log_metrics
 
@@ -198,6 +210,7 @@ def tune_model(model_class, param_grid, X_train, y_train, X_val, y_val):
     logger.info(f"Validation F1: {search.score(X_val, y_val):.4f}")
 
     return search.best_estimator_
+
 ```
 
 ### 4.3 Model Architecture Documentation
@@ -209,7 +222,7 @@ Document the following for each model:
 * **Input and output specifications**
 * **Dependencies and environment**
 
----
+* --
 
 ## 5. Evaluation and Validation
 
@@ -234,7 +247,9 @@ Use appropriate validation strategies:
 * **Time-based splits**: For time-series data
 
 ```python
+
 # Example time-based validation for recommendation models
+
 def time_based_validation(user_item_interactions, n_splits=5):
     """Create time-based train/validation splits.
 
@@ -267,6 +282,7 @@ def time_based_validation(user_item_interactions, n_splits=5):
         splits.append((train_indices, val_indices))
 
     return splits
+
 ```
 
 ### 5.3 Baseline Models
@@ -282,7 +298,7 @@ def time_based_validation(user_item_interactions, n_splits=5):
 * Calculate required sample size and duration
 * Document test results and statistical significance
 
----
+* --
 
 ## 6. Fairness and Bias Mitigation
 
@@ -303,7 +319,9 @@ Evaluate models for fairness across sensitive attributes:
 * Document findings and mitigation steps
 
 ```python
+
 # Example fairness evaluation
+
 from fairlearn.metrics import demographic_parity_difference
 
 def evaluate_fairness(y_true, y_pred, sensitive_features):
@@ -329,6 +347,7 @@ def evaluate_fairness(y_true, y_pred, sensitive_features):
         logger.info(f"Demographic parity difference for {column}: {dp_diff:.4f}")
 
     return fairness_metrics
+
 ```
 
 ### 6.3 Bias Mitigation Techniques
@@ -341,7 +360,7 @@ When bias is detected, consider:
 
 Document all bias mitigation approaches and their effects.
 
----
+* --
 
 ## 7. Model Interpretability
 
@@ -364,7 +383,9 @@ Document the following for each model:
 * **Limitations**: What the model cannot explain
 
 ```python
+
 # Example SHAP value calculation
+
 import shap
 
 def explain_model(model, X, feature_names=None):
@@ -402,9 +423,10 @@ def explain_model(model, X, feature_names=None):
         logger.info(f"Feature importance:\n{importance_df.head(10)}")
 
     return shap_values
+
 ```
 
----
+* --
 
 ## 8. Model Versioning and Reproducibility
 
@@ -429,7 +451,9 @@ Document the following to ensure reproducibility:
 Use MLflow to track experiments:
 
 ```python
+
 # Example MLflow tracking
+
 import mlflow
 from mlflow.tracking import MlflowClient
 
@@ -473,9 +497,10 @@ def train_with_tracking(model_name, X_train, y_train, X_test, y_test, params):
         logger.info(f"Metrics: {metrics}")
 
         return model
+
 ```
 
----
+* --
 
 ## 9. Model Deployment
 
@@ -502,31 +527,39 @@ Document the following for each deployment:
 Package models in containers for deployment:
 
 ```dockerfile
+
 # Example Dockerfile for model deployment
+
 FROM python:3.9-slim
 
 WORKDIR /app
 
 # Install dependencies
+
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy model and code
+
 COPY model/ ./model/
 COPY api/ ./api/
 
 # Set up environment
+
 ENV MODEL_PATH=/app/model/recommendation_model.pkl
 ENV LOG_LEVEL=INFO
 
 # Expose API port
+
 EXPOSE 8000
 
 # Run API server
+
 CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
+
 ```
 
----
+* --
 
 ## 10. Monitoring and Maintenance
 
@@ -558,7 +591,9 @@ Define procedures for:
 * **Retirement plan**: When and how to retire models
 
 ```python
+
 # Example data drift detection
+
 from scipy.stats import ks_2samp
 
 def detect_data_drift(reference_data, current_data, threshold=0.05):
@@ -597,9 +632,10 @@ def detect_data_drift(reference_data, current_data, threshold=0.05):
                 )
 
     return drift_results
+
 ```
 
----
+* --
 
 ## 11. Ethics and Responsible AI
 
@@ -633,39 +669,54 @@ Use standardized templates for:
 Example model card structure:
 
 ```
+
 # Model Card: User-Content Recommendation Model
 
 ## Model Details
-- Name: RecSys v2.1
-- Type: Matrix Factorization with Neural Features
-- Date: April 2, 2025
-- Version: 2.1.0
-- Owners: Recommendation Team
+
+* Name: RecSys v2.1
+
+* Type: Matrix Factorization with Neural Features
+* Date: April 2, 2025
+
+* Version: 2.1.0
+* Owners: Recommendation Team
 
 ## Intended Use
-- Primary use: Personalize content recommendations
-- Out-of-scope uses: Should not be used for critical decisions
+
+* Primary use: Personalize content recommendations
+
+* Out-of-scope uses: Should not be used for critical decisions
 
 ## Training Data
-- Source: User interaction history (Jan 2024 - Mar 2025)
-- Size: 10M users, 1M content items, 500M interactions
-- Preprocessing: Removed bots, normalized engagement signals
+
+* Source: User interaction history (Jan 2024 - Mar 2025)
+
+* Size: 10M users, 1M content items, 500M interactions
+* Preprocessing: Removed bots, normalized engagement signals
 
 ## Evaluation Results
-- Offline metrics: NDCG@10: 0.42, MAP@10: 0.38
-- A/B test results: +7.2% engagement, +3.5% retention
+
+* Offline metrics: NDCG@10: 0.42, MAP@10: 0.38
+
+* A/B test results: +7.2% engagement, +3.5% retention
 
 ## Ethical Considerations
-- Fairness: Evaluated across age groups, gender, geography
-- Limitations: May underserve new users (cold start)
-- Mitigations: Diversity injection, exploration component
+
+* Fairness: Evaluated across age groups, gender, geography
+
+* Limitations: May underserve new users (cold start)
+* Mitigations: Diversity injection, exploration component
 
 ## Quantitative Analysis
-- Performance characteristics: 95% predictions < 20ms
-- Fairness metrics: Demographic parity diff < 0.05 across groups
+
+* Performance characteristics: 95% predictions < 20ms
+
+* Fairness metrics: Demographic parity diff < 0.05 across groups
+
 ```
 
----
+* --
 
 ## 12. Collaboration Between Data Scientists and Engineers
 
@@ -685,18 +736,21 @@ Document the following for engineering handoffs:
 * **Performance characteristics**: Latency, throughput
 * **Monitoring requirements**: Metrics to track
 
----
+* --
 
-By following these ML development guidelines, ThinkAlike ensures that our machine learning systems are robust, fair, explainable, and maintainable, while delivering maximum value to our users.
+By following these ML development guidelines, ThinkAlike ensures that our machine learning systems are robust, fair,
+explainable, and maintainable, while delivering maximum value to our users.
 
----
-**Document Details**
-- Title: ML Development Guidelines
-- Type: Developer Guide
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of ML Development Guidelines
----
+* --
 
+## Document Details
 
+* Title: ML Development Guidelines
+
+* Type: Developer Guide
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of ML Development Guidelines

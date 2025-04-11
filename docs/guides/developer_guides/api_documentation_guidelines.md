@@ -7,6 +7,7 @@ Defines standards for documenting APIs to ensure clear, consistent, and maintain
 ## 2. OpenAPI Documentation
 
 ```yaml
+
 openapi: 3.0.0
 info:
   title: API Documentation
@@ -18,6 +19,7 @@ paths:
       responses:
         '200':
           description: Success
+
 ```
 
 ## 3. Documentation Framework
@@ -48,18 +50,22 @@ Every API endpoint must document the following:
 * **Tags:** Categorical tags for grouping related endpoints
 
 Example:
+
 ```yaml
+
 /users/{user_id}:
   get:
     summary: Get user profile details
     description: Retrieves detailed profile information for a specific user. Requires authentication.
     tags:
-      - Users
+      * Users
+
 ```
 
 ### 4.2 Documentation Flow
 
 ```mermaid
+
 flowchart TB
     subgraph API_Docs
         OAS[OpenAPI Spec]
@@ -76,6 +82,7 @@ flowchart TB
     OAS --> VALID
     VALID --> MD
     MD --> EX
+
 ```
 
 ## 5. Further Reference
@@ -84,15 +91,16 @@ flowchart TB
 * [API Examples](../examples/api_examples.md)
 * [FastAPI Documentation](https://fastapi.tiangolo.com/)
 
----
-**Document Details**
-- Title: API Documentation Standard
-- Type: Development Guide
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of API Documentation Standard
----
+* --
 
+## Document Details
 
+* Title: API Documentation Standard
 
+* Type: Development Guide
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of API Documentation Standard

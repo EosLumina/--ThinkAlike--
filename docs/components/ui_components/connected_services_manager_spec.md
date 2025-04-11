@@ -1,12 +1,18 @@
 # UI Component Specification: ConnectedServicesManager
 
----
+* --
 
 ## 1. Introduction and Description
 
-The **ConnectedServicesManager** is a dedicated UI component, typically within user Settings, providing a centralized interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify). It is the primary UI for the [Third-Party Data Integration Strategy](../../architecture/data_integration_strategy.md).
+The **ConnectedServicesManager** is a dedicated UI component, typically within user Settings, providing a centralized
+interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify). It is the primary
+UI for the [Third-Party Data Integration Strategy](../../architecture/data_integration_strategy.md).
 
-It allows users to view supported services, initiate/revoke OAuth connections, view granted permissions, and exercise **granular, opt-in control over how harvested data is used**, embodying user control and transparency principles. See [Connected Services User Guide](../../guides/user_guides/connected_services_guide.md).
+It allows users to view supported services, initiate/revoke OAuth connections, view granted permissions, and exercise
+
+* *granular, opt-in control over how harvested data is used**, embodying user control and transparency principles. See
+
+[Connected Services User Guide](../../guides/user_guides/connected_services_guide.md).
 
 ## 2. UI Elements and Layout
 
@@ -19,21 +25,32 @@ Renders as a panel listing services.
     *   Expand/Details Toggle (Optional).
 *   **Detailed Service View (Expanded):**
     *   **Permissions Granted Display (`DataDisplay`):** Lists scopes granted via OAuth.
-    *   **Data Usage Toggles (`ToggleSwitch` / `Checkbox`):** **CRITICAL.** Granular, opt-in toggles for each potential use case (e.g., "Use for Matching?", "Use for Community Recs?", "Display on Profile?"). **Default OFF.** Changes trigger API saves.
+    *   **Data Usage Toggles (`ToggleSwitch` / `Checkbox`):** **CRITICAL.** Granular, opt-in toggles for each potential
+
+use case (e.g., "Use for Matching?", "Use for Community Recs?", "Display on Profile?"). **Default OFF.** Changes trigger
+API saves.
     *   **Last Synced Timestamp (`DataDisplay`).**
     *   **View Harvested Data Link:** Navigates to `Data Explorer Panel` filtered by this service.
 *   **General Feedback Area (`Alert`):** Shows success/error messages for connect/disconnect/settings updates.
 
 ## 3. Data Flow and Interaction
 
-Describes Load -> Connect -> Callback -> Panel Refresh -> Toggle Consent -> Disconnect -> Panel Refresh sequence. Can include a Mermaid diagram.
+Describes Load -> Connect -> Callback -> Panel Refresh -> Toggle Consent -> Disconnect -> Panel Refresh sequence. Can
+include a Mermaid diagram.
 
 ## 4. Code Implementation Notes
 
 *   **Framework:** React.
-*   **State:** Manages list of services, connection statuses, toggle states (fetched/updated via global state or local state with API calls).
+*   **State:** Manages list of services, connection statuses, toggle states (fetched/updated via global state or local
+
+state with API calls).
+
 *   **Components:** Uses `ActionButton`, `ToggleSwitch`, `DataDisplay`, `Alert`.
-*   **API Interaction:** Calls backend endpoints for status (`GET /integrations/status`), auth URLs (`GET /integrations/{service}/auth_url`), settings updates (`PUT /integrations/settings`), disconnection (`DELETE /integrations/{service}/connection`). See [Integration API Docs](../../architecture/api/api_endpoints_integrations.md). Handle loading/error states.
+*   **API Interaction:** Calls backend endpoints for status (`GET /integrations/status`), auth URLs (`GET
+
+/integrations/{service}/auth_url`), settings updates (`PUT /integrations/settings`), disconnection (`DELETE
+/integrations/{service}/connection`). See [Integration API Docs](../../architecture/api/api_endpoints_integrations.md).
+Handle loading/error states.
 
 ## 5. Testing Instructions
 

@@ -1,18 +1,26 @@
 # Api Endpoints - Project Backend - Verification System
 
-**Document Purpose:**
+* *Document Purpose:**
 
-This document specifies the **API endpoints for the ThinkAlike project backend, specifically for the Verification System.**  It is a supplementary document to the main `API_ENDPOINTS.md` and outlines the routes, methods, request/response formats, authentication requirements, and functionality of endpoints related to the Verification System's operations.  Refer to `API_ENDPOINTS.md` for general API conventions, authentication details, and base URL information.
+This document specifies the **API endpoints for the ThinkAlike project backend, specifically for the Verification
+System.**  It is a supplementary document to the main `API_ENDPOINTS.md` and outlines the routes, methods,
+request/response formats, authentication requirements, and functionality of endpoints related to the Verification
+System's operations.  Refer to `API_ENDPOINTS.md` for general API conventions, authentication details, and base URL
+information.
 
-**I.  Base URL and Authentication:**
+* *I.  Base URL and Authentication:**
 
-Refer to the main `API_ENDPOINTS.md` document for the Base URL and general Authentication information (JWT Bearer tokens).  All endpoints in this document, unless explicitly stated otherwise, **require JWT authentication with appropriate administrative privileges** for accessing verification-related information and functionalities.  Access control and authorization levels for Verification System endpoints will be further detailed in the Security Considerations document.
+Refer to the main `API_ENDPOINTS.md` document for the Base URL and general Authentication information (JWT Bearer
+tokens).  All endpoints in this document, unless explicitly stated otherwise, **require JWT authentication with
+appropriate administrative privileges** for accessing verification-related information and functionalities.  Access
+control and authorization levels for Verification System endpoints will be further detailed in the Security
+Considerations document.
 
-**II. API Endpoints - Verification System Functionality:**
+* *II. API Endpoints - Verification System Functionality:**
 
 These endpoints are organized by the core functionalities of the Verification System:
 
-**A. Ethical Guideline Endpoints (`/api/verification/guidelines`)** *(Admin-Authenticated)*
+* *A. Ethical Guideline Endpoints (`/api/verification/guidelines`)** *(Admin-Authenticated)*
 
 * `GET /api/verification/guidelines`
   * **Purpose:** Get a list of all Ethical Guidelines defined in the system.
@@ -21,6 +29,7 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Response (200 OK, JSON):** Array of Ethical Guideline objects:
 
         ```json
+
         [
           {
             "guidelineId": "UUID",
@@ -42,17 +51,22 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Authentication:** Required (Admin authentication - Verification System management privileges)
   * **Response (200 OK, JSON):** Detailed Ethical Guideline object (same format as in list response).
   * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
-  * *(Potentially Admin endpoints for managing guidelines - POST, PUT, DELETE - to be specified if guideline management via API is needed)*
+  * *(Potentially Admin endpoints for managing guidelines - POST, PUT, DELETE - to be specified if guideline management
 
-**B. Algorithm Verification Endpoints (`/api/verification/algorithms`)** *(Admin-Authenticated)*
+via API is needed)*
+
+* *B. Algorithm Verification Endpoints (`/api/verification/algorithms`)** *(Admin-Authenticated)*
 
 * `GET /api/verification/algorithms`
-  * **Purpose:** Get a list of algorithms under verification (initially primarily the Matching Algorithm, but can be expanded).
+  * **Purpose:** Get a list of algorithms under verification (initially primarily the Matching Algorithm, but can be
+
+expanded).
   * **Method:** GET
   * **Authentication:** Required (Admin authentication - Verification System management privileges)
   * **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects:
 
         ```json
+
         [
           {
             "algorithmId": "UUID (identifying the algorithm, e.g., 'value_based_matching_v1')",
@@ -74,6 +88,7 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Response (200 OK, JSON):** AlgorithmVerificationDetails object:
 
         ```json
+
         {
           "algorithmId": "UUID",
           "algorithmName": "string",
@@ -91,10 +106,13 @@ These endpoints are organized by the core functionalities of the Verification Sy
 * `GET /api/verification/algorithms/{algorithmId}/ethical-rationale`
   * **Purpose:** Get the documented ethical rationale for a specific algorithm.
   * **Method:** GET
-  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially Publicly Accessible in future for increased transparency*
+  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially
+
+Publicly Accessible in future for increased transparency*
   * **Response (200 OK, JSON):**
 
         ```json
+
         {
           "algorithmId": "UUID",
           "algorithmName": "string",
@@ -111,15 +129,22 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Response (200 OK, JSON):** Array of AuditLogEntry objects (related to the specified algorithm).
   * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
 
-**C. Data Traceability Endpoints (`/api/verification/datatraceability`)** *(Admin-Authenticated - Potentially User-Accessible for limited data in future)*
+* *C. Data Traceability Endpoints (`/api/verification/datatraceability`)** *(Admin-Authenticated - Potentially
+
+User-Accessible for limited data in future)*
 
 * `GET /api/verification/datatraceability/processes`
-  * **Purpose:** Get a list of processes with data traceability implemented (e.g., Matching Algorithm, User Data Handling, etc.).
+  * **Purpose:** Get a list of processes with data traceability implemented (e.g., Matching Algorithm, User Data
+
+Handling, etc.).
   * **Method:** GET
-  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially User-Accessible in future for limited process info*
+  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially
+
+User-Accessible in future for limited process info*
   * **Response (200 OK, JSON):** Array of TraceableProcess objects:
 
         ```json
+
         [
           {
             "processId": "UUID (identifying the process, e.g., 'value_based_matching_process')",
@@ -136,10 +161,13 @@ These endpoints are organized by the core functionalities of the Verification Sy
 * `GET /api/verification/datatraceability/processes/{processId}`
   * **Purpose:** Get detailed information and visualization data for a specific traceable process.
   * **Method:** GET
-  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially User-Accessible in future for limited data visualization*
+  * **Authentication:** Required (Admin authentication - Verification System management privileges) - *Potentially
+
+User-Accessible in future for limited data visualization*
   * **Response (200 OK, JSON):** TraceableProcessDetails object:
 
         ```json
+
         {
           "processId": "UUID",
           "processName": "string",
@@ -155,7 +183,7 @@ These endpoints are organized by the core functionalities of the Verification Sy
 
   * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
 
-**D. Audit Log Endpoints (`/api/verification/audit-logs`)** *(Admin-Authenticated)*
+* *D. Audit Log Endpoints (`/api/verification/audit-logs`)** *(Admin-Authenticated)*
 
 * `GET /api/verification/audit-logs`
   * **Purpose:** Get a general audit log of Verification System activities (admin-only access).
@@ -169,6 +197,7 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Response (200 OK, JSON):** Paginated list of AuditLogEntry objects:
 
         ```json
+
         {
           "auditLogs": [
             {
@@ -196,15 +225,20 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Response (200 OK, JSON):** Detailed AuditLogEntry object (same format as in list response).
   * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error
 
-**E. Platform Verification Status Endpoints (`/api/verification/status`)** *(Potentially Publicly Accessible in Future for Transparency Reporting)*
+* *E. Platform Verification Status Endpoints (`/api/verification/status`)** *(Potentially Publicly Accessible in Future
+
+for Transparency Reporting)*
 
 * `GET /api/verification/status/platform`
   * **Purpose:** Get overall platform verification status summary (high-level overview of verified components).
   * **Method:** GET
-  * **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future for transparency reporting*
+  * **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future for
+
+transparency reporting*
   * **Response (200 OK, JSON):** PlatformVerificationStatusSummary object:
 
         ```json
+
         {
           "platformVerificationStatus": "enum ['verified', 'partially_verified', 'unverified']",
           "verifiedComponentCounts": {
@@ -226,6 +260,7 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Response (200 OK, JSON):** Array of ModeVerificationStatus objects:
 
         ```json
+
         [
           {
             "modeName": "string (e.g., 'Matching Mode')",
@@ -247,31 +282,41 @@ These endpoints are organized by the core functionalities of the Verification Sy
   * **Purpose:** Get verification status for specific algorithms (detailed algorithm verification statuses).
   * **Method:** GET
   * **Authentication:** Required (Admin authentication initially) - *Potentially Publicly Accessible in future*
-  * **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects (detailed status for each verified algorithm - same format as GET /api/verification/algorithms).
+  * **Response (200 OK, JSON):** Array of AlgorithmVerificationStatus objects (detailed status for each verified
+
+algorithm - same format as GET /api/verification/algorithms).
   * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error
 
-**III. Data Models (Refer to Verification System Specification):**
+* *III. Data Models (Refer to Verification System Specification):**
 
-Data models for AuditLogEntry, AlgorithmVerificationStatus, TraceableProcess, etc., will be detailed in a separate `docs/architecture/verification_system/VERIFICATION_SYSTEM_SPEC.md` document (to be generated next, if needed, or incorporated into the main Verification System spec document).
+Data models for AuditLogEntry, AlgorithmVerificationStatus, TraceableProcess, etc., will be detailed in a separate
+`docs/architecture/verification_system/VERIFICATION_SYSTEM_SPEC.md` document (to be generated next, if needed, or
+incorporated into the main Verification System spec document).
 
-**IV. Error Handling and Response Codes:**
+* *IV. Error Handling and Response Codes:**
 
-API endpoints will use standard HTTP status codes to indicate success or failure.  Refer to the main `API_ENDPOINTS.md` document for general error code definitions.
+API endpoints will use standard HTTP status codes to indicate success or failure.  Refer to the main `API_ENDPOINTS.md`
+document for general error code definitions.
 
-**V. Future Endpoints and Extensibility:**
+* *V. Future Endpoints and Extensibility:**
 
-This document represents the initial set of Verification System API endpoints. Future endpoints may be added as the Verification System evolves and new verification functionalities are implemented, particularly for more granular verification of specific features, data handling practices, and community governance mechanisms.  All new Verification System API endpoints will be documented in updated versions of this document.
+This document represents the initial set of Verification System API endpoints. Future endpoints may be added as the
+Verification System evolves and new verification functionalities are implemented, particularly for more granular
+verification of specific features, data handling practices, and community governance mechanisms.  All new Verification
+System API endpoints will be documented in updated versions of this document.
 
----
+* --
 
----
-**Document Details**
-- Title: Api Endpoints - Project Backend - Verification System
-- Type: Architecture Documentation
-- Version: 1.0.0
-- Last Updated: 2025-04-05
----
-End of Api Endpoints - Project Backend - Verification System
----
+* --
 
+## Document Details
 
+* Title: Api Endpoints - Project Backend - Verification System
+
+* Type: Architecture Documentation
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-04-05
+
+## End of Api Endpoints - Project Backend - Verification System

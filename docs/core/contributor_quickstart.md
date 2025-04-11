@@ -5,8 +5,10 @@ Welcome to ThinkAlike! This guide will help you get started as a contributor as 
 ## 1. Five-Minute Setup
 
 1. **Clone & Install:**
+
    ```bash
-   git clone https://github.com/EosLumina/--ThinkAlike--.git
+
+   git clone <https://github.com/EosLumina/--ThinkAlike--.gi>t
    cd --ThinkAlike--
    python -m venv venv
    source venv/bin/activate  # On Windows: .\venv\Scripts\Activate.ps1
@@ -17,8 +19,10 @@ Welcome to ThinkAlike! This guide will help you get started as a contributor as 
    python init_db.py
    ```
 
-2. **Start Development Servers:**
+1. **Start Development Servers:**
+
    ```bash
+
    # Terminal 1
    source venv/bin/activate  # On Windows: .\venv\Scripts\Activate.ps1
    uvicorn main:app --reload --host 0.0.0.0 --port 8000
@@ -28,14 +32,17 @@ Welcome to ThinkAlike! This guide will help you get started as a contributor as 
    npm start
    ```
 
-3. **Access the App:**
-   * Frontend: http://localhost:3000
-   * API Documentation: http://localhost:8000/docs
+1. **Access the App:**
+
+    * Frontend: <http://localhost:300>0
+  * API Documentation: <http://localhost:8000/doc>s
 
 ## 2. Project Structure at a Glance
 
 ```
---ThinkAlike--/
+
+* -ThinkAlike--/
+
 ├── main.py               # Backend entry point (FastAPI)
 ├── requirements.txt      # Python dependencies
 ├── frontend/            # React frontend
@@ -46,26 +53,32 @@ Welcome to ThinkAlike! This guide will help you get started as a contributor as 
 │   ├── routes/          # API endpoints
 │   └── services/        # Business logic
 └── docs/                # Project documentation
+
 ```
 
 ## 3. Making Your First Contribution
 
 1. **Choose a Task:**
-   * Check [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues) for tasks marked `good first issue`
-   * Review the [MVP Implementation Guide](../guides/implementation_guides/mvp_implementation_guide.md)
 
-2. **Create a Branch:**
+    * Check [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues) for tasks marked `good first issue`
+  * Review the [MVP Implementation Guide](../guides/implementation_guides/mvp_implementation_guide.md)
+
+1. **Create a Branch:**
+
    ```bash
+
    git checkout -b feature/your-feature-name
    ```
 
-3. **Make Changes & Test:**
-   * Follow the [Developer Workflow Guide](../core/developer_workflow.md)
-   * Ensure all tests pass before submitting
+1. **Make Changes & Test:**
 
-4. **Submit a Pull Request:**
-   * Push your branch to GitHub
-   * Create a PR with a clear description of your changes
+    * Follow the [Developer Workflow Guide](../core/developer_workflow.md)
+  * Ensure all tests pass before submitting
+
+1. **Submit a Pull Request:**
+
+    * Push your branch to GitHub
+  * Create a PR with a clear description of your changes
 
 ## 4. Participating in Swarming Sessions
 
@@ -83,10 +96,14 @@ ThinkAlike uses collaborative coding sessions ("swarms") for complex features:
 
 Happy coding!
 
----
-**Document Details**
-- Title: Contributor Quick Start Guide
-- Type: Core Documentation
-- Version: 1.0.0
-- Last Updated: 2025-05-10
----
+* --
+
+## Document Details
+
+* Title: Contributor Quick Start Guide
+
+* Type: Core Documentation
+
+* Version: 1.0.0
+
+## - Last Updated: 2025-05-10
