@@ -1,4 +1,4 @@
-# Api Endpoints - Project Backend - Community Mode
+# API Endpoints - Project Backend - Community Mode
 
 * *Document Purpose:**
 
