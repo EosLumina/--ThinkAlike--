@@ -12,3 +12,5 @@ ai_application_developer
 backend.app.development
 backend.app.documentation
 backend.app.verification
+
+pip install -e .
