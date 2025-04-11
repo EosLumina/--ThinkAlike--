@@ -1,17 +1,21 @@
 name: Backend CI
 
 on:
+  workflow_call:
+  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
       - '**.py'
       - 'requirements.txt'
+      - 'app/**'
       - '.github/workflows/backend.yml'
   pull_request:
     branches: [ main ]
     paths:
       - '**.py'
       - 'requirements.txt'
+      - 'app/**'
       - '.github/workflows/backend.yml'
 
 jobs:
