@@ -71,3 +71,5 @@ passlib[bcrypt]>=1.7.4
 psycopg2-binary>=2.9.6  # For PostgreSQL later
 python-multipart>=0.0.6  # For OAuth2 form handling
 gunicorn>=20.1.0  # For production deployment
+
+pip install -e .
