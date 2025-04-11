@@ -1,7 +1,5 @@
 # API Endpoints - Mode 1: Narrative Onboarding & Match Reveal
 
-* --
-
 ## 1. Introduction
 
 This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 1 (Narrative
