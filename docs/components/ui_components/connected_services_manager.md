@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\components\ui_components\connected_services_manager.md
 # UI Component Specification: ConnectedServicesManager
 
 ---

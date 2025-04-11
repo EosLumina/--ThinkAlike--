@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\components\ui_components\security_status_indicator.md
 # Design Document: Security Status Indicator Ui Component
 
 ## 1. Introduction and Description

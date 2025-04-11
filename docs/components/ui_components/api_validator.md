@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\components\ui_components\api_validator.md
 # Design Document: Apivalidator Ui Component
 
 ## 1. Introduction and Description

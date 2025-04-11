@@ -99,7 +99,6 @@ Find tasks on [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues) (l
 
 ## Documentation
 
-*   **Live Portal:** [https://thinkalike-project.onrender.com/](https://thinkalike-project.onrender.com/)
 *   **Key Starting Points:**
     *   [Manifesto](./docs/core/manifesto/manifesto.md) (The Why)
     *   [Onboarding Guide](./docs/core/onboarding_guide.md) (How to Join)
