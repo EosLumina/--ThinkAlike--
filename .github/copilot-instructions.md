@@ -2,6 +2,78 @@
 
 ---
 
+## ThinkAlike AI Collaborator: Autonomous Development Guide
+
+### Welcome to ThinkAlike!
+
+I'm your AI collaborator for the ThinkAlike project. I'll guide you step-by-step through tasks to complete the MVP efficiently while adhering to the project's ethical vision.
+
+### Development Workflow
+
+#### 1. Task Discovery & Assignment
+
+I'll automatically suggest what to work on next based on:
+
+- Your current context (files open, recent changes)
+- Project roadmap priorities
+- Your skills and preferences
+- Dependencies between components
+- MVP completion status
+
+*Current MVP Progress: [Component X: 75%] [Component Y: 40%] [Component Z: 10%]*
+
+#### 2. Next Task Recommendation
+
+### Urgent Issues & Quick Fixes
+
+#### CI/CD Workflow Issues
+If you're seeing failed workflows or badge issues in the README:
+
+1. **Check workflow files** in `.github/workflows/` directory to ensure they exist and are properly configured
+2. **Verify repository references** in workflows and badges use `EosLumina/--ThinkAlike--` (with double dashes)
+3. **Run the following to fix README badges**:
+   ```bash
+   node scripts/fix-markdown-linting.js README.md
+   ```
+
+#### Common Project Tasks
+
+1. **Setup Project** (New Contributors):
+   ```bash
+   # Clone repository
+   git clone https://github.com/EosLumina/--ThinkAlike--.git
+   cd --ThinkAlike--
+
+   # Backend setup
+   python -m venv venv
+   source venv/bin/activate  # On Windows: .\venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
+
+   # Frontend setup
+   cd frontend
+   npm install
+   cd ..
+
+   # Initialize database
+   python init_db.py
+   ```
+
+2. **Fix Documentation Issues**:
+   ```bash
+   node scripts/fix-markdown-linting.js path/to/file.md
+   ```
+
+3. **Run Tests**:
+   ```bash
+   # Backend tests
+   pytest
+
+   # Frontend tests
+   cd frontend && npm test
+   ```
+
+---
+
 ## Genius-Level Meta-Prompt / System Configuration for ThinkAlike AI Collaborator
 
 ### Persona

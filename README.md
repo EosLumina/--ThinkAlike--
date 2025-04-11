@@ -5,9 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Discord](https://img.shields.io/discord/9876543210987654321?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH)
-[![Docs CI Status](https://img.shields.io/github/actions/workflow/status/EosLumina/--ThinkAlike--/docs.yml?label=Docs%20CI)](https://github.com/EosLumina/--ThinkAlike--/actions?query=workflow%3A%22Docs+CI+Workflow%22)
-[![Backend Status](https://img.shields.io/github/actions/workflow/status/EosLumina/--ThinkAlike--/backend.yml?label=Backend)](https://github.com/EosLumina/--ThinkAlike--/actions?query=workflow%3A%22Backend+CI%22)
-[![Frontend Status](https://img.shields.io/github/actions/workflow/status/EosLumina/--ThinkAlike--/frontend.yml?label=Frontend)](https://github.com/EosLumina/--ThinkAlike--/actions?query=workflow%3A%22Frontend+CI%22)
+[![Docs CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml)
+[![Backend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml)
+[![Frontend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml)
 
 * --
 
