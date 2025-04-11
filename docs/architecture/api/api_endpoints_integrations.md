@@ -1,6 +1,5 @@
 # API Endpoints - Backend - External Integrations
 
-* --
 
 ## 1. Introduction
 
