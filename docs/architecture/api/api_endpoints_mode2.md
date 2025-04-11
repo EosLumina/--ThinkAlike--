@@ -1,7 +1,5 @@
 # API Endpoints - Mode 2: User Discovery & Connection
 
-* --
-
 ## 1. Introduction
 
 This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Mode 2 (User Discovery
