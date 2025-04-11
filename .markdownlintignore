@@ -1,0 +1,12 @@
+node_modules/
+.git/
+build/
+dist/
+*.min.js
+vendor/
+coverage/
+.next/
+.vercel/
+.vscode/
+venv/
+.venv/

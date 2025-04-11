@@ -4,14 +4,13 @@
 
 Outlines DevOps and CI/CD practices ensuring reliable, secure, and efficient deployment through automated processes.
 
-* --
+---
 
 ## 2. CI/CD Pipeline Structure
 
 ### 2.1 Pipeline Flow
 
 ```mermaid
-
 flowchart LR
     A[Code Push] --> B[Build & Test]
     B --> C[Security Scan]
@@ -28,7 +27,6 @@ flowchart LR
 ### 2.2 Infrastructure Architecture
 
 ```mermaid
-
 flowchart TB
     subgraph Cloud
         LB[Load Balancer]
@@ -56,7 +54,7 @@ flowchart TB
 
 ```
 
-* --
+---
 
 ## 3. Version Control Practices
 
@@ -65,10 +63,15 @@ flowchart TB
 Follow GitFlow with these branches:
 
 * `main` - Production code
+
 * `develop` - Integration branch
+
 * `feature/*` - New features
+
 * `bugfix/*` - Bug fixes
+
 * `release/*` - Release preparation
+
 * `hotfix/*` - Production fixes
 
 ```bash
@@ -93,14 +96,13 @@ docs(readme): update deployment instructions
 
 ```
 
-* --
+---
 
 ## 4. Build Process
 
 ### 4.1 Build Scripts
 
 ```javascript
-
 {
   "scripts": {
     "build": "npm-run-all clean build:* generate-docs",
@@ -115,7 +117,6 @@ docs(readme): update deployment instructions
 ### 4.2 Docker Configuration
 
 ```dockerfile
-
 FROM node:16-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
@@ -131,17 +132,16 @@ EXPOSE 3000
 
 ```
 
-* --
+---
 
 ## 5. Testing Strategy
 
 ### 5.1 Test Types
 
 ```yaml
-
 steps:
-  * task: Npm@1
 
+  * task: Npm@1
     inputs:
       command: 'custom'
       customCommand: 'run test:all'
@@ -153,7 +153,6 @@ steps:
 ### 5.2 Test Configuration
 
 ```javascript
-
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
@@ -169,14 +168,13 @@ module.exports = {
 
 ```
 
-* --
+---
 
 ## 6. Deployment Process
 
 ### 6.1 Kubernetes Deployment
 
 ```yaml
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -186,12 +184,12 @@ spec:
   template:
     spec:
       containers:
-        * name: api
 
+        * name: api
           image: api:latest
           ports:
-            * containerPort: 3000
 
+            * containerPort: 3000
           resources:
             requests:
               memory: "256Mi"
@@ -199,14 +197,13 @@ spec:
 
 ```
 
-* --
+---
 
 ## 7. Monitoring and Logging
 
 ### 7.1 Logging Configuration
 
 ```typescript
-
 import winston from 'winston';
 
 export const logger = winston.createLogger({
@@ -219,14 +216,13 @@ export const logger = winston.createLogger({
 
 ```
 
-* --
+---
 
 ## 8. Security Practices
 
 ### 8.1 Secret Management
 
 ```yaml
-
 apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
@@ -237,14 +233,14 @@ spec:
     keyvaultName: "kv"
     objects: |
       array:
-        * |
 
+        * |
           objectName: DatabasePassword
           objectType: secret
 
 ```
 
-* --
+---
 
 ## 9. Disaster Recovery
 
@@ -263,31 +259,30 @@ pg_dump -Fc database > "$BACKUP_DIR/db_$TIMESTAMP.dump"
 
 ```
 
-* --
+---
 
 ## 10. Documentation
 
 ### 10.1 API Documentation
 
 ```yaml
-
 openapi: 3.0.0
 info:
   title: API Documentation
   version: 1.0.0
 servers:
-  * url: <https://api.example.com/v>1
+
+  * url: https://api.example.com/v1
 
 ```
 
-* --
+---
 
 ## 11. Performance Optimization
 
 ### 11.1 Load Testing
 
 ```javascript
-
 import http from 'k6/http';
 import { check, sleep } from 'k6';
 
@@ -301,14 +296,13 @@ export const options = {
 
 ```
 
-* --
+---
 
-By following these DevOps and CI/CD guidelines, ThinkAlike ensures reliable, secure, and efficient deployment of our
-applications while maintaining high quality standards through automated processes.
+By following these DevOps and CI/CD guidelines, ThinkAlike ensures reliable, secure, and efficient deployment of our applications while maintaining high quality standards through automated processes.
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: DevOps and CI/CD Guidelines
 
@@ -316,6 +310,10 @@ applications while maintaining high quality standards through automated processe
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-05
+* Last Updated: 2025-04-05
 
-## End of DevOps and CI/CD Guidelines
+---
+
+End of DevOps and CI/CD Guidelines
+
+---

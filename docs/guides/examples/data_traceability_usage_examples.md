@@ -1,28 +1,22 @@
 # DataTraceability Component – Ethical Data Validation Showcase
 
-Welcome to the **DataTraceability Component** documentation—a technical guide for the ThinkAlike platform. This file
-demonstrates how the DataTraceability component ushers in a new era of **UI-Driven Validation** and places **Ethical
-Data** handling front and center. It aims to go beyond reference material—offering a transparent, intentional approach
-to ethical technology.
+Welcome to the **DataTraceability Component** documentation—a technical guide for the ThinkAlike platform. This file demonstrates how the DataTraceability component ushers in a new era of **UI-Driven Validation** and places **Ethical Data** handling front and center. It aims to go beyond reference material—offering a transparent, intentional approach to ethical technology.
 
-* --
+---
 
 ## DataTraceability in Action
 
 [INSERT VISUALLY STUNNING SCREENSHOT OR GIF ANIMATION HERE]
 
-* --
+---
 
 ## 4.2 Usage Examples
 
-These examples highlight how to integrate the DataTraceability component into a React application. Each example
-illustrates a different aspect of data flow visualization, ethical validation, and how the UI can empower remediation
-efforts.
+These examples highlight how to integrate the DataTraceability component into a React application. Each example illustrates a different aspect of data flow visualization, ethical validation, and how the UI can empower remediation efforts.
 
 ### 4.2.1 Basic Integration
 
 ```jsx
-
 import React from 'react';
 import DataTraceability from './DataTraceability';
 
@@ -71,12 +65,11 @@ Key Takeaways:
 • Immediate integration and value with minimal configuration.
 • A strong foundation for more advanced workflows.
 
-* --
+---
 
 ### 4.2.2 Advanced Schema-Driven Validation
 
 ```jsx
-
 import React from 'react';
 import Ajv from 'ajv';
 import DataTraceability from './DataTraceability';
@@ -169,26 +162,25 @@ This approach provides:
 • Detailed error reporting with actionable insights.
 • A blueprint for building ethically compliant, robust data workflows.
 
-* --
+---
 
 ## 5. Emphasis on “Ethical Data as a Design Goal” and “UI-Driven Validation”
 
 * **User-Focused Transparency:** Data handling details are clearly exposed in the UI.
 
 * **Action-Oriented Approach:** The component highlights potential issues and encourages quick remediation.
+
 * **Leading by Example:** Through visual cues and feedback, DataTraceability makes ethics tangible in design.
 
-* --
+---
 
 ## 6. Call to Action
 
-Join the movement by integrating the DataTraceability component and embedding ethical considerations directly into your
-design and development process. Contribute code, suggest improvements, and advocate for “Ethical Data as Design Goal” in
-your development community.
+Join the movement by integrating the DataTraceability component and embedding ethical considerations directly into your design and development process. Contribute code, suggest improvements, and advocate for “Ethical Data as Design Goal” in your development community.
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: DataTraceability Component – Ethical Data Validation Showcase
 

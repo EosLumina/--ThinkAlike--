@@ -2,8 +2,7 @@
 
 ## Purpose
 
-Analyze user-uploaded images (such as profile pictures) to extract visual style parameters (color palettes, brightness,
-contrast) for integration into UI design and dynamic avatar rendering.
+Analyze user-uploaded images (such as profile pictures) to extract visual style parameters (color palettes, brightness, contrast) for integration into UI design and dynamic avatar rendering.
 
 ## Expected Inputs
 
@@ -16,6 +15,7 @@ contrast) for integration into UI design and dynamic avatar rendering.
 * Utilize image processing libraries (e.g., OpenCV, Pillow) to assess image features.
 
 * Map features into style parameters for downstream visualization.
+
 * Ensure transparency and avoid bias.
 
 ## Expected Outputs
@@ -23,7 +23,6 @@ contrast) for integration into UI design and dynamic avatar rendering.
 Example:
 
 ```json
-
 {
   "dominant_color": "#34a853",
   "brightness": 70,
@@ -44,8 +43,7 @@ Example:
 * **Transparency:** Users must be informed about the analysis and its purpose.
 
 * **Consent:** Explicit user consent is required for image analysis.
-* **Bias Mitigation:** Ensure algorithms are tested for biases related to image features (e.g., skin tone, cultural
 
-artifacts).
+* **Bias Mitigation:** Ensure algorithms are tested for biases related to image features (e.g., skin tone, cultural artifacts).
 
 * **Security:** Processed data must be stored securely and used only for the stated purpose.

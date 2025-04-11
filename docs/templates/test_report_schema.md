@@ -1,44 +1,34 @@
 # Standard Test Report Schema Specification
 
-* *Version:** 1.0
-* *Date:** March 26, 2025
+**Version:** 1.0
 
-* --
+**Date:** March 26, 2025
+
+---
 
 ## 1. Introduction
 
-This document specifies the **standard JSON schema** for comprehensive **Test Reports** generated within the ThinkAlike
-project. This schema provides a standardized format for aggregating the results of multiple individual test cases
-executed as part of a specific test run or suite.
+This document specifies the **standard JSON schema** for comprehensive **Test Reports** generated within the ThinkAlike project. This schema provides a standardized format for aggregating the results of multiple individual test cases executed as part of a specific test run or suite.
 
 Using this standardized report structure facilitates:
 
-* **Consistent Reporting:** Ensures uniformity across different testing types (Unit, Integration, E2E, Performance,
+* **Consistent Reporting:** Ensures uniformity across different testing types (Unit, Integration, E2E, Performance, Security, Ethical, UAT).
 
-Security, Ethical, UAT).
+* **Automated Analysis:** Allows tools and dashboards to easily parse and analyze test outcomes, track trends, and calculate metrics.
 
-* **Automated Analysis:** Allows tools and dashboards to easily parse and analyze test outcomes, track trends, and
-
-calculate metrics.
-
-* **Clear Visualization:** Provides a predictable structure for UI components (like those in the `Customizable UI Tests`
-
-feature or CI/CD dashboards) to display test results effectively.
+* **Clear Visualization:** Provides a predictable structure for UI components (like those in the `Customizable UI Tests` feature or CI/CD dashboards) to display test results effectively.
 
 * **Integration:** Simplifies integration with CI/CD pipelines and project management tools.
 
-This schema often incorporates individual test results structured according to the [Standard Data Output
-Schema](./data_output_schema.md).
+This schema often incorporates individual test results structured according to the [Standard Data Output Schema](./data_output_schema.md).
 
-* --
+---
 
 ## 2. Schema Definition (`test_report.json` Structure)
 
-The following describes the structure for a Test Report object, typically representing the output of a single execution
-of a test suite or test plan.
+The following describes the structure for a Test Report object, typically representing the output of a single execution of a test suite or test plan.
 
 ```json
-
 {
   "reportId": {
     "type": "string",
@@ -207,82 +197,69 @@ of a test suite or test plan.
 
 ```
 
-* --
+---
 
 ## 3. Key Fields Explained
 
-* **Report Metadata:** `reportId`, `generationTimestamp`, `testExecution` block provide context about the report itself
-
-and when the tests ran.
+* **Report Metadata:** `reportId`, `generationTimestamp`, `testExecution` block provide context about the report itself and when the tests ran.
 
 * **testEnvironment:** Crucial for diagnosing environment-specific failures.
-* **testSuite:** Identifies the scope and type of tests covered.
-* **summary:** Provides the essential pass/fail statistics at a glance. Includes optional code coverage.
-* **results:** The core array holding details for each test case.
-* `testCaseId`, `description`, `status`, `durationMs`: Basic info for each test.
-* `steps`: Optional breakdown for complex tests.
-* `error`: Detailed failure information.
-* `outputData`: Crucially links to the data_output_schema for standardized, detailed results (like specific validation
 
-failures, performance numbers, ethical scores generated during the test).
+* **testSuite:** Identifies the scope and type of tests covered.
+
+* **summary:** Provides the essential pass/fail statistics at a glance. Includes optional code coverage.
+
+* **results:** The core array holding details for each test case.
+
+* `testCaseId`, `description`, `status`, `durationMs`: Basic info for each test.
+
+* `steps`: Optional breakdown for complex tests.
+
+* `error`: Detailed failure information.
+
+* `outputData`: Crucially links to the data_output_schema for standardized, detailed results (like specific validation failures, performance numbers, ethical scores generated during the test).
 
 * `tags`: Useful for filtering and organizing results.
+
 * `logs`, `screenshotUrl`: Aid debugging.
 
-* --
+---
 
 ## 4. Usage
 
-* **Test Runners:** Configure test frameworks (pytest, Jest, Cypress, etc.) to output results in this JSON format (may
+* **Test Runners:** Configure test frameworks (pytest, Jest, Cypress, etc.) to output results in this JSON format (may require custom reporters or adapters).
 
-require custom reporters or adapters).
+* **CI/CD Pipelines:** Parse these reports to determine build status, display summaries, track metrics over time, and potentially gate deployments.
 
-* **CI/CD Pipelines:** Parse these reports to determine build status, display summaries, track metrics over time, and
+* **Testing Dashboards:** UI dashboards (like the one for Customizable UI Tests or external tools like ReportPortal) can consume this format to provide interactive visualization of test results.
 
-potentially gate deployments.
+* **Analysis:** The structured format allows for automated analysis of failure patterns, test flakiness, performance regressions, or ethical compliance trends.
 
-* **Testing Dashboards:** UI dashboards (like the one for Customizable UI Tests or external tools like ReportPortal) can
-
-consume this format to provide interactive visualization of test results.
-
-* **Analysis:** The structured format allows for automated analysis of failure patterns, test flakiness, performance
-
-regressions, or ethical compliance trends.
-
-* --
+---
 
 ## 5. Implementation Notes
 
-* **Consistency:** While `value` is flexible, strive for consistent structures within the same `dataType`. For example,
+* **Consistency:** While `value` is flexible, strive for consistent structures within the same `dataType`. For example, all outputs with `dataType`: "performance_metric" should likely have a `value` object with `metric`, `value`, and `unit` fields.
 
-all outputs with `dataType`: "performance_metric" should likely have a `value` object with `metric`, `value`, and `unit`
-fields.
+* **Granularity:** Decide on the appropriate level of granularity for outputs. Should one user action generate one output, or multiple outputs for different aspects (performance, validation, ethical)? This depends on the consuming system.
 
-* **Granularity:** Decide on the appropriate level of granularity for outputs. Should one user action generate one
+* **Context is Key:** Ensure `sourceComponent` and `workflowContext` provide enough context to understand where the output originated.
 
-output, or multiple outputs for different aspects (performance, validation, ethical)? This depends on the consuming
-system.
+* **UI Integration:** Design UI components (DataDisplay, dashboards) to intelligently render different parts of this schema based on the `dataType` and the presence of optional fields like `validation` or `ethicalCompliance`.
 
-* **Context is Key:** Ensure `sourceComponent` and `workflowContext` provide enough context to understand where the
-
-output originated.
-
-* **UI Integration:** Design UI components (DataDisplay, dashboards) to intelligently render different parts of this
-
-schema based on the `dataType` and the presence of optional fields like `validation` or `ethicalCompliance`.
-
-* --
+---
 
 ## 6. Schema Location
 
 * Add fields for linking test cases to requirements or user stories.
 
 * Include code coverage metrics within the report.
+
 * Define more specific schemas for `results[*].error`, `accessibilityViolations`, etc.
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: Standard Test Report Schema Specification
 
@@ -290,14 +267,16 @@ schema based on the `dataType` and the presence of optional fields like `validat
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-05
+* Last Updated: 2025-04-05
 
-## End of Standard Test Report Schema Specification
+---
+
+End of Standard Test Report Schema Specification
+
+---
 
 This schema definition resides in `docs/templates/test_report_schema.md`.
 
-Example JSON instances conforming to this schema could be placed in `docs/templates/examples/` or generated by actual
-test runs.
+Example JSON instances conforming to this schema could be placed in `docs/templates/examples/` or generated by actual test runs.
 
-This standardized schema provides a robust foundation for reporting and analyzing test results across the diverse
-testing needs of the ThinkAlike project.
+This standardized schema provides a robust foundation for reporting and analyzing test results across the diverse testing needs of the ThinkAlike project.

@@ -2,17 +2,15 @@
 
 ## Purpose
 
-This document outlines the principles and processes for decentralized community governance on ThinkAlike. It is designed
-to empower users to self-organize and govern communities with transparency and collaborative decision-making.
+This document outlines the principles and processes for decentralized community governance on ThinkAlike. It is designed to empower users to self-organize and govern communities with transparency and collaborative decision-making.
 
 ## Key Elements
 
 * **Role Definitions:** Outline roles (e.g., moderator, member, guest) and their responsibilities.
 
 * **Decision-Making Processes:** Describe direct or liquid democracy approaches.
-* **Community Management Tools:** Guidelines for using built-in tools for issuing proposals, voting, and managing
 
-conflicts.
+* **Community Management Tools:** Guidelines for using built-in tools for issuing proposals, voting, and managing conflicts.
 
 ## Implementation Considerations
 
@@ -66,6 +64,7 @@ conflicts.
 * Ensure governance processes align with ThinkAlike's core values of user empowerment and transparency.
 
 * Avoid bias in decision-making tools and processes.
+
 * Protect member privacy during voting and conflict resolution.
 
 ## UI Integration
@@ -73,6 +72,7 @@ conflicts.
 * **Community Dashboard:** Displays proposals, voting results, and member roles.
 
 * **Vote Tracker:** Tracks individual and delegated votes.
+
 * **Conflict Resolution Panel:** Provides tools for mediation and escalation.
 
 ## Continuous Improvement
@@ -81,9 +81,9 @@ conflicts.
 
 * Update tools and guidelines to address emerging needs and challenges.
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: Community Governance Guidelines
 
@@ -91,6 +91,8 @@ conflicts.
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-06
+* Last Updated: 2025-04-06
+
+---
 
 End of Community Governance Guidelines

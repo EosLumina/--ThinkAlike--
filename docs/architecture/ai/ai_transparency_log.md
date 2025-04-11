@@ -18,21 +18,18 @@ def log_data(data):
 * Transparency in AI workflows.
 
 * Ethical compliance through logging.
+
 * Integration with `DataTraceability`.
 
 ## Metrics Logged
 
-* **Diversity Metrics:** Logs the diversity of recommendations, including entropy scores and distribution spread, to
+* **Diversity Metrics:** Logs the diversity of recommendations, including entropy scores and distribution spread, to monitor exposure to varied perspectives.
 
-monitor exposure to varied perspectives.
+* **Feedback Loop Indicators:** Tracks patterns in user interactions to identify potential self-reinforcing loops that could lead to echo chambers.
 
-* **Feedback Loop Indicators:** Tracks patterns in user interactions to identify potential self-reinforcing loops that
+---
 
-could lead to echo chambers.
-
-* --
-
-## Document Details
+**Document Details**
 
 * Title: AI Transparency Log (Architecture)
 
@@ -40,4 +37,6 @@ could lead to echo chambers.
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-06
+* Last Updated: 2025-04-06
+
+---

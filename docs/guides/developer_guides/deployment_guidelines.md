@@ -1,14 +1,12 @@
 # Deployment Guidelines
 
-* --
+---
 
 ## 1. Introduction
 
-This document outlines the deployment standards and practices for the ThinkAlike project. Following these guidelines
-ensures consistent, reliable, and secure deployments across all environments. These practices apply to all components of
-the ThinkAlike platform, including backend services, frontend applications, and supporting infrastructure.
+This document outlines the deployment standards and practices for the ThinkAlike project. Following these guidelines ensures consistent, reliable, and secure deployments across all environments. These practices apply to all components of the ThinkAlike platform, including backend services, frontend applications, and supporting infrastructure.
 
-* --
+---
 
 ## 2. Deployment Environments
 
@@ -17,31 +15,47 @@ ThinkAlike uses multiple environments to ensure quality and stability:
 ### 2.1 Environment Types
 
 * **Development (dev)**: For individual developers to test changes
+
   * Ephemeral environments, often local or per-developer cloud instances
+
   * May use mock services for external dependencies
+
   * Non-critical data, can be reset as needed
 
 * **Testing/QA**: For thorough testing of changes before staging
+
   * Shared environment for QA team
+
   * Integrated with automated testing
+
   * Refreshed with anonymized production data periodically
 
 * **Staging**: Production-like environment for final verification
+
   * Mirrors production configuration
+
   * Used for UAT (User Acceptance Testing)
+
   * Final testing ground for deployment processes
+
   * Regular data sync with production (anonymized if necessary)
 
 * **Production**: Live environment serving real users
+
   * Highest security, stability, and performance requirements
+
   * Strict access controls
+
   * Comprehensive monitoring and alerting
 
 ### 2.2 Environment Configuration
 
 * Use environment variables for configuration
+
 * Store secrets in secure services (AWS Secrets Manager, HashiCorp Vault)
+
 * Document required configuration for each environment
+
 * Maintain parity between environments where possible
 
 ```
@@ -76,12 +90,12 @@ AUTH_TOKEN_EXPIRY=86400
 
 # External Services
 
-ML_SERVICE_URL=<http://ml-service:808>0
+ML_SERVICE_URL=http://ml-service:8080
 ANALYTICS_API_KEY=apikey
 
 ```
 
-* --
+---
 
 ## 3. Containerization
 
@@ -90,10 +104,15 @@ ThinkAlike services are containerized using Docker for consistency across enviro
 ### 3.1 Docker Best Practices
 
 * Use specific version tags for base images, not `latest`
+
 * Implement multi-stage builds to minimize image size
+
 * Include only necessary files in the container
+
 * Run containers as non-root users
+
 * Set appropriate resource limits
+
 * Scan images for vulnerabilities before deployment
 
 ### 3.2 Example Dockerfile (Backend)
@@ -151,7 +170,6 @@ CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
 ### 3.3 Example Docker Compose
 
 ```yaml
-
 version: '3.8'
 
 services:
@@ -160,21 +178,25 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     ports:
+
       * "8000:8000"
-
     environment:
+
       * DB_HOST=db
+
       * DB_PORT=5432
+
       * DB_NAME=thinkalike
+
       * DB_USER=${DB_USER}
+
       * DB_PASSWORD=${DB_PASSWORD}
-
     depends_on:
-      * db
 
+      * db
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "curl", "-f", "<http://localhost:8000/health>"]
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
       interval: 30s
       timeout: 10s
       retries: 3
@@ -182,23 +204,25 @@ services:
   frontend:
     build: ./frontend
     ports:
+
       * "3000:80"
-
     depends_on:
-      * api
 
+      * api
     restart: unless-stopped
 
   db:
     image: postgres:14-alpine
     volumes:
+
       * postgres_data:/var/lib/postgresql/data
-
     environment:
-      * POSTGRES_USER=${DB_USER}
-      * POSTGRES_PASSWORD=${DB_PASSWORD}
-      * POSTGRES_DB=thinkalike
 
+      * POSTGRES_USER=${DB_USER}
+
+      * POSTGRES_PASSWORD=${DB_PASSWORD}
+
+      * POSTGRES_DB=thinkalike
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "${DB_USER}"]
@@ -211,7 +235,7 @@ volumes:
 
 ```
 
-* --
+---
 
 ## 4. CI/CD Pipeline
 
@@ -220,20 +244,26 @@ ThinkAlike uses automated CI/CD pipelines for consistent and reliable deployment
 ### 4.1 Pipeline Components
 
 * **Continuous Integration (CI)**
+
   * Code linting and style checks
+
   * Unit and integration testing
+
   * Security vulnerability scanning
+
   * Build artifacts (Docker images, etc.)
 
 * **Continuous Deployment (CD)**
+
   * Automated deployment to appropriate environments
+
   * Post-deployment testing
+
   * Rollback capability if issues detected
 
 ### 4.2 Example GitHub Actions Workflow
 
 ```yaml
-
 name: CI/CD Pipeline
 
 on:
@@ -246,26 +276,27 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      * uses: actions/checkout@v3
-      * name: Set up Python
 
+      * uses: actions/checkout@v3
+
+      * name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      * name: Install dependencies
 
+      * name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -r requirements-dev.txt
+
       * name: Lint with flake8
-
         run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
       * name: Test with pytest
-
         run: pytest --cov=app tests/
-      * name: Upload coverage to Codecov
 
+      * name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
 
   build:
@@ -273,18 +304,19 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
+
       * uses: actions/checkout@v3
+
       * name: Set up Docker Buildx
-
         uses: docker/setup-buildx-action@v2
-      * name: Login to DockerHub
 
+      * name: Login to DockerHub
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      * name: Build and push
 
+      * name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: .
@@ -298,8 +330,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop'
     steps:
-      * name: Deploy to Staging
 
+      * name: Deploy to Staging
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.STAGING_HOST }}
@@ -316,10 +348,10 @@ jobs:
     if: github.ref == 'refs/heads/main'
     environment:
       name: production
-      url: <https://thinkalike.co>m
+      url: https://thinkalike.com
     steps:
-      * name: Deploy to Production
 
+      * name: Deploy to Production
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.PROD_HOST }}
@@ -332,7 +364,7 @@ jobs:
 
 ```
 
-* --
+---
 
 ## 5. Infrastructure as Code (IaC)
 
@@ -394,21 +426,27 @@ module "ecs" {
   }
 }
 
-# Additional resources like RDS, Elasticache, etc
+# Additional resources like RDS, Elasticache, etc.
 
 ```
 
 ### 5.2 IaC Best Practices
 
 * Store IaC in version control
+
 * Use modules for reusable components
+
 * Implement state locking for collaborative environments
+
 * Use remote state storage (e.g., S3 with DynamoDB)
+
 * Separate state files by environment
+
 * Include documentation within code
+
 * Review IaC changes like regular code
 
-* --
+---
 
 ## 6. Deployment Strategies
 
@@ -417,19 +455,29 @@ module "ecs" {
 ThinkAlike uses different deployment strategies depending on the context:
 
 * **Blue/Green Deployment**
+
   * Two identical environments: "Blue" (current) and "Green" (new)
+
   * Deploy to Green, test, then switch traffic from Blue to Green
+
   * Enables quick rollback by switching back to Blue
+
   * Used for major releases with significant changes
 
 * **Canary Deployment**
+
   * Gradual rollout to a subset of users/servers
+
   * Monitor for issues before full deployment
+
   * Used for features with uncertain impact or performance implications
 
 * **Rolling Deployment**
+
   * Update instances incrementally in small batches
+
   * Ensures service availability during deployment
+
   * Standard approach for routine updates
 
 ### 6.2 Strategy Selection Criteria
@@ -437,21 +485,29 @@ ThinkAlike uses different deployment strategies depending on the context:
 Choose deployment strategies based on:
 
 * Risk level of the change
+
 * Impact of potential issues
+
 * Urgency of the deployment
+
 * Availability requirements
+
 * Environment (staging vs production)
 
-* --
+---
 
 ## 7. Database Migrations
 
 ### 7.1 Migration Principles
 
 * **Versioned**: All database changes should be versioned
+
 * **Automated**: Migrations should run automatically during deployment
+
 * **Incremental**: Each migration should be small and focused
+
 * **Backward Compatible**: Database changes should not break previous versions
+
 * **Idempotent**: Safe to run multiple times
 
 ### 7.2 Migration Process
@@ -499,35 +555,51 @@ def downgrade():
 ### 7.3 Database Migration Guidelines
 
 * Test migrations thoroughly in development and staging
+
 * Include rollback procedures for all migrations
+
 * Consider performance impact for large tables
+
 * Schedule complex migrations during off-peak hours
+
 * Back up the database before applying migrations in production
 
-* --
+---
 
 ## 8. Monitoring and Observability
 
 ### 8.1 Monitoring Components
 
 * **Application Performance Monitoring (APM)**
+
   * Response times
+
   * Error rates
+
   * Throughput
 
 * **Infrastructure Monitoring**
+
   * CPU, memory, disk usage
+
   * Network traffic
+
   * Container health
 
 * **Log Management**
+
   * Centralized logging
+
   * Log search and visualization
+
   * Retention policies
 
 * **Alerting**
+
   * Alert thresholds
+
   * On-call rotations
+
   * Escalation procedures
 
 ### 8.2 Observability Stack
@@ -535,8 +607,11 @@ def downgrade():
 ThinkAlike uses the following observability tools:
 
 * Prometheus for metrics collection
+
 * Grafana for visualization
+
 * ELK Stack for log aggregation
+
 * PagerDuty for alerting and on-call management
 
 ```yaml
@@ -548,28 +623,34 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  * job_name: 'api'
 
+  * job_name: 'api'
     metrics_path: '/metrics'
     static_configs:
-      * targets: ['api:8000']
-  * job_name: 'node-exporter'
 
+      * targets: ['api:8000']
+
+  * job_name: 'node-exporter'
     static_configs:
+
       * targets: ['node-exporter:9100']
 
 alerting:
   alertmanagers:
+
     * static_configs:
+
       * targets:
+
         * 'alertmanager:9093'
 
 rule_files:
+
   * "/etc/prometheus/rules/*.rules"
 
 ```
 
-* --
+---
 
 ## 9. Rollback Procedures
 
@@ -603,12 +684,12 @@ spec:
         app: thinkalike-api
     spec:
       containers:
-      * name: api
 
+      * name: api
         image: thinkalike/api:latest
         ports:
-        * containerPort: 8000
 
+        * containerPort: 8000
         livenessProbe:
           httpGet:
             path: /health
@@ -633,37 +714,47 @@ For situations requiring manual rollback:
 3. **Execute Rollback**: Deploy the previous known-good version
 
    ```bash
-
    # Example rollback command for Docker Compose
+
    docker-compose down
    git checkout v1.2.3  # Previous stable version
+
    docker-compose build
    docker-compose up -d
    ```
 
-1. **Verify**: Confirm that the rollback resolves the issue
-2. **Root Cause Analysis**: Investigate what went wrong
-3. **Document**: Record the incident and resolution
+4. **Verify**: Confirm that the rollback resolves the issue
+5. **Root Cause Analysis**: Investigate what went wrong
+6. **Document**: Record the incident and resolution
 
-* --
+---
 
 ## 10. Security Considerations
 
 ### 10.1 Deployment Security Checklist
 
 * Scan container images for vulnerabilities
+
 * Implement network security controls
+
 * Rotate secrets regularly
+
 * Use least-privilege accounts for deployments
+
 * Implement audit logging for all deployment actions
+
 * Enable encryption for data in transit and at rest
+
 * Configure Web Application Firewall (WAF) protection
 
 ### 10.2 Secret Management
 
 * Use a dedicated secret management solution
+
 * Never commit secrets to version control
+
 * Rotate secrets regularly
+
 * Implement access controls for secrets
 
 ```yaml
@@ -681,30 +772,33 @@ auth:
 secrets:
 
 * name: SECRET_KEY
-
   path: secret/data/thinkalike/api
   key: secret_key
-* name: DB_PASSWORD
 
+* name: DB_PASSWORD
   path: secret/data/thinkalike/db
   key: password
-* name: API_TOKENS
 
+* name: API_TOKENS
   path: secret/data/thinkalike/integrations
   key: api_tokens
 
 ```
 
-* --
+---
 
 ## 11. Documentation and Runbooks
 
 ### 11.1 Required Documentation
 
 * System architecture diagrams
+
 * Deployment workflows
+
 * Environment configurations
+
 * Dependencies and third-party services
+
 * Alerting thresholds and responses
 
 ### 11.2 Incident Response Runbooks
@@ -712,19 +806,22 @@ secrets:
 Create runbooks for common deployment issues:
 
 * Database connection failures
+
 * Memory/CPU spikes
+
 * API latency issues
+
 * Authentication problems
+
 * Data inconsistency issues
 
-* --
+---
 
-By following these deployment guidelines, ThinkAlike ensures reliable, secure, and consistent deployments across all
-environments, minimizing downtime and maintaining high service quality.
+By following these deployment guidelines, ThinkAlike ensures reliable, secure, and consistent deployments across all environments, minimizing downtime and maintaining high service quality.
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: Deployment Guidelines
 
@@ -732,6 +829,10 @@ environments, minimizing downtime and maintaining high service quality.
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-05
+* Last Updated: 2025-04-05
 
-## End of Deployment Guidelines
+---
+
+End of Deployment Guidelines
+
+---

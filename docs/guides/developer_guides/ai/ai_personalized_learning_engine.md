@@ -2,8 +2,7 @@
 
 ## Purpose
 
-Provide users with tailored learning paths based on their interests, values, and goals, fostering personal growth and
-skill development.
+Provide users with tailored learning paths based on their interests, values, and goals, fostering personal growth and skill development.
 
 ## Expected Inputs
 
@@ -22,17 +21,16 @@ skill development.
 Example:
 
 ```json
-
 {
   "learning_path": [
     {
       "topic": "Ethical AI",
-      "resource": "<https://example.com/ethical-ai-course>",
+      "resource": "https://example.com/ethical-ai-course",
       "progress": 40
     },
     {
       "topic": "Community Building",
-      "resource": "<https://example.com/community-guide>",
+      "resource": "https://example.com/community-guide",
       "progress": 0
     }
   ]
@@ -51,4 +49,5 @@ Example:
 * Avoid bias in resource recommendations.
 
 * Ensure transparency in how learning paths are generated.
+
 * Respect user privacy and data sovereignty.

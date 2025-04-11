@@ -1,0 +1,36 @@
+site_name: ThinkAlike Documentation
+site_description: Documentation for the ThinkAlike platform
+theme:
+  name: material
+  palette:
+    primary: indigo
+    accent: amber
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.expand
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+nav:
+  - Home: index.md
+  - Architecture: architecture/index.md
+  - Development:
+    - Setup: development/setup.md
+    - Guidelines: development/guidelines.md
+  - Core Concepts:
+    - Vision: vision/core_concepts.md
+    - Ethical Guidelines: core/ethics/ethical_guidelines.md
+    - Enlightenment 2.0: core/enlightenment_2_0/enlightenment_2_0_principles.md
+
+plugins:
+  - search

@@ -1,19 +1,18 @@
 # Database Design Guidelines
 
-* --
+---
 
 ## 1. Introduction
 
 Defines database design patterns, best practices, and standards for ensuring data consistency and performance.
 
-* --
+---
 
 ## 2. Database Architecture
 
 ### 2.1 Schema Design
 
 ```mermaid
-
 erDiagram
     USER {
         uuid id PK
@@ -30,17 +29,22 @@ erDiagram
 
 ```
 
-* --
+---
 
 ## 2. Database Design Principles
 
 ### 2.1 Core Principles
 
 * **Single Source of Truth**: Store each piece of data in one place
+
 * **Normalization**: Structure data to minimize redundancy
+
 * **Performance**: Design for query efficiency and scalability
+
 * **Integrity**: Enforce data consistency through constraints
+
 * **Security**: Apply the principle of least privilege
+
 * **Maintainability**: Design for clarity and ease of modification
 
 ### 2.2 Technology Choices
@@ -48,26 +52,34 @@ erDiagram
 ThinkAlike uses the following database technologies:
 
 * **Primary Database**: PostgreSQL (relational)
+
 * **Caching Layer**: Redis
+
 * **Search Engine**: Elasticsearch
+
 * **Time-Series Data**: InfluxDB (for metrics and analytics)
+
 * **Graph Relationships**: Neo4j (for social/connection features)
 
-* --
+---
 
 ## 3. Schema Design
 
 ### 3.1 Naming Conventions
 
 * Use **snake_case** for all database objects (tables, columns, indexes)
+
 * Use **plural nouns** for table names (e.g., `users`, `preferences`)
+
 * Use **singular nouns** for column names (e.g., `first_name`, `created_at`)
+
 * Prefix join tables with joined table names (e.g., `users_teams`)
+
 * Use consistent prefixes for related tables
 
 ```sql
 
-* - Example of proper naming conventions
+-- Example of proper naming conventions
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -100,8 +112,11 @@ CREATE TABLE users_teams (
 ### 3.2 Data Types
 
 * Choose the **most appropriate data type** for each column
+
 * Use **fixed-length** types when the length is known
+
 * Consider **storage requirements** and **query performance**
+
 * Use **domain-specific types** when available (e.g., UUID, JSONB, ARRAY)
 
 | Data Category | Preferred Type | Notes |
@@ -118,7 +133,7 @@ CREATE TABLE users_teams (
 
 ```sql
 
-* - Example proper data type usage
+-- Example proper data type usage
 
 CREATE TABLE content_items (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -138,13 +153,16 @@ CREATE TABLE content_items (
 ### 3.3 Relationships
 
 * Define **foreign keys** to enforce referential integrity
+
 * Consider **cascading operations** for related data
+
 * Use **join tables** for many-to-many relationships
+
 * Include **relationship metadata** when needed (e.g., role, status)
 
 ```sql
 
-* - Example relationships
+-- Example relationships
 
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
@@ -162,30 +180,39 @@ CREATE INDEX idx_comments_parent ON comments(parent_comment_id);
 
 ```
 
-* --
+---
 
 ## 4. Indexing Strategy
 
 ### 4.1 Index Types
 
 * **Primary Key**: Define for all tables
+
 * **Unique Index**: For columns with uniqueness constraints
+
 * **Foreign Key Index**: Create indexes for all foreign keys
+
 * **Composite Index**: For queries with multiple conditions
+
 * **Partial Index**: For filtering on specific values
+
 * **Expression Index**: For transformed data lookups
 
 ### 4.2 Indexing Guidelines
 
 * Index columns used in **WHERE, JOIN, and ORDER BY** clauses
+
 * Consider the **selectivity** of the indexed columns
+
 * Balance between **query performance** and **write overhead**
+
 * Monitor and adjust indexes based on **query patterns**
+
 * Name indexes consistently: `idx_[table]_[column(s)]`
 
 ```sql
 
-* - Example indexing strategy
+-- Example indexing strategy
 
 CREATE TABLE user_activities (
     id BIGSERIAL PRIMARY KEY,
@@ -198,24 +225,24 @@ CREATE TABLE user_activities (
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
-* - Index for user-specific activity queries
+-- Index for user-specific activity queries
 
 CREATE INDEX idx_user_activities_user_id ON user_activities(user_id);
 
-* - Composite index for filtered activity queries
+-- Composite index for filtered activity queries
 
 CREATE INDEX idx_user_activities_type_entity ON user_activities(activity_type, entity_type, entity_id);
 
-* - Index for recent activity queries
+-- Index for recent activity queries
 
 CREATE INDEX idx_user_activities_created_at ON user_activities(created_at DESC);
 
-* - Partial index for specific activity types
+-- Partial index for specific activity types
 
 CREATE INDEX idx_user_activities_logins ON user_activities(user_id, created_at)
 WHERE activity_type = 'login';
 
-* - Expression index for JSON queries
+-- Expression index for JSON queries
 
 CREATE INDEX idx_user_activities_data_source ON user_activities((data->>'source'));
 
@@ -224,13 +251,16 @@ CREATE INDEX idx_user_activities_data_source ON user_activities((data->>'source'
 ### 4.3 Index Monitoring
 
 * Regularly review index usage statistics
+
 * Identify missing or unused indexes
+
 * Rebuild indexes periodically to reduce fragmentation
+
 * Consider index maintenance during off-peak hours
 
 ```sql
 
-* - Query to find unused indexes
+-- Query to find unused indexes
 
 SELECT
     s.schemaname,
@@ -249,21 +279,25 @@ ORDER BY
 
 ```
 
-* --
+---
 
 ## 5. Performance Optimization
 
 ### 5.1 Query Optimization
 
 * Write **efficient queries** that minimize data retrieval
+
 * Use **appropriate joins** instead of multiple queries
+
 * Apply **filtering early** in the query
+
 * Optimize **sorting and grouping** operations
+
 * Consider **pagination** for large result sets
 
 ```sql
 
-* - Example optimized query with filtering, joining, and pagination
+-- Example optimized query with filtering, joining, and pagination
 
 SELECT
     p.id,
@@ -289,8 +323,11 @@ LIMIT 20 OFFSET 40;
 ### 5.2 Database Connection Management
 
 * Use **connection pooling** to manage database connections
+
 * Set appropriate **pool sizes** based on workload
+
 * Monitor **connection usage** and adjust as needed
+
 * Implement **connection timeout** and **retry logic**
 
 ```python
@@ -305,11 +342,17 @@ DATABASE_URL = "postgresql://user:password@localhost/dbname"
 engine = create_engine(
     DATABASE_URL,
     # Connection pool settings
+
     pool_size=10,  # Maximum connections in pool
+
     max_overflow=20,  # Maximum overflow connections
+
     pool_timeout=30,  # Seconds to wait for connection
+
     pool_recycle=1800,  # Recycle connections after 30 minutes
+
     echo=False,  # Set to True for query logging
+
 )
 
 Session = sessionmaker(bind=engine)
@@ -319,8 +362,11 @@ Session = sessionmaker(bind=engine)
 ### 5.3 Caching Strategy
 
 * Cache **frequently accessed** and **slow-changing** data
+
 * Implement **cache invalidation** strategies
+
 * Consider **multi-level caching** (application, distributed, database)
+
 * Monitor **cache hit ratios** and adjust caching policies
 
 ```python
@@ -339,20 +385,24 @@ def cache_result(ttl_seconds=300):
         @wraps(func)
         async def wrapper(*args, **kwargs):
             # Create a cache key based on function name and arguments
-            key_parts = [func.**name**]
+
+            key_parts = [func.__name__]
             key_parts.extend([str(arg) for arg in args])
             key_parts.extend([f"{k}:{v}" for k, v in sorted(kwargs.items())])
             cache_key = "cache:" + ":".join(key_parts)
 
             # Try to get from cache
+
             cached_result = redis_client.get(cache_key)
             if cached_result:
                 return json.loads(cached_result)
 
             # If not in cache, call the function
+
             result = await func(*args, **kwargs)
 
             # Cache the result
+
             redis_client.setex(
                 cache_key,
                 ttl_seconds,
@@ -368,20 +418,25 @@ def cache_result(ttl_seconds=300):
 @cache_result(ttl_seconds=60)
 async def get_user_recommendations(user_id: int, limit: int = 10):
     # Expensive database query to generate recommendations
+
     # ...
+
     return recommendations
 
 ```
 
-* --
+---
 
 ## 6. Data Migration and Evolution
 
 ### 6.1 Schema Migrations
 
 * Use a **migration framework** to manage schema changes
+
 * Write **reversible migrations** when possible
+
 * Separate **data migrations** from schema changes
+
 * Test migrations with **production-like data volumes**
 
 ```python
@@ -407,6 +462,7 @@ depends_on = None
 
 def upgrade():
     # Create new table
+
     op.create_table(
         'user_preferences',
         sa.Column('id', sa.Integer(), nullable=False),
@@ -420,11 +476,13 @@ def upgrade():
     )
 
     # Create indexes
+
     op.create_index('idx_user_preferences_user_id', 'user_preferences', ['user_id'])
     op.create_unique_constraint('uq_user_preferences_user_key', 'user_preferences', ['user_id', 'preference_key'])
 
 def downgrade():
     # Drop table and constraints
+
     op.drop_index('idx_user_preferences_user_id')
     op.drop_table('user_preferences')
 
@@ -433,52 +491,63 @@ def downgrade():
 ### 6.2 Migration Best Practices
 
 * Schedule migrations during **low-traffic periods**
+
 * Implement **zero-downtime migrations** for production
+
 * Create **backup points** before major migrations
+
 * Monitor **database performance** during and after migrations
+
 * Have a **rollback plan** for failed migrations
 
 ### 6.3 Versioning
 
 * Maintain **backward compatibility** when possible
+
 * Document **breaking changes** thoroughly
+
 * Consider **schema versioning** for major changes
+
 * Use **feature flags** to gradually roll out changes
 
-* --
+---
 
 ## 7. Database Security
 
 ### 7.1 Access Control
 
 * Apply the **principle of least privilege**
+
 * Create **separate database users** for different access patterns
+
 * Use **role-based access control**
+
 * Revoke unnecessary permissions
+
 * Regularly audit database access
 
 ```sql
 
-* - Example database role and permission setup
+-- Example database role and permission setup
 
 CREATE ROLE app_readonly;
 CREATE ROLE app_readwrite;
 CREATE ROLE app_admin;
 
-* - Grant appropriate permissions
+-- Grant appropriate permissions
 
 GRANT SELECT ON ALL TABLES IN SCHEMA public TO app_readonly;
 
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO app_readwrite;
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO app_readwrite;
 
-* - Grant admin permissions
+-- Grant admin permissions
 
 GRANT ALL PRIVILEGES ON SCHEMA public TO app_admin;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO app_admin;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO app_admin;
 
-* - Create application users
+-- Create application users
 
 CREATE USER app_api_user WITH PASSWORD 'secure_password';
 GRANT app_readwrite TO app_api_user;
@@ -491,18 +560,22 @@ GRANT app_readonly TO reporting_user;
 ### 7.2 Data Encryption
 
 * Encrypt **sensitive data** at rest
+
 * Use **transport layer security** (TLS/SSL) for connections
+
 * Implement **column-level encryption** for PII
+
 * Store **encryption keys** separately from the data
+
 * Regularly rotate encryption keys
 
 ```sql
 
-* - Example of column-level encryption function
+-- Example of column-level encryption function
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto;
 
-* - Function to encrypt data
+-- Function to encrypt data
 
 CREATE OR REPLACE FUNCTION encrypt_pii(input_text TEXT)
 RETURNS TEXT AS $$
@@ -514,7 +587,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
-* - Function to decrypt data
+-- Function to decrypt data
 
 CREATE OR REPLACE FUNCTION decrypt_pii(encrypted_text TEXT)
 RETURNS TEXT AS $$
@@ -526,7 +599,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
-* - Example table with encrypted columns
+-- Example table with encrypted columns
 
 CREATE TABLE customer_data (
     id SERIAL PRIMARY KEY,
@@ -536,7 +609,7 @@ CREATE TABLE customer_data (
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
-* - Example usage
+-- Example usage
 
 INSERT INTO customer_data (customer_id, ssn, credit_card_number)
 VALUES (
@@ -550,14 +623,18 @@ VALUES (
 ### 7.3 Auditing
 
 * Enable **database audit logging**
+
 * Track **schema changes**
+
 * Monitor **suspicious query patterns**
+
 * Implement **row-level change tracking**
+
 * Store audit logs securely
 
 ```sql
 
-* - Example audit trail implementation
+-- Example audit trail implementation
 
 CREATE TABLE audit_log (
     id BIGSERIAL PRIMARY KEY,
@@ -570,7 +647,7 @@ CREATE TABLE audit_log (
     changed_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
-* - Example trigger function for auditing
+-- Example trigger function for auditing
 
 CREATE OR REPLACE FUNCTION audit_trigger_func()
 RETURNS TRIGGER AS $$
@@ -607,7 +684,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-* - Apply audit trigger to a table
+-- Apply audit trigger to a table
 
 CREATE TRIGGER user_audit
 AFTER INSERT OR UPDATE OR DELETE ON users
@@ -615,16 +692,20 @@ AFTER INSERT OR UPDATE OR DELETE ON users
 
 ```
 
-* --
+---
 
 ## 8. Database Maintenance and Operations
 
 ### 8.1 Backup and Recovery
 
 * Implement **regular backups** with verified restore procedures
+
 * Use **point-in-time recovery** capabilities
+
 * Define appropriate **backup retention policies**
+
 * Test **recovery procedures** regularly
+
 * Store backups in **geographically distributed locations**
 
 ```bash
@@ -657,6 +738,7 @@ if [ $? -eq 0 ]; then
     echo "Backup completed successfully: ${BACKUP_FILE}" >> ${LOG_FILE}
 
     # Cleanup old backups (keep last 14 days)
+
     find ${BACKUP_DIR} -name "${DB_NAME}_*.sql.gz" -type f -mtime +14 -delete
 else
     echo "Backup failed!" >> ${LOG_FILE}
@@ -667,9 +749,13 @@ fi
 ### 8.2 Monitoring and Alerting
 
 * Monitor **database performance metrics**
+
 * Set up alerts for **unusual activity patterns**
+
 * Track **resource usage** (CPU, memory, disk, connections)
+
 * Monitor **long-running queries**
+
 * Check for **deadlocks** and **lock contention**
 
 ```yaml
@@ -679,10 +765,9 @@ fi
 groups:
 
 * name: PostgresqlAlerts
-
   rules:
-  * alert: PostgresqlHighConnections
 
+  * alert: PostgresqlHighConnections
     expr: sum by (instance) (pg_stat_activity_count) > 200
     for: 5m
     labels:
@@ -690,8 +775,8 @@ groups:
     annotations:
       summary: "High number of PostgreSQL connections"
       description: "PostgreSQL instance {{ $labels.instance }} has {{ $value }} connections"
-  * alert: PostgresqlSlowQueries
 
+  * alert: PostgresqlSlowQueries
     expr: pg_stat_activity_max_tx_duration{datname!~"template.*|postgres"} > 300
     for: 2m
     labels:
@@ -699,8 +784,8 @@ groups:
     annotations:
       summary: "PostgreSQL slow queries"
       description: "PostgreSQL instance has a query running for more than 5 minutes in database {{ $labels.datname }}"
-  * alert: PostgresqlHighReplicationLag
 
+  * alert: PostgresqlHighReplicationLag
     expr: pg_replication_lag > 600
     for: 5m
     labels:
@@ -714,16 +799,20 @@ groups:
 ### 8.3 Database Health Checks
 
 * Implement **automatic health checks**
+
 * Check for **database corruption**
+
 * Analyze **index fragmentation**
+
 * Run **regular vacuum** operations
+
 * Monitor **table bloat**
 
 ```sql
 
-* - Example health check queries
+-- Example health check queries
 
-* - 1. Check for bloated tables
+-- 1. Check for bloated tables
 
 SELECT
     schemaname,
@@ -746,7 +835,7 @@ WHERE
     AND round(100*bloat_size/table_size) > 10 -- 10% bloat
 ORDER BY bloat_size DESC;
 
-* - 2. Check for unused indexes
+-- 2. Check for unused indexes
 
 SELECT
     schemaname || '.' || relname AS table,
@@ -766,23 +855,30 @@ ORDER BY
 
 ```
 
-* --
+---
 
 ## 9. Transaction Management
 
 ### 9.1 ACID Properties
 
 * Ensure **atomicity** for related operations
+
 * Maintain **consistency** in database state
+
 * Implement **isolation** between concurrent transactions
+
 * Guarantee **durability** of committed transactions
 
 ### 9.2 Transaction Guidelines
 
 * Keep transactions **short and focused**
+
 * Set appropriate **isolation levels** for different operations
+
 * Avoid **long-running transactions**
+
 * Implement **retry logic** for deadlocks
+
 * Be aware of **transaction costs** in distributed systems
 
 ```python
@@ -808,6 +904,7 @@ def with_transaction_retry(session, max_retries=3, retry_delay=0.1):
                     if retries > max_retries:
                         raise
                     # Exponential backoff
+
                     sleep_time = retry_delay * (2 ** (retries - 1))
                     time.sleep(sleep_time)
         return wrapper
@@ -818,6 +915,7 @@ def with_transaction_retry(session, max_retries=3, retry_delay=0.1):
 @with_transaction_retry(db.session, max_retries=3)
 def transfer_funds(session, from_account_id, to_account_id, amount):
     # Get accounts with row-level locking
+
     from_account = session.query(Account).with_for_update().get(from_account_id)
     to_account = session.query(Account).with_for_update().get(to_account_id)
 
@@ -825,10 +923,12 @@ def transfer_funds(session, from_account_id, to_account_id, amount):
         raise InsufficientFundsError("Insufficient funds")
 
     # Update balances
+
     from_account.balance -= amount
     to_account.balance += amount
 
     # Record transaction
+
     transaction = Transaction(
         from_account_id=from_account_id,
         to_account_id=to_account_id,
@@ -841,22 +941,28 @@ def transfer_funds(session, from_account_id, to_account_id, amount):
 
 ```
 
-* --
+---
 
 ## 10. Scaling Strategies
 
 ### 10.1 Vertical Scaling
 
 * Increase **hardware resources** for database servers
+
 * Optimize for **higher concurrency**
+
 * Consider **hardware limitations** and cost implications
+
 * Monitor **resource utilization** to inform scaling decisions
 
 ### 10.2 Horizontal Scaling
 
 * Implement **read replicas** for read-heavy workloads
+
 * Consider **database sharding** for write-heavy workloads
+
 * Design for **distributed transactions** if needed
+
 * Plan for **cross-shard queries** and reporting
 
 ```yaml
@@ -883,7 +989,7 @@ data:
     hot_standby = on
     hot_standby_feedback = on
 
-* --
+---
 
 apiVersion: apps/v1
 kind: StatefulSet
@@ -895,42 +1001,42 @@ spec:
   template:
     spec:
       containers:
-      * name: postgres
 
+      * name: postgres
         image: postgres:14
         env:
-        * name: POSTGRES_USER
 
+        * name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
               name: postgres-secrets
               key: username
-        * name: POSTGRES_PASSWORD
 
+        * name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: postgres-secrets
               key: password
+
         * name: POSTGRES_DB
-
           value: thinkalike
-        * name: PGDATA
 
+        * name: PGDATA
           value: /var/lib/postgresql/data/pgdata
         ports:
+
         * containerPort: 5432
-
         volumeMounts:
+
         * name: postgres-primary-data
-
           mountPath: /var/lib/postgresql/data
-        * name: postgres-config
 
+        * name: postgres-config
           mountPath: /etc/postgresql/postgresql.conf
           subPath: postgresql.conf
   volumeClaimTemplates:
-  * metadata:
 
+  * metadata:
       name: postgres-primary-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
@@ -938,7 +1044,7 @@ spec:
         requests:
           storage: 100Gi
 
-* --
+---
 
 apiVersion: apps/v1
 kind: StatefulSet
@@ -950,53 +1056,56 @@ spec:
   template:
     spec:
       containers:
-      * name: postgres
 
+      * name: postgres
         image: postgres:14
         env:
-        * name: POSTGRES_USER
 
+        * name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
               name: postgres-secrets
               key: username
-        * name: POSTGRES_PASSWORD
 
+        * name: POSTGRES_PASSWORD
           valueFrom:
             secretKeyRef:
               name: postgres-secrets
               key: password
+
         * name: POSTGRES_DB
-
           value: thinkalike
+
         * name: PGDATA
-
           value: /var/lib/postgresql/data/pgdata
-        * name: PRIMARY_HOST
 
+        * name: PRIMARY_HOST
           value: postgres-primary
         command:
-        * bash
-        * -c
-        * |
 
+        * bash
+
+        * -c
+
+        * |
           until pg_isready -h $PRIMARY_HOST -p 5432; do
             echo "Waiting for primary to be ready"
             sleep 2
           done
           # Configure as a replica
+
           pg_basebackup -h $PRIMARY_HOST -D $PGDATA -U $POSTGRES_USER -P -v -R
           exec postgres
         ports:
+
         * containerPort: 5432
-
         volumeMounts:
-        * name: postgres-replica-data
 
+        * name: postgres-replica-data
           mountPath: /var/lib/postgresql/data
   volumeClaimTemplates:
-  * metadata:
 
+  * metadata:
       name: postgres-replica-data
     spec:
       accessModes: [ "ReadWriteOnce" ]
@@ -1009,18 +1118,23 @@ spec:
 ### 10.3 Database Federation
 
 * Split databases by **functional domain**
+
 * Define clear **domain boundaries**
+
 * Implement **cross-database communication** patterns
+
 * Consider eventual consistency challenges
 
-* --
+---
 
 ## 11. Multi-Tenancy
 
 ### 11.1 Tenancy Models
 
 * **Separate databases**: One database per tenant
+
 * **Separate schemas**: One schema per tenant within shared database
+
 * **Shared schema**: Shared tables with tenant identifier
 
 | Approach | Isolation | Resource Usage | Management Complexity | Data Size |
@@ -1032,14 +1146,18 @@ spec:
 ### 11.2 Implementation Guidelines
 
 * Use **tenant identifiers** consistently
+
 * Implement **row-level security** for shared schema approach
+
 * Consider **data isolation requirements**
+
 * Plan for **tenant-specific customizations**
+
 * Design for **tenant provisioning/deprovisioning**
 
 ```sql
 
-* - Example row-level security implementation for multi-tenancy
+-- Example row-level security implementation for multi-tenancy
 
 CREATE TABLE tenant_users (
     id SERIAL PRIMARY KEY,
@@ -1049,16 +1167,16 @@ CREATE TABLE tenant_users (
     created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 );
 
-* - Enable row-level security
+-- Enable row-level security
 
 ALTER TABLE tenant_users ENABLE ROW LEVEL SECURITY;
 
-* - Create a policy that limits access to the current tenant
+-- Create a policy that limits access to the current tenant
 
 CREATE POLICY tenant_isolation ON tenant_users
     USING (tenant_id = current_setting('app.current_tenant_id')::INTEGER);
 
-* - Function to set the current tenant context
+-- Function to set the current tenant context
 
 CREATE OR REPLACE FUNCTION set_tenant_context(p_tenant_id INTEGER)
 RETURNS VOID AS $$
@@ -1067,30 +1185,37 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-* - Usage example
+-- Usage example
 
 SELECT set_tenant_context(1);
 SELECT * FROM tenant_users; -- Will only see tenant_id = 1 records
 
 ```
 
-* --
+---
 
 ## 12. Database Documentation
 
 ### 12.1 Schema Documentation
 
 * Document **table purposes** and relationships
+
 * Describe **column meanings** and constraints
+
 * Document **indexing strategy**
+
 * Maintain **entity-relationship diagrams**
+
 * Keep documentation **in sync with schema changes**
 
 ### 12.2 Documentation Tools
 
 * Use automated tools to generate schema documentation
+
 * Include database documentation in the overall project documentation
+
 * Maintain living documentation that evolves with the schema
+
 * Document query patterns and access methods
 
 ```bash
@@ -1098,20 +1223,28 @@ SELECT * FROM tenant_users; -- Will only see tenant_id = 1 records
 # Example schema documentation generation using SchemaSpy
 
 java -jar schemaspy.jar \
-  * t pgsql \
-  * db thinkalike \
-  * host localhost \
-  * port 5432 \
-  * u documentationuser \
-  * p documentationpassword \
-  * o ./database-docs \
-  * dp postgresql-42.2.23.jar
+
+  -t pgsql \
+
+  -db thinkalike \
+
+  -host localhost \
+
+  -port 5432 \
+
+  -u documentationuser \
+
+  -p documentationpassword \
+
+  -o ./database-docs \
+
+  -dp postgresql-42.2.23.jar
 
 ```
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: Database Design Guidelines
 
@@ -1121,8 +1254,8 @@ java -jar schemaspy.jar \
 
 * Last Updated: 2025-04-05
 
-* --
+---
 
 End of Database Design Guidelines
 
-* --
+---

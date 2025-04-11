@@ -88,9 +88,9 @@ Our architecture incorporates testing through:
 
 * **Ethical Compliance Tests**: Tests specifically for ethical guidelines
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: Architecture Concepts
 
@@ -98,4 +98,6 @@ Our architecture incorporates testing through:
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-07
+* Last Updated: 2025-04-07
+
+---

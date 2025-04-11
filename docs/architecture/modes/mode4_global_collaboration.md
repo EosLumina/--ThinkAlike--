@@ -2,8 +2,7 @@
 
 ## Purpose
 
-Mode 4 expands ThinkAlike's functionality to facilitate global collaboration on systemic challenges (e.g., climate
-change, inequality).
+Mode 4 expands ThinkAlike's functionality to facilitate global collaboration on systemic challenges (e.g., climate change, inequality).
 
 ## Key Features
 
@@ -17,6 +16,7 @@ change, inequality).
 * **Community Mode:** Leverages existing community-building tools.
 
 * **AI Systems:** Suggests collaborators and resources based on user profiles.
+
 * **UI Components:** Provides dashboards for tracking progress and impact.
 
 ## Ethical Considerations
@@ -24,4 +24,5 @@ change, inequality).
 * **Inclusivity:** Ensure all voices are heard, especially marginalized communities.
 
 * **Transparency:** Open documentation of decision-making processes.
+
 * **Accountability:** Mechanisms for tracking and reporting outcomes.

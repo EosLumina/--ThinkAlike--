@@ -2,29 +2,38 @@
 
 ## 1. Introduction
 
-This document outlines frontend development standards and best practices. These guidelines ensure consistent,
-maintainable, and high-quality user interfaces across our applications.
+This document outlines frontend development standards and best practices. These guidelines ensure consistent, maintainable, and high-quality user interfaces across our applications.
 
-* --
+---
 
 ## 2. Project Structure
 
 ### 2.1 Directory Structure
 
 ```typescript
-
 src/
 ├── assets/          # Static assets (images, fonts, etc.)
+
 ├── components/      # Reusable UI components
+
 │   ├── common/     # Shared components
+
 │   ├── features/   # Feature-specific components
+
 │   └── layouts/    # Layout components
+
 ├── hooks/          # Custom React hooks
+
 ├── pages/          # Route components
+
 ├── services/       # API and external service integrations
+
 ├── store/          # State management
+
 ├── styles/         # Global styles and theme
+
 ├── types/          # TypeScript type definitions
+
 └── utils/          # Utility functions
 
 ```
@@ -32,7 +41,6 @@ src/
 ### 2.2 Component Architecture
 
 ```mermaid
-
 flowchart TB
     subgraph App
         Layout[Layout Component]
@@ -54,14 +62,13 @@ flowchart TB
 
 ```
 
-* --
+---
 
 ## 3. Component Guidelines
 
 ### 3.1 Component Structure
 
 ```typescript
-
 interface ComponentProps {
   data: DataType;
   onAction: (id: string) => void;
@@ -77,14 +84,13 @@ export const Component: React.FC<ComponentProps> = ({ data, onAction }) => {
 
 ```
 
-* --
+---
 
 ## 4. State Management
 
 ### 4.1 Store Structure
 
 ```typescript
-
 interface AppState {
   user: UserState;
   data: DataState;
@@ -102,14 +108,13 @@ const initialState: AppState = {
 
 ```
 
-* --
+---
 
 ## 5. Testing Standards
 
 ### 5.1 Component Testing
 
 ```typescript
-
 describe('Component', () => {
   it('renders correctly', () => {
     render(<Component data={mockData} onAction={mockAction} />);
@@ -119,14 +124,13 @@ describe('Component', () => {
 
 ```
 
-* --
+---
 
 ## 6. Performance Guidelines
 
 ### 6.1 Code Splitting
 
 ```typescript
-
 const LazyComponent = React.lazy(() => import('./LazyComponent'));
 
 function App() {
@@ -139,17 +143,19 @@ function App() {
 
 ```
 
-* --
+---
 
 ## 7. Further Reference
 
 * [React Documentation](https://reactjs.org/)
+
 * [TypeScript Guidelines](../typescript/guidelines.md)
+
 * [Testing Standards](../testing/frontend_testing.md)
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: Frontend Development Standard
 
@@ -157,6 +163,10 @@ function App() {
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-05
+* Last Updated: 2025-04-05
 
-## End of Frontend Development Standard
+---
+
+End of Frontend Development Standard
+
+---

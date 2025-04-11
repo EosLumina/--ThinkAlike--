@@ -9,7 +9,6 @@ Defines standards and best practices for designing consistent, maintainable APIs
 ### 2.1 RESTful Resource Design
 
 ```mermaid
-
 flowchart LR
     A[Resource Identification] --> B[URI Design]
     B --> C[HTTP Methods]
@@ -21,7 +20,6 @@ flowchart LR
 ### 2.2 Resource Naming
 
 ```typescript
-
 // Good Examples
 /users
 /users/123
@@ -40,7 +38,6 @@ flowchart LR
 ### 3.1 Response Format
 
 ```json
-
 {
   "status": "success",
   "data": {
@@ -63,7 +60,6 @@ flowchart LR
 ### 4.1 Version Control
 
 ```mermaid
-
 flowchart TB
     subgraph Versioning
         V1[API v1]
@@ -79,7 +75,6 @@ flowchart TB
 ### 5.1 Error Responses
 
 ```json
-
 {
   "status": "error",
   "code": "VALIDATION_ERROR",
@@ -99,7 +94,6 @@ flowchart TB
 ### 6.1 Authentication Flow
 
 ```mermaid
-
 sequenceDiagram
     Client->>API: Request + JWT
     API->>Auth: Validate Token
@@ -113,7 +107,6 @@ sequenceDiagram
 ### 7.1 OpenAPI Specification
 
 ```yaml
-
 openapi: 3.0.0
 info:
   title: API Documentation
@@ -130,45 +123,29 @@ paths:
 
 ## 8. AI Clone Persona Engine (Audiovisual Analysis)
 
-* **Purpose**: To analyze user-provided short video introductions (with explicit consent) to extract relevant
+* **Purpose**: To analyze user-provided short video introductions (with explicit consent) to extract relevant audiovisual features (e.g., speech patterns, general tone, visual style cues — *not* sensitive emotion detection or biometric identification) that inform the generation and dynamic styling of the user’s **AI Clone**. Aims to create a more representative and nuanced digital proxy than static images/text, providing "gradual clues" during interaction flows.
 
-audiovisual features (e.g., speech patterns, general tone, visual style cues — *not* sensitive emotion detection or
-biometric identification) that inform the generation and dynamic styling of the user’s **AI Clone**. Aims to create a
-more representative and nuanced digital proxy than static images/text, providing "gradual clues" during interaction
-flows.
+* **Expected Inputs**: User video intro file/stream, potentially user profile data for context. Interaction with a Voice AI / Speech-to-Text / basic Video Analysis service is likely needed.
 
-* **Expected Inputs**: User video intro file/stream, potentially user profile data for context. Interaction with a Voice
+* **Processing Logic**: [Details TBD: Could involve extracting features like speech cadence, dominant color palettes, general energy level inferred from motion/speech, etc. **Must avoid pseudo-scientific analysis like emotion detection from micro-expressions.** Focus on objective or stylistic elements.] The outputs directly influence the parameters used to render the AI Clone avatar.
 
-AI / Speech-to-Text / basic Video Analysis service is likely needed.
+* **Expected Outputs**: Structured data object containing style parameters for the AI Clone renderer (e.g., `{ "hue": ..., "saturation": ..., "brightness": ..., "waveform_pattern": ..., "speech_cadence_factor": ... }`).
 
-* **Processing Logic**: [Details TBD: Could involve extracting features like speech cadence, dominant color palettes,
+* **Integration**: Receives input from video upload process. Outputs data used by the Frontend UI’s AI Clone rendering component. Interacts with Database to store/retrieve generated parameters.
 
-general energy level inferred from motion/speech, etc. **Must avoid pseudo-scientific analysis like emotion detection
-from micro-expressions.** Focus on objective or stylistic elements.] The outputs directly influence the parameters used
-to render the AI Clone avatar.
-
-* **Expected Outputs**: Structured data object containing style parameters for the AI Clone renderer (e.g., `{ "hue":
-
-..., "saturation": ..., "brightness": ..., "waveform_pattern": ..., "speech_cadence_factor": ... }`).
-
-* **Integration**: Receives input from video upload process. Outputs data used by the Frontend UI’s AI Clone rendering
-
-component. Interacts with Database to store/retrieve generated parameters.
-
-* **Ethical Considerations**: **Very High.** Requires explicit consent for video analysis. **Strictly avoid**
-
-over-interpretation, pseudo-science, or biometric/emotion detection. Maintain transparency about what is analyzed. Users
-must be able to opt-out or manually override their AI Clone style.
+* **Ethical Considerations**: **Very High.** Requires explicit consent for video analysis. **Strictly avoid** over-interpretation, pseudo-science, or biometric/emotion detection. Maintain transparency about what is analyzed. Users must be able to opt-out or manually override their AI Clone style.
 
 ## 9. Further Reference
 
 * [RESTful Guidelines](../api/rest_guidelines.md)
+
 * [Security Standards](../security/api_security.md)
+
 * [Testing Guidelines](../testing/api_testing.md)
 
-* --
+---
 
-## Document Details
+**Document Details**
 
 * Title: API Design Guidelines
 
@@ -176,13 +153,17 @@ must be able to opt-out or manually override their AI Clone style.
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-05
+* Last Updated: 2025-04-05
 
-## End of API Design Guidelines
+---
 
-* --
+End of API Design Guidelines
 
-## Document Details
+---
+
+---
+
+**Document Details**
 
 * Title: API Design Guidelines
 
@@ -190,6 +171,10 @@ must be able to opt-out or manually override their AI Clone style.
 
 * Version: 1.0.0
 
-## - Last Updated: 2025-04-05
+* Last Updated: 2025-04-05
 
-## End of API Design Guidelines
+---
+
+End of API Design Guidelines
+
+---

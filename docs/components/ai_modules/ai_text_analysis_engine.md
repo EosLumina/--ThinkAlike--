@@ -2,8 +2,7 @@
 
 ## Purpose
 
-Analyze user-generated text (e.g., profiles, messages) to extract sentiment, keywords, and stylistic features while
-upholding ethical principles.
+Analyze user-generated text (e.g., profiles, messages) to extract sentiment, keywords, and stylistic features while upholding ethical principles.
 
 ## Expected Inputs
 
@@ -16,6 +15,7 @@ upholding ethical principles.
 * Use NLP libraries (e.g., spaCy, NLTK) to perform sentiment analysis and keyword extraction.
 
 * Enforce ethical guidelines to avoid misinterpretation.
+
 * Generate a JSON object with analysis results.
 
 ## Expected Outputs
@@ -23,7 +23,6 @@ upholding ethical principles.
 Example:
 
 ```json
-
 {
   "sentiment": "positive",
   "keywords": ["authentic", "creative", "collaborative"],
@@ -43,6 +42,7 @@ Example:
 * **Transparency:** Users must be informed about text analysis and its purpose.
 
 * **Consent:** Explicit user consent is required for text analysis.
+
 * **Bias Mitigation:** Regular audits to ensure fairness and avoid biases in sentiment or keyword extraction.
 
 * **Privacy:** Text data is anonymized and securely stored.
@@ -52,6 +52,7 @@ Example:
 * Logs analysis events and results.
 
 * Tracks user consent and provides audit trails.
+
 * Allows users to view and delete analysis results via the `Data Explorer Panel`.
 
 ## Security

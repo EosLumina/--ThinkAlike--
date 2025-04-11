@@ -1,6 +1,8 @@
 import os
 from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+# Update import to use the newer API
+# from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base  # This is the updated import
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 

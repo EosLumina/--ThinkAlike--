@@ -1,0 +1,63 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: [main, develop]
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    steps:
+      - uses: actions/checkout@v4  # Updated from v3
+      
+      - name: Deploy to Staging
+        uses: appleboy/ssh-action@master
+        env:
+          STAGING_HOST: ${{ secrets.STAGING_HOST }}
+          STAGING_USERNAME: ${{ secrets.STAGING_USERNAME }}
+          STAGING_SSH_KEY: ${{ secrets.STAGING_SSH_KEY }}
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.STAGING_USERNAME }}
+          key: ${{ secrets.STAGING_SSH_KEY }}
+          script: |
+            cd /opt/thinkalike
+            docker-compose pull
+            docker-compose up -d
+      
+      - name: Verify Deployment
+        run: |
+          echo "Deployed to staging environment"
+          echo "URL: https://${{ secrets.STAGING_URL }}"
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: production
+    steps:
+      - uses: actions/checkout@v4  # Updated from v3
+      
+      - name: Deploy to Production
+        uses: appleboy/ssh-action@master
+        env:
+          PROD_HOST: ${{ secrets.PROD_HOST }}
+          PROD_USERNAME: ${{ secrets.PROD_USERNAME }}
+          PROD_SSH_KEY: ${{ secrets.PROD_SSH_KEY }}
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          key: ${{ secrets.PROD_SSH_KEY }}
+          script: |
+            cd /opt/thinkalike
+            docker-compose pull
+            docker-compose up -d
+      
+      - name: Verify Deployment
+        run: |
+          echo "Deployed to production"
+          echo "URL: https://${{ secrets.PROD_URL }}"

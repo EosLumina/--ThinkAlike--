@@ -7,6 +7,7 @@ This guide explains how to add and manage translations for the ThinkAlike projec
 ## Directory Structure
 
 * `locales/`: Contains translation files for each language.
+
   * Example: `locales/en/LC_MESSAGES/messages.po`
 
 ## Adding a New Language
@@ -14,39 +15,34 @@ This guide explains how to add and manage translations for the ThinkAlike projec
 1. Create a directory for the new language:
 
    ```
-
    mkdir -p locales/<language_code>/LC_MESSAGES
    ```
 
-1. Create a `.po` file for the language:
+2. Create a `.po` file for the language:
 
    ```
-
    touch locales/<language_code>/LC_MESSAGES/messages.po
    ```
 
-1. Add translations to the `.po` file.
+3. Add translations to the `.po` file.
 
 ## Updating Translations
 
 1. Extract new messages:
 
    ```
-
    pybabel extract -o locales/messages.pot src/
    ```
 
-1. Update `.po` files:
+2. Update `.po` files:
 
    ```
-
    pybabel update -d locales -i locales/messages.pot
    ```
 
-1. Compile translations:
+3. Compile translations:
 
    ```
-
    pybabel compile -d locales
    ```
 
@@ -55,7 +51,6 @@ This guide explains how to add and manage translations for the ThinkAlike projec
 Use the `i18n.gettext` method to fetch translations:
 
 ```python
-
 from src.i18n.i18n_config import i18n
 print(i18n.gettext("es", "Welcome to ThinkAlike!"))
 

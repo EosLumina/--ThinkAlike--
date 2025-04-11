@@ -1,6 +1,6 @@
 # UI Component Specification: SecurityStatusIndicator
 
-* --
+---
 
 ## 1. Introduction and Description
 
@@ -16,74 +16,66 @@ Guide](../../architecture/design/style_guide.md).
 
 Typically integrated into a persistent header/footer/dashboard.
 
-*   **Real-Time Status Indicators:** Core icon/badge (padlock/shield) using color-coding:
-    *   *Green:* Secure state (HTTPS active, DB encrypted).
-    *   *Amber/Yellow:* Warning (Potential vulnerability, non-critical issue).
-    *   *Red/Neon Orange:* Alert (Active risk, insecure state, breach alert).
-    *   Optional subtle animations per state.
-*   **Security Protocol Log (On Hover/Click):** Tooltip/Popover showing concise, timestamped list of recent relevant
+* **Real-Time Status Indicators:** Core icon/badge (padlock/shield) using color-coding:
 
-security actions (e.g., "HTTPS Established", "JWT Verified", "Data Encrypted at Rest").
+  * *Green:* Secure state (HTTPS active, DB encrypted).
 
-*   **Data Breach Alerts (Integrated):** Overrides indicator to Red + Alert Icon. Triggers separate prominent UI
+  * *Amber/Yellow:* Warning (Potential vulnerability, non-critical issue).
 
-notification (banner/modal) with details and action links.
+  * *Red/Neon Orange:* Alert (Active risk, insecure state, breach alert).
 
-*   **Link to Security Center:** Small icon (⚙️/ℹ️) linking to the full Security & Privacy Center ([Security Feedback
+  * Optional subtle animations per state.
 
-Loops Guide](../../guides/developer_guides/Security_Feedback_Loops.md)).
+* **Security Protocol Log (On Hover/Click):** Tooltip/Popover showing concise, timestamped list of recent relevant security actions (e.g., "HTTPS Established", "JWT Verified", "Data Encrypted at Rest").
+
+* **Data Breach Alerts (Integrated):** Overrides indicator to Red + Alert Icon. Triggers separate prominent UI notification (banner/modal) with details and action links.
+
+* **Link to Security Center:** Small icon (⚙️/ℹ️) linking to the full Security & Privacy Center ([Security Feedback Loops Guide](../../guides/developer_guides/Security_Feedback_Loops.md)).
 
 ## 3. Actionable Parameters (User Validation & Awareness)
 
-*   **Data Security Status (Validation):** Allows instant user validation of expected security level (Green). Yellow/Red
+* **Data Security Status (Validation):** Allows instant user validation of expected security level (Green). Yellow/Red prompts investigation via logs/settings.
 
-prompts investigation via logs/settings.
+* **Transparency Validation (Audit):** Protocol Log enables user auditing of applied security measures during workflows.
 
-*   **Transparency Validation (Audit):** Protocol Log enables user auditing of applied security measures during
-
-workflows.
-
-*   **Risk Awareness (Prompt to Act):** Red status/Breach Alert prompts immediate user action based on accompanying
-
-notification.
+* **Risk Awareness (Prompt to Act):** Red status/Breach Alert prompts immediate user action based on accompanying notification.
 
 ## 4. Code Implementation Notes
 
-*   **Framework:** React.
-*   **State:** Uses global state (Context/Zustand `securityStore`) updated via API (`GET /api/v1/security/status`) or
+* **Framework:** React.
 
-WebSockets (for breach alerts).
+* **State:** Uses global state (Context/Zustand `securityStore`) updated via API (`GET /api/v1/security/status`) or WebSockets (for breach alerts).
 
-*   **Components:** Main `SecurityStatusIndicator`, sub-components `StatusIcon`, `ProtocolLogTooltip`,
+* **Components:** Main `SecurityStatusIndicator`, sub-components `StatusIcon`, `ProtocolLogTooltip`, `BreachAlertNotification`.
 
-`BreachAlertNotification`.
+* **API:** Needs backend endpoint for status/logs and WebSocket/push mechanism for alerts.
 
-*   **API:** Needs backend endpoint for status/logs and WebSocket/push mechanism for alerts.
-*   **Validation:** UI trusts backend status but visually verifies it.
+* **Validation:** UI trusts backend status but visually verifies it.
 
 ## 5. Testing Instructions
 
-*   Test rendering/animation for Green, Yellow, Red states based on mocked status.
-*   Test Protocol Log display trigger and content accuracy with mocked log data.
-*   Test Breach Alert trigger (mock WebSocket event), visual change, and notification display/link.
-*   Test API error handling (e.g., display Yellow "Status unavailable").
-*   Test Accessibility (contrast, keyboard interaction, screen reader announcements).
-*   Test Responsiveness.
+* Test rendering/animation for Green, Yellow, Red states based on mocked status.
+
+* Test Protocol Log display trigger and content accuracy with mocked log data.
+
+* Test Breach Alert trigger (mock WebSocket event), visual change, and notification display/link.
+
+* Test API error handling (e.g., display Yellow "Status unavailable").
+
+* Test Accessibility (contrast, keyboard interaction, screen reader announcements).
+
+* Test Responsiveness.
 
 ## 6. UI Mockup Placeholder
 
-*   `[Placeholder: Link to SecurityStatusIndicator mockup]`
+* `[Placeholder: Link to SecurityStatusIndicator mockup]`
 
 ## 7. Dependencies & Integration
 
-*   **Depends:** Backend Security Status/Log API, Real-time Alert mechanism, Global State (`securityStore`), Style
+* **Depends:** Backend Security Status/Log API, Real-time Alert mechanism, Global State (`securityStore`), Style Guide.
 
-Guide.
-
-*   **Integrates:** Main App Layout, Security & Privacy Center (via link).
+* **Integrates:** Main App Layout, Security & Privacy Center (via link).
 
 ## 8. Future Enhancements
 
-*   Granular status indicators, user-configurable alert thresholds, browser security API integration, historical log
-
-view.
+* Granular status indicators, user-configurable alert thresholds, browser security API integration, historical log view.
