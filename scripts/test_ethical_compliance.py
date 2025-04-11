@@ -207,15 +207,16 @@ def extract_statistics(results: Dict[str, Any]) -> Dict[str, Any]:
     else:
         result_details = {}
 
-    return result_details
+    # Define expectation_results before using it
+    expectation_results = results.get("expectation_results", {})
 
-# Fix the __getitem__ call issue
-# Replace: expectation_results["statistics"]
-# With proper dictionary access:
-if isinstance(expectation_results, dict):
-    stats = expectation_results.get("statistics", {})
-else:
-    stats = {}
+    # Fix the __getitem__ call issue
+    if isinstance(expectation_results, dict):
+        stats = expectation_results.get("statistics", {})
+    else:
+        stats = {}
+
+    return result_details
 
 def main():
     """Main execution function."""
