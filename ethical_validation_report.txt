@@ -1,0 +1,6 @@
+Ethical Validation Report
+=========================
+
+Biased Language Found: None
+Sensitive Data Found in Columns: ['phone']
+Overall Compliance: Failed

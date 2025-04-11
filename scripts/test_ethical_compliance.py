@@ -178,7 +178,7 @@ class EthicalDataset:
         """
         sensitive_patterns = {
             "email": r"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+",
-            "phone_number": r"(\+\d{1,2}\s?)?1?\-?\s?(\d{3}[\-.\s]?){2}\d{4}",
+            "phone_number": r"(\+\d{1,3}[\s.-]?)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}|\d{3}[\s.-]?\d{3}[\s.-]?\d{4}",
         }
         sensitive_columns = []
         try:
