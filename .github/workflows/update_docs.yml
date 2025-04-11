@@ -22,9 +22,9 @@ jobs:
       - name: Install documentation dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r ThinkAlike--/requirements.txt
+          pip install -r docs/requirements.txt
+          pip install -e .
 
       - name: Build documentation
         run: |
-          cd docs
-          make html
+          # Add your documentation build command(s) here
