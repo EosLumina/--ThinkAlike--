@@ -1,4 +1,3 @@
-// filepath: C:\--ThinkAlike--\docs\guides\ui_component_specs\data_explorer_panel.md
 # 1. Data Explorer Panel
 
 **Description:**
