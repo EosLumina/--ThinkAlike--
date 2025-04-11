@@ -181,39 +181,41 @@ class EthicalComplianceValidator:
         return processed_results
 
 def validate_data_context(data_context: Dict[str, Any]) -> None:
-    # Type annotation and casting for clarity
-    # Replace: if isinstance(context, DataContext):
-    # With proper dictionary type checking:
+    """Validate the data context dictionary."""
+    # Replace DataContext check with proper dictionary type checking
     if isinstance(data_context, dict) and 'data' in data_context:
         pass
+    else:
+        print("Warning: Invalid data context format")
 
 def process_results(results: Dict[str, Any]) -> Dict[str, Any]:
+    """Process validation results."""
     # Fix to_json_dict attribute access
-    # Replace: output = results.to_json_dict()
-    # With proper dictionary handling:
     if hasattr(results, 'to_json_dict'):
         output = results.to_json_dict()
     else:
         # Handle dictionary case
-        output = results
+        output = results.copy() if isinstance(results, dict) else {}
 
     return output
 
 def extract_statistics(results: Dict[str, Any]) -> Dict[str, Any]:
+    """Extract statistics from results."""
     # Fix list.get attribute error
-    # Replace: result_details = results.get("statistics", [])
-    # With proper dictionary/list handling:
     if isinstance(results, dict):
-        result_details = results.get("statistics", [])
+        result_details = results.get("statistics", {})
     else:
-        result_details = []
+        result_details = {}
 
     return result_details
 
 # Fix the __getitem__ call issue
 # Replace: expectation_results["statistics"]
 # With proper dictionary access:
-stats = expectation_results.get("statistics", {})
+if isinstance(expectation_results, dict):
+    stats = expectation_results.get("statistics", {})
+else:
+    stats = {}
 
 def main():
     """Main execution function."""
