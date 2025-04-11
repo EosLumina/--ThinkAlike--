@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - DATABASE_URL=postgresql://thinkalike:thinkalike@db:5432/thinkalike
+      - ENVIRONMENT=development
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    depends_on:
+      - db
+    networks:
+      - thinkalike-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+      - NODE_ENV=development
+    command: npm start
+    depends_on:
+      - backend
+    networks:
+      - thinkalike-network
+
+  db:
+    image: postgres:13
+    environment:
+      - POSTGRES_USER=thinkalike
+      - POSTGRES_PASSWORD=thinkalike
+      - POSTGRES_DB=thinkalike
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - thinkalike-network
+
+networks:
+  thinkalike-network:
+    driver: bridge
+
+volumes:
+  postgres-data:
