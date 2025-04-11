@@ -1,0 +1,32 @@
+# Template for GitHub Actions workflow files
+name: Template Workflow
+
+# Define when this workflow will run
+on:
+  # Triggers when code is pushed to main branch
+  push:
+    branches: [main]
+
+  # Triggers when a pull request targets main branch
+  pull_request:
+    branches: [main]
+
+  # Allows manual triggering
+  workflow_dispatch:
+
+# A workflow consists of one or more jobs
+jobs:
+  # Job ID (can be any name, used for reference)
+  build:
+    # Type of machine to run on
+    runs-on: ubuntu-latest
+
+    # Sequential steps to execute
+    steps:
+      # Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Example step with a name and run command
+      - name: Example step
+        run: echo "This is a template workflow"
