@@ -1,4 +1,4 @@
-# Api Endpoints - Project Backend - Verification System
+# API Endpoints - Project Backend - Verification System
 
 * *Document Purpose:**
 
