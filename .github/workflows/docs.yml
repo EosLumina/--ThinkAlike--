@@ -16,7 +16,6 @@ jobs:
   markdown_lint:
     name: Markdown Linting
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -37,21 +36,19 @@ jobs:
           npm install -g markdownlint-cli2
           npx markdownlint-cli2-fix "**/*.md" --ignore node_modules
 
-  build_docs:
+  build-docs:
     name: Build Documentation
     runs-on: ubuntu-latest
     needs: markdown_lint
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
+      - name: Install mkdocs dependencies
         run: pip install mkdocs mkdocs-material
 
       - name: Build docs
@@ -60,23 +57,22 @@ jobs:
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: docs-site
+          name: docs-build
           path: ./site
 
-  deploy_docs:
+  deploy:
     name: Deploy Documentation
     runs-on: ubuntu-latest
-    needs: build_docs
-    if: success() && github.ref == 'refs/heads/main'
-
+    needs: build-docs
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - name: Download build artifacts
         uses: actions/download-artifact@v3
         with:
-          name: docs-site
+          name: docs-build
           path: ./site
 
-      - name: Deploy documentation
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
