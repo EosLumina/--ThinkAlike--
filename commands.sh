@@ -9,13 +9,7 @@ chmod +x scripts/verify_badges.sh
 # Fetch all changes from the remote
 git fetch origin
 
-# First, fetch the latest changes
-git fetch origin
-
-# Option 1: Merge remote changes with yours
-git pull origin integration-temp
-
-# Option 2: If you prefer rebase (cleaner history)
+# Pull the latest changes from the remote repository
 git pull --rebase origin integration-temp
 
 # After resolving any conflicts, try pushing again
