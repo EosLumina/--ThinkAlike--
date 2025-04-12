@@ -1,30 +1,41 @@
 #!/bin/bash
 
-# Directory containing workflow files
-WORKFLOWS_DIR=".github/workflows"
+# Script to diagnose and fix common workflow issues
+echo "🔍 Checking for common workflow issues..."
 
-# Function to fix common YAML issues
-fix_workflow_file() {
-  local file=$1
-  echo "Fixing $file..."
-
-  # Create a backup
-  cp "$file" "${file}.bak"
-
-  # Replace JavaScript-style comments with YAML comments
-  sed -i 's|^// |# |g' "$file"
-
-  # Remove merge conflict markers and content between them
-  sed -i '/^<<<<<<< HEAD$/,/^>>>>>>> /d' "$file"
-
-  echo "Fixed $file (backup saved as ${file}.bak)"
-}
-
-# Process each workflow file
-for workflow in $WORKFLOWS_DIR/*.yml; do
-  if [ -f "$workflow" ]; then
-    fix_workflow_file "$workflow"
-  fi
+# 1. Check workflow files syntax
+echo "Validating workflow YAML syntax..."
+for workflow in .github/workflows/*.yml; do
+  echo "Checking $workflow..."
+  yamllint "$workflow" || echo "⚠️ Warning: Syntax issues in $workflow"
 done
 
-echo "Completed fixing workflow files. Please verify the changes manually."
+# 2. Check references to repository name
+echo "Checking repository references..."
+grep -r "EosLumina/--ThinkAlike--" .github/workflows/ || echo "⚠️ Warning: Repository reference may be incorrect"
+
+# 3. Check local dependencies in requirements.txt
+echo "Checking requirements.txt for local dependencies..."
+if [ -f requirements.txt ]; then
+  if grep -E "^-e .*|^file:.*" requirements.txt; then
+    echo "⚠️ Warning: Local dependencies found in requirements.txt that might cause CI failures"
+    echo "Creating CI-compatible requirements file..."
+    grep -v -E "^-e .*|^file:.*" requirements.txt > ci_requirements.txt
+    echo "✅ Created ci_requirements.txt - Use this file in GitHub Actions"
+  else
+    echo "✅ No local dependencies found in requirements.txt"
+  fi
+fi
+
+# 4. Check README badges
+echo "Checking README badges..."
+if [ -f README.md ]; then
+  if grep -q "badge.svg" README.md; then
+    echo "✅ Badges found in README"
+  else
+    echo "⚠️ Warning: README badges might be missing"
+  fi
+fi
+
+echo "✅ Done checking workflow issues"
+echo "Run this script after making changes to workflow files or requirements"

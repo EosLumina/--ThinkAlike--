@@ -1,4 +1,4 @@
-FROM python:3.10-slim-bullseye AS python-base
+FROM python:3.10-slim-bookworm AS python-base
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
@@ -13,7 +13,7 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Additional security hardening
+# Security hardening
 RUN pip install --no-cache-dir --upgrade pip \
     && pip config set global.index-url https://pypi.org/simple/ \
     && pip config set global.trusted-host pypi.org
