@@ -1,16 +1,10 @@
-fastapi>=0.95.0
-uvicorn>=0.21.1
-sqlalchemy>=2.0.9
-alembic>=1.10.3
+fastapi>=0.104.1
+uvicorn>=0.24.0
+sqlalchemy>=2.0.23
+pydantic>=2.4.2
+pytest>=7.4.3
 python-dotenv>=1.0.0
-python-jose[cryptography]>=3.3.0
-passlib[bcrypt]>=1.7.4
-pydantic[email]>=1.10.7
-psycopg2-binary>=2.9.6
-python-multipart>=0.0.6
-ai_application_developer
-backend.app.development
-backend.app.documentation
-backend.app.verification
-
-pip install -e .
+requests>=2.31.0
+pytest-cov>=4.1.0
+mkdocs>=1.5.3
+mkdocs-material>=9.4.6

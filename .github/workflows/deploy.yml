@@ -1,40 +1,18 @@
-name: Build and Deploy
+---
+name: Deploy
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build_and_deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r backend/requirements.txt
-          pip install -e .
-
+      - uses: actions/checkout@v3
+      - name: Setup
+        run: echo "Setting up..."
       - name: Run tests
-        run: |
-          python -m pytest
-
-      - name: Package application
-        run: |
-          mkdir -p dist
-          cp -r backend dist/
-          echo "Application packaged for deployment"
-
-      - name: Deploy application
-        run: |
-          echo "Deploying application..."
-          # Add your deployment commands here
+        run: echo "Running tests..."

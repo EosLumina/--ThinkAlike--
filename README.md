@@ -83,7 +83,7 @@ expansion of the Digital Agora.
 1. **Read the Manifesto:** Understand the core philosophy -> [Manifesto](./docs/core/manifesto/manifesto.md)
 2. **Project Overview:** Get the high-level summary -> [Project Overview](./docs/core/project_overview.md)
 3. **Browse Live Docs:** Explore the full documentation -> **Documentation Portal:** [https://thinkalike-project.onrender.com/](https://thinkalike-project.onrender.com/)
-4. **Join the Community:** Connect & Discuss -> **Discord:** [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) | **Matrix:** [https://matrix.to/#/#thinkalike:matrix.org](https://matrix.to/#/#thinkalike:matrix.org)
+4. **Join the Community:** Connect & Discuss -> **Discord:** [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) | **Signal Community:** [https://signal.group/#thinkalike-community](https://signal.group/#thinkalike-community)
 
 ### Contributing to the Build (Joining the Swarm)
 
@@ -105,7 +105,7 @@ service of all. We need diverse skills:
 * Community Building & Moderation
 * Testing & Feedback
 
-Find tasks on [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues) (look for `good first issue` or `help wanted`). Discuss ideas on [GitHub Discussions](https://github.com/EosLumina/ThinkAlike/discussions) or Discord/Matrix.
+Find tasks on [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues) (look for `good first issue` or `help wanted`). Discuss ideas on [GitHub Discussions](https://github.com/EosLumina/ThinkAlike/discussions) or Discord/Signal.
 
 ## Documentation
 
@@ -127,7 +127,7 @@ ThinkAlike contributes to the Commons through open principles:
 
 ## Contact
 
-* **Community Hub:** Discord [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) / Matrix [https://matrix.to/#/#thinkalike:matrix.org](https://matrix.to/#/#thinkalike:matrix.org)
+* **Community Hub:** Discord [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) / Signal Community [https://signal.group/#thinkalike-community](https://signal.group/#thinkalike-community)
 * **Issues/Features:** [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues)
 * **General Inquiries:** [ThinkAlikeAI@proton.me](mailto:ThinkAlikeAI@proton.me)
 * **Lead Architect/Steward (Eos Lumina∴):** [Eos.Lumina@proton.me](mailto:Eos.Lumina@proton.me)

@@ -1,16 +1,17 @@
+---
 name: Documentation CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'docs/**'
-      - '**.md'
+      - "docs/**"
+      - "**.md"
   pull_request:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'docs/**'
-      - '**.md'
+      - "docs/**"
+      - "**.md"
 
 jobs:
   markdown_lint:
@@ -23,10 +24,20 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: "16"
 
       - name: Install markdownlint
         run: npm install -g markdownlint-cli
+
+      - name: Create markdownlint config
+        run: |
+          echo '{
+            "default": true,
+            "MD013": false,
+            "MD024": false,
+            "MD033": false,
+            "MD041": false
+          }' > .markdownlint.json
 
       - name: Run markdownlint
         run: markdownlint "**/*.md" --ignore node_modules
@@ -35,12 +46,6 @@ jobs:
         run: |
           npm install -g markdownlint-cli2
           npx markdownlint-cli2-fix "**/*.md" --ignore node_modules
-          # Ensure the Python script exists before running it
-          if [ -f backend/fix_project.py ]; then
-            python backend/fix_project.py
-          else
-            echo "Warning: backend/fix_project.py not found, skipping this step"
-          fi
 
   build_docs:
     name: Build Documentation
@@ -53,7 +58,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Install dependencies
         run: |

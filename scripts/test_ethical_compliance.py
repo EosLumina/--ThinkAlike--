@@ -211,12 +211,32 @@ def extract_statistics(results: Dict[str, Any]) -> Dict[str, Any]:
     expectation_results = results.get("expectation_results", {})
 
     # Fix the __getitem__ call issue
+    stats = {}
     if isinstance(expectation_results, dict):
         stats = expectation_results.get("statistics", {})
     else:
-        stats = {}
+        # Handle case where expectation_results might be a list
+        for result in expectation_results if isinstance(expectation_results, list) else []:
+            if isinstance(result, dict) and "statistics" in result:
+                stats.update(result["statistics"])
 
-    return result_details
+    return {
+        "success": results.get("success", False),
+        "result": result_details,
+        "metrics": stats,
+    }
+
+def create_schema_expectation(schema_json: Dict[str, Any]) -> ExpectationConfiguration:
+    """Create schema expectation from JSON schema."""
+    # Implementation with fixed to_json_dict
+    expectation = ExpectationConfiguration(
+        expectation_type="expect_column_values_to_match_schema",
+        kwargs={
+            "column": schema_json.get("column", ""),
+            "schema": schema_json
+        }
+    )
+    return expectation
 
 def main():
     """Main execution function."""
