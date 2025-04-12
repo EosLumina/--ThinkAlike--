@@ -1,22 +1,26 @@
-FROM python:3.10-slim-bookworm AS python-base
+FROM python:3.11-slim-bullseye AS python-base
 
 # Avoid warnings by switching to noninteractive
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install dependencies
+# Install dependencies (upgraded from previous version)
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
-    git \
-    curl \
-    nodejs \
-    npm \
+        git \
+        curl \
+        nodejs \
+        npm \
+        # Add additional security packages
+        ca-certificates \
+        gnupg \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Security hardening
 RUN pip install --no-cache-dir --upgrade pip \
     && pip config set global.index-url https://pypi.org/simple/ \
-    && pip config set global.trusted-host pypi.org
+    && pip config set global.trusted-host pypi.org \
+    && pip install pip-audit
 
 # Set the working directory in the container
 WORKDIR /app
@@ -27,7 +31,7 @@ RUN pip install --no-cache-dir --require-hashes -r requirements.txt || \
     pip install --no-cache-dir -r requirements.txt
 
 # Create a non-root user and switch to it
-RUN useradd -m developer
+RUN useradd -m developer -s /bin/bash
 USER developer
 
 # Set the working directory

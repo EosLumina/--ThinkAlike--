@@ -104,3 +104,55 @@ if (args.length === 0) {
 } else {
   fixMarkdownFile(args[0]);
 }
+
+#!/usr/bin/env node
+
+/**
+ * Script to fix README.md badges and other markdown issues
+ */
+
+// Get the file path from command line arguments
+const filePath = process.argv[2];
+
+if (!filePath) {
+  console.error('Please provide a file path argument');
+  process.exit(1);
+}
+
+// Read the file
+try {
+  let content = fs.readFileSync(filePath, 'utf8');
+
+  // Fix common badge issues
+  content = content
+    // Fix workflow badge links
+    .replace(/https:\/\/github\.com\/([^\/]+)\/([^\/]+)\/actions\/workflows\/([^\/]+)\/badge\.svg/g,
+             'https://github.com/EosLumina/--ThinkAlike--/actions/workflows/$3/badge.svg')
+
+    // Fix repository references
+    .replace(/github\.com\/([^\/]+)\/ThinkAlike/g,
+             'github.com/EosLumina/--ThinkAlike--')
+
+    // Fix other common markdown issues
+    .replace(/\r\n/g, '\n')                // Normalize line endings
+    .replace(/\n{3,}/g, '\n\n')           // Remove extra blank lines
+    .replace(/\*\s+\*/g, '*')             // Fix broken lists
+    .replace(/\[\]\((?!http)[^\)]+\)/g, match => {
+      // Fix relative links
+      const urlPart = match.match(/\[\]\((.*)\)/)[1];
+      if (urlPart.startsWith('/')) {
+        return match;
+      } else if (urlPart.startsWith('./')) {
+        return match;
+      } else {
+        return match.replace(/\[\]\((.*)\)/, '[](./$1)');
+      }
+    });
+
+  // Write the fixed content back to the file
+  fs.writeFileSync(filePath, content);
+  console.log(`Successfully fixed issues in ${filePath}`);
+} catch (err) {
+  console.error(`Error processing ${filePath}:`, err);
+  process.exit(1);
+}
