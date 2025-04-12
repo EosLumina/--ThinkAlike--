@@ -72,6 +72,99 @@ If you're seeing failed workflows or badge issues in the README:
    cd frontend && npm test
    ```
 
+### Git Workflow Guide
+
+I'll automatically guide you through GitHub updates when appropriate. Here's what I can help with:
+
+#### When to Update GitHub
+- After completing a feature or bugfix
+- When you need to share work with other contributors
+- Before creating a pull request
+- When switching between branches or tasks
+- After resolving merge conflicts
+
+#### Handling Uncommitted Changes
+
+If you see errors about uncommitted changes blocking operations:
+
+```bash
+# View what's changed
+git status
+
+# Option 1: Save your changes as a commit
+git add .
+git commit -m "feat: describe your changes"
+
+# Option 2: Stash changes temporarily (retrieve later with git stash pop)
+git stash
+
+# Option 3: Create a temporary branch with your changes
+git checkout -b temp-save-$(date +%Y%m%d-%H%M%S)
+git add .
+git commit -m "temp: work in progress"
+```
+
+#### Step-by-Step GitHub Workflow
+
+1. **Start Fresh (New Task):**
+   ```bash
+   # Update main branch
+   git checkout main
+   git pull origin main
+
+   # Create feature branch
+   git checkout -b feature/your-feature-name
+   ```
+
+2. **Regular Work Checkpoints:**
+   ```bash
+   # Save your work
+   git add .
+   git commit -m "feat: describe specific changes"
+
+   # Push to your remote branch (first time)
+   git push -u origin feature/your-feature-name
+
+   # Push subsequent updates
+   git push
+   ```
+
+3. **Update from Main Branch:**
+   ```bash
+   # First commit or stash your changes
+   git add .
+   git commit -m "wip: save progress"
+
+   # Update with rebase
+   git fetch origin
+   git rebase origin/main
+
+   # Resolve any conflicts if they occur
+   # Then continue
+   git rebase --continue
+   ```
+
+4. **Submit for Review:**
+   ```bash
+   # Ensure branch is up to date
+   git fetch origin
+   git rebase origin/main
+
+   # Push final changes
+   git push -u origin feature/your-feature-name
+   ```
+
+#### Troubleshooting Common Git Issues
+
+| Error                       | Solution                                                                                   |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
+| "You have unstaged changes" | First commit (`git add . && git commit -m "message"`) or stash (`git stash`) your changes  |
+| "Failed to push some refs"  | Pull/rebase first: `git pull --rebase origin main`                                         |
+| "Merge conflict in [file]"  | Edit the conflicted files, then `git add [file]` and continue with `git rebase --continue` |
+| "Detached HEAD state"       | Create a branch to save work: `git checkout -b recovery-branch`                            |
+
+I'll proactively suggest the appropriate Git commands when I detect you need to update GitHub or when you encounter Git-related issues.
+
 ---
 
 ## Genius-Level Meta-Prompt / System Configuration for ThinkAlike AI Collaborator
