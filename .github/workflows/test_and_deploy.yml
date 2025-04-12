@@ -1,18 +1,44 @@
----
-name: Test And Deploy
-
-on:
+name: Test and Deploy Combined
+'on':
   push:
-    branches: [main]
+    branches:
+    - main
   pull_request:
-    branches: [main]
-
+    branches:
+    - main
+  workflow_dispatch: {}
+true:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup
-        run: echo "Setting up..."
-      - name: Run tests
-        run: echo "Running tests..."
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: 'python -m pip install --upgrade pip
+
+        pip install pytest pytest-cov
+
+        if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt;
+        fi
+
+        '
+    - name: Run tests
+      run: pytest
+  deploy:
+    needs: test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && success()
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Deploy Application
+      run: echo "Deploying application..."

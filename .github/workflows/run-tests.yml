@@ -1,45 +1,42 @@
-# GitHub workflow for running ThinkAlike tests
 name: Run Tests
-
-on:
+'on':
   push:
-    branches: [ main ]
+    branches:
+    - main
   pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-
+    branches:
+    - main
+  workflow_dispatch: {}
+true:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch: null
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements-test.txt ]; then
-            pip install -r requirements-test.txt
-          else
-            pip install httpx pandas pytest pytest-cov
-          fi
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          fi
-
-      - name: Fix corrupted files
-        run: |
-          python -c $'import pathlib\nfiles = [\n    \'backend/app/development/ai_application_developer.py\',\n    \'backend/app/documentation/doc_parser.py\',\n    \'backend/app/services/value_based_matcher.py\'\n]\nfor f in files:\n    p = pathlib.Path(f)\n    if p.exists():\n        content = p.read_bytes()\n        fixed = content.replace(b\'\\x00\', b\'\')\n        p.write_bytes(fixed)\n        print(f\'Fixed {f}\' if content != fixed else f\'No nulls in {f}\')'
-
-      - name: Run tests
-        run: |
-          # Use the test environment setup helper if available
-          if [ -f tests/helpers/setup_test_environment.py ]; then
-            python tests/helpers/setup_test_environment.py
-          fi
-          pytest
+    - name: Check out repository
+      uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+    - name: Install dependencies
+      run: "python -m pip install --upgrade pip\nif [ -f requirements-test.txt ];\
+        \ then\n  pip install -r requirements-test.txt\nelse\n  pip install httpx\
+        \ pandas pytest pytest-cov\nfi\nif [ -f requirements.txt ]; then\n  pip install\
+        \ -r requirements.txt\nfi\n"
+    - name: Fix corrupted files
+      run: python .github/scripts/fix_corrupted_files.py
+    - name: Run tests
+      run: pytest
+    - name: Check for test files
+      run: "files=$(find . -name \"test_*.py\")\nif [ -z \"$files\" ]; then\n  echo\
+        \ \"No test files found!\"\n  exit 1\nfi\necho \"Found test files: $files\"\
+        \n"
+    - name: Verify test files
+      run: python .github/scripts/verify_test_files.py "$(find . -name "test_*.py")"

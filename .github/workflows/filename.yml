@@ -1,16 +1,21 @@
 name: Example Workflow
-# This file had syntax errors - creating valid structure
-
-on:
-  workflow_dispatch:
+'on':
   push:
-    branches: [main]
-
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch: {}
+true:
+  workflow_dispatch: null
+  push:
+    branches:
+    - main
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Run example command
-        run: echo "This is a placeholder step"
+    - uses: actions/checkout@v4
+    - name: Run example command
+      run: echo "This is a placeholder step"
