@@ -70,6 +70,11 @@ function fixMarkdownFile(filePath) {
     content = content.replace(/^([^\n])(```)/gm, '$1\n\n$2');
     content = content.replace(/(```)([^\n])/gm, '$1\n\n$2');
 
+    // Fix README badges
+    content = content.replace(/!\[Docs CI\]\(https:\/\/github\.com\/EosLumina\/--ThinkAlike--\/actions\/workflows\/docs\.yml\/badge\.svg\)/g, '![Docs CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml/badge.svg)');
+    content = content.replace(/!\[Backend CI\]\(https:\/\/github\.com\/EosLumina\/--ThinkAlike--\/actions\/workflows\/backend\.yml\/badge\.svg\)/g, '![Backend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml/badge.svg)');
+    content = content.replace(/!\[Frontend CI\]\(https:\/\/github\.com\/EosLumina\/--ThinkAlike--\/actions\/workflows\/frontend\.yml\/badge\.svg\)/g, '![Frontend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml/badge.svg)');
+
     // Write back fixed content
     fs.writeFileSync(filePath, content, 'utf8');
     console.log(`✅ Fixed linting issues in: ${filePath}`);
