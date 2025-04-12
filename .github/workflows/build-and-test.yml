@@ -3,9 +3,16 @@ name: Build And Test
   push:
     branches:
     - main
+    paths: &id001
+    - frontend/**
+    - '*.js'
+    - '*.ts'
+    - '*.jsx'
+    - '*.tsx'
   pull_request:
     branches:
     - main
+    paths: *id001
   workflow_dispatch: {}
 true:
   push:

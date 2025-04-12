@@ -3,9 +3,13 @@ name: Documentation CI
   push:
     branches:
     - main
+    paths: &id001
+    - docs/**
+    - '**/*.md'
   pull_request:
     branches:
     - main
+    paths: *id001
   workflow_dispatch: {}
 true:
   push:
