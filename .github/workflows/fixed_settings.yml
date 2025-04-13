@@ -1,16 +1,22 @@
-name: Repository Settings
+name: Repository Settings (Fixed)
 
-on:
+'on':
   push:
-    branches: [main]
+    branches:
+    - main
   pull_request:
-    branches: [main]
-  workflow_dispatch:
+    branches:
+    - main
+  workflow_dispatch: {}
 
 jobs:
-  build:
+  settings:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run tests
-        run: echo "Running tests for Repository Settings"
+      - name: Apply repository settings
+        uses: probot/settings@v1
+        with:
+          settings_file: .github/config/repository-settings.yml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
