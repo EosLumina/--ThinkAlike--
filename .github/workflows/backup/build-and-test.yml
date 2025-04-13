@@ -13,6 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Setup
-        run: echo "Setting up..."
+        run: |
+          echo "Setting up..."
+          rm /workspaces/--ThinkAlike--/.github/workflows/backup/build-and-test.yml
       - name: Run tests
         run: echo "Running tests..."
