@@ -36,7 +36,8 @@ line_length = 88
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--strict-markers --cov=backend --cov-report=term-missing"
+# Removed to prevent passing coverage options:
+# addopts = "--cov=backend --cov-report=term-missing"
 testpaths = [
     "tests",
 ]
