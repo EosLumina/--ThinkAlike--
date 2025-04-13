@@ -52,7 +52,7 @@ rpds-py==0.22.3
 ruamel.yaml==0.16
 ruamel.yaml.clib==0.2.12
 safetensors==0.5.2
-scipy==1.7.3
+scipy==1.11.3
 six==1.17.0
 SQLAlchemy==2.0.9
 tokenizers==0.21.0

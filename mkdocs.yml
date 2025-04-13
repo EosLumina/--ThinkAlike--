@@ -1,4 +1,4 @@
-site_name: ThinkAlike
+site_name: "ThinkAlike Documentation"
 site_description: Documentation for the ThinkAlike platform
 site_url: https://eoslumina.github.io/--ThinkAlike--/ # Replace with your actual project URL
 theme:
