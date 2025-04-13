@@ -1,4 +1,4 @@
-name: Consolidated CI
+name: Run Tests
 
 on:
   push:
@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Run basic tasks
-        run: echo "Running Consolidated CI"
+      - name: Test
+        run: echo "Running tests"

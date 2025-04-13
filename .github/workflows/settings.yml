@@ -1,14 +1,16 @@
 name: Repository Settings
 
 on:
-  schedule:
-    - cron: "0 0 * * 0"
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  settings:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Apply settings
-        run: echo "Applying repository settings"
+      - name: Run basic tasks
+        run: echo "Running Repository Settings"

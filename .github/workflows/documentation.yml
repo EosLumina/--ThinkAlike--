@@ -4,7 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - "docs/**"
+      - 'docs/**'
+      - '*.md'
   workflow_dispatch:
 
 jobs:
@@ -12,5 +13,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Build docs
+      - name: Build documentation
         run: echo "Building documentation"
