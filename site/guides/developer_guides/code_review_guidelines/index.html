@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/code_review_guidelines/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Code Review Guidelines - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Code Review Guidelines";
+        var mkdocs_page_input_path = "guides/developer_guides/code_review_guidelines.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/code_review_guidelines/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Code Review Guidelines</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="code-review-guidelines">Code Review Guidelines</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document outlines ThinkAlike's code review standards and best practices. Effective code reviews improve code quality, 
+reduce bugs, share knowledge across the team, and ensure consistency in our codebase. These guidelines provide a framework 
+for constructive, efficient, and respectful code review processes.</p>
+<hr />
+<h2 id="2-core-principles">2. Core Principles</h2>
+<h3 id="21-purpose-of-code-reviews">2.1 Purpose of Code Reviews</h3>
+<p>Code reviews at ThinkAlike serve multiple purposes:</p>
+<ul>
+<li>
+<p><strong>Quality Assurance</strong>: Catch bugs, logic errors, and edge cases early</p>
+</li>
+<li>
+<p><strong>Knowledge Sharing</strong>: Spread expertise and context across the team</p>
+</li>
+<li>
+<p><strong>Consistency</strong>: Ensure codebase follows established patterns and standards</p>
+</li>
+<li>
+<p><strong>Mentorship</strong>: Provide learning opportunities for all team members</p>
+</li>
+<li>
+<p><strong>Collective Ownership</strong>: Build shared responsibility for the codebase</p>
+</li>
+</ul>
+<h3 id="22-review-mindset">2.2 Review Mindset</h3>
+<p>Approach code reviews with the following mindset:</p>
+<ul>
+<li>
+<p><strong>Be Respectful</strong>: All feedback should be constructive and professional</p>
+</li>
+<li>
+<p><strong>Focus on Code, Not People</strong>: Review the code, not the coder</p>
+</li>
+<li>
+<p><strong>Assume Good Intent</strong>: Assume teammates are doing their best work</p>
+</li>
+<li>
+<p><strong>Be Humble</strong>: Everyone has something to learn, regardless of experience level</p>
+</li>
+<li>
+<p><strong>Consider Context</strong>: Understand the purpose, constraints, and urgency of changes</p>
+</li>
+<li>
+<p><strong>Remember the Human</strong>: The code author has feelings and perspective</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-code-review-process">3. Code Review Process</h2>
+<h3 id="31-when-to-request-a-review">3.1 When to Request a Review</h3>
+<ul>
+<li>
+<p>After passing all automated tests</p>
+</li>
+<li>
+<p>After performing a self-review</p>
+</li>
+<li>
+<p>When the code is ready for production (not for early feedback)</p>
+</li>
+<li>
+<p>For all changes to the main codebase, regardless of size</p>
+</li>
+</ul>
+<h3 id="32-pull-request-preparation">3.2 Pull Request Preparation</h3>
+<p>Before requesting a review, ensure your pull request includes:</p>
+<ul>
+<li>
+<p><strong>Clear Title</strong>: Concise description of what the change accomplishes</p>
+</li>
+<li>
+<p><strong>Description</strong>: Context, reasoning, and summary of changes</p>
+</li>
+<li>
+<p><strong>Linked Issues</strong>: References to any related tickets or issues</p>
+</li>
+<li>
+<p><strong>Testing Details</strong>: How the changes were tested, and how reviewers can test</p>
+</li>
+<li>
+<p><strong>Screenshots/Videos</strong>: For UI changes, before/after visuals</p>
+</li>
+<li>
+<p><strong>Necessary Labels</strong>: Priority, type of change, affected components</p>
+</li>
+<li>
+<p><strong>Self-review Checklist</strong>: Confirmation of meeting standards</p>
+</li>
+</ul>
+<p>Example pull request template:</p>
+<div class="highlight"><pre><span></span><code><span class="gu">## Description</span>
+
+[Provide a brief description of the changes in this PR]
+
+<span class="gu">## Related Issues</span>
+
+<span class="k">*</span><span class="w"> </span>Fixes #[issue-number]
+
+<span class="gu">## Type of Change</span>
+
+<span class="k">* [ ]</span> Bug fix
+
+<span class="k">* [ ]</span> New feature
+
+<span class="k">* [ ]</span> Breaking change
+
+<span class="k">* [ ]</span> Documentation update
+
+<span class="k">* [ ]</span> Refactoring
+
+<span class="k">* [ ]</span> Performance improvement
+
+<span class="gu">## How Has This Been Tested?</span>
+
+<span class="k">* [ ]</span> Unit tests
+
+<span class="k">* [ ]</span> Integration tests
+
+<span class="k">* [ ]</span> Manual testing
+
+<span class="gu">## Testing Instructions</span>
+
+[Provide instructions for reviewers to test these changes]
+
+<span class="gu">## Screenshots (if applicable)</span>
+
+<span class="gu">## Self-review Checklist</span>
+
+<span class="k">* [ ]</span> Code follows style guidelines
+
+<span class="k">* [ ]</span> Automated tests pass
+
+<span class="k">* [ ]</span> Documentation has been updated
+
+<span class="k">* [ ]</span> No unnecessary commented code or debugging statements
+
+<span class="k">* [ ]</span> Error handling has been implemented
+
+<span class="k">* [ ]</span> Performance considerations addressed
+</code></pre></div>
+<h3 id="33-reviewing-code">3.3 Reviewing Code</h3>
+<p>When reviewing code, follow these steps:</p>
+<ol>
+<li><strong>Understand the Context</strong>: Read the PR description and linked issues</li>
+<li><strong>Run the Code</strong>: If possible, check out the branch and test the changes</li>
+<li><strong>Review Tests</strong>: Examine test coverage and test quality</li>
+<li><strong>Review Implementation</strong>: Evaluate the code itself</li>
+<li><strong>Provide Feedback</strong>: Comment on issues and suggest improvements</li>
+<li><strong>Summarize</strong>: Provide an overall assessment at the end</li>
+</ol>
+<h3 id="34-response-time-expectations">3.4 Response Time Expectations</h3>
+<ul>
+<li>
+<p><strong>Initial Review</strong>: Within 1 business day</p>
+</li>
+<li>
+<p><strong>Follow-up Reviews</strong>: Within 4 business hours</p>
+</li>
+<li>
+<p><strong>Urgent PRs</strong>: Marked as such and addressed within 4 business hours</p>
+</li>
+<li>
+<p><strong>Long-running PRs</strong>: Check in daily on PRs taking multiple days</p>
+</li>
+</ul>
+<h3 id="35-resolving-disagreements">3.5 Resolving Disagreements</h3>
+<p>When reviewers and authors disagree:</p>
+<ol>
+<li><strong>Clarify Understanding</strong>: Ensure both sides understand the issue</li>
+<li><strong>Consider Alternatives</strong>: Explore multiple approaches</li>
+<li><strong>Involve Others</strong>: Seek input from additional team members</li>
+<li><strong>Defer to Principles</strong>: Reference architectural or design principles</li>
+<li><strong>Escalate When Needed</strong>: If unresolved, involve a technical lead</li>
+</ol>
+<hr />
+<h2 id="4-what-to-look-for">4. What to Look For</h2>
+<h3 id="41-code-correctness">4.1 Code Correctness</h3>
+<ul>
+<li>
+<p><strong>Functionality</strong>: Does the code do what it claims to do?</p>
+</li>
+<li>
+<p><strong>Edge Cases</strong>: Are boundary conditions handled?</p>
+</li>
+<li>
+<p><strong>Error Handling</strong>: Are errors properly caught and processed?</p>
+</li>
+<li>
+<p><strong>Race Conditions</strong>: Could concurrent operations cause issues?</p>
+</li>
+<li>
+<p><strong>Security</strong>: Are there potential vulnerabilities?</p>
+</li>
+<li>
+<p><strong>Data Validation</strong>: Is input properly validated?</p>
+</li>
+</ul>
+<h3 id="42-code-quality">4.2 Code Quality</h3>
+<ul>
+<li>
+<p><strong>Readability</strong>: Is the code easy to understand?</p>
+</li>
+<li>
+<p><strong>Maintainability</strong>: Will future developers be able to modify this code?</p>
+</li>
+<li>
+<p><strong>Simplicity</strong>: Is the solution unnecessarily complex?</p>
+</li>
+<li>
+<p><strong>Performance</strong>: Are there obvious performance issues?</p>
+</li>
+<li>
+<p><strong>Modularity</strong>: Is the code properly modularized with clear responsibilities?</p>
+</li>
+<li>
+<p><strong>Testing</strong>: Are tests comprehensive and well-designed?</p>
+</li>
+</ul>
+<h3 id="43-code-style">4.3 Code Style</h3>
+<ul>
+<li>
+<p><strong>Naming</strong>: Are variables, functions, and classes named clearly?</p>
+</li>
+<li>
+<p><strong>Formatting</strong>: Does the code follow formatting standards?</p>
+</li>
+<li>
+<p><strong>Comments</strong>: Are complex sections adequately commented?</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: Are public APIs documented?</p>
+</li>
+<li>
+<p><strong>Consistency</strong>: Does the code match patterns used elsewhere?</p>
+</li>
+</ul>
+<h3 id="44-architecture">4.4 Architecture</h3>
+<ul>
+<li>
+<p><strong>Design Patterns</strong>: Are appropriate patterns applied?</p>
+</li>
+<li>
+<p><strong>Component Boundaries</strong>: Are responsibilities properly separated?</p>
+</li>
+<li>
+<p><strong>Dependencies</strong>: Are dependencies managed appropriately?</p>
+</li>
+<li>
+<p><strong>Extensibility</strong>: Can the code be extended without major changes?</p>
+</li>
+<li>
+<p><strong>Reusability</strong>: Could parts of this code be reused elsewhere?</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-providing-feedback">5. Providing Feedback</h2>
+<h3 id="51-comment-types">5.1 Comment Types</h3>
+<p>Use different comment types to communicate effectively:</p>
+<ul>
+<li>
+<p><strong>Questions</strong>: Ask for clarification or rationale</p>
+</li>
+<li>
+<p><strong>Suggestions</strong>: Propose alternatives or improvements</p>
+</li>
+<li>
+<p><strong>Issues</strong>: Point out problems that should be fixed</p>
+</li>
+<li>
+<p><strong>Praise</strong>: Acknowledge good solutions or practices</p>
+</li>
+<li>
+<p><strong>Nits</strong>: Minor style or readability suggestions</p>
+</li>
+</ul>
+<h3 id="52-comment-structure">5.2 Comment Structure</h3>
+<p>Structure comments to be clear and actionable:</p>
+<ul>
+<li>
+<p><strong>Be Specific</strong>: Reference exact lines or sections</p>
+</li>
+<li>
+<p><strong>Explain Why</strong>: Provide reasoning behind feedback</p>
+</li>
+<li>
+<p><strong>Offer Solutions</strong>: When possible, suggest concrete improvements</p>
+</li>
+<li>
+<p><strong>Prioritize Issues</strong>: Distinguish between major and minor concerns</p>
+</li>
+<li>
+<p><strong>Use Markdown</strong>: Format comments for readability</p>
+</li>
+</ul>
+<h3 id="53-constructive-language">5.3 Constructive Language</h3>
+<p>Use language that encourages collaboration:</p>
+<table>
+<thead>
+<tr>
+<th>Instead of</th>
+<th>Try</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"Why did you do this?"</td>
+<td>"Can you explain the reasoning behind this approach?"</td>
+</tr>
+<tr>
+<td>"This is wrong."</td>
+<td>"I think there might be an issue here because..."</td>
+</tr>
+<tr>
+<td>"You forgot to..."</td>
+<td>"We should add..."</td>
+</tr>
+<tr>
+<td>"This code is messy."</td>
+<td>"This section could be more maintainable by..."</td>
+</tr>
+<tr>
+<td>"Never do this."</td>
+<td>"Generally, we prefer to..."</td>
+</tr>
+</tbody>
+</table>
+<h3 id="54-feedback-examples">5.4 Feedback Examples</h3>
+<p>Examples of constructive feedback:</p>
+<h4 id="positive-feedback">Positive Feedback</h4>
+<div class="highlight"><pre><span></span><code>Great job implementing the caching strategy here. The TTL settings make sense for this use case, and I like how you added clear invalidation logic.
+</code></pre></div>
+<h4 id="question">Question</h4>
+<div class="highlight"><pre><span></span><code>I&#39;m curious about the choice to use a HashMap here instead of a TreeMap. Was performance the main consideration, or are there other benefits I&#39;m missing?
+</code></pre></div>
+<h4 id="suggestion">Suggestion</h4>
+<div class="highlight"><pre><span></span><code>This loop could potentially be simplified using streams:
+
+```java
+return users.stream()
+    .filter(User::isActive)
+    .map(User::getEmail)
+    .collect(Collectors.toList());
+</code></pre></div>
+<p>It might make the intent clearer, but I'll leave it up to you if you prefer this approach.
+<div class="highlight"><pre><span></span><code>#### Issue
+
+```text
+This query doesn&#39;t include an index for the `status` field, which could cause performance issues with large datasets. We should either add an index or restructure the query to use existing indexes.
+</code></pre></div></p>
+<h4 id="nitpick">Nitpick</h4>
+<div class="highlight"><pre><span></span><code>nit: we typically use camelCase for variable names rather than snake_case to match our style guide.
+</code></pre></div>
+<hr />
+<h2 id="6-responding-to-feedback">6. Responding to Feedback</h2>
+<h3 id="61-as-a-code-author">6.1 As a Code Author</h3>
+<p>When receiving feedback:</p>
+<ul>
+<li>
+<p><strong>Be Open</strong>: Approach feedback as an opportunity to improve</p>
+</li>
+<li>
+<p><strong>Ask Questions</strong>: Seek clarification if feedback is unclear</p>
+</li>
+<li>
+<p><strong>Explain Decisions</strong>: Share context for your choices</p>
+</li>
+<li>
+<p><strong>Make Requested Changes</strong>: Address valid concerns</p>
+</li>
+<li>
+<p><strong>Discuss Alternatives</strong>: If you disagree, suggest different solutions</p>
+</li>
+<li>
+<p><strong>Express Gratitude</strong>: Thank reviewers for their time and input</p>
+</li>
+</ul>
+<h3 id="62-common-responses">6.2 Common Responses</h3>
+<p>Examples of constructive responses to feedback:</p>
+<h4 id="accepting-feedback">Accepting Feedback</h4>
+<div class="highlight"><pre><span></span><code>Great catch! I&#39;ve updated the code to handle this edge case.
+</code></pre></div>
+<h4 id="asking-for-clarification">Asking for Clarification</h4>
+<div class="highlight"><pre><span></span><code>I&#39;m not sure I understand the concern about the database query. Could you elaborate on what might go wrong in a high-load scenario?
+</code></pre></div>
+<h4 id="explaining-a-decision">Explaining a Decision</h4>
+<div class="highlight"><pre><span></span><code>I chose this approach because it allows for easier extension when we implement the planned feature X next quarter. Alternative approaches would require more significant refactoring later.
+</code></pre></div>
+<h4 id="suggesting-an-alternative">Suggesting an Alternative</h4>
+<div class="highlight"><pre><span></span><code>I see your point about the potential memory issue. Instead of implementing your suggested approach with a cache, what if we switched to a streaming process that would keep memory usage constant?
+</code></pre></div>
+<hr />
+<h2 id="7-special-review-types">7. Special Review Types</h2>
+<h3 id="71-security-focused-reviews">7.1 Security-Focused Reviews</h3>
+<p>For code dealing with authentication, data protection, or sensitive operations:</p>
+<ul>
+<li>
+<p><strong>Involve Security Experts</strong>: Request review from security team members</p>
+</li>
+<li>
+<p><strong>Threat Modeling</strong>: Consider potential attack vectors</p>
+</li>
+<li>
+<p><strong>Extra Scrutiny</strong>: Apply higher standards for validation and sanitization</p>
+</li>
+<li>
+<p><strong>Sensitive Data Handling</strong>: Ensure PII and credentials are properly protected</p>
+</li>
+<li>
+<p><strong>Authorization Checks</strong>: Verify proper permission validation</p>
+</li>
+</ul>
+<h3 id="72-performance-critical-reviews">7.2 Performance-Critical Reviews</h3>
+<p>For code in performance-sensitive areas:</p>
+<ul>
+<li>
+<p><strong>Benchmarking</strong>: Request performance measurements</p>
+</li>
+<li>
+<p><strong>Load Testing</strong>: Consider behavior under scale</p>
+</li>
+<li>
+<p><strong>Resource Usage</strong>: Examine memory, CPU, and I/O requirements</p>
+</li>
+<li>
+<p><strong>Query Efficiency</strong>: Check database query plans and indexing</p>
+</li>
+<li>
+<p><strong>Caching Strategy</strong>: Evaluate caching approach and invalidation</p>
+</li>
+</ul>
+<h3 id="73-api-reviews">7.3 API Reviews</h3>
+<p>For public or internal API changes:</p>
+<ul>
+<li>
+<p><strong>Contract Validation</strong>: Ensure the API fulfills its contract</p>
+</li>
+<li>
+<p><strong>Backward Compatibility</strong>: Check for breaking changes</p>
+</li>
+<li>
+<p><strong>Documentation</strong>: Verify clear and complete documentation</p>
+</li>
+<li>
+<p><strong>Error Handling</strong>: Review error responses and status codes</p>
+</li>
+<li>
+<p><strong>Versioning</strong>: Confirm proper versioning strategy</p>
+</li>
+</ul>
+<hr />
+<h2 id="8-automated-code-reviews">8. Automated Code Reviews</h2>
+<h3 id="81-static-analysis-tools">8.1 Static Analysis Tools</h3>
+<p>ThinkAlike uses the following static analysis tools:</p>
+<ul>
+<li>
+<p><strong>ESLint/TSLint</strong>: For JavaScript/TypeScript style and potential errors</p>
+</li>
+<li>
+<p><strong>SonarQube</strong>: For code quality and security vulnerabilities</p>
+</li>
+<li>
+<p><strong>Checkstyle</strong>: For Java code style enforcement</p>
+</li>
+<li>
+<p><strong>Prettier</strong>: For code formatting</p>
+</li>
+<li>
+<p><strong>CodeQL</strong>: For security analysis</p>
+</li>
+</ul>
+<h3 id="82-integration-with-cicd">8.2 Integration with CI/CD</h3>
+<ul>
+<li>
+<p>All automated checks must pass before human review</p>
+</li>
+<li>
+<p>Results are posted as comments on pull requests</p>
+</li>
+<li>
+<p>Critical issues block merging</p>
+</li>
+<li>
+<p>Warning-level issues require acknowledgment</p>
+</li>
+</ul>
+<h3 id="83-custom-linting-rules">8.3 Custom Linting Rules</h3>
+<p>ThinkAlike maintains custom linting rules for project-specific requirements:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example ESLint rule configuration</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">rules</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Require type annotations on public API functions</span>
+<span class="w">    </span><span class="s2">&quot;@typescript-eslint/explicit-function-return-type&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;allowExpressions&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;allowTypedFunctionExpressions&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;allowHigherOrderFunctions&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">    </span><span class="p">}],</span>
+
+<span class="w">    </span><span class="c1">// Prevent direct DOM manipulation in React components</span>
+<span class="w">    </span><span class="s2">&quot;react/no-direct-mutation-state&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// Custom rule for ThinkAlike-specific patterns</span>
+<span class="w">    </span><span class="s2">&quot;thinkalike/no-deprecated-api&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+
+<span class="w">    </span><span class="c1">// Enforce consistent import ordering</span>
+<span class="w">    </span><span class="s2">&quot;import/order&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;error&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="s2">&quot;groups&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;builtin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;external&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;internal&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;parent&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;sibling&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;index&quot;</span><span class="p">],</span>
+<span class="w">      </span><span class="s2">&quot;newlines-between&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;always&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;alphabetize&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s2">&quot;order&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;asc&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;caseInsensitive&quot;</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<hr />
+<h2 id="9-code-review-metrics">9. Code Review Metrics</h2>
+<h3 id="91-quality-metrics">9.1 Quality Metrics</h3>
+<p>Track these metrics to evaluate code review effectiveness:</p>
+<ul>
+<li>
+<p><strong>Defect Escape Rate</strong>: Bugs that pass code review</p>
+</li>
+<li>
+<p><strong>Review Coverage</strong>: Percentage of changed lines reviewed</p>
+</li>
+<li>
+<p><strong>Review Depth</strong>: Comments per line of code</p>
+</li>
+<li>
+<p><strong>Review Iteration</strong>: Number of review cycles before approval</p>
+</li>
+<li>
+<p><strong>Time to Review</strong>: Duration from PR creation to approval</p>
+</li>
+</ul>
+<h3 id="92-process-metrics">9.2 Process Metrics</h3>
+<p>Monitor the health of the review process:</p>
+<ul>
+<li>
+<p><strong>Review Response Time</strong>: Time until first review comment</p>
+</li>
+<li>
+<p><strong>Review Resolution Time</strong>: Time to address all review comments</p>
+</li>
+<li>
+<p><strong>PR Size</strong>: Number of changes per pull request</p>
+</li>
+<li>
+<p><strong>Review Workload</strong>: Reviews per person per day</p>
+</li>
+<li>
+<p><strong>Blocker Rate</strong>: Percentage of PRs blocked by reviews</p>
+</li>
+</ul>
+<h3 id="93-improving-the-process">9.3 Improving the Process</h3>
+<p>Regularly evaluate and improve review processes:</p>
+<ul>
+<li>
+<p>Hold quarterly retrospectives on code review practices</p>
+</li>
+<li>
+<p>Adjust guidelines based on team feedback</p>
+</li>
+<li>
+<p>Rotate review pairing to spread knowledge</p>
+</li>
+<li>
+<p>Provide training on effective code review techniques</p>
+</li>
+<li>
+<p>Recognize exemplary reviewers</p>
+</li>
+</ul>
+<hr />
+<h2 id="10-review-checklists">10. Review Checklists</h2>
+<h3 id="101-general-review-checklist">10.1 General Review Checklist</h3>
+<p>✅ <strong>Functionality</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code works as described in the requirements</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Edge cases are handled</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Error cases are handled properly</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Changes are backward compatible (or breaking changes are documented)</p>
+</li>
+</ul>
+<p>✅ <strong>Security</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Input is validated and sanitized</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Authentication and authorization are properly implemented</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Sensitive data is protected</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No security vulnerabilities introduced</p>
+</li>
+</ul>
+<p>✅ <strong>Performance</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Algorithms are efficient</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Database queries are optimized</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Resource usage is reasonable</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No N+1 query issues</p>
+</li>
+</ul>
+<p>✅ <strong>Code Quality</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code follows style guidelines</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Names are clear and meaningful</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Complex logic is well-commented</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No duplicated code</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Functions and classes have single responsibilities</p>
+</li>
+</ul>
+<p>✅ <strong>Testing</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Unit tests cover the changes</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Integration tests validate functionality</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Edge cases are tested</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests are well-structured and maintainable</p>
+</li>
+</ul>
+<p>✅ <strong>Documentation</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code is self-documenting where possible</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Public APIs are documented</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Complex algorithms have explanatory comments</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> README or other docs are updated if needed</p>
+</li>
+</ul>
+<h3 id="102-frontend-specific-checklist">10.2 Frontend-Specific Checklist</h3>
+<p>✅ <strong>User Experience</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> UI is consistent with design specifications</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Interactions are intuitive and responsive</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Accessibility standards are followed</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Responsive design works on target devices</p>
+</li>
+</ul>
+<p>✅ <strong>React/Frontend</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Components are properly structured</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> State management is appropriate</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> No memory leaks (e.g., event listeners cleaned up)</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> CSS follows project conventions</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Animations are smooth and purposeful</p>
+</li>
+</ul>
+<p>✅ <strong>Browser Compatibility</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Works in all supported browsers</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Fallbacks for unsupported features</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Mobile-friendly design</p>
+</li>
+</ul>
+<h3 id="103-backend-specific-checklist">10.3 Backend-Specific Checklist</h3>
+<p>✅ <strong>API Design</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Follows RESTful or GraphQL conventions</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> URLs and parameter names are consistent</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Return values and error responses are consistent</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Versioning strategy is followed</p>
+</li>
+</ul>
+<p>✅ <strong>Data Management</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Database schema changes are backward compatible</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Migrations are properly implemented</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Transactions are used where appropriate</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Indexes are created for queried fields</p>
+</li>
+</ul>
+<p>✅ <strong>Scalability</strong></p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Code performs well under load</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Caching is implemented where beneficial</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Expensive operations are asynchronous if appropriate</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Resources are properly released</p>
+</li>
+</ul>
+<hr />
+<h2 id="11-learning-resources">11. Learning Resources</h2>
+<h3 id="111-recommended-reading">11.1 Recommended Reading</h3>
+<ul>
+<li>
+<p><a href="https://smartbear.com/SmartBear/media/pdfs/best-kept-secrets-of-peer-code-review.pdf">Best Kept Secrets of Peer Code Review</a></p>
+</li>
+<li>
+<p><a href="https://leanpub.com/whattolookforinacodereview">What to Look for in a Code Review</a></p>
+</li>
+<li>
+<p><a href="https://www.oreilly.com/library/view/the-art-of/9781449318482/">The Art of Readable Code</a></p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=PJjmw9TRB7s">Implementing a Strong Code-Review Culture</a></p>
+</li>
+</ul>
+<h3 id="112-internal-resources">11.2 Internal Resources</h3>
+<ul>
+<li>
+<p><a href="../style_guides/">ThinkAlike Style Guides</a></p>
+</li>
+<li>
+<p><a href="../../architecture/adrs/">Architecture Decision Records</a></p>
+</li>
+<li>
+<p><a href="../examples/code_review_examples.md">Common Code Review Feedback Examples</a></p>
+</li>
+</ul>
+<hr />
+<p>By following these code review guidelines, ThinkAlike ensures high-quality code, knowledge sharing across the team, and a 
+collaborative development culture.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Code Review Guidelines</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Code Review Guidelines</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/user_guides/connected_services_guide/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Managing Connected Services &amp; Data Sources - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Managing Connected Services \u0026amp; Data Sources";
+        var mkdocs_page_input_path = "guides/user_guides/connected_services_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/user_guides/connected_services_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Managing Connected Services &amp; Data Sources</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="managing-connected-services-data-sources">Managing Connected Services &amp; Data Sources</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Welcome to your <strong>Connected Services &amp; Data Sources</strong> center! ThinkAlike offers you the <strong>option</strong> to connect certain external service accounts you use (like Goodreads for books or Spotify for music) to potentially enhance your experience on our platform.</p>
+<p>Connecting these services can provide ThinkAlike with supplementary insights into your interests and cultural tastes, which <em>might</em> help improve the relevance of suggested connections (in Mode 2: Profile Discovery) or communities (in Mode 3: Community Building).</p>
+<p>This guide explains how this feature works, putting <strong>you in complete control</strong>. You decide <em>if</em> you want to connect any service, <em>what specific permissions</em> you grant ThinkAlike on that service, and <em>exactly how</em> any retrieved data can be used within ThinkAlike. This feature is designed according to our strict <a href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>, prioritizing your privacy, consent, and data sovereignty.</p>
+<p><strong>Connecting external services is entirely optional.</strong> ThinkAlike's core functionality works effectively based on the information you provide directly within the platform (like your choices in Mode 1 or details in your profile).</p>
+<hr />
+<h2 id="2-how-connecting-services-can-help-potentially">2. How Connecting Services Can Help (Potentially)</h2>
+<p>By granting ThinkAlike limited, read-only access to data from services you choose to connect, you <em>may</em> enable:</p>
+<ul>
+<li>
+<p><strong>Richer Interest Matching:</strong> Identifying shared specific interests (e.g., favourite authors on Goodreads, shared music genres on Spotify) can add another layer to compatibility assessment, alongside core value alignment.</p>
+</li>
+<li>
+<p><strong>More Relevant Community Suggestions:</strong> Help us suggest communities focused on specific hobbies or cultural areas reflected in your connected services (e.g., a book club, a genre-specific music fan group).</p>
+</li>
+<li>
+<p><strong>(Optional) Enhanced Profile Display:</strong> You might choose to allow ThinkAlike to display certain insights (like your top genres) on your profile to spark conversations.</p>
+</li>
+</ul>
+<p><strong>Our Commitment:</strong></p>
+<ul>
+<li>
+<p>We only request <strong>minimal necessary permissions</strong>.</p>
+</li>
+<li>
+<p>We are <strong>transparent</strong> about what data is accessed and how it's used (<a href="../../../components/ui_components/data_traceability/">DataTraceability</a> will reflect this).</p>
+</li>
+<li>
+<p><strong>You control</strong> if and how this data is used via simple toggles.</p>
+</li>
+<li>
+<p>We <strong>do not sell</strong> this data or use it for unrelated advertising.</p>
+</li>
+<li>
+<p>You can <strong>disconnect</strong> at any time, and we will delete the associated data.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-finding-your-connected-services-panel">3. Finding Your "Connected Services" Panel</h2>
+<p>Manage your connections easily:</p>
+<ol>
+<li>Log in to your ThinkAlike account.</li>
+<li>Navigate to your main <strong>Settings</strong> or <strong>Profile Management</strong> area.</li>
+<li>Look for the <strong>"Connected Services"</strong> (or similar wording like "Integrations" or "Data Sources") section.</li>
+</ol>
+<p>This panel lists all the external services ThinkAlike currently supports integration with.</p>
+<hr />
+<h2 id="4-connecting-a-service-example-goodreads">4. Connecting a Service (Example: Goodreads)</h2>
+<p>Let's walk through connecting your Goodreads account:</p>
+<ol>
+<li><strong>Locate Goodreads:</strong> Find "Goodreads" in the list within the "Connected Services" panel. It will show "Not Connected".</li>
+<li><strong>Click "Connect":</strong> Select the "Connect" button next to Goodreads.</li>
+<li><strong>Redirect to Goodreads:</strong> Your browser will be securely redirected to the official Goodreads website. ThinkAlike never sees your Goodreads password.</li>
+<li>
+<p><strong>Log In &amp; Authorize:</strong></p>
+<ul>
+<li>
+<p>Log in to your Goodreads account if prompted.</p>
+</li>
+<li>
+<p>Goodreads will show you exactly what permissions ThinkAlike is requesting (e.g., "Allow ThinkAlike to view your profile information and book shelves"). <strong>Review these permissions carefully.</strong> We only ask for what's needed to understand reading interests.</p>
+</li>
+<li>
+<p>Click "Authorize" (or similar button) on the Goodreads page if you agree.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Return to ThinkAlike:</strong> You'll be automatically redirected back to your "Connected Services" panel in ThinkAlike.</p>
+</li>
+<li><strong>Status Update:</strong> Goodreads should now show as "Connected".</li>
+</ol>
+<hr />
+<h2 id="5-controlling-how-data-is-used-opt-in-required">5. Controlling How Data is Used (Opt-In Required!)</h2>
+<p><strong>IMPORTANT:</strong> Simply connecting a service <strong>does not</strong> automatically allow ThinkAlike to use its data for features like matching. You must explicitly opt-in for each specific use case:</p>
+<ol>
+<li><strong>Expand Service Details:</strong> Click on the connected service (e.g., "Goodreads") in your panel to see more details.</li>
+<li><strong>Review Permissions:</strong> You'll see a reminder of the permissions you granted (e.g., "Access Granted: Read book shelves").</li>
+<li>
+<p><strong>Enable Usage Toggles:</strong> Find the "Data Usage Consent" toggles. <strong>They are OFF by default.</strong> Turn ON the specific ways you want ThinkAlike to use this data:</p>
+<ul>
+<li>
+<p><code>[ ] Use Goodreads data for Match Discovery?</code> <em>(Allows the matching algorithm to consider shared reading interests)</em></p>
+</li>
+<li>
+<p><code>[ ] Use Goodreads data for Community Recommendations?</code> <em>(Allows suggesting book clubs or literary groups)</em></p>
+</li>
+<li>
+<p><code>[ ] Display reading insights (e.g., top genres) on my Profile?</code> <em>(Makes this info visible to others based on your main profile visibility settings)</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Save (If Necessary):</strong> Changes might save automatically, or you might need to click a "Save Settings" button. The UI will provide confirmation.</p>
+</li>
+</ol>
+<p>You can change these toggles back to OFF at any time.</p>
+<hr />
+<h2 id="6-checking-accessed-data-transparency">6. Checking Accessed Data (Transparency)</h2>
+<p>Want to see what information ThinkAlike has accessed from a connected service?</p>
+<ol>
+<li>In the "Connected Services" panel, find the connected service.</li>
+<li>Look for the "Last Synced" timestamp to see when data was last fetched.</li>
+<li>Click the link typically labeled <strong>"View Harvested Data in Data Explorer"</strong>.</li>
+<li>This will take you to your <code>Data Explorer Panel</code>, likely filtered to show only the data points originating from that specific service (e.g., your list of read books from Goodreads).</li>
+</ol>
+<hr />
+<h2 id="7-disconnecting-a-service">7. Disconnecting a Service</h2>
+<p>You are always in control and can disconnect a service easily:</p>
+<ol>
+<li>Go to the "Connected Services" panel.</li>
+<li>Find the service you want to disconnect (e.g., Goodreads).</li>
+<li>Click the <strong>"Disconnect"</strong> button.</li>
+<li>A confirmation pop-up will likely appear asking if you're sure. Confirm your choice.</li>
+<li><strong>What Happens:</strong> ThinkAlike securely deletes the access tokens for that service and removes the harvested data associated with it from our active systems. We also attempt to revoke access directly via the service's API where possible.</li>
+<li><strong>Status:</strong> The service will now show as "Not Connected".</li>
+</ol>
+<p><strong>(Optional Tip):</strong> For complete peace of mind, you can also usually visit the settings page of the external service itself (e.g., Goodreads App Settings) and manually revoke ThinkAlike's access there too.</p>
+<hr />
+<p>By providing these clear controls and transparent processes, ThinkAlike aims to make third-party data integration an empowering and trustworthy optional feature for enhancing your connection experience.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Managing Connected Services &amp; Data Sources</p>
+</li>
+<li>
+<p>Type: User Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Managing Connected Services &amp; Data Sources</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

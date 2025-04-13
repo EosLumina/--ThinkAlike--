@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/design/architectural_design_specifications/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Architectural Design Specifications - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Architectural Design Specifications";
+        var mkdocs_page_input_path = "architecture/design/architectural_design_specifications.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/design/architectural_design_specifications/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Architectural Design Specifications</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="architectural-design-specifications">Architectural Design Specifications</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document provides a comprehensive technical specification of the ThinkAlike platform's architectural design. It delineates the system's modular components, data flow pathways, integration points, and underlying technological framework. This document serves as a definitive reference for developers, technical stakeholders, and auditors seeking a detailed understanding of the system's internal structure and operational principles. The architectural design is predicated on the core tenets of Enlightenment 2.0, prioritizing transparency, user empowerment, ethical implementation, and data traceability, as elaborated in the <a href="../../../core/master_reference/">Master Reference</a> document.</p>
+<hr />
+<h2 id="2-architectural-overview">2. Architectural Overview</h2>
+<p>ThinkAlike employs a modular, service-oriented architecture designed for scalability, maintainability, and ethical enforcement. Conceptually, its core functionalities interlock like Borromean Rings, representing the essential interdependence of its primary user experiences, often referred to as Modes, although narrative and matching elements are woven throughout:</p>
+<ul>
+<li>
+<p><strong>Mode 1 (Narrative Onboarding &amp; Initial Match):</strong> Primarily focused on user onboarding, introducing core principles (<a href="./Principles_Doc-TODO.md">Enlightenment 2.0</a>), and eliciting initial <strong>Value Profile</strong> data through an interactive narrative. This narrative flow <em>also serves as the initial AI-driven matching mechanism</em>, potentially revealing a "perfect match." (<a href="./modes/mode1_narrative_onboarding_spec.md">Mode 1 Spec</a>)</p>
+</li>
+<li>
+<p><strong>Mode 2 (Profile Discovery &amp; Gated Connection):</strong> Centers on user-driven exploration of potential connections (via <strong>AI Clones</strong> and <strong>Matching Percentages</strong>). It utilizes a <strong>Narrative Compatibility Test</strong> initiated by the user as an interactive gate <em>before</em> direct communication is enabled, adding a layer of intentionality to matching. (<a href="./modes/mode2_profile_discovery_spec.md">Mode 2 Spec</a>)</p>
+</li>
+<li>
+<p><strong>Mode 3 (Community Building &amp; Collaboration):</strong> Provides tools for users to form, discover, join, and participate in decentralized, self-governing communities based on shared values or purpose. Fosters collaboration and collective action, potentially incorporating narrative elements for community storytelling or governance processes. (<a href="./modes/community_mode/community_mode_spec.md">Mode 3 Spec</a>)</p>
+</li>
+</ul>
+<p>These modes, while offering distinct primary experiences, share underlying data (like Value Profiles) and ethical principles. They are bound together and continuously validated by the central <strong>Verification System</strong> (<a href="./verification_system/verification_system.md">Spec</a>), which acts as the "ethical knot" ensuring systemic integrity and alignment with ThinkAlike's core values.</p>
+<hr />
+<h2 id="3-presentation-layer-ui">3. Presentation Layer (UI)</h2>
+<p>The Presentation Layer, embodied in the User Interface (UI), is not merely a visual front-end but a critical architectural component that functions as a <strong>validation framework</strong>. The UI serves to:</p>
+<ul>
+<li>
+<p>Render data in a clear, accessible, and user-friendly manner.</p>
+</li>
+<li>
+<p>Capture user input and facilitate seamless interaction workflows.</p>
+</li>
+<li>
+<p><strong>Validate data flows and system behavior</strong>, providing real-time feedback loops to users and developers.</p>
+</li>
+<li>
+<p><strong>Test code implementation and architectural design</strong>, acting as a dynamic "test bench" for system functionality and ethical compliance.</p>
+</li>
+<li>
+<p><strong>Empower user choice and agency</strong> by providing transparent access to data and system processes.</p>
+</li>
+</ul>
+<p>Reusable UI components are strategically employed to build data visualization interfaces for data access and handling, ensuring consistency and scalability. These components are designed to function as both user-facing elements and integral components of the architectural validation workflow.</p>
+<hr />
+<h2 id="4-application-layer-ai-api-logic">4. Application Layer (AI, API, Logic)</h2>
+<p>The Application Layer constitutes the core logic and processing engine of ThinkAlike, encompassing:</p>
+<ul>
+<li>
+<p><strong>AI Models:</strong> A suite of ethically designed AI models responsible for personalization, value-based matching, community recommendations, and data analysis. These models are developed and implemented in accordance with the "AI Model Development Guide" and are subject to rigorous testing and ethical validation.</p>
+</li>
+<li>
+<p><strong>API Framework:</strong> A robust and well-documented API framework provides secure communication protocols for all system components, ensuring data traceability and facilitating modular development. API endpoints are designed to adhere to ethical data handling guidelines and are validated through UI-driven testing workflows.</p>
+</li>
+<li>
+<p><strong>Core Logic and Services:</strong> This layer encompasses the core business logic and services that drive ThinkAlike functionality, including user authentication, profile management, data processing pipelines, matching algorithms, and community management features. All core logic is implemented with a focus on transparency, security, and ethical data handling.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-data-layer-database-storage">5. Data Layer (Database, Storage)</h2>
+<p>The Data Layer provides a secure, scalable, and transparent foundation for data management within ThinkAlike:</p>
+<ul>
+<li>
+<p><strong>Database Model:</strong> A meticulously designed database schema (detailed in "Data Model Schema.md") supports scalability, security, and data traceability. Data tables are structured to facilitate clear data typing, validation, and secure access control.</p>
+</li>
+<li>
+<p><strong>Data Storage:</strong> User data is stored securely, employing end-to-end encryption both in transit and at rest. Robust access control mechanisms and data anonymization protocols are implemented to ensure user privacy and data integrity.</p>
+</li>
+<li>
+<p><strong>Data Handling Practices:</strong> Data handling practices throughout the Data Layer prioritize data minimization, user control, and transparency. Data retention policies and data deletion workflows are clearly defined and implemented to empower user agency and comply with data privacy regulations.</p>
+</li>
+</ul>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Architectural Design Specifications</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-06</p>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

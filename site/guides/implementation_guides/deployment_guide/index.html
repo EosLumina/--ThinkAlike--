@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/implementation_guides/deployment_guide/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Deployment Guide (render) - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Deployment Guide (render)";
+        var mkdocs_page_input_path = "guides/implementation_guides/deployment_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/implementation_guides/deployment_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Deployment Guide (render)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="deployment-guide-render">Deployment Guide (render)</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This guide provides step-by-step instructions for deploying the ThinkAlike platform (FastAPI backend and React frontend) to the <a href="https://render.com/">Render</a> cloud platform. Render offers convenient services for hosting web applications, static sites, and databases, making it a suitable choice for deploying ThinkAlike.</p>
+<p>Following these steps assumes you have completed local development and testing as outlined in the <a href="../../../core/installation/">Installation Guide</a> and <a href="../../developer_guides/testing_and_validation_plan/">Testing and Validation Plan</a>.</p>
+<p><strong>Target Environment:</strong> Render Cloud Platform</p>
+<p><strong>Backend:</strong> Web Service (Python/FastAPI)</p>
+<p><strong>Frontend:</strong> Static Site (React)</p>
+<p><strong>Database:</strong> Render PostgreSQL</p>
+<hr />
+<h2 id="2-prerequisites">2. Prerequisites</h2>
+<p>Before deploying, ensure you have:</p>
+<ol>
+<li><strong>A Render Account:</strong> Sign up at <a href="https://render.com/">render.com</a>.</li>
+<li><strong>GitHub Repository:</strong> Your ThinkAlike project code pushed to a GitHub repository that Render can access.</li>
+<li><strong>Code Readiness:</strong> Your <code>main</code> branch (or deployment branch) is stable, tested, and ready for deployment.</li>
+<li>
+<p><strong>Dependencies Defined:</strong></p>
+<ul>
+<li>
+<p>Backend: <code>requirements.txt</code> in the project root is up-to-date.</p>
+</li>
+<li>
+<p>Frontend: <code>package.json</code> in the <code>frontend/</code> directory is up-to-date.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>(Optional but Recommended) Docker:</strong> While not strictly required for this Render guide, having Docker knowledge helps understand containerization, which Render uses internally.</p>
+</li>
+</ol>
+<hr />
+<h2 id="3-backend-deployment-render-web-service">3. Backend Deployment (Render Web Service)</h2>
+<p>Deploy the FastAPI backend as a Render Web Service.</p>
+<h3 id="31-create-database-render-postgresql">3.1 Create Database (Render PostgreSQL)</h3>
+<ol>
+<li><strong>Navigate to Render Dashboard:</strong> Log in to your Render account.</li>
+<li>
+<p><strong>Create New PostgreSQL Database:</strong></p>
+<ul>
+<li>
+<p>Click "New +" -&gt; "PostgreSQL".</p>
+</li>
+<li>
+<p>Choose a unique name (e.g., <code>thinkalike-db</code>).</p>
+</li>
+<li>
+<p>Select a Region close to your users.</p>
+</li>
+<li>
+<p>Choose a plan (e.g., "Free" for initial testing, upgrade as needed).</p>
+</li>
+<li>
+<p>Click "Create Database".</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Copy Connection String:</strong> Once the database is ready, go to its page and copy the <strong>"Internal Connection String"</strong>. You will need this for the backend environment variables. It will look something like <code>postgresql://user:password@host:port/database</code>.</p>
+</li>
+</ol>
+<h3 id="32-create-web-service">3.2 Create Web Service</h3>
+<ol>
+<li><strong>Navigate to Render Dashboard.</strong></li>
+<li>
+<p><strong>Create New Web Service:</strong></p>
+<ul>
+<li>
+<p>Click "New +" -&gt; "Web Service".</p>
+</li>
+<li>
+<p>Connect Your GitHub Repository: Choose "Build and deploy from a Git repository" and connect the GitHub account holding your <code>thinkalike_project</code> repository. Select the repository.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Service Settings:</strong></p>
+<ul>
+<li>
+<p><strong>Name:</strong> Give your service a unique name (e.g., <code>thinkalike-backend</code>). Render will generate a default URL like <code>thinkalike-backend.onrender.com</code>.</p>
+</li>
+<li>
+<p><strong>Region:</strong> Choose the same region as your database.</p>
+</li>
+<li>
+<p><strong>Branch:</strong> Select the branch to deploy from (e.g., <code>main</code>).</p>
+</li>
+<li>
+<p><strong>Root Directory:</strong> Leave blank if <code>requirements.txt</code> and your FastAPI app (<code>main.py</code> or similar entry point) are in the project root. If your backend code is in a subdirectory (e.g., <code>backend/</code>), specify that here.</p>
+</li>
+<li>
+<p><strong>Runtime:</strong> Render should auto-detect <code>Python 3</code>. Ensure the version matches your development environment (e.g., 3.9+). You might need to specify it in environment variables if detection fails.</p>
+</li>
+<li>
+<p><strong>Build Command:</strong> Render usually detects <code>pip install -r requirements.txt</code> automatically. Verify this is correct.</p>
+</li>
+<li>
+<p><strong>Start Command:</strong> This command runs your application using a production server like Gunicorn.</p>
+<ul>
+<li>
+<p>Example: <code>gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker</code></p>
+</li>
+<li>
+<p>Replace <code>main:app</code> with your actual FastAPI app instance location (<code>filename:fastapi_app_variable</code>).</p>
+</li>
+<li>
+<p><code>-w 4</code>: Number of worker processes (adjust based on your plan).</p>
+</li>
+<li>
+<p><code>-k uvicorn.workers.UvicornWorker</code>: Specifies the Uvicorn worker for ASGI compatibility.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Environment Variables (Secrets):</strong></p>
+<ul>
+<li>
+<p>Go to the "Environment" section for your new Web Service.</p>
+</li>
+<li>
+<p>Add <strong>Secret Files</strong> for sensitive configuration if you used <code>.env</code> locally (Render doesn't directly use <code>.env</code> files in production). Create a secret file with your environment variables.</p>
+</li>
+<li>
+<p>Alternatively, add <strong>individual Environment Variables</strong>:</p>
+<ul>
+<li>
+<p><code>DATABASE_URL</code>: Paste the <strong>Internal Connection String</strong> copied from your Render PostgreSQL database.</p>
+</li>
+<li>
+<p><code>SECRET_KEY</code>: Add your Flask/FastAPI secret key (use a strong, randomly generated key).</p>
+</li>
+<li>
+<p><code>PYTHON_VERSION</code>: (Optional, e.g., <code>3.9.10</code>) Specify if Render doesn't detect the correct version.</p>
+</li>
+<li>
+<p><code>FRONTEND_URL</code>: <strong>Leave this blank for now.</strong> You will add the deployed frontend URL later after deploying the frontend and configuring CORS.</p>
+</li>
+<li>
+<p><em>(Add any other required environment variables like API keys)</em></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Choose Instance Type:</strong> Select a plan (e.g., "Free" or a paid plan for more resources).</p>
+</li>
+<li><strong>Create Web Service:</strong> Click "Create Web Service". Render will start building and deploying your backend. Monitor the deploy logs for errors.</li>
+</ol>
+<h3 id="33-database-migrations-if-using-alembicflask-migrate">3.3 Database Migrations (If Using Alembic/Flask-Migrate)</h3>
+<p>If your application uses database migrations (e.g., with Alembic):</p>
+<ul>
+<li>
+<p><strong>Option 1 (Manual via Shell):</strong> Once the service is deployed, use Render's "Shell" tab for your backend service to run migration commands (e.g., <code>alembic upgrade head</code>). You'll need to activate the virtual environment first within the shell if applicable.</p>
+</li>
+<li>
+<p><strong>Option 2 (Startup Script):</strong> Modify your service's Start Command or use a separate startup script (<code>render_startup.sh</code>) to automatically run migrations <em>before</em> starting the Gunicorn server. Be cautious with this approach to avoid issues during startup failures.</p>
+</li>
+</ul>
+<h3 id="34-azure-deployment-alternative">3.4 Azure Deployment Alternative</h3>
+<p>While Render is our primary recommended deployment platform, Azure offers robust services that may be preferable for teams with existing Azure experience or enterprise requirements:</p>
+<ol>
+<li>
+<p><strong>Azure App Service</strong> for hosting the FastAPI backend:</p>
+</li>
+<li>
+<p>Create an App Service Plan (Basic B1 or higher recommended)</p>
+</li>
+<li>
+<p>Deploy from GitHub using Azure App Service Deployment Center</p>
+</li>
+<li>
+<p>Configure environment variables in Application Settings</p>
+</li>
+<li>
+<p><strong>Azure Static Web Apps</strong> for the React frontend:</p>
+</li>
+<li>
+<p>Connect to your GitHub repository</p>
+</li>
+<li>
+<p>Configure build settings (build command: <code>npm run build</code>, output location: <code>build</code>)</p>
+</li>
+<li>
+<p>Set up environment variables for API connection</p>
+</li>
+<li>
+<p><strong>Azure Database for PostgreSQL</strong> instead of Render PostgreSQL:</p>
+</li>
+<li>
+<p>Create a managed PostgreSQL server</p>
+</li>
+<li>
+<p>Configure firewall rules to allow connections from App Service</p>
+</li>
+<li>
+<p>Update connection strings in App Service configuration</p>
+</li>
+</ol>
+<p>This alternative deployment path provides additional scaling options and integration with Azure's security and monitoring tools.</p>
+<hr />
+<h2 id="4-frontend-deployment-render-static-site">4. Frontend Deployment (Render Static Site)</h2>
+<p>Deploy the React frontend as a Render Static Site.</p>
+<ol>
+<li>
+<p><strong>Build Frontend Locally (Important Check):</strong> Before deploying, ensure your frontend builds correctly:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>frontend
+npm<span class="w"> </span>install
+npm<span class="w"> </span>run<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+<p>This creates the <code>frontend/build</code> directory containing the optimized static assets. Fix any build errors before proceeding.
+2. <strong>Navigate to Render Dashboard.</strong>
+3. <strong>Create New Static Site:</strong></p>
+<ul>
+<li>
+<p>Click "New +" -&gt; "Static Site".</p>
+</li>
+<li>
+<p>Connect Your GitHub Repository: Select the same <code>thinkalike_project</code> repository.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Configure Static Site Settings:</strong></p>
+<ul>
+<li>
+<p><strong>Name:</strong> Give your site a unique name (e.g., <code>thinkalike-frontend</code>). Render will generate a URL like <code>thinkalike-frontend.onrender.com</code>.</p>
+</li>
+<li>
+<p><strong>Branch:</strong> Select the branch to deploy from (e.g., <code>main</code>).</p>
+</li>
+<li>
+<p><strong>Root Directory:</strong> Set this to <code>frontend</code>. Render needs to know where your <code>package.json</code> for the frontend is located.</p>
+</li>
+<li>
+<p><strong>Build Command:</strong> <code>npm install &amp;&amp; npm run build</code> (This tells Render how to build your React app).</p>
+</li>
+<li>
+<p><strong>Publish Directory:</strong> Set this to <code>frontend/build</code> (This tells Render where the built static files are).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Add Environment Variables:</strong></p>
+<ul>
+<li>
+<p>Go to the "Environment" section for your new Static Site.</p>
+</li>
+<li>
+<p>Add <strong>Environment Variable</strong>:</p>
+<ul>
+<li>
+<p><code>REACT_APP_BACKEND_URL</code>: Set this to the <strong>full URL of your deployed backend service</strong> on Render (e.g., <code>https://thinkalike-backend.onrender.com</code>). <strong>Use HTTPS.</strong></p>
+</li>
+<li>
+<p><em>(Add any other frontend-specific build-time environment variables needed)</em></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Create Static Site:</strong> Click "Create Static Site". Render will start building and deploying your frontend.</p>
+</li>
+</ol>
+<h3 id="41-rewriteredirect-rules-for-react-router">4.1 Rewrite/Redirect Rules (for React Router)</h3>
+<p>Since React uses client-side routing (like <code>react-router-dom</code>), you need to configure Render to serve your <code>index.html</code> for any paths that don't match a static file.</p>
+<ol>
+<li>Go to the "Redirects/Rewrites" section of your Static Site settings on Render.</li>
+<li>
+<p>Add a <strong>Rewrite Rule</strong>:</p>
+<ul>
+<li>
+<p><strong>Source Path:</strong> <code>/*</code></p>
+</li>
+<li>
+<p><strong>Destination Path:</strong> <code>/index.html</code></p>
+</li>
+<li>
+<p><strong>Action:</strong> Rewrite</p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="5-cors-configuration-backend-update">5. CORS Configuration (Backend Update)</h2>
+<p>Your backend API needs to allow requests from your deployed frontend URL.</p>
+<ol>
+<li><strong>Get Frontend URL:</strong> Note the final URL of your deployed Static Site (e.g., <code>https://thinkalike-frontend.onrender.com</code>).</li>
+<li>
+<p><strong>Update Backend CORS Settings:</strong></p>
+<ul>
+<li>
+<p>Open your backend code (<code>main.py</code> or wherever CORS is configured).</p>
+</li>
+<li>
+<p>Update the <code>origins</code> list in your <code>CORSMiddleware</code> setup to include your <strong>deployed frontend URL</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example in main.py</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.middleware.cors</span><span class="w"> </span><span class="kn">import</span> <span class="n">CORSMiddleware</span>
+
+<span class="n">origins</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;http://localhost:3000&quot;</span><span class="p">,</span> <span class="c1"># Keep for local dev</span>
+
+    <span class="s2">&quot;https://thinkalike-frontend.onrender.com&quot;</span><span class="p">,</span> <span class="c1"># Add your deployed frontend URL</span>
+
+    <span class="c1"># Add any other origins if needed</span>
+
+<span class="p">]</span>
+
+<span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span>
+    <span class="n">CORSMiddleware</span><span class="p">,</span>
+    <span class="n">allow_origins</span><span class="o">=</span><span class="n">origins</span><span class="p">,</span>
+    <span class="n">allow_credentials</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">allow_methods</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+    <span class="n">allow_headers</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;*&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</code></pre></div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Commit and Push Changes:</strong> Commit the updated CORS settings to your GitHub repository.</p>
+</li>
+<li><strong>Redeploy Backend:</strong> Render should automatically detect the push to your deployment branch and redeploy the backend service. Monitor the deploy logs.</li>
+</ol>
+<hr />
+<h2 id="6-post-deployment-steps">6. Post-Deployment Steps</h2>
+<ol>
+<li>
+<p><strong>Testing:</strong> Thoroughly test all features of the deployed application using the live frontend URL. Check:</p>
+<ul>
+<li>
+<p>User registration and login.</p>
+</li>
+<li>
+<p>Profile creation/editing.</p>
+</li>
+<li>
+<p>Matching functionality.</p>
+</li>
+<li>
+<p>DataTraceability visualization.</p>
+</li>
+<li>
+<p>Any community features implemented.</p>
+</li>
+<li>
+<p>Check browser developer console for errors (especially CORS errors).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Monitoring:</strong> Utilize Render's built-in logging and metrics to monitor the health and performance of your backend service and database. Set up alerts if needed.</p>
+</li>
+<li><strong>Domain:</strong> (Optional) Configure a custom domain for your frontend and backend services through Render's settings.</li>
+</ol>
+<hr />
+<h2 id="7-troubleshooting-tips">7. Troubleshooting Tips</h2>
+<ul>
+<li>
+<p><strong>Check Deploy Logs:</strong> Render provides detailed logs for both builds and runtime. This is the first place to look for errors.</p>
+</li>
+<li>
+<p><strong>Environment Variables:</strong> Double-check that all necessary environment variables (like <code>DATABASE_URL</code>, <code>SECRET_KEY</code>, <code>REACT_APP_BACKEND_URL</code>) are correctly set in the respective Render service environments and are <em>not</em> hardcoded. Remember to use the <strong>Internal</strong> Connection String for <code>DATABASE_URL</code> between Render services.</p>
+</li>
+<li>
+<p><strong>Start Command:</strong> Ensure the command is correct and points to the right FastAPI app instance. Check runtime logs.</p>
+</li>
+<li>
+<p><strong>Static Site Rewrites:</strong> If frontend routes aren't working (showing a 404), ensure the rewrite rule (<code>/*</code> to <code>/index.html</code>) is correctly configured in the Static Site settings.</p>
+</li>
+<li>
+<p><strong>Database Connection:</strong> Verify the <code>DATABASE_URL</code> is correct and that the database is running. Use Render's shell to test connectivity if needed. Ensure migrations have run successfully.</p>
+</li>
+</ul>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Deployment Guide (render)</p>
+</li>
+<li>
+<p>Type: Technical Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Deployment Guide (render)</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

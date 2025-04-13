@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/matching_algorithm_guide/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Developer Guide: Value-Based Matching Algorithm - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Developer Guide: Value-Based Matching Algorithm";
+        var mkdocs_page_input_path = "guides/developer_guides/matching_algorithm_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/matching_algorithm_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Developer Guide: Value-Based Matching Algorithm</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="developer-guide-value-based-matching-algorithm">Developer Guide: Value-Based Matching Algorithm</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This guide provides a comprehensive overview for developers working on the ThinkAlike <strong>Value-Based Matching Algorithm</strong>. This is a core component, primarily used in <strong>Mode 2 (Profile Discovery)</strong> for suggesting potential connections and gating interaction via Narrative Compatibility Tests, and potentially informing the "perfect match" reveal in <strong>Mode 1 (Narrative Onboarding)</strong>.</p>
+<p>Its central purpose is to connect users based on <strong>shared values and ethical alignment</strong>, moving beyond superficial metrics. It implements <strong>Ethical Weighting</strong> and relies heavily on <strong>Value Profiles</strong>, always prioritizing <strong>User Agency</strong> and <strong>Transparency</strong>.</p>
+<p>This guide details the algorithm's architecture, data inputs, ethical weighting logic, integration with the Verification System, and requirements for transparency via UI components like <a href="../../../components/ui_components/data_traceability/">DataTraceability</a>. It adheres to principles in the <a href="../../../core/master_reference/">MASTER_REFERENCE.md</a> and <a href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>.</p>
+<h2 id="2-purpose-and-goals">2. Purpose and Goals</h2>
+<ul>
+<li>
+<p><strong>Identify Value-Aligned Connections:</strong> Ethically identify potential connections based on compatibility derived from user <strong>Value Profiles</strong>.</p>
+</li>
+<li>
+<p><strong>Prioritize Ethical Congruence:</strong> Implement <strong>Ethical Weighting</strong> to favor connections aligned with <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>.</p>
+</li>
+<li>
+<p><strong>Empower User Choice:</strong> Provide transparent <strong>Matching Percentages</strong> and rationale (via DataTraceability) to inform user decisions.</p>
+</li>
+<li>
+<p><strong>Foster a Value-Driven Ecosystem:</strong> Encourage connections grounded in shared ethical foundations.</p>
+</li>
+</ul>
+<h2 id="3-core-principles">3. Core Principles</h2>
+<ul>
+<li>
+<p><strong>Value-Centricity:</strong> <strong>Value Profiles</strong> are the primary input. Shared ethics take precedence over superficial similarity.</p>
+</li>
+<li>
+<p><strong>Ethical Weighting:</strong> Explicitly prioritize core ThinkAlike values in scoring.</p>
+</li>
+<li>
+<p><strong>Transparency &amp; Explainability (XAI):</strong> Logic, weights, and data flows are documented and designed for auditability (<a href="../../../architecture/verification_system/verification_system/">Verification System Spec</a>) and visualization (<a href="../../../components/ui_components/data_traceability/">DataTraceability Spec</a>). No black boxes.</p>
+</li>
+<li>
+<p><strong>User Control:</strong> Users manage their Value Profiles and influence matching criteria via settings and feedback.</p>
+</li>
+<li>
+<p><strong>Data Privacy &amp; Minimization:</strong> Operates within the <a href="../data_handling_policy_guide/">Data Handling Policy</a> and uses the minimum necessary data ethically.</p>
+</li>
+</ul>
+<h2 id="4-algorithm-architecture-and-data-flow-backend-service">4. Algorithm Architecture and Data Flow (Backend Service)</h2>
+<p>The matching algorithm resides within a dedicated backend service (e.g., a <code>MatchingService</code> implemented with FastAPI).</p>
+<h3 id="41-input-data-value-profiles">4.1 Input Data: Value Profiles</h3>
+<p>The algorithm primarily consumes <strong>Value Profiles</strong>, constructed from:</p>
+<ul>
+<li>
+<p><strong>Explicit Profile Data:</strong> User-defined values and interests stored in the <a href="../../../architecture/database/unified_data_model_schema/">Unified Data Model</a>.</p>
+</li>
+<li>
+<p><strong>Narrative-Derived Data (Mode 1):</strong> Implicit values inferred from onboarding choices (<a href="../../../architecture/modes/mode1_narrative_onboarding_spec/">Mode 1 Spec</a>).</p>
+</li>
+<li>
+<p><strong>Consented External Data Insights:</strong> Derived interests from connected services (e.g., Goodreads genres) via the <a href="../../../components/ui_components/connected_services_manager_spec/">ConnectedServicesManager</a> as described in the <a href="../../../architecture/data_integration_strategy/">Data Integration Strategy</a>.</p>
+</li>
+<li>
+<p><strong>(Future) Interaction Data:</strong> Aggregated, anonymized interaction patterns requiring further ethical design and consent.</p>
+</li>
+</ul>
+<h3 id="42-calculation-ethically-weighted-similarity">4.2 Calculation: Ethically Weighted Similarity</h3>
+<p>The core logic compares two Value Profiles:</p>
+<ol>
+<li><strong>Feature Extraction:</strong> Identify and extract comparable features (e.g., common value tags, shared interests, narrative archetypes).</li>
+<li><strong>Similarity Calculation:</strong> Compute similarity for each feature category using measures such as the Jaccard index or cosine similarity.</li>
+<li>
+<p><strong>Ethical Weighting Application:</strong> Multiply each similarity score by a pre-defined ethical weight:</p>
+<p><code>WeightedScore_i = Similarity_i * EthicalWeight_i</code></p>
+</li>
+</ol>
+<p>Core ethical values (per <a href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>) receive higher weights.
+4. <strong>Aggregation:</strong> Combine weighted scores into a final <strong>Matching Percentage</strong> (e.g., weighted average normalized to 0–100).
+5. <strong>Bias Check (Integration):</strong> Optionally invoke the <a href="../../../architecture/api/api_endpoints_verification_system/">Verification System API</a> for fairness checks across demographic groups.</p>
+<h3 id="43-output-data">4.3 Output Data</h3>
+<p>Outputs are provided via API responses (e.g., for <code>POST /api/v1/match</code> or <code>GET /api/v1/discovery/network</code>):</p>
+<ul>
+<li>
+<p>A list of <code>matchedUserId</code>s.</p>
+</li>
+<li>
+<p>A <code>matchingPercentage</code> score for each match.</p>
+</li>
+<li>
+<p><code>sharedValues</code> or <code>keyFactors</code>: The top features contributing to the score.</p>
+</li>
+<li>
+<p><code>traceability_data</code>: Structured data (nodes/edges) conforming to the expected input of the <a href="../../../components/ui_components/data_traceability/">DataTraceability</a> component, which visualizes the rationale behind the match.</p>
+</li>
+</ul>
+<h2 id="5-ethical-weighting-implementation">5. Ethical Weighting Implementation</h2>
+<ul>
+<li>
+<p><strong>Taxonomy:</strong> Define a clear taxonomy of values derived from <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a> and <a href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>.</p>
+</li>
+<li>
+<p><strong>Weight Assignment:</strong> Assign numerical weights (managed via configuration or the Verification System) with documented rationale.</p>
+</li>
+<li>
+<p><strong>Algorithm Logic:</strong> Implement weighting within the scoring function, e.g., via weighted summation.</p>
+</li>
+<li>
+<p><strong>Transparency:</strong> Clearly communicate the weighting approach to users, supported by visualization in <a href="../../../components/ui_components/data_traceability/">DataTraceability</a>.</p>
+</li>
+</ul>
+<h2 id="6-datatraceability-validation-integration">6. DataTraceability &amp; Validation Integration</h2>
+<ul>
+<li>
+<p><strong>Traceability Output:</strong> Produce comprehensive <code>traceability_data</code> detailing inputs, weighting steps, and results for visualization.</p>
+</li>
+<li>
+<p><strong>Explainability:</strong> Use the generated <code>traceability_data</code> as the primary mechanism for explaining match rationale in the UI.</p>
+</li>
+<li>
+<p><strong>UI Validation:</strong> Users verify that the <a href="../../../components/ui_components/data_traceability/">DataTraceability</a> graph aligns with their understanding.</p>
+</li>
+<li>
+<p><strong>Verification System:</strong> Optionally log and audit runs, including bias checks if applicable.</p>
+</li>
+</ul>
+<h2 id="7-contribution-guidelines">7. Contribution Guidelines</h2>
+<ul>
+<li>
+<p>Adhere to our <a href="../../../templates/code_documentation_template/">"Perfect Coding" principles</a> and <a href="../code_style_guide/">Code Style Guide</a>.</p>
+</li>
+<li>
+<p>Write comprehensive unit tests (using Pytest) covering all aspects of the matching logic and edge cases.</p>
+</li>
+<li>
+<p>Document code thoroughly, especially the ethical weighting and traceability generation.</p>
+</li>
+<li>
+<p>Design for auditability and transparency through integration with the <a href="../../../architecture/verification_system/verification_system/">Verification System</a>.</p>
+</li>
+<li>
+<p>Submit significant changes for ethical review before merging.</p>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

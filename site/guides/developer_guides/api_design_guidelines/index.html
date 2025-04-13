@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/api_design_guidelines/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>API Design Guidelines - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Design Guidelines";
+        var mkdocs_page_input_path = "guides/developer_guides/api_design_guidelines.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/api_design_guidelines/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Design Guidelines</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-design-guidelines">API Design Guidelines</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Defines standards and best practices for designing consistent, maintainable APIs.</p>
+<h2 id="2-api-design-principles">2. API Design Principles</h2>
+<h3 id="21-restful-resource-design">2.1 RESTful Resource Design</h3>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    A[Resource Identification] --&gt; B[URI Design]
+    B --&gt; C[HTTP Methods]
+    C --&gt; D[Response Format]
+    D --&gt; E[Status Codes]
+</code></pre></div>
+<h3 id="22-resource-naming">2.2 Resource Naming</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Good Examples</span>
+<span class="err">/users</span>
+<span class="err">/users/123</span>
+<span class="err">/users/123/orders</span>
+<span class="err">/orders?status=pending</span>
+
+<span class="c1">// Bad Examples</span>
+<span class="err">/getUsers</span>
+<span class="err">/user_orders/123</span>
+<span class="err">/api/v1/get-user-by-id/123</span>
+</code></pre></div>
+<h2 id="3-requestresponse-standards">3. Request/Response Standards</h2>
+<h3 id="31-response-format">3.1 Response Format</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uuid&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;resource&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;pagination&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;page&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;total&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="4-api-versioning">4. API Versioning</h2>
+<h3 id="41-version-control">4.1 Version Control</h3>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    subgraph Versioning
+        V1[API v1]
+        V2[API v2]
+        V3[API v3]
+    end
+    Client --&gt; V1 &amp; V2 &amp; V3
+</code></pre></div>
+<h2 id="5-error-handling">5. Error Handling</h2>
+<h3 id="51-error-responses">5.1 Error Responses</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;error&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VALIDATION_ERROR&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Invalid input provided&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;field&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Must be valid email format&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="6-security-standards">6. Security Standards</h2>
+<h3 id="61-authentication-flow">6.1 Authentication Flow</h3>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    Client-&gt;&gt;API: Request + JWT
+    API-&gt;&gt;Auth: Validate Token
+    Auth--&gt;&gt;API: Token Valid
+    API--&gt;&gt;Client: Protected Resource
+</code></pre></div>
+<h2 id="7-documentation-requirements">7. Documentation Requirements</h2>
+<h3 id="71-openapi-specification">7.1 OpenAPI Specification</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">openapi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.0.0</span>
+<span class="nt">info</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">API Documentation</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="nt">paths</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">/resource</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">get</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">List resources</span>
+<span class="w">      </span><span class="nt">responses</span><span class="p">:</span>
+<span class="w">        </span><span class="s">&#39;200&#39;</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Success</span>
+</code></pre></div>
+<h2 id="8-ai-clone-persona-engine-audiovisual-analysis">8. AI Clone Persona Engine (Audiovisual Analysis)</h2>
+<ul>
+<li>
+<p><strong>Purpose</strong>: To analyze user-provided short video introductions (with explicit consent) to extract relevant audiovisual features (e.g., speech patterns, general tone, visual style cues — <em>not</em> sensitive emotion detection or biometric identification) that inform the generation and dynamic styling of the user’s <strong>AI Clone</strong>. Aims to create a more representative and nuanced digital proxy than static images/text, providing "gradual clues" during interaction flows.</p>
+</li>
+<li>
+<p><strong>Expected Inputs</strong>: User video intro file/stream, potentially user profile data for context. Interaction with a Voice AI / Speech-to-Text / basic Video Analysis service is likely needed.</p>
+</li>
+<li>
+<p><strong>Processing Logic</strong>: [Details TBD: Could involve extracting features like speech cadence, dominant color palettes, general energy level inferred from motion/speech, etc. <strong>Must avoid pseudo-scientific analysis like emotion detection from micro-expressions.</strong> Focus on objective or stylistic elements.] The outputs directly influence the parameters used to render the AI Clone avatar.</p>
+</li>
+<li>
+<p><strong>Expected Outputs</strong>: Structured data object containing style parameters for the AI Clone renderer (e.g., <code>{ "hue": ..., "saturation": ..., "brightness": ..., "waveform_pattern": ..., "speech_cadence_factor": ... }</code>).</p>
+</li>
+<li>
+<p><strong>Integration</strong>: Receives input from video upload process. Outputs data used by the Frontend UI’s AI Clone rendering component. Interacts with Database to store/retrieve generated parameters.</p>
+</li>
+<li>
+<p><strong>Ethical Considerations</strong>: <strong>Very High.</strong> Requires explicit consent for video analysis. <strong>Strictly avoid</strong> over-interpretation, pseudo-science, or biometric/emotion detection. Maintain transparency about what is analyzed. Users must be able to opt-out or manually override their AI Clone style.</p>
+</li>
+</ul>
+<h2 id="9-further-reference">9. Further Reference</h2>
+<ul>
+<li>
+<p><a href="../api/rest_guidelines.md">RESTful Guidelines</a></p>
+</li>
+<li>
+<p><a href="../security/api_security.md">Security Standards</a></p>
+</li>
+<li>
+<p><a href="../testing/api_testing.md">Testing Guidelines</a></p>
+</li>
+</ul>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: API Design Guidelines</p>
+</li>
+<li>
+<p>Type: Development Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of API Design Guidelines</p>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: API Design Guidelines</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of API Design Guidelines</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

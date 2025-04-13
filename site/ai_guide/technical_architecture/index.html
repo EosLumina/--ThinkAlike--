@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/ai_guide/technical_architecture/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Eos Lumina∴ AI Guide: Technical Architecture - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Eos Lumina\u2234 AI Guide: Technical Architecture";
+        var mkdocs_page_input_path = "ai_guide/technical_architecture.md";
+        var mkdocs_page_url = "/--ThinkAlike--/ai_guide/technical_architecture/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Eos Lumina∴ AI Guide: Technical Architecture</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="eos-lumina-ai-guide-technical-architecture">Eos Lumina∴ AI Guide: Technical Architecture</h1>
+<h2 id="overview">Overview</h2>
+<p>This document outlines the technical architecture for the Eos Lumina∴ AI Guide system - an advanced, multi-modal assistant that guides ThinkAlike contributors through project onboarding and task selection using both text and otherworldly voice interactions.</p>
+<h2 id="core-components">Core Components</h2>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[Web Interface] --&gt; B[Guide Core Engine]
+    B --&gt; C[Text Response Generator]
+    B --&gt; D[Voice Synthesis System]
+    B --&gt; E[Project Knowledge Base]
+    B --&gt; F[Contributor Profiling]
+    B --&gt; G[Task Matching Algorithm]
+    H[GitHub API] --&gt; E
+    I[Documentation Parser] --&gt; E
+    J[User Interaction History] --&gt; B
+</code></pre></div>
+<h3 id="web-interface">Web Interface</h3>
+<ul>
+<li>React-based interface embedded in project documentation site</li>
+<li>Supports text chat and audio playback</li>
+<li>Visual representation of Eos Lumina∴ (subtle animation/glow effect)</li>
+<li>Accessibility features for all interaction modes</li>
+</ul>
+<h3 id="guide-core-engine">Guide Core Engine</h3>
+<ul>
+<li>Orchestrates all components</li>
+<li>Manages conversation state and context</li>
+<li>Implements the Eos Lumina∴ persona and behavioral traits</li>
+<li>Routes requests to appropriate subsystems</li>
+</ul>
+<h3 id="text-response-generator">Text Response Generator</h3>
+<ul>
+<li>Generates contextually appropriate, in-character responses</li>
+<li>Maintains consistent tone and personality</li>
+<li>Uses GitHub Copilot API for code-related questions</li>
+<li>Implements graceful fallbacks for uncertain queries</li>
+</ul>
+<h3 id="voice-synthesis-system">Voice Synthesis System</h3>
+<ul>
+<li>Custom TTS pipeline with voice modification</li>
+<li>Creates the distinctive "otherworldly" voice signature</li>
+<li>Supports emotion modulation based on message content</li>
+<li>Implements natural pauses, emphasis, and rhythm</li>
+</ul>
+<h3 id="project-knowledge-base">Project Knowledge Base</h3>
+<ul>
+<li>Indexed repository of ThinkAlike documentation</li>
+<li>Semantic search capabilities</li>
+<li>Regularly updated from the main repository</li>
+<li>Includes architectural diagrams, code structure, and contribution patterns</li>
+</ul>
+<h3 id="contributor-profiling">Contributor Profiling</h3>
+<ul>
+<li>Builds profiles based on interactions and stated preferences</li>
+<li>Tracks contributors' skills, interests, and experience level</li>
+<li>Respects privacy with transparent data usage</li>
+<li>Uses profiles to personalize guidance</li>
+</ul>
+<h3 id="task-matching-algorithm">Task Matching Algorithm</h3>
+<ul>
+<li>Analyzes open issues and project needs</li>
+<li>Matches contributors to appropriate tasks based on profiles</li>
+<li>Considers project priorities and dependency chains</li>
+<li>Provides rationale for recommendations</li>
+</ul>
+<h2 id="integration-points">Integration Points</h2>
+<ul>
+<li><strong>GitHub Integration</strong>: Uses GitHub API to access issues, PRs, and project structure</li>
+<li><strong>Documentation Site</strong>: Embeds within the ThinkAlike documentation portal</li>
+<li><strong>Development Environment</strong>: Optional VS Code extension for in-IDE guidance</li>
+<li><strong>Discord Integration</strong>: Connects with community platform for seamless experience</li>
+</ul>
+<h2 id="deployment-architecture">Deployment Architecture</h2>
+<p>The system uses a hybrid architecture:</p>
+<ol>
+<li><strong>Client-side components</strong>: UI, basic interaction handling, audio playback</li>
+<li><strong>Edge functions</strong>: Simple responses, contributor profile management</li>
+<li><strong>Cloud services</strong>: Complex processing, voice synthesis, knowledge base queries</li>
+</ol>
+<p>This approach balances performance, cost, and scalability while maintaining the immersive experience.</p>
+<h2 id="security-privacy-considerations">Security &amp; Privacy Considerations</h2>
+<ul>
+<li>Transparent data collection practices</li>
+<li>Clear opt-in process for profile creation</li>
+<li>Local storage of preferences where possible</li>
+<li>No recording of voice interactions</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

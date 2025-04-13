@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/verification_system/verification_system_data_models/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Verification System Data Models - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Verification System Data Models";
+        var mkdocs_page_input_path = "architecture/verification_system/verification_system_data_models.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/verification_system/verification_system_data_models/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Verification System Data Models</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="verification-system-data-models">Verification System Data Models</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document defines the core data models (schemas) used by the ThinkAlike <strong>Verification System</strong>. These models represent the structure of data related to ethical guidelines, algorithm verification, data traceability, audit logging, and overall platform verification status.</p>
+<p>These data models are essential for:</p>
+<ul>
+<li>
+<p>Structuring data returned by the Verification System API endpoints defined in <a href="../../api/api_endpoints_verification_system/">api_endpoints_verification_system.md</a>.</p>
+</li>
+<li>
+<p>Providing a clear schema for data stored persistently (likely within the main platform database, e.g., PostgreSQL) but managed logically by the Verification System.</p>
+</li>
+<li>
+<p>Ensuring consistency in how verification-related information is handled and represented throughout the platform.</p>
+</li>
+</ul>
+<p>These models are integral to the functioning of the Verification System as described in <a href="../verification_system/">verification_system.md</a>.</p>
+<hr />
+<h2 id="2-core-data-models">2. Core Data Models</h2>
+<h3 id="21-ethicalguideline">2.1 EthicalGuideline</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents a single ethical guideline defined within the ThinkAlike framework, used for validating platform components and AI models.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>guidelineId</code> (UUID/String, Primary Key): Unique identifier for the guideline.</p>
+</li>
+<li>
+<p><code>guidelineName</code> (String): Short, human-readable name of the guideline (e.g., "User Data Minimization", "Algorithmic Transparency").</p>
+</li>
+<li>
+<p><code>guidelineDescription</code> (String/Text): Detailed explanation of the guideline's principle and intent.</p>
+</li>
+<li>
+<p><code>principleArea</code> (Enum/String): Categorizes the guideline based on the core Enlightenment 2.0 principles (e.g., <code>user_sovereignty</code>, <code>transparency</code>, <code>ethical_humanism</code>, <code>positive_anarchism</code>, <code>authentic_connection</code>, <code>redefined_progress</code>).</p>
+</li>
+<li>
+<p><code>status</code> (Enum/String): Current status of the guideline (e.g., <code>active</code>, <code>draft</code>, <code>deprecated</code>).</p>
+</li>
+<li>
+<p><code>lastUpdated</code> (Timestamp): Date and time the guideline was last modified.</p>
+</li>
+<li>
+<p><code>relatedComponents</code> (Array[String], Optional): List of platform components or features particularly relevant to this guideline.</p>
+</li>
+</ul>
+<h3 id="22-algorithmverificationstatus">2.2 AlgorithmVerificationStatus</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents the high-level verification status of a specific algorithm used within ThinkAlike (e.g., the Matching Algorithm).</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>algorithmId</code> (UUID/String, Primary Key): Unique identifier for the algorithm instance/version being verified (e.g., <code>value_based_matching_v1.2</code>).</p>
+</li>
+<li>
+<p><code>algorithmName</code> (String): Human-readable name of the algorithm (e.g., "Value-Based Matching Algorithm").</p>
+</li>
+<li>
+<p><code>version</code> (String): Specific version identifier for the algorithm.</p>
+</li>
+<li>
+<p><code>verificationStatus</code> (Enum/String): Current verification status (e.g., <code>pending</code>, <code>in_progress</code>, <code>verified</code>, <code>failed_verification</code>, <code>needs_review</code>).</p>
+</li>
+<li>
+<p><code>lastVerificationDate</code> (Timestamp, Nullable): Date and time of the last verification attempt or success.</p>
+</li>
+<li>
+<p><code>verifiedBy</code> (UUID/String, Nullable): Identifier of the admin user or system process that performed the last verification.</p>
+</li>
+<li>
+<p><code>ethicalRationaleDocumentLink</code> (URL/String, Optional): Link to the detailed document explaining the algorithm's ethical design and rationale.</p>
+</li>
+<li>
+<p><code>auditLogsLink</code> (URL/String, Optional): Link to related audit log entries for this specific algorithm.</p>
+</li>
+</ul>
+<h3 id="23-algorithmverificationdetails">2.3 AlgorithmVerificationDetails</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides more detailed information about the verification status and context of a specific algorithm, often including fields from <code>AlgorithmVerificationStatus</code>.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><em>(Inherits/Includes fields from <code>AlgorithmVerificationStatus</code>)</em></p>
+</li>
+<li>
+<p><code>ethicalRationaleSummary</code> (String/Text, Optional): A brief summary of the ethical rationale.</p>
+</li>
+<li>
+<p><code>relatedGuidelines</code> (Array[UUID/String]): List of <code>guidelineId</code>s directly relevant to or checked against for this algorithm.</p>
+</li>
+<li>
+<p><code>biasAssessmentResult</code> (Enum/String, Optional): Summary result of the latest bias assessment (e.g., <code>passed</code>, <code>warning</code>, <code>failed</code>).</p>
+</li>
+<li>
+<p><code>transparencyScore</code> (Float/Integer, Optional): A quantitative or qualitative score representing the algorithm's explainability/transparency level.</p>
+</li>
+<li>
+<p><code>latestAuditReportLink</code> (URL/String, Optional): Link to the most recent detailed audit report.</p>
+</li>
+<li>
+<p><code>verificationHistory</code> (Array[Object], Optional): A list of past verification events (e.g., <code>{ timestamp: Timestamp, status: Enum, verifiedBy: UUID, notes: String }</code>).</p>
+</li>
+</ul>
+<h3 id="24-traceableprocess">2.4 TraceableProcess</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents a high-level business process or workflow within ThinkAlike for which data traceability is tracked and visualized.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>processId</code> (UUID/String, Primary Key): Unique identifier for the traceable process (e.g., <code>user_onboarding_mode1</code>, <code>value_matching_mode2</code>).</p>
+</li>
+<li>
+<p><code>processName</code> (String): Human-readable name of the process (e.g., "User Onboarding Narrative", "Value-Based Matching Workflow").</p>
+</li>
+<li>
+<p><code>description</code> (String/Text): Brief explanation of the process being traced.</p>
+</li>
+<li>
+<p><code>dataFlowDiagramLink</code> (URL/String, Optional): Link to an external or generated visual diagram of the data flow.</p>
+</li>
+<li>
+<p><code>lastTraceabilityAudit</code> (Timestamp, Nullable): Date of the last audit focusing on this process's traceability.</p>
+</li>
+</ul>
+<h3 id="25-traceableprocessdetails">2.5 TraceableProcessDetails</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides detailed information for visualizing a specific traceable process, often including fields from <code>TraceableProcess</code>. This structure is designed to be directly consumable by UI components like <code>DataTraceability.jsx</code>.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><em>(Inherits/Includes fields from <code>TraceableProcess</code>)</em></p>
+</li>
+<li>
+<p><code>visualizationData</code> (JSON/Object): Data structured for graph visualization libraries.</p>
+<ul>
+<li>
+<p><code>nodes</code>: (Array[NodeObject]) - Represents data sources, processing steps, UI components, or data storage points.</p>
+</li>
+<li>
+<p><code>id</code> (String/Number): Unique identifier within the graph.</p>
+</li>
+<li>
+<p><code>label</code> (String): Display name for the node.</p>
+</li>
+<li>
+<p><code>type</code> (Enum/String): Category of the node (e.g., <code>ui_component</code>, <code>api_endpoint</code>, <code>ai_model</code>, <code>database_table</code>, <code>data_source</code>).</p>
+</li>
+<li>
+<p><em>(Other optional properties for styling/metadata)</em></p>
+</li>
+<li>
+<p><code>edges</code>: (Array[EdgeObject]) - Represents the flow of data between nodes.</p>
+</li>
+<li>
+<p><code>source</code> (String/Number): ID of the source node.</p>
+</li>
+<li>
+<p><code>target</code> (String/Number): ID of the target node.</p>
+</li>
+<li>
+<p><code>label</code> (String, Optional): Description of the data or action being transferred.</p>
+</li>
+<li>
+<p><code>dataType</code> (String, Optional): Type of data flowing along the edge.</p>
+</li>
+<li>
+<p><em>(Other optional properties for styling/metadata, e.g., <code>isEncrypted</code>, <code>validationStatus</code>)</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>relatedGuidelines</code> (Array[UUID/String], Optional): List of <code>guidelineId</code>s relevant to data handling within this process.</p>
+</li>
+</ul>
+<h3 id="26-auditlogentry">2.6 AuditLogEntry</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents a single entry in the Verification System's audit log, tracking significant actions related to ethical validation, configuration changes, or security events within the verification scope.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>logId</code> (UUID/String, Primary Key): Unique identifier for the log entry.</p>
+</li>
+<li>
+<p><code>timestamp</code> (Timestamp): Date and time the action occurred.</p>
+</li>
+<li>
+<p><code>adminUser</code> (UUID/String, Nullable): Identifier of the admin user performing the action (or 'system' if automated).</p>
+</li>
+<li>
+<p><code>actionType</code> (Enum/String): Category of the action performed (e.g., <code>guideline_updated</code>, <code>algorithm_verified</code>, <code>verification_failed</code>, <code>data_traceability_audited</code>, <code>security_setting_changed</code>, <code>user_report_reviewed</code>).</p>
+</li>
+<li>
+<p><code>affectedObjectType</code> (Enum/String, Nullable): Type of object affected by the action (e.g., <code>EthicalGuideline</code>, <code>Algorithm</code>, <code>TraceableProcess</code>, <code>User</code>, <code>Community</code>).</p>
+</li>
+<li>
+<p><code>affectedObjectId</code> (UUID/String, Nullable): Identifier of the specific object affected.</p>
+</li>
+<li>
+<p><code>description</code> (String/Text): Human-readable summary of the event.</p>
+</li>
+<li>
+<p><code>details</code> (JSON/Object, Optional): Additional structured details about the event (e.g., specific changes made, parameters used).</p>
+</li>
+<li>
+<p><code>ipAddress</code> (String, Optional): IP address associated with the action (use with privacy considerations).</p>
+</li>
+</ul>
+<h3 id="27-platformverificationstatussummary">2.7 PlatformVerificationStatusSummary</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides a high-level overview of the overall verification status of the entire ThinkAlike platform.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>platformVerificationStatus</code> (Enum/String): Overall status (e.g., <code>verified</code>, <code>partially_verified</code>, <code>unverified</code>, <code>needs_review</code>).</p>
+</li>
+<li>
+<p><code>verifiedComponentCounts</code> (JSON/Object): Counts of verified components by type (e.g., <code>{ "ethicalGuidelines": 15, "algorithms": 2, "dataTraceabilityProcesses": 5 }</code>).</p>
+</li>
+<li>
+<p><code>lastPlatformVerificationReportLink</code> (URL/String, Optional): Link to the latest comprehensive platform verification report.</p>
+</li>
+<li>
+<p><code>lastCheckedTimestamp</code> (Timestamp): When this summary was last generated/updated.</p>
+</li>
+</ul>
+<h3 id="28-modeverificationstatus">2.8 ModeVerificationStatus</h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides a verification status summary specific to one of ThinkAlike's core Modes (Narrative, Matching, Community).</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>modeName</code> (String): Name of the Mode (e.g., "Narrative Mode", "Matching Mode", "Community Mode").</p>
+</li>
+<li>
+<p><code>verificationStatus</code> (Enum/String): Overall status for this Mode (e.g., <code>verified</code>, <code>partially_verified</code>, <code>unverified</code>).</p>
+</li>
+<li>
+<p><code>lastVerificationDate</code> (Timestamp, Nullable): Date of the last verification specific to this Mode.</p>
+</li>
+<li>
+<p><code>verifiedFeatureCounts</code> (JSON/Object): Counts of verified features or sub-components within this Mode (e.g., <code>{ "algorithms": 1, "ui_workflows": 10, "data_handling_points": 25 }</code>).</p>
+</li>
+<li>
+<p><code>modeSpecificReportLink</code> (URL/String, Optional): Link to a detailed verification report for this specific Mode.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-relationships">3. Relationships</h2>
+<p>These data models are interconnected:</p>
+<ul>
+<li>
+<p><code>AlgorithmVerificationDetails</code> references <code>EthicalGuideline</code> (<code>relatedGuidelines</code>).</p>
+</li>
+<li>
+<p><code>AuditLogEntry</code> references various objects (<code>affectedObjectId</code>) like <code>EthicalGuideline</code>, <code>AlgorithmVerificationStatus</code>, <code>TraceableProcess</code> based on <code>affectedObjectType</code>.</p>
+</li>
+<li>
+<p><code>TraceableProcessDetails</code> may reference <code>EthicalGuideline</code> (<code>relatedGuidelines</code>).</p>
+</li>
+<li>
+<p><code>PlatformVerificationStatusSummary</code> aggregates status information, potentially derived from <code>AlgorithmVerificationStatus</code>, <code>ModeVerificationStatus</code>, etc.</p>
+</li>
+<li>
+<p><code>ModeVerificationStatus</code> aggregates status information for components within a specific mode.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-storage-considerations">4. Storage Considerations</h2>
+<p>While logically part of the Verification System, these data models will likely be stored as tables or collections within the main ThinkAlike platform database (e.g., PostgreSQL) for operational efficiency. Appropriate indexing and access controls must be applied to ensure performance and security, restricting access primarily to the Verification System services and authorized administrative interfaces.</p>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Verification System Data Models</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Verification System Data Models</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/logging_standards/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Logging Standards and Best Practices - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Logging Standards and Best Practices";
+        var mkdocs_page_input_path = "guides/developer_guides/logging_standards.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/logging_standards/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Logging Standards and Best Practices</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="logging-standards-and-best-practices">Logging Standards and Best Practices</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document outlines the logging standards and best practices for the ThinkAlike project. Proper logging is essential for debugging, monitoring, auditing, and understanding system behavior in development and production environments. Following these guidelines ensures consistency and effectiveness across all components of the platform.</p>
+<hr />
+<h2 id="2-logging-objectives">2. Logging Objectives</h2>
+<p>Effective logging in the ThinkAlike platform serves several key purposes:</p>
+<ul>
+<li>
+<p><strong>Debugging:</strong> Provide detailed context for troubleshooting issues</p>
+</li>
+<li>
+<p><strong>Monitoring:</strong> Enable real-time system health observations</p>
+</li>
+<li>
+<p><strong>Auditing:</strong> Record significant user actions and system events</p>
+</li>
+<li>
+<p><strong>Analytics:</strong> Support data-driven insights about usage patterns</p>
+</li>
+<li>
+<p><strong>Security:</strong> Track potential security incidents and unauthorized access attempts</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-log-levels">3. Log Levels</h2>
+<p>Use appropriate log levels consistently across the codebase:</p>
+<h3 id="31-level-definitions">3.1 Level Definitions</h3>
+<ul>
+<li>
+<p><strong>ERROR:</strong> System errors that prevent functionality from working correctly. Requires immediate attention.</p>
+</li>
+<li>
+<p>Examples: Database connection failures, API integration failures, authentication errors</p>
+</li>
+<li>
+<p><strong>WARNING:</strong> Unusual or unexpected events that don't cause system failure but may indicate problems.</p>
+</li>
+<li>
+<p>Examples: Performance degradation, retry attempts, deprecated feature usage</p>
+</li>
+<li>
+<p><strong>INFO:</strong> Normal but significant events that highlight application flow.</p>
+</li>
+<li>
+<p>Examples: Service startup/shutdown, user registration, content creation</p>
+</li>
+<li>
+<p><strong>DEBUG:</strong> Detailed information useful for debugging and development.</p>
+</li>
+<li>
+<p>Examples: Function entry/exit, parameter values, state changes, detailed flow logic</p>
+</li>
+<li>
+<p><strong>TRACE:</strong> Very detailed information primarily for development. Typically only enabled in development environments.</p>
+</li>
+<li>
+<p>Examples: Loop iterations, detailed algorithm steps, function call frequency</p>
+</li>
+</ul>
+<h3 id="32-level-usage-guidelines">3.2 Level Usage Guidelines</h3>
+<ul>
+<li>
+<p>Use <strong>ERROR</strong> sparingly for genuine errors, not for expected conditions</p>
+</li>
+<li>
+<p>Use <strong>WARNING</strong> for anomalies that don't prevent operation but should be investigated</p>
+</li>
+<li>
+<p>Use <strong>INFO</strong> for key lifecycle events and actions visible to users</p>
+</li>
+<li>
+<p>Use <strong>DEBUG</strong> for information helpful during development or detailed troubleshooting</p>
+</li>
+<li>
+<p>Configure production environments to typically log <strong>INFO</strong> and above</p>
+</li>
+<li>
+<p>Reserve <strong>TRACE</strong> for complex debugging scenarios, enabling temporarily as needed</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-log-message-content">4. Log Message Content</h2>
+<h3 id="41-message-structure">4.1 Message Structure</h3>
+<p>Each log message should include:</p>
+<ul>
+<li>
+<p><strong>Timestamp:</strong> When the event occurred (ISO 8601 format)</p>
+</li>
+<li>
+<p><strong>Level:</strong> The log level (ERROR, WARNING, etc.)</p>
+</li>
+<li>
+<p><strong>Component/Module:</strong> Which part of the system generated the log</p>
+</li>
+<li>
+<p><strong>Request ID/Correlation ID:</strong> To trace requests across distributed systems</p>
+</li>
+<li>
+<p><strong>Message:</strong> Clear, concise description of the event</p>
+</li>
+<li>
+<p><strong>Context:</strong> Relevant data for understanding the event</p>
+</li>
+</ul>
+<h3 id="42-content-guidelines">4.2 Content Guidelines</h3>
+<ul>
+<li>
+<p><strong>Be Specific:</strong> "User registration failed: Email already exists" instead of "Registration failed"</p>
+</li>
+<li>
+<p><strong>Include Key Data:</strong> Log IDs, transaction references, and relevant parameters (sanitized)</p>
+</li>
+<li>
+<p><strong>Format for Readability:</strong> Structure complex data as JSON for easy parsing</p>
+</li>
+<li>
+<p><strong>Be Concise:</strong> Focus on essential information to avoid log bloat</p>
+</li>
+</ul>
+<h3 id="43-example-message-formats">4.3 Example Message Formats</h3>
+<div class="highlight"><pre><span></span><code># Backend (Python)
+
+INFO [UserService] [req-abc123] User registered successfully: user_id=456, email=&quot;j***@example.com&quot;
+
+# Frontend (JavaScript)
+
+ERROR [AuthComponent] [session-xyz789] Authentication failed: Invalid credentials after 3 attempts
+</code></pre></div>
+<hr />
+<h2 id="5-implementation">5. Implementation</h2>
+<h3 id="51-backend-python">5.1 Backend (Python)</h3>
+<p>Use Python's built-in logging module with structured logging:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextvars</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContextVar</span>
+
+<span class="c1"># Set up request_id context</span>
+
+<span class="n">request_id_var</span> <span class="o">=</span> <span class="n">ContextVar</span><span class="p">(</span><span class="s1">&#39;request_id&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="c1"># Configure logger</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;thinkalike&#39;</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">log_event</span><span class="p">(</span><span class="n">level</span><span class="p">,</span> <span class="n">message</span><span class="p">,</span> <span class="o">**</span><span class="n">context</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Log an event with structured context&quot;&quot;&quot;</span>
+    <span class="n">req_id</span> <span class="o">=</span> <span class="n">request_id_var</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+    <span class="n">log_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">message</span><span class="p">,</span>
+        <span class="s1">&#39;request_id&#39;</span><span class="p">:</span> <span class="n">req_id</span><span class="p">,</span>
+
+        <span class="o">**</span><span class="n">context</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;error&#39;</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">log_data</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">level</span> <span class="o">==</span> <span class="s1">&#39;warning&#39;</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">log_data</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">log_data</span><span class="p">))</span>
+
+<span class="c1"># Usage example</span>
+
+<span class="n">log_event</span><span class="p">(</span><span class="s1">&#39;info&#39;</span><span class="p">,</span> <span class="s1">&#39;User registered&#39;</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="s1">&#39;123&#39;</span><span class="p">,</span> <span class="n">email</span><span class="o">=</span><span class="s1">&#39;masked@example.com&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="52-frontend-typescript">5.2 Frontend (TypeScript)</h3>
+<p>Create a logging service that supports different environments:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// logging-service.ts</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">enum</span><span class="w"> </span><span class="nx">LogLevel</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">ERROR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;ERROR&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">WARNING</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;WARNING&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">INFO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;INFO&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">DEBUG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DEBUG&#39;</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">LoggingService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">sessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+
+<span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">sessionId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">generateSessionId</span><span class="p">();</span><span class="w"> </span><span class="c1">// implementation not shown</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">log</span><span class="p">(</span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="kt">LogLevel</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">context?</span><span class="o">:</span><span class="w"> </span><span class="kt">Record</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">any</span><span class="o">&gt;</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">logData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">timestamp</span><span class="o">:</span><span class="w"> </span><span class="kt">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toISOString</span><span class="p">(),</span>
+<span class="w">      </span><span class="nx">level</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">message</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">sessionId</span><span class="o">:</span><span class="w"> </span><span class="kt">this.sessionId</span><span class="p">,</span>
+<span class="w">      </span><span class="p">...</span><span class="nx">context</span>
+<span class="w">    </span><span class="p">};</span>
+
+<span class="w">    </span><span class="c1">// Development logging</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;development&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">logToConsole</span><span class="p">(</span><span class="nx">level</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="p">,</span><span class="w"> </span><span class="nx">logData</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Production logging - send to backend or monitoring service</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">NODE_ENV</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;production&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">level</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">LogLevel</span><span class="p">.</span><span class="nx">ERROR</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">level</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">LogLevel</span><span class="p">.</span><span class="nx">WARNING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">sendToBackend</span><span class="p">(</span><span class="nx">logData</span><span class="p">);</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">logToConsole</span><span class="p">(</span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="kt">LogLevel</span><span class="p">,</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="nx">level</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nx">LogLevel.ERROR</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">console.error</span><span class="p">(</span><span class="sb">`[</span><span class="si">${</span><span class="nx">level</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="nx">LogLevel.WARNING</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">console.warn</span><span class="p">(</span><span class="sb">`[</span><span class="si">${</span><span class="nx">level</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span>
+<span class="w">      </span><span class="nx">default</span><span class="o">:</span>
+<span class="w">        </span><span class="kt">console.log</span><span class="p">(</span><span class="sb">`[</span><span class="si">${</span><span class="nx">level</span><span class="si">}</span><span class="sb">] </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">sendToBackend</span><span class="p">(</span><span class="nx">logData</span><span class="o">:</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Implementation to send logs to backend</span>
+<span class="w">    </span><span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/api/logs&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="kt">JSON.stringify</span><span class="p">(</span><span class="nx">logData</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}).</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s1">&#39;Failed to send log to server&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">LoggingService</span><span class="p">();</span>
+
+<span class="c1">// Usage</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">logger</span><span class="p">,</span><span class="w"> </span><span class="nx">LogLevel</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./logging-service&#39;</span><span class="p">;</span>
+<span class="nx">logger</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">LogLevel</span><span class="p">.</span><span class="nx">INFO</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;User profile viewed&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">userId</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;123&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">section</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;preferences&#39;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<hr />
+<h2 id="6-common-logging-scenarios">6. Common Logging Scenarios</h2>
+<h3 id="61-api-endpoints">6.1 API Endpoints</h3>
+<p>Log the following for API endpoints:</p>
+<ul>
+<li>
+<p>Request received (method, endpoint, client info)</p>
+</li>
+<li>
+<p>Response sent (status code, timing)</p>
+</li>
+<li>
+<p>Errors or exceptional conditions</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/api/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request received&quot;</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;/api/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;GET&quot;</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Business logic...</span>
+
+        <span class="n">user</span> <span class="o">=</span> <span class="k">await</span> <span class="n">user_service</span><span class="o">.</span><span class="n">get_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Request completed&quot;</span><span class="p">,</span>
+                   <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;/api/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">,</span>
+                   <span class="n">status_code</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+                   <span class="n">duration_ms</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">elapsed</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">user</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error processing request&quot;</span><span class="p">,</span>
+                    <span class="n">endpoint</span><span class="o">=</span><span class="s2">&quot;/api/users/</span><span class="si">{user_id}</span><span class="s2">&quot;</span><span class="p">,</span>
+                    <span class="n">status_code</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span>
+                    <span class="n">error</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">),</span>
+                    <span class="n">duration_ms</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">elapsed</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+        <span class="k">raise</span>
+</code></pre></div>
+<h3 id="62-background-tasks">6.2 Background Tasks</h3>
+<p>Log the following for background tasks:</p>
+<ul>
+<li>
+<p>Task start with parameters</p>
+</li>
+<li>
+<p>Task completion with results</p>
+</li>
+<li>
+<p>Task failures with detailed error information</p>
+</li>
+<li>
+<p>Progress for long-running tasks</p>
+</li>
+</ul>
+<h3 id="63-authentication-events">6.3 Authentication Events</h3>
+<p>Log the following authentication events:</p>
+<ul>
+<li>
+<p>Login attempts (success/failure)</p>
+</li>
+<li>
+<p>Password reset requests</p>
+</li>
+<li>
+<p>Permission changes</p>
+</li>
+<li>
+<p>Account lockouts</p>
+</li>
+</ul>
+<hr />
+<h2 id="7-security-and-privacy-considerations">7. Security and Privacy Considerations</h2>
+<h3 id="71-sensitive-data">7.1 Sensitive Data</h3>
+<ul>
+<li>
+<p><strong>Never log:</strong> Passwords, tokens, full credit card numbers, full SSNs</p>
+</li>
+<li>
+<p><strong>Mask sensitive data:</strong> Email addresses, phone numbers, etc.</p>
+</li>
+<li>
+<p><strong>Use reference IDs:</strong> Log reference IDs instead of actual data when possible</p>
+</li>
+</ul>
+<h3 id="72-pii-handling">7.2 PII Handling</h3>
+<ul>
+<li>
+<p>Follow GDPR, CCPA, and other relevant privacy regulations</p>
+</li>
+<li>
+<p>Implement log retention policies that comply with legal requirements</p>
+</li>
+<li>
+<p>Consider logs as potentially containing PII when designing data deletion workflows</p>
+</li>
+</ul>
+<h3 id="73-log-security">7.3 Log Security</h3>
+<ul>
+<li>
+<p>Protect log files with appropriate access controls</p>
+</li>
+<li>
+<p>Transmit logs securely when sending to external systems</p>
+</li>
+<li>
+<p>Consider encryption for highly sensitive logs</p>
+</li>
+</ul>
+<hr />
+<h2 id="8-log-management">8. Log Management</h2>
+<h3 id="81-aggregation">8.1 Aggregation</h3>
+<ul>
+<li>
+<p>Use a centralized logging system (e.g., ELK stack, Graylog, SumoLogic, etc.)</p>
+</li>
+<li>
+<p>Configure log forwarding from all services to the central system</p>
+</li>
+<li>
+<p>Normalize log formats for consistent querying</p>
+</li>
+</ul>
+<h3 id="82-retention">8.2 Retention</h3>
+<ul>
+<li>
+<p>Define retention periods based on:</p>
+</li>
+<li>
+<p>Regulatory requirements</p>
+</li>
+<li>
+<p>Business needs</p>
+</li>
+<li>
+<p>Storage constraints</p>
+</li>
+<li>
+<p>Implement automated archiving and deletion</p>
+</li>
+</ul>
+<h3 id="83-monitoring-and-alerting">8.3 Monitoring and Alerting</h3>
+<ul>
+<li>
+<p>Set up alerts for ERROR level logs</p>
+</li>
+<li>
+<p>Create dashboards for monitoring system health</p>
+</li>
+<li>
+<p>Implement automated scanning for security-relevant log patterns</p>
+</li>
+</ul>
+<hr />
+<h2 id="9-log-analysis-best-practices">9. Log Analysis Best Practices</h2>
+<ul>
+<li>
+<p>Use correlation IDs to track requests across distributed systems</p>
+</li>
+<li>
+<p>Create metrics from logs to monitor trends over time</p>
+</li>
+<li>
+<p>Regularly review logs to identify patterns and improvement opportunities</p>
+</li>
+<li>
+<p>Use log analysis to inform performance optimizations</p>
+</li>
+</ul>
+<hr />
+<p>By following these logging standards and practices, we ensure that ThinkAlike's logs provide maximum value for debugging, monitoring, and understanding system behavior while respecting security and privacy requirements.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Logging Standards and Best Practices</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Logging Standards and Best Practices</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

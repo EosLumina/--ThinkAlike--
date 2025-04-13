@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/components/ui_components/data_display/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Data Display Component Specification - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data Display Component Specification";
+        var mkdocs_page_input_path = "components/ui_components/data_display.md";
+        var mkdocs_page_url = "/--ThinkAlike--/components/ui_components/data_display/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Data Display Component Specification</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="data-display-component-specification">Data Display Component Specification</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Defines the implementation of the data display component, a core UI element for visualizing and interacting with data across the platform.</p>
+<h2 id="2-component-architecture">2. Component Architecture</h2>
+<h3 id="21-component-structure">2.1 Component Structure</h3>
+<p>This component standardizes how individual pieces of data (like user profile fields, configuration settings, AI model parameters, or results from API calls) are shown, ensuring a cohesive user experience and providing a consistent target for testing and validation workflows. It's a fundamental building block used within more complex components like Profile Views, Settings Panels, and potentially the <code>Data Explorer Panel</code>.</p>
+<hr />
+<h2 id="2-ui-components-elements">2. UI Components / Elements</h2>
+<p>The <code>DataDisplay</code> component adapts its rendering based on the <code>dataType</code> prop and the structure of the <code>data</code> prop. Common elements include:</p>
+<h3 id="21-label">2.1 Label</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Clearly identify the data being displayed.</p>
+</li>
+<li>
+<p><strong>UI Element:</strong> A text label (e.g., <code>&lt;strong&gt;</code>, <code>&lt;span&gt;</code>) positioned typically above or beside the data value. Uses fonts and styles defined in the <a href="../../guides/developer_guides/style_guide.md">ThinkAlike Style Guide</a>.</p>
+</li>
+<li>
+<p><strong>Content:</strong> The human-readable name of the data field (e.g., "Username:", "Ethical Alignment Score:", "Last Login Date:").</p>
+</li>
+</ul>
+<h3 id="22-value-display">2.2 Value Display</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Show the actual data value.</p>
+</li>
+<li>
+<p><strong>UI Element:</strong> Varies based on <code>dataType</code>:</p>
+</li>
+<li>
+<p><strong>Text/String:</strong> Plain text (<code>&lt;span&gt;</code>, <code>&lt;p&gt;</code>). Long text might be truncated with an option to expand.</p>
+</li>
+<li>
+<p><strong>Number:</strong> Formatted numerical display.</p>
+</li>
+<li>
+<p><strong>Boolean:</strong> Displayed as "Yes"/"No", "True"/"False", or potentially a checkmark/cross icon.</p>
+</li>
+<li>
+<p><strong>Date/Timestamp:</strong> Formatted date/time string (e.g., "March 26, 2025 10:30 AM UTC").</p>
+</li>
+<li>
+<p><strong>List/Array:</strong> Rendered as a bulleted or numbered list, or comma-separated inline list depending on configuration.</p>
+</li>
+<li>
+<p><strong>Object (Simple):</strong> Rendered as key-value pairs (potentially using nested <code>DataDisplay</code> components). Avoid overly complex object rendering; use specialized components for those.</p>
+</li>
+<li>
+<p><strong>Masked:</strong> For sensitive data (passwords, tokens), displays masked characters (e.g., "<strong><em>*</em></strong>*").</p>
+</li>
+<li>
+<p><strong>Styling:</strong> Adheres to standard text styles. May use specific styling for different data types (e.g., monospace for code snippets if needed).</p>
+</li>
+</ul>
+<h3 id="23-tooltip-for-traceability-optional">2.3 Tooltip for Traceability (Optional)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Provide contextual information about the data's origin or meaning, linking to the principle of Data Traceability.</p>
+</li>
+<li>
+<p><strong>UI Element:</strong> An info icon (ℹ️) next to the label or value, which reveals a tooltip on hover/click.</p>
+</li>
+<li>
+<p><strong>Content:</strong> Displays metadata like:</p>
+</li>
+<li>
+<p><code>Data Source:</code> (e.g., "User Profile Input", "API: /api/users/me", "AI Model Output").</p>
+</li>
+<li>
+<p><code>Last Updated:</code> (Timestamp).</p>
+</li>
+<li>
+<p><code>Description:</code> Brief explanation of the data point's meaning or relevance.</p>
+</li>
+<li>
+<p>Link to more detailed documentation or the <code>Data Explorer Panel</code>.</p>
+</li>
+</ul>
+<h3 id="24-validation-indicator-optional">2.4 Validation Indicator (Optional)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Provide subtle visual cues about the validation status of the displayed data, linking to the "UI as Validation Framework" principle.</p>
+</li>
+<li>
+<p><strong>UI Element:</strong> A small icon or border color applied to the value display area.</p>
+</li>
+<li>
+<p><em>Default/Valid:</em> No specific indicator or a subtle confirmation (e.g., light green border on focus during validation tests).</p>
+</li>
+<li>
+<p><em>Warning:</em> Yellow icon/border (e.g., data is present but potentially stale or unusual).</p>
+</li>
+<li>
+<p><em>Error:</em> Red icon/border (e.g., data failed validation checks, missing required data).</p>
+</li>
+<li>
+<p><strong>Interaction:</strong> Hovering over the indicator could show a tooltip explaining the validation status/error (potentially linking to <code>DataValidationError</code>).</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-data-flow-and-interaction">3. Data Flow and Interaction</h2>
+<ol>
+<li><strong>Data Input:</strong> The parent component passes data to <code>DataDisplay</code> via props, including the <code>label</code>, <code>value</code>, <code>dataType</code>, and optional <code>tooltipData</code> and <code>validationStatus</code>.</li>
+<li><strong>Conditional Rendering:</strong> The component internally determines how to render the <code>value</code> based on the <code>dataType</code> prop.</li>
+<li><strong>Formatting:</strong> Applies necessary formatting (dates, numbers, masking).</li>
+<li><strong>Tooltip Integration:</strong> Renders the tooltip trigger and content if <code>tooltipData</code> is provided.</li>
+<li><strong>Validation Styling:</strong> Applies appropriate styling based on the <code>validationStatus</code> prop.</li>
+<li><strong>Output:</strong> Renders the formatted label and value with integrated tooltip and validation cues.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    subgraph DataDisplay
+        View[View Controller]
+        Grid[Grid View]
+        List[List View]
+        Timeline[Timeline View]
+    end
+
+    subgraph Controls
+        Sort[Sort Controls]
+        Filter[Filter Controls]
+        Page[Pagination]
+    end
+
+    View --&gt; Grid &amp; List &amp; Timeline
+    Sort &amp; Filter &amp; Page --&gt; View
+</code></pre></div>
+<h3 id="22-interface-definition">2.2 Interface Definition</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">interface</span><span class="w"> </span><span class="nx">DataDisplayProps</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">data</span><span class="o">:</span><span class="w"> </span><span class="kt">DataItem</span><span class="p">[];</span>
+<span class="w">  </span><span class="nx">viewType</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;list&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;grid&#39;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="s1">&#39;timeline&#39;</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">sortOptions?</span><span class="o">:</span><span class="w"> </span><span class="kt">SortOption</span><span class="p">[];</span>
+<span class="w">  </span><span class="nx">filterOptions?</span><span class="o">:</span><span class="w"> </span><span class="kt">FilterOption</span><span class="p">[];</span>
+<span class="w">  </span><span class="nx">onSort</span><span class="o">?:</span><span class="w"> </span><span class="p">(</span><span class="nx">option</span><span class="o">:</span><span class="w"> </span><span class="kt">SortOption</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">onFilter</span><span class="o">?:</span><span class="w"> </span><span class="p">(</span><span class="nx">filters</span><span class="o">:</span><span class="w"> </span><span class="kt">FilterOption</span><span class="p">[])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span>
+<span class="w">  </span><span class="nx">onItemSelect</span><span class="o">?:</span><span class="w"> </span><span class="p">(</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="kt">DataItem</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">void</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="3-implementation-details">3. Implementation Details</h2>
+<h3 id="31-view-types">3.1 View Types</h3>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">DataDisplay</span><span class="o">:</span><span class="w"> </span><span class="kt">React.FC</span><span class="o">&lt;</span><span class="nx">DataDisplayProps</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">({</span>
+<span class="w">  </span><span class="nx">data</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">viewType</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">sortOptions</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">filterOptions</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">onSort</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">onFilter</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">onItemSelect</span>
+<span class="p">})</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">currentView</span><span class="p">,</span><span class="w"> </span><span class="nx">setCurrentView</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="nx">viewType</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">currentPage</span><span class="p">,</span><span class="w"> </span><span class="nx">setCurrentPage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="mf">1</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// ...implementation details</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="4-performance-optimization">4. Performance Optimization</h2>
+<h3 id="41-virtualization">4.1 Virtualization</h3>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">VirtualizedList</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@/components/common/VirtualizedList&#39;</span><span class="p">;</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">VirtualizedDataDisplay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">VirtualizedList</span>
+<span class="w">      </span><span class="nx">items</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span>
+<span class="w">      </span><span class="nx">height</span><span class="o">=</span><span class="p">{</span><span class="mf">600</span><span class="p">}</span>
+<span class="w">      </span><span class="nx">itemHeight</span><span class="o">=</span><span class="p">{</span><span class="mf">80</span><span class="p">}</span>
+<span class="w">      </span><span class="nx">renderItem</span><span class="o">=</span><span class="p">{(</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">DataItem</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">item</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="w"> </span><span class="p">{...</span><span class="nx">item</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">      </span><span class="p">)}</span>
+<span class="w">    </span><span class="o">/&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2 id="5-testing-strategy">5. Testing Strategy</h2>
+<h3 id="51-component-tests">5.1 Component Tests</h3>
+<div class="highlight"><pre><span></span><code><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;DataDisplay&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">it</span><span class="p">(</span><span class="s1">&#39;renders correct view type&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">container</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">render</span><span class="p">(</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">DataDisplay</span>
+<span class="w">        </span><span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="nx">mockData</span><span class="p">}</span>
+<span class="w">        </span><span class="nx">viewType</span><span class="o">=</span><span class="s2">&quot;grid&quot;</span>
+<span class="w">      </span><span class="o">/&gt;</span>
+<span class="w">    </span><span class="p">);</span>
+<span class="w">    </span><span class="nx">expect</span><span class="p">(</span><span class="nx">container</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;[data-testid=&quot;grid-view&quot;]&#39;</span><span class="p">))</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="6-further-reference">6. Further Reference</h2>
+<ul>
+<li>
+<p><a href="../common/README.md">Component Library</a></p>
+</li>
+<li>
+<p><a href="../../guides/performance.md">Performance Guidelines</a></p>
+</li>
+<li>
+<p><a href="../../guides/testing.md">Testing Standards</a></p>
+</li>
+</ul>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Data Display Component Specification</p>
+</li>
+<li>
+<p>Type: Component Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Data Display Component Specification</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

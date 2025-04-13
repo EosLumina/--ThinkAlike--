@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/security_feedback_loops/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Security and Privacy Actionable Feedback Loops - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Security and Privacy Actionable Feedback Loops";
+        var mkdocs_page_input_path = "guides/developer_guides/security_feedback_loops.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/security_feedback_loops/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Security and Privacy Actionable Feedback Loops</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="security-and-privacy-actionable-feedback-loops">Security and Privacy Actionable Feedback Loops</h1>
+<hr />
+<h2 id="1-introduction-empowering-users-through-security-transparency-and-control">1. Introduction: Empowering Users Through Security Transparency and Control</h2>
+<p>This document details the design for the <strong>Security and Privacy Actionable Feedback Loops</strong> within the ThinkAlike platform. This system goes beyond simply displaying security status (as covered by the <code>Security_Status_Indicator</code>) by providing users with <strong>interactive dashboards, granular controls, and clear validation mechanisms</strong> to actively manage and understand their security and privacy posture.</p>
+<p>The core principle is to create a transparent and empowering loop: the UI <strong>shows</strong> the current state and relevant data (Feedback), allows the user to <strong>act</strong> upon it (Actionable Controls), and then <strong>validates</strong> and reflects the results of those actions (Closing the Loop). This transforms security and privacy from abstract policies into tangible, user-driven experiences, directly implementing the vision outlined in the <a href="../../../architecture/security/security_and_privacy_plan/">ThinkAlike Security and Privacy Implementation Plan</a> and building upon components like the <a href="../../../components/ui_components/security_status_indicator/">Security Status Indicator</a>.</p>
+<hr />
+<h2 id="2-key-components-and-functionality">2. Key Components and Functionality</h2>
+<p>These features are primarily located within a dedicated "Security &amp; Privacy Center" in the user settings area, but contextual elements may appear elsewhere.</p>
+<h3 id="21-ui-driven-security-dashboard">2.1 UI Driven Security Dashboard</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Serve as the central hub for security awareness, providing a comprehensive overview, real-time status, actionable warnings, and links to detailed controls. It acts as the primary <strong>feedback</strong> element in the loop.</p>
+</li>
+<li>
+<p><strong>Key UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Real-Time Data Status (Expanded View):</strong></p>
+<ul>
+<li>
+<p><strong>Component:</strong> Integrates the <code>Security_Status_Indicator</code> component for at-a-glance status.</p>
+</li>
+<li>
+<p><strong>Display:</strong> Expands on the indicator by showing:</p>
+</li>
+<li>
+<p>Current encryption status (Transit: HTTPS/TLS version, Rest: AES-256/Other). Clear textual confirmation alongside icons.</p>
+</li>
+<li>
+<p>Last security scan/audit date (if applicable).</p>
+</li>
+<li>
+<p>Two-Factor Authentication (2FA) status (Enabled/Disabled).</p>
+</li>
+<li>
+<p><strong>Actionable Feedback:</strong> Status indicators link directly to relevant sections within the Security Center (e.g., clicking 2FA status goes to 2FA settings). Yellow/Red statuses provide explicit warnings and remediation links.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Vulnerability Warnings &amp; Recommendations:</strong></p>
+<ul>
+<li>
+<p><strong>Component:</strong> An interactive <code>Alert</code> list or dedicated warning panel (<code>VulnerabilityWarningList</code>).</p>
+</li>
+<li>
+<p><strong>Display:</strong> Lists detected potential vulnerabilities (e.g., weak password, inactive sessions on other devices, outdated privacy consents) with severity levels (Low, Medium, High).</p>
+</li>
+<li>
+<p><strong>Actionable Feedback:</strong> Each warning <em>must</em> include a direct button/link to the specific setting or action required to resolve it (e.g., "Change Password", "Review Active Sessions", "Update Consent Settings"). Provides a clear path from awareness to action.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Handling Validation Summary:</strong></p>
+<ul>
+<li>
+<p><strong>Component:</strong> A summary panel linking data handling practices to user settings (<code>DataHandlingSummary</code>).</p>
+</li>
+<li>
+<p><strong>Display:</strong> Shows a high-level view of recent data access relevant to the user (e.g., "AI Matching used your Value Profile 5 times today", "Community data aggregated anonymously"). Uses icons to indicate if accesses align with current user consent settings.</p>
+</li>
+<li>
+<p><strong>Actionable Feedback:</strong> Links directly to the <code>Data Explorer Panel</code> for detailed data audit and the <code>AI Transparency Log</code> for specific AI data usage details. Allows users to validate that actual data handling aligns with their configured permissions.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Source:</strong> Aggregates data from <code>GET /api/security/dashboard-summary</code>, user settings APIs, real-time security events.</p>
+</li>
+</ul>
+<h3 id="22-user-permission-controls-action-validation">2.2 User Permission Controls (Action &amp; Validation)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Provide the primary mechanism for users to <strong>act</strong> on their privacy preferences, granting granular control over data access and usage, and validating that these settings are applied.</p>
+</li>
+<li>
+<p><strong>Key UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Granular Access Control Matrix/Panel (<code>AccessControlSettings</code>):</strong></p>
+</li>
+<li>
+<p><strong>Granular Access Control Matrix/Panel (<code>AccessControlSettings</code>):</strong>led permissions (e.g., View Profile, View Narrative, Allow Connection Request) for different data categories against different audiences (Public, Connections, Specific Communities, Only Me). Uses clear UI elements like dropdowns, toggles, or matrices.</p>
+<ul>
+<li>
+<p><strong>Display:</strong> Interactive grid or list allowing users to set detailed permissions (e.g., View Profile, View Narrative, Allow Connection Request) for different data categories against different audiences (Public, Connections, Specific Communities, Only Me). Uses clear UI elements like dropdowns, toggles, or matrices.osing the validation loop.</p>
+</li>
+<li>
+<p><strong>Action &amp; Feedback Loop:</strong> Changes made by the user trigger immediate (optimistic UI update) and asynchronous API calls (<code>PUT /api/users/me/permissions</code>). The UI provides clear feedback on save status (loading spinner on <code>ActionButton</code>, success/error <code>Alert</code>). Reloading the panel should reflect the saved state, closing the validation loop.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Privacy Data Management (Link &amp; Context):</strong>Data Explorer Panel` for viewing and managing the <em>actual</em> data points governed by the permissions set here.</p>
+<ul>
+<li>
+<p><strong>Display:</strong> Clearly directs users to the <code>Data Explorer Panel</code> for viewing and managing the <em>actual</em> data points governed by the permissions set here.</p>
+</li>
+<li>
+<p><strong>Actionable Feedback:</strong> Provides context ("Manage what specific data points fall under 'Profile Data' permissions in the Data Explorer"). Direct link.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Actionable Opt-in/Opt-out Options (<code>ConsentSettingsPanel</code>):</strong>s (<code>ConsentToggle</code>) for specific data uses beyond core functionality (e.g., "Use anonymized activity for platform analytics", "Allow AI to personalize community recommendations based on cross-community activity"). Each option <em>must</em> have a clear, concise explanation of the data involved and the purpose. Links to relevant sections of the Data Handling Policy should be provided.</p>
+<ul>
+<li>
+<p><strong>Display:</strong> A dedicated section with clear toggles/checkboxes (<code>ConsentToggle</code>) for specific data uses beyond core functionality (e.g., "Use anonymized activity for platform analytics", "Allow AI to personalize community recommendations based on cross-community activity"). Each option <em>must</em> have a clear, concise explanation of the data involved and the purpose. Links to relevant sections of the Data Handling Policy should be provided.</p>
+</li>
+<li>
+<p><strong>Action &amp; Feedback Loop:</strong> Toggling an option triggers an API call (<code>PUT /api/users/me/consent</code>). The UI confirms the change and visually reflects the new consent state. Users can validate that their choices are saved and respected by observing subsequent platform behavior (e.g., changes in recommendations) or checking logs (e.g., <code>AI Transparency Log</code>).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-data-encryption-control-validation-focus">2.3 Data Encryption Control (Validation Focus)</h3>
+<h3 id="23-data-encryption-control-validation-focus_1">2.3 Data Encryption Control (Validation Focus)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To provide <strong>transparency and validation</strong> regarding data encryption practices, allowing users to confirm security measures are active, rather than directly controlling complex encryption settings.</p>
+</li>
+<li>
+<p><strong>Purpose:</strong> To provide <strong>transparency and validation</strong> regarding data encryption practices, allowing users to confirm security measures are active, rather than directly controlling complex encryption settings.</p>
+</li>
+<li>
+<p><strong>Key UI Elements:</strong>s Display (within Dashboard):**</p>
+</li>
+<li>
+<p><strong>Encryption Status Display (within Dashboard):</strong>r` principles to clearly show if standard, robust encryption is active for data in transit (HTTPS/TLS) and at rest (e.g., AES-256).</p>
+<ul>
+<li>
+<p><strong>Display:</strong> Uses the <code>Security_Status_Indicator</code> principles to clearly show if standard, robust encryption is active for data in transit (HTTPS/TLS) and at rest (e.g., AES-256). terms.</p>
+</li>
+<li>
+<p><strong>Validation Feedback:</strong> Users can visually confirm the expected "Green" status. Any deviation prompts investigation via logs or support. Tooltips explain the protocols in simple terms.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Encryption Protocol Log (within Dashboard/Logs):</strong> confirmation of encryption application during key events (e.g., "Session Start: HTTPS Secured", "Profile Save: Data Encrypted at Rest").</p>
+<ul>
+<li>
+<p><strong>Display:</strong> Accessible log showing timestamps and confirmation of encryption application during key events (e.g., "Session Start: HTTPS Secured", "Profile Save: Data Encrypted at Rest").ication.</p>
+</li>
+<li>
+<p><strong>Validation Feedback:</strong> Allows users to audit and validate that encryption was active during specific sensitive operations, closing the loop between policy/status display and actual application.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Sensitivity Level Indicators (Contextual):</strong>cons, labels) applied <em>directly</em> to sensitive fields in forms (<code>UserForm</code>) or data displays (<code>DataDisplay</code>, <code>Data Explorer Panel</code>).</p>
+<ul>
+<li>
+<p><strong>Display:</strong> Consistent visual cues (e.g., lock icons, labels) applied <em>directly</em> to sensitive fields in forms (<code>UserForm</code>) or data displays (<code>DataDisplay</code>, <code>Data Explorer Panel</code>).rmission settings, validating that appropriate protections are applied contextually.</p>
+</li>
+<li>
+<p><strong>Validation Feedback:</strong> Reinforces user awareness of which data is considered most sensitive, allowing them to cross-reference this with the overall encryption status and their permission settings, validating that appropriate protections are applied contextually.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<hr />
+<h2 id="3-code-implementation-notes">3. Code Implementation Notes</h2>
+<h2 id="3-code-implementation-notes_1">3. Code Implementation Notes</h2>
+<ul>
+<li>
+<p><strong>Framework:</strong> React.</p>
+</li>
+<li>
+<p><strong>Framework:</strong> React. Emphasize modularity. Create specific components for <code>AccessControlSettings</code>, <code>ConsentSettingsPanel</code>, <code>VulnerabilityWarningList</code>, <code>DataHandlingSummary</code>, leveraging core elements like <code>ActionButton</code>, <code>Alert</code>, <code>DataDisplay</code>, and <code>ConsentToggle</code>.</p>
+</li>
+<li>
+<p><strong>Component Design:</strong> Emphasize modularity. Create specific components for <code>AccessControlSettings</code>, <code>ConsentSettingsPanel</code>, <code>VulnerabilityWarningList</code>, <code>DataHandlingSummary</code>, leveraging core elements like <code>ActionButton</code>, <code>Alert</code>, <code>DataDisplay</code>, and <code>ConsentToggle</code>.</p>
+</li>
+<li>
+<p><strong>State Management:</strong> Use a robust global state solution to manage user settings, permissions, consent, and security status fetched from the backend. Ensure consistency between displayed settings and the actual state.</p>
+</li>
+<li>
+<p><strong>API Interaction:</strong>pecific API endpoints for fetching and updating security settings, permissions, and consent (<code>GET/PUT /api/users/me/settings/security</code>, <code>GET/PUT /api/users/me/permissions</code>, <code>GET/PUT /api/users/me/consent</code>).</p>
+</li>
+<li>
+<p>Design clear and specific API endpoints for fetching and updating security settings, permissions, and consent (<code>GET/PUT /api/users/me/settings/security</code>, <code>GET/PUT /api/users/me/permissions</code>, <code>GET/PUT /api/users/me/consent</code>).</p>
+</li>
+<li>
+<p>Implement optimistic UI updates where appropriate for a smoother UX, but always rely on the API response to confirm the final state and handle potential errors. Use <code>APIValidator</code> principles for feedback.</p>
+</li>
+<li>
+<p><strong>Data Validation Focus:</strong> UI components in this section are critical validation points. When a user changes a setting (e.g., opts out of analytics), the UI must:</p>
+<ol>
+<li>Reflect the intended change immediately (optimistic).</li>
+<li>Trigger the API call.vert the UI change and show an error on API failure.</li>
+<li>Confirm success or revert the UI change and show an error on API failure. Log`) should reflect this changed state, allowing the user to validate the effect of their action.</li>
+<li>Subsequent data displays or logs (<code>DataHandlingSummary</code>, <code>AI Transparency Log</code>) should reflect this changed state, allowing the user to validate the effect of their action.</li>
+</ol>
+</li>
+</ul>
+<hr />
+<hr />
+<h2 id="4-testing-instructions">4. Testing Instructions</h2>
+<h2 id="4-testing-instructions_1">4. Testing Instructions</h2>
+<ul>
+<li>
+<p><strong>Dashboard Validation:</strong></p>
+</li>
+<li>
+<p><strong>Dashboard Validation:</strong>ious mocked backend responses for security status, vulnerabilities, and data handling summaries. Verify correct display, colors, icons, and actionable links.</p>
+</li>
+<li>
+<p>Test rendering with various mocked backend responses for security status, vulnerabilities, and data handling summaries. Verify correct display, colors, icons, and actionable links.</p>
+</li>
+<li>
+<p><strong>Permission Control Testing:</strong>tings in the UI. Verify API calls are made correctly.</p>
+</li>
+<li>
+<p>Change various permission settings in the UI. Verify API calls are made correctly.</p>
+</li>
+<li>
+<p>Verify the UI updates optimistically and confirms successfully upon API success.plays clear error messages.</p>
+</li>
+<li>
+<p>Verify error handling: Mock API failures and ensure the UI reverts state and displays clear error messages.l enforcement* of these permissions (e.g., try accessing data that should be restricted based on UI settings).</p>
+</li>
+<li>
+<p><em>Crucially:</em> Implement separate tests (potentially E2E or backend integration tests) that <em>verify the actual enforcement</em> of these permissions (e.g., try accessing data that should be restricted based on UI settings).</p>
+</li>
+<li>
+<p><strong>Consent Control Testing:</strong>rify API calls, UI updates, and error handling as above.</p>
+</li>
+<li>
+<p>Toggle consent options. Verify API calls, UI updates, and error handling as above.ct* of consent changes (e.g., ensure analytics data is/isn't sent, AI recommendations change based on consent). Validate this is reflected in relevant logs (<code>AI Transparency Log</code>).</p>
+</li>
+<li>
+<p><em>Crucially:</em> Implement tests (E2E or integration) that verify the <em>functional impact</em> of consent changes (e.g., ensure analytics data is/isn't sent, AI recommendations change based on consent). Validate this is reflected in relevant logs (<code>AI Transparency Log</code>).</p>
+</li>
+<li>
+<p><strong>Encryption Validation Display:</strong>reflects encryption status based on mocked API data.</p>
+</li>
+<li>
+<p>Verify the dashboard accurately reflects encryption status based on mocked API data.</p>
+</li>
+<li>
+<p>Test the display and content of the encryption protocol log.elevant data fields across the application.</p>
+</li>
+<li>
+<p>Check that data sensitivity indicators appear correctly on relevant data fields across the application.xplanations, and ease of use for all control panels.</p>
+</li>
+<li>
+<p><strong>Accessibility &amp; Usability:</strong> Test keyboard navigation, screen reader compatibility, clarity of labels/explanations, and ease of use for all control panels.</p>
+</li>
+</ul>
+<hr />
+<hr />
+<h2 id="5-ui-mockup-placeholder">5. UI Mockup Placeholder</h2>
+<h2 id="5-ui-mockup-placeholder_1">5. UI Mockup Placeholder</h2>
+<p><em>Refer to the project's central design repository for visual mockups.</em></p>
+<p><em>Refer to the project's central design repository for visual mockups.</em></p>
+<p><code>[Placeholder: Link or embed visual mockups for the Security &amp; Privacy Center, including the Dashboard, Permissions Panel, Consent Settings, and contextual Encryption/Sensitivity Indicators here]</code>
+<code>[Placeholder: Link or embed visual mockups for the Security &amp; Privacy Center, including the Dashboard, Permissions Panel, Consent Settings, and contextual Encryption/Sensitivity Indicators here]</code></p>
+<hr />
+<hr />
+<h2 id="6-dependencies-integration">6. Dependencies &amp; Integration</h2>
+<h2 id="6-dependencies-integration_1">6. Dependencies &amp; Integration</h2>
+<ul>
+<li>
+<p><strong>Depends On:</strong></p>
+</li>
+<li>
+<p><strong>Depends On:</strong>tus_Indicator` component.</p>
+</li>
+<li>
+<p><code>Security_Status_Indicator</code> component.tton<code>,</code>Alert<code>,</code>DataDisplay<code>,</code>Checkbox<code>/</code>Toggle`).</p>
+</li>
+<li>
+<p>Core reusable UI components (<code>ActionButton</code>, <code>Alert</code>, <code>DataDisplay</code>, <code>Checkbox</code>/<code>Toggle</code>).</p>
+</li>
+<li>
+<p>Backend APIs for fetching/updating settings, permissions, consent, status, logs.</p>
+</li>
+<li>
+<p>Global State Management.de](developer_guides/style_guide.md).</p>
+</li>
+<li>
+<p><a href="developer_guides/style_guide.md">See Developer Style Guide</a>.</p>
+</li>
+<li>
+<p><strong>Integrates With:</strong>ion of the application.</p>
+</li>
+<li>
+<p>User Settings section of the application.</p>
+</li>
+<li>
+<p><code>Data Explorer Panel</code> (via links).consent changes).</p>
+</li>
+<li>
+<p><code>AI Transparency Log</code> (reflecting consent changes).em.</p>
+</li>
+<li>
+<p>Platform-wide authentication and authorization system.ignment of data usage based on consent).</p>
+</li>
+<li>
+<p>Backend Verification System (for validating ethical alignment of data usage based on consent).</p>
+</li>
+</ul>
+<hr />
+<hr />
+<hr />
+<p>---ocument Details**</p>
+<p><strong>Document Details</strong>ment: Security and Privacy Actionable Feedback Loops</p>
+<ul>
+<li>
+<p>Title: Design Document: Security and Privacy Actionable Feedback Loops</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.02025-04-05</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<p>--- of Design Document: Security and Privacy Actionable Feedback Loops</p>
+<p>End of Design Document: Security and Privacy Actionable Feedback Loops</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

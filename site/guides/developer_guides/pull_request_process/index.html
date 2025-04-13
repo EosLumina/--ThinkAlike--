@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/pull_request_process/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Pull Request Process Guide - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Pull Request Process Guide";
+        var mkdocs_page_input_path = "guides/developer_guides/pull_request_process.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/pull_request_process/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Pull Request Process Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="pull-request-process-guide">Pull Request Process Guide</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document outlines the standard process for submitting Pull Requests (PRs) to the ThinkAlike project. Following these guidelines ensures code quality, consistency, and clear communication between contributors and maintainers. Whether you're a core team member or an external contributor, this process applies to all code changes.</p>
+<hr />
+<h2 id="2-before-creating-a-pull-request">2. Before Creating a Pull Request</h2>
+<h3 id="21-preparation">2.1 Preparation</h3>
+<ol>
+<li>
+<p><strong>Create an Issue First</strong> (if one doesn't exist):</p>
+</li>
+<li>
+<p>All code changes should be tied to an issue in the GitHub tracker</p>
+</li>
+<li>
+<p>Follow the <a href="../issue_labels_guide/">Issue Labels Guide</a> for proper categorization</p>
+</li>
+<li>
+<p>Get feedback on your proposed approach before writing code</p>
+</li>
+<li>
+<p><strong>Fork and Branch:</strong></p>
+</li>
+<li>
+<p>Fork the repository if you're an external contributor</p>
+</li>
+<li>
+<p>Create a feature branch from <code>main</code> with a descriptive name:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/add-user-preferences
+<span class="c1"># or</span>
+
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>fix/login-validation-error
+</code></pre></div>
+</li>
+<li>
+<p>Use prefixes like <code>feature/</code>, <code>fix/</code>, <code>docs/</code>, <code>refactor/</code>, etc.</p>
+</li>
+<li>
+<p><strong>Keep Changes Focused:</strong></p>
+</li>
+<li>
+<p>Each PR should address a single issue or feature</p>
+</li>
+<li>
+<p>Avoid combining unrelated changes in a single PR</p>
+</li>
+<li>
+<p>For large features, consider breaking them into smaller PRs</p>
+</li>
+</ol>
+<h3 id="22-development-standards">2.2 Development Standards</h3>
+<ol>
+<li>
+<p><strong>Follow Code Style:</strong></p>
+</li>
+<li>
+<p>Adhere to the project's coding standards for:</p>
+<ul>
+<li>
+<p>Python (backend): Follow PEP 8</p>
+</li>
+<li>
+<p>TypeScript/JavaScript (frontend): Follow ESLint/Prettier config</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Run linters before committing:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Backend</span>
+
+flake8<span class="w"> </span>app/
+black<span class="w"> </span>app/
+
+<span class="c1"># Frontend</span>
+
+npm<span class="w"> </span>run<span class="w"> </span>lint
+</code></pre></div>
+</li>
+<li>
+<p><strong>Write Tests:</strong></p>
+</li>
+<li>
+<p>Include appropriate tests for your changes:</p>
+<ul>
+<li>
+<p>Unit tests for core logic</p>
+</li>
+<li>
+<p>Integration tests for API endpoints</p>
+</li>
+<li>
+<p>E2E tests for critical user flows</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Aim for at least 80% test coverage for new code</p>
+</li>
+<li>
+<p>Ensure all existing tests pass</p>
+</li>
+<li>
+<p><strong>Document Your Changes:</strong></p>
+</li>
+<li>
+<p>Update relevant documentation</p>
+</li>
+<li>
+<p>Add comments for complex logic</p>
+</li>
+<li>
+<p>Include docstrings for new functions/methods</p>
+</li>
+</ol>
+<hr />
+<h2 id="3-creating-the-pull-request">3. Creating the Pull Request</h2>
+<h3 id="31-commit-guidelines">3.1 Commit Guidelines</h3>
+<ol>
+<li>
+<p><strong>Write Meaningful Commit Messages:</strong></p>
+</li>
+<li>
+<p>Use the imperative mood: "Add feature" not "Added feature"</p>
+</li>
+<li>
+<p>Format: <code>[TYPE]: Short summary (50 chars or less)</code></p>
+</li>
+<li>
+<p>Examples:</p>
+<div class="highlight"><pre><span></span><code>feat: add user preference settings
+fix: resolve authentication token expiration bug
+docs: update API documentation
+refactor: simplify matching algorithm
+</code></pre></div>
+</li>
+<li>
+<p>For larger changes, include a body that explains what and why (not how)</p>
+</li>
+<li>
+<p><strong>Organize Commits:</strong></p>
+</li>
+<li>
+<p>Make logical, atomic commits</p>
+</li>
+<li>
+<p>Consider squashing fixup commits before creating PR</p>
+</li>
+<li>
+<p>Rebase to keep a clean history:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>origin
+git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+</code></pre></div>
+</li>
+</ol>
+<h3 id="32-pr-submission">3.2 PR Submission</h3>
+<ol>
+<li>
+<p><strong>Create the PR on GitHub:</strong></p>
+</li>
+<li>
+<p>Go to the repository on GitHub</p>
+</li>
+<li>
+<p>Click "New pull request"</p>
+</li>
+<li>
+<p>Select your branch</p>
+</li>
+<li>
+<p>Fill in the PR template completely</p>
+</li>
+<li>
+<p><strong>PR Template Contents:</strong></p>
+</li>
+<li>
+<p>Link to the related issue(s)</p>
+</li>
+<li>
+<p>Clear description of changes</p>
+</li>
+<li>
+<p>Screenshots/videos for UI changes</p>
+</li>
+<li>
+<p>Checklist of completed items</p>
+</li>
+<li>
+<p>Notes on testing methodology</p>
+</li>
+<li>
+<p>Any deployment considerations</p>
+</li>
+<li>
+<p><strong>Mark as Draft if needed:</strong></p>
+</li>
+<li>
+<p>Use GitHub's "Draft PR" feature if work is still in progress</p>
+</li>
+<li>
+<p>Convert to ready when you want review</p>
+</li>
+</ol>
+<hr />
+<h2 id="4-pr-review-process">4. PR Review Process</h2>
+<h3 id="41-request-reviews">4.1 Request Reviews</h3>
+<ol>
+<li>
+<p><strong>Assign Reviewers:</strong></p>
+</li>
+<li>
+<p>Request reviews from appropriate team members</p>
+</li>
+<li>
+<p>At least one core maintainer should review each PR</p>
+</li>
+<li>
+<p>Consider requesting specialist reviews for complex areas</p>
+</li>
+<li>
+<p><strong>Respond to Feedback:</strong></p>
+</li>
+<li>
+<p>Address all comments and suggestions</p>
+</li>
+<li>
+<p>Explain your reasoning if you disagree with feedback</p>
+</li>
+<li>
+<p>Make requested changes promptly</p>
+</li>
+<li>
+<p>Mark conversations as resolved after addressing them</p>
+</li>
+</ol>
+<h3 id="42-cicd-checks">4.2 CI/CD Checks</h3>
+<ol>
+<li>
+<p><strong>Verify Automated Checks:</strong></p>
+</li>
+<li>
+<p>Ensure all CI pipelines pass:</p>
+<ul>
+<li>
+<p>Tests (unit, integration, E2E)</p>
+</li>
+<li>
+<p>Linting</p>
+</li>
+<li>
+<p>Type checking</p>
+</li>
+<li>
+<p>Security scans</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fix any failing checks before requesting re-review</p>
+</li>
+<li>
+<p><strong>Update Based on Feedback:</strong></p>
+</li>
+<li>
+<p>Push new commits to address review comments</p>
+</li>
+<li>
+<p>Consider using <code>git commit --fixup</code> for small changes</p>
+</li>
+<li>
+<p>Rebase and squash fixups when ready for final review:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>--autosquash<span class="w"> </span>origin/main
+</code></pre></div>
+</li>
+</ol>
+<hr />
+<h2 id="5-merging">5. Merging</h2>
+<ol>
+<li>
+<p><strong>Merge Requirements:</strong></p>
+</li>
+<li>
+<p>At least one approval from a core maintainer</p>
+</li>
+<li>
+<p>All CI checks pass</p>
+</li>
+<li>
+<p>All discussions resolved</p>
+</li>
+<li>
+<p>PR is up-to-date with the main branch</p>
+</li>
+<li>
+<p><strong>Merge Responsibility:</strong></p>
+</li>
+<li>
+<p>Core team members typically handle the actual merge</p>
+</li>
+<li>
+<p>Use the appropriate merge strategy:</p>
+<ul>
+<li>
+<p><strong>Squash and merge:</strong> For most feature PRs (creates a single commit)</p>
+</li>
+<li>
+<p><strong>Rebase and merge:</strong> For PRs with well-structured commits worth preserving</p>
+</li>
+<li>
+<p><strong>Merge commit:</strong> Rarely used, only for major features with extensive history</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>After Merging:</strong></p>
+</li>
+<li>
+<p>Delete the feature branch</p>
+</li>
+<li>
+<p>Close the associated issue or update its status</p>
+</li>
+<li>
+<p>Deploy if required (following the deployment process)</p>
+</li>
+</ol>
+<hr />
+<h2 id="6-special-cases">6. Special Cases</h2>
+<h3 id="61-hotfixes">6.1 Hotfixes</h3>
+<p>For urgent production issues:</p>
+<ol>
+<li>Create branch directly from the production tag: <code>hotfix/critical-auth-issue</code></li>
+<li>Follow an expedited review process</li>
+<li>Merge to both <code>main</code> and the appropriate release branch</li>
+<li>Deploy as soon as possible following approval</li>
+</ol>
+<h3 id="62-long-running-feature-branches">6.2 Long-Running Feature Branches</h3>
+<p>For major features that take weeks to develop:</p>
+<ol>
+<li>Rebase regularly against <code>main</code> to prevent major conflicts</li>
+<li>Consider creating intermediate PRs for reviewable chunks</li>
+<li>Use feature flags to merge code that isn't ready for activation</li>
+</ol>
+<hr />
+<h2 id="7-tips-for-successful-prs">7. Tips for Successful PRs</h2>
+<ul>
+<li>
+<p><strong>Keep PRs Small:</strong> Aim for &lt;500 lines changed when possible</p>
+</li>
+<li>
+<p><strong>Communicate:</strong> Use PR comments to explain decisions and ask questions</p>
+</li>
+<li>
+<p><strong>Be Patient:</strong> Understand that review takes time, especially for complex changes</p>
+</li>
+<li>
+<p><strong>Be Responsive:</strong> Address feedback promptly to keep the PR moving</p>
+</li>
+<li>
+<p><strong>Learn from Feedback:</strong> Use review comments as learning opportunities</p>
+</li>
+</ul>
+<hr />
+<p>By following this pull request process, we maintain high code quality while allowing for efficient collaboration among all ThinkAlike contributors.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Pull Request Process Guide</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Pull Request Process Guide</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

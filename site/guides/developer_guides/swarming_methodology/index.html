@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/swarming_methodology/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Swarming Development Methodology - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Swarming Development Methodology";
+        var mkdocs_page_input_path = "guides/developer_guides/swarming_methodology.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/swarming_methodology/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Swarming Development Methodology</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="swarming-development-methodology">Swarming Development Methodology</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Swarming is ThinkAlike's collaborative coding methodology where contributors work together in real-time on the same task. This document explains how swarming works in practice and how to participate effectively.</p>
+<h2 id="2-swarming-principles">2. Swarming Principles</h2>
+<p>Swarming is based on the following principles:</p>
+<ul>
+<li>
+<p><strong>Collective Intelligence:</strong> Multiple minds working together create better solutions than individuals working separately.</p>
+</li>
+<li>
+<p><strong>Real-time Collaboration:</strong> Synchronous work with immediate feedback and iteration.</p>
+</li>
+<li>
+<p><strong>Knowledge Sharing:</strong> Built-in mentoring and skill transfer through active participation.</p>
+</li>
+<li>
+<p><strong>Rapid Progress:</strong> Concentrated effort on specific problems leads to faster breakthrough solutions.</p>
+</li>
+</ul>
+<h2 id="3-swarming-process">3. Swarming Process</h2>
+<h3 id="31-preparation">3.1 Preparation</h3>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    A[Identify Feature/Task] --&gt; B[Create Documentation]
+    B --&gt; C[Set Session Date/Time]
+    C --&gt; D[Assign Roles]
+    D --&gt; E[Prepare Environment]
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Task Identification:</strong></p>
+</li>
+<li>
+<p>Clear definition of the feature or issue to be addressed</p>
+</li>
+<li>
+<p>Scope appropriately for 2-4 hour sessions</p>
+</li>
+<li>
+<p>Document requirements and acceptance criteria</p>
+</li>
+<li>
+<p><strong>Roles Assignment:</strong></p>
+</li>
+<li>
+<p><strong>Navigator:</strong> Leads the technical direction (rotates during session)</p>
+</li>
+<li>
+<p><strong>Driver:</strong> Writes the actual code (rotates every 30 minutes)</p>
+</li>
+<li>
+<p><strong>Observers:</strong> Actively participate in discussion and problem-solving</p>
+</li>
+<li>
+<p><strong>Facilitator:</strong> Keeps session on track and productive</p>
+</li>
+<li>
+<p><strong>Environment Setup:</strong></p>
+</li>
+<li>
+<p>GitHub Codespaces or similar shared coding environment</p>
+</li>
+<li>
+<p>Voice communication (Discord recommended)</p>
+</li>
+<li>
+<p>Screen sharing</p>
+</li>
+</ol>
+<h3 id="32-during-the-swarm">3.2 During the Swarm</h3>
+<ol>
+<li><strong>Check-in:</strong> Brief introduction and goal clarification (5 min)</li>
+<li><strong>Planning:</strong> Break down task into smaller steps (10-15 min)</li>
+<li>
+<p><strong>Coding Session:</strong></p>
+</li>
+<li>
+<p>Driver shares screen and implements code</p>
+</li>
+<li>
+<p>Navigator guides implementation approach</p>
+</li>
+<li>
+<p>Regular rotation of Driver/Navigator roles</p>
+</li>
+<li>
+<p>All participants actively contribute ideas and feedback</p>
+</li>
+<li>
+<p><strong>Testing:</strong> Implement and run tests as features are completed</p>
+</li>
+<li><strong>Documentation:</strong> Update docs immediately as implementation progresses</li>
+<li><strong>Check-out:</strong> Summarize accomplishments and next steps</li>
+</ol>
+<h3 id="33-post-swarm">3.3 Post-Swarm</h3>
+<ol>
+<li><strong>Code Review:</strong> Any code produced during the swarm goes through standard PR process</li>
+<li><strong>Knowledge Sharing:</strong> Brief write-up of lessons learned and decisions made</li>
+<li><strong>Follow-up Tasks:</strong> Identify any remaining work and assign owners</li>
+</ol>
+<h2 id="4-tools-and-platforms">4. Tools and Platforms</h2>
+<h3 id="41-recommended-tooling">4.1 Recommended Tooling</h3>
+<ul>
+<li>
+<p><strong>GitHub Codespaces:</strong> Primary collaborative environment</p>
+</li>
+<li>
+<p><strong>Discord:</strong> Voice communication and coordination</p>
+</li>
+<li>
+<p><strong>Miro/Figma:</strong> For visual collaboration on design aspects</p>
+</li>
+<li>
+<p><strong>Google Docs:</strong> For real-time collaborative documentation</p>
+</li>
+</ul>
+<h3 id="42-alternative-setups">4.2 Alternative Setups</h3>
+<ul>
+<li>
+<p><strong>VS Code Live Share + Discord:</strong> For smaller teams or when Codespaces isn't available</p>
+</li>
+<li>
+<p><strong>Replit + Discord:</strong> For quick prototype sessions</p>
+</li>
+</ul>
+<h2 id="5-best-practices">5. Best Practices</h2>
+<ul>
+<li>
+<p><strong>Preparation is key:</strong> All participants should review relevant documentation before the session</p>
+</li>
+<li>
+<p><strong>Stay focused:</strong> Minimize distractions during the swarm</p>
+</li>
+<li>
+<p><strong>Inclusive participation:</strong> Ensure everyone has opportunities to contribute</p>
+</li>
+<li>
+<p><strong>Documentation during development:</strong> Update documentation as you code</p>
+</li>
+<li>
+<p><strong>Test-driven approach:</strong> Write tests before or alongside implementation</p>
+</li>
+<li>
+<p><strong>Timeboxing:</strong> Set clear time limits for discussion before making decisions</p>
+</li>
+</ul>
+<h2 id="6-ai-assisted-swarming">6. AI-Assisted Swarming</h2>
+<p>ThinkAlike embraces AI tools as "participants" in the swarm:</p>
+<ul>
+<li>
+<p><strong>Code Generation:</strong> GitHub Copilot or similar tools for implementation assistance</p>
+</li>
+<li>
+<p><strong>Documentation:</strong> AI tools can help draft or improve documentation</p>
+</li>
+<li>
+<p><strong>Testing:</strong> AI assistance with generating test cases</p>
+</li>
+<li>
+<p><strong>Problem Solving:</strong> Using AI to explore solution alternatives</p>
+</li>
+</ul>
+<p>The key principle is that AI tools assist human decision-making but don't replace it. All AI-generated content should be reviewed and approved by the human participants.</p>
+<h2 id="7-getting-started-with-swarming">7. Getting Started with Swarming</h2>
+<ol>
+<li><strong>Join the Discord:</strong> Connect with the ThinkAlike community</li>
+<li><strong>Review the Schedule:</strong> Check upcoming swarm sessions in the #swarming-schedule channel</li>
+<li><strong>Prepare:</strong> Read the task description and related documentation</li>
+<li><strong>Participate:</strong> Join the voice channel at the scheduled time</li>
+<li><strong>Follow Up:</strong> Help with any post-swarm tasks or review</li>
+</ol>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Swarming Development Methodology</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-05-10</p>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

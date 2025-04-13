@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/security/security_deep_dive/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Security Architecture Deep Dive - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Security Architecture Deep Dive";
+        var mkdocs_page_input_path = "architecture/security/security_deep_dive.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/security/security_deep_dive/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Security Architecture Deep Dive</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="security-architecture-deep-dive">Security Architecture Deep Dive</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document provides a detailed technical exploration of ThinkAlike's security architecture, controls, and processes. It expands upon the foundational policies outlined in the <a href="../security_and_privacy_plan/"><code>Security and Privacy Plan</code></a> and aligns with the <a href="../../../core/ethics/ethical_guidelines/"><code>Ethical Guidelines</code></a>. The goal is to detail specific mechanisms protecting user data, ensuring system integrity, and building trust through robust, verifiable security practices.</p>
+<p>Security uses <strong>Defense in Depth</strong>, "Security by Design", "Privacy by Design", and "Security through Transparency" principles.</p>
+<h2 id="2-guiding-security-principles">2. Guiding Security Principles</h2>
+<ul>
+<li>
+<p><strong>Defense in Depth:</strong> Multiple control layers (network, app, data).</p>
+</li>
+<li>
+<p><strong>Least Privilege:</strong> Minimal necessary permissions for users/services.</p>
+</li>
+<li>
+<p><strong>Secure Defaults:</strong> Configurations prioritize security.</p>
+</li>
+<li>
+<p><strong>Zero Trust Mindset:</strong> Authenticate/authorize rigorously at boundaries.</p>
+</li>
+<li>
+<p><strong>Fail Securely:</strong> Default to secure state on error.</p>
+</li>
+<li>
+<p><strong>Privacy Preservation:</strong> Minimize data exposure; use anonymization.</p>
+</li>
+<li>
+<p><strong>Auditability &amp; Monitoring:</strong> Log security events; use tools like <a href="../../../components/ui_components/security_status_indicator_spec/"><code>Security Status Indicator</code></a>.</p>
+</li>
+<li>
+<p><strong>Regular Validation:</strong> Continuous testing (automated/manual/pen-testing).</p>
+</li>
+</ul>
+<h2 id="3-threat-model-overview-mitigations">3. Threat Model Overview &amp; Mitigations</h2>
+<p><em>(Illustrative - Requires formal, ongoing threat modeling)</em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat Category</th>
+<th style="text-align: left;">Example Scenario</th>
+<th style="text-align: left;">Primary Mitigations</th>
+<th style="text-align: left;">Relevant Docs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Account Takeover (ATO)</strong></td>
+<td style="text-align: left;">Credential stuffing, phishing, weak passwords.</td>
+<td style="text-align: left;">Strong Hashing (bcrypt/Argon2), Secure JWT/Session Mgmt (HTTPS Only, Short Expiry, Refresh Tokens), Rate Limiting (Login), MFA, Suspicious Login Detection.</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Privilege Escalation</strong></td>
+<td style="text-align: left;">User/service gains unauthorized higher access.</td>
+<td style="text-align: left;">Strict RBAC (FastAPI Dependencies), Input Validation, Secure Admin Interfaces (MFA).</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Data Interception (Transit)</strong></td>
+<td style="text-align: left;">Eavesdropping on network traffic.</td>
+<td style="text-align: left;">Mandatory TLS 1.2+ (HTTPS), HSTS Header, Secure internal comms (mTLS/VPC).</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Data Breach (At Rest)</strong></td>
+<td style="text-align: left;">Unauthorized DB access, backup theft.</td>
+<td style="text-align: left;">DB Encryption (TDE/pgcrypto), Filesystem Encryption, Encrypted Backups, Strict DB Access Controls, Secure Key Mgmt (KMS/Vault).</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 3, <a href="../../database/unified_data_model_schema/"><code>Data Model</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Injection Attacks (SQLi, XSS)</strong></td>
+<td style="text-align: left;">Malicious code/queries via input.</td>
+<td style="text-align: left;"><strong>Backend:</strong> ORM Parameterized Queries (SQLAlchemy), Input Validation (Pydantic). <strong>Frontend:</strong> React Encoding, Strict CSP Header, Input Sanitization (DOMPurify).</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 4, <a href="../../../guides/developer_guides/code_style_guide/"><code>Code Style Guide</code></a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Denial of Service (DoS/DDoS)</strong></td>
+<td style="text-align: left;">Resource exhaustion causing unavailability.</td>
+<td style="text-align: left;">Cloud Provider Mitigation (Render), API Rate Limiting, Resource Optimization, Scalable Architecture.</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 4</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IDOR (Insecure Direct Object Ref)</strong></td>
+<td style="text-align: left;">Accessing other users' data via ID manipulation.</td>
+<td style="text-align: left;">Strong API Authorization Checks (verify ownership/permissions for <em>every</em> resource access). Use non-sequential IDs (UUIDs).</td>
+<td style="text-align: left;"><a href="../security_and_privacy_plan/"><code>Security Plan</code></a> Sec 2</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Vulnerable Dependencies</strong></td>
+<td style="text-align: left;">Exploiting known CVEs in libraries.</td>
+<td style="text-align: left;">Automated Dependency Scanning (CI), Prompt Patching Policy.</td>
+<td style="text-align: left;">SDL (Sec 5)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>SSRF (Server-Side Request Forgery)</strong></td>
+<td style="text-align: left;">Tricking server into making unintended requests.</td>
+<td style="text-align: left;">Validate/Sanitize user-supplied URLs. Use allow-lists for outbound targets.</td>
+<td style="text-align: left;">Application Security (Sec 4)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Security Misconfiguration</strong></td>
+<td style="text-align: left;">Default credentials, verbose errors, open ports.</td>
+<td style="text-align: left;">Hardening, Configuration Audits, Disable Debug Mode (Prod), IaC.</td>
+<td style="text-align: left;">SDL (Sec 5), <a href="../../../guides/implementation_guides/deployment_guide/"><code>Deployment Guide</code></a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-key-technology-implementations">4. Key Technology Implementations</h2>
+<h3 id="41-authentication-jwt">4.1 Authentication (JWT)</h3>
+<ul>
+<li>
+<p><strong>Backend:</strong> <code>python-jose</code> for tokens, <code>passlib</code> (bcrypt) for hashing. OAuth2 password flow via FastAPI utils. Secure <code>SECRET_KEY</code> handling (env vars/secrets manager). Short-lived access tokens, longer-lived refresh tokens (stored securely, e.g., HttpOnly cookie or encrypted DB).</p>
+</li>
+<li>
+<p><strong>Frontend:</strong> Secure token storage (HttpOnly cookies preferred over localStorage due to XSS risk, requires CSRF protection). Implement token refresh logic via API client interceptors.</p>
+</li>
+</ul>
+<h3 id="42-authorization-rbac">4.2 Authorization (RBAC)</h3>
+<ul>
+<li>FastAPI dependencies validate JWT claims (<code>roles</code>, <code>permissions</code>) against endpoint requirements. User roles stored in DB.</li>
+</ul>
+<h3 id="43-data-encryption">4.3 Data Encryption</h3>
+<ul>
+<li>
+<p><strong>Transit:</strong> TLS 1.2+ enforced via Render HTTPS. HSTS header set.</p>
+</li>
+<li>
+<p><strong>Rest:</strong> PostgreSQL TDE (via Render/Cloud provider) + potentially column-level encryption (<code>pgcrypto</code>) for extreme sensitivity. Encrypted backups. Secure key management.</p>
+</li>
+</ul>
+<h3 id="44-application-security">4.4 Application Security</h3>
+<ul>
+<li>
+<p><strong>FastAPI:</strong> Pydantic for input validation. SQLAlchemy for ORM protection against SQLi. Strict CORS config via <code>CORSMiddleware</code>. Rate limiting via <code>slowapi</code>.</p>
+</li>
+<li>
+<p><strong>React:</strong> Default XSS protection via JSX encoding. Implement strict Content Security Policy (CSP) headers. Use <code>DOMPurify</code> for any user HTML rendering. Secure CSRF handling if using session/HttpOnly cookies.</p>
+</li>
+<li>
+<p><strong>Dependencies:</strong> Regular <code>pip-audit</code>, <code>npm audit</code>.</p>
+</li>
+</ul>
+<h3 id="45-logging-monitoring">4.5 Logging &amp; Monitoring</h3>
+<ul>
+<li>
+<p><strong>Logging:</strong> Structured JSON logs (FastAPI). Capture security events (logins, failures, permission changes), errors. Avoid logging PII. Centralized logging (Render logs / external service).</p>
+</li>
+<li>
+<p><strong>Monitoring:</strong> Track key metrics (errors, auth failures, resource usage). Set up alerts (e.g., via Render metrics or external tool).</p>
+</li>
+<li>
+<p><strong>Audit Trails:</strong> Use <a href="../../verification_system/verification_system_data_models/">Verification System Audit Logs</a> for critical ethical/security actions.</p>
+</li>
+</ul>
+<h2 id="5-secure-development-lifecycle-sdl-integration">5. Secure Development Lifecycle (SDL) Integration</h2>
+<ul>
+<li>
+<p><strong>Threat Modeling:</strong> During design phases.</p>
+</li>
+<li>
+<p><strong>Static Analysis (SAST):</strong> Linters with security rules (<code>bandit</code>, <code>eslint-plugin-security</code>) in CI.</p>
+</li>
+<li>
+<p><strong>Dependency Scanning:</strong> Automated checks in CI (Dependabot/Snyk).</p>
+</li>
+<li>
+<p><strong>Code Review:</strong> Mandatory security focus (OWASP Top 10 checklist).</p>
+</li>
+<li>
+<p><strong>Secrets Management:</strong> No secrets in code; use Render Env Vars / Secrets Manager.</p>
+</li>
+<li>
+<p><strong>Testing:</strong> Security unit/integration tests; DAST scans (optional); periodic Pen Testing.</p>
+</li>
+</ul>
+<h2 id="6-incident-response-plan">6. Incident Response Plan</h2>
+<ul>
+<li>
+<p><strong>Prep:</strong> Define roles, comms, tools.</p>
+</li>
+<li>
+<p><strong>Identify:</strong> Monitoring, alerts, user reports.</p>
+</li>
+<li>
+<p><strong>Contain:</strong> Isolate systems, revoke keys/credentials.</p>
+</li>
+<li>
+<p><strong>Eradicate:</strong> Find root cause, remove threat/vulnerability.</p>
+</li>
+<li>
+<p><strong>Recover:</strong> Restore from secure backups, validate integrity.</p>
+</li>
+<li>
+<p><strong>Post-Mortem:</strong> Lessons learned, update controls/procedures.</p>
+</li>
+</ul>
+<h2 id="7-continuous-improvement">7. Continuous Improvement</h2>
+<p>Security posture reviewed regularly based on audits, incidents, new threats, community feedback (<a href="../../guides/developer_guides/Security_Feedback_Loops.md">Security Feedback Loops Guide</a>).</p>
+<hr />
+<p>Use code with caution.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

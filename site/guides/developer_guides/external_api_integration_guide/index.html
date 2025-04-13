@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/external_api_integration_guide/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>External API Integration Guide - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "External API Integration Guide";
+        var mkdocs_page_input_path = "guides/developer_guides/external_api_integration_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/external_api_integration_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">External API Integration Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="external-api-integration-guide">External API Integration Guide</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This guide provides technical instructions and best practices for developers integrating third-party external APIs (like Goodreads, Spotify, etc.) into the ThinkAlike backend (FastAPI/Python). The goal is to fetch supplementary user data to enhance matching and recommendations, adhering strictly to the principles outlined in the <a href="../../../architecture/data_integration_strategy/">Data Integration Strategy</a>.</p>
+<p>All integrations must prioritize security, data minimization, user consent enforcement, and robust error handling.</p>
+<hr />
+<h2 id="2-general-architecture-overview">2. General Architecture Overview</h2>
+<p>External API integration typically involves these backend components:</p>
+<ol>
+<li><strong>OAuth 2.0 Flow Handler:</strong> API endpoints (<code>api_endpoints_integrations.md</code>) to manage the OAuth authorization code grant flow (or other appropriate flows).</li>
+<li><strong>Secure Token Storage:</strong> Database models (<code>unified_data_model_schema.md</code>) and logic to securely store (encrypted) and retrieve user access/refresh tokens for each connected service.</li>
+<li><strong>API Client Service:</strong> Reusable Python classes or modules specific to each external API (e.g., <code>GoodreadsClient</code>, <code>SpotifyClient</code>) that encapsulate API calls, handle authentication (using stored tokens), manage rate limiting, and parse responses.</li>
+<li><strong>Data Fetching Task Runner:</strong> Asynchronous task execution system (e.g., Celery with Redis/RabbitMQ, FastAPI's <code>BackgroundTasks</code>, or <code>APScheduler</code>) to periodically fetch data from external APIs without blocking main application threads.</li>
+<li><strong>Data Processing &amp; Mapping Logic:</strong> Functions to transform raw API data into ThinkAlike's standardized internal formats or relevant Value Profile insights.</li>
+<li><strong>Consent Enforcement Check:</strong> Logic (likely within the Data Fetching or Processing stage) to verify user consent toggles <em>before</em> fetching or using data for specific purposes.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>graph TD
+    A[Frontend UI] -- 1. Initiate Connect --&gt; B(Backend API: /integrations/../auth_url);
+    B -- 2. Redirect --&gt; C{External Service OAuth};
+    C -- 3. User Authorizes --&gt; B;
+    B -- 4. Handle Callback (/integrations/../callback) --&gt; C;
+    C -- 5. Exchange Code for Tokens --&gt; B;
+    B -- 6. Store Encrypted Tokens --&gt; D[(Secure DB: Tokens)];
+    E[Task Runner] -- 7. Periodically --&gt; F{API Client Service};
+    F -- 8. Fetch Token --&gt; D;
+    F -- 9. Check User Consent --&gt; G[(Secure DB: User Settings)];
+    F -- 10. Call External API (if consented) --&gt; C;
+    C -- 11. Return Data --&gt; F;
+    F -- 12. Process/Map Data --&gt; H[(Secure DB: Harvested Data)];
+
+    style D fill:#fcf,stroke:#333;
+    style G fill:#fcf,stroke:#333;
+    style H fill:#fcf,stroke:#333;
+</code></pre></div>
+<h2 id="3-implementation-steps-best-practices">3. Implementation Steps &amp; Best Practices</h2>
+<h3 id="31-oauth-20-flow-authorization-code-grant-recommended">3.1 OAuth 2.0 Flow (Authorization Code Grant Recommended)</h3>
+<ul>
+<li>
+<p><strong>Register Application:</strong> Register ThinkAlike as a developer application with each target service (Goodreads, Spotify, etc.) to obtain client_id and client_secret. Store these securely (use environment variables or secrets manager, never commit to code).</p>
+</li>
+<li>
+<p><strong>Initiate Authorization (/auth_url endpoint):</strong></p>
+</li>
+<li>
+<p>Generate the correct authorization URL for the external service.</p>
+</li>
+<li>
+<p>Include necessary parameters: response_type=code, client_id, redirect_uri (pointing back to your backend callback endpoint), scope (request minimum necessary permissions), and state (a unique, unguessable value for CSRF protection, store it in the user's session).</p>
+</li>
+<li>
+<p>Redirect the user's browser to this URL.</p>
+</li>
+<li>
+<p><strong>Handle Callback (/callback endpoint):</strong></p>
+</li>
+<li>
+<p>Receive the code and state parameters from the external service.</p>
+</li>
+<li>
+<p>Verify State: Compare the received state parameter with the value stored in the user's session. If they don't match, abort (potential CSRF attack).</p>
+</li>
+<li>
+<p>Exchange Code for Tokens: Make a secure server-to-server POST request to the external service's token endpoint, providing the code, client_id, client_secret, redirect_uri, and grant_type=authorization_code.</p>
+</li>
+<li>
+<p>Store Tokens: Receive the access_token, refresh_token (if provided), and expires_in values. Store these securely associated with the ThinkAlike user_id in the database. Encrypt tokens at rest.</p>
+</li>
+<li>
+<p>Redirect the user back to the appropriate page in the frontend UI (e.g., the "Connected Services" panel) with a success/failure indicator.</p>
+</li>
+</ul>
+<h3 id="32-secure-token-storage-management">3.2 Secure Token Storage &amp; Management</h3>
+<ul>
+<li>
+<p><strong>Database Schema:</strong> Create a table (e.g., user_external_tokens) with columns like user_id, service_name (e.g., 'goodreads'), encrypted_access_token, encrypted_refresh_token, expires_at (timestamp), scopes_granted (list/string). Add unique constraints (user_id, service_name).</p>
+</li>
+<li>
+<p><strong>Encryption:</strong> Use a strong, authenticated encryption library (e.g., Python's cryptography library with Fernet) and a securely managed application-level encryption key (stored via secrets manager/env vars) to encrypt tokens before storing them in the database. Never store tokens in plaintext.</p>
+</li>
+<li>
+<p><strong>Token Refresh:</strong> Implement logic (likely in the API Client Service or Data Fetching Task Runner) to:</p>
+</li>
+<li>
+<p>Check expires_at before using an access token.</p>
+</li>
+<li>
+<p>If expired or close to expiry, use the refresh_token (if available) to request a new access_token from the external service's token endpoint (grant_type=refresh_token).</p>
+</li>
+<li>
+<p>Update the stored tokens (new access_token, potentially new refresh_token, new expires_at) in the database.</p>
+</li>
+<li>
+<p>Handle cases where the refresh token also expires or is revoked (requires user re-authentication).</p>
+</li>
+<li>
+<p><strong>Revocation/Deletion:</strong> When a user disconnects a service via the UI, securely delete the corresponding token record from the database. If the external API supports programmatic token revocation, call that endpoint as well.</p>
+</li>
+</ul>
+<h3 id="33-creating-api-client-services">3.3 Creating API Client Services</h3>
+<ul>
+<li>
+<p><strong>Structure:</strong> Create a separate Python class or module for each integrated service (e.g., services/goodreads_client.py).</p>
+</li>
+<li>
+<p><strong>Responsibilities:</strong></p>
+</li>
+<li>
+<p>Encapsulate base URL and specific API endpoint paths for the service.</p>
+</li>
+<li>
+<p>Include methods for specific data fetching actions (e.g., get_read_shelf(user_id), get_top_artists(user_id)).</p>
+</li>
+<li>
+<p>Internal logic to retrieve the correct, decrypted access token for the user from secure storage.</p>
+</li>
+<li>
+<p>Handle token refresh logic transparently within the client methods.</p>
+</li>
+<li>
+<p>Make authenticated requests to the external API using the access token (e.g., in Authorization: Bearer <token> header).</p>
+</li>
+<li>
+<p>Parse the API response (XML, JSON).</p>
+</li>
+<li>
+<p>Implement error handling for API errors (e.g., 4xx, 5xx status codes, rate limiting errors - 429).</p>
+</li>
+<li>
+<p>Implement basic rate limiting awareness (e.g., add delays if 429 errors occur).</p>
+</li>
+<li>
+<p><strong>Libraries:</strong> Use robust HTTP client libraries like httpx (preferred for async FastAPI) or requests.</p>
+</li>
+</ul>
+<h3 id="34-data-fetching-background-tasks">3.4 Data Fetching (Background Tasks)</h3>
+<ul>
+<li>
+<p><strong>Framework:</strong> Choose an appropriate task queue/scheduler (Celery for complex needs, APScheduler for simpler scheduling within FastAPI, or FastAPI's built-in BackgroundTasks for fire-and-forget tasks triggered by API calls).</p>
+</li>
+<li>
+<p><strong>Triggering:</strong> Tasks can be triggered periodically (e.g., daily sync) or potentially by user actions (e.g., "Refresh My Goodreads Data" button).</p>
+</li>
+<li>
+<p><strong>Logic:</strong></p>
+</li>
+<li>
+<p>Identify users needing data sync for a specific service.</p>
+</li>
+<li>
+<p>For each user, check their consent toggle for data usage. If disabled, skip fetching for that purpose.</p>
+</li>
+<li>
+<p>Instantiate the appropriate API Client Service.</p>
+</li>
+<li>
+<p>Call the client method to fetch the desired data (e.g., goodreads_client.get_read_shelf(user_id)).</p>
+</li>
+<li>
+<p>Pass the retrieved raw data to processing/mapping functions.</p>
+</li>
+<li>
+<p>Handle errors gracefully (log errors, implement retries if appropriate).</p>
+</li>
+</ul>
+<h3 id="35-data-processing-and-storage">3.5 Data Processing and Storage</h3>
+<ul>
+<li>
+<p><strong>Mapping:</strong> Create functions to transform the raw data from external APIs into ThinkAlike's internal representation (e.g., mapping book genres to internal 'Interest' tags, extracting artist names).</p>
+</li>
+<li>
+<p><strong>Minimization:</strong> Store only the processed insights or essential identifiers needed for matching/recommendations, not necessarily the entire raw payload, unless required for specific features (and consented to).</p>
+</li>
+<li>
+<p><strong>Database Storage:</strong> Save the processed data into relevant tables (e.g., linking derived 'Interest' tags to the user's profile, or storing specific items in UserExternalData table). Update last_retrieved timestamps.</p>
+</li>
+</ul>
+<h3 id="36-consent-enforcement">3.6 Consent Enforcement</h3>
+<ul>
+<li>
+<p><strong>Critical Check:</strong> Before any background task fetches data or any algorithm uses harvested data for matching/recommendations, the code must check the user's current consent settings stored in the database (retrieved via user settings API/service).</p>
+</li>
+<li>
+<p><strong>Implementation:</strong> Pass the user_id and the purpose (e.g., 'matching', 'community_recommendation') to a central consent checking function that returns true/false based on the user's stored preferences.</p>
+</li>
+</ul>
+<h2 id="4-security-considerations">4. Security Considerations</h2>
+<ul>
+<li>
+<p><strong>Token Storage:</strong> This is the most critical aspect. Use strong encryption and protect the application's encryption key diligently.</p>
+</li>
+<li>
+<p><strong>OAuth State Parameter:</strong> Always use and validate the state parameter to prevent CSRF during the OAuth flow.</p>
+</li>
+<li>
+<p><strong>Redirect URI Validation:</strong> Ensure the external service is configured to only redirect to your registered backend callback URI(s).</p>
+</li>
+<li>
+<p><strong>Input Validation:</strong> Validate the code received in the callback.</p>
+</li>
+<li>
+<p><strong>Error Handling:</strong> Avoid leaking sensitive information (like tokens or client secrets) in logs or error messages.</p>
+</li>
+<li>
+<p><strong>Rate Limiting:</strong> Implement logic to respect external API rate limits to avoid being blocked.</p>
+</li>
+<li>
+<p><strong>Scope Review:</strong> Regularly review if the requested OAuth scopes are still the minimum necessary.</p>
+</li>
+</ul>
+<h2 id="5-adding-new-services">5. Adding New Services</h2>
+<p>Follow the pattern established in Phase 1 &amp; 3:</p>
+<ol>
+<li>Register app with the new service, get credentials.</li>
+<li>Implement OAuth flow handlers (auth_url, callback) for the new service.</li>
+<li>Update token storage to handle the new service_name.</li>
+<li>Create a new ApiClient class for the service.</li>
+<li>Define data fetching tasks.</li>
+<li>Define data processing/mapping logic.</li>
+<li>Update the "Connected Services" UI panel to list the new service.</li>
+<li>Update relevant algorithms/features to optionally use the new data source (respecting consent).</li>
+<li>Add specific ethical considerations and documentation.</li>
+</ol>
+<p>By following these steps and prioritizing security and user control, developers can successfully integrate valuable external data sources into ThinkAlike in an ethical and transparent manner.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: External API Integration Guide</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of External API Integration Guide</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

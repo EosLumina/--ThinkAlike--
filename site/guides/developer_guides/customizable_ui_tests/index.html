@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/customizable_ui_tests/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Customizable UI Tests - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Customizable UI Tests";
+        var mkdocs_page_input_path = "guides/developer_guides/customizable_ui_tests.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/customizable_ui_tests/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Customizable UI Tests</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="customizable-ui-tests">Customizable UI Tests</h1>
+<h2 id="1-introduction-and-description">1. Introduction and Description</h2>
+<p>The <strong>Customizable UI Tests</strong> feature embodies ThinkAlike's commitment to <strong>UI as a Validation Framework</strong> and <strong>User Empowerment</strong> in a profound way. It provides an integrated interface within the ThinkAlike platform itself, empowering both developers/testers and potentially authorized users (such as community admins or power users) to <strong>define, configure, execute, and analyze custom testing scenarios directly through the user interface</strong>.</p>
+<p>This feature moves beyond traditional, code-centric testing paradigms by:</p>
+<ul>
+<li>
+<p><strong>Democratizing Testing:</strong> Making test creation more accessible, even for those less familiar with writing test scripts.</p>
+</li>
+<li>
+<p><strong>Enhancing Transparency:</strong> Allowing users/testers to visually construct and understand test workflows.</p>
+</li>
+<li>
+<p><strong>Facilitating Rapid Validation:</strong> Enabling quick definition and execution of tests for specific features, workflows, or data conditions.</p>
+</li>
+<li>
+<p><strong>Integrating Ethical Checks:</strong> Providing UI elements to incorporate ethical validation assertions directly into test scenarios.</p>
+</li>
+<li>
+<p><strong>Closing the Feedback Loop:</strong> Displaying test results immediately within the same UI environment where tests are defined.</p>
+</li>
+</ul>
+<p>This feature is a key component of the strategy outlined in the <a href="../testing_and_validation_plan/">ThinkAlike Testing and Validation Plan</a> and relies on underlying concepts from the <a href="UI_Testing_Framework.md">UI Testing Framework</a> design.</p>
+<hr />
+<h2 id="2-ui-components">2. UI Components</h2>
+<p>This feature typically resides within a dedicated "Testing &amp; Validation Center" or a similar section of the ThinkAlike platform, potentially accessible via developer tools or specific user roles.</p>
+<h3 id="21-test-template-library">2.1 Test Template Library</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To provide users with a collection of predefined test scenarios that can serve as starting points or examples, lowering the barrier for test creation.</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Template Browser:</strong> A searchable and filterable list or grid showcasing available templates. Each template entry includes:</p>
+<ul>
+<li>
+<p>Name (e.g., "Login Success Workflow", "Profile Update Validation", "Ethical Bias Check - Mode 2 Matches", "Accessibility Audit - Community Page").</p>
+</li>
+<li>
+<p>Brief Description.</p>
+</li>
+<li>
+<p>Tags/Categories (e.g., 'Authentication', 'UI Validation', 'Ethical', 'Accessibility', 'Mode 2').</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Template Preview:</strong> Upon selection, displays the sequence of actions and assertions defined within the template.</p>
+</li>
+<li>
+<p><strong>"Use Template" / "Clone" Button:</strong> Loads the selected template's steps into the Customizable Testing Scenarios Panel for modification.</p>
+</li>
+<li>
+<p><strong>Data Source:</strong> JSON configurations defining each template, either stored in the frontend codebase or fetched from a backend endpoint (<code>GET /api/testing/templates</code>).</p>
+</li>
+</ul>
+<h3 id="22-customizable-testing-scenarios-panel-scenario-builder">2.2 Customizable Testing Scenarios Panel ("Scenario Builder")</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> The core interactive workspace for visually constructing, configuring, saving, and loading custom test scenarios.</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Scenario Metadata:</strong> Input fields for <code>Scenario Name</code> and <code>Scenario Description</code>.</p>
+</li>
+<li>
+<p><strong>Step Sequencer:</strong> Primary area where users build the test flow. Options include:</p>
+<ul>
+<li>
+<p><em>Drag-and-Drop Interface:</em> Users drag predefined Action Blocks and Assertion Blocks from a palette into the sequence.</p>
+</li>
+<li>
+<p><em>Step-by-Step Wizard:</em> A guided process where users add steps sequentially.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Action Blocks Palette:</strong> A list of available actions representing user interactions or system events:</p>
+<ul>
+<li>
+<p><code>Navigate To [URL]</code></p>
+</li>
+<li>
+<p><code>Click Element [Selector]</code></p>
+</li>
+<li>
+<p><code>Enter Text [Selector, Text Value]</code></p>
+</li>
+<li>
+<p><code>Select Option [Selector, Value/Label]</code></p>
+</li>
+<li>
+<p><code>Wait For Element [Selector, Timeout]</code></p>
+</li>
+<li>
+<p><code>Wait [Milliseconds]</code></p>
+</li>
+<li>
+<p><code>Call API [Endpoint, Method, Payload]</code> (Requires careful security considerations)</p>
+</li>
+<li>
+<p><code>Set Mock Data [Context, Data]</code> (For injecting test data)</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Assertion Blocks Palette:</strong> A list of available validation checks:</p>
+<ul>
+<li>
+<p><code>Expect Element Exists [Selector]</code></p>
+</li>
+<li>
+<p><code>Expect Element Visible [Selector]</code></p>
+</li>
+<li>
+<p><code>Expect Text Equals [Selector, Expected Text]</code></p>
+</li>
+<li>
+<p><code>Expect Value Equals [Selector, Expected Value]</code> (For input fields)</p>
+</li>
+<li>
+<p><code>Expect API Response Status [Expected Status Code]</code></p>
+</li>
+<li>
+<p><code>Expect API Response Contains [JSON Path, Expected Value]</code></p>
+</li>
+<li>
+<p><code>Expect Data Point Validates [Data Point Ref, Validation Rule]</code></p>
+</li>
+<li>
+<p><code>Expect Ethical Score Above [Threshold, Context Ref]</code> (Integrates with <code>CoreValuesValidator</code> logic)</p>
+</li>
+<li>
+<p><code>Expect No Accessibility Violations [WCAG Level, Scope Selector]</code></p>
+</li>
+<li>
+<p><code>Expect Performance Metric Below [Metric Name, Threshold]</code> (e.g., 'RenderTime', 'APIDuration')</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Parameter Configuration:</strong> When an Action or Assertion block is added to the sequence, a configuration panel appears that allows users to input necessary parameters (CSS selectors, URLs, text values, expected results, thresholds). This integrates with Data Validation Parameters (see below).</p>
+</li>
+<li>
+<p><strong>Control Buttons:</strong> <code>Run Test</code>, <code>Save Scenario</code>, <code>Load Scenario</code>, <code>Clear Scenario</code>.</p>
+</li>
+<li>
+<p><strong>Data Source:</strong> User interactions within the builder. Saved scenarios are stored locally (e.g., in localStorage) or on the backend (<code>POST /api/testing/scenarios</code>).</p>
+</li>
+</ul>
+<h3 id="23-data-validation-parameters-integrated-ui-helpers">2.3 Data Validation Parameters (Integrated UI Helpers)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To simplify the configuration of test parameters by leveraging the live UI and existing data components.</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Element Selector Tool:</strong> A mode (activated via a button in the Scenario Builder) that lets the user click directly on elements in the main ThinkAlike UI (rendered alongside or in an iframe) to capture their CSS selectors for use in Action/Assertion blocks.</p>
+</li>
+<li>
+<p><strong>Data Point Picker:</strong> Integration with the Data Explorer Panel or similar views, allowing users to select specific data points (e.g., a user profile field, an AI recommendation attribute) for use in assertions.</p>
+</li>
+<li>
+<p><strong>Contextual Parameter Suggestions:</strong> Based on the selected Action/Assertion block, the UI may suggest relevant parameters or selectors based on the current application state or common patterns.</p>
+</li>
+</ul>
+<h3 id="24-data-visualization-tools-test-results-display">2.4 Data Visualization Tools (Test Results Display)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To present the outcomes of test runs clearly, actionably, and comprehensively.</p>
+</li>
+<li>
+<p><strong>UI Elements (Often in a separate Test Results view/panel):</strong></p>
+</li>
+<li>
+<p><strong>Run History:</strong> A list of previous test runs with timestamps, scenario names, and overall pass/fail status.</p>
+</li>
+<li>
+<p><strong>Detailed Report:</strong> For each selected run, display:</p>
+<ul>
+<li>
+<p><em>Overall Summary:</em> Pass/Fail status, run duration, number of steps/assertions.</p>
+</li>
+<li>
+<p><em>Step-by-Step Results:</em> Each executed step shows:</p>
+</li>
+<li>
+<p>The action or assertion performed.</p>
+</li>
+<li>
+<p>Status (Pass, Fail, or Skipped).</p>
+</li>
+<li>
+<p>Duration.</p>
+</li>
+<li>
+<p>Screenshots, logs, or error messages (especially for failures).</p>
+</li>
+<li>
+<p>Visual diff comparison (if visual regression tests are implemented).</p>
+</li>
+<li>
+<p><em>Aggregated Reports:</em> Sections summarizing results for specific categories such as:</p>
+</li>
+<li>
+<p>Performance Metrics (charts visualizing load times, API durations).</p>
+</li>
+<li>
+<p>Ethical Compliance Report (summary from CoreValuesValidator assertions).</p>
+</li>
+<li>
+<p>Accessibility Report (list of violations found).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Source:</strong> Data generated by the test execution engine during each run, stored temporarily or fetched from (<code>GET /api/testing/results/:runId</code>).</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-actionable-parameters-defining-tests-via-ui">3. Actionable Parameters (Defining Tests via UI)</h2>
+<ul>
+<li>
+<p><strong>Data Testing via UI:</strong> Users define test data directly in action blocks (for example, <code>Enter Text</code>) or use mock data injection. Assertions (such as <code>Expect Text Equals</code> or <code>Expect Data Point Validates</code>) then verify the system's handling of this UI-defined data.</p>
+</li>
+<li>
+<p><strong>Code Validation via UI:</strong> Tests defined in the UI validate behavior resulting from code execution:</p>
+</li>
+<li>
+<p>UI state changes are validated (e.g., <code>Expect Element Visible</code>, <code>Expect Text Equals</code>).</p>
+</li>
+<li>
+<p>Frontend logic triggering API calls is validated by asserting on subsequent UI changes or by inspecting the API call itself (<code>Call API</code>, <code>Expect API Response Status</code>).</p>
+</li>
+<li>
+<p>Backend code is implicitly validated by asserting on the API responses and the resulting data/UI state changes.</p>
+</li>
+<li>
+<p>Ethical code implementation is validated using specific ethical assertions (<code>Expect Ethical Score Above</code>), which rely on CoreValuesValidator logic (potentially involving backend verification calls).</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-code-implementation-notes">4. Code Implementation Notes</h2>
+<ul>
+<li>
+<p><strong>Framework:</strong> React.</p>
+</li>
+<li>
+<p><strong>Core Challenge: Test Execution Engine:</strong> How to translate UI-defined steps into actual browser actions and assertions:</p>
+</li>
+<li>
+<p><strong>Frontend Engine:</strong> Use testing-library or custom simulation to simulate clicks, typing, and element state checks within the React component tree (good for component-level tests, but limited for true end-to-end (E2E) testing).</p>
+</li>
+<li>
+<p><strong>Browser Automation Integration (Recommended for E2E):</strong> The UI acts as a script generator – the Scenario Builder creates a test script (in Cypress, Playwright, or Selenium format). A separate process (triggered via a backend API call or integrated local test runner) then executes this script against a running instance of the application.</p>
+</li>
+<li>
+<p><strong>Backend Orchestration:</strong> The UI sends the scenario definition (in JSON format) to a backend testing service (e.g., via <code>POST /api/testing/run</code>). The backend then uses Selenium Grid, Playwright Service, or a similar tool to spin up browser instances, execute the steps, and report results back. This approach is scalable and robust but requires additional backend infrastructure.</p>
+</li>
+<li>
+<p><strong>Scenario Definition Format:</strong> Define a clear JSON schema for representing test scenarios (including steps, actions, assertions, and parameters).</p>
+</li>
+<li>
+<p><strong>Component Communication:</strong> Use appropriate state management for the Scenario Builder and for displaying test results.</p>
+</li>
+<li>
+<p><strong>Security:</strong> Critical if users can define tests:</p>
+</li>
+<li>
+<p>Sanitize all user inputs (selectors, text values, URLs).</p>
+</li>
+<li>
+<p>Restrict certain actions and assertions based on user roles – for example, non-developers should have limited access to actions like <code>Call API</code> or arbitrary script execution.</p>
+</li>
+<li>
+<p>If using a backend execution engine, run tests in isolated environments (e.g., Docker containers) and validate API calls triggered by tests against user permissions.</p>
+</li>
+<li>
+<p><strong>Modularity:</strong> Design Action Blocks and Assertion Blocks as pluggable modules so that the framework can be extended easily.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-testing-instructions-testing-the-test-feature-itself">5. Testing Instructions (Testing the Test Feature Itself)</h2>
+<ul>
+<li>
+<p><strong>Scenario Builder:</strong></p>
+</li>
+<li>
+<p>Verify drag-and-drop or step-by-step sequencing works correctly.</p>
+</li>
+<li>
+<p>Test adding, removing, and reordering steps.</p>
+</li>
+<li>
+<p>Test the configuration panel for each Action/Assertion block – ensure parameters are saved and loaded correctly.</p>
+</li>
+<li>
+<p>Test the Element Selector Tool integration – verify it accurately captures CSS selectors.</p>
+</li>
+<li>
+<p>Test the Save/Load Scenario functionality.</p>
+</li>
+<li>
+<p><strong>Test Execution:</strong></p>
+</li>
+<li>
+<p>Create simple scenarios (e.g., navigate to a URL and check heading text) and run them. Confirm correct execution and a pass status.</p>
+</li>
+<li>
+<p>Create scenarios designed to fail (e.g., expect a non-existent element or incorrect text) and verify proper failure status and error reporting.</p>
+</li>
+<li>
+<p>Test scenarios that involve various Action/Assertion types (including API calls, ethical checks, and accessibility checks).</p>
+</li>
+<li>
+<p>Validate handling of timeouts and errors during test execution.</p>
+</li>
+<li>
+<p><strong>Results Display:</strong></p>
+</li>
+<li>
+<p>Confirm that the dashboard and detailed reports accurately reflect the outcomes of test runs.</p>
+</li>
+<li>
+<p>Ensure that logs, screenshots (if implemented), performance charts, and ethical/accessibility reports display correctly.</p>
+</li>
+<li>
+<p><strong>Security:</strong></p>
+</li>
+<li>
+<p>Try injecting malicious scripts or selectors via parameter inputs. Verify that sanitization prevents XSS or unintended actions.</p>
+</li>
+<li>
+<p>Test that role-based access to the feature works as expected.</p>
+</li>
+</ul>
+<hr />
+<h2 id="6-ui-mockup-placeholder">6. UI Mockup Placeholder</h2>
+<p>Refer to the project's central design repository for visual mockups.
+[Placeholder: Link or embed visual mockups of the Customizable UI Tests feature, including the Scenario Builder and Test Results Dashboard/Report view.]</p>
+<hr />
+<h2 id="7-dependencies-integration">7. Dependencies &amp; Integration</h2>
+<ul>
+<li>
+<p><strong>Depends On:</strong></p>
+</li>
+<li>
+<p>Core reusable UI components (Buttons, Inputs, Modals, Lists).</p>
+</li>
+<li>
+<p>Potentially the Data Explorer Panel (for data point selection).</p>
+</li>
+<li>
+<p>CoreValuesValidator (for ethical assertions).</p>
+</li>
+<li>
+<p>Accessibility audit libraries (e.g., axe-core).</p>
+</li>
+<li>
+<p>Backend Testing Service/API (if using backend or hybrid execution).</p>
+</li>
+<li>
+<p>Browser automation frameworks (Cypress, Playwright, Selenium – depending on the chosen execution engine).</p>
+</li>
+<li>
+<p><a href="../../guides/developer_guides/style_guide.md">ThinkAlike Style Guide</a>.</p>
+</li>
+<li>
+<p><strong>Integrates With:</strong></p>
+</li>
+<li>
+<p>The overall platform's authentication/authorization to control access.</p>
+</li>
+<li>
+<p>The Developer Tools panel or a dedicated Testing section.</p>
+</li>
+<li>
+<p>The CI/CD pipeline (potentially triggering saved UI tests via an API).</p>
+</li>
+</ul>
+<hr />
+<h2 id="8-future-enhancements">8. Future Enhancements</h2>
+<ul>
+<li>
+<p>Visual regression testing (comparing screenshots).</p>
+</li>
+<li>
+<p>Support for conditional logic within test scenarios (if/else).</p>
+</li>
+<li>
+<p>Creation of reusable "functions" or sub-scenarios.</p>
+</li>
+<li>
+<p>Parameterizing scenarios to run with different data sets.</p>
+</li>
+<li>
+<p>Integration with code coverage reporting.</p>
+</li>
+<li>
+<p>Support for testing mobile views or different browser types.</p>
+</li>
+<li>
+<p>AI-assisted test generation based on user flows or requirements.</p>
+</li>
+</ul>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Customizable UI Tests</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Customizable UI Tests</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

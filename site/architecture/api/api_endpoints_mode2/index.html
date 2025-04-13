@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/api/api_endpoints_mode2/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>API Endpoints (Mode 2) - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Endpoints (Mode 2)";
+        var mkdocs_page_input_path = "architecture/api/api_endpoints_mode2.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/api/api_endpoints_mode2/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">API Endpoints (Mode 2)</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-api-endpoints-mode-2-functionality">2. API Endpoints - Mode 2 Functionality</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-user-network-discovery-profile-viewing">2.1 User Network Discovery &amp; Profile Viewing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-narrative-compatibility-test-management-connection-gating">2.2 Narrative Compatibility Test Management (Connection Gating)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-data-models">3. Data Models</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-error-handling">4. Error Handling</a>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Architecture</li>
+      <li class="breadcrumb-item active">API Endpoints (Mode 2)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-endpoints-mode-2-user-discovery-connection">API Endpoints - Mode 2: User Discovery &amp; Connection</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document specifies the <strong>API endpoints for the ThinkAlike project backend, specifically for Mode 2 (User Discovery &amp; Connection) functionality.</strong> It supplements the main <code>API_ENDPOINTS.md</code> and details the routes, methods, request/response formats, authentication, and functionality related to <strong>user-driven browsing of potential matches (User Nodes/AI Clones), viewing detailed profiles, and initiating/managing the Narrative Compatibility Tests</strong> required before direct connections are established in this Mode.</p>
+<p>Refer to <code>API_ENDPOINTS.md</code> for general API conventions, authentication details (JWT Bearer), base URL (<code>/api/v1</code>), and standard error response formats. All endpoints listed here require <strong>Bearer Authentication</strong>.</p>
+<p>Mode 2 allows users to proactively explore the network based on Value Profiles and Matching Percentages, initiating connections only after successfully navigating a narrative compatibility gate.</p>
+<hr />
+<h2 id="2-api-endpoints-mode-2-functionality">2. API Endpoints - Mode 2 Functionality</h2>
+<h3 id="21-user-network-discovery-profile-viewing">2.1 User Network Discovery &amp; Profile Viewing</h3>
+<ul>
+<li>
+<p><code>GET /api/v1/discovery/network</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Fetch potential matches (User Nodes) for the authenticated user to browse in the Mode 2 discovery interface.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Retrieves a list of other users, typically sorted or filterable by initial compatibility scores (Matching Percentage), activity, or user-defined preferences. Includes essential data to render AI Clones and profile summaries for the browsing experience.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>GET</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Query Parameters (Optional):</strong></p>
+<ul>
+<li>
+<p><code>sortBy</code>: <code>string</code> (e.g., <code>matching_percentage_desc</code>, <code>last_active_desc</code>, <code>distance_asc</code>) - Sorting criteria.</p>
+</li>
+<li>
+<p><code>filterByValue</code>: <code>string</code> (Comma-separated list of value IDs/tags).</p>
+</li>
+<li>
+<p><code>filterByInterest</code>: <code>string</code> (Comma-separated list of interest IDs/tags).</p>
+</li>
+<li>
+<p><code>minMatchPercentage</code>: <code>float</code> (e.g., <code>0.5</code>) - Minimum score filter.</p>
+</li>
+<li>
+<p><code>page</code>: <code>integer</code> (Default: 1) - Pagination page number.</p>
+</li>
+<li>
+<p><code>pageSize</code>: <code>integer</code> (Default: 20) - Results per page.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Successfully retrieved a paginated list of User Nodes for discovery.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;users&quot;: [
+    {
+      &quot;userId&quot;: &quot;integer&quot;,
+      &quot;username&quot;: &quot;string&quot;,
+      &quot;aiCloneData&quot;: { // Essential for Mode 2 browsing view
+        &quot;videoIntroUrl&quot;: &quot;string (URL of the user&#39;s short video intro)&quot;,
+        &quot;styleParameters&quot;: { // AI-derived parameters for visual style
+            &quot;hue&quot;: &quot;float&quot;, &quot;saturation&quot;: &quot;float&quot;, &quot;brightness&quot;: &quot;float&quot;,
+            &quot;waveform_pattern&quot;: &quot;string&quot;
+         },
+         &quot;dominantValues&quot;: [&quot;string&quot;, &quot;...&quot;] // Values influencing style
+      },
+      &quot;matchingPercentage&quot;: &quot;float (Score relative to the requesting user)&quot;,
+      &quot;profileSummary&quot;: { // Concise info for card view
+        &quot;tagline&quot;: &quot;string (Optional)&quot;,
+        &quot;keyValues&quot;: [&quot;string&quot;, &quot;...&quot;], // Top shared/prominent values
+        &quot;keyInterests&quot;: [&quot;string&quot;, &quot;...&quot;] // Top shared/prominent interests
+      },
+      &quot;lastActive&quot;: &quot;string (date-time, optional)&quot;
+    }
+    // ... more user summaries
+  ],
+  &quot;pagination&quot;: {
+    &quot;currentPage&quot;: &quot;integer&quot;,
+    &quot;pageSize&quot;: &quot;integer&quot;,
+    &quot;totalItems&quot;: &quot;integer&quot;,
+    &quot;totalPages&quot;: &quot;integer&quot;
+  },
+  &quot;ui_feedback_components&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;description&quot;: &quot;UI components validating successful retrieval and display of user network for discovery.&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Invalid query parameter format.</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error retrieving or processing user data.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>GET /api/v1/discovery/profile/{userId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Fetch detailed profile information for a specific user selected from the discovery network view.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Retrieves comprehensive details needed for the full profile view in Mode 2, including video intro URL, personal narrative, detailed values/interests, and the crucial <code>matchingPercentage</code> relative to the requesting user. Access respects target user's privacy settings. <em>(Consistency check needed with <code>GET /users/{userId}</code> - ensure this endpoint provides Mode 2 specific needs like <code>matchingPercentage</code> and potentially excludes sensitive data not relevant for initial discovery).</em></p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>GET</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>userId</code> (path parameter, integer, required): The ID of the user whose profile is being requested.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Successfully retrieved detailed profile data for Mode 2 display.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  // Core user fields (userId, username, etc. - ensure consistency)
+  &quot;userId&quot;: &quot;integer&quot;,
+  &quot;username&quot;: &quot;string&quot;,
+  &quot;aiCloneData&quot;: { // For displaying the clone/video on the profile page
+     &quot;videoIntroUrl&quot;: &quot;string&quot;,
+     &quot;styleParameters&quot;: { &quot;...&quot;:&quot;...&quot; }
+  },
+  &quot;matchingPercentage&quot;: &quot;float (Crucial: Score relative to the requesting user)&quot;,
+  &quot;personalNarrative&quot;: {
+      &quot;content&quot;: &quot;object or string&quot;, // User&#39;s self-authored narrative
+      &quot;privacy&quot;: &quot;string&quot; // Reflects narrative visibility setting
+   },
+  &quot;values&quot;: [ /* Array of user&#39;s detailed values */ ],
+  &quot;interests&quot;: [ /* Array of user&#39;s detailed interests */ ],
+  &quot;sharedCommunities&quot;: [ // Optional: Shared Mode 3 communities
+    { &quot;communityId&quot;: &quot;integer&quot;, &quot;communityName&quot;: &quot;string&quot; }
+  ],
+  &quot;bio&quot;: &quot;string (optional)&quot;,
+  &quot;full_name&quot;: &quot;string (optional)&quot;, // Other relevant profile fields
+  &quot;ui_feedback_components&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;description&quot;: &quot;UI components validating successful retrieval of detailed profile for Mode 2.&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>403 Forbidden</code>: Requesting user does not have permission to view this detailed profile (privacy settings).</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: User with the specified <code>userId</code> not found.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error retrieving profile data.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-narrative-compatibility-test-management-connection-gating">2.2 Narrative Compatibility Test Management (Connection Gating)</h3>
+<ul>
+<li>
+<p><code>POST /api/v1/connection/initiate_test</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Initiate the Narrative Compatibility Test between the authenticated user (requester) and a target user.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Triggered when the requester clicks "Connect" on a target user's profile in Mode 2. The backend checks eligibility (not already connected, not blocked, no recent failed test) and starts a new test session, returning the first narrative step. This acts as the gate before direct communication.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>POST</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;targetUserId&quot;: &quot;integer (Required, the ID of the user the requester wants to connect with)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>201 Created</code>: Test session initiated successfully. Returns the starting narrative node for the requester.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Narrative Compatibility Test initiated.&quot;,
+  &quot;testSessionId&quot;: &quot;string (Unique ID for this specific test instance between users)&quot;,
+  &quot;narrativeNode&quot;: { // The first step of the compatibility narrative
+    &quot;nodeId&quot;: &quot;string&quot;,
+    &quot;nodeType&quot;: &quot;string (e.g., &#39;prompt&#39;, &#39;scene_description&#39;)&quot;,
+    &quot;content&quot;: { &quot;text&quot;: &quot;string&quot;, &quot;imageUrl&quot;: &quot;string (optional)&quot; },
+    &quot;choices&quot;: [ { &quot;choiceId&quot;: &quot;string&quot;, &quot;text&quot;: &quot;string&quot; } ] // Starting choices
+  },
+  &quot;ui_feedback_components&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;description&quot;: &quot;UI components validating successful test initiation.&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Cannot initiate test (e.g., already connected, test in progress, requester/target ineligible).</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>403 Forbidden</code>: Requesting user is blocked by the target user, or other permission issue.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: Target user <code>targetUserId</code> not found.</p>
+</li>
+<li>
+<p><code>409 Conflict</code>: A test between these users is already active or recently failed.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error setting up the test session or generating the narrative.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>POST /api/v1/connection/test/choice</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Submit the user's choice within an ongoing Narrative Compatibility Test and get the next step or final outcome.</p>
+</li>
+<li>
+<p><strong>Description:</strong> The user provides their choice for the current narrative step within the test session. The backend (likely involving the AI Narrative Engine) processes this choice, potentially updates an internal compatibility score for the test, and determines the next narrative node or the final outcome of the test (connection enabled or denied).</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>POST</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;testSessionId&quot;: &quot;string (Required, identifier for the test instance)&quot;,
+  &quot;currentNodeId&quot;: &quot;string (Required, ID of the node the user is responding to)&quot;,
+  &quot;chosenChoiceId&quot;: &quot;string (Required, ID of the choice the user selected)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Choice processed. Returns either the next narrative node or the final outcome.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;narrativeNode&quot;: { // EITHER this is present...
+    &quot;nodeId&quot;: &quot;string&quot;,
+    &quot;nodeType&quot;: &quot;string&quot;,
+    &quot;content&quot;: { &quot;...&quot;: &quot;...&quot; },
+    &quot;choices&quot;: [ /* ... */ ],
+    &quot;isEnding&quot;: &quot;boolean (false)&quot;
+  },
+  &quot;testOutcome&quot;: null, // ...OR narrativeNode is null and testOutcome is present
+  &quot;ui_feedback_components&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;description&quot;: &quot;UI components validating choice processing.&quot;
+  }
+}
+```
+
+*OR (if the test concludes)*
+
+```json
+{
+  &quot;narrativeNode&quot;: null, // Test ended
+  &quot;testOutcome&quot;: { // FINAL result
+    &quot;status&quot;: &quot;string (Enum: &#39;connection_enabled&#39;, &#39;connection_denied&#39;)&quot;, // Outcome based on compatibility score threshold reached during test
+    &quot;finalMatchingPercentage&quot;: &quot;float (Optional, the score calculated during the test)&quot;,
+    &quot;reason&quot;: &quot;string (Optional, user-friendly reason if denied, e.g., &#39;Value alignment threshold not met during narrative.&#39;)&quot;,
+    &quot;message&quot;: &quot;string (User-facing message for the outcome)&quot;
+  },
+  &quot;ui_feedback_components&quot;: {
+    &quot;type&quot;: &quot;object&quot;,
+    &quot;description&quot;: &quot;UI components validating the final test outcome.&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Invalid input (<code>testSessionId</code>, <code>currentNodeId</code>, <code>chosenChoiceId</code>).</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: <code>testSessionId</code> or <code>currentNodeId</code> not found.</p>
+</li>
+<li>
+<p><code>409 Conflict</code>: Test session already completed or state mismatch (e.g., wrong user trying to submit choice).</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error processing choice or determining outcome.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>(Endpoints for managing established connections themselves, like listing connections (<code>GET /connections</code>) or removing them (<code>DELETE /connections/{connectionId}</code>), would likely reside under a general <code>/connections</code> resource defined in the main <code>api_endpoints.md</code>, as they apply regardless of how the connection was formed).</em></p>
+<hr />
+<h2 id="3-data-models">3. Data Models</h2>
+<ul>
+<li>
+<p><strong><code>UserNodeSummaryMode2</code></strong>: Data for discovery view (<code>userId</code>, <code>username</code>, <code>aiCloneData</code>, <code>matchingPercentage</code>, <code>profileSummary</code>). See <code>GET /discovery/network</code>.</p>
+</li>
+<li>
+<p><strong><code>AICloneData</code></strong>: Visual representation data (<code>videoIntroUrl</code>, <code>styleParameters</code>).</p>
+</li>
+<li>
+<p><strong><code>DetailedUserProfileMode2</code></strong>: Profile data for detail view (<code>userId</code>, <code>username</code>, <code>aiCloneData</code>, <code>matchingPercentage</code>, <code>personalNarrative</code>, values, interests, etc.). See <code>GET /discovery/profile/{userId}</code>.</p>
+</li>
+<li>
+<p><strong><code>NarrativeCompatibilityTestSession</code></strong>: Backend state for an ongoing test (<code>testSessionId</code>, user IDs, current node, score, history).</p>
+</li>
+<li>
+<p><strong><code>NarrativeNode</code> / <code>NarrativeChoice</code> (Compatibility Test Variant)</strong>: Structure similar to Mode 1 nodes/choices, but content tailored for assessing compatibility between two specific users.</p>
+</li>
+<li>
+<p><strong><code>TestOutcome</code></strong>: Final result of the compatibility test (<code>status</code>, <code>finalMatchingPercentage</code>, <code>reason</code>, <code>message</code>). See <code>POST /connection/test/choice</code> response.</p>
+</li>
+</ul>
+<p><em>(Refer to the Mode 2 Spec (<code>mode2_profile_discovery_spec.md</code>) and shared data models for detailed definitions).</em></p>
+<hr />
+<h2 id="4-error-handling">4. Error Handling</h2>
+<p>Standard HTTP errors apply. Pay attention to:</p>
+<ul>
+<li>
+<p><code>403 Forbidden</code> for privacy/blocking issues,</p>
+</li>
+<li>
+<p><code>404 Not Found</code> for missing users or sessions, and</p>
+</li>
+<li>
+<p><code>409 Conflict</code> for invalid test states.</p>
+</li>
+</ul>
+<p>Error bodies include a <code>message</code> field and may also contain <code>ui_validation_components</code> for UI feedback.</p>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: API Endpoints - Mode 2: User Discovery &amp; Connection</p>
+</li>
+<li>
+<p>Type: API Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of API Endpoints - Mode 2: User Discovery &amp; Connection</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../architectural_overview/" class="btn btn-neutral float-left" title="Architectural Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../../guides/developer_guides/code_style_guide/" class="btn btn-neutral float-right" title="Code Style Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../architectural_overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../../guides/developer_guides/code_style_guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/modes/profile_discovery_mode/mode2_profile_discovery_spec/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Matching Mode Specification - Project - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Matching Mode Specification - Project";
+        var mkdocs_page_input_path = "architecture/modes/profile_discovery_mode/mode2_profile_discovery_spec.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/modes/profile_discovery_mode/mode2_profile_discovery_spec/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Matching Mode Specification - Project</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="matching-mode-specification-project">Matching Mode Specification - Project</h1>
+<p><strong>Document Purpose:</strong></p>
+<p>This document provides a <strong>detailed specification for Matching Mode</strong> within the ThinkAlike project. It outlines the functionality, features, user flows, data models, algorithms, and technical considerations for implementing Matching Mode, which is responsible for connecting users based on shared values and fostering authentic relationships.</p>
+<p><strong>I.  Core Functionality and Features:</strong></p>
+<p>Matching Mode is designed to facilitate value-based connections between ThinkAlike users, prioritizing authentic relationships over superficial matching criteria. Key features include:</p>
+<ol>
+<li>
+<p><strong>Value-Based Matching Algorithm:</strong></p>
+<ul>
+<li>
+<p><strong>Ethically Weighted Matching:</strong> Employs a sophisticated algorithm that prioritizes matches based on shared ethical values (as defined in Enlightenment 2.0 principles and user narratives).  The algorithm incorporates "Ethical Weighting" to favor ethically aligned connections.</p>
+</li>
+<li>
+<p><strong>User-Controlled Value Profiles:</strong>  Leverages user-defined "Value Profiles" created in Narrative Mode, allowing users to articulate their core values and principles. Users have control over which values are emphasized and how they are weighted in the matching process.</p>
+</li>
+<li>
+<p><strong>Transparent Matching Rationale:</strong>  Provides users with clear and understandable explanations of why they are matched with specific individuals, highlighting shared values and connection paths visualized in <code>DataTraceability.jsx</code>.</p>
+</li>
+<li>
+<p><strong>Configurable Matching Preferences:</strong>  Allows users to configure their matching preferences, specifying the types of connections they are seeking (friendship, collaboration, romantic, etc.) and the relative importance of different values in their matches.</p>
+</li>
+<li>
+<p><strong>Iterative Algorithm Refinement:</strong>  The matching algorithm is designed to be iteratively refined and improved over time, based on user feedback, ethical reviews, and ongoing data analysis (with changes tracked and verified by the Verification System).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Value-Centric Profile Exploration:</strong></p>
+<ul>
+<li>
+<p><strong>Profile Cards with Value Highlights:</strong> Presents user profiles in a "card" format that prominently highlights their personal narratives, core values, and shared interests, making these the central focus of profile exploration.</p>
+</li>
+<li>
+<p><strong>Value-Based Filtering and Search:</strong>  Allows users to filter and search for other users based on specific values, interests, or keywords within their narratives.</p>
+</li>
+<li>
+<p><strong>"Shared Values" Visualization:</strong>  Visually indicates shared values between users in profile cards and match lists, making value alignment immediately apparent.</p>
+</li>
+<li>
+<p><strong>"DataTraceability.jsx" Integration for Visual Exploration:</strong> Integrates with the <code>DataTraceability.jsx</code> component to provide a visual graph representation of user connections and shared values, allowing for deeper exploration of potential matches.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Direct Connection and Communication Initiation:</strong></p>
+<ul>
+<li>
+<p><strong>"Connect" Feature:</strong>  Provides a clear "Connect" button or action on user profiles to allow users to initiate direct connection requests with potential matches.</p>
+</li>
+<li>
+<p><strong>Connection Request System:</strong>  Implements a system for sending and receiving connection requests, allowing users to manage their connection invitations and accept or decline requests.</p>
+</li>
+<li>
+<p><strong>Direct Messaging/Chat:</strong>  Enables secure and private direct messaging/chat functionality between connected users to facilitate further communication and relationship building.</p>
+</li>
+<li>
+<p><strong>Privacy Controls for Communication:</strong>  Provides users with privacy controls over their communication settings, allowing them to manage who can message them and adjust notification preferences.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>II.  User Flows and Interactions:</strong></p>
+<ol>
+<li>
+<p><strong>Accessing Matching Mode:</strong></p>
+<ul>
+<li>
+<p>Users navigate to "Matching" tab or section in the main ThinkAlike UI.</p>
+</li>
+<li>
+<p>Matching Mode dashboard is displayed, potentially showing:</p>
+<ul>
+<li>
+<p>"Potential Matches" list (initially based on default algorithm settings or user-defined preferences).</p>
+</li>
+<li>
+<p>Search and filter options for user profiles.</p>
+</li>
+<li>
+<p>Link to "DataTraceability Visualization" for deeper exploration.</p>
+</li>
+<li>
+<p>Link to "Matching Preferences" settings.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Exploring User Profiles and Discovering Matches:</strong></p>
+<ul>
+<li>
+<p>Users can browse "Potential Matches" list, which displays profile cards with value highlights and "Shared Values" indicators.</p>
+</li>
+<li>
+<p>Users can use search and filter options to refine their profile exploration (e.g., filter by value, interest, keyword).</p>
+</li>
+<li>
+<p>Clicking on a profile card opens a full user profile view, showcasing their narrative, values, interests, and potentially a <code>DataTraceability.jsx</code> visualization of their connections.</p>
+</li>
+<li>
+<p>Users can initiate a "Connect" request directly from a profile card or full profile view.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Managing Connection Requests and Communication:</strong></p>
+<ul>
+<li>
+<p>Users receive notifications for new connection requests.</p>
+</li>
+<li>
+<p>Users can access a "Connections" or "Inbox" section to manage connection requests:</p>
+<ul>
+<li>
+<p>View pending requests (sent and received).</p>
+</li>
+<li>
+<p>Accept or decline received requests.</p>
+</li>
+<li>
+<p>Withdraw sent requests.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Once connected, users can initiate direct messaging/chat with their connections.</p>
+</li>
+<li>
+<p>Users can manage their connections list and remove connections as needed.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Customizing Matching Preferences:</strong></p>
+<ul>
+<li>
+<p>Users can access "Matching Preferences" settings from the Matching Mode dashboard or their profile settings.</p>
+</li>
+<li>
+<p>Matching Preferences settings allow users to:</p>
+<ul>
+<li>
+<p>Define the relative importance of different values in matching.</p>
+</li>
+<li>
+<p>Specify the types of connections they are seeking (friendship, collaboration, romantic, etc.).</p>
+</li>
+<li>
+<p>Potentially adjust other algorithm parameters or filtering criteria (future enhancement, with careful consideration of ethical implications and transparency).</p>
+</li>
+<li>
+<p>View explanations and tooltips about each preference setting to ensure user understanding and control.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>III. Data Model (Example - Conceptual):</strong></p>
+<p>UserProfile {
+userId: UUID (Foreign Key to User Account)
+narrative: UserNarrative (Embedded or Linked Document - from Narrative Mode)
+valueProfile: ValueProfile (Embedded Document - User-defined value weights and preferences)
+interests: [InterestNodeId] // Links to Interest Nodes
+skills: [SkillNodeId] // Links to Skill Nodes
+connections: [ConnectionId] // List of User IDs of connected users
+connectionRequestsSent: [ConnectionRequestId]
+connectionRequestsReceived: [ConnectionRequestId]
+matchingPreferences: MatchingPreferences (Embedded Document - User-defined matching settings)
+// ... other user profile data (privacy settings, etc.)
+}</p>
+<p>ValueProfile {
+valueWeights: Map<ValueNodeId, Float> // User-defined weights for different Value Nodes (importance in matching)
+connectionTypesSeeking: [Enum ['friendship', 'collaboration', 'romantic', ...]] // Types of connections user is interested in
+// ... other matching preference settings
+}</p>
+<p>Connection {
+connectionId: UUID (Unique Identifier)
+user1Id: UUID (Foreign Key to User Profile)
+user2Id: UUID (Foreign Key to User Profile)
+connectionStatus: Enum ['pending', 'active', 'removed']
+startTimestamp: Timestamp
+// ... other connection metadata
+}</p>
+<p>ConnectionRequest {
+requestId: UUID (Unique Identifier)
+senderId: UUID (Foreign Key to User Profile)
+recipientId: UUID (Foreign Key to User Profile)
+requestStatus: Enum ['pending', 'accepted', 'declined', 'withdrawn']
+requestTimestamp: Timestamp
+// ... other request metadata
+}</p>
+<p><strong>IV. UI Components (Specific to Matching Mode):</strong></p>
+<ul>
+<li>
+<p><code>MatchDashboard</code>:  Main dashboard component for Matching Mode, displaying match lists, search/filter options, and links to related features.</p>
+</li>
+<li>
+<p><code>ProfileCard</code>: Reusable component for displaying user profiles in a compact card format, highlighting key values and shared interests.</p>
+</li>
+<li>
+<p><code>UserProfileView</code>:  Detailed view of a user profile, showcasing full narrative, values, interests, <code>DataTraceability.jsx</code> visualization, and "Connect" action.</p>
+</li>
+<li>
+<p><code>MatchList</code>: Component for displaying lists of potential matches, ranked by similarity score and potentially filtered/sorted by user preferences.</p>
+</li>
+<li>
+<p><code>ConnectionRequestList</code>: Component for displaying and managing connection requests (sent and received).</p>
+</li>
+<li>
+<p><code>MatchingPreferencesForm</code>: Form component for users to customize their matching preferences, define value weights, and specify connection types seeking.</p>
+</li>
+</ul>
+<p><strong>V. API Endpoints (Backend - Examples):</strong></p>
+<ul>
+<li>
+<p><code>/api/match/potential-matches</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>: Returns a list of potential matches for the current user, based on the value-based matching algorithm and user preferences.  Includes data for <code>DataTraceability.jsx</code> visualization.</p>
+</li>
+<li>
+<p><code>/api/match/user-profile/{userId}</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>: Returns the full user profile data for a specific <code>userId</code>, including narrative, values, interests, and connections.</p>
+</li>
+<li>
+<p><code>/api/match/search-users</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>:  Allows searching and filtering users based on values, interests, keywords, and other criteria.</p>
+</li>
+<li>
+<p><code>/api/connections</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>: Returns the current user's list of active connections.</p>
+</li>
+<li>
+<p><code>POST</code>: Sends a connection request to another user.</p>
+</li>
+<li>
+<p><code>/api/connection-requests</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>: Returns the current user's list of pending connection requests (sent and received).</p>
+</li>
+<li>
+<p><code>POST/{requestId}/accept</code>: Accepts a received connection request.</p>
+</li>
+<li>
+<p><code>POST/{requestId}/decline</code>: Declines a received connection request.</p>
+</li>
+<li>
+<p><code>DELETE/{requestId}</code>: Withdraws a sent connection request.</p>
+</li>
+<li>
+<p><code>/api/matching-preferences</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>: Returns the current user's matching preferences.</p>
+</li>
+<li>
+<p><code>PUT</code>: Updates the current user's matching preferences.</p>
+</li>
+</ul>
+<p><strong>VI. Technical Considerations:</strong></p>
+<ul>
+<li>
+<p><strong>Matching Algorithm Complexity and Performance:</strong>  The value-based matching algorithm needs to be efficient and scalable to handle a growing user base. Consider algorithm optimization techniques and database indexing for performance.</p>
+</li>
+<li>
+<p><strong>Ethical Weighting Implementation:</strong>  Carefully implement the "Ethical Weighting" mechanism in the algorithm, ensuring it is transparent, auditable, and avoids unintended biases or discriminatory outcomes.</p>
+</li>
+<li>
+<p><strong>Data Privacy in Matching:</strong>  Design the matching process to be privacy-preserving, minimizing data exposure and ensuring user data is only used for matching purposes with appropriate security measures.</p>
+</li>
+<li>
+<p><strong>Real-time Updates and Notifications:</strong>  Implement real-time updates for match lists, connection requests, and messages to provide a dynamic and engaging user experience (consider using WebSockets or similar technologies).</p>
+</li>
+<li>
+<p><strong>Integration with DataTraceability.jsx:</strong>  Ensure seamless integration between the matching algorithm and the <code>DataTraceability.jsx</code> component, passing the necessary data for visualization and user exploration of connections.</p>
+</li>
+</ul>
+<p><strong>VII. Future Enhancements:</strong></p>
+<ul>
+<li>
+<p>More sophisticated matching algorithms incorporating machine learning and user feedback for continuous improvement.</p>
+</li>
+<li>
+<p>Advanced filtering and sorting options for match lists, allowing users to refine their search for connections.</p>
+</li>
+<li>
+<p>Group matching features for community formation or collaborative projects.</p>
+</li>
+<li>
+<p>Integration with external data sources or APIs to enrich user profiles and matching criteria (with user consent and transparency).</p>
+</li>
+<li>
+<p>Gamification elements to encourage value-based connection and meaningful interaction (e.g., badges for ethical engagement, points for contributing to value-aligned communities, etc. - to be carefully considered for ethical implications and to avoid gamifying genuine connection in a superficial way).</p>
+</li>
+<li>
+<p>Integration with Mode 3: Community Mode to suggest relevant communities to users based on their matches and value alignments.</p>
+</li>
+<li>
+<p>User feedback mechanisms to continuously improve the matching algorithm and user experience.</p>
+</li>
+<li>
+<p>Advanced privacy features, such as differential privacy or federated learning, to further enhance data protection in the matching process (future research and development).</p>
+</li>
+</ul>
+<p><strong>VII. Verification System Integration:</strong></p>
+<p>The Matching Mode and its core matching algorithm are deeply integrated with the <strong>Verification System</strong> to ensure ethical accountability and transparency:</p>
+<ul>
+<li>
+<p><strong>Ethical Rationale Verification:</strong> The ethical rationale behind the value-based matching algorithm, including the weighting mechanisms for ethical values and the strategies for bias mitigation, is formally documented and verified within the Verification System.</p>
+</li>
+<li>
+<p><strong>Algorithm Auditability:</strong> The code and logic of the matching algorithm are auditable through the Verification System, allowing for independent review and scrutiny of its implementation and ethical alignment.</p>
+</li>
+<li>
+<p><strong>Data Traceability for Matching Process:</strong> The data flow within the matching process is traceable through the Verification System and visualized in <code>DataTraceability.jsx</code>, allowing users to understand how their data is used in matching and ensuring transparency.</p>
+</li>
+<li>
+<p><strong>Continuous Ethical Monitoring and Review:</strong> The Verification System will be used for continuous monitoring and ethical review of the matching algorithm's performance and impact, ensuring ongoing adherence to Ethical Guidelines and allowing for iterative refinement and improvement with ethical considerations at the forefront.</p>
+</li>
+<li>
+<p><strong>User Feedback Integration for Algorithm Improvement:</strong> User feedback on match quality and algorithm transparency, collected through platform mechanisms, will be integrated into the Verification System's review process to inform iterative improvements to the matching algorithm and enhance its ethical effectiveness.</p>
+</li>
+</ul>
+<p><strong>VIII. Sequence Diagram for Profile Discovery Mode:</strong></p>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant User
+    participant Frontend as Matching Dashboard
+    participant Backend as FastAPI Backend
+    participant MatchingService as Matching Algorithm
+    participant DB as Database
+
+    User-&gt;&gt;Frontend: Access Matching Mode
+    Frontend-&gt;&gt;Backend: Request potential matches
+    Backend-&gt;&gt;MatchingService: Calculate matches based on Value Profiles &amp; Preferences
+    MatchingService-&gt;&gt;DB: Query user data &amp; preferences
+    DB--&gt;&gt;MatchingService: Return relevant data
+    MatchingService--&gt;&gt;Backend: Provide ranked match list
+    Backend--&gt;&gt;Frontend: Return match list and recommendations
+    User-&gt;&gt;Frontend: Selects a match and clicks &quot;Connect&quot;
+    Frontend-&gt;&gt;Backend: Sends connection request
+    Backend-&gt;&gt;DB: Record connection request
+    DB--&gt;&gt;Backend: Confirm request storage
+    Backend--&gt;&gt;Frontend: Acknowledge connection request
+    Frontend-&gt;&gt;User: Display connection pending status
+</code></pre></div>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Matching Mode Specification - Project</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Matching Mode Specification - Project</p>
+<hr />
+<p>````markdown</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

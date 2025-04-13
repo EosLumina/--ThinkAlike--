@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/devops_cicd_guidelines/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>DevOps and CI/CD Guidelines - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "DevOps and CI/CD Guidelines";
+        var mkdocs_page_input_path = "guides/developer_guides/devops_cicd_guidelines.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/devops_cicd_guidelines/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">DevOps and CI/CD Guidelines</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="devops-and-cicd-guidelines">DevOps and CI/CD Guidelines</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Outlines DevOps and CI/CD practices ensuring reliable, secure, and efficient deployment through automated processes.</p>
+<hr />
+<h2 id="2-cicd-pipeline-structure">2. CI/CD Pipeline Structure</h2>
+<h3 id="21-pipeline-flow">2.1 Pipeline Flow</h3>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    A[Code Push] --&gt; B[Build &amp; Test]
+    B --&gt; C[Security Scan]
+    C --&gt; D[Quality Gates]
+    D --&gt; E{Environment}
+    E --&gt;|Development| F[Dev Deploy]
+    E --&gt;|Staging| G[Stage Deploy]
+    E --&gt;|Production| H[Prod Deploy]
+    F &amp; G &amp; H --&gt; I[Health Checks]
+    I --&gt; J[Monitoring]
+</code></pre></div>
+<h3 id="22-infrastructure-architecture">2.2 Infrastructure Architecture</h3>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    subgraph Cloud
+        LB[Load Balancer]
+        subgraph Kubernetes
+            P1[Pod 1]
+            P2[Pod 2]
+            P3[Pod 3]
+        end
+        subgraph Data
+            DB[(Database)]
+            C[(Cache)]
+            MQ[Message Queue]
+        end
+        subgraph Monitoring
+            M1[Metrics]
+            M2[Logs]
+            M3[Traces]
+        end
+    end
+    LB --&gt; P1 &amp; P2 &amp; P3
+    P1 &amp; P2 &amp; P3 --&gt; DB
+    P1 &amp; P2 &amp; P3 --&gt; C
+    P1 &amp; P2 &amp; P3 --&gt; MQ
+    P1 &amp; P2 &amp; P3 --&gt; M1 &amp; M2 &amp; M3
+</code></pre></div>
+<hr />
+<h2 id="3-version-control-practices">3. Version Control Practices</h2>
+<h3 id="31-branching-strategy">3.1 Branching Strategy</h3>
+<p>Follow GitFlow with these branches:</p>
+<ul>
+<li>
+<p><code>main</code> - Production code</p>
+</li>
+<li>
+<p><code>develop</code> - Integration branch</p>
+</li>
+<li>
+<p><code>feature/*</code> - New features</p>
+</li>
+<li>
+<p><code>bugfix/*</code> - Bug fixes</p>
+</li>
+<li>
+<p><code>release/*</code> - Release preparation</p>
+</li>
+<li>
+<p><code>hotfix/*</code> - Production fixes</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Creating a new feature branch</span>
+
+git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>pull
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/user-authentication
+</code></pre></div>
+<h3 id="32-commit-message-standards">3.2 Commit Message Standards</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Format: &lt;type&gt;(&lt;scope&gt;): &lt;description&gt;</span>
+
+feat<span class="o">(</span>auth<span class="o">)</span>:<span class="w"> </span>implement<span class="w"> </span>JWT<span class="w"> </span>authentication
+fix<span class="o">(</span>api<span class="o">)</span>:<span class="w"> </span>resolve<span class="w"> </span>user<span class="w"> </span>lookup<span class="w"> </span>timeout
+docs<span class="o">(</span>readme<span class="o">)</span>:<span class="w"> </span>update<span class="w"> </span>deployment<span class="w"> </span>instructions
+</code></pre></div>
+<hr />
+<h2 id="4-build-process">4. Build Process</h2>
+<h3 id="41-build-scripts">4.1 Build Scripts</h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="s2">&quot;scripts&quot;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="s2">&quot;build&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;npm-run-all clean build:* generate-docs&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;build:ts&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;tsc -p tsconfig.prod.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;build:assets&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;node scripts/build-assets.js&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="s2">&quot;clean&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;rimraf dist&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="42-docker-configuration">4.2 Docker Configuration</h3>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span><span class="w"> </span><span class="s">node:16-alpine</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>package*.json<span class="w"> </span>./
+<span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>ci
+<span class="k">COPY</span><span class="w"> </span>.<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>build
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">node:16-alpine</span>
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/app/dist<span class="w"> </span>./dist
+<span class="k">ENV</span><span class="w"> </span><span class="nv">NODE_ENV</span><span class="o">=</span>production
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">3000</span>
+</code></pre></div>
+<hr />
+<h2 id="5-testing-strategy">5. Testing Strategy</h2>
+<h3 id="51-test-types">5.1 Test Types</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">* task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Npm@1</span>
+<span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">inputs</span><span class="p p-Indicator">:</span>
+<span class="w">      </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;custom&#39;</span>
+<span class="w">      </span><span class="nt">customCommand</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;run</span><span class="nv"> </span><span class="s">test:all&#39;</span>
+<span class="w">  </span><span class="w w-Error">  </span><span class="nt">env</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">NODE_ENV</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+</code></pre></div>
+<h3 id="52-test-configuration">5.2 Test Configuration</h3>
+<div class="highlight"><pre><span></span><code><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">preset</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ts-jest&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">testEnvironment</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;node&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">collectCoverage</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">coverageThreshold</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">global</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">branches</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">functions</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">lines</span><span class="o">:</span><span class="w"> </span><span class="mf">80</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<hr />
+<h2 id="6-deployment-process">6. Deployment Process</h2>
+<h3 id="61-kubernetes-deployment">6.1 Kubernetes Deployment</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+
+<span class="w">        </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api:latest</span>
+<span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
+
+<span class="w">            </span><span class="nt">* containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3000</span>
+<span class="w">        </span><span class="w w-Error">  </span><span class="nt">resources</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">requests</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;256Mi&quot;</span>
+<span class="w">              </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;200m&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="7-monitoring-and-logging">7. Monitoring and Logging</h2>
+<h3 id="71-logging-configuration">7.1 Logging Configuration</h3>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">winston</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;winston&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">winston</span><span class="p">.</span><span class="nx">createLogger</span><span class="p">({</span>
+<span class="w">  </span><span class="nx">level</span><span class="o">:</span><span class="w"> </span><span class="kt">process.env.LOG_LEVEL</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;info&#39;</span><span class="p">,</span>
+<span class="w">  </span><span class="nx">format</span><span class="o">:</span><span class="w"> </span><span class="kt">winston.format.combine</span><span class="p">(</span>
+<span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">(),</span>
+<span class="w">    </span><span class="nx">winston</span><span class="p">.</span><span class="nx">format</span><span class="p">.</span><span class="nx">json</span><span class="p">()</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div>
+<hr />
+<h2 id="8-security-practices">8. Security Practices</h2>
+<h3 id="81-secret-management">8.1 Secret Management</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secrets-store.csi.x-k8s.io/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SecretProviderClass</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure-kvname</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">azure</span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">keyvaultName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;kv&quot;</span>
+<span class="w">    </span><span class="nt">objects</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">      </span><span class="no">array:</span>
+
+<span class="w">        </span><span class="no">* |</span>
+<span class="w">          </span><span class="no">objectName: DatabasePassword</span>
+<span class="w">          </span><span class="no">objectType: secret</span>
+</code></pre></div>
+<hr />
+<h2 id="9-disaster-recovery">9. Disaster Recovery</h2>
+<h3 id="91-backup-procedures">9.1 Backup Procedures</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># !/bin/bash</span>
+
+<span class="nv">TIMESTAMP</span><span class="o">=</span><span class="k">$(</span>date<span class="w"> </span>+%Y%m%d_%H%M%S<span class="k">)</span>
+<span class="nv">BACKUP_DIR</span><span class="o">=</span><span class="s2">&quot;/backups&quot;</span>
+
+<span class="c1"># Backup database</span>
+
+pg_dump<span class="w"> </span>-Fc<span class="w"> </span>database<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$BACKUP_DIR</span><span class="s2">/db_</span><span class="nv">$TIMESTAMP</span><span class="s2">.dump&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="10-documentation">10. Documentation</h2>
+<h3 id="101-api-documentation">10.1 API Documentation</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">openapi</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.0.0</span>
+<span class="nt">info</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">title</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">API Documentation</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="nt">servers</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">* url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://api.example.com/v1</span>
+</code></pre></div>
+<hr />
+<h2 id="11-performance-optimization">11. Performance Optimization</h2>
+<h3 id="111-load-testing">11.1 Load Testing</h3>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;k6/http&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">check</span><span class="p">,</span><span class="w"> </span><span class="nx">sleep</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;k6&#39;</span><span class="p">;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">stages</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;5m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;10m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nx">duration</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;5m&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">};</span>
+</code></pre></div>
+<hr />
+<p>By following these DevOps and CI/CD guidelines, ThinkAlike ensures reliable, secure, and efficient deployment of our applications while maintaining high quality standards through automated processes.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: DevOps and CI/CD Guidelines</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of DevOps and CI/CD Guidelines</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

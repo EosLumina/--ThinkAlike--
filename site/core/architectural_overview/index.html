@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/core/architectural_overview/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Technical Architecture Specification - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Technical Architecture Specification";
+        var mkdocs_page_input_path = "core/architectural_overview.md";
+        var mkdocs_page_url = "/--ThinkAlike--/core/architectural_overview/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Technical Architecture Specification</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="technical-architecture-specification">Technical Architecture Specification</h1>
+<h2 id="document-purpose">Document Purpose</h2>
+<p>This document provides a <strong>high-level overview of the ThinkAlike project's architecture.</strong> It outlines the major components, layers, and design principles that underpin the platform. This document serves as an entry point to understanding the overall technical structure of ThinkAlike and provides links to more detailed architectural specifications for specific modules and components.</p>
+<h2 id="three-tier-architecture">Three-Tier Architecture</h2>
+<h3 id="21-high-level-overview">2.1 High-Level Overview</h3>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    subgraph Frontend
+        UI[User Interface]
+        Components[UI Components]
+        DataViz[Data Visualization]
+    end
+
+    subgraph Backend
+        API[FastAPI]
+        Logic[Business Logic]
+        AI[AI Services]
+        VS[Verification System]
+    end
+
+    subgraph Database
+        DB[(PostgreSQL)]
+        Cache[(Redis)]
+        Queue[Message Queue]
+    end
+
+    UI --&gt; API
+    Components --&gt; API
+    DataViz --&gt; API
+    API --&gt; Logic
+    Logic --&gt; AI
+    Logic --&gt; VS
+    AI --&gt; DB
+    VS --&gt; DB
+    Logic --&gt; DB
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Frontend (Presentation Tier):</strong></p>
+<ul>
+<li>
+<p><strong>Technology:</strong> React (JavaScript)</p>
+</li>
+<li>
+<p><strong>Responsibility:</strong> Handles the User Interface (UI), user interactions, and data visualization.</p>
+</li>
+<li>
+<p><strong>Key Components:</strong></p>
+<ul>
+<li>
+<p>UI Component Library (<code>docs/components/ui_component_library/ui_component_library.md</code>): Reusable UI elements and design system for consistent user experience.</p>
+</li>
+<li>
+<p>Mode-Specific Components: Components for each of the 3 Modes (Narrative, Matching, Community), implementing mode-specific functionalities and user workflows.</p>
+</li>
+<li>
+<p><code>DataTraceability.jsx</code> Component (<code>docs/components/datatraceability/datatraceability_component_spec.md</code>): For visualizing data flows and algorithm processes, enhancing transparency.</p>
+</li>
+<li>
+<p>API Client: Handles communication with the Backend API to fetch and submit data.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Backend (Application Tier):</strong></p>
+<ul>
+<li>
+<p><strong>Technology:</strong> Python (or similar - to be finalized)</p>
+</li>
+<li>
+<p><strong>Responsibility:</strong> Handles application logic, data processing, API endpoints, security, and interaction with the database.</p>
+</li>
+<li>
+<p><strong>Key Components:</strong></p>
+<ul>
+<li>
+<p>API Endpoints (<code>docs/architecture/api/api_endpoints.md</code>): Defines all API endpoints for frontend communication, including endpoints for user authentication, data retrieval, matching algorithm execution, and community management.</p>
+</li>
+<li>
+<p>Matching Algorithm: Implements the value-based and ethically weighted matching logic for Mode 2.</p>
+</li>
+<li>
+<p>Verification System Modules (<code>docs/architecture/verification_system/verification_system_spec.md</code>): Backend components of the Verification System, handling ethical validation, data traceability, and audit logging.</p>
+</li>
+<li>
+<p>Community Management Logic: Handles backend logic for Mode 3 community creation, management, and governance features.</p>
+</li>
+<li>
+<p>Security Modules (<code>docs/architecture/security/security_considerations.md</code>): Implements security measures for authentication, authorization, data protection, and vulnerability prevention.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Database (Data Tier):</strong></p>
+<ul>
+<li>
+<p><strong>Technology:</strong> To be determined (e.g., PostgreSQL, MongoDB - to be finalized)</p>
+</li>
+<li>
+<p><strong>Responsibility:</strong> Persistent storage of all platform data, including user profiles, narratives, values, community data, relationships, and system logs.</p>
+</li>
+<li>
+<p><strong>Schema:</strong> Defined in <code>docs/architecture/database/database_schema.md</code>, outlining data models, relationships, and data integrity constraints.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="modular-design-and-key-modules">Modular Design and Key Modules</h2>
+<h3 id="22-component-architecture">2.2 Component Architecture</h3>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    subgraph Modes
+        M1[Mode 1 - Narrative]
+        M2[Mode 2 - Matching]
+        M3[Mode 3 - Community]
+    end
+
+    subgraph Core
+        VS[Verification System]
+        AS[Auth Service]
+        DS[Data Service]
+    end
+
+    M1 &amp; M2 &amp; M3 --&gt; VS
+    VS --&gt; AS
+    VS --&gt; DS
+</code></pre></div>
+<h2 id="3-modular-design-and-key-modules">3. Modular Design and Key Modules</h2>
+<ol>
+<li><strong>Mode Modules (Narrative, Matching, Community):</strong> The core functional modules of the platform, each responsible for a distinct set of features and user experiences, as detailed in <code>docs/architecture/modes/modes_overview.md</code> and subfolders.</li>
+<li><strong>Verification System Module:</strong> A cross-cutting module integrated throughout the platform, responsible for ensuring ethical integrity, transparency, and accountability (see <code>docs/architecture/verification_system/verification_system_spec.md</code>).</li>
+<li><strong>UI Component Library Module:</strong> A reusable library of frontend components ensuring a consistent user interface and design language across all parts of the platform (see <code>docs/components/ui_component_library/ui_component_library.md</code>).</li>
+<li><strong>API Module:</strong> Defines the communication interface between the frontend and backend, enabling modular development and clear separation of concerns (see <code>docs/architecture/api/api_endpoints.md</code>).</li>
+</ol>
+<h2 id="key-architectural-principles">Key Architectural Principles</h2>
+<ul>
+<li>
+<p><strong>Ethical by Design:</strong> Ethical considerations are baked into the architecture from the ground up, guided by the Ethical Guidelines (<code>docs/core/ethics/ethical_guidelines.md</code>) and enforced by the Verification System.</p>
+</li>
+<li>
+<p><strong>User-Centricity:</strong> The architecture prioritizes user needs, user empowerment, and user agency, ensuring the platform serves users ethically and effectively.</p>
+</li>
+<li>
+<p><strong>Decentralization (Especially in Community Mode):</strong> Mode 3 is architected for decentralization, empowering communities and minimizing central platform control.</p>
+</li>
+<li>
+<p><strong>Transparency and Data Traceability:</strong> The architecture supports radical transparency and data traceability, enabling users and auditors to understand data flows and algorithm processes.</p>
+</li>
+<li>
+<p><strong>Modularity and Maintainability:</strong> The modular design promotes code organization, maintainability, and scalability, allowing for future feature additions and platform evolution.</p>
+</li>
+<li>
+<p><strong>API-Driven Communication:</strong> Utilizing a well-defined API for frontend-backend communication ensures clear interfaces and facilitates independent development of frontend and backend components.</p>
+</li>
+<li>
+<p><strong>Security First:</strong> Security considerations are integrated into every layer of the architecture, ensuring user data protection and platform resilience against vulnerabilities (see <code>docs/architecture/security/security_considerations.md</code>).</p>
+</li>
+<li>
+<p><strong>Ethical by Design:</strong> Ethical considerations are baked into the architecture from the ground up, guided by the Ethical Guidelines (<code>docs/core/ethics/ethical_guidelines.md</code>) and enforced by the Verification System.</p>
+</li>
+<li>
+<p><strong>User-Centricity:</strong> The architecture prioritizes user needs, user empowerment, and user agency, ensuring the platform serves users ethically and effectively.</p>
+</li>
+<li>
+<p><strong>Decentralization (Especially in Community Mode):</strong> Mode 3 is architected for decentralization, empowering communities and minimizing central platform control.</p>
+</li>
+<li>
+<p><strong>Transparency and Data Traceability:</strong> The architecture supports radical transparency and data traceability, enabling users and auditors to understand data flows and algorithm processes.</p>
+</li>
+<li>
+<p><strong>Modularity and Maintainability:</strong> The modular design promotes code organization, maintainability, and scalability, allowing for future feature additions and platform evolution.</p>
+</li>
+<li>
+<p><strong>API-Driven Communication:</strong> Utilizing a well-defined API for frontend-backend communication ensures clear interfaces and facilitates independent development of frontend and backend components.</p>
+</li>
+<li>
+<p><strong>Security First:</strong> Security considerations are integrated into every layer of the architecture, ensuring user data protection and platform resilience against vulnerabilities (see <code>docs/architecture/security/security_considerations.md</code>).</p>
+</li>
+<li>
+<p><strong>Human-Artificial Swarm Intelligence (HASI):</strong> The architecture is designed to support a <strong>Human-Artificial Swarm Intelligence (HASI)</strong> model, where user agency interacts with specialized AI services, facilitated by a central API and governed by the Verification System, to achieve emergent outcomes. This decentralized and collaborative approach ensures that human values and ethical principles remain at the core of all interactions while leveraging AI to augment human capabilities.</p>
+</li>
+</ul>
+<h2 id="data-flow-and-processing">Data Flow and Processing</h2>
+<h3 id="31-mode-modules">3.1 Mode Modules</h3>
+<ul>
+<li>
+<p>Narrative Mode</p>
+</li>
+<li>
+<p>Matching Mode</p>
+</li>
+<li>
+<p>Community Mode</p>
+</li>
+</ul>
+<h3 id="32-verification-system-module">3.2 Verification System Module</h3>
+<p>Cross-cutting module for ethical integrity and transparency</p>
+<h3 id="33-ui-component-library-module">3.3 UI Component Library Module</h3>
+<p>Reusable frontend components ensuring consistent design</p>
+<ul>
+<li>
+<p><strong>User Data Input:</strong> Users input data through the Frontend UI in various Modes (Narrative creation, profile settings, community interactions).</p>
+</li>
+<li>
+<p><strong>API Communication:</strong> Frontend communicates with the Backend API to send user input, request data, and trigger backend processes.</p>
+</li>
+<li>
+<p><strong>Backend Data Processing:</strong> Backend processes user data according to application logic (e.g., matching algorithm, community management logic), respecting user privacy and ethical guidelines.</p>
+</li>
+<li>
+<p><strong>Database Persistence:</strong> Processed data and platform state are persistently stored in the Database.</p>
+</li>
+<li>
+<p><strong>Data Visualization (DataTraceability):</strong> <code>DataTraceability.jsx</code> in the Frontend visualizes key data flows and algorithm processes, enhancing transparency and user understanding.</p>
+</li>
+</ul>
+<h2 id="scalability-and-future-evolution">Scalability and Future Evolution</h2>
+<h3 id="34-api-module">3.4 API Module</h3>
+<p>Defines frontend-backend communication interfaces</p>
+<h2 id="4-key-architectural-principles">4. Key Architectural Principles</h2>
+<ul>
+<li>
+<p><strong>Ethical by Design:</strong> Ethics integrated from ground up</p>
+</li>
+<li>
+<p><strong>User-Centricity:</strong> Prioritizes user needs and agency</p>
+</li>
+<li>
+<p><strong>Decentralization:</strong> Especially in Community Mode</p>
+</li>
+<li>
+<p><strong>Transparency:</strong> Supports radical transparency</p>
+</li>
+<li>
+<p><strong>Modularity:</strong> Promotes maintainability</p>
+</li>
+<li>
+<p><strong>API-Driven:</strong> Clear interface boundaries</p>
+</li>
+<li>
+<p><strong>Security First:</strong> Integrated security at all layers</p>
+</li>
+<li>
+<p><strong>Modular Design:</strong> Modularity allows for independent scaling of different components as needed (e.g., scaling backend API servers to handle increased user load).</p>
+</li>
+<li>
+<p><strong>Cloud-Ready Deployment:</strong> The architecture is designed to be deployable on cloud platforms, leveraging cloud infrastructure for scalability and resilience.</p>
+</li>
+<li>
+<p><strong>Open APIs and Extensibility:</strong> Well-defined APIs and a modular design facilitate future extensibility, allowing for the addition of new features, Modes, and integrations as the project evolves.</p>
+</li>
+<li>
+<p><strong>Community-Driven Development:</strong> Open-source development and community contribution are encouraged to foster ongoing innovation and adaptation to user needs and evolving technological landscapes.</p>
+</li>
+</ul>
+<h2 id="further-documentation">Further Documentation</h2>
+<h2 id="5-data-flow-and-processing">5. Data Flow and Processing</h2>
+<div class="highlight"><pre><span></span><code>flowchart TD
+    subgraph Input
+        UI[User Interface]
+        API[API Request]
+    end
+
+    subgraph Processing
+        BL[Business Logic]
+        VL[Validation]
+        AI[AI Processing]
+    end
+
+    subgraph Output
+        DB[(Database)]
+        VIS[Visualization]
+    end
+
+    UI --&gt; API
+    API --&gt; BL
+    BL --&gt; VL
+    VL --&gt; AI
+    AI --&gt; DB
+    DB --&gt; VIS
+</code></pre></div>
+<h2 id="6-scalability-and-future-evolution">6. Scalability and Future Evolution</h2>
+<div class="highlight"><pre><span></span><code>flowchart LR
+    subgraph Current
+        C1[Core Services]
+        C2[Basic Modes]
+    end
+
+    subgraph Phase1
+        P1[Enhanced AI]
+        P2[Community Tools]
+    end
+
+    subgraph Phase2
+        F1[Federation]
+        F2[Custom Modes]
+    end
+
+    Current --&gt; Phase1
+    Phase1 --&gt; Phase2
+</code></pre></div>
+<h2 id="7-further-documentation">7. Further Documentation</h2>
+<ul>
+<li>
+<p><a href="../api/api_endpoints.md">API Documentation</a></p>
+</li>
+<li>
+<p><a href="./database/unified_data_model_schema.md">Database Schema</a></p>
+</li>
+<li>
+<p><a href="./security/security_and_privacy_plan.md">Security Plan</a></p>
+</li>
+<li>
+<p><a href="./verification_system/verification_system.md">Verification System</a></p>
+</li>
+</ul>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Technical Architecture Specification</p>
+</li>
+<li>
+<p>Type: Technical Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Technical Architecture Specification</p>
+<hr />
+<div class="highlight"><pre><span></span><code>graph LR
+    subgraph &quot;User Interface (Browser)&quot;
+        direction TB
+        User(👤 User) --&gt; FrontendUI[React Frontend UI];
+        FrontendUI -- API Calls (HTTPS/JWT) --&gt; BackendAPI;
+        subgraph &quot;UI Components&quot;
+            direction TB
+            DisplayComponents[Display Components (DataDisplay, etc.)]
+            FormComponents[Input Components (UserForm, etc.)]
+            ValidationUI[Validation UI Components &lt;br&gt;(APIValidator, CoreValuesValidator,&lt;br&gt;DataTraceability, SecurityStatusIndicator)]
+        end
+        FrontendUI --&gt; DisplayComponents;
+        FrontendUI --&gt; FormComponents;
+        FrontendUI --&gt; ValidationUI;
+        ValidationUI -- Displays Status/Data --&gt; FrontendUI;
+        style ValidationUI fill:#fce38a,stroke:#a37a00
+        note right of ValidationUI : UI acts as Validation Framework
+    end
+
+    subgraph &quot;Backend Application (Server)&quot;
+        direction TB
+        BackendAPI[FastAPI Backend API Gateway];
+        subgraph &quot;Core Services / Logic&quot;
+            AuthService[Authentication Service];
+            UserProfileService[User/Profile Service];
+            Mode1Service[Mode 1 Service (Narrative)];
+            Mode2Service[Mode 2 Service (Discovery/Connection)];
+            Mode3Service[Mode 3 Service (Community)];
+            IntegrationService[External Integration Service];
+        end
+        subgraph &quot;AI Modules&quot;
+            NarrativeEngine[AI Narrative Engine];
+            MatchingEngine[AI Matching Engine];
+            CloneEngine[AI Clone Persona Engine &lt;br&gt;(Audiovisual Analysis)];
+            VoiceEngine[AI Voice Profile Engine]; // Added based on clarification
+            CommunityEngine[AI Community Engine (Future)];
+        end
+        VerificationSystem[Verification System &lt;br&gt;(Ethical/Functional Rules)];
+        BackendAPI --&gt; AuthService;
+        BackendAPI --&gt; UserProfileService;
+        BackendAPI --&gt; Mode1Service;
+        BackendAPI --&gt; Mode2Service;
+        BackendAPI --&gt; Mode3Service;
+        BackendAPI --&gt; IntegrationService;
+        BackendAPI -- Request Validation --&gt; VerificationSystem;
+
+        AuthService &lt;--&gt; Database[(Database &lt;br&gt; PostgreSQL/SQLite)];
+        UserProfileService &lt;--&gt; Database;
+        Mode1Service &lt;--&gt; Database;
+        Mode2Service &lt;--&gt; Database;
+        Mode3Service &lt;--&gt; Database;
+        IntegrationService &lt;--&gt; Database;
+        VerificationSystem &lt;--&gt; Database;
+
+        Mode1Service --&gt; NarrativeEngine;
+        Mode2Service --&gt; MatchingEngine;
+        UserProfileService -- Trigger --&gt; CloneEngine;
+        UserProfileService -- Trigger --&gt; VoiceEngine; // Added
+        IntegrationService --&gt; ExternalAPIs[3rd Party Services &lt;br&gt;(Goodreads, Spotify API, etc.)];
+
+        NarrativeEngine -- Interaction Data --&gt; MatchingEngine;
+        NarrativeEngine &lt;--&gt; Database; -- (Narrative State)
+        MatchingEngine &lt;--&gt; Database; -- (Match Scores/Data)
+        CloneEngine --&gt; Database; -- (Store Visual Clone Params)
+        VoiceEngine --&gt; Database; -- (Store Voice Clone Params) // Added
+
+        AuthService -- Validation Req --&gt; VerificationSystem;
+        UserProfileService -- Validation Req --&gt; VerificationSystem;
+        Mode1Service -- Validation Req --&gt; VerificationSystem;
+        Mode2Service -- Validation Req --&gt; VerificationSystem;
+        Mode3Service -- Validation Req --&gt; VerificationSystem;
+        IntegrationService -- Validation Req --&gt; VerificationSystem;
+        MatchingEngine -- Ethical Audit Req --&gt; VerificationSystem;
+        CloneEngine -- Ethical Audit Req --&gt; VerificationSystem;
+        VoiceEngine -- Ethical Audit Req --&gt; VerificationSystem; // Added
+
+        VerificationSystem -- Validation Result --&gt; BackendAPI; // Or relevant Service
+        VerificationSystem -- Logs --&gt; AuditLogDB[(Verification Audit Log &lt;br&gt;in Database)];
+
+        style VerificationSystem fill:#95e1d3,stroke:#0d5c4d
+        style FrontendUI fill:#f9f,stroke:#333
+        style BackendAPI fill:#ccf,stroke:#333
+        style Database fill:#fcf,stroke:#333
+        style AuditLogDB fill:#fcf,stroke:#333
+        style ExternalAPIs fill:#f38181,stroke:#9a1f1f
+    end
+</code></pre></div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

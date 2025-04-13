@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/modes/community_mode/community_mode_spec/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Community mode spec - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Community mode spec";
+        var mkdocs_page_input_path = "architecture/modes/community_mode/community_mode_spec.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/modes/community_mode/community_mode_spec/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Community mode spec</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="1-introduction-vision">1. Introduction &amp; Vision</h2>
+<p><strong>Community Mode (Mode 3)</strong> embodies the <strong>Positive Anarchism</strong> principle of ThinkAlike's <a href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Philosophy</a>. It provides users with the infrastructure and tools to create, discover, join, manage, and participate in <strong>decentralized, self-governing, value-aligned communities</strong>.</p>
+<p>Unlike traditional groups on centralized platforms, ThinkAlike communities aim for:</p>
+<ul>
+<li>
+<p><strong>User Ownership &amp; Autonomy:</strong> Communities are created and governed primarily by their members, minimizing top‑down platform control.</p>
+</li>
+<li>
+<p><strong>Value Alignment:</strong> Communities are formed around explicitly stated shared values, interests, or goals, fostering deeper cohesion.</p>
+</li>
+<li>
+<p><strong>Collaborative Action:</strong> Tools are provided to facilitate discussion, resource sharing, project management, and potentially real‑world coordination.</p>
+</li>
+<li>
+<p><strong>Ethical &amp; Transparent Governance:</strong> Encouraging transparent moderation and offering optional tools for participatory decision‑making (Direct/Liquid Democracy).</p>
+</li>
+</ul>
+<p>Mode 3 serves as the "Output Layer" or "Collective Intelligence" hub of the ThinkAlike ecosystem, allowing connections formed in Modes 1 &amp; 2 to flourish into collaborative action and shared identity. Refer to the <a href="./modes_overview.md">Modes Overview</a>.</p>
+<hr />
+<h2 id="2-core-functionality-features">2. Core Functionality &amp; Features</h2>
+<h3 id="21-community-discovery-joining">2.1 Community Discovery &amp; Joining</h3>
+<ul>
+<li>
+<p><strong>Community Directory:</strong> A searchable/filterable central listing of <strong>public</strong> ThinkAlike communities accessible within Mode 3.</p>
+</li>
+<li>
+<p><strong>Search/Filtering:</strong> Users can find communities based on:</p>
+</li>
+<li>
+<p>Keywords (Name, Description, Values).</p>
+</li>
+<li>
+<p>Value Tags (Aligned with user's <a href="../../../../vision/core_concepts/">Value Profile</a>).</p>
+</li>
+<li>
+<p>Interest Tags.</p>
+</li>
+<li>
+<p>(Optional) Static Location data (<a href="../../../data_integration_strategy/">Data Integration Strategy</a>).</p>
+</li>
+<li>
+<p><strong>AI Recommendations:</strong> The platform suggests relevant communities based on user Value Profile, interests, and potentially activity/connections (requires user consent, logged via <a href="../../../../guides/developer_guides/ai/ai_transparency_log/">AI Transparency Log</a>).</p>
+</li>
+<li>
+<p><strong>Community Profiles:</strong> Each community has a profile page displaying: Name, Description, Tagline, Core Values/Guidelines, Privacy (Public/Private), Governance Model Summary, Member Count, and Recent Activity Snippet.</p>
+</li>
+<li>
+<p><strong>Joining Mechanism:</strong></p>
+</li>
+<li>
+<p><strong>Public Communities:</strong> Direct "Join" button.</p>
+</li>
+<li>
+<p><strong>Private Communities:</strong> "Request to Join" button, which triggers an approval workflow managed by community admins/moderators (potentially with AI assistance based on value alignment). May involve <a href="../../../../core/master_reference/">Narrative Compatibility Tests</a> similar to Mode 2 if configured by the community.</p>
+</li>
+</ul>
+<h3 id="22-community-creation-management-user-led">2.2 Community Creation &amp; Management (User-Led)</h3>
+<ul>
+<li>
+<p><strong>User Creation:</strong> Any authenticated user can initiate the creation of a new community.</p>
+</li>
+<li>
+<p><strong>Setup Wizard:</strong> A guided UI flow (<a href="../../../components/ui_components/user_form_spec.md">UserForm</a>) prompts the creator for:</p>
+</li>
+<li>
+<p><code>communityName</code> (Unique), <code>description</code>, <code>tagline</code>.</p>
+</li>
+<li>
+<p><code>privacySettings</code> ('public' or 'private').</p>
+</li>
+<li>
+<p>Selection/Definition of core <code>valuesTags</code>.</p>
+</li>
+<li>
+<p>Initial <code>guidelines</code> (Text).</p>
+</li>
+<li>
+<p>Selection of initial <code>governanceModel</code> ('informal', 'direct_democracy_basic', etc.).</p>
+</li>
+<li>
+<p>Optional <code>profileImageUrl</code>.</p>
+</li>
+<li>
+<p><strong>Creator as Initial Admin:</strong> The user creating the community is assigned the initial admin role.</p>
+</li>
+<li>
+<p><strong>Admin/Moderator Tools Panel:</strong> Designated admins/mods have access to a management interface to:</p>
+</li>
+<li>
+<p>Edit community profile details, values, guidelines.</p>
+</li>
+<li>
+<p>Manage membership (approve/reject requests for private communities, assign roles, remove/ban members).</p>
+</li>
+<li>
+<p>Configure community features (e.g., enable/disable specific forum channels, governance tools).</p>
+</li>
+<li>
+<p>Define moderation policies and view moderation logs (potentially integrated with the <a href="../../../verification_system/verification_system/">Verification System</a>).</p>
+</li>
+</ul>
+<h3 id="23-core-interaction-features-within-a-community">2.3 Core Interaction Features within a Community</h3>
+<ul>
+<li>
+<p><strong>Asynchronous Forums/Discussions:</strong></p>
+</li>
+<li>
+<p>Structured discussion areas, potentially with customizable channels/topics defined by admins/mods.</p>
+</li>
+<li>
+<p>Supports posts, replies, threading, and basic formatting.</p>
+</li>
+<li>
+<p>Content can be validated against community guidelines via the <code>CoreValuesValidator</code> (<a href="../../../components/ui_components/core_values_validator_spec.md">Spec</a>).</p>
+</li>
+<li>
+<p><strong>Member Directory:</strong> View the list of community members and access their (privacy-permitting) profiles.</p>
+</li>
+<li>
+<p><strong>Resource Sharing:</strong> A simple mechanism for members to share links, documents, or other resources within the community space.</p>
+</li>
+<li>
+<p><strong>(Future) Project Collaboration Tools:</strong> Dedicated spaces for organizing tasks and tracking progress on community projects.</p>
+</li>
+<li>
+<p><strong>(Future) Event Scheduling:</strong> Tools for organizing online or real‑world community events.</p>
+</li>
+</ul>
+<h3 id="24-decentralized-governance-moderation-optional-tools">2.4 Decentralized Governance &amp; Moderation (Optional Tools)</h3>
+<ul>
+<li>
+<p><strong>Community-Defined Rules:</strong> Each community operates under its own guidelines, defined and modifiable by its members/admins (process depends on the chosen governance model).</p>
+</li>
+<li>
+<p><strong>Community Moderation:</strong> Admins can assign moderator roles. Moderation actions (content removal, user warnings/bans) follow community guidelines. The platform provides tools while the community enforces rules.</p>
+</li>
+<li>
+<p><strong>Optional Governance Tools (Enabled by Admins):</strong></p>
+</li>
+<li>
+<p><strong>Simple Polls:</strong> Admins/Mods can create polls for informal feedback or simple decisions.</p>
+</li>
+<li>
+<p><strong>(Future) Proposal System:</strong> A formal mechanism for submitting proposals for changes (rules, projects) with discussion and voting phases.</p>
+</li>
+<li>
+<p><strong>(Future) Liquid/Direct Democracy:</strong> More advanced voting/delegation mechanisms if a community opts for higher formality.</p>
+</li>
+</ul>
+<h3 id="25-ai-assisted-governance-deliberation-optional-transparent">2.5 AI-Assisted Governance &amp; Deliberation (Optional &amp; Transparent)</h3>
+<p>To enhance community self-governance without replacing human judgment, ThinkAlike plans to offer optional, transparent AI assistance tools that communities can choose to enable:</p>
+<ul>
+<li>
+<p><strong>AI Deliberation Aids:</strong> Tools to help process and understand discussions within community forums:</p>
+</li>
+<li>
+<p><em>Argument Summarization:</em> AI generates concise summaries of long threads upon request, helping members grasp key points quickly. (Requires NLP models, results clearly labeled as AI-generated).</p>
+</li>
+<li>
+<p><em>Perspective Mapping:</em> AI analyzes arguments (not user sentiment) to create visual maps of different viewpoints on a proposal, fostering better understanding of the conversational landscape. (Transparency on analysis method is key).</p>
+</li>
+<li>
+<p><strong>AI Moderation Assistance:</strong></p>
+</li>
+<li>
+<p><em>Content Flagging:</em> AI models (trained on general hate speech/spam and potentially fine-tuned with <em>community-specific</em> guidelines) can automatically flag content that <em>potentially</em> violates rules for <strong>human moderator review</strong>. AI <em>never</em> takes automated censorship actions. Flagging logic and thresholds should be transparent to the community moderators.</p>
+</li>
+<li>
+<p><em>Requires:</em> Clear appeals process, human moderators retain final decision-making power, regular audits for AI bias (<a href="../../../../guides/developer_guides/ai/ai_ethical_testing_guide/">AI Ethical Testing Guide</a>).</p>
+</li>
+<li>
+<p><strong>AI Proposal Assistance (Future):</strong> AI could help members format governance proposals or check them against existing community rules before submission.</p>
+</li>
+<li>
+<p><strong>Resource Simulation (Advanced Future):</strong> For communities managing resources, AI might simulate outcomes of different allocation proposals based on community-defined goals, presenting scenarios to inform <em>human</em> decision-making via polls or voting.</p>
+</li>
+</ul>
+<p><strong>Ethical Imperatives:</strong> All AI governance tools must be strictly <strong>opt-in</strong> at the community level, operate with <strong>maximum transparency</strong> (logged via <a href="../../../../guides/developer_guides/ai/ai_transparency_log/">AI Transparency Log</a>, explained in UI), be regularly audited for <strong>bias</strong>, and always <strong>support, not supplant, human deliberation and decision-making.</strong></p>
+<hr />
+<h2 id="3-user-flows-high-level-examples">3. User Flows (High-Level Examples)</h2>
+<ul>
+<li>
+<p><strong>Discovery &amp; Joining:</strong>
+  User enters Mode 3 → Browses/Searches Directory → Views Community Profile → Clicks Join (Public) or Request to Join (Private) → (If Private) Waits for Approval or Completes Narrative Gate → Gains Access.</p>
+</li>
+<li>
+<p><strong>Creation:</strong>
+  User enters Mode 3 → Clicks "Create Community" → Completes Setup Wizard → Community Launched → User becomes Admin.</p>
+</li>
+<li>
+<p><strong>Participation:</strong>
+  User selects a joined community → Browses forum → Reads/creates posts → Replies to threads → Views member directory → (Optional) Views/contributes to projects/resources.</p>
+</li>
+<li>
+<p><strong>Management (Admin/Mod):</strong>
+  Admin/mod enters community → Accesses Admin Panel → Approves member requests / Edits guidelines / Creates polls / Moderates content.</p>
+</li>
+</ul>
+<h3 id="31-workflow-diagram">3.1 Workflow Diagram</h3>
+<p>Below is a Mermaid sequence diagram illustrating a high-level community creation workflow:</p>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant User
+    participant FrontendUI as Community Create Form (React)
+    participant BackendAPI as FastAPI Backend
+    participant Mode3Service as Community Service Logic
+    participant DB as Database
+
+    User-&gt;&gt;FrontendUI: Fills out Community Details (Name, Desc, Values, etc.)
+    User-&gt;&gt;FrontendUI: Clicks &quot;Create Community&quot;
+    FrontendUI-&gt;&gt;BackendAPI: POST /api/v1/communities (Community Data)
+    BackendAPI-&gt;&gt;Mode3Service: process_create_community(data, creator_user)
+    Mode3Service-&gt;&gt;DB: INSERT INTO communities (...) VALUES (...)
+    Mode3Service-&gt;&gt;DB: INSERT INTO community_memberships (user_id=creator, community_id=new_id, role=&#39;admin&#39;)
+    DB--&gt;&gt;Mode3Service: Return new community_id, success flags
+    Mode3Service--&gt;&gt;BackendAPI: Return Created Community Object + Success
+    BackendAPI--&gt;&gt;FrontendUI: 201 Created (New Community Data)
+    FrontendUI-&gt;&gt;User: Display &quot;Community Created!&quot; Confirmation &amp; Redirect
+</code></pre></div>
+<hr />
+<h2 id="4-data-model-considerations">4. Data Model Considerations</h2>
+<p>Community Mode requires extensions to the <a href="../../../database/unified_data_model_schema/">Unified Data Model Schema</a>:</p>
+<ul>
+<li>
+<p><strong><code>Communities</code> Table:</strong> Stores core profile info, settings, and creator ID.</p>
+</li>
+<li>
+<p><strong><code>CommunityMemberships</code> Table:</strong> Junction table linking <code>Users</code> and <code>Communities</code>, storing role (e.g., 'member', 'moderator', 'admin') and status (e.g., 'active', 'pending', 'banned').</p>
+</li>
+<li>
+<p><strong><code>CommunityContent</code> / <code>Posts</code> / <code>Comments</code> Tables:</strong> To store forum discussions (linked to community and user).</p>
+</li>
+<li>
+<p><strong><code>CommunityResources</code> Table:</strong> To store shared links/documents.</p>
+</li>
+<li>
+<p><strong>(Future) <code>Proposals</code>, <code>Votes</code> Tables:</strong> For formal governance features.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-ui-components">5. UI Components</h2>
+<p>Key frontend components needed for Community Mode include:</p>
+<ul>
+<li>
+<p><code>CommunityDirectory</code> / <code>CommunityList</code></p>
+</li>
+<li>
+<p><code>CommunityCard</code> (for summary view)</p>
+</li>
+<li>
+<p><code>CommunityProfilePage</code> (for detailed view)</p>
+</li>
+<li>
+<p><code>CommunityCreationForm</code> (derived from <code>UserForm</code>)</p>
+</li>
+<li>
+<p><code>CommunityAdminPanel</code></p>
+</li>
+<li>
+<p><code>ForumChannelView</code>, <code>PostThreadView</code>, <code>CreatePostForm</code></p>
+</li>
+<li>
+<p><code>MemberDirectoryList</code>, <code>MemberCard</code></p>
+</li>
+<li>
+<p><code>ResourceList</code>, <code>AddResourceForm</code></p>
+</li>
+<li>
+<p>(Future) <code>PollingComponent</code>, <code>ProposalComponent</code>, <code>VotingInterface</code></p>
+</li>
+</ul>
+<hr />
+<h2 id="6-api-endpoints">6. API Endpoints</h2>
+<p>Dedicated backend endpoints (typically under <code>/api/v1/communities/</code>) should cover:</p>
+<ul>
+<li>
+<p><code>GET /communities</code>: List public communities (with optional value‑based recommendations).</p>
+</li>
+<li>
+<p><code>POST /communities</code>: Create a new community (requires authentication).</p>
+</li>
+<li>
+<p><code>GET /communities/{communityId}</code>: Retrieve community details.</p>
+</li>
+<li>
+<p><code>PUT /communities/{communityId}</code>: Update community profile (admin-only).</p>
+</li>
+<li>
+<p><code>DELETE /communities/{communityId}</code>: Delete a community (admin-only).</p>
+</li>
+<li>
+<p><code>GET /communities/{communityId}/members</code>: List community members (with filtering/pagination).</p>
+</li>
+<li>
+<p><code>POST /communities/{communityId}/join</code>: Request or join a community.</p>
+</li>
+<li>
+<p><code>POST /communities/{communityId}/leave</code>: Leave a community.</p>
+</li>
+<li>
+<p>Additional endpoints for membership management, forum content CRUD, and (future) governance tools.</p>
+</li>
+</ul>
+<hr />
+<h2 id="7-ethical-considerations-verification">7. Ethical Considerations &amp; Verification</h2>
+<ul>
+<li>
+<p><strong>Freedom of Association vs. Safety:</strong> Balance community autonomy with platform‑wide safety standards (<a href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>). The <a href="../../../verification_system/verification_system/">Verification System</a> may help flag harmful patterns, though moderation is primarily community‑led.</p>
+</li>
+<li>
+<p><strong>Governance Transparency:</strong> Communities should be encouraged to make their rules and moderation logs transparent. Platform tools must facilitate this.</p>
+</li>
+<li>
+<p><strong>Inclusivity:</strong> Ensure tools are accessible (see <a href="../../../guides/developer_guides/accessibility_guide.md">Accessibility Guide</a>) and foster inclusive environments.</p>
+</li>
+<li>
+<p><strong>Preventing Echo Chambers:</strong> Consider, optionally, mechanisms to expose members to diverse perspectives within or between communities.</p>
+</li>
+</ul>
+<hr />
+<h2 id="8-future-enhancements">8. Future Enhancements</h2>
+<ul>
+<li>
+<p>Advanced governance tools (e.g., liquid democracy, ranked‑choice voting).</p>
+</li>
+<li>
+<p>Project management features.</p>
+</li>
+<li>
+<p>Event scheduling.</p>
+</li>
+<li>
+<p>Cross‑community interaction/federation mechanisms.</p>
+</li>
+<li>
+<p>AI‑driven moderation assistance (ethically implemented).</p>
+</li>
+<li>
+<p>Integration with real‑world mutual aid networks.</p>
+</li>
+</ul>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li>
+<p><a href="../../narrative_onboarding_mode/mode1_narrative_onboarding_spec/">Mode 1 Spec</a></p>
+</li>
+<li>
+<p><a href="../../mode2_profile_discovery_spec/">Mode 2 Spec</a></p>
+</li>
+<li>
+<p><a href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a></p>
+</li>
+<li>
+<p><a href="../../../../core/master_reference/">Master Reference</a></p>
+</li>
+</ul>
+<p>Community Mode is where ThinkAlike's vision for decentralized, value‑driven collaboration truly takes shape. Its success depends on empowering users with effective tools while upholding our core ethical principles.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

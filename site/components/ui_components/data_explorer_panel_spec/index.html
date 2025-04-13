@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/components/ui_components/data_explorer_panel_spec/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Data explorer panel spec - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data explorer panel spec";
+        var mkdocs_page_input_path = "components/ui_components/data_explorer_panel_spec.md";
+        var mkdocs_page_url = "/--ThinkAlike--/components/ui_components/data_explorer_panel_spec/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Data explorer panel spec</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>// filepath: C:--ThinkAlike--\docs\guides\ui_component_specs\data_explorer_panel.md</p>
+<h1 id="1-data-explorer-panel">1. Data Explorer Panel</h1>
+<p><strong>Description:</strong></p>
+<p>A customizable UI panel that allows users to visualize and control their data with different visualization options. The Data Explorer Panel is a cornerstone of ThinkAlike's commitment to data transparency and user empowerment, providing users with unprecedented visibility into their data footprint within the platform and actionable tools to manage their privacy and data usage. This component acts as a central hub for users to understand, control, and validate their data within the ThinkAlike ecosystem.</p>
+<hr />
+<h2 id="ui-components">UI Components</h2>
+<h3 id="data-point-list">Data Point List</h3>
+<ul>
+<li>
+<p><strong>Description:</strong>
+  Displays categorized data points with tooltips for detailed information and data traceability.</p>
+</li>
+<li>
+<p><strong>Implementation:</strong></p>
+</li>
+<li>
+<p>Data points are displayed in a vertically scrollable, categorized list using clear and concise labels.</p>
+</li>
+<li>
+<p>Each data point entry is enhanced with distinct icons indicating its data source (e.g., user input, AI output, external API) and data type (e.g., text, numerical, categorical, media).</p>
+</li>
+<li>
+<p>Tooltips, activated on hover or tap, provide expanded details including:</p>
+<ul>
+<li>
+<p><strong>Data Origin:</strong> For example, "User Profile Input - 'Values' Section", "Narrative Mode Interaction - 'Choice #3 Response'", "AI Recommendation Algorithm - 'Matching Percentage Score'".</p>
+</li>
+<li>
+<p><strong>Data Transformations:</strong> Steps such as "Anonymized using differential privacy techniques", "Vectorized for AI model input", "Aggregated for community-level metrics".</p>
+</li>
+<li>
+<p><strong>AI Usage Context:</strong> Information on how the data point is used (e.g., "Used by Matching Algorithm to calculate Value Alignment Score", "Contributes to AI Agent's personalized narrative generation", "Utilized for community recommendation engine").</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Code Parameters:</strong></p>
+</li>
+<li>
+<p><code>dataPoints: Array&lt;DataPointObject&gt;</code></p>
+<p><em>(Each DataPointObject represents a single data point with properties for <code>label</code>, <code>value</code>, <code>source</code>, <code>dataType</code>, <code>transformations</code>, and <code>aiUsageContext</code>.)</em></p>
+</li>
+<li>
+<p><code>categories: Array&lt;String&gt;</code></p>
+<p><em>(Defines data categories for list organization and filtering.)</em></p>
+</li>
+<li>
+<p><code>tooltipEnabled: Boolean</code></p>
+<p><em>(Enables/disables tooltip functionality for detailed data traceability.)</em></p>
+</li>
+<li>
+<p><code>searchFilterEnabled: Boolean</code></p>
+<p><em>(Enables/disables search filtering of data points within the list.)</em></p>
+</li>
+<li>
+<p><strong>Testing Instructions:</strong></p>
+</li>
+<li>
+<p><strong>Real Use Case Scenarios:</strong> Populate the list with diverse and realistic data profiles.</p>
+</li>
+<li>
+<p><strong>Data Integrity Validation:</strong> Verify that the displayed data accurately reflects the underlying data.</p>
+</li>
+<li>
+<p><strong>Tooltip Functionality Testing:</strong> Ensure tooltips display detailed data origin, transformations, and AI usage context.</p>
+</li>
+<li>
+<p><strong>Search Filter Testing:</strong> Confirm that search queries filter the data points correctly.</p>
+</li>
+</ul>
+<hr />
+<h3 id="data-visualization">Data Visualization</h3>
+<ul>
+<li>
+<p><strong>Description:</strong>
+  Offers different graph templates for dynamic and user-friendly data analysis and pattern recognition.</p>
+</li>
+<li>
+<p><strong>Implementation:</strong>
+  Provides a selection of reusable graph templates dynamically populated with user data. Available graph templates include:</p>
+</li>
+<li>
+<p><strong>Timeline View:</strong>
+    Visualizes data evolution over time, allowing users to track trends in their Value Profile and activity patterns.</p>
+</li>
+<li>
+<p><strong>Bar Graph View:</strong>
+    Compares different data categories and highlights dominant values or skill areas.</p>
+</li>
+<li>
+<p><strong>Circular Diagram View:</strong>
+    Represents data distribution as a pie chart, offering a holistic view of the data composition.</p>
+</li>
+<li>
+<p><strong>Personal Data Network Graph:</strong>
+    Uses the <code>DataTraceability.jsx</code> component to display a network graph of interconnected data points, mapping relationships within the user's data ecosystem.</p>
+</li>
+<li>
+<p><strong>Code Parameters:</strong></p>
+</li>
+<li>
+<p><code>graphType: Enum&lt;"timeline", "barGraph", "circularDiagram", "networkGraph"&gt;</code></p>
+<p><em>(Selects the graph type dynamically.)</em></p>
+</li>
+<li>
+<p><code>data: Array&lt;DataPointObject&gt;</code></p>
+<p><em>(Dynamically populates the graph with user data.)</em></p>
+</li>
+<li>
+<p><code>visualizationConfig: Object</code></p>
+<p><em>(Customizes the graph appearance including colors, labels, axes, and interactive elements such as tooltips, zoom, and pan.)</em></p>
+</li>
+<li>
+<p><strong>Testing Instructions:</strong></p>
+</li>
+<li>
+<p><strong>Graph Type Rendering Validation:</strong> Test each graph type with diverse datasets.</p>
+</li>
+<li>
+<p><strong>Data Mapping Accuracy Tests:</strong> Verify correct mapping of data values to visual elements.</p>
+</li>
+<li>
+<p><strong>User Customization Parameter Validation:</strong> Ensure the visualization reflects user customization options.</p>
+</li>
+<li>
+<p><strong>Performance and Scalability Tests:</strong> Confirm efficient rendering under heavy data loads.</p>
+</li>
+</ul>
+<hr />
+<h3 id="privacy-settings">Privacy Settings</h3>
+<ul>
+<li>
+<p><strong>Description:</strong>
+  Actionable options for users to control data visibility and usage preferences.</p>
+</li>
+<li>
+<p><strong>Implementation:</strong>
+  The Privacy Settings section offers:</p>
+</li>
+<li>
+<p><strong>Visibility Controls:</strong>
+    Toggle buttons or dropdowns allowing users to set data point visibility (e.g., "Public," "Private," "Connections Only," "Community Members Only").</p>
+</li>
+<li>
+<p><strong>Data Usage Permissions:</strong>
+    Checkboxes or option buttons for opting in or out of certain data usage scenarios such as matching recommendations, community insights, or non-essential data usage.</p>
+</li>
+<li>
+<p><strong>Data Retention Controls:</strong>
+    Time-based options that allow users to set data retention preferences (e.g., "Keep data indefinitely," "Automatically delete data after 3 months of inactivity," "Manually delete data at any time").</p>
+</li>
+<li>
+<p><strong>Code Parameters:</strong></p>
+</li>
+<li>
+<p><code>visibilitySettings: Object&lt;DataPointID, Enum&lt;"public", "private", "connections", "community"&gt;&gt;</code></p>
+<p><em>(Defines visibility for each data point.)</em></p>
+</li>
+<li>
+<p><code>dataUsagePermissions: Object&lt;DataUsageScenario, Boolean&gt;</code></p>
+<p><em>(Specifies permissions for data usage scenarios.)</em></p>
+</li>
+<li>
+<p><code>dataRetentionPolicy: Enum&lt;"indefinite", "3monthsInactive", "userControlled"&gt;</code></p>
+<p><em>(Defines the user's data retention policy.)</em></p>
+</li>
+<li>
+<p><strong>Testing Instructions:</strong></p>
+</li>
+<li>
+<p><strong>Visibility Control Enforcement Tests:</strong> Validate that data access aligns with the user’s visibility settings.</p>
+</li>
+<li>
+<p><strong>Data Usage Permission Enforcement Tests:</strong> Simulate different usage scenarios to confirm permissions are enforced properly.</p>
+</li>
+<li>
+<p><strong>Data Retention Policy Validation Tests:</strong> Check that data deletion occurs as specified.</p>
+</li>
+<li>
+<p><strong>UI Feedback and Actionability Tests:</strong> Ensure the UI reflects changes and provides clear feedback regarding privacy settings.</p>
+</li>
+</ul>
+<hr />
+<h3 id="data-flow-panel">Data Flow Panel</h3>
+<ul>
+<li>
+<p><strong>Description:</strong>
+  A dynamic diagram displaying in real time how user data is processed, stored, and used. The panel shows API calls, database requests, and code implementations in a user-understandable format.</p>
+</li>
+<li>
+<p><strong>Implementation:</strong>
+  Utilizes an interactive diagram to represent:</p>
+</li>
+<li>
+<p><strong>Real-Time Data Rendering:</strong> Updates dynamically as users interact with data settings.</p>
+</li>
+<li>
+<p><strong>Workflow Step Visualization:</strong> Displays key steps from UI input to API calls, database requests, AI processing, and data persistence.</p>
+</li>
+<li>
+<p><strong>Code Implementation Highlighting:</strong> Links UI interactions to the corresponding backend code components.</p>
+</li>
+<li>
+<p><strong>Security Protocol Indicators:</strong> Shows active security measures at each stage of the data flow.</p>
+</li>
+<li>
+<p><strong>Code Parameters:</strong></p>
+</li>
+<li>
+<p><code>dataFlowData: Array&lt;DataFlowStepObject&gt;</code></p>
+<p><em>(Each object represents a step with properties for <code>stepName</code>, <code>componentName</code>, <code>apiCall</code>, <code>databaseRequest</code>, <code>securityProtocol</code>, and <code>dataStatus</code>.)</em></p>
+</li>
+<li>
+<p><code>visualizationType: Enum&lt;"diagram", "flowchart", "network"&gt;</code></p>
+<p><em>(Selects the visualization style.)</em></p>
+</li>
+<li>
+<p><code>realTimeDataEnabled: Boolean</code></p>
+<p><em>(Enables/disables real-time data updates.)</em></p>
+</li>
+<li>
+<p><strong>Testing Instructions:</strong></p>
+</li>
+<li>
+<p><strong>Workflow Step Accuracy Tests:</strong> Verify the diagram accurately represents all steps.</p>
+</li>
+<li>
+<p><strong>Real-Time Data Update Validation:</strong> Test the dynamic updates when data or settings change.</p>
+</li>
+<li>
+<p><strong>Code Traceability and Workflow Mapping Accuracy:</strong> Ensure each UI step correctly correlates with its backend component.</p>
+</li>
+<li>
+<p><strong>Performance and Responsiveness Tests:</strong> Confirm smooth performance during real-time rendering.</p>
+</li>
+</ul>
+<hr />
+<h2 id="actionable-parameters">Actionable Parameters</h2>
+<ul>
+<li>
+<p><strong>Data Origin:</strong> Tooltips on data points clearly display the origin and source of each element.</p>
+</li>
+<li>
+<p><strong>Data Flow:</strong> The Data Flow Panel allows users to trace data pathways and validate workflow execution.</p>
+</li>
+<li>
+<p><strong>Privacy Impact:</strong> The Privacy Settings provide direct UI controls for managing data privacy across the Data Explorer Panel and the broader ThinkAlike platform.</p>
+</li>
+</ul>
+<hr />
+<h2 id="code-implementation">Code Implementation</h2>
+<p>Reusable components are created to enhance development cycles and maintainability. The structure is modular—each UI element is designed to be independent yet seamlessly integrates with other parts of the platform via data flow validation parameters, ensuring a cohesive and robust component library.</p>
+<hr />
+<h2 id="ui-mockup-placeholder">UI Mockup Placeholder</h2>
+<p>![[Insert Data Explorer Panel Mockup Here]]</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: 1. Data Explorer Panel</p>
+</li>
+<li>
+<p>Type: Technical Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of 1. Data Explorer Panel</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

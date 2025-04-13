@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/developer_workflow/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Developer Workflow Guide - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Developer Workflow Guide";
+        var mkdocs_page_input_path = "guides/developer_guides/developer_workflow.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/developer_workflow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Developer Workflow Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="developer-workflow-guide">Developer Workflow Guide</h1>
+<h1 id="developer-workflow">Developer Workflow</h1>
+<p>This guide provides a practical, step-by-step workflow for common development tasks within the ThinkAlike project. It integrates information from various guides like <a href="../../../core/contributing/"><code>contributing.md</code></a>, <a href="../../../core/installation/"><code>installation.md</code></a>, style guides, and testing procedures.</p>
+<p><strong>Prerequisites:</strong></p>
+<ol>
+<li><strong>Environment Setup:</strong> Ensure you have successfully completed the <a href="../../../core/installation/"><code>Installation Guide</code></a>.</li>
+<li><strong>Understanding:</strong> Familiarize yourself with the <a href="../../../core/onboarding_guide/"><code>Onboarding Guide</code></a>, <a href="../../../architecture/architectural_overview/"><code>Architectural Overview</code></a>, and especially the <a href="../../../vision/core_concepts/"><code>Core Concepts Explained</code></a> (including UI as Validation).</li>
+<li><strong>Issue Tracking:</strong> Have access to the project's GitHub issue tracker [Link - <strong>TODO</strong>].</li>
+</ol>
+<h2 id="general-workflow-steps">General Workflow Steps</h2>
+<ol>
+<li><strong>Pick an Issue:</strong> Find an issue to work on from the issue tracker (see <a href="../../../core/contributing/"><code>contributing.md</code></a> for guidance on finding issues). Assign it to yourself or comment your intention to work on it.</li>
+<li>
+<p><strong>Create a Branch:</strong> Based on the <code>main</code> branch (or <code>develop</code> if used), create a new branch following the naming convention: <code>type/issue-number-short-description</code> (e.g., <code>feat/215-add-profile-tagging</code>).</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>upstream<span class="w"> </span>main<span class="w"> </span><span class="c1"># Ensure main is up-to-date</span>
+
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/215-add-profile-tagging
+</code></pre></div>
+</li>
+<li>
+<p><strong>Develop &amp; Test (Iterative):</strong> This is the core loop. See specific task workflows below.</p>
+<ul>
+<li>
+<p>Write code (adhering to <a href="../code_style_guide/"><code>Code Style Guide</code></a>).</p>
+</li>
+<li>
+<p>Write unit/integration tests.</p>
+</li>
+<li>
+<p>Run tests locally.</p>
+</li>
+<li>
+<p>Utilize UI Validation components for real-time feedback (see <a href="../ui_validation_examples/"><code>UI Validation Examples</code></a>).</p>
+</li>
+<li>
+<p>Document code changes (<a href="../../../templates/code_documentation_template/"><code>Code Docs Template</code></a>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Commit Changes:</strong> Use Conventional Commit messages (e.g., <code>feat: add tagging feature to user profiles</code>). Commit frequently with meaningful messages.</p>
+</li>
+<li><strong>Update Branch:</strong> Regularly rebase or merge <code>main</code> into your branch to stay updated: <code>git fetch upstream &amp;&amp; git rebase upstream/main</code>. Resolve conflicts locally.</li>
+<li>
+<p><strong>Run All Checks:</strong> Before pushing, ensure all tests pass and linters/formatters succeed:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example commands (adjust based on project setup)</span>
+
+<span class="nb">cd</span><span class="w"> </span>backend<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pytest<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="nb">cd</span><span class="w"> </span>frontend<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>format<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+</li>
+<li>
+<p><strong>Push Branch:</strong> <code>git push origin feat/215-add-profile-tagging</code></p>
+</li>
+<li><strong>Open Pull Request (PR):</strong> Create a PR on GitHub against the <code>main</code> branch. Fill out the PR template, link the issue, and describe your changes.</li>
+<li><strong>Code Review &amp; Iteration:</strong> Respond to reviewer feedback, push additional commits to the <em>same branch</em> to address comments.</li>
+<li><strong>Merge:</strong> Once approved and checks pass, a maintainer will merge your PR.</li>
+</ol>
+<h2 id="development-workflows-swarming-and-individual-contributions">Development Workflows: Swarming and Individual Contributions</h2>
+<p>ThinkAlike supports two primary workflows for development:</p>
+<ol>
+<li>
+<p><strong>Swarming (Preferred for Complex Tasks):</strong> Swarming is our collaborative coding methodology where contributors work together in real-time on the same task. This is ideal for feature development, complex problem-solving, and documentation writing. Refer to the <a href="../../../core/contributing/#our-development-methodology-swarming-coding"><code>Contribution Guidelines</code></a> for details on participating in Swarming sessions.</p>
+</li>
+<li>
+<p><strong>Individual Contributions (For Smaller Tasks):</strong> Individual contributions are encouraged for smaller bugs, documentation fixes, or pre-swarm research. Follow the standard Fork &amp; PR workflow outlined below for individual contributions.</p>
+</li>
+</ol>
+<h2 id="specific-task-workflows">Specific Task Workflows</h2>
+<h3 id="workflow-a-adding-a-new-backend-api-endpoint">Workflow A: Adding a New Backend API Endpoint</h3>
+<ol>
+<li><strong>Define Contract:</strong> Define the endpoint path, HTTP method, request body/params (using Pydantic models), and response body (using Pydantic models) – document this briefly in the relevant API doc (e.g., <a href="../../../architecture/api/api_endpoints_mode2/"><code>api_endpoints_mode2.md</code></a>).</li>
+<li><strong>Create Route:</strong> Add the new endpoint function within the appropriate FastAPI router file in <code>backend/routes/</code> (or <code>api/</code> if structured differently). Use dependency injection for services. See <a href="../building_backend_endpoint/"><code>Building Backend Endpoint Guide</code></a>.</li>
+<li><strong>Implement Service Logic:</strong> Create or update a service function in <code>backend/services/</code> to handle the business logic for the endpoint. This layer interacts with models/database.</li>
+<li><strong>Database Interaction (if needed):</strong> If data access is required, interact with SQLAlchemy models defined in <code>backend/models/</code>. Ensure efficient querying.</li>
+<li><strong>Verification System Hook (if needed):</strong> If the action requires ethical or functional validation, call the appropriate Verification System function/endpoint. See <a href="../../../architecture/verification_system/verification_system_deep_dive/"><code>Verification System Deep Dive</code></a>.</li>
+<li><strong>Write Unit/Integration Tests:</strong> Create tests in <code>backend/tests/</code> covering the service logic and the API endpoint interaction (using <code>TestClient</code>). Mock dependencies (like Verification System calls or database sessions) appropriately for unit tests.</li>
+<li><strong>Local Testing:</strong> Run the backend server (<code>uvicorn ...</code>) and test the endpoint using <code>curl</code>, Postman, or ideally, by integrating it with the frontend (see Workflow C).</li>
+</ol>
+<h3 id="workflow-b-creating-a-new-react-ui-component">Workflow B: Creating a New React UI Component</h3>
+<ol>
+<li><strong>Define Component:</strong> Determine the component's purpose, props (API), state, and visual appearance. Create a spec document if it's a complex/reusable component, potentially in <code>docs/components/ui_components/</code>. See <a href="../building_ui_component/"><code>Building UI Component Guide</code></a>.</li>
+<li><strong>Create Files:</strong> Create the component file (e.g., <code>frontend/src/components/NewFeature/NewFeature.tsx</code>) and associated style file (e.g., <code>NewFeature.module.css</code>).</li>
+<li><strong>Implement Component Logic:</strong> Write the React/TypeScript code. Use hooks (<code>useState</code>, <code>useEffect</code>, etc.) for state and side effects. Follow React best practices.</li>
+<li><strong>Styling:</strong> Apply styles using CSS Modules or the project's chosen styling solution, adhering to the general style guide.</li>
+<li><strong>Integrate Validation Components (Crucial):</strong> If the component handles user input subject to ethical rules, displays sensitive data, or interacts with specific APIs, integrate the relevant UI Validation components (<code>CoreValuesValidator</code>, <code>APIValidator</code>, <code>DataTraceability</code>) as per <a href="../ui_validation_examples/"><code>UI Validation Examples</code></a>.</li>
+<li><strong>Write Unit/Component Tests:</strong> Create tests in <code>frontend/src/components/NewFeature/NewFeature.test.tsx</code> using Jest and React Testing Library. Test component rendering, state changes, prop handling, and interactions. Mock API calls or context providers as needed.</li>
+<li><strong>Local Testing:</strong> Run the frontend dev server (<code>npm start</code>) and view/interact with the component in isolation (using Storybook, if set up) or integrated into a page. Check console for errors, including those from validation components.</li>
+</ol>
+<h3 id="workflow-c-connecting-frontend-component-to-backend-api">Workflow C: Connecting Frontend Component to Backend API</h3>
+<ol>
+<li><strong>Identify/Create API Service:</strong> In <code>frontend/src/services/</code>, locate or create the function responsible for calling the relevant backend endpoint (e.g., <code>apiClient.ts</code>, <code>userService.ts</code>). Use <code>Workspace</code> or <code>axios</code>.</li>
+<li><strong>Call Service from Component:</strong> Use <code>useEffect</code> or event handlers (e.g., <code>onSubmit</code>) in your component (from Workflow B) to call the API service function. Handle loading states, responses, and errors.</li>
+<li><strong>Integrate <code>APIValidator</code> (Dev Mode):</strong> Wrap the API call with <code>APIValidator</code> checks (as shown in <a href="../ui_validation_examples/"><code>UI Validation Examples</code></a>) to validate request/response schemas during development.</li>
+<li><strong>Update State:</strong> Update the component's state based on the API response.</li>
+<li><strong>Testing:</strong> Update component tests to mock the API service calls and verify the component behaves correctly in different API response scenarios (loading, success, error). Consider integration tests if applicable.</li>
+</ol>
+<h3 id="workflow-d-fixing-a-bug">Workflow D: Fixing a Bug</h3>
+<ol>
+<li><strong>Reproduce the Bug:</strong> Use the steps in the bug report issue to reliably reproduce the bug locally.</li>
+<li><strong>Identify the Cause:</strong> Use browser dev tools, backend logs, debuggers, and your understanding of the relevant code (frontend or backend) to pinpoint the source of the bug.</li>
+<li><strong>Write a Failing Test:</strong> Before fixing, write a unit or integration test that specifically fails because of the bug. This confirms you've identified the issue and prevents regressions.</li>
+<li><strong>Fix the Bug:</strong> Correct the code.</li>
+<li><strong>Run Tests:</strong> Ensure the previously failing test now passes, and <em>all other</em> tests still pass.</li>
+<li><strong>Verify Fix:</strong> Manually verify the fix locally by repeating the reproduction steps.</li>
+<li><strong>Commit:</strong> Use a <code>fix:</code> prefix in your Conventional Commit message (e.g., <code>fix: prevent duplicate profile submissions</code>).</li>
+</ol>
+<p>This guide provides a framework. Always refer to the specific linked documents for detailed standards and implementation patterns. Communicate early and often if you encounter roadblocks!</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Developer Workflow Guide</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Developer Workflow Guide</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

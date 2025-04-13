@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/ai/ai_driven_workflow/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Ai-driven Workflows - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ai-driven Workflows";
+        var mkdocs_page_input_path = "guides/developer_guides/ai/ai_driven_workflow.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/ai/ai_driven_workflow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Ai-driven Workflows</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ai-driven-workflows">Ai-driven Workflows</h1>
+<h1 id="ai-driven-workflows_1">AI-Driven Workflows</h1>
+<p>This document describes the AI-driven workflows within the ThinkAlike platform, focusing on how AI is used to enhance user experience, facilitate connections, and ensure ethical data handling. It includes detailed examples of key workflows.</p>
+<h2 id="1-overview">1. Overview</h2>
+<p>ThinkAlike utilizes AI in several key areas, all designed to be transparent, user-controlled, and ethically sound. The AI is <em>not</em> a black box; its actions and the data it uses are visible to users through the UI (primarily the <code>DataTraceability</code> component).</p>
+<p><strong>Core AI Functions:</strong></p>
+<ul>
+<li>
+<p><strong>Personalized Narrative Journeys (Mode 1):</strong> Guiding users through self-discovery and platform onboarding with interactive, AI-generated narratives.</p>
+</li>
+<li>
+<p><strong>Matchmaking and Connection Recommendations (Mode 2):</strong> Suggesting potential connections based on ethically weighted shared values, interests, and interaction patterns, moving beyond superficial matching criteria.</p>
+</li>
+<li>
+<p><strong>Community Building (Mode 3):</strong> Facilitating the formation and growth of communities by analyzing member values and suggesting synergistic collaborations (future enhancement).</p>
+</li>
+<li>
+<p><strong>Data Analysis and Insights:</strong> Providing users with transparent insights into their own data and the collective data of the platform (with robust privacy safeguards and user consent mechanisms).</p>
+</li>
+<li>
+<p><strong>Ethical Validation:</strong> Continuously monitoring AI behavior for bias, ensuring algorithmic transparency, and validating compliance with ThinkAlike's core ethical guidelines through the Verification System.</p>
+</li>
+</ul>
+<h2 id="2-ai-models-and-technologies">2. AI Models and Technologies</h2>
+<p><em>(This section needs updating with specific AI model and library choices. The following is an EXAMPLE.)</em></p>
+<p>For the MVP, we are initially using the following:</p>
+<ul>
+<li>
+<p><strong>Rule-Based System:</strong> A simple rule-based system for initial matching and content recommendations. This provides a transparent and easily understandable starting point for demonstrating core functionality and data traceability.</p>
+</li>
+<li>
+<p><strong>Natural Language Processing (NLP):</strong> We plan to integrate [Specific NLP Library - e.g., SpaCy, NLTK, Transformers] for analyzing user input (text descriptions, values, etc.) and extracting relevant information for narrative generation and value-based matching.</p>
+</li>
+<li>
+<p><strong>Collaborative Filtering:</strong> We will explore collaborative filtering techniques for recommending connections based on user interactions and community participation patterns (future enhancement).</p>
+</li>
+</ul>
+<p><strong>Future Considerations:</strong></p>
+<ul>
+<li><strong>Deep Learning Models:</strong> As the project grows and we prioritize more advanced AI capabilities, we may explore more sophisticated deep learning models (e.g., transformer models for enhanced NLP, graph neural networks for complex relationship analysis, reinforcement learning for personalized recommendations). <em>However</em>, any adoption of deep learning models will be contingent upon our ability to maintain strict transparency, user control, and ethical oversight, ensuring that even advanced AI remains aligned with Enlightenment 2.0 principles and is fully auditable through the Verification System.</li>
+</ul>
+<h2 id="3-data-workflows">3. Data Workflows</h2>
+<p>The following data workflows are central to the AI's functionality, demonstrating the interplay between UI, Backend API, AI Services, and Data Layer components.</p>
+<h3 id="31-user-profile-creation">3.1. User Profile Creation</h3>
+<ol>
+<li><strong>User Input (UI):</strong> User provides data through intuitive UI forms (e.g., <code>UserForm</code> component in React frontend). This includes essential account information (username, email) and detailed profile information, such as personal narratives, values, interests, and skills.</li>
+<li><strong>Frontend Validation (UI):</strong> The React frontend immediately performs client-side data validation using UI components with built-in validation logic. This ensures data quality and provides instant feedback to the user, enhancing user experience and data integrity.</li>
+<li><strong>API Request (Frontend -&gt; Backend):</strong> Upon successful frontend validation, the UI sends the user-provided data to the backend via a secure HTTP POST request to the <code>/api/auth/register</code> endpoint (or <code>/api/users</code> for profile updates).</li>
+<li><strong>Backend Validation (API &amp; Backend):</strong> The FastAPI backend API endpoint receives the data and performs rigorous server-side validation using Pydantic models and custom validation functions. This ensures data integrity and security at the backend level.</li>
+<li><strong>Data Storage (Backend -&gt; Database):</strong> After successful backend validation, the validated user data is securely and privately stored in the database (e.g., in the <code>Users</code> and <code>Profiles</code> tables, with data models enforced by database schema).</li>
+<li><strong>AI Processing (Initial - Backend AI Service):</strong> In the initial MVP stage, a rule-based AI service (within the backend) might perform basic processing, such as categorizing the user based on keywords in their narrative or assigning initial interest tags. More sophisticated AI processing will be implemented in future iterations, while maintaining data traceability and ethical validation.</li>
+<li><strong>UI Feedback (Backend -&gt; Frontend):</strong> The backend API sends a success response back to the frontend UI, confirming successful user registration or profile update. The UI then provides clear visual feedback to the user, often incorporating the <code>APIValidator</code> and <code>DataValidationError</code> UI components to transparently display data validation results and workflow status. The <code>DataTraceability</code> component can also be used to visualize the complete data flow of user profile creation, enhancing user understanding and trust.</li>
+</ol>
+<h3 id="32-matching-example-value-based-matching-algorithm">3.2. Matching (Example - Value-Based Matching Algorithm)</h3>
+<ol>
+<li><strong>Data Retrieval (Backend):</strong> When a user requests potential matches (e.g., by navigating to the Matching Mode dashboard), the backend API retrieves relevant data from the database. This data includes user profiles, value profiles, interest data, and potentially user interaction history.</li>
+<li>
+<p><strong>AI Processing - Value-Based Matching (Backend AI Service):</strong> The backend <code>AIService</code>'s Matching Algorithm module performs the core value-based matching process:</p>
+<ul>
+<li>
+<p><strong>Value Profile Analysis:</strong> Analyzes the value profiles of the current user and other users in the platform.</p>
+</li>
+<li>
+<p><strong>Ethical Weighting Application:</strong> Applies ethical weighting to prioritize matches based on shared Enlightenment 2.0 values, as defined in the algorithm's ethical rationale (verified by the Verification System).</p>
+</li>
+<li>
+<p><strong>Similarity Score Calculation:</strong> Calculates a "match score" for each potential match based on a combination of value alignment, shared interests, and potentially other relevant factors.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>API Response (Backend -&gt; Frontend):</strong> The backend API endpoint (<code>/api/match/potential-matches</code>) packages the list of potential matches into a JSON response. This response includes:</p>
+<ul>
+<li>
+<p><code>matchedUserId</code>: Unique identifier of the matched user.</p>
+</li>
+<li>
+<p><code>matchScore</code>: Numerical score representing the strength of the match.</p>
+</li>
+<li>
+<p><code>sharedValues</code>: List of Value Nodes that are shared between the users, driving the match.</p>
+</li>
+<li>
+<p><code>connectionPath</code>: Data for visualizing the connection path in the <code>DataTraceability.jsx</code> component, highlighting the factors contributing to the match.</p>
+</li>
+<li>
+<p><code>userData</code>: Summary user profile data for display in match lists and profile cards.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>UI Display - Potential Matches (Frontend):</strong> The frontend UI (Matching Mode dashboard) receives the API response and dynamically displays the list of potential matches to the user. Each match is presented as a <code>ProfileCard</code> component, highlighting shared values and providing a "Connect" action.</p>
+</li>
+<li>
+<p><strong>Data Traceability Visualization (Frontend - <code>DataTraceability.jsx</code>):</strong> For each potential match, the UI integrates the <code>DataTraceability.jsx</code> component to provide a visual graph representation of the connection. This visualization:</p>
+<ul>
+<li>
+<p>Displays the user's Value Nodes and the matched user's Value Nodes.</p>
+</li>
+<li>
+<p>Highlights the <code>sharedValues</code> nodes to visually emphasize value alignment.</p>
+</li>
+<li>
+<p>Shows the <code>connectionPath</code> (if applicable) as a highlighted path in the graph, illustrating the AI's reasoning for the match.</p>
+</li>
+<li>
+<p>Allows users to interact with the graph to explore the data and understand the matching logic transparently.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="33-connection-establishment-example">3.3. Connection Establishment (Example)</h3>
+<ol>
+<li><strong>User Action (Frontend - UI):</strong> User A initiates a connection request by clicking a "Connect" button on User B's profile within Matching Mode.</li>
+<li><strong>API Request (Frontend -&gt; Backend):</strong> The frontend UI sends an HTTP POST request to the backend API (e.g., <code>POST /api/connections</code>).</li>
+<li>
+<p><strong>Backend Logic (Backend API &amp; Logic):</strong> The backend API endpoint receives the connection request and performs the following actions:</p>
+<ul>
+<li>
+<p><strong>Checks for Existing Connection:</strong> Verifies if a connection already exists between User A and User B to prevent duplicate requests.</p>
+</li>
+<li>
+<p><strong>Creates Connection Request Record:</strong> Creates a new record in the <code>Connections</code> table (or a <code>ConnectionRequests</code> table) with a status of "pending," recording the sender (User A), recipient (User B), and timestamp.</p>
+</li>
+<li>
+<p><strong>Notifies Recipient (Backend -&gt; Notification System):</strong> Triggers a notification system (e.g., in-app notifications, email notifications - to be implemented) to inform User B about the new connection request.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>API Response (Backend -&gt; Frontend):</strong> The backend API sends a success response (e.g., <code>201 Created</code>) back to the frontend UI, confirming that the connection request has been successfully submitted.</p>
+</li>
+<li><strong>UI Update (Frontend):</strong> The frontend UI updates to reflect the pending connection request status, visually indicating to User A that their request is awaiting User B's response. The AI waveform may subtly change to reflect the new interaction.</li>
+<li><strong>Recipient Action - User B Accepts (Frontend - UI):</strong> User B receives the connection request notification and views the request in their "Connections" or "Inbox" section. User B then chooses to "Accept" the connection request via the UI.</li>
+<li><strong>API Request - Accept Connection (Frontend -&gt; Backend):</strong> The frontend UI sends an HTTP POST request to the backend API (e.g., <code>POST /api/connections/{connection_id}/accept</code>) to accept the specific connection request.</li>
+<li>
+<p><strong>Backend Logic - Accept Connection (Backend API &amp; Logic):</strong> The backend API endpoint receives the "accept" request and performs the following actions:</p>
+<ul>
+<li>
+<p><strong>Updates Connection Status:</strong> Updates the <code>status</code> field in the <code>Connections</code> table (or <code>ConnectionRequests</code> table) for the relevant connection request to "accepted," indicating that the connection is now active.</p>
+</li>
+<li>
+<p><strong>Creates Reciprocal Connection (If Necessary):</strong> Depending on the desired connection model (one-way follow vs. two-way connection), the backend might create a reciprocal connection record to fully establish the two-way link between User A and User B.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>UI Update - Connection Established (Backend -&gt; Frontend):</strong> The backend API sends a success response (e.g., <code>200 OK</code>) back to the frontend UI, confirming that the connection has been established.</p>
+</li>
+<li><strong>UI Update (Frontend):</strong> The frontend UI updates to visually indicate that User A and User B are now connected. The AI waveform may transition to ruby red, and the triangle indicator may appear in the UI, visually representing the established connection and the successful completion of the connection workflow.</li>
+</ol>
+<h3 id="34-personalized-narrative-generation-example-mode-1">3.4. Personalized Narrative Generation (Example - Mode 1)</h3>
+<ol>
+<li>
+<p><strong>User Interaction (Presentation Layer - UI)</strong></p>
+</li>
+<li>
+<p><strong>User Initiates Narrative:</strong> User starts a new narrative experience within the ThinkAlike UI.</p>
+</li>
+<li>
+<p><strong>UI Presents Initial Narrative Prompt:</strong> The UI displays an initial narrative prompt or scenario to the user, setting the stage for the narrative (e.g., "You are walking through a bustling city market. What do you do?").</p>
+</li>
+<li>
+<p><strong>User Makes a Choice (Action):</strong> The UI presents the user with a set of choices or actions they can take in response to the prompt.</p>
+</li>
+<li>
+<p><strong>UI Captures User Input:</strong> The UI captures the user's selected choice and packages it as structured data to send to the backend API.</p>
+</li>
+<li>
+<p><strong>Backend API Request &amp; AI Service Invocation (Application Layer - Backend)</strong></p>
+</li>
+<li>
+<p><strong>UI Sends API Request:</strong> The UI sends an HTTP POST request to the backend API endpoint with the user's input data.</p>
+</li>
+<li>
+<p><strong>API Endpoint Receives Request:</strong> The backend API endpoint receives the request and extracts the user input data.</p>
+</li>
+<li>
+<p><strong>API Endpoint Calls AI Service:</strong> The API endpoint invokes the <code>AIService</code> (specifically the <code>NarrativeEngine</code> module) to generate the next scene based on user's input.</p>
+</li>
+<li>
+<p><strong>Data Transformation:</strong> The API endpoint preprocesses the user input to format it appropriately for the AI Narrative Engine.</p>
+</li>
+<li>
+<p><strong>AI Narrative Engine Processing (Application Layer - AI Service)</strong></p>
+</li>
+<li>
+<p><strong>Narrative Engine Receives User Input:</strong> The <code>NarrativeEngine</code> module receives the user input data from the API endpoint.</p>
+</li>
+<li>
+<p><strong>AI Model Processing (Text Generation):</strong> The AI model takes the user input and narrative context as input and generates the next scene.</p>
+</li>
+<li>
+<p><strong>Ethical Considerations:</strong> The AI model adheres to ethical guidelines, ensuring generated narrative is non-biased and respects user privacy.</p>
+</li>
+<li>
+<p><strong>Data Traceability:</strong> Data flow within the AI model is designed to be traceable and transparent.</p>
+</li>
+<li>
+<p><strong>Data Transformation:</strong> The <code>NarrativeEngine</code> module formats the AI-generated narrative text into a structured response.</p>
+</li>
+<li>
+<p><strong>Backend API Response &amp; UI Update (Application Layer - Backend &amp; Presentation Layer - UI)</strong></p>
+</li>
+<li>
+<p><strong>API Endpoint Sends Response to UI:</strong> The backend API endpoint packages the AI-generated narrative text into a JSON response.</p>
+</li>
+<li>
+<p><strong>UI Receives API Response:</strong> The UI receives the API response containing the AI-generated narrative text.</p>
+</li>
+<li>
+<p><strong>UI Updates Narrative Display:</strong> The UI dynamically updates to present the AI-generated next scene to the user.</p>
+</li>
+<li>
+<p><strong>UI Renders Updated Choices:</strong> The UI dynamically renders new choices, allowing continued interaction.</p>
+</li>
+</ol>
+<h2 id="4-ethical-considerations">4. Ethical Considerations</h2>
+<ul>
+<li>
+<p><strong>Data Minimization:</strong> We collect and process only the data necessary for the AI to perform its intended functions. User data is not collected for purposes beyond platform functionality without explicit user consent.</p>
+</li>
+<li>
+<p><strong>Transparency:</strong> The <code>DataTraceability</code> component provides a visual representation of data usage in AI workflows, empowering users to understand how their data is being used and processed by AI algorithms.</p>
+</li>
+<li>
+<p><strong>User Control:</strong> Users have control over their privacy settings, data visibility, and matching preferences. The AI is designed to be a tool that users control, not a black box dictating their experiences.</p>
+</li>
+<li>
+<p><strong>Bias Mitigation:</strong> We are actively working to identify, mitigate, and prevent biases in our AI models and algorithms. This includes:</p>
+</li>
+<li>
+<p>Careful selection of training data to minimize representation bias.</p>
+</li>
+<li>
+<p>Regular ethical audits of AI models and algorithms through the Verification System.</p>
+</li>
+<li>
+<p>Implementation of bias detection and mitigation techniques in AI code.</p>
+</li>
+<li>
+<p>Continuous monitoring of AI outputs for potential bias and unfair outcomes.</p>
+</li>
+<li>
+<p><strong>Explainability and Interpretability:</strong> We prioritize the use of AI models and techniques that are as explainable and interpretable as possible, given the desired functionality.</p>
+</li>
+</ul>
+<h2 id="5-testing">5. Testing</h2>
+<ul>
+<li>
+<p><strong>AI-Specific Testing Procedures:</strong> Testing for AI-driven workflows includes:</p>
+</li>
+<li>
+<p><strong>Functional Accuracy:</strong> Ensuring AI models perform their intended tasks correctly and efficiently.</p>
+</li>
+<li>
+<p><strong>Data Validation:</strong> Rigorous testing of data input and output validation at each workflow stage.</p>
+</li>
+<li>
+<p><strong>Ethical Validation:</strong> Dedicated ethical validation tests to ensure AI implementations adhere to ThinkAlike's core values.</p>
+</li>
+<li>
+<p><strong>Performance Testing:</strong> Ensuring AI workflows are scalable and responsive.</p>
+</li>
+<li>
+<p><strong>UI Feedback and Data Validation:</strong> UI components play a crucial role in testing and validating AI workflows:</p>
+</li>
+<li>
+<p><strong>Validate Data Input and Output:</strong> Testing format, correctness, and completeness of data.</p>
+</li>
+<li>
+<p><strong>Test API Interactions:</strong> Ensuring robust communication between components.</p>
+</li>
+<li>
+<p><strong>Provide User-Facing Validation Feedback:</strong> Displaying validation results to developers and testers.</p>
+</li>
+<li>
+<p><strong>Ensure Data Traceability:</strong> Visually validating data flows and algorithm processes.</p>
+</li>
+</ul>
+<h2 id="6-architectural-diagram-ai-workflow-integration">6. Architectural Diagram - AI Workflow Integration</h2>
+<p>The following diagram illustrates the specific flow for the Personalized Narrative Generation workflow:</p>
+<p>`mermaid
+flowchart TB
+    %% Titles that do not overlap
+    title1["Presentation Layer (UI)"]
+    title2["Application Layer (Ethical Workflow Engine)"]
+    title3["Data Layer (Ethical Data Repository)"]</p>
+<div class="highlight"><pre><span></span><code>%% Spacing
+title1 ~~~ ui_section
+title2 ~~~ app_section
+title3 ~~~ data_section
+
+subgraph ui_section[&quot; &quot;]
+    UI[&quot;User Interface&quot;]
+end
+
+subgraph app_section[&quot; &quot;]
+    API[&quot;Backend API (FastAPI)&quot;]
+    Logic[&quot;Business Logic &amp; Data Processing&quot;]
+    AI[&quot;AI Services (Ethical AI Models)&quot;]
+    Verification[&quot;Verification System&quot;]
+end
+
+subgraph data_section[&quot; &quot;]
+    DB[&quot;PostgreSQL Database&quot;]
+end
+
+UI --&gt; API
+API --&gt; Logic
+API --&gt; Verification
+API --&gt; AI
+Logic --&gt; DB
+AI --&gt; DB
+Verification --&gt; DB
+DB --&gt; Logic
+DB --&gt; AI
+Logic --&gt; UI
+AI --&gt; UI
+Verification --&gt; UI
+
+classDef titleClass font-weight:bold,fill:none,stroke:none;
+classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+class title1,title2,title3 titleClass;
+class ui_section,app_section,data_section sectionClass;
+
+linkStyle default stroke:#0066cc,stroke-width:2px;
+</code></pre></div>
+<p>`</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Ai-driven Workflows</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Ai-driven Workflows</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

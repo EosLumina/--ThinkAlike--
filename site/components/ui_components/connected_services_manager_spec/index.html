@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/components/ui_components/connected_services_manager_spec/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>UI Component Specification: ConnectedServicesManager - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "UI Component Specification: ConnectedServicesManager";
+        var mkdocs_page_input_path = "components/ui_components/connected_services_manager_spec.md";
+        var mkdocs_page_url = "/--ThinkAlike--/components/ui_components/connected_services_manager_spec/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">UI Component Specification: ConnectedServicesManager</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ui-component-specification-connectedservicesmanager">UI Component Specification: ConnectedServicesManager</h1>
+<hr />
+<h2 id="1-introduction-and-description">1. Introduction and Description</h2>
+<p>The <strong>ConnectedServicesManager</strong> is a dedicated UI component, typically within user Settings, providing a centralized interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify). It is the primary UI for the <a href="../../../architecture/data_integration_strategy/">Third-Party Data Integration Strategy</a>.</p>
+<p>It allows users to view supported services, initiate/revoke OAuth connections, view granted permissions, and exercise <strong>granular, opt-in control over how harvested data is used</strong>, embodying user control and transparency principles. See <a href="../../../guides/user_guides/connected_services_guide/">Connected Services User Guide</a>.</p>
+<h2 id="2-ui-elements-and-layout">2. UI Elements and Layout</h2>
+<p>Renders as a panel listing services.</p>
+<ul>
+<li>
+<p><strong>Service Listing Area:</strong> List/grid of supported services. Each entry includes:</p>
+</li>
+<li>
+<p>Service Icon/Logo &amp; Name.</p>
+</li>
+<li>
+<p>Connection Status ("Connected" / "Not Connected").</p>
+</li>
+<li>
+<p>Action Button (<code>ActionButton</code>): "Connect" or "Disconnect".</p>
+</li>
+<li>
+<p>Expand/Details Toggle (Optional).</p>
+</li>
+<li>
+<p><strong>Detailed Service View (Expanded):</strong></p>
+</li>
+<li>
+<p><strong>Permissions Granted Display (<code>DataDisplay</code>):</strong> Lists scopes granted via OAuth.</p>
+</li>
+<li>
+<p><strong>Data Usage Toggles (<code>ToggleSwitch</code> / <code>Checkbox</code>):</strong> <strong>CRITICAL.</strong> Granular, opt-in toggles for each potential use case (e.g., "Use for Matching?", "Use for Community Recs?", "Display on Profile?"). <strong>Default OFF.</strong> Changes trigger API saves.</p>
+</li>
+<li>
+<p><strong>Last Synced Timestamp (<code>DataDisplay</code>).</strong></p>
+</li>
+<li>
+<p><strong>View Harvested Data Link:</strong> Navigates to <code>Data Explorer Panel</code> filtered by this service.</p>
+</li>
+<li>
+<p><strong>General Feedback Area (<code>Alert</code>):</strong> Shows success/error messages for connect/disconnect/settings updates.</p>
+</li>
+</ul>
+<h2 id="3-data-flow-and-interaction">3. Data Flow and Interaction</h2>
+<p>Describes Load -&gt; Connect -&gt; Callback -&gt; Panel Refresh -&gt; Toggle Consent -&gt; Disconnect -&gt; Panel Refresh sequence. Can include a Mermaid diagram.</p>
+<h2 id="4-code-implementation-notes">4. Code Implementation Notes</h2>
+<ul>
+<li>
+<p><strong>Framework:</strong> React.</p>
+</li>
+<li>
+<p><strong>State:</strong> Manages list of services, connection statuses, toggle states (fetched/updated via global state or local state with API calls).</p>
+</li>
+<li>
+<p><strong>Components:</strong> Uses <code>ActionButton</code>, <code>ToggleSwitch</code>, <code>DataDisplay</code>, <code>Alert</code>.</p>
+</li>
+<li>
+<p><strong>API Interaction:</strong> Calls backend endpoints for status (<code>GET /integrations/status</code>), auth URLs (<code>GET /integrations/{service}/auth_url</code>), settings updates (<code>PUT /integrations/settings</code>), disconnection (<code>DELETE /integrations/{service}/connection</code>). See <a href="../../../architecture/api/api_endpoints_integrations/">Integration API Docs</a>. Handle loading/error states.</p>
+</li>
+</ul>
+<h2 id="5-testing-instructions">5. Testing Instructions</h2>
+<ul>
+<li>
+<p>Test initial load (states, errors).</p>
+</li>
+<li>
+<p>Test Connect flow (redirect, successful callback updates UI, failed callback shows error).</p>
+</li>
+<li>
+<p>Test Disconnect flow (confirmation, API call, UI update, error handling).</p>
+</li>
+<li>
+<p>Test toggling usage consent switches (API call, UI confirmation, state persistence after refresh).</p>
+</li>
+<li>
+<p>Test Permissions display accuracy based on mocked API data.</p>
+</li>
+<li>
+<p>Test Data Explorer link functionality.</p>
+</li>
+<li>
+<p>Test Accessibility (keyboard, screen reader).</p>
+</li>
+</ul>
+<h2 id="6-ui-mockup-placeholder">6. UI Mockup Placeholder</h2>
+<ul>
+<li><code>[Placeholder: Link to ConnectedServicesManager mockup]</code></li>
+</ul>
+<h2 id="7-dependencies-integration">7. Dependencies &amp; Integration</h2>
+<ul>
+<li>
+<p><strong>Depends:</strong> Backend Integration APIs, Reusable UI components, Global State (potentially), Style Guide.</p>
+</li>
+<li>
+<p><strong>Integrates:</strong> User Settings/Profile section, <code>Data Explorer Panel</code> (via link).</p>
+</li>
+</ul>
+<h2 id="8-future-enhancements">8. Future Enhancements</h2>
+<ul>
+<li>More detailed sync status/history, manual refresh trigger UI, bulk enable/disable, clearer permission explanations.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

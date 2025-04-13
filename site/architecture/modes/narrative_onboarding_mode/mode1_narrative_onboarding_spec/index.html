@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Narrative Mode Specification - Project - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Narrative Mode Specification - Project";
+        var mkdocs_page_input_path = "architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Narrative Mode Specification - Project</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="narrative-mode-specification-project">Narrative Mode Specification - Project</h1>
+<p><strong>Document Purpose:</strong></p>
+<p>This document provides a <strong>detailed specification for Narrative Mode</strong> within the ThinkAlike project. It outlines the functionality, features, user flows, data models, and technical considerations for implementing Narrative Mode, which serves as the onboarding, ideological injection, and documentation hub of the platform.</p>
+<p><strong>I. Core Functionality and Features:</strong></p>
+<p>Narrative Mode serves several key purposes:</p>
+<ol>
+<li>
+<p><strong>User Onboarding and Platform Introduction:</strong></p>
+<ul>
+<li>
+<p><strong>Interactive Onboarding Narrative:</strong> Presents a compelling and engaging interactive narrative that guides new users through the core concepts of ThinkAlike, its mission, and its ethical principles (Enlightenment 2.0).</p>
+</li>
+<li>
+<p><strong>Feature Discovery and Tutorials:</strong> Integrates interactive tutorials and feature highlights to introduce users to the functionalities of each Mode (Narrative, Matching, Community) and how to use them effectively.</p>
+</li>
+<li>
+<p><strong>Value Proposition and Benefits:</strong> Clearly communicates the user value proposition of ThinkAlike, emphasizing its ethical upgrade, user empowerment, and potential for authentic connection.</p>
+</li>
+<li>
+<p><strong>Call to Action to Participate:</strong> Concludes the onboarding narrative with a clear call to action, encouraging users to create their personal narratives and begin exploring the platform.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>"Philosophical Manifesto of Eos Lumina" Embodiment:</strong></p>
+<ul>
+<li>
+<p><strong>Interactive Manifesto Presentation:</strong> Presents the full "Philosophical Manifesto of Eos Lumina" in a dynamic and engaging digital format, moving beyond a static document.</p>
+</li>
+<li>
+<p><strong>Thematic Exploration of Manifesto Principles:</strong> Allows users to explore the Manifesto's core principles (Positive Anarchism, Ethical Humanism, Radical Transparency, User Empowerment, Authentic Connection, Redefined Progress) in an interactive and thematic way.</p>
+</li>
+<li>
+<p><strong>Multimedia Integration (Optional):</strong> Potentially incorporates multimedia elements (images, audio, video) to enhance the Manifesto's presentation and impact (future enhancement).</p>
+</li>
+<li>
+<p><strong>User Annotation and Reflection (Optional):</strong> Potentially allows users to annotate, highlight, and save sections of the Manifesto for personal reflection and engagement (future enhancement).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Personal Narrative Creation and Profile Building:</strong></p>
+<ul>
+<li>
+<p><strong>Guided Narrative Creation Flow:</strong> Provides a structured and guided flow for users to create their personal narratives, prompting them to articulate their values, interests, motivations, and vision.</p>
+</li>
+<li>
+<p><strong>Value Elicitation Prompts:</strong> Includes prompts and questions specifically designed to elicit user values and ethical principles, ensuring these are central to their narratives.</p>
+</li>
+<li>
+<p><strong>Rich Text Editor and Formatting Options:</strong> Offers a rich text editor with formatting options to allow users to create compelling and well-structured narratives.</p>
+</li>
+<li>
+<p><strong>Privacy Settings for Narrative Visibility:</strong> Allows users to control the visibility of their narratives (e.g., public, only to matched users, private).</p>
+</li>
+<li>
+<p><strong>Narrative Storage and Management:</strong> Provides secure and private storage for user narratives and allows users to easily edit and update them over time.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>AI Agent as Your Guide, Storyteller, and Mirror:</strong></p>
+<ul>
+<li>
+<p><strong>Narrative Facilitation:</strong> Guides the user through the "Whispering Woods" adventure, presenting choices and adapting the story.</p>
+</li>
+<li>
+<p><strong>Value Elicitation &amp; Profile Building:</strong> User choices implicitly and explicitly build their initial <strong>Value Profile</strong>.</p>
+</li>
+<li>
+<p><strong>Contextual UI Guidance (Subtle &amp; Optional):</strong> Provides non-intrusive guidance on platform features <em>within the narrative flow</em>. Instead of explicit tutorials, it might offer reflections linking choices to platform concepts (e.g., "That choice reflects a strong leaning towards 'Community'. You can explore communities further in Mode 3 [subtle highlight]"). Guidance uses tooltips or optional "learn more" prompts.</p>
+</li>
+<li>
+<p><strong>Ethos Alignment Assessment:</strong> Internally calculates a dynamic <strong>"E2.0 Alignment Score"</strong> based on choices reflecting core ThinkAlike principles.</p>
+</li>
+<li>
+<p><strong>Conditional Contributor Pledge:</strong> If the Alignment Score reaches a threshold, presents the user with an <em>optional</em> <strong>"Pledge to Architect"</strong> agreement near the narrative's end.</p>
+</li>
+<li>
+<p><strong>Initial Matching:</strong> Uses the accumulated Value Profile data and Alignment Score to potentially reveal a "perfect match" (AI Clone) as the narrative conclusion.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Documentation Hub and Project Knowledge Base:</strong></p>
+<ul>
+<li>
+<p><strong>Centralized Access to Project Documentation:</strong> Acts as a central hub for accessing all project documentation, including the "Source of Truth," Architectural Design Specs, Ethical Guidelines, API documentation, and user guides.</p>
+</li>
+<li>
+<p><strong>Categorized and Searchable Documentation:</strong> Organizes documentation into logical categories and provides search functionality to allow users (and developers) to easily find specific information.</p>
+</li>
+<li>
+<p><strong>Version Control and Update Tracking (Links to External System):</strong> Provides links to the version-controlled documentation repository (e.g., GitHub), allowing users to access the latest versions and track updates.</p>
+</li>
+<li>
+<p><strong>Community Contribution to Documentation (Future Enhancement):</strong> Potentially allows for community contributions and feedback on documentation (future enhancement, e.g., through a linked wiki or collaborative documentation platform).</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>II. User Flows and Interactions:</strong></p>
+<ol>
+<li>
+<p><strong>New User Onboarding Flow:</strong></p>
+<ul>
+<li>
+<p>User lands on ThinkAlike platform (e.g., <code>index.html</code>).</p>
+</li>
+<li>
+<p>Prominent entry point to "Narrative Mode / Onboarding Journey."</p>
+</li>
+<li>
+<p>Interactive onboarding narrative begins, guiding user through:</p>
+<ul>
+<li>
+<p>Welcome and Introduction to ThinkAlike and Enlightenment 2.0.</p>
+</li>
+<li>
+<p>Explanation of core principles (Positive Anarchism, Ethical Humanism, etc.).</p>
+</li>
+<li>
+<p>Overview of the 3 Modes (Narrative, Matching, Community) and their functionalities.</p>
+</li>
+<li>
+<p>Highlighting user value proposition and ethical commitments.</p>
+</li>
+<li>
+<p>Tutorials and feature discovery elements interspersed throughout the narrative.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Call to action at the end of the narrative: "Create Your Narrative and Begin Your ThinkAlike Journey."</p>
+</li>
+<li>
+<p>Transition to Personal Narrative Creation flow.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Personal Narrative Creation Flow:</strong></p>
+<ul>
+<li>
+<p>User initiates "Create Narrative" from Onboarding flow or Profile settings.</p>
+</li>
+<li>
+<p>Guided narrative creation interface is presented:</p>
+<ul>
+<li>
+<p>Welcome message and instructions.</p>
+</li>
+<li>
+<p>Structured prompts and questions to guide narrative creation (value elicitation prompts, etc.).</p>
+</li>
+<li>
+<p>Rich text editor with formatting options.</p>
+</li>
+<li>
+<p>Progress indicator and save/draft functionality.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>User inputs their narrative content.</p>
+</li>
+<li>
+<p>User defines privacy settings for narrative visibility.</p>
+</li>
+<li>
+<p>Narrative is saved to user profile and database.</p>
+</li>
+<li>
+<p>User is presented with options to:</p>
+<ul>
+<li>
+<p>View their narrative.</p>
+</li>
+<li>
+<p>Edit their narrative.</p>
+</li>
+<li>
+<p>Proceed to Matching Mode or Community Mode.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Documentation Hub Navigation:</strong></p>
+<ul>
+<li>
+<p>Users can access the Documentation Hub from the main navigation menu within Narrative Mode.</p>
+</li>
+<li>
+<p>Documentation Hub presents a categorized and searchable index of all project documentation.</p>
+</li>
+<li>
+<p>Users can browse categories or use search functionality to find specific documents.</p>
+</li>
+<li>
+<p>Clicking on a documentation link opens the document content within the platform (or in a new tab/window, depending on implementation).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>AI Agent Interaction Flow:</strong></p>
+<ul>
+<li>
+<p>Narrative progresses, AI Agent provides subtle, contextual UI guidance prompts where relevant.</p>
+</li>
+<li>
+<p>Backend calculates internal E2.0 Alignment Score based on choices.</p>
+</li>
+<li>
+<p>(Conditional Step - Near End) If Alignment Score threshold met: AI Agent presents "Pledge to Architect" (<a href="../../legal/contributor_agreement.md">Contributor Agreement</a>) as an optional narrative choice/screen.</p>
+</li>
+<li>
+<p>User Accepts/Declines Pledge (Optional). If accepted, backend updates user role/flag (<code>POST /api/v1/contributor/agree</code> or integrated into <code>/narrative/choice</code>).</p>
+</li>
+<li>
+<p>Narrative Climax: Based on final compatibility calculations:</p>
+<ul>
+<li>
+<p>If high match threshold met: "Perfect Match" reveal (AI Clone transition). Direct connection enabled. Optionally suggest contributor-specific next steps if pledge accepted (e.g., relevant community).</p>
+</li>
+<li>
+<p>If lower match/no sufficient match: Narrative concludes with guidance towards Mode 2 discovery. Optionally suggest contributor next steps if pledge accepted.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>III. Data Model (Example - Conceptual):</strong></p>
+<div class="highlight"><pre><span></span><code>NarrativeNode {
+nodeId: UUID (Unique Identifier)
+nodeType: Enum [&#39;section&#39;, &#39;tutorial&#39;, &#39;prompt&#39;, &#39;manifesto_point&#39;, ...] // Type of narrative node
+contentType: Enum [&#39;text&#39;, &#39;image&#39;, &#39;video&#39;, &#39;audio&#39;, ...] // Type of content within the node
+content: Text/Media // Actual narrative content
+order: Integer // Order of node in the narrative flow
+parentNodes: [NarrativeNodeId] // Links to parent nodes for branching narrative
+childNodes: [NarrativeNodeId] // Links to child nodes for narrative progression
+// ... other narrative node properties (styling, interactions, etc.)
+}
+
+UserNarrative {
+userId: UUID (Foreign Key to User Profile)
+narrativeContent: JSON/Structured Data // User-created narrative content, potentially linked to NarrativeNodes
+privacySettings: Enum [&#39;public&#39;, &#39;matched_users&#39;, &#39;private&#39;]
+creationTimestamp: Timestamp
+updateTimestamp: Timestamp
+// ... other user narrative metadata
+}
+
+NarrativeSessionState {
+userId: UUID
+sessionId: UUID
+currentNodeId: UUID
+accumulatedValueMetrics: JSON
+e2oAlignmentScore: Float // Internal alignment score
+contributorPledgeStatus: Enum [&#39;offered&#39;, &#39;accepted&#39;, &#39;declined&#39;]
+// ... other session state properties
+}
+</code></pre></div>
+<p><strong>IV. UI Components (Specific to Narrative Mode):</strong></p>
+<ul>
+<li>
+<p><code>NarrativeViewer</code>: Component for displaying and rendering interactive narrative content, handling navigation between narrative nodes, and managing user interactions.</p>
+</li>
+<li>
+<p><code>NarrativeEditor</code>: Rich text editor component for users to create and edit their personal narratives, including formatting options and guided prompts.</p>
+</li>
+<li>
+<p><code>DocumentationIndex</code>: Component for displaying a categorized and searchable index of project documentation.</p>
+</li>
+<li>
+<p><code>ValueElicitationPrompt</code>: (Optional) Reusable component for presenting specific prompts designed to elicit user values within the narrative creation flow.</p>
+</li>
+</ul>
+<p><strong>V. API Endpoints (Backend - Examples):</strong></p>
+<ul>
+<li>
+<p><code>/api/narrative/onboarding</code>: Returns data for the interactive onboarding narrative flow (structure and content of NarrativeNodes).</p>
+</li>
+<li>
+<p><code>/api/narrative/manifesto</code>: Returns data for the interactive Manifesto presentation (structure and content of Manifesto NarrativeNodes).</p>
+</li>
+<li>
+<p><code>/api/narrative/user-narrative</code>: (Authenticated)</p>
+</li>
+<li>
+<p><code>GET</code>: Returns the current user's narrative (if it exists).</p>
+</li>
+<li>
+<p><code>POST</code>: Creates a new user narrative.</p>
+</li>
+<li>
+<p><code>PUT</code>: Updates an existing user narrative.</p>
+</li>
+<li>
+<p><code>DELETE</code>: Deletes a user narrative.</p>
+</li>
+<li>
+<p><code>/api/documentation/index</code>: Returns a structured index of all project documentation files.</p>
+</li>
+<li>
+<p><code>/api/documentation/content/{documentName}</code>: Returns the content of a specific documentation file (e.g., Markdown content).</p>
+</li>
+<li>
+<p><code>/api/v1/contributor/agree</code>: Updates user role/flag upon acceptance of the Contributor Pledge.</p>
+</li>
+</ul>
+<p><strong>VI. Technical Considerations:</strong></p>
+<ul>
+<li>
+<p><strong>Interactive Narrative Engine Implementation:</strong> Careful design and implementation of the interactive narrative engine is crucial for creating an engaging and user-friendly onboarding and Manifesto experience. Consider using a graph-based data structure or a state management library to manage the non-linear narrative flow.</p>
+</li>
+<li>
+<p><strong>Content Management System (CMS) for Documentation (Optional):</strong> For larger-scale documentation management and community contributions, consider integrating a lightweight CMS or static site generator to manage documentation files more efficiently (future enhancement).</p>
+</li>
+<li>
+<p><strong>Performance Optimization:</strong> Optimize performance for loading and rendering potentially large narrative content and documentation files, especially for users with slower internet connections.</p>
+</li>
+<li>
+<p><strong>Accessibility:</strong> Design Narrative Mode to be accessible to users with disabilities, adhering to accessibility guidelines (WCAG) for UI components and content presentation.</p>
+</li>
+<li>
+<p><strong>AI Agent Persona Consistency:</strong> Requires careful design and prompt engineering to maintain a consistent, helpful, non-manipulative tone across its multiple roles (storyteller, guide, assessor, recruiter).</p>
+</li>
+<li>
+<p><strong>Contextual Guidance Implementation:</strong> Needs backend logic to map narrative nodes to potential UI tutorial triggers and frontend ability to display these contextually (e.g., highlighting UI elements referenced by agent).</p>
+</li>
+<li>
+<p><strong>Alignment Scoring Logic:</strong> Define and implement the algorithm for calculating the internal "E2.0 Alignment Score" based on narrative choices (requires careful ethical design and testing).</p>
+</li>
+</ul>
+<p><strong>VII. Future Enhancements:</strong></p>
+<ul>
+<li>
+<p>Multimedia integration within the Manifesto and onboarding narrative (images, audio, video).</p>
+</li>
+<li>
+<p>User annotation and highlighting features for the Manifesto.</p>
+</li>
+<li>
+<p>Community contribution mechanisms for documentation.</p>
+</li>
+<li>
+<p>More advanced narrative analytics to track user engagement and onboarding effectiveness.</p>
+</li>
+</ul>
+<p><strong>VIII. Sequence Diagram for Narrative Mode Interaction:</strong></p>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant User
+    participant FrontendUI as React Frontend
+    participant BackendAPI as FastAPI Backend
+    participant AINarrative as AI Narrative Engine
+    participant AIMatching as AI Matching Engine
+    participant DB as Database
+
+    User-&gt;&gt;FrontendUI: Enters/Resumes Mode 1
+    FrontendUI-&gt;&gt;BackendAPI: GET /api/v1/narrative/start
+    BackendAPI-&gt;&gt;DB: Fetch User State / Start New Session
+    DB--&gt;&gt;BackendAPI: Return Session State / Initial Node Info
+    BackendAPI-&gt;&gt;AINarrative: Get Initial/Current Narrative Node (using state)
+    AINarrative--&gt;&gt;BackendAPI: Return Narrative Node Data
+    BackendAPI--&gt;&gt;FrontendUI: Return Narrative Node &amp; Session State
+
+    loop Narrative Interaction
+        FrontendUI-&gt;&gt;User: Display Narrative Node (Text, Image?, Choices)
+        User-&gt;&gt;FrontendUI: Selects Choice (choiceId)
+        FrontendUI-&gt;&gt;BackendAPI: POST /api/v1/narrative/choice (sessionId, currentNodeId, chosenChoiceId)
+        BackendAPI-&gt;&gt;AINarrative: Process Choice (sessionId, choiceId, context)
+        AINarrative-&gt;&gt;AIMatching: Send Interaction Data for Value Profile Update/Scoring
+        AIMatching-&gt;&gt;DB: Read/Update User Value Profile Metrics
+        AIMatching--&gt;&gt;AINarrative: Return Potential Match Status / Score Update
+        AINarrative-&gt;&gt;AINarrative: Determine Next Node ID based on Choice &amp; Match Status
+        AINarrative--&gt;&gt;BackendAPI: Return Next Narrative Node Data (or Final Outcome)
+        BackendAPI-&gt;&gt;DB: Update Narrative Session State
+        alt Narrative Continues
+            BackendAPI--&gt;&gt;FrontendUI: Return Next Narrative Node &amp; Updated Session State
+        else Match Reveal Triggered
+            BackendAPI-&gt;&gt;DB: Fetch Matched User&#39;s AI Clone Data (Visual &amp; Voice Params)
+            DB--&gt;&gt;BackendAPI: Return Clone Data
+            BackendAPI--&gt;&gt;FrontendUI: Return &#39;match_reveal&#39; Node (with AI Clone data) &amp; Final Session State
+        else Narrative Ends (No Match)
+            BackendAPI--&gt;&gt;FrontendUI: Return &#39;narrative_end&#39; Node &amp; Final Session State
+        end
+    end
+    FrontendUI-&gt;&gt;User: Display Next Step / AI Clone Reveal / End Message
+</code></pre></div>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Narrative Mode Specification - Project</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Narrative Mode Specification - Project</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

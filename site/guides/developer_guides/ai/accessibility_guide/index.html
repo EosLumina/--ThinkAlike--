@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/ai/accessibility_guide/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Accessibility Implementation Guide (A11y) - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Accessibility Implementation Guide (A11y)";
+        var mkdocs_page_input_path = "guides/developer_guides/ai/accessibility_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/ai/accessibility_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Accessibility Implementation Guide (A11y)</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="accessibility-implementation-guide-a11y">Accessibility Implementation Guide (A11y)</h1>
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Accessibility (a11y) is fundamental to ThinkAlike's values of <strong>Ethical Humanism</strong> and <strong>Inclusivity</strong>. This guide provides developers practical guidelines for building an accessible React frontend, ensuring usability for people with diverse abilities, including those using assistive technologies.</p>
+<p>Our target is <strong>WCAG 2.1 Level AA</strong> compliance. Accessibility must be integral to design, implementation, and testing, not an afterthought.</p>
+<p>Refer to <a href="../../core/ethics/ethical_guidelines.md">Ethical Guidelines</a> and the <a href="./testing_and_validation_plan.md">Testing Plan</a>.</p>
+<hr />
+<h2 id="2-core-principles-pour">2. Core Principles (POUR)</h2>
+<ul>
+<li>
+<p><strong>Perceivable:</strong> Content presentation must accommodate different senses (e.g., <code>alt</code> text for images, captions). Ensure sufficient color contrast.</p>
+</li>
+<li>
+<p><strong>Operable:</strong> All interactions possible via keyboard; no keyboard traps; adequate time for users; avoid seizure-inducing content.</p>
+</li>
+<li>
+<p><strong>Understandable:</strong> Clear language, predictable navigation, consistent layouts, helpful error feedback.</p>
+</li>
+<li>
+<p><strong>Robust:</strong> Use standard technologies (HTML, ARIA) correctly so assistive technologies can interpret content reliably.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-key-implementation-guidelines-react">3. Key Implementation Guidelines (React)</h2>
+<h3 id="31-semantic-html">3.1 Semantic HTML</h3>
+<ul>
+<li>
+<p><strong>Use Standard Elements:</strong> Prioritize semantic elements (<code>&lt;button&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;label&gt;</code>, etc.) over generic <code>&lt;div&gt;</code>s/<code>&lt;span&gt;</code>s for interactive or structural content.</p>
+</li>
+<li>
+<p><strong>Logical Structure:</strong> Use headings hierarchically. Structure content with lists, sections, and landmark roles (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>).</p>
+</li>
+</ul>
+<h3 id="32-keyboard-accessibility">3.2 Keyboard Accessibility</h3>
+<ul>
+<li>
+<p><strong>Focusability:</strong> All interactive elements must be keyboard focusable (Tab/Shift+Tab). Use <code>tabindex="0"</code> <em>only</em> when making non-interactive elements (like custom controls built with divs) focusable. Use <code>tabindex="-1"</code> to remove from tab order but allow programmatic focus.</p>
+</li>
+<li>
+<p><strong>Visible Focus:</strong> Ensure a clear <code>:focus</code> or <code>:focus-visible</code> style (do not disable <code>outline</code> without a better alternative). Consistent with <a href="./style_guide.md">Style Guide</a>.</p>
+</li>
+<li>
+<p><strong>Logical Order:</strong> Focus should follow visual flow. Manage focus programmatically in modals, menus, or dynamic content changes (<code>element.focus()</code>). Avoid keyboard traps.</p>
+</li>
+<li>
+<p><strong>Interaction:</strong> Interactive elements must respond to Enter/Space keys appropriately (e.g., buttons activate, checkboxes toggle).</p>
+</li>
+</ul>
+<h3 id="33-aria-accessible-rich-internet-applications">3.3 ARIA (Accessible Rich Internet Applications)</h3>
+<ul>
+<li>
+<p><strong>Use When Necessary:</strong> Apply ARIA to bridge gaps where native HTML semantics are insufficient (custom widgets, dynamic updates). Incorrect ARIA is worse than no ARIA. <strong>Prefer semantic HTML first.</strong></p>
+</li>
+<li>
+<p><strong>Key Attributes:</strong></p>
+</li>
+<li>
+<p><strong>Roles:</strong> <code>role="button"</code>, <code>menu</code>, <code>dialog</code>, <code>alert</code>, <code>status</code>, etc., for custom components.</p>
+</li>
+<li>
+<p><strong>Properties:</strong> <code>aria-label</code> (for elements without visible text, like icon buttons), <code>aria-labelledby</code> (link to visible label), <code>aria-describedby</code> (link to descriptions/errors), <code>aria-invalid="true"</code>, <code>aria-required="true"</code>.</p>
+</li>
+<li>
+<p><strong>States:</strong> <code>aria-expanded</code>, <code>aria-selected</code>, <code>aria-disabled</code>, <code>aria-current</code>, <code>aria-hidden="true"</code>.</p>
+</li>
+<li>
+<p><strong>Live Regions:</strong> <code>aria-live="polite"</code> (non-urgent updates) or <code>aria-live="assertive"</code> (urgent updates like errors) for content that changes dynamically.</p>
+</li>
+<li>
+<p><strong>Validation:</strong> Use browser dev tools (Accessibility tab) and linters.</p>
+</li>
+</ul>
+<h3 id="34-forms-and-labels">3.4 Forms and Labels</h3>
+<ul>
+<li>
+<p><strong>Explicit Labels:</strong> Every input (<code>input</code>, <code>textarea</code>, <code>select</code>) needs a <code>&lt;label&gt;</code> linked via <code>htmlFor</code> (React prop for <code>for</code>).</p>
+</li>
+<li>
+<p><strong>Grouping:</strong> Use <code>&lt;fieldset&gt;</code>/<code>&lt;legend&gt;</code> for related radio buttons/checkboxes.</p>
+</li>
+<li>
+<p><strong>Required Fields:</strong> Indicate visually (<code>*</code>) and programmatically (<code>required</code>, <code>aria-required="true"</code>).</p>
+</li>
+<li>
+<p><strong>Error Handling:</strong> Link error messages (<code>DataValidationError</code>) to inputs using <code>aria-describedby</code>. Errors must be clear and helpful.</p>
+</li>
+</ul>
+<h3 id="35-images-icons-and-media">3.5 Images, Icons, and Media</h3>
+<ul>
+<li>
+<p><strong><code>alt</code> Text:</strong> Meaningful images need descriptive <code>alt</code> text. Decorative images use <code>alt=""</code>. Icons used as controls need accessible names (e.g., via <code>aria-label</code> on the button).</p>
+</li>
+<li>
+<p><strong>Complex Images/Charts:</strong> Provide text summaries or data tables nearby or via <code>aria-describedby</code>.</p>
+</li>
+<li>
+<p><strong>Multimedia:</strong> Videos need accurate captions and preferably transcripts. Audio needs transcripts. Consider audio descriptions for visual content if central to understanding.</p>
+</li>
+</ul>
+<h3 id="36-color-and-contrast">3.6 Color and Contrast</h3>
+<ul>
+<li>
+<p><strong>WCAG AA Contrast:</strong> Text/background contrast must meet 4.5:1 (normal text) or 3:1 (large text, UI graphics). Use contrast checkers.</p>
+</li>
+<li>
+<p><strong>Information:</strong> Don't rely <em>only</em> on color to convey information (e.g., error states need an icon/text too).</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-testing-accessibility">4. Testing Accessibility</h2>
+<p>Incorporate accessibility testing throughout the development cycle.</p>
+<ul>
+<li>
+<p><strong>Automated Tools:</strong></p>
+</li>
+<li>
+<p><strong>Linters:</strong> <code>eslint-plugin-jsx-a11y</code> configured in the project.</p>
+</li>
+<li>
+<p><strong>Testing Libraries:</strong> Integrate <code>jest-axe</code> with Jest/React Testing Library tests. Integrate Cypress-axe for E2E tests.</p>
+</li>
+<li>
+<p><strong>Browser Extensions:</strong> Use axe DevTools, WAVE during manual checks.</p>
+</li>
+<li>
+<p><strong>Manual Keyboard Testing:</strong> Navigate key workflows using only Tab, Shift+Tab, Enter, Space, Arrow Keys. Check focus visibility and order.</p>
+</li>
+<li>
+<p><strong>Screen Reader Testing:</strong> Test primary user flows with major screen readers (NVDA, VoiceOver, JAWS). Verify content is announced logically and controls are operable.</p>
+</li>
+<li>
+<p><strong>User Testing:</strong> Include users with disabilities in UAT sessions when feasible.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-tools-resources">5. Tools &amp; Resources</h2>
+<ul>
+<li>
+<p><strong>WCAG 2.1:</strong> <a href="https://www.w3.org/TR/WCAG21/">w3.org/TR/WCAG21/</a></p>
+</li>
+<li>
+<p><strong>axe-core &amp; Tools:</strong> <a href="https://www.deque.com/axe/">deque.com/axe/</a></p>
+</li>
+<li>
+<p><strong>WebAIM:</strong> <a href="https://webaim.org">webaim.org</a> (Resources, Contrast Checker)</p>
+</li>
+<li>
+<p><strong>MDN Accessibility Docs:</strong> <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">developer.mozilla.org/en-US/docs/Web/Accessibility</a></p>
+</li>
+<li>
+<p><strong>WAI-ARIA Authoring Practices:</strong> <a href="https://www.w3.org/WAI/ARIA/apg/">w3.org/WAI/ARIA/apg/</a> (Guidance for custom widgets)</p>
+</li>
+</ul>
+<hr />
+<p>Accessibility is an ongoing commitment integral to ThinkAlike's mission. Build inclusively.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Accessibility Implementation Guide (A11y)</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Accessibility Implementation Guide (A11y)</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

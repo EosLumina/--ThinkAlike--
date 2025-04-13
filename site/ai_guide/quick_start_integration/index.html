@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/ai_guide/quick_start_integration/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Eos Lumina∴ AI Guide: Quick Start Integration - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Eos Lumina\u2234 AI Guide: Quick Start Integration";
+        var mkdocs_page_input_path = "ai_guide/quick_start_integration.md";
+        var mkdocs_page_url = "/--ThinkAlike--/ai_guide/quick_start_integration/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Eos Lumina∴ AI Guide: Quick Start Integration</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="eos-lumina-ai-guide-quick-start-integration">Eos Lumina∴ AI Guide: Quick Start Integration</h1>
+<p>This guide provides simple integration steps to add the Eos Lumina∴ AI Guide to your ThinkAlike project site or documentation.</p>
+<h2 id="installation">Installation</h2>
+<h3 id="method-1-script-tag-simplest">Method 1: Script Tag (Simplest)</h3>
+<p>Add this script tag to your HTML page:</p>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://thinkalike-project.com/assets/eos-lumina-guide.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://thinkalike-project.com/assets/eos-lumina-guide.css&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">EosLumina</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">mountPoint</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#guide-container&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Optional: Where to mount the guide</span>
+<span class="w">      </span><span class="nx">initialMessage</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Welcome to ThinkAlike!&#39;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Optional: Custom welcome message</span>
+<span class="w">      </span><span class="nx">enableVoice</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// Optional: Start with voice enabled</span>
+<span class="w">      </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;light&#39;</span><span class="w"> </span><span class="c1">// Optional: &#39;light&#39; or &#39;dark&#39;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="cm">&lt;!-- Optional: Specify where the guide should appear --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;guide-container&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="method-2-npm-installation">Method 2: NPM Installation</h3>
+<p>For React-based projects:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>@thinkalike/eos-lumina-guide
+</code></pre></div>
+<p>Then in your component:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">EosLuminaGuide</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@thinkalike/eos-lumina-guide&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">MyComponent</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;my-container&quot;</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span><span class="nx">ThinkAlike</span><span class="w"> </span><span class="nx">Documentation</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+<span class="w">      </span><span class="p">{</span><span class="cm">/* Add the guide component */</span><span class="p">}</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">EosLuminaGuide</span>
+<span class="w">        </span><span class="na">initialMessage</span><span class="o">=</span><span class="s">&quot;Welcome to ThinkAlike! How can I assist you today?&quot;</span>
+<span class="w">        </span><span class="na">enableVoice</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+<span class="w">        </span><span class="na">showTaskRecommendations</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span>
+<span class="w">      </span><span class="p">/&gt;</span>
+
+<span class="w">      </span><span class="p">{</span><span class="cm">/* Rest of your content */</span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="configuration-options">Configuration Options</h2>
+<h3 id="basic-options">Basic Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>initialMessage</code></td>
+<td>string</td>
+<td>"Welcome..."</td>
+<td>First message displayed by the guide</td>
+</tr>
+<tr>
+<td><code>enableVoice</code></td>
+<td>boolean</td>
+<td>true</td>
+<td>Whether voice synthesis is initially enabled</td>
+</tr>
+<tr>
+<td><code>theme</code></td>
+<td>string</td>
+<td>'light'</td>
+<td>UI theme: 'light' or 'dark'</td>
+</tr>
+<tr>
+<td><code>showTaskRecommendations</code></td>
+<td>boolean</td>
+<td>true</td>
+<td>Show task recommendations panel</td>
+</tr>
+<tr>
+<td><code>minimized</code></td>
+<td>boolean</td>
+<td>false</td>
+<td>Start in minimized state</td>
+</tr>
+</tbody>
+</table>
+<h3 id="advanced-options">Advanced Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>voiceSettings</code></td>
+<td>object</td>
+<td>{...}</td>
+<td>Voice characteristics configuration</td>
+</tr>
+<tr>
+<td><code>apiEndpoint</code></td>
+<td>string</td>
+<td>"..."</td>
+<td>Custom API endpoint for guide service</td>
+</tr>
+<tr>
+<td><code>contributorProfilePersistence</code></td>
+<td>string</td>
+<td>'local'</td>
+<td>Where to store profile: 'local', 'session', 'server'</td>
+</tr>
+<tr>
+<td><code>gitHubIntegration</code></td>
+<td>boolean</td>
+<td>true</td>
+<td>Enable GitHub API integration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="customization">Customization</h2>
+<h3 id="styling">Styling</h3>
+<p>The guide uses CSS variables that you can override:</p>
+<div class="highlight"><pre><span></span><code><span class="p">:</span><span class="nd">root</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--eos-primary-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#f0a500</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--eos-secondary-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#4267AC</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--eos-background</span><span class="p">:</span><span class="w"> </span><span class="mh">#ffffff</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--eos-text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#333333</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--eos-accent-glow</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">);</span>
+<span class="w">  </span><span class="nv">--eos-font-family</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Manrope&#39;</span><span class="p">,</span><span class="w"> </span><span class="kc">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c">/* Dark theme variables */</span>
+<span class="o">[</span><span class="nt">data-theme</span><span class="o">=</span><span class="s2">&quot;dark&quot;</span><span class="o">]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nv">--eos-background</span><span class="p">:</span><span class="w"> </span><span class="mh">#1a1a2e</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--eos-text-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#e6e6e6</span><span class="p">;</span>
+<span class="w">  </span><span class="nv">--eos-accent-glow</span><span class="p">:</span><span class="w"> </span><span class="nb">rgba</span><span class="p">(</span><span class="mi">240</span><span class="p">,</span><span class="w"> </span><span class="mi">165</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.15</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="custom-voice-settings">Custom Voice Settings</h3>
+<p>You can customize the voice characteristics:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">window</span><span class="p">.</span><span class="nx">EosLumina</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span>
+<span class="w">  </span><span class="c1">// ...other options</span>
+<span class="w">  </span><span class="nx">voiceSettings</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">pitch</span><span class="o">:</span><span class="w"> </span><span class="mf">1.1</span><span class="p">,</span><span class="w">      </span><span class="c1">// Range: 0.5-1.5</span>
+<span class="w">    </span><span class="nx">rate</span><span class="o">:</span><span class="w"> </span><span class="mf">0.95</span><span class="p">,</span><span class="w">      </span><span class="c1">// Range: 0.8-1.2</span>
+<span class="w">    </span><span class="nx">harmony</span><span class="o">:</span><span class="w"> </span><span class="mf">0.3</span><span class="p">,</span><span class="w">    </span><span class="c1">// Range: 0-1 (ethereal harmonics intensity)</span>
+<span class="w">    </span><span class="nx">resonance</span><span class="o">:</span><span class="w"> </span><span class="mf">0.4</span><span class="w">   </span><span class="c1">// Range: 0-1 (spatial quality)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="events">Events</h2>
+<p>You can listen for guide events:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;eosGuideInitialized&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Guide is ready:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;eosGuideSpeaking&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Guide is speaking:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">text</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;eosGuideTaskRecommended&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Recommended tasks:&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">tasks</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2 id="common-integration-scenarios">Common Integration Scenarios</h2>
+<h3 id="documentation-site-integration">Documentation Site Integration</h3>
+<div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;docs-sidebar&quot;</span><span class="p">&gt;</span>
+  <span class="cm">&lt;!-- Navigation --&gt;</span>
+
+  <span class="cm">&lt;!-- Add the minimized guide at the bottom of the sidebar --&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;guide-container&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;sidebar-guide&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="nb">window</span><span class="p">.</span><span class="nx">EosLumina</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">mountPoint</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;#guide-container&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">minimized</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">contextAware</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">// Will be aware of current documentation page</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></div>
+<h3 id="github-pages-integration">GitHub Pages Integration</h3>
+<p>Add to your Jekyll site's default layout:</p>
+<div class="highlight"><pre><span></span><code>{% if site.enable_eos_guide %}
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">async</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;{{ site.baseurl }}/assets/js/eos-lumina-guide.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;{{ site.baseurl }}/assets/css/eos-lumina-guide.css&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;DOMContentLoaded&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">EosLumina</span><span class="p">.</span><span class="nx">initialize</span><span class="p">({</span>
+<span class="w">      </span><span class="nx">githubRepo</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ site.github_username }}/{{ site.github_repo }}&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nx">theme</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;{{ site.theme }}&quot;</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;dark&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;light&#39;</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">  </span><span class="p">});</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+{% endif %}
+</code></pre></div>
+<h2 id="accessibility">Accessibility</h2>
+<p>The guide is built with accessibility in mind:</p>
+<ul>
+<li>All interactive elements are keyboard navigable</li>
+<li>Voice controls can be toggled on/off</li>
+<li>Color contrast meets WCAG 2.1 AA standards</li>
+<li>Screen reader optimized using aria attributes</li>
+<li>Caption system for voice content</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="voice-not-working">Voice Not Working</h3>
+<ul>
+<li>Check if browser supports Web Speech API (Chrome, Edge, Safari)</li>
+<li>Ensure user has granted microphone permissions if using voice input</li>
+<li>Try using the fallback voice server by adding <code>useFallbackVoice: true</code></li>
+</ul>
+<h3 id="guide-not-loading">Guide Not Loading</h3>
+<ul>
+<li>Check browser console for errors</li>
+<li>Verify the script is loading correctly</li>
+<li>Ensure the mount point exists in DOM before initialization</li>
+<li>Try adding <code>async: false</code> to force synchronous loading</li>
+</ul>
+<h3 id="custom-styling-issues">Custom Styling Issues</h3>
+<ul>
+<li>Inspect element to confirm CSS variables are being applied</li>
+<li>Check for CSS specificity issues in your custom styles</li>
+<li>Make sure the theme attribute is correctly set</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>For advanced customization, backend integration, and extension development, see the complete <a href="./developer_guide.md">Eos Lumina∴ Development Guide</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

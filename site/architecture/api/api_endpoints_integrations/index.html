@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/api/api_endpoints_integrations/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>API Endpoints - Backend - External Integrations - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Endpoints - Backend - External Integrations";
+        var mkdocs_page_input_path = "architecture/api/api_endpoints_integrations.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/api/api_endpoints_integrations/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Endpoints - Backend - External Integrations</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-endpoints-backend-external-integrations">API Endpoints - Backend - External Integrations</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document specifies the <strong>API endpoints for the ThinkAlike project backend related to integrating with third-party external services</strong> (e.g., Goodreads, Spotify). It supplements the main <a href="../api_endpoints/"><code>API_ENDPOINTS.md</code></a> and details routes for managing OAuth connections, fetching data, and handling user consent specific to these integrations.</p>
+<p>These endpoints support the features described in the <a href="../../data_integration_strategy/">Data Integration Strategy</a> and are used by the <a href="../../../components/ui_components/connected_services_manager/">ConnectedServicesManager UI component</a>.</p>
+<p>Refer to <a href="../api_endpoints/"><code>API_ENDPOINTS.md</code></a> for general API conventions, authentication details (JWT Bearer), base URL (<code>/api/v1</code>), and standard error response formats. All endpoints listed here require <strong>Bearer Authentication</strong> unless explicitly related to the OAuth callback phase which involves state validation.</p>
+<hr />
+<h2 id="2-api-endpoints-integration-management">2. API Endpoints - Integration Management</h2>
+<h3 id="21-connection-status-configuration">2.1 Connection Status &amp; Configuration</h3>
+<ul>
+<li>
+<p><code>GET /api/v1/integrations/status</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Fetch the current connection status and configuration for all supported third-party services for the authenticated user.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Used by the <code>ConnectedServicesManager</code> UI component to display which services are connected, the permissions granted, and the user's current data usage consent settings for each service.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>GET</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Successfully retrieved integration statuses.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;services&quot;: [
+    {
+      &quot;serviceId&quot;: &quot;string (e.g., &#39;goodreads&#39;, &#39;spotify&#39;)&quot;,
+      &quot;name&quot;: &quot;string (e.g., &#39;Goodreads&#39;, &#39;Spotify&#39;)&quot;,
+      &quot;isConnected&quot;: &quot;boolean&quot;,
+      &quot;permissionsGranted&quot;: [&quot;string&quot;, &quot;...&quot;],
+      &quot;usage&quot;: {
+        &quot;matching&quot;: &quot;boolean&quot;,
+        &quot;community_recommendations&quot;: &quot;boolean&quot;,
+        &quot;profile_display&quot;: &quot;boolean&quot;
+      },
+      &quot;lastSynced&quot;: &quot;string (date-time, nullable)&quot;
+    }
+  ]
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error fetching status from database or configuration.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="22-oauth-flow-initiation-callback">2.2 OAuth Flow Initiation &amp; Callback</h3>
+<ul>
+<li>
+<p><code>GET /api/v1/integrations/{serviceId}/auth_url</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get the external service's authorization URL to initiate the OAuth connection flow.</p>
+</li>
+<li>
+<p><strong>Description:</strong> The frontend calls this endpoint when the user clicks "Connect". The backend generates the appropriate OAuth authorization URL for the specified service, including necessary parameters like <code>client_id</code>, <code>scope</code>, <code>redirect_uri</code>, and a unique <code>state</code> parameter (stored server-side in the user's session for CSRF protection).</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>GET</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Path Parameters:</strong></p>
+<ul>
+<li><code>serviceId</code> (string, required): Identifier of the service (e.g., 'goodreads', 'spotify').</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Returns the authorization URL.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;authUrl&quot;: &quot;string (The full URL the frontend should redirect the user to)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Invalid or unsupported <code>serviceId</code>.</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error generating state parameter or URL.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>GET /api/v1/integrations/{serviceId}/callback</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Handle the callback from the external OAuth provider after user authorization.</p>
+</li>
+<li>
+<p><strong>Description:</strong> This is the <code>redirect_uri</code> registered with the third-party service. It receives the <code>code</code> (authorization code) and <code>state</code> from the provider. The backend validates the <code>state</code> parameter against the user's session, exchanges the <code>code</code> for access/refresh tokens, securely stores the tokens, and then typically redirects the user back to the frontend's "Connected Services" page.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>GET</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Implicitly linked to the user's session established <em>before</em> the redirect to the external service, primarily via the <code>state</code> parameter validation. Standard Bearer token not applicable here.</p>
+</li>
+<li>
+<p><strong>Path Parameters:</strong></p>
+<ul>
+<li><code>serviceId</code> (string, required): Identifier of the service.</li>
+</ul>
+</li>
+<li>
+<p><strong>Query Parameters (from external service):</strong></p>
+<ul>
+<li>
+<p><code>code</code>: <code>string</code> (Authorization code).</p>
+</li>
+<li>
+<p><code>state</code>: <code>string</code> (CSRF protection token to be validated against user session).</p>
+</li>
+<li>
+<p><code>error</code>: <code>string</code> (Optional, if authorization failed on the provider side).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>302 Found</code> (Redirect): On successful token exchange and storage, redirects the user back to a predefined frontend URL (e.g., <code>/settings/connected-services?success=true&amp;service={serviceId}</code>).</p>
+</li>
+<li>
+<p><code>400 Bad Request</code>: <code>state</code> mismatch (CSRF detected), missing <code>code</code>, invalid <code>serviceId</code>.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Failed to exchange code for tokens with the external service, failed to store tokens securely. Error details should be logged securely, user sees a generic failure redirect (e.g., <code>/settings/connected-services?error=true&amp;service={serviceId}</code>).</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="23-connection-management-consent">2.3 Connection Management &amp; Consent</h3>
+<ul>
+<li>
+<p><code>PUT /api/v1/integrations/settings</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Update the user's data usage consent settings for one or more connected services.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Called by the frontend when a user toggles the data usage switches in the <code>ConnectedServicesManager</code> UI. Updates the user's preferences in the database.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>PUT</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;serviceId&quot;: &quot;string (Required, e.g., &#39;goodreads&#39;)&quot;,
+  &quot;usage&quot;: {
+    &quot;matching&quot;: &quot;boolean (optional)&quot;,
+    &quot;community_recommendations&quot;: &quot;boolean (optional)&quot;,
+    &quot;profile_display&quot;: &quot;boolean (optional)&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Settings updated successfully.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Integration settings updated successfully.&quot;,
+  &quot;updatedService&quot;: {
+      &quot;serviceId&quot;: &quot;string&quot;,
+      &quot;isConnected&quot;: true,
+      &quot;permissionsGranted&quot;: [&quot;...&quot;],
+      &quot;usage&quot;: { &quot;matching&quot;: true, &quot;community_recommendations&quot;: false, ... },
+      &quot;lastSynced&quot;: &quot;string (date-time, nullable)&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Invalid input data (e.g., unknown <code>serviceId</code>, invalid usage keys).</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: User does not have a connection for the specified <code>serviceId</code> to update settings for.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error saving settings to database.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>DELETE /api/v1/integrations/{serviceId}/connection</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Disconnect an external service and revoke ThinkAlike's access.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Called when the user clicks "Disconnect". The backend securely deletes stored tokens and associated harvested data for this service and user. It should also attempt to revoke the token with the third-party service if their API supports it.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>DELETE</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Path Parameters:</strong></p>
+<ul>
+<li><code>serviceId</code> (string, required): Identifier of the service to disconnect.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>204 No Content</code>: Successfully disconnected and data cleaned up.</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: No active connection found for this user and service to disconnect.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error during token deletion, data cleanup, or revocation attempt.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="24-data-synchronization-internal-trigger-potential-manual-trigger">2.4 Data Synchronization (Internal Trigger / Potential Manual Trigger)</h3>
+<ul>
+<li>
+<p><code>POST /api/v1/integrations/{serviceId}/sync</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Manually trigger a data synchronization task for a specific service for the authenticated user.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Primarily, data syncs run on a schedule or via background tasks. This endpoint provides an <em>optional</em> way for a user to request an immediate refresh via the UI (e.g., "Refresh My Goodreads Data" button). The backend should queue the sync task rather than executing it synchronously in the request.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>POST</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Path Parameters:</strong></p>
+<ul>
+<li><code>serviceId</code> (string, required): Identifier of the service to sync.</li>
+</ul>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>202 Accepted</code>: Sync task successfully queued.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Data synchronization task for {serviceId} has been queued.&quot;,
+  &quot;taskId&quot;: &quot;string (Optional ID for the background task)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Cannot queue sync (e.g., service not connected, sync already in progress).</p>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: Service ID invalid or not connected.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error queuing the background task.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="3-data-models">3. Data Models</h2>
+<ul>
+<li>
+<p><strong><code>UserExternalToken</code></strong>: Database model to store encrypted <code>access_token</code>, <code>refresh_token</code>, <code>expires_at</code>, <code>scopes_granted</code> per <code>user_id</code> and <code>service_name</code>.</p>
+</li>
+<li>
+<p><strong><code>UserIntegrationSetting</code></strong>: Database model/fields to store user consent toggles (<code>usage</code> flags like <code>matching</code>, <code>community_recommendations</code>) per <code>user_id</code> and <code>service_name</code>.</p>
+</li>
+<li>
+<p><strong><code>UserExternalData</code></strong>: Database model to store minimally processed, relevant data harvested from external services (e.g., list of book IDs/genres, top artist IDs/genres), linked to <code>user_id</code> and <code>service_name</code>, including <code>last_retrieved</code> timestamp.</p>
+</li>
+</ul>
+<p><em>(Refer to <a href="../../database/unified_data_model_schema/"><code>unified_data_model_schema.md</code></a> for detailed table definitions).</em></p>
+<hr />
+<h2 id="4-security-error-handling">4. Security &amp; Error Handling</h2>
+<ul>
+<li>
+<p>Emphasize secure handling and storage of OAuth tokens (encryption at rest).</p>
+</li>
+<li>
+<p>Validate <code>state</code> parameter rigorously in OAuth callbacks to prevent CSRF.</p>
+</li>
+<li>
+<p>Handle token expiry and refresh securely.</p>
+</li>
+<li>
+<p>Enforce user consent checks <em>before</em> fetching or using external data.</p>
+</li>
+<li>
+<p>Implement robust error handling for external API calls (timeouts, rate limits, permission errors).</p>
+</li>
+<li>
+<p>Standard HTTP error codes used; error responses include <code>message</code>.</p>
+</li>
+</ul>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: API Endpoints - Backend - External Integrations</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of API Endpoints - Backend - External Integrations</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

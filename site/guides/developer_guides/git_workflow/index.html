@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/git_workflow/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Git Workflow Standard - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Git Workflow Standard";
+        var mkdocs_page_input_path = "guides/developer_guides/git_workflow.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/git_workflow/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Git Workflow Standard</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-introduction">1. Introduction</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-branching-strategy">2. Branching Strategy</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-main-branch-types">2.1 Main Branch Types</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-supporting-branch-types">2.2 Supporting Branch Types</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-workflow-process">3. Workflow Process</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-starting-new-work">3.1 Starting New Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32-during-development">3.2 During Development</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#33-completing-work">3.3 Completing Work</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#34-hotfix-process">3.4 Hotfix Process</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-commit-guidelines">4. Commit Guidelines</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#41-commit-message-format">4.1 Commit Message Format</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#42-example-commit-messages">4.2 Example Commit Messages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#43-commit-best-practices">4.3 Commit Best Practices</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-git-best-practices">5. Git Best Practices</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#51-general-guidelines">5.1 General Guidelines</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#52-handling-merge-conflicts">5.2 Handling Merge Conflicts</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#53-useful-git-commands">5.3 Useful Git Commands</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6-github-flow-alternative">6. GitHub Flow Alternative</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7-git-hooks">7. Git Hooks</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Development</li>
+      <li class="breadcrumb-item active">Git Workflow Standard</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="git-workflow-standard">Git Workflow Standard</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>Defines the Git workflow and branching strategy used across the project.</p>
+<div class="highlight"><pre><span></span><code>gitGraph
+    commit
+    branch develop
+    checkout develop
+    commit
+    branch feature
+    checkout feature
+    commit
+    commit
+    checkout develop
+    merge feature
+    commit
+    checkout main
+    merge develop
+</code></pre></div>
+<p>This document outlines the standard Git workflow for the ThinkAlike project. Following a consistent workflow ensures that our codebase remains organized, maintainable, and that team members can collaborate effectively. This guide covers branching strategy, commit guidelines, and best practices for using Git in our development process.</p>
+<hr />
+<h2 id="2-branching-strategy">2. Branching Strategy</h2>
+<p>ThinkAlike follows a modified version of the GitFlow workflow, adapted to our specific needs.</p>
+<h3 id="21-main-branch-types">2.1 Main Branch Types</h3>
+<ul>
+<li>
+<p><strong><code>main</code></strong>: The production-ready codebase</p>
+</li>
+<li>
+<p>Always deployable</p>
+</li>
+<li>
+<p>Protected branch - no direct commits</p>
+</li>
+<li>
+<p>Merged into only via pull requests from <code>develop</code> or hotfix branches</p>
+</li>
+<li>
+<p>Tagged with version numbers for releases</p>
+</li>
+<li>
+<p><strong><code>develop</code></strong>: The integration branch for features</p>
+</li>
+<li>
+<p>Contains the latest completed features</p>
+</li>
+<li>
+<p>Relatively stable, but not necessarily production-ready</p>
+</li>
+<li>
+<p>Base branch for feature development</p>
+</li>
+<li>
+<p>Protected branch - no direct commits</p>
+</li>
+</ul>
+<h3 id="22-supporting-branch-types">2.2 Supporting Branch Types</h3>
+<ul>
+<li>
+<p><strong>Feature Branches</strong>: For developing new features</p>
+</li>
+<li>
+<p>Format: <code>feature/[issue-number]-short-description</code></p>
+</li>
+<li>
+<p>Example: <code>feature/42-user-preferences</code></p>
+</li>
+<li>
+<p>Branched from: <code>develop</code></p>
+</li>
+<li>
+<p>Merged back into: <code>develop</code></p>
+</li>
+<li>
+<p><strong>Bugfix Branches</strong>: For fixing non-critical bugs</p>
+</li>
+<li>
+<p>Format: <code>fix/[issue-number]-short-description</code></p>
+</li>
+<li>
+<p>Example: <code>fix/57-incorrect-timestamp-format</code></p>
+</li>
+<li>
+<p>Branched from: <code>develop</code></p>
+</li>
+<li>
+<p>Merged back into: <code>develop</code></p>
+</li>
+<li>
+<p><strong>Hotfix Branches</strong>: For urgent production fixes</p>
+</li>
+<li>
+<p>Format: <code>hotfix/[issue-number]-short-description</code></p>
+</li>
+<li>
+<p>Example: <code>hotfix/65-login-failure</code></p>
+</li>
+<li>
+<p>Branched from: <code>main</code></p>
+</li>
+<li>
+<p>Merged back into: <code>main</code> AND <code>develop</code></p>
+</li>
+<li>
+<p><strong>Documentation Branches</strong>: For documentation-only changes</p>
+</li>
+<li>
+<p>Format: <code>docs/[issue-number]-short-description</code></p>
+</li>
+<li>
+<p>Example: <code>docs/78-api-documentation</code></p>
+</li>
+<li>
+<p>Branched from: <code>develop</code></p>
+</li>
+<li>
+<p>Merged back into: <code>develop</code></p>
+</li>
+<li>
+<p><strong>Release Branches</strong>: For preparing releases</p>
+</li>
+<li>
+<p>Format: <code>release/v[version]</code></p>
+</li>
+<li>
+<p>Example: <code>release/v1.2.0</code></p>
+</li>
+<li>
+<p>Branched from: <code>develop</code></p>
+</li>
+<li>
+<p>Merged back into: <code>main</code> AND <code>develop</code></p>
+</li>
+<li>
+<p>Only bug fixes, documentation, and release-oriented tasks</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-workflow-process">3. Workflow Process</h2>
+<h3 id="31-starting-new-work">3.1 Starting New Work</h3>
+<ol>
+<li><strong>Update your local repository:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>develop
+</code></pre></div>
+<ol>
+<li><strong>Create a new branch:</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/42-user-preferences
+</code></pre></div>
+<ol>
+<li><strong>Push the branch to remote</strong> (to enable collaboration):</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/42-user-preferences
+</code></pre></div>
+<h3 id="32-during-development">3.2 During Development</h3>
+<ol>
+<li>
+<p><strong>Commit regularly</strong> with meaningful messages (see Section 4)</p>
+</li>
+<li>
+<p><strong>Keep your branch updated</strong> with the latest changes from <code>develop</code>:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>develop
+git<span class="w"> </span>checkout<span class="w"> </span>feature/42-user-preferences
+git<span class="w"> </span>rebase<span class="w"> </span>develop
+</code></pre></div>
+<ol>
+<li><strong>Push your changes</strong> to the remote repository:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/42-user-preferences
+</code></pre></div>
+<p>If you've rebased and need to force push:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w"> </span>origin<span class="w"> </span>feature/42-user-preferences
+</code></pre></div>
+<h3 id="33-completing-work">3.3 Completing Work</h3>
+<ol>
+<li>
+<p><strong>Ensure all tests pass</strong> locally</p>
+</li>
+<li>
+<p><strong>Rebase on latest <code>develop</code></strong>:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>develop
+git<span class="w"> </span>checkout<span class="w"> </span>feature/42-user-preferences
+git<span class="w"> </span>rebase<span class="w"> </span>develop
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Create a pull request</strong> (follow the <a href="../pull_request_process/">Pull Request Process</a>)</p>
+</li>
+<li>
+<p><strong>Address review feedback</strong> by adding new commits or amending existing ones</p>
+</li>
+<li>
+<p><strong>Once approved</strong>, merge using GitHub's UI (squash and merge is preferred for feature branches)</p>
+</li>
+<li>
+<p><strong>Delete the branch</strong> after it's merged:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/42-user-preferences<span class="w">  </span><span class="c1"># delete locally</span>
+
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>feature/42-user-preferences<span class="w">  </span><span class="c1"># delete from remote</span>
+</code></pre></div>
+<h3 id="34-hotfix-process">3.4 Hotfix Process</h3>
+<ol>
+<li><strong>Create a hotfix branch from <code>main</code></strong>:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>main
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/65-login-failure
+</code></pre></div>
+<ol>
+<li>
+<p><strong>Implement the fix</strong> with appropriate tests</p>
+</li>
+<li>
+<p><strong>Create a pull request</strong> targeting <code>main</code></p>
+</li>
+<li>
+<p><strong>After approval and merge to <code>main</code></strong>, also merge to <code>develop</code>:</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>develop
+git<span class="w"> </span>pull<span class="w"> </span>origin<span class="w"> </span>develop
+git<span class="w"> </span>merge<span class="w"> </span>origin/main
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>develop
+</code></pre></div>
+<hr />
+<h2 id="4-commit-guidelines">4. Commit Guidelines</h2>
+<h3 id="41-commit-message-format">4.1 Commit Message Format</h3>
+<p>Follow the Conventional Commits specification:</p>
+<div class="highlight"><pre><span></span><code>&lt;type&gt;[optional scope]: &lt;description&gt;
+
+[optional body]
+
+[optional footer(s)]
+</code></pre></div>
+<ul>
+<li>
+<p><strong>Types</strong>:</p>
+</li>
+<li>
+<p><code>feat</code>: A new feature</p>
+</li>
+<li>
+<p><code>fix</code>: A bug fix</p>
+</li>
+<li>
+<p><code>docs</code>: Documentation changes</p>
+</li>
+<li>
+<p><code>style</code>: Formatting, missing semicolons, etc; no code change</p>
+</li>
+<li>
+<p><code>refactor</code>: Refactoring production code</p>
+</li>
+<li>
+<p><code>test</code>: Adding tests, refactoring tests; no production code change</p>
+</li>
+<li>
+<p><code>chore</code>: Updating build tasks, package configs, etc; no production code change</p>
+</li>
+<li>
+<p><code>perf</code>: Performance improvements</p>
+</li>
+<li>
+<p><code>ci</code>: CI configuration changes</p>
+</li>
+<li>
+<p><code>build</code>: Changes that affect the build system</p>
+</li>
+<li>
+<p><code>revert</code>: Reverting a previous commit</p>
+</li>
+<li>
+<p><strong>Scope</strong>: Optional descriptor for the section of code affected</p>
+</li>
+<li>
+<p>Examples: <code>auth</code>, <code>api</code>, <code>ui</code>, <code>db</code>, <code>matching</code></p>
+</li>
+</ul>
+<h3 id="42-example-commit-messages">4.2 Example Commit Messages</h3>
+<div class="highlight"><pre><span></span><code>feat(user): add user preference settings
+
+* Added API endpoints for managing preferences
+
+* Created database schema for storing preferences
+
+* Added UI components for preference management
+
+Resolves #42
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>fix(auth): prevent session timeout during active use
+
+The session was incorrectly expiring even when users were active.
+Added heartbeat mechanism to refresh tokens.
+
+Fixes #65
+</code></pre></div>
+<h3 id="43-commit-best-practices">4.3 Commit Best Practices</h3>
+<ul>
+<li>
+<p><strong>Make atomic commits</strong>: Each commit should represent a single logical change</p>
+</li>
+<li>
+<p><strong>Commit complete changes</strong>: Don't leave the code in a broken state</p>
+</li>
+<li>
+<p><strong>Reference issues</strong>: Include issue numbers in commit messages where applicable</p>
+</li>
+<li>
+<p><strong>Write in imperative mood</strong>: "Add feature" not "Added feature"</p>
+</li>
+<li>
+<p><strong>Limit the first line</strong>: Keep the summary under 50 characters if possible</p>
+</li>
+<li>
+<p><strong>Separate subject from body</strong> with a blank line</p>
+</li>
+<li>
+<p><strong>Use the body</strong> to explain what and why, not how</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-git-best-practices">5. Git Best Practices</h2>
+<h3 id="51-general-guidelines">5.1 General Guidelines</h3>
+<ul>
+<li>
+<p><strong>Don't commit directly to protected branches</strong> (<code>main</code>, <code>develop</code>)</p>
+</li>
+<li>
+<p><strong>Don't commit generated files</strong> unless absolutely necessary</p>
+</li>
+<li>
+<p><strong>Don't commit configuration with secrets</strong> (use environment variables)</p>
+</li>
+<li>
+<p><strong>Don't commit large binary files</strong> (use Git LFS if necessary)</p>
+</li>
+<li>
+<p><strong>Keep branches short-lived</strong> (merge or discard within 1-2 weeks ideally)</p>
+</li>
+</ul>
+<h3 id="52-handling-merge-conflicts">5.2 Handling Merge Conflicts</h3>
+<ol>
+<li><strong>Update your branch</strong> frequently to minimize conflicts</li>
+<li><strong>Resolve conflicts</strong> at the feature level, not at merge time</li>
+<li>Use <strong>visual merge tools</strong> for complex conflicts (VSCode, GitKraken, etc.)</li>
+<li>When in doubt, <strong>consult the original developer</strong> of the conflicting code</li>
+</ol>
+<h3 id="53-useful-git-commands">5.3 Useful Git Commands</h3>
+<ul>
+<li><strong>View branch status</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status
+</code></pre></div>
+<ul>
+<li><strong>View commit history</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>log<span class="w"> </span>--graph<span class="w"> </span>--oneline<span class="w"> </span>--all<span class="w"> </span>--decorate
+</code></pre></div>
+<ul>
+<li><strong>Discard local changes</strong> to a file:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>filename
+</code></pre></div>
+<ul>
+<li><strong>Temporarily save changes</strong> without committing:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">  </span><span class="c1"># to retrieve stashed changes</span>
+</code></pre></div>
+<ul>
+<li><strong>Amend the last commit</strong>:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend
+</code></pre></div>
+<ul>
+<li><strong>Interactive rebase</strong> to clean up commits before pushing:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3<span class="w">  </span><span class="c1"># Rebase the last 3 commits</span>
+</code></pre></div>
+<hr />
+<h2 id="6-github-flow-alternative">6. GitHub Flow Alternative</h2>
+<p>For smaller changes or simpler projects, we may occasionally use GitHub Flow instead of GitFlow:</p>
+<ol>
+<li><strong>Branch from <code>main</code></strong></li>
+<li><strong>Add commits</strong></li>
+<li><strong>Create a pull request</strong></li>
+<li><strong>Review and discuss</strong></li>
+<li><strong>Deploy and test</strong> (via staging environment)</li>
+<li>**Merge to <code>main</code></li>
+</ol>
+<p>This streamlined approach is suitable for hotfixes, simple documentation changes, or when working with external contributors.</p>
+<hr />
+<h2 id="7-git-hooks">7. Git Hooks</h2>
+<p>ThinkAlike uses Git hooks to automate quality checks:</p>
+<ul>
+<li>
+<p><strong>pre-commit</strong>: Runs linters, formatters, and basic tests</p>
+</li>
+<li>
+<p><strong>commit-msg</strong>: Validates commit message format</p>
+</li>
+<li>
+<p><strong>pre-push</strong>: Runs comprehensive tests</p>
+</li>
+</ul>
+<p>Install the hooks by running:</p>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>run<span class="w"> </span>install-hooks<span class="w">  </span><span class="c1"># for frontend</span>
+
+pip<span class="w"> </span>install<span class="w"> </span>pre-commit<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pre-commit<span class="w"> </span>install<span class="w">  </span><span class="c1"># for backend</span>
+</code></pre></div>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Git Workflow Standard</p>
+</li>
+<li>
+<p>Type: Development Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Git Workflow Standard</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ui_validation_examples/" class="btn btn-neutral float-left" title="UI Validation Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ui_validation_examples/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

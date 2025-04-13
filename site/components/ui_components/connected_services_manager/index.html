@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/components/ui_components/connected_services_manager/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Connected services manager - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Connected services manager";
+        var mkdocs_page_input_path = "components/ui_components/connected_services_manager.md";
+        var mkdocs_page_url = "/--ThinkAlike--/components/ui_components/connected_services_manager/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Connected services manager</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <p>// filepath: C:--ThinkAlike--\docs\components\ui_components\connected_services_manager.md</p>
+<h1 id="ui-component-specification-connectedservicesmanager">UI Component Specification: ConnectedServicesManager</h1>
+<hr />
+<h2 id="1-introduction-and-description">1. Introduction and Description</h2>
+<p>The <strong>ConnectedServicesManager</strong> is a dedicated UI component within ThinkAlike, typically residing in the user's main Settings or Profile section. Its primary purpose is to provide a centralized, clear, and actionable interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify).</p>
+<p>This component is the primary user-facing element for the <a href="../../../architecture/data_integration_strategy/">Third-Party Data Integration Strategy</a> and directly enables the user control principles outlined in the <a href="../../../guides/user_guides/connected_services_guide/">Connected Services User Guide</a>. It allows users to:</p>
+<ul>
+<li>
+<p>View supported external services.</p>
+</li>
+<li>
+<p>Initiate the connection (OAuth) process for each service.</p>
+</li>
+<li>
+<p>View the connection status and permissions granted to ThinkAlike.</p>
+</li>
+<li>
+<p>Exercise <strong>granular, opt-in control</strong> over <em>how</em> data harvested from each service is used within ThinkAlike.</p>
+</li>
+<li>
+<p>Easily disconnect services and trigger data deletion.</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-ui-elements-and-layout">2. UI Elements and Layout</h2>
+<p>The component typically renders as a panel or section containing a list of supported/connected services.</p>
+<h3 id="21-service-listing-area">2.1 Service Listing Area</h3>
+<ul>
+<li>
+<p><strong>Layout:</strong> A list or grid displaying each supported third-party service.</p>
+</li>
+<li>
+<p><strong>Per-Service Entry:</strong> Each service entry includes:</p>
+</li>
+<li>
+<p><strong>Service Icon/Logo:</strong> Recognizable logo of the third-party service (e.g., Goodreads 'g', Spotify circle).</p>
+</li>
+<li>
+<p><strong>Service Name:</strong> Clear text label (e.g., "Goodreads", "Spotify").</p>
+</li>
+<li>
+<p><strong>Connection Status Indicator:</strong> Simple text or badge indicating "Connected" or "Not Connected".</p>
+</li>
+<li>
+<p><strong>Action Button:</strong></p>
+<ul>
+<li>
+<p>If "Not Connected": Displays a prominent <code>ActionButton</code> labeled "Connect".</p>
+</li>
+<li>
+<p>If "Connected": Displays a prominent <code>ActionButton</code> (potentially styled differently, e.g., secondary or danger) labeled "Disconnect".</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Expand/Details Toggle (Optional):</strong> An icon (e.g., <code>&gt;</code> or <code>+</code>) to expand the entry and show detailed controls (Permissions, Usage Toggles, Last Synced).</p>
+</li>
+</ul>
+<h3 id="22-detailed-service-view-expanded-state">2.2 Detailed Service View (Expanded State)</h3>
+<p>When a user expands a connected service entry:</p>
+<ul>
+<li>
+<p><strong>Permissions Granted Display:</strong></p>
+</li>
+<li>
+<p><strong>Component:</strong> Uses <code>DataDisplay</code> components or a simple list.</p>
+</li>
+<li>
+<p><strong>Content:</strong> Clearly lists the specific permissions ThinkAlike was granted access to via the OAuth flow (e.g., "Read your 'read' book shelf", "Access your top artists"). This data should be fetched from the backend based on the stored token's scope.</p>
+</li>
+<li>
+<p><strong>Data Usage Toggles:</strong></p>
+</li>
+<li>
+<p><strong>Component:</strong> Uses a series of labeled <code>Checkbox</code> or <code>ToggleSwitch</code> components.</p>
+</li>
+<li>
+<p><strong>Content:</strong> Presents the specific, granular opt-in choices for data usage, e.g.:</p>
+<ul>
+<li>
+<p><code>[ ] Use Goodreads data for Match Discovery?</code></p>
+</li>
+<li>
+<p><code>[ ] Use Goodreads data for Community Recommendations?</code></p>
+</li>
+<li>
+<p><code>[ ] Display Goodreads insights on my Profile?</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>State:</strong> Reflects the user's current saved preferences (fetched from backend). Defaults to OFF. Changes trigger API calls to update settings.</p>
+</li>
+<li>
+<p><strong>Last Synced Timestamp:</strong></p>
+</li>
+<li>
+<p><strong>Component:</strong> <code>DataDisplay</code>.</p>
+</li>
+<li>
+<p><strong>Content:</strong> Shows the date and time ThinkAlike last successfully fetched data from this service for the user (e.g., "Last synced: 2025-03-26 10:00 UTC"). Fetched from backend.</p>
+</li>
+<li>
+<p><strong>View Harvested Data Link:</strong></p>
+</li>
+<li>
+<p><strong>Component:</strong> Simple <code>&lt;a&gt;</code> tag or <code>LinkButton</code>.</p>
+</li>
+<li>
+<p><strong>Action:</strong> Navigates the user to the <code>Data Explorer Panel</code>, potentially pre-filtered to show data specifically from this connected service.</p>
+</li>
+</ul>
+<h3 id="23-general-feedback-area">2.3 General Feedback Area</h3>
+<ul>
+<li>
+<p><strong>Component:</strong> Uses the <code>Alert</code> component.</p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Display success messages (e.g., "Spotify connected successfully!", "Settings saved.") or error messages (e.g., "Failed to disconnect Goodreads. Please try again.", "API error saving settings.").</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-data-flow-and-interaction">3. Data Flow and Interaction</h2>
+<ol>
+<li><strong>Load:</strong> Component mounts, fetches list of supported services and user's current connection statuses/settings from backend API (e.g., <code>GET /api/v1/integrations/status</code>).</li>
+<li><strong>Connect Action:</strong> User clicks "Connect" for a service. Frontend calls backend endpoint (e.g., <code>GET /api/v1/integrations/{service}/auth_url</code>) which returns the OAuth URL. Frontend redirects user's browser to the external service.</li>
+<li><strong>OAuth Callback:</strong> User authorizes on external site, gets redirected back to ThinkAlike's callback URL handled by the backend. Backend exchanges code for tokens, stores them, and redirects user back to this "Connected Services" panel (potentially with a success query param).</li>
+<li><strong>Panel Refresh:</strong> Panel re-fetches status, now showing the service as "Connected" and revealing the Data Usage Toggles (defaulting to OFF).</li>
+<li><strong>Toggle Usage Consent:</strong> User flips a toggle (e.g., enables "Use Goodreads for Matching"). Frontend sends API request (<code>PUT /api/v1/integrations/settings</code> or similar) with updated consent state for that service/purpose. Backend saves the setting. UI shows confirmation (<code>Alert</code>).</li>
+<li><strong>Disconnect Action:</strong> User clicks "Disconnect". Frontend shows confirmation modal. If confirmed, frontend sends API request (<code>DELETE /api/v1/integrations/{service}/connection</code>). Backend revokes token (if possible via API), deletes stored token and harvested data, and returns success.</li>
+<li><strong>Panel Refresh:</strong> Panel re-fetches status, showing the service as "Not Connected".</li>
+</ol>
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant User
+    participant ConnSvcUI as ConnectedServicesManager (UI)
+    participant BackendAPI as Backend API
+    participant ExternalSvc as External Service (e.g., Goodreads)
+    participant DB as Database
+
+    User-&gt;&gt;ConnSvcUI: Views Panel
+    ConnSvcUI-&gt;&gt;BackendAPI: GET /integrations/status
+    BackendAPI-&gt;&gt;DB: Fetch connection statuses/settings
+    DB--&gt;&gt;BackendAPI: Return statuses
+    BackendAPI--&gt;&gt;ConnSvcUI: Display statuses (e.g., Goodreads: Not Connected)
+
+    User-&gt;&gt;ConnSvcUI: Clicks &quot;Connect Goodreads&quot;
+    ConnSvcUI-&gt;&gt;BackendAPI: GET /integrations/goodreads/auth_url
+    BackendAPI--&gt;&gt;ConnSvcUI: Respond with Goodreads Auth URL
+    ConnSvcUI-&gt;&gt;User: Redirect browser to Goodreads
+    User-&gt;&gt;ExternalSvc: Authorizes ThinkAlike
+    ExternalSvc--&gt;&gt;BackendAPI: Callback with Auth Code
+    BackendAPI-&gt;&gt;ExternalSvc: Exchange Code for Tokens
+    ExternalSvc--&gt;&gt;BackendAPI: Provide Tokens
+    BackendAPI-&gt;&gt;DB: Store Encrypted Tokens
+    BackendAPI--&gt;&gt;User: Redirect browser back to ConnSvcUI
+
+    User-&gt;&gt;ConnSvcUI: Views Panel (Goodreads: Connected)
+    User-&gt;&gt;ConnSvcUI: Enables &quot;Use for Matching&quot; Toggle
+    ConnSvcUI-&gt;&gt;BackendAPI: PUT /integrations/settings (service=goodreads, use_for_matching=true)
+    BackendAPI-&gt;&gt;DB: Update user consent setting
+    DB--&gt;&gt;BackendAPI: Confirm update
+    BackendAPI--&gt;&gt;ConnSvcUI: 200 OK
+    ConnSvcUI-&gt;&gt;User: Show Success Alert
+
+    User-&gt;&gt;ConnSvcUI: Clicks &quot;Disconnect Goodreads&quot;
+    ConnSvcUI-&gt;&gt;User: Show Confirmation Modal
+    User-&gt;&gt;ConnSvcUI: Confirms Disconnect
+    ConnSvcUI-&gt;&gt;BackendAPI: DELETE /integrations/goodreads/connection
+    BackendAPI-&gt;&gt;DB: Delete Tokens &amp; Harvested Data
+    BackendAPI-&gt;&gt;ExternalSvc: Attempt Token Revocation (Optional)
+    BackendAPI--&gt;&gt;ConnSvcUI: 200 OK / 204 No Content
+    ConnSvcUI-&gt;&gt;User: Show Disconnect Success Alert
+    ConnSvcUI-&gt;&gt;BackendAPI: GET /integrations/status (Refresh)
+    BackendAPI--&gt;&gt;ConnSvcUI: Display statuses (Goodreads: Not Connected)
+</code></pre></div>
+<h2 id="4-code-implementation-notes">4. Code Implementation Notes</h2>
+<p>Framework: React.</p>
+<p>State Management: Requires managing the list of services, their connection status, and the state of usage toggles. Global state (Context/Zustand/Redux) is suitable if this status needs to be accessed elsewhere.</p>
+<p>Component Composition: Build using reusable components: ActionButton, ToggleSwitch/Checkbox, DataDisplay, Alert, list/card components.</p>
+<p>API Interaction: Implement robust API calls for fetching status, getting auth URLs, updating settings, and disconnecting. Use loading states (isLoading prop on ActionButton) and error handling (Alert component).</p>
+<p>Security: Frontend never handles client secrets. OAuth flow relies on backend redirects.</p>
+<p>Accessibility: Ensure toggles, buttons, and status indicators are accessible via keyboard and screen readers with proper ARIA attributes.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example React Component Structure (Conceptual)</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useEffect</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">apiClient</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./services/apiClient&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your API client</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ActionButton</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./ActionButton&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">ToggleSwitch</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./ToggleSwitch&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your toggle component</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">DataDisplay</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./DataDisplay&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">Alert</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./Alert&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">ConnectedServicesManager</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">services</span><span class="p">,</span><span class="w"> </span><span class="nx">setServices</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">([]);</span><span class="w"> </span><span class="c1">// { serviceId: &#39;goodreads&#39;, name: &#39;Goodreads&#39;, isConnected: false, permissions: [], usage: { matching: false, ... } }</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isLoading</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsLoading</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">setError</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">successMessage</span><span class="p">,</span><span class="w"> </span><span class="nx">setSuccessMessage</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span><span class="w"> </span><span class="nx">setError</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span><span class="w"> </span><span class="nx">setSuccessMessage</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/integrations/status&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">setServices</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">services</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setError</span><span class="p">(</span><span class="s1">&#39;Failed to load connection statuses.&#39;</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fetchStatus</span><span class="p">();</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleConnect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">serviceId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sb">`/integrations/</span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">/auth_url`</span><span class="p">);</span>
+<span class="w">      </span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">authUrl</span><span class="p">;</span><span class="w"> </span><span class="c1">// Redirect user</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setError</span><span class="p">(</span><span class="sb">`Failed to initiate connection for </span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleDisconnect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">serviceId</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nb">window</span><span class="p">.</span><span class="nx">confirm</span><span class="p">(</span><span class="sb">`Are you sure you want to disconnect </span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">? Harvested data will be removed.`</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="p">;</span>
+<span class="w">     </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="k">await</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="ow">delete</span><span class="p">(</span><span class="sb">`/integrations/</span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">/connection`</span><span class="p">);</span>
+<span class="w">       </span><span class="nx">setSuccessMessage</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb"> disconnected successfully.`</span><span class="p">);</span>
+<span class="w">       </span><span class="nx">fetchStatus</span><span class="p">();</span><span class="w"> </span><span class="c1">// Refresh status</span>
+<span class="w">     </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">       </span><span class="nx">setError</span><span class="p">(</span><span class="sb">`Failed to disconnect </span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleToggleChange</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">serviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">usageKey</span><span class="p">,</span><span class="w"> </span><span class="nx">newValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">     </span><span class="c1">// Optimistic update can be added here</span>
+<span class="w">     </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">currentService</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">services</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">serviceId</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">serviceId</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">updatedUsage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="nx">currentService</span><span class="p">.</span><span class="nx">usage</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">usageKey</span><span class="p">]</span><span class="o">:</span><span class="w"> </span><span class="nx">newValue</span><span class="w"> </span><span class="p">};</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="sb">`/integrations/settings`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">serviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">usage</span><span class="o">:</span><span class="w"> </span><span class="nx">updatedUsage</span><span class="w"> </span><span class="p">});</span>
+<span class="w">        </span><span class="nx">setSuccessMessage</span><span class="p">(</span><span class="sb">`Usage setting for </span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb"> updated.`</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Refresh state after successful update</span>
+<span class="w">        </span><span class="nx">fetchStatus</span><span class="p">();</span>
+<span class="w">     </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setError</span><span class="p">(</span><span class="sb">`Failed to update setting for </span><span class="si">${</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">.`</span><span class="p">);</span>
+<span class="w">        </span><span class="c1">// Revert optimistic update if implemented</span>
+<span class="w">     </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Loading</span><span class="w"> </span><span class="nx">connections</span><span class="p">...</span><span class="o">&lt;</span><span class="err">/p&gt;;</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;connected-services-manager&quot;</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;</span><span class="nx">Connected</span><span class="w"> </span><span class="nx">Services</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">Data</span><span class="w"> </span><span class="nx">Sources</span><span class="o">&lt;</span><span class="err">/h2&gt;</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">error</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Alert</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;error&quot;</span><span class="w"> </span><span class="nx">message</span><span class="o">=</span><span class="p">{</span><span class="nx">error</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span>
+<span class="w">      </span><span class="p">{</span><span class="nx">successMessage</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Alert</span><span class="w"> </span><span class="nx">type</span><span class="o">=</span><span class="s2">&quot;success&quot;</span><span class="w"> </span><span class="nx">message</span><span class="o">=</span><span class="p">{</span><span class="nx">successMessage</span><span class="p">}</span><span class="w"> </span><span class="o">/&gt;</span><span class="p">}</span>
+
+<span class="w">      </span><span class="p">{</span><span class="nx">services</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">No</span><span class="w"> </span><span class="nx">integration</span><span class="w"> </span><span class="nx">services</span><span class="w"> </span><span class="nx">configured</span><span class="w"> </span><span class="nx">yet</span><span class="p">.</span><span class="o">&lt;</span><span class="err">/p&gt;}</span>
+
+<span class="w">      </span><span class="p">{</span><span class="nx">services</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">service</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">service</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">}</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;service-entry&quot;</span><span class="o">&gt;</span>
+<span class="w">          </span><span class="p">{</span><span class="cm">/* Icon? */</span><span class="p">}</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">strong</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">service</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/strong&gt;</span>
+<span class="w">          </span><span class="o">&lt;</span><span class="nx">span</span><span class="o">&gt;</span><span class="w"> </span><span class="p">({</span><span class="nx">service</span><span class="p">.</span><span class="nx">isConnected</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Connected&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Not Connected&#39;</span><span class="p">})</span><span class="o">&lt;</span><span class="err">/span&gt;</span>
+<span class="w">          </span><span class="p">{</span><span class="o">!</span><span class="nx">service</span><span class="p">.</span><span class="nx">isConnected</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="nx">ActionButton</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">handleConnect</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">)}</span><span class="o">&gt;</span><span class="nx">Connect</span><span class="o">&lt;</span><span class="err">/ActionButton&gt;</span>
+<span class="w">          </span><span class="p">)}</span>
+<span class="w">          </span><span class="p">{</span><span class="nx">service</span><span class="p">.</span><span class="nx">isConnected</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">            </span><span class="o">&lt;&gt;</span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">ActionButton</span><span class="w"> </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">handleDisconnect</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">)}</span><span class="w"> </span><span class="nx">variant</span><span class="o">=</span><span class="s2">&quot;danger&quot;</span><span class="o">&gt;</span><span class="nx">Disconnect</span><span class="o">&lt;</span><span class="err">/ActionButton&gt;</span>
+<span class="w">              </span><span class="o">&lt;</span><span class="nx">div</span><span class="w"> </span><span class="nx">className</span><span class="o">=</span><span class="s2">&quot;service-details&quot;</span><span class="o">&gt;</span>
+<span class="w">                 </span><span class="o">&lt;</span><span class="nx">DataDisplay</span><span class="w"> </span><span class="nx">label</span><span class="o">=</span><span class="s2">&quot;Permissions Granted&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">service</span><span class="p">.</span><span class="nx">permissions</span><span class="o">?</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;N/A&#39;</span><span class="p">}</span><span class="w"> </span><span class="nx">dataType</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">                 </span><span class="o">&lt;</span><span class="nx">DataDisplay</span><span class="w"> </span><span class="nx">label</span><span class="o">=</span><span class="s2">&quot;Last Synced&quot;</span><span class="w"> </span><span class="nx">value</span><span class="o">=</span><span class="p">{</span><span class="nx">service</span><span class="p">.</span><span class="nx">lastSynced</span><span class="p">}</span><span class="w"> </span><span class="nx">dataType</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="w"> </span><span class="o">/&gt;</span>
+
+<span class="w">                 </span><span class="o">&lt;</span><span class="nx">h4</span><span class="o">&gt;</span><span class="nx">Data</span><span class="w"> </span><span class="nx">Usage</span><span class="w"> </span><span class="nx">Consent</span><span class="o">:&lt;</span><span class="err">/h4&gt;</span>
+<span class="w">                 </span><span class="p">{</span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">usage</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{}).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                    </span><span class="o">&lt;</span><span class="nx">ToggleSwitch</span>
+<span class="w">                        </span><span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">key</span><span class="p">}</span>
+<span class="w">                        </span><span class="nx">label</span><span class="o">=</span><span class="p">{</span><span class="sb">`Use </span><span class="si">${</span><span class="nx">service</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> data for </span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">?`</span><span class="p">}</span><span class="w"> </span><span class="c1">// Make labels clearer</span>
+<span class="w">                        </span><span class="nx">isChecked</span><span class="o">=</span><span class="p">{</span><span class="nx">value</span><span class="p">}</span>
+<span class="w">                        </span><span class="nx">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">newValue</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">handleToggleChange</span><span class="p">(</span><span class="nx">service</span><span class="p">.</span><span class="nx">serviceId</span><span class="p">,</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">newValue</span><span class="p">)}</span>
+<span class="w">                        </span><span class="nx">id</span><span class="o">=</span><span class="p">{</span><span class="sb">`</span><span class="si">${</span><span class="nx">service</span><span class="p">.</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">-</span><span class="si">${</span><span class="nx">key</span><span class="si">}</span><span class="sb">-toggle`</span><span class="p">}</span>
+<span class="w">                    </span><span class="o">/&gt;</span>
+<span class="w">                 </span><span class="p">))}</span>
+<span class="w">                 </span><span class="p">{</span><span class="cm">/* Add Link to Data Explorer */</span><span class="p">}</span>
+<span class="w">                 </span><span class="o">&lt;</span><span class="nx">a</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="p">{</span><span class="sb">`/app/data-explorer?source=</span><span class="si">${</span><span class="nx">service</span><span class="p">.</span><span class="nx">serviceId</span><span class="si">}</span><span class="sb">`</span><span class="p">}</span><span class="w"> </span><span class="nx">target</span><span class="o">=</span><span class="s2">&quot;_blank&quot;</span><span class="w"> </span><span class="nx">rel</span><span class="o">=</span><span class="s2">&quot;noopener noreferrer&quot;</span><span class="o">&gt;</span><span class="nx">View</span><span class="w"> </span><span class="nx">Harvested</span><span class="w"> </span><span class="nx">Data</span><span class="o">&lt;</span><span class="err">/a&gt;</span>
+<span class="w">              </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="w">            </span><span class="o">&lt;</span><span class="err">/&gt;</span>
+<span class="w">          </span><span class="p">)}</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="w">      </span><span class="p">))}</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/div&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">ConnectedServicesManager</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="5-testing-instructions">5. Testing Instructions</h2>
+<p>Initial Load: Verify the component correctly fetches and displays the status of all supported services (Connected/Not Connected). Test loading and error states for the initial fetch.</p>
+<p>Connect Flow: Click "Connect". Verify redirection to a mock/real OAuth URL. Simulate a successful callback and verify the UI updates to "Connected", showing default OFF toggles. Simulate a failed callback and verify an error is shown.</p>
+<p>Disconnect Flow: Click "Disconnect". Verify confirmation modal appears. Confirm disconnect. Verify API call is made and UI updates to "Not Connected". Test error handling for disconnect failure.</p>
+<p>Toggle Usage Consent: Toggle switches ON and OFF. Verify the UI updates (potentially optimistically). Verify the correct API call is made with the new state. Verify success/error messages are displayed. After refresh, verify the toggles reflect the saved state.</p>
+<p>Permissions Display: Mock different permission scopes granted via OAuth. Verify the "Permissions Granted" section accurately displays the received scopes.</p>
+<p>Data Explorer Link: Verify the "View Harvested Data" link navigates to the correct location (potentially with correct filters).</p>
+<p>Accessibility: Test keyboard navigation for all buttons and toggles. Ensure labels are associated correctly. Check screen reader compatibility for status changes and toggle states.</p>
+<h2 id="6-dependencies-integration">6. Dependencies &amp; Integration</h2>
+<p>Depends On:</p>
+<ul>
+<li>
+<p>Backend APIs for status, auth URLs, settings updates, disconnect actions (api_endpoints_integrations.md).</p>
+</li>
+<li>
+<p>Reusable UI components: ActionButton, ToggleSwitch/Checkbox, DataDisplay, Alert.</p>
+</li>
+<li>
+<p>Global state management (potentially, for sharing connection status).</p>
+</li>
+<li>
+<p>ThinkAlike Style Guide.</p>
+</li>
+</ul>
+<p>Integrates With:</p>
+<ul>
+<li>
+<p>User Settings / Profile section.</p>
+</li>
+<li>
+<p>Data Explorer Panel (via navigation link).</p>
+</li>
+<li>
+<p>Backend OAuth handling logic and token storage.</p>
+</li>
+</ul>
+<p>This component is central to providing users with meaningful control over third-party data integration, directly implementing ThinkAlike's core values of transparency and user sovereignty.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: UI Component Specification: ConnectedServicesManager</p>
+</li>
+<li>
+<p>Type: Component Specification</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of UI Component Specification: ConnectedServicesManager</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

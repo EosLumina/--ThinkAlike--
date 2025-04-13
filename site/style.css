@@ -1,0 +1,55 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+    background-color: #000;
+    /* Black background */
+    color: #ccc;
+    /* Light gray text */
+}
+
+.container {
+    max-width: 800px;
+    /* Limit width for readability */
+    margin: 0 auto;
+    /* Center the content */
+}
+
+h1 {
+    color: #FFC300;
+    /* Amber/Honey Yellow heading */
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+ul {
+    list-style: none;
+    /* Remove default bullet points */
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #FF5733;
+    /* Deep Orange links */
+    text-decoration: none;
+    /* Remove underlines */
+    transition: color 0.2s ease-in-out;
+    /* Smooth color transition on hover */
+}
+
+a:hover {
+    color: #FF8C00;
+    /* Neon Orange on hover */
+    text-decoration: underline;
+    /* Add underline on hover */
+}
+
+/* ... (rest of your CSS rules) ... */

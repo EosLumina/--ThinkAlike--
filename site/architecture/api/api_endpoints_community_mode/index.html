@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/api/api_endpoints_community_mode/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Api Endpoints - Project Backend - Community Mode - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Api Endpoints - Project Backend - Community Mode";
+        var mkdocs_page_input_path = "architecture/api/api_endpoints_community_mode.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/api/api_endpoints_community_mode/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Api Endpoints - Project Backend - Community Mode</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-endpoints-project-backend-community-mode">Api Endpoints - Project Backend - Community Mode</h1>
+<p><strong>Document Purpose:</strong></p>
+<p>This document specifies the <strong>API endpoints for the ThinkAlike project backend, specifically for Community Mode functionality.</strong>  It is a supplementary document to the main <code>API_ENDPOINTS.md</code> and outlines the routes, methods, request/response formats, authentication requirements, and functionality of endpoints related to community creation, management, membership, and features within Community Mode.  Refer to <code>API_ENDPOINTS.md</code> for general API conventions, authentication details, and base URL information.</p>
+<p><strong>I.  Base URL and Authentication:</strong></p>
+<p>Refer to the main <code>API_ENDPOINTS.md</code> document for the Base URL and general Authentication information (JWT Bearer tokens).  All endpoints in this document, unless explicitly stated otherwise, <strong>require JWT authentication</strong>.</p>
+<p><strong>II. API Endpoints - Community Mode Functionality:</strong></p>
+<p>These endpoints are organized by Community Mode features:</p>
+<p><strong>A. Community Creation and Discovery Endpoints (<code>/api/communities</code>)</strong></p>
+<ul>
+<li>
+<p><code>GET /api/communities</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of public communities for directory display and community discovery.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Optional (public directory view)</p>
+</li>
+<li>
+<p><strong>Query Parameters (Optional):</strong></p>
+<ul>
+<li>
+<p><code>search</code>: "string" -  Search communities by name or description.</p>
+</li>
+<li>
+<p><code>values</code>: "string (comma-separated ValueNode IDs)" - Filter communities by specific values.</p>
+</li>
+<li>
+<p><code>sortBy</code>: "enum ['members', 'creationDate', 'valueAlignment', ...]" - Sort communities by different criteria.</p>
+</li>
+<li>
+<p><code>page</code>: "integer" - Page number for pagination.</p>
+</li>
+<li>
+<p><code>pageSize</code>: "integer" - Number of communities per page.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Paginated list of CommunityProfile summaries:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;communities&quot;: [
+    {
+      &quot;communityId&quot;: &quot;UUID&quot;,
+      &quot;communityName&quot;: &quot;string&quot;,
+      &quot;tagline&quot;: &quot;string&quot;,
+      &quot;description&quot;: &quot;string (truncated)&quot;,
+      &quot;values&quot;: [ ... ], // Array of ValueNode IDs representing community values
+      &quot;memberCount&quot;: &quot;integer&quot;,
+      &quot;profileImageUrl&quot;: &quot;URL (optional)&quot;,
+      // ... other summary community profile fields
+    },
+    // ... more community summaries
+  ],
+  &quot;totalCount&quot;: &quot;integer (total number of communities matching criteria)&quot;,
+  &quot;currentPage&quot;: &quot;integer&quot;,
+  &quot;totalPages&quot;: &quot;integer&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> (Standard error responses - see <code>API_ENDPOINTS.md</code>)</p>
+</li>
+<li>
+<p><code>POST /api/communities</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Create a new community.</p>
+</li>
+<li>
+<p><strong>Method:</strong> POST</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong> Community creation data:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;communityName&quot;: &quot;string (required)&quot;,
+  &quot;description&quot;: &quot;string (required)&quot;,
+  &quot;tagline&quot;: &quot;string (optional)&quot;,
+  &quot;values&quot;: [ &quot;ValueNodeId1&quot;, &quot;ValueNodeId2&quot;, ... ], // Array of ValueNode IDs
+  &quot;guidelines&quot;: &quot;string (optional, community guidelines text)&quot;,
+  &quot;privacySettings&quot;: &quot;enum [&#39;public&#39;, &#39;private&#39;] (required)&quot;,
+  &quot;governanceModel&quot;: &quot;enum [&#39;informal&#39;, &#39;direct_democracy&#39;, &#39;liquid_democracy&#39;, &#39;hybrid&#39;] (required)&quot;,
+  &quot;profileImageUrl&quot;: &quot;URL (optional)&quot;
+  // ... other community creation fields
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Response (201 Created, JSON):</strong> CommunityProfile data of newly created community.</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 400 Bad Request (validation errors)</p>
+</li>
+</ul>
+<p><strong>B. Community Profile Endpoints (<code>/api/communities/{communityId}</code>)</strong></p>
+<ul>
+<li>
+<p><code>GET /api/communities/{communityId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get full profile data for a specific community.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Optional (public profile view for public communities, member-authenticated for private communities)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> CommunityProfile data (see Data Model in Community Mode Spec).</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 404 Not Found, 401 Unauthorized (for private communities if not member)</p>
+</li>
+<li>
+<p><code>PUT /api/communities/{communityId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Update community profile data (for community administrators only).</p>
+</li>
+<li>
+<p><strong>Method:</strong> PUT</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - to be specified - likely role-based authorization)</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong>  Partial CommunityProfile data with updates (admin-editable fields).</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Updated CommunityProfile data.</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not admin), 403 Forbidden (if not authorized), 400 Bad Request (validation errors), 404 Not Found</p>
+</li>
+<li>
+<p><code>DELETE /api/communities/{communityId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Delete a community (for community creators/administrators only).</p>
+</li>
+<li>
+<p><strong>Method:</strong> DELETE</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Creator/Admin authentication - to be specified)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Community deleted successfully&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not creator/admin), 403 Forbidden (if not authorized), 404 Not Found</p>
+</li>
+</ul>
+<p><strong>C. Community Membership Endpoints (<code>/api/communities/{communityId}/members</code>)</strong></p>
+<ul>
+<li>
+<p><code>GET /api/communities/{communityId}/members</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of members for a specific community.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Member authentication - to view members of a community)</p>
+</li>
+<li>
+<p><strong>Query Parameters (Optional):</strong></p>
+<ul>
+<li>
+<p><code>search</code>: "string" - Search members by username or profile information.</p>
+</li>
+<li>
+<p><code>sortBy</code>: "enum ['joinDate', 'username', ...]" - Sort members by different criteria.</p>
+</li>
+<li>
+<p><code>page</code>: "integer" - Page number for pagination.</p>
+</li>
+<li>
+<p><code>pageSize</code>: "integer" - Number of members per page.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Paginated list of UserProfile summaries for community members:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;members&quot;: [
+    {
+      &quot;userId&quot;: &quot;UUID&quot;,
+      &quot;username&quot;: &quot;string&quot;,
+      &quot;profileImageUrl&quot;: &quot;URL (optional)&quot;,
+      &quot;joinDate&quot;: &quot;Timestamp&quot;,
+      // ... other summary member profile fields
+    },
+    // ... more member summaries
+  ],
+  &quot;totalCount&quot;: &quot;integer (total number of members)&quot;,
+  &quot;currentPage&quot;: &quot;integer&quot;,
+  &quot;totalPages&quot;: &quot;integer&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not member), 404 Not Found</p>
+</li>
+<li>
+<p><code>POST /api/communities/{communityId}/join</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> User requests to join a community (for public or private communities - triggers approval for private).</p>
+</li>
+<li>
+<p><strong>Method:</strong> POST</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Membership request submitted successfully (or user joined community)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 404 Not Found, 409 Conflict (already a member or pending request)</p>
+</li>
+<li>
+<p><code>POST /api/communities/{communityId}/leave</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> User leaves a community.</p>
+</li>
+<li>
+<p><strong>Method:</strong> POST</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Member authentication)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Successfully left community&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 404 Not Found (community or membership not found), 400 Bad Request (not a member)</p>
+</li>
+</ul>
+<p><strong>D. Community Management Endpoints (<code>/api/communities/{communityId}/admin</code>)</strong> <em>(Admin-Authenticated)</em></p>
+<p><em>(These endpoints require Administrator-level authentication within the specific community - Role-Based Access Control to be specified)</em></p>
+<ul>
+<li>
+<p><code>GET /api/communities/{communityId}/admin/membership-requests</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of pending membership requests for a private community (for community administrators).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of ConnectionRequest objects (or UserProfile summaries with request metadata)</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not admin), 403 Forbidden (if not authorized), 404 Not Found</p>
+</li>
+<li>
+<p><code>POST /api/communities/{communityId}/admin/membership-requests/{requestId}/approve</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Approve a pending membership request (for community administrators).</p>
+</li>
+<li>
+<p><strong>Method:</strong> POST</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Membership request approved&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not admin), 403 Forbidden (if not authorized), 404 Not Found (request not found), 400 Bad Request (request already processed)</p>
+</li>
+<li>
+<p><code>POST /api/communities/{communityId}/admin/membership-requests/{requestId}/decline</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Decline a pending membership request (for community administrators).</p>
+</li>
+<li>
+<p><strong>Method:</strong> POST</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Membership request declined&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not admin), 403 Forbidden (if not authorized), 404 Not Found (request not found), 400 Bad Request (request already processed)</p>
+</li>
+<li>
+<p><code>DELETE /api/communities/{communityId}/admin/members/{membershipId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Remove a member from a community (for community administrators/moderators - permissions to be defined).</p>
+</li>
+<li>
+<p><strong>Method:</strong> DELETE</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin/Moderator authentication)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;message&quot;: &quot;Member removed from community&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not admin/moderator), 403 Forbidden (if not authorized), 404 Not Found (membership not found)</p>
+</li>
+<li>
+<p><code>(Further Admin Endpoints for Moderation, Governance Settings, etc. - to be specified as Community Mode features are further defined)</code></p>
+</li>
+</ul>
+<p><strong>D. Community Forum Endpoints (<code>/api/communities/{communityId}/forums</code>)</strong> <em>(Member-Authenticated)</em></p>
+<p><em>(These endpoints require Member-level authentication within the specific community)</em></p>
+<ul>
+<li>
+<p><code>GET /api/communities/{communityId}/forums</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of forums within a community.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Member authentication)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of Forum objects (summary data - to be defined)</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized (if not member), 404 Not Found</p>
+</li>
+<li>
+<p><code>POST /api/communities/{communityId}/forums</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Create a new forum within a community (Admin or member-permission based - to be defined).</p>
+</li>
+<li>
+<p><strong>Method:</strong> POST</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Member or Admin authentication - permission-based)</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong> Forum creation data (name, description, permissions - if applicable)</p>
+</li>
+<li>
+<p><strong>Response (201 Created, JSON):</strong> Forum data of newly created forum.</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 400 Bad Request (validation errors), 404 Not Found</p>
+</li>
+</ul>
+<p><em>(Further Forum Endpoints for Threads, Posts, etc. - to be specified as Forum features are further defined)</em></p>
+<p><strong>E. Direct/Liquid Democracy Endpoints (<code>/api/communities/{communityId}/governance</code>)</strong> <em>(Optional - Community-Driven Implementation)</em></p>
+<p><em>(These endpoints will be specified IF and WHEN Direct/Liquid Democracy tools are implemented in Community Mode, as these are optional, community-driven features)</em></p>
+<p><strong>F. Resource Sharing Endpoints (<code>/api/communities/{communityId}/resources</code>)</strong> <em>(Member-Authenticated)</em></p>
+<p><em>(Resource sharing endpoints will be specified as Resource Sharing features are further defined in Community Mode)</em></p>
+<p><strong>III. Data Models (Refer to Community Mode Specification):</strong></p>
+<p>For detailed data model specifications for CommunityProfile, CommunityMembership, Forum, Resource, etc., please refer to the <code>docs/architecture/modes/community_mode/COMMUNITY_MODE_SPEC.md</code> document.</p>
+<p><strong>IV. Error Handling and Response Codes:</strong></p>
+<p>API endpoints will use standard HTTP status codes to indicate success or failure.  Refer to the main <code>API_ENDPOINTS.md</code> document for general error code definitions.</p>
+<p><strong>V. Future Endpoints and Extensibility:</strong></p>
+<p>This document represents the initial set of Community Mode API endpoints. Future endpoints will be added as Community Mode features evolve and expand, particularly for more detailed forum functionality, direct/liquid democracy tools, and resource sharing mechanisms.  All new Community Mode API endpoints will be documented in updated versions of this document.</p>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Api Endpoints - Project Backend - Community Mode</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Api Endpoints - Project Backend - Community Mode</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

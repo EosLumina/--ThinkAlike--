@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/building_backend_endpoint/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Building Backend Endpoint Guide - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Building Backend Endpoint Guide";
+        var mkdocs_page_input_path = "guides/developer_guides/building_backend_endpoint.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/building_backend_endpoint/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Building Backend Endpoint Guide</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-planning-design">1. Planning &amp; Design</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-implementation-steps">2. Implementation Steps</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-define-models-pydantic">2.1. Define Models (Pydantic)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#22-createupdate-router">2.2. Create/Update Router</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#22-createupdate-router_1">2.2. Create/Update Router</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#23-implement-service-logic">2.3. Implement Service Logic</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#23-implement-service-logic_1">2.3. Implement Service Logic</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#24-add-crud-operations-if-necessary">2.4. Add CRUD Operations (if necessary)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#24-add-crud-operations-if-necessary_1">2.4. Add CRUD Operations (if necessary)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#25-register-the-router">2.5. Register the Router</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-testing">3. Testing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#unit-testing-services">Unit Testing (Services)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-testing-endpoints">Integration Testing (Endpoints)</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-manual-testing">4. Manual Testing</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Development</li>
+      <li class="breadcrumb-item active">Building Backend Endpoint Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="building-a-backend-api-endpoint">Building a Backend API Endpoint</h1>
+<p>This guide details the process for creating new API endpoints within the ThinkAlike FastAPI backend. It covers routing, request/response modeling, service layer interaction, database access, testing, and integration with the Verification System.</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>
+<p>Familiarity with Python 3.10+, FastAPI, Pydantic, SQLAlchemy, and RESTful API principles.</p>
+</li>
+<li>
+<p>Understanding of the project's <a href="../code_style_guide/">Code Style Guide</a> (Backend section).</p>
+</li>
+<li>
+<p>Familiarity with the <a href="../../../architecture/architectural_overview/">Architectural Overview</a> and the role of the Verification System (see <a href="../../../architecture/verification_system/verification_system_deep_dive/">Verification System Deep Dive</a>).</p>
+</li>
+<li>
+<p>A local backend environment set up as per the <a href="../../../core/installation/">Installation Guide</a>.</p>
+</li>
+</ul>
+<hr />
+<h2 id="1-planning-design">1. Planning &amp; Design</h2>
+<ul>
+<li>
+<p><strong>Define the Endpoint:</strong></p>
+</li>
+<li>
+<p>Determine the purpose, HTTP method (GET, POST, PUT, DELETE, etc.), and URL path following RESTful conventions.</p>
+</li>
+<li>
+<p><strong>Define the Request:</strong></p>
+</li>
+<li>
+<p>Specify path parameters, query parameters, and the request body structure.</p>
+</li>
+<li>
+<p>Use Pydantic models to validate request bodies.</p>
+</li>
+<li>
+<p><strong>Define the Response:</strong></p>
+</li>
+<li>
+<p>Specify success response status codes (e.g., 200, 201, 204) and body structures using Pydantic models.</p>
+</li>
+<li>
+<p>Define error responses (e.g., 400, 401, 403, 404, 500) and their potential body structures.</p>
+</li>
+<li>
+<p><strong>Service Logic:</strong></p>
+</li>
+<li>
+<p>Identify the business logic that must be executed; this should reside within the service layer.</p>
+</li>
+<li>
+<p><strong>Data Access:</strong></p>
+</li>
+<li>
+<p>Identify data interactions (both read/write) with the database.</p>
+</li>
+<li>
+<p><strong>Verification Needs:</strong></p>
+</li>
+<li>
+<p>Determine if and when the operation should trigger ethical and functional validations via the Verification System.</p>
+</li>
+<li>
+<p><strong>Permissions:</strong></p>
+</li>
+<li>
+<p>Define the required authentication/authorization level (e.g., authenticated user, specific role).</p>
+</li>
+<li>
+<p><strong>Documentation:</strong></p>
+</li>
+<li>
+<p>Update or add the new endpoint definition in the relevant API documentation file (e.g., <code>docs/architecture/api/api_endpoints_modeX.md</code>).</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-implementation-steps">2. Implementation Steps</h2>
+<h3 id="21-define-models-pydantic">2.1. Define Models (Pydantic)</h3>
+<p>In the designated area (e.g., <code>backend/models/schemas/</code>), define the Pydantic models for your request and response.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example: backend/models/schemas/profile_schemas.py</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pydantic</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileUpdate</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">display_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">min_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">interests</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileResponse</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">display_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">interests</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="n">last_updated</span><span class="p">:</span> <span class="n">datetime</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Config</span><span class="p">:</span>
+        <span class="n">orm_mode</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># To allow conversion from SQLAlchemy models</span>
+</code></pre></div>
+<h2 id="22-createupdate-router">2.2. Create/Update Router</h2>
+<h3 id="22-createupdate-router_1">2.2. Create/Update Router</h3>
+<p>Locate the appropriate <code>APIRouter</code> file (e.g., in <code>backend/routes/user_routes.py</code>) or create a new one if needed.</p>
+<ul>
+<li>
+<p>Define the endpoint function using the correct FastAPI decorator.</p>
+</li>
+<li>
+<p>Use type hints for path/query parameters and the request body.</p>
+</li>
+<li>
+<p>Leverage FastAPI’s dependency injection (<code>Depends</code>) for database sessions and service layers.</p>
+</li>
+<li>
+<p>Implement authentication/authorization checks with FastAPI dependencies.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example: backend/routes/user_routes.py</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">APIRouter</span><span class="p">,</span> <span class="n">Depends</span><span class="p">,</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">crud</span><span class="p">,</span> <span class="n">models</span><span class="p">,</span> <span class="n">services</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..dependencies</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_db</span><span class="p">,</span> <span class="n">get_current_active_user</span>  <span class="c1"># Assuming these exist</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..models.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile_schemas</span>
+
+<span class="n">router</span> <span class="o">=</span> <span class="n">APIRouter</span><span class="p">(</span>
+    <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;/users&quot;</span><span class="p">,</span>
+    <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;users&quot;</span><span class="p">],</span>
+    <span class="n">dependencies</span><span class="o">=</span><span class="p">[</span><span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">)],</span>  <span class="c1"># Apply auth to all routes here</span>
+
+    <span class="n">responses</span><span class="o">=</span><span class="p">{</span><span class="mi">404</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Not found&quot;</span><span class="p">}},</span>
+<span class="p">)</span>
+
+<span class="nd">@router</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+    <span class="s2">&quot;/</span><span class="si">{user_id}</span><span class="s2">/profile&quot;</span><span class="p">,</span>
+    <span class="n">response_model</span><span class="o">=</span><span class="n">profile_schemas</span><span class="o">.</span><span class="n">ProfileResponse</span><span class="p">,</span>
+    <span class="n">summary</span><span class="o">=</span><span class="s2">&quot;Update User Profile&quot;</span>
+<span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">update_user_profile</span><span class="p">(</span>
+    <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">profile_data</span><span class="p">:</span> <span class="n">profile_schemas</span><span class="o">.</span><span class="n">ProfileUpdate</span><span class="p">,</span>
+    <span class="n">db</span><span class="p">:</span> <span class="n">Session</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_db</span><span class="p">),</span>
+    <span class="n">current_user</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">User</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">get_current_active_user</span><span class="p">),</span>
+    <span class="n">profile_service</span><span class="p">:</span> <span class="n">services</span><span class="o">.</span><span class="n">ProfileService</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">services</span><span class="o">.</span><span class="n">ProfileService</span><span class="p">)</span>  <span class="c1"># Inject service</span>
+
+<span class="p">):</span>
+    <span class="c1"># Authorization check: Ensure user can only update their own profile (or admin)</span>
+
+    <span class="k">if</span> <span class="n">user_id</span> <span class="o">!=</span> <span class="n">current_user</span><span class="o">.</span><span class="n">id</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_superuser</span><span class="p">:</span>
+         <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+             <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_403_FORBIDDEN</span><span class="p">,</span>
+             <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;Not authorized to update this profile&quot;</span><span class="p">,</span>
+         <span class="p">)</span>
+
+    <span class="c1"># Call the service layer to handle the logic</span>
+
+    <span class="n">updated_profile</span> <span class="o">=</span> <span class="k">await</span> <span class="n">profile_service</span><span class="o">.</span><span class="n">update_profile</span><span class="p">(</span>
+        <span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">user_id</span><span class="o">=</span><span class="n">user_id</span><span class="p">,</span> <span class="n">profile_update_data</span><span class="o">=</span><span class="n">profile_data</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">updated_profile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span><span class="n">status_code</span><span class="o">=</span><span class="mi">404</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="s2">&quot;User not found&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">updated_profile</span>
+</code></pre></div>
+<h2 id="23-implement-service-logic">2.3. Implement Service Logic</h2>
+<h3 id="23-implement-service-logic_1">2.3. Implement Service Logic</h3>
+<p>In the service layer (e.g., <code>backend/services/profile_service.py</code>), encapsulate the business logic for your endpoint.</p>
+<ul>
+<li>
+<p>Accept necessary parameters such as the DB session, user ID, and input data.</p>
+</li>
+<li>
+<p>Integrate a Verification Hook: Call the Verification System’s API/interface at the appropriate junction.</p>
+</li>
+<li>
+<p>Interact with the database using CRUD functions or direct SQLAlchemy operations.</p>
+</li>
+<li>
+<p>Return results or raise exceptions as needed.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example: backend/services/profile_service.py</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPException</span><span class="p">,</span> <span class="n">status</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">crud</span><span class="p">,</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..models.schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">profile_schemas</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.verification_service</span><span class="w"> </span><span class="kn">import</span> <span class="n">VerificationService</span>  <span class="c1"># Assuming a service to interact with Verification System</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileService</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">verification_service</span><span class="p">:</span> <span class="n">VerificationService</span> <span class="o">=</span> <span class="n">VerificationService</span><span class="p">()):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">verification_service</span> <span class="o">=</span> <span class="n">verification_service</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">update_profile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">profile_update_data</span><span class="p">:</span> <span class="n">profile_schemas</span><span class="o">.</span><span class="n">ProfileUpdate</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">models</span><span class="o">.</span><span class="n">User</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">db_user</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">db</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">user_id</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">db_user</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+
+        <span class="n">update_data</span> <span class="o">=</span> <span class="n">profile_update_data</span><span class="o">.</span><span class="n">dict</span><span class="p">(</span><span class="n">exclude_unset</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Verification Hook Example (Pre-Update)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;display_name&#39;</span> <span class="ow">in</span> <span class="n">update_data</span><span class="p">:</span>
+             <span class="n">is_valid</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">verification_service</span><span class="o">.</span><span class="n">verify_action</span><span class="p">(</span>
+                 <span class="n">action</span><span class="o">=</span><span class="s2">&quot;update_display_name&quot;</span><span class="p">,</span>
+                 <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">user_id</span><span class="p">,</span> <span class="s2">&quot;new_name&quot;</span><span class="p">:</span> <span class="n">update_data</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">]}</span>
+             <span class="p">)</span>
+             <span class="k">if</span> <span class="ow">not</span> <span class="n">is_valid</span><span class="p">:</span>
+                 <span class="k">raise</span> <span class="n">HTTPException</span><span class="p">(</span>
+                     <span class="n">status_code</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span><span class="p">,</span>
+                     <span class="n">detail</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Display name validation failed: </span><span class="si">{</span><span class="n">reason</span><span class="si">}</span><span class="s2">&quot;</span>
+                 <span class="p">)</span>
+
+        <span class="c1"># Update user data using CRUD operations</span>
+
+        <span class="n">updated_user</span> <span class="o">=</span> <span class="n">crud</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">db</span><span class="o">=</span><span class="n">db</span><span class="p">,</span> <span class="n">db_obj</span><span class="o">=</span><span class="n">db_user</span><span class="p">,</span> <span class="n">obj_in</span><span class="o">=</span><span class="n">update_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">updated_user</span>
+</code></pre></div>
+<h2 id="24-add-crud-operations-if-necessary">2.4. Add CRUD Operations (if necessary)</h2>
+<h3 id="24-add-crud-operations-if-necessary_1">2.4. Add CRUD Operations (if necessary)</h3>
+<p>If new database interactions are required, add reusable CRUD functions (e.g., in <code>backend/crud/crud_user.py</code>). These should handle basic SQLAlchemy operations such as get, create, update, and delete.</p>
+<h3 id="25-register-the-router">2.5. Register the Router</h3>
+<p>Ensure your new or updated router is included in the main FastAPI application. In <code>backend/main.py</code>, add:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">FastAPI</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">backend.routes</span><span class="w"> </span><span class="kn">import</span> <span class="n">user_routes</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
+<span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">user_routes</span><span class="o">.</span><span class="n">router</span><span class="p">)</span>
+</code></pre></div>
+<hr />
+<h2 id="3-testing">3. Testing</h2>
+<h3 id="unit-testing-services">Unit Testing (Services)</h3>
+<ul>
+<li>
+<p>Write tests for your service methods in isolation.</p>
+</li>
+<li>
+<p>Mock the database session, CRUD functions, and the Verification System calls.</p>
+</li>
+<li>
+<p>Ensure your validations and data transformations are correct.</p>
+</li>
+</ul>
+<h3 id="integration-testing-endpoints">Integration Testing (Endpoints)</h3>
+<ul>
+<li>
+<p>Use FastAPI’s <code>TestClient</code> to send requests to your endpoints.</p>
+</li>
+<li>
+<p>Verify status codes, response bodies, and database state changes.</p>
+</li>
+<li>
+<p>Test authentication/authorization enforcement.</p>
+</li>
+<li>
+<p>Optionally, mock Verification System calls if they are complex or external.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example Integration Test Snippet (backend/tests/api/v1/test_users.py)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">fastapi.testclient</span><span class="w"> </span><span class="kn">import</span> <span class="n">TestClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.orm</span><span class="w"> </span><span class="kn">import</span> <span class="n">Session</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">....</span><span class="w"> </span><span class="kn">import</span> <span class="n">models</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">....models.schemas.profile_schemas</span><span class="w"> </span><span class="kn">import</span> <span class="n">ProfileResponse</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_update_own_profile</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">TestClient</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">normal_user_token_headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">normal_user</span><span class="p">:</span> <span class="n">models</span><span class="o">.</span><span class="n">User</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">update_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Updated Name Test&quot;</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;/api/v1/users/</span><span class="si">{</span><span class="n">normal_user</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">/profile&quot;</span><span class="p">,</span>  <span class="c1"># Adjust prefix as needed</span>
+
+        <span class="n">headers</span><span class="o">=</span><span class="n">normal_user_token_headers</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="n">update_data</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;display_name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Updated Name Test&quot;</span>
+    <span class="k">assert</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">normal_user</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="c1"># Verify DB change</span>
+
+    <span class="n">db</span><span class="o">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">normal_user</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">normal_user</span><span class="o">.</span><span class="n">display_name</span> <span class="o">==</span> <span class="s2">&quot;Updated Name Test&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_update_other_user_profile_forbidden</span><span class="p">(</span><span class="n">client</span><span class="p">:</span> <span class="n">TestClient</span><span class="p">,</span> <span class="n">db</span><span class="p">:</span> <span class="n">Session</span><span class="p">,</span> <span class="n">normal_user_token_headers</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Assuming another user with ID 999 exists</span>
+
+    <span class="n">update_data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;display_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Forbidden Update&quot;</span><span class="p">}</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">put</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;/api/v1/users/999/profile&quot;</span><span class="p">,</span>  <span class="c1"># Adjust prefix as needed</span>
+
+        <span class="n">headers</span><span class="o">=</span><span class="n">normal_user_token_headers</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">=</span><span class="n">update_data</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">403</span>  <span class="c1"># Or 401 depending on auth setup</span>
+</code></pre></div>
+<hr />
+<h2 id="4-manual-testing">4. Manual Testing</h2>
+<ul>
+<li>
+<p>Run the backend server locally.</p>
+</li>
+<li>
+<p>Use tools like curl, Postman, or the Swagger UI (accessible at <code>/docs</code>) to manually test the endpoint.</p>
+</li>
+<li>
+<p>Integrate with the frontend and perform end-to-end testing.</p>
+</li>
+<li>
+<p>Test various valid and invalid inputs to ensure endpoint robustness.</p>
+</li>
+</ul>
+<hr />
+<p>By following this structured approach—covering design, implementation, tests, and manual verification—you ensure new backend endpoints are robust, secure, and fully aligned with ThinkAlike’s core principles.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Building a Backend Api Endpoint</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Building a Backend Api Endpoint</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../code_style_guide/" class="btn btn-neutral float-left" title="Code Style Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../building_ui_component/" class="btn btn-neutral float-right" title="Building UI Component Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../code_style_guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../building_ui_component/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

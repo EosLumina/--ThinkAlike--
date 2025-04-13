@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/implementation_guides/mvp_implementation_guide/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>MVP Implementation Guide - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "MVP Implementation Guide";
+        var mkdocs_page_input_path = "guides/implementation_guides/mvp_implementation_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/implementation_guides/mvp_implementation_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">MVP Implementation Guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mvp-implementation-guide">MVP Implementation Guide</h1>
+<p>This document outlines the plan for implementing the Minimum Viable Product (MVP) for the ThinkAlike platform. It defines the core features, technology stack, and a prioritized implementation path, reflecting the project's focus on fostering meaningful social connections based on shared ideas and values, underpinned by ethical principles and data transparency.</p>
+<h2 id="key-references">Key References</h2>
+<ul>
+<li>
+<p><strong>Source of Truth:</strong> <a href="../../../core/master_reference/">Master Reference</a></p>
+</li>
+<li>
+<p><strong>Manifesto:</strong> <a href="../../../core/manifesto/manifesto/">Philosophical Manifesto</a></p>
+</li>
+<li>
+<p><strong>Architectural Design Specs:</strong> <a href="../../../architecture/design/architectural_design_specifications/">Architectural Design Specifications</a></p>
+</li>
+<li>
+<p><strong>API Documentation:</strong> <a href="../../../architecture/api/api_endpoints/">API Endpoints</a></p>
+</li>
+</ul>
+<hr />
+<h2 id="1-core-vision-mvp-focus">1. Core Vision (MVP Focus)</h2>
+<p>The ThinkAlike MVP aims to demonstrate the core concept of connecting users based on the similarity of their "thought profiles" (represented by interconnected nodes of ideas, values, interests). The focus is on:</p>
+<ul>
+<li>
+<p><strong>Building Thought Profiles:</strong> Allowing users to create and connect nodes representing their unique perspectives.</p>
+</li>
+<li>
+<p><strong>Simplified Matching:</strong> Implementing a basic algorithm to identify potential connections based on shared or similar profile elements.</p>
+</li>
+<li>
+<p><strong>Data Traceability Visualization:</strong> Providing a basic visual representation of how data flows and how matches are determined.</p>
+</li>
+<li>
+<p><strong>User Control &amp; Ethics:</strong> Ensuring users have control over their profiles and the connection process, adhering to ethical guidelines.</p>
+</li>
+</ul>
+<hr />
+<h2 id="2-mvp-core-features">2. MVP Core Features</h2>
+<h3 id="user-authentication">User Authentication</h3>
+<ul>
+<li>
+<p>Secure user registration (username, password).</p>
+</li>
+<li>
+<p>Secure user login/logout (using JWT or sessions).</p>
+</li>
+<li>
+<p>(Future) Password recovery.</p>
+</li>
+</ul>
+<h3 id="user-thought-profile-building">User "Thought Profile" Building</h3>
+<ul>
+<li>
+<p>Users can create, read, update, and delete "Nodes" (representing ideas, values, interests, skills, etc.).</p>
+</li>
+<li>
+<p>Nodes will have properties like title, content, and potentially <code>nodeType</code> (e.g., 'value', 'interest').</p>
+</li>
+<li>
+<p>Users can create and delete "Connections" between their own nodes.</p>
+</li>
+</ul>
+<h3 id="basic-matching">Basic Matching</h3>
+<ul>
+<li>
+<p>Backend implements a placeholder matching algorithm (e.g., based on counting shared nodes/tags).</p>
+</li>
+<li>
+<p>Frontend displays a list of potential user matches based on this simple algorithm.</p>
+</li>
+</ul>
+<h3 id="basic-connection-mechanism">Basic Connection Mechanism</h3>
+<ul>
+<li>
+<p>Users can view basic profiles of potential matches.</p>
+</li>
+<li>
+<p>Users can send/accept/reject simple connection requests (no complex messaging yet).</p>
+</li>
+</ul>
+<h3 id="data-traceability-visualization-datatraceabilityjsx">Data Traceability Visualization (DataTraceability.jsx)</h3>
+<ul>
+<li>
+<p>Displays a graph representation of fetched data (initially, this might be a user's own thought profile or a comparison with a match).</p>
+</li>
+<li>
+<p>Includes basic tooltips on hover for nodes and edges.</p>
+</li>
+<li>
+<p>(Post-MVP) Will incorporate more advanced visualization of matching rationale, ethical weighting, and user customization.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-technology-stack">3. Technology Stack</h2>
+<ul>
+<li>
+<p><strong>Frontend:</strong> React (Create React App), react-router-dom, react-force-graph-2d (or alternative), react-tooltip.</p>
+</li>
+<li>
+<p><strong>Backend:</strong> Python (FastAPI), Uvicorn, Gunicorn (for deployment).</p>
+</li>
+<li>
+<p><strong>Database:</strong> SQLite (for local development), PostgreSQL (planned for Render production).</p>
+</li>
+<li>
+<p><strong>ORM:</strong> SQLAlchemy.</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Flask-Login (or equivalent FastAPI mechanism like python-jose for JWT).</p>
+</li>
+<li>
+<p><strong>Deployment:</strong> Render (Backend as Web Service, Frontend as Static Site).</p>
+</li>
+<li>
+<p><strong>Documentation:</strong> Markdown.</p>
+</li>
+<li>
+<p><strong>Testing:</strong> pytest (Backend), React Testing Library (Frontend), Cypress (E2E - Future).</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-implementation-roadmap-phased">4. Implementation Roadmap (Phased)</h2>
+<h3 id="phase-1-backend-foundation-highest-priority">Phase 1: Backend Foundation (Highest Priority)</h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>1.1. Database Setup (SQLite + SQLAlchemy):</strong></p>
+</li>
+<li>
+<p>Create a schema.sql file with essential tables (users, nodes, connections)</p>
+</li>
+<li>
+<p>Implement initial SQLAlchemy models</p>
+</li>
+<li>
+<p>Create database initialization script</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>1.2. Core API Endpoints:</strong></p>
+</li>
+<li>
+<p>Implement authentication endpoints (register, login, logout)</p>
+</li>
+<li>
+<p>Create basic CRUD for user profile</p>
+</li>
+<li>
+<p>Implement node creation/retrieval endpoints</p>
+</li>
+<li>
+<p>Add simple matching endpoint</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>1.3. Basic Verification System:</strong></p>
+</li>
+<li>
+<p>Create simple validation rules for user input</p>
+</li>
+<li>
+<p>Implement core ethical checks</p>
+</li>
+<li>
+<p>Set up audit logging foundation</p>
+</li>
+</ul>
+<h3 id="phase-2-frontend-essentials">Phase 2: Frontend Essentials</h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>2.1. User Interface Shell:</strong></p>
+</li>
+<li>
+<p>Implement login/registration screens</p>
+</li>
+<li>
+<p>Create main navigation structure</p>
+</li>
+<li>
+<p>Build profile creation/editing UI</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>2.2. Node Creation Interface:</strong></p>
+</li>
+<li>
+<p>Implement the UI for creating and managing nodes</p>
+</li>
+<li>
+<p>Add simple visualization for existing nodes</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>2.3. Simple Data Traceability:</strong></p>
+</li>
+<li>
+<p>Create basic version of DataTraceability component</p>
+</li>
+<li>
+<p>Implement simple graph visualization</p>
+</li>
+</ul>
+<h3 id="phase-3-integration-testing">Phase 3: Integration &amp; Testing</h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>3.1. Frontend-Backend Integration:</strong></p>
+</li>
+<li>
+<p>Connect all frontend components to API endpoints</p>
+</li>
+<li>
+<p>Test full user journey (registration → profile → nodes)</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>3.2. Unit &amp; Integration Tests:</strong></p>
+</li>
+<li>
+<p>Write basic test suite for critical paths</p>
+</li>
+<li>
+<p>Set up testing framework</p>
+</li>
+</ul>
+<h3 id="phase-4-deployment">Phase 4: Deployment</h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>4.1. Docker Configuration:</strong></p>
+</li>
+<li>
+<p>Create Dockerfiles for frontend and backend</p>
+</li>
+<li>
+<p>Set up Docker Compose for local development</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>4.2. CI/CD Pipeline:</strong></p>
+</li>
+<li>
+<p>Set up GitHub Actions for automated testing</p>
+</li>
+<li>
+<p>Configure automatic deployment to Render</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>4.3. Documentation:</strong></p>
+</li>
+<li>
+<p>Update installation guide</p>
+</li>
+<li>
+<p>Create contributor quick start guide</p>
+</li>
+</ul>
+<hr />
+<h3 id="phase-5-deployment-and-testing">Phase 5: Deployment and Testing</h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.1. Final Backend Testing (Local):</strong> Ensure all backend endpoints work correctly with the database.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.2. Final Frontend Testing (Local):</strong> Ensure all frontend components and interactions work correctly locally.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.3. Build Frontend for Production:</strong></p>
+</li>
+<li>
+<p>Run <code>npm run build</code> inside frontend.</p>
+</li>
+<li>
+<p>Move <code>frontend/build</code> to the project root.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.4. Deploy Backend to Render (Web Service):</strong> Push changes to GitHub. Ensure Render deploys the latest commit.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.5. Deploy Frontend to Render (Static Site):</strong> Push changes (including the build folder) to GitHub. Ensure Render Static Site settings are correct (Root Dir blank, Build Command blank, Publish Dir build, environment variable set). Trigger a manual deploy with cleared cache.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.6. Update CORS:</strong> Update <code>main.py</code> with the final frontend Render URL and redeploy the backend.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>5.7. Post-Deployment Testing:</strong> Thoroughly test the entire application on the live Render URLs.</p>
+</li>
+</ul>
+<hr />
+<h3 id="phase-6-documentation-cleanup">Phase 6: Documentation &amp; Cleanup</h3>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <strong>6.1. Update <code>README.md</code>:</strong> Add comprehensive setup, run, and deployment instructions.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> **6.2. Clean up temporary files.</p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> **6.3. Remove build folder.</p>
+</li>
+</ul>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: MVP Implementation Guide</p>
+</li>
+<li>
+<p>Type: Technical Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of MVP Implementation Guide</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

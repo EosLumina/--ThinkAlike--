@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/api/api_endpoints_verification_system/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Api Endpoints - Project Backend - Verification System - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Api Endpoints - Project Backend - Verification System";
+        var mkdocs_page_input_path = "architecture/api/api_endpoints_verification_system.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/api/api_endpoints_verification_system/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Api Endpoints - Project Backend - Verification System</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-endpoints-project-backend-verification-system">Api Endpoints - Project Backend - Verification System</h1>
+<p><strong>Document Purpose:</strong></p>
+<p>This document specifies the <strong>API endpoints for the ThinkAlike project backend, specifically for the Verification System.</strong>  It is a supplementary document to the main <code>API_ENDPOINTS.md</code> and outlines the routes, methods, request/response formats, authentication requirements, and functionality of endpoints related to the Verification System's operations.  Refer to <code>API_ENDPOINTS.md</code> for general API conventions, authentication details, and base URL information.</p>
+<p><strong>I.  Base URL and Authentication:</strong></p>
+<p>Refer to the main <code>API_ENDPOINTS.md</code> document for the Base URL and general Authentication information (JWT Bearer tokens).  All endpoints in this document, unless explicitly stated otherwise, <strong>require JWT authentication with appropriate administrative privileges</strong> for accessing verification-related information and functionalities.  Access control and authorization levels for Verification System endpoints will be further detailed in the Security Considerations document.</p>
+<p><strong>II. API Endpoints - Verification System Functionality:</strong></p>
+<p>These endpoints are organized by the core functionalities of the Verification System:</p>
+<p><strong>A. Ethical Guideline Endpoints (<code>/api/verification/guidelines</code>)</strong> <em>(Admin-Authenticated)</em></p>
+<ul>
+<li>
+<p><code>GET /api/verification/guidelines</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of all Ethical Guidelines defined in the system.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of Ethical Guideline objects:</p>
+<div class="highlight"><pre><span></span><code>```json
+[
+  {
+    &quot;guidelineId&quot;: &quot;UUID&quot;,
+    &quot;guidelineName&quot;: &quot;string (e.g., &#39;User Privacy&#39;)&quot;,
+    &quot;guidelineDescription&quot;: &quot;string (detailed description of the guideline)&quot;,
+    &quot;principleArea&quot;: &quot;enum [&#39;user_sovereignty&#39;, &#39;transparency&#39;, &#39;ethical_humanism&#39;, ...]&quot;, // Categorization by Enlightenment 2.0 principle
+    &quot;status&quot;: &quot;enum [&#39;active&#39;, &#39;draft&#39;, &#39;deprecated&#39;]&quot;,
+    &quot;lastUpdated&quot;: &quot;Timestamp&quot;,
+    // ... other guideline metadata
+  },
+  // ... more guideline objects
+]
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/guidelines/{guidelineId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get details for a specific Ethical Guideline.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Detailed Ethical Guideline object (same format as in list response).</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error</p>
+</li>
+<li>
+<p><em>(Potentially Admin endpoints for managing guidelines - POST, PUT, DELETE - to be specified if guideline management via API is needed)</em></p>
+</li>
+</ul>
+<p><strong>B. Algorithm Verification Endpoints (<code>/api/verification/algorithms</code>)</strong> <em>(Admin-Authenticated)</em></p>
+<ul>
+<li>
+<p><code>GET /api/verification/algorithms</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of algorithms under verification (initially primarily the Matching Algorithm, but can be expanded).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of AlgorithmVerificationStatus objects:</p>
+<div class="highlight"><pre><span></span><code>```json
+[
+  {
+    &quot;algorithmId&quot;: &quot;UUID (identifying the algorithm, e.g., &#39;value_based_matching_v1&#39;)&quot;,
+    &quot;algorithmName&quot;: &quot;string (e.g., &#39;Value-Based Matching Algorithm&#39;)&quot;,
+    &quot;verificationStatus&quot;: &quot;enum [&#39;pending&#39;, &#39;in_progress&#39;, &#39;verified&#39;, &#39;failed_verification&#39;]&quot;,
+    &quot;lastVerificationDate&quot;: &quot;Timestamp (last verification attempt)&quot;,
+    &quot;verifiedBy&quot;: &quot;UserId (UUID of verifying admin - optional)&quot;,
+    // ... other verification status metadata
+  },
+  // ... more algorithm verification status objects
+]
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/algorithms/{algorithmId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get detailed verification status and information for a specific algorithm.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> AlgorithmVerificationDetails object:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;algorithmId&quot;: &quot;UUID&quot;,
+  &quot;algorithmName&quot;: &quot;string&quot;,
+  &quot;verificationStatus&quot;: &quot;enum&quot;,
+  &quot;lastVerificationDate&quot;: &quot;Timestamp&quot;,
+  &quot;verifiedBy&quot;: &quot;UserId&quot;,
+  &quot;ethicalRationaleDocumentLink&quot;: &quot;URL (link to document explaining ethical rationale)&quot;,
+  &quot;auditLogsLink&quot;: &quot;URL (link to audit log entries for this algorithm)&quot;,
+  &quot;relatedGuidelines&quot;: [ ... ], // Array of EthicalGuideline IDs relevant to this algorithm
+  // ... other detailed verification information
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/algorithms/{algorithmId}/ethical-rationale</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get the documented ethical rationale for a specific algorithm.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges) - <em>Potentially Publicly Accessible in future for increased transparency</em></p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;algorithmId&quot;: &quot;UUID&quot;,
+  &quot;algorithmName&quot;: &quot;string&quot;,
+  &quot;ethicalRationale&quot;: &quot;string (detailed text explaining the ethical rationale)&quot;,
+  &quot;rationaleDocumentLink&quot;: &quot;URL (link to full rationale document - optional)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/algorithms/{algorithmId}/audit-logs</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get audit logs for a specific algorithm (changes, verification attempts, reviews).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of AuditLogEntry objects (related to the specified algorithm).</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error</p>
+</li>
+</ul>
+<p><strong>C. Data Traceability Endpoints (<code>/api/verification/datatraceability</code>)</strong> <em>(Admin-Authenticated - Potentially User-Accessible for limited data in future)</em></p>
+<ul>
+<li>
+<p><code>GET /api/verification/datatraceability/processes</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a list of processes with data traceability implemented (e.g., Matching Algorithm, User Data Handling, etc.).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges) - <em>Potentially User-Accessible in future for limited process info</em></p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of TraceableProcess objects:</p>
+<div class="highlight"><pre><span></span><code>```json
+[
+  {
+    &quot;processId&quot;: &quot;UUID (identifying the process, e.g., &#39;value_based_matching_process&#39;)&quot;,
+    &quot;processName&quot;: &quot;string (e.g., &#39;Value-Based Matching Process&#39;)&quot;,
+    &quot;description&quot;: &quot;string (brief description of the traceable process)&quot;,
+    &quot;dataFlowDiagramLink&quot;: &quot;URL (link to data flow diagram - optional)&quot;,
+    // ... other process metadata
+  },
+  // ... more traceable process objects
+]
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/datatraceability/processes/{processId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get detailed information and visualization data for a specific traceable process.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges) - <em>Potentially User-Accessible in future for limited data visualization</em></p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> TraceableProcessDetails object:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;processId&quot;: &quot;UUID&quot;,
+  &quot;processName&quot;: &quot;string&quot;,
+  &quot;description&quot;: &quot;string&quot;,
+  &quot;dataFlowDiagramLink&quot;: &quot;URL&quot;,
+  &quot;visualizationData&quot;: {      // Data specifically formatted for DataTraceability.jsx component
+    &quot;nodes&quot;: [ ... ],       // Array of Node objects (representing data sources, algorithms, data transformations)
+    &quot;edges&quot;: [ ... ]        // Array of Edge objects (representing data flow paths)
+  },
+  // ... other detailed process information
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error</p>
+</li>
+</ul>
+<p><strong>D. Audit Log Endpoints (<code>/api/verification/audit-logs</code>)</strong> <em>(Admin-Authenticated)</em></p>
+<ul>
+<li>
+<p><code>GET /api/verification/audit-logs</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get a general audit log of Verification System activities (admin-only access).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Query Parameters (Optional):</strong></p>
+<ul>
+<li>
+<p><code>filterBy</code>: "enum ['guideline', 'algorithm', 'datatraceability', 'admin_actions', ...]" - Filter logs by category.</p>
+</li>
+<li>
+<p><code>sortBy</code>: "enum ['timestamp', 'adminUser', 'actionType', ...]" - Sort logs by different criteria.</p>
+</li>
+<li>
+<p><code>page</code>: "integer" - Page number for pagination.</p>
+</li>
+<li>
+<p><code>pageSize</code>: "integer" - Number of log entries per page.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Paginated list of AuditLogEntry objects:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;auditLogs&quot;: [
+    {
+      &quot;logId&quot;: &quot;UUID&quot;,
+      &quot;timestamp&quot;: &quot;Timestamp&quot;,
+      &quot;adminUser&quot;: &quot;UserId (UUID of admin user performing action)&quot;,
+      &quot;actionType&quot;: &quot;enum [&#39;guideline_created&#39;, &#39;algorithm_verified&#39;, &#39;data_traceability_audited&#39;, &#39;...&#39;, ]&quot;,
+      &quot;affectedObjectId&quot;: &quot;UUID (ID of guideline, algorithm, etc. affected)&quot;,
+      &quot;description&quot;: &quot;string (detailed description of the audit event)&quot;,
+      // ... other audit log entry fields
+    },
+    // ... more audit log entries
+  ],
+  &quot;totalCount&quot;: &quot;integer (total number of log entries)&quot;,
+  &quot;currentPage&quot;: &quot;integer&quot;,
+  &quot;totalPages&quot;: &quot;integer&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/audit-logs/{logId}</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get details for a specific audit log entry.</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication - Verification System management privileges)</p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Detailed AuditLogEntry object (same format as in list response).</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 404 Not Found, 500 Internal Server Error</p>
+</li>
+</ul>
+<p><strong>E. Platform Verification Status Endpoints (<code>/api/verification/status</code>)</strong> <em>(Potentially Publicly Accessible in Future for Transparency Reporting)</em></p>
+<ul>
+<li>
+<p><code>GET /api/verification/status/platform</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get overall platform verification status summary (high-level overview of verified components).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication initially) - <em>Potentially Publicly Accessible in future for transparency reporting</em></p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> PlatformVerificationStatusSummary object:</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;platformVerificationStatus&quot;: &quot;enum [&#39;verified&#39;, &#39;partially_verified&#39;, &#39;unverified&#39;]&quot;,
+  &quot;verifiedComponentCounts&quot;: {
+    &quot;ethicalGuidelines&quot;: &quot;integer&quot;,
+    &quot;algorithms&quot;: &quot;integer&quot;,
+    &quot;dataTraceabilityProcesses&quot;: &quot;integer&quot;,
+    // ... other verified component counts
+  },
+  &quot;lastPlatformVerificationReportLink&quot;: &quot;URL (link to a detailed platform verification report - optional)&quot;,
+  // ... other summary status information
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/status/modes</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get verification status for each Mode (Narrative, Matching, Community).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication initially) - <em>Potentially Publicly Accessible in future</em></p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of ModeVerificationStatus objects:</p>
+<div class="highlight"><pre><span></span><code>```json
+[
+  {
+    &quot;modeName&quot;: &quot;string (e.g., &#39;Matching Mode&#39;)&quot;,
+    &quot;verificationStatus&quot;: &quot;enum&quot;,
+    &quot;lastVerificationDate&quot;: &quot;Timestamp&quot;,
+    &quot;verifiedFeatureCounts&quot;: {
+      &quot;algorithms&quot;: &quot;integer&quot;,
+      &quot;dataTraceabilityFeatures&quot;: &quot;integer&quot;,
+      // ... other mode-specific verified feature counts
+    },
+    // ... other mode-specific verification status information
+  },
+  // ... more ModeVerificationStatus objects (for each Mode)
+]
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+<li>
+<p><code>GET /api/verification/status/algorithms</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Get verification status for specific algorithms (detailed algorithm verification statuses).</p>
+</li>
+<li>
+<p><strong>Method:</strong> GET</p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required (Admin authentication initially) - <em>Potentially Publicly Accessible in future</em></p>
+</li>
+<li>
+<p><strong>Response (200 OK, JSON):</strong> Array of AlgorithmVerificationStatus objects (detailed status for each verified algorithm - same format as GET /api/verification/algorithms).</p>
+</li>
+<li>
+<p><strong>Error Responses:</strong> 401 Unauthorized, 403 Forbidden (if not authorized), 500 Internal Server Error</p>
+</li>
+</ul>
+<p><strong>III. Data Models (Refer to Verification System Specification):</strong></p>
+<p>Data models for AuditLogEntry, AlgorithmVerificationStatus, TraceableProcess, etc., will be detailed in a separate <code>docs/architecture/verification_system/VERIFICATION_SYSTEM_SPEC.md</code> document (to be generated next, if needed, or incorporated into the main Verification System spec document).</p>
+<p><strong>IV. Error Handling and Response Codes:</strong></p>
+<p>API endpoints will use standard HTTP status codes to indicate success or failure.  Refer to the main <code>API_ENDPOINTS.md</code> document for general error code definitions.</p>
+<p><strong>V. Future Endpoints and Extensibility:</strong></p>
+<p>This document represents the initial set of Verification System API endpoints. Future endpoints may be added as the Verification System evolves and new verification functionalities are implemented, particularly for more granular verification of specific features, data handling practices, and community governance mechanisms.  All new Verification System API endpoints will be documented in updated versions of this document.</p>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Api Endpoints - Project Backend - Verification System</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Api Endpoints - Project Backend - Verification System</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

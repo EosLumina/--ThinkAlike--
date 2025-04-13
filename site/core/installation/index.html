@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/core/installation/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Installation - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Installation";
+        var mkdocs_page_input_path = "core/installation.md";
+        var mkdocs_page_url = "/--ThinkAlike--/core/installation/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Installation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#quick-start-summary-for-experienced-users">Quick Start Summary (For Experienced Users)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#1-prerequisites-before-you-begin">1. Prerequisites - Before You Begin</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-project-setup">2. Project Setup</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-configuration">3. Configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4-running-the-application-locally">4. Running the Application Locally</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5-verification">5. Verification</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Core</li>
+      <li class="breadcrumb-item active">Installation</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installation-guide">Installation Guide</h1>
+<p><strong>Welcome to ThinkAlike! - Read This First!</strong></p>
+<p>This guide provides step-by-step instructions for setting up your local development environment for the ThinkAlike project using the correct technology stack (FastAPI backend, React frontend, SQLite database for local development).</p>
+<p>Following these instructions <strong>exactly</strong> will help you get your local environment running smoothly.</p>
+<p><strong>Reference:</strong> Always consult the <a href="master_refernce.md">SOURCE OF TRUTH - THINKALIKE PROJECT - MASTER REFERENCE.md</a> for the overarching project vision, ethical principles, and architectural guidelines.</p>
+<hr />
+<h2 id="quick-start-summary-for-experienced-users">Quick Start Summary (For Experienced Users)</h2>
+<p>If you're familiar with Python/Node environments, here are the essential commands (run from project root, assuming prerequisites are met):</p>
+<ol>
+<li><code>git clone https://github.com/EosLumina/--ThinkAlike--.git ThinkAlike</code></li>
+<li><code>cd ThinkAlike</code></li>
+<li><code>python -m venv venv</code></li>
+<li><code>.\venv\Scripts\Activate.ps1</code> (Windows PowerShell) OR <code>source venv/bin/activate</code> (macOS/Linux)</li>
+<li><code>pip install -r requirements.txt</code></li>
+<li><code>cd frontend</code></li>
+<li><code>npm install</code></li>
+<li><code>cd ..</code></li>
+<li>
+<p><code>python init_db.py</code> (Ensure <code>schema.sql</code> exists and <code>instance/</code> folder can be created)</p>
+</li>
+<li>
+<p><code>git clone https://github.com/Willeede/thinkalike_project.git ThinkAlike</code></p>
+</li>
+<li><code>cd ThinkAlike</code></li>
+<li><code>python -m venv venv</code></li>
+<li><code>.\venv\Scripts\Activate.ps1</code> (Windows PowerShell) OR <code>source venv/bin/activate</code> (macOS/Linux)</li>
+<li><code>pip install -r requirements.txt</code></li>
+<li><code>cd frontend</code></li>
+<li><code>npm install</code></li>
+<li><code>cd ..</code></li>
+<li><code>python init_db.py</code> (Ensure <code>schema.sql</code> exists and <code>instance/</code> folder can be created)</li>
+<li>Configure <code>.env</code> files (root and <code>frontend/</code>) as per detailed steps below.</li>
+<li><strong>Terminal 1 (Root):</strong> <code>.\venv\Scripts\Activate.ps1</code> then <code>uvicorn main:app --reload --host 0.0.0.0 --port 8000</code></li>
+<li><strong>Terminal 2 (Root):</strong> <code>cd frontend</code> then <code>npm start</code></li>
+<li>Access Frontend: <code>http://localhost:3000</code></li>
+<li>Access Backend Docs: <code>http://localhost:8000/docs</code></li>
+</ol>
+<hr />
+<h2 id="1-prerequisites-before-you-begin">1. Prerequisites - Before You Begin</h2>
+<p>Ensure you have the following software installed <em>before</em> cloning the project:</p>
+<ol>
+<li>
+<p><strong>Git:</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Version control and cloning from GitHub.</p>
+</li>
+<li>
+<p><strong>Download:</strong> <a href="https://git-scm.com/">https://git-scm.com/</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Python 3.9+:</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Running the FastAPI backend.</p>
+</li>
+<li>
+<p><strong>Download:</strong> <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+</li>
+<li>
+<p><strong>Important:</strong> During installation, <strong>check the option to "Add Python to PATH"</strong>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Node.js 16+ and npm:</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Managing frontend dependencies and running the React development server. npm comes bundled with Node.js.</p>
+</li>
+<li>
+<p><strong>Download:</strong> <a href="https://nodejs.org/">https://nodejs.org/</a> (Version 16 or later LTS recommended).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Visual Studio Code (Recommended):</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Code editor with good support for Python and JavaScript/React.</p>
+</li>
+<li>
+<p><strong>Download:</strong> <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Docker Desktop (Optional but Recommended for Future):</strong></p>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Simplifies setup, ensures consistent environments, useful for PostgreSQL later.</p>
+</li>
+<li>
+<p><strong>Download:</strong> <a href="https://www.docker.com/products/docker-desktop">https://www.docker.com/products/docker-desktop</a></p>
+</li>
+<li>
+<p><em>(Note: We use SQLite directly for initial local setup).</em></p>
+</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="2-project-setup">2. Project Setup</h2>
+<p><strong>Step 1: Clone the Repository</strong></p>
+<ul>
+<li>
+<p>Open <strong>PowerShell</strong> (or your preferred terminal).</p>
+</li>
+<li>
+<p>Navigate to the directory where you want to store the project (e.g., <code>C:\</code>).</p>
+</li>
+<li>
+<p>Clone the repository:</p>
+<div class="highlight"><pre><span></span><code><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">://</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">EosLumina</span><span class="p">/-</span><span class="n">-ThinkAlike</span><span class="p">--.</span><span class="n">git</span> <span class="n">ThinkAlike</span>
+</code></pre></div>
+</li>
+<li>
+<p>Navigate into the project directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="n">ThinkAlike</span>
+</code></pre></div>
+<p><em>(Your prompt should now show the path, e.g., <code>PS C:\ThinkAlike&gt;</code>)</em></p>
+</li>
+</ul>
+<p><strong>Step 2: Backend Setup (Python Virtual Environment &amp; Dependencies)</strong></p>
+<ul>
+<li>
+<p><strong>Create a Virtual Environment:</strong> From the project root (<code>C:\ThinkAlike</code>), create a Python virtual environment named <code>venv</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="n">venv</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Activate the Virtual Environment:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</code></pre></div>
+<p><em>(If you encounter execution policy errors, you might need to run: <code>Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process</code> in an </em><em>Administrator</em><em> PowerShell window first, then try activating again in your regular PowerShell window).</em></p>
+<p><em>(Your terminal prompt should now show <code>(venv)</code> at the beginning, like <code>(venv) PS C:\ThinkAlike&gt;</code>)</em></p>
+</li>
+<li>
+<p><strong>Install Backend Dependencies:</strong> Install the Python packages listed in <code>requirements.txt</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</code></pre></div>
+</li>
+</ul>
+<p><strong>Step 3: Frontend Setup (Node.js Dependencies)</strong></p>
+<ul>
+<li>
+<p><strong>Navigate to the <code>frontend</code> directory:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="n">frontend</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Install Frontend Dependencies:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="n">install</span>
+</code></pre></div>
+<p><em>(If you encounter SSL errors or similar, try setting <code>NODE_OPTIONS=--openssl-legacy-provider</code> before running <code>npm install</code> or <code>npm start</code>, especially with Node.js v17+)</em></p>
+</li>
+<li>
+<p><strong>Navigate back to the project root:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="p">..</span>
+</code></pre></div>
+</li>
+</ul>
+<hr />
+<h2 id="3-configuration">3. Configuration</h2>
+<p><strong>Step 4: Initialize SQLite Database</strong></p>
+<ul>
+<li>
+<p>Ensure your virtual environment is activated (<code>(venv)</code> should be visible in your prompt).</p>
+</li>
+<li>
+<p>Ensure an <code>instance/</code> directory exists in the root, or that the script can create it.</p>
+</li>
+<li>
+<p>Ensure a <code>schema.sql</code> file exists with your table definitions.</p>
+</li>
+<li>
+<p>Run the database initialization script. From the project root (<code>C:\ThinkAlike</code>):</p>
+<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">init_db</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div>
+<p><em>(This script should connect to the SQLite DB path defined (likely <code>instance/thinkalike.db</code>), create the file if it doesn't exist, and execute the SQL from <code>schema.sql</code> to create tables.)</em></p>
+</li>
+</ul>
+<p><strong>Step 5: Configure Environment Variables (<code>.env</code> files)</strong></p>
+<ul>
+<li>
+<p><strong>Backend (<code>.env</code> in Root):</strong></p>
+</li>
+<li>
+<p>Create the file <code>C:\ThinkAlike\.env</code> if it doesn't exist.</p>
+</li>
+<li>
+<p>Add <em>at least</em> the following, <strong>changing the <code>SECRET_KEY</code></strong>:</p>
+<div class="highlight"><pre><span></span><code>```dotenv
+# C:\ThinkAlike\.env
+
+DEBUG=True
+SECRET_KEY=your_very_strong_random_secret_key_here_CHANGE_ME
+DATABASE_URL=sqlite:///instance/thinkalike.db
+# Add other backend keys if needed (e.g., AI_API_KEY)
+
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Frontend (<code>.env</code> in <code>frontend/</code>):</strong></p>
+</li>
+<li>
+<p>Create the file <code>C:\ThinkAlike\frontend\.env</code> if it doesn't exist.</p>
+</li>
+<li>
+<p>Add the URL for your <em>local</em> backend:</p>
+<div class="highlight"><pre><span></span><code>```dotenv
+# C:\ThinkAlike\frontend\.env
+
+REACT_APP_BACKEND_URL=http://localhost:8000
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong><code>.gitignore</code>:</strong> Ensure your main <code>.gitignore</code> file (in <code>C:\ThinkAlike</code>) ignores <code>.env</code> files, <code>venv/</code>, and <code>instance/</code> (if <code>thinkalike.db</code> is inside):</p>
+<div class="highlight"><pre><span></span><code># Environment variables
+
+.env
+.env.*
+
+*.env.local
+!*.env.example
+
+# Virtual environment
+
+venv/
+.venv/
+
+# Instance folder (for SQLite DB)
+
+instance/
+
+# Node
+
+frontend/node_modules/
+frontend/build/
+frontend/.pnp.*
+frontend/.DS_Store
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+</code></pre></div>
+</li>
+</ul>
+<hr />
+<h2 id="4-running-the-application-locally">4. Running the Application Locally</h2>
+<p>Run the backend and frontend servers simultaneously in <strong>separate terminals</strong>.</p>
+<p><strong>Step 6: Start the Backend Server</strong></p>
+<ul>
+<li>
+<p>Open a <strong>new</strong> PowerShell window/tab.</p>
+</li>
+<li>
+<p>Navigate to the project root: <code>cd C:\ThinkAlike</code></p>
+</li>
+<li>
+<p>Activate the virtual environment: <code>.\venv\Scripts\Activate.ps1</code></p>
+</li>
+<li>
+<p>Start the FastAPI server using Uvicorn:</p>
+<div class="highlight"><pre><span></span><code><span class="n">uvicorn</span> <span class="n">main</span><span class="p">:</span><span class="n">app</span> <span class="p">-</span><span class="n">-reload</span> <span class="p">-</span><span class="n">-host</span> <span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span> <span class="p">-</span><span class="n">-port</span> <span class="n">8000</span>
+</code></pre></div>
+<p><em>(Keep this terminal open. You should see output indicating the server is running, typically on <code>http://127.0.0.1:8000</code>. Access API docs at <code>http://127.0.0.1:8000/docs</code>)</em></p>
+</li>
+</ul>
+<p><strong>Step 7: Start the Frontend Development Server</strong></p>
+<ul>
+<li>
+<p>Open <strong><em>another new</em></strong>, <em>separate</em> PowerShell window/tab.</p>
+</li>
+<li>
+<p>Navigate to the <code>frontend</code> directory: <code>cd C:\ThinkAlike\frontend</code></p>
+</li>
+<li>
+<p><em>(Optional: If you hit SSL errors)</em> <code>Set-Item -Path Env:NODE_OPTIONS -Value "--openssl-legacy-provider"</code></p>
+</li>
+<li>
+<p>Start the React development server:</p>
+<div class="highlight"><pre><span></span><code><span class="n">npm</span> <span class="nb">start</span>
+</code></pre></div>
+<p><em>(Keep this terminal open. Your browser should open automatically to <code>http://localhost:3000</code>. If not, open it manually.)</em></p>
+</li>
+</ul>
+<hr />
+<h2 id="5-verification">5. Verification</h2>
+<ul>
+<li>
+<p><strong>Backend:</strong> Open <code>http://localhost:8000/docs</code> in your browser. See the FastAPI interactive API documentation.</p>
+</li>
+<li>
+<p><strong>Frontend:</strong> Open <code>http://localhost:3000</code>. See the ThinkAlike application interface.</p>
+</li>
+<li>
+<p><strong>Interaction:</strong> Test basic features (login/register if implemented, fetching data). Use browser developer tools (F12) -&gt; "Console" and "Network" tabs to check for errors. Ensure frontend requests to <code>http://localhost:8000</code> are successful (check Network tab for CORS errors if they fail).</p>
+</li>
+</ul>
+<hr />
+<p>You should now have a working local development environment for ThinkAlike! Refer to <code>CONTRIBUTING.md</code> and other documentation for development guidelines.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Installation Guide</p>
+</li>
+<li>
+<p>Type: Core Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Installation Guide</p>
+<hr />
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../contributing/" class="btn btn-neutral float-left" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../onboarding_guide/" class="btn btn-neutral float-right" title="Onboarding Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../contributing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../onboarding_guide/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

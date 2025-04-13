@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/data_handling_policy_guide/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Data handling policy guide - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Data handling policy guide";
+        var mkdocs_page_input_path = "guides/developer_guides/data_handling_policy_guide.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/data_handling_policy_guide/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Data handling policy guide</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!-- filepath: c:\--ThinkAlike--\docs\guides\developer_guides\data_handling_policy_guide.md -->
+
+<h1 id="data-handling-policy-guide">Data Handling Policy Guide</h1>
+<hr />
+<h2 id="1-introduction-commitment-to-ethical-data-stewardship">1. Introduction: Commitment to Ethical Data Stewardship</h2>
+<p>This Data Handling Policy outlines ThinkAlike's principles, practices, and procedures for collecting, using, storing, securing, and deleting user data. It reflects our commitment to <strong>User Sovereignty</strong>, <strong>Radical Transparency</strong>, <strong>Data Minimization</strong>, and <strong>Security by Design</strong> as defined in our <a href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a> and <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>.</p>
+<p>We treat user data as a <strong>sacred trust</strong>. This policy details how we act as responsible stewards, ensuring data is used ethically to empower users and facilitate genuine connection, never for exploitation or opaque profiling. Users maintain control over their information at all times.</p>
+<p>Refer to the <a href="../../../architecture/security/security_and_privacy_plan/">Security &amp; Privacy Plan</a> for detailed technical security measures, and see the <a href="../../../core/glossary/">Glossary</a> for definitions.</p>
+<h2 id="2-core-data-handling-principles">2. Core Data Handling Principles</h2>
+<ul>
+<li>
+<p><strong>Purpose Limitation:</strong> Data is collected only for specific, explicitly stated purposes (e.g., profile creation, value-based matching, narrative personalization, community function, optional consented external data enhancement). Data is not reused for incompatible purposes.</p>
+</li>
+<li>
+<p><strong>Data Minimization:</strong> We collect and retain only what is strictly necessary. See the <a href="../../../architecture/database/unified_data_model_schema/">Unified Data Model Schema</a> for details.</p>
+</li>
+<li>
+<p><strong>User Control &amp; Consent:</strong> All processing relies on explicit, informed, and granular consent. Users can modify, export, and delete their data via UI controls (<a href="../../../components/ui_components/data_explorer_panel_spec/">Data Explorer Panel Spec</a>) and API requests.</p>
+</li>
+<li>
+<p><strong>Transparency:</strong> We clearly communicate what data is collected, why, and how it is processed. Tools like <a href="../../../components/ui_components/data_traceability/">DataTraceability</a> and the <a href="../ai/ai_transparency_log/">AI Transparency Log</a> support this.</p>
+</li>
+<li>
+<p><strong>Accuracy:</strong> We aim to keep personal data correct and up to date. Users are provided tools to rectify their information.</p>
+</li>
+<li>
+<p><strong>Storage Limitation:</strong> Data is retained only as long as necessary and securely deleted afterward.</p>
+</li>
+<li>
+<p><strong>Integrity &amp; Confidentiality:</strong> Strong measures protect data against unauthorized access, loss, or damage, as detailed in <a href="../../../architecture/security/security_deep_dive/">Security Deep Dive</a>.</p>
+</li>
+</ul>
+<h2 id="3-data-collection-practices">3. Data Collection Practices</h2>
+<p>Data is collected through:</p>
+<ul>
+<li>
+<p><strong>Direct User Input:</strong> Registration, profile completion (<a href="../../components/ui_components/UserForm_spec.md">UserForm Spec</a>), settings, and community posts.</p>
+</li>
+<li>
+<p><strong>Narrative Mode Interaction:</strong> User choices during onboarding contribute to the initial Value Profile (<a href="../../../architecture/modes/mode1_narrative_onboarding_spec/">Mode 1 Spec</a>).</p>
+</li>
+<li>
+<p><strong>Optional External Service Integration:</strong> Data from connected services (e.g., Goodreads) is fetched only after explicit user consent, as managed by <a href="../../../components/ui_components/connected_services_manager_spec/">ConnectedServicesManager</a> and detailed in the <a href="../../../architecture/data_integration_strategy/">Data Integration Strategy</a>.</p>
+</li>
+<li>
+<p><strong>System Usage Data:</strong> Limited, anonymized usage data may be collected—solely for improving platform functionality and security—with explicit consent if non-essential.</p>
+</li>
+</ul>
+<h2 id="4-data-usage">4. Data Usage</h2>
+<p>User data is used exclusively for:</p>
+<ul>
+<li>
+<p><strong>Account Management:</strong> Registration, authentication, security, and notifications.</p>
+</li>
+<li>
+<p><strong>Profile Display:</strong> Showing profiles with respect to user-defined privacy settings.</p>
+</li>
+<li>
+<p><strong>Narrative Personalization:</strong> Tailoring the onboarding narrative and eliciting Value Profile data.</p>
+</li>
+<li>
+<p><strong>Value-Based Matching:</strong> Calculating matching percentages, as described in the <a href="../matching_algorithm_guide/">Matching Algorithm Guide</a>.</p>
+</li>
+<li>
+<p><strong>Community Functions:</strong> Facilitating discovery and communication within communities.</p>
+</li>
+<li>
+<p><strong>Platform Improvement:</strong> Anonymized data used to improve features and fix issues.</p>
+</li>
+<li>
+<p><strong>Transparency Features:</strong> Displaying data flows and influences via <a href="../../../components/ui_components/data_traceability/">DataTraceability</a> and the <a href="../ai/ai_transparency_log/">AI Transparency Log</a>.</p>
+</li>
+</ul>
+<p>Data is NEVER sold or used for manipulative advertising.</p>
+<h2 id="5-third-party-data-handling">5. Third-Party Data Handling</h2>
+<p>For services like Goodreads or Spotify:</p>
+<ul>
+<li>
+<p><strong>Explicit Opt-In:</strong> Users must actively connect and enable specific data uses.</p>
+</li>
+<li>
+<p><strong>Scope Limitation:</strong> Only the minimum necessary permissions are requested.</p>
+</li>
+<li>
+<p><strong>Data Minimization:</strong> Only required data is fetched.</p>
+</li>
+<li>
+<p><strong>Secure Token Storage:</strong> OAuth tokens are securely encrypted.</p>
+</li>
+<li>
+<p><strong>Clear Attribution &amp; Traceability:</strong> External data influences are clearly indicated in the UI and logs.</p>
+</li>
+<li>
+<p><strong>User Control:</strong> Users can disconnect services and delete associated data with ease.</p>
+</li>
+</ul>
+<h2 id="6-data-security">6. Data Security</h2>
+<p>See the <a href="../../../architecture/security/security_and_privacy_plan/">Security &amp; Privacy Plan</a> and <a href="../../../architecture/security/security_deep_dive/">Security Deep Dive</a> for comprehensive details on:</p>
+<ul>
+<li>
+<p>Encryption (TLS in transit, database encryption at rest).</p>
+</li>
+<li>
+<p>Access controls (RBAC, strict database permissions).</p>
+</li>
+<li>
+<p>Secure authentication (JWT, robust password hashing).</p>
+</li>
+<li>
+<p>Input validation, regular audits, and secure deployment practices.</p>
+</li>
+</ul>
+<h2 id="7-data-retention-deletion">7. Data Retention &amp; Deletion</h2>
+<ul>
+<li>
+<p><strong>Retention Policy:</strong> Data is stored only as long as necessary, with clear retention periods (to be defined as per legal requirements).</p>
+</li>
+<li>
+<p><strong>Deletion Requests:</strong> Users may request account deletion, triggering secure removal of personal data.</p>
+</li>
+<li>
+<p><strong>External Data:</strong> Disconnecting a service deletes associated external data.</p>
+</li>
+<li>
+<p><strong>Anonymization:</strong> Analytics data is anonymized and aggregated.</p>
+</li>
+</ul>
+<h2 id="8-user-rights-control">8. User Rights &amp; Control</h2>
+<p>Users have the rights to:</p>
+<ul>
+<li>
+<p><strong>Access:</strong> View their data via the <a href="../../../components/ui_components/data_explorer_panel_spec/">Data Explorer Panel</a>.</p>
+</li>
+<li>
+<p><strong>Rectify:</strong> Correct inaccurate data.</p>
+</li>
+<li>
+<p><strong>Erase:</strong> Delete their data via account deletion features.</p>
+</li>
+<li>
+<p><strong>Restrict:</strong> Limit processing by toggling consents.</p>
+</li>
+<li>
+<p><strong>Data Portability:</strong> Export their data (feature planned).</p>
+</li>
+<li>
+<p><strong>Object &amp; Withdraw:</strong> Object to processing and withdraw consent anytime.</p>
+</li>
+</ul>
+<h2 id="9-policy-updates">9. Policy Updates</h2>
+<p>This policy is reviewed regularly and updated as needed. Significant changes will be communicated to users.</p>
+<hr />
+<h2 id="10-contact-us">10. Contact Us</h2>
+<p>For any questions or concerns, please contact us at <a href="mailto:support@thinkalike.com">support@thinkalike.com</a>.</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/components/ui_components/core_values_validator/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>Design Document: CoreValuesValidator UI Component - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Design Document: CoreValuesValidator UI Component";
+        var mkdocs_page_input_path = "components/ui_components/core_values_validator.md";
+        var mkdocs_page_url = "/--ThinkAlike--/components/ui_components/core_values_validator/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Design Document: CoreValuesValidator UI Component</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="design-document-corevaluesvalidator-ui-component">Design Document: CoreValuesValidator UI Component</h1>
+<hr />
+<h2 id="1-introduction-and-description">1. Introduction and Description</h2>
+<p>The <strong>CoreValuesValidator</strong> is a specialized, reusable React UI component central to ThinkAlike's <strong>"UI as Validation
+Framework"</strong> and its commitment to <strong>Ethical AI by Design</strong>. Unlike general data or API validators, this component's
+specific purpose is to <strong>visualize and validate the alignment of specific platform actions, data processing steps, or AI
+model outputs with ThinkAlike's defined core ethical values and principles</strong>.</p>
+<p>It translates abstract ethical guidelines into tangible, visual feedback within the UI, serving multiple purposes:</p>
+<ul>
+<li>
+<p><strong>Ethical Transparency for Users:</strong> In specific contexts (e.g., within the <code>AI Transparency Log</code> or <code>Data Explorer
+Panel</code>), it can help users understand the ethical considerations applied to a process affecting them.</p>
+</li>
+<li>
+<p><strong>Developer/Tester Feedback:</strong> Provides immediate visual feedback during development and testing on whether a feature or
+workflow potentially deviates from or adheres to core ethical principles (e.g., user empowerment, data minimization,
+transparency, bias mitigation).</p>
+</li>
+<li>
+<p><strong>Ethical Auditing:</strong> Serves as a UI target for automated and manual ethical tests, allowing auditors to quickly assess
+compliance points.</p>
+</li>
+<li>
+<p><strong>Reinforcing Values:</strong> Acts as a constant visual reminder of the project's ethical commitments embedded directly within
+the development and testing tools.</p>
+</li>
+</ul>
+<p>This component interfaces conceptually and potentially directly with the backend <strong>Verification System</strong> and relies heavily
+on the principles defined in the <a href="../../core/ethics/ethical_guidelines/ethical_guidelines.md">ThinkAlike Ethical Guidelines</a>
+and the <a href="../../../core/manifesto/manifesto/">Philosophical Manifesto of Eos Lumina</a>.</p>
+<hr />
+<h2 id="2-ui-components-elements">2. UI Components / Elements</h2>
+<p>The <code>CoreValuesValidator</code> typically renders as a compact summary or a more detailed panel, depending on context and
+configuration.</p>
+<h3 id="21-ethical-alignment-scoreindicator">2.1 Ethical Alignment Score/Indicator</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Provide an immediate, high-level assessment of ethical alignment for a specific context (e.g., an API call's
+data usage, an AI recommendation's potential bias).</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Visual Score:</strong> Could be a numerical score (e.g., 0-100), a qualitative rating (e.g., "High Alignment",
+    "Potential Concern", "Violation Detected"), or a graphical indicator (e.g., a gauge, a spectrum bar).</p>
+</li>
+<li>
+<p><strong>Color-Coding:</strong> Uses project-defined colors to signify alignment level:</p>
+<ul>
+<li>
+<p><em>Green (or similar positive color):</em> Strong alignment with ethical principles.</p>
+</li>
+<li>
+<p><em>Amber/Yellow:</em> Potential ethical concerns identified, requires review.</p>
+</li>
+<li>
+<p><em>Neon Orange/Red:</em> Significant ethical violation detected or high risk identified.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Iconography:</strong> May use simple icons representing core values (e.g., eye for transparency, shield for privacy, scales
+  for fairness, person icon for empowerment) with status indicators.</p>
+</li>
+</ul>
+<h3 id="22-principle-breakdown-detailed-view">2.2 Principle Breakdown (Detailed View)</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Show how the specific action/data/output aligns with <em>individual</em> core ethical principles.</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>List/Grid View:</strong> Displays a list or grid of relevant core ethical principles (e.g., "Data Minimization",
+  "User Control", "Transparency", "Bias Mitigation", "Authenticity").</p>
+</li>
+<li>
+<p><strong>Per-Principle Status:</strong> For each principle, shows a specific status indicator (icon, color code, checkmark/cross)
+  indicating adherence or potential violation in the current context.</p>
+</li>
+<li>
+<p><strong>Explanations/Rationale (On Hover/Click):</strong> Provides brief, contextual explanations for the assessment of each
+  principle (e.g., "Data Minimization: OK - Only essential fields used", "Bias Mitigation: Warning - Potential skew
+  detected in recommendation diversity, see Bias Report #123", "User Control: OK - User preferences respected").</p>
+</li>
+</ul>
+<h3 id="23-identified-concernsviolations-log">2.3 Identified Concerns/Violations Log</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Clearly list any specific ethical concerns or violations flagged by the validation process.</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong></p>
+</li>
+<li>
+<p><strong>Log List:</strong> A clear list detailing each identified issue.</p>
+</li>
+<li>
+<p><strong>Severity Level:</strong> Indicates the severity of the concern (e.g., Low, Medium, High, Critical).</p>
+</li>
+<li>
+<p><strong>Description:</strong> Explains the nature of the concern/violation.</p>
+</li>
+<li>
+<p><strong>Recommendation/Action Link:</strong> Provides suggested remediation steps or links to relevant documentation/reports
+  (e.g., link to a detailed bias audit report, link to relevant Ethical Guideline).</p>
+</li>
+</ul>
+<h3 id="24-link-to-verification-system-evidence">2.4 Link to Verification System / Evidence</h3>
+<ul>
+<li>
+<p><strong>Purpose:</strong> Connect the UI validation display to underlying evidence or detailed reports from the backend Verification
+System.</p>
+</li>
+<li>
+<p><strong>UI Elements:</strong> A link or button labeled "View Details in Verification System" or "See Ethical Audit Trail".</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-data-flow-and-interaction">3. Data Flow and Interaction</h2>
+<ol>
+<li>
+<p><strong>Context Provision:</strong> The parent component rendering the <code>CoreValuesValidator</code> provides it with context about the
+action, data, or AI output being evaluated (e.g., API call details, AI recommendation data, user workflow step).</p>
+</li>
+<li>
+<p><strong>Validation Trigger:</strong> Validation can be triggered:</p>
+</li>
+<li>
+<p><strong>Frontend Heuristics:</strong> Simple checks performed directly in the frontend based on data patterns or UI state
+   (e.g., checking if sensitive data is being displayed without masking).</p>
+</li>
+<li>
+<p><strong>Backend Verification Call:</strong> The frontend makes an API call to the backend Verification System
+   (e.g., <code>POST /api/verification/validate</code>) sending the relevant context.</p>
+</li>
+<li>
+<p><strong>Pre-computed Data:</strong> The necessary validation data/score might already be included in the response from the
+   primary API call being validated (e.g., an AI matching response includes ethical alignment scores).</p>
+</li>
+<li>
+<p><strong>Data Processing:</strong> The <code>CoreValuesValidator</code> receives validation results (scores, principle statuses, violation
+details) either directly via props or from the Verification System API response.</p>
+</li>
+<li>
+<p><strong>Rendering:</strong> The component renders the appropriate visual elements (Score, Principle Breakdown, Concerns Log)
+based on the received validation data.</p>
+</li>
+<li>
+<p><strong>User Interaction:</strong> Users can hover/click for details, view violation logs, and potentially link to the Verification
+System for deeper dives.</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>flowchart TB
+    %% Titles that do not overlap
+    title1[&quot;Presentation Layer (UI)&quot;]
+    title2[&quot;Application Layer (Ethical Workflow Engine)&quot;]
+    title3[&quot;Data Layer (Ethical Data Repository)&quot;]
+
+    %% Spacing
+    title1 ~~~ ui_section
+    title2 ~~~ app_section
+    title3 ~~~ data_section
+
+    subgraph ui_section[&quot; &quot;]
+        UI[&quot;User Interface&quot;]
+    end
+
+    subgraph app_section[&quot; &quot;]
+        API[&quot;Backend API (FastAPI)&quot;]
+        Logic[&quot;Business Logic &amp; Data Processing&quot;]
+        AI[&quot;AI Services (Ethical AI Models)&quot;]
+        Verification[&quot;Verification System&quot;]
+    end
+
+    subgraph data_section[&quot; &quot;]
+        DB[&quot;PostgreSQL Database&quot;]
+    end
+
+    UI --&gt; API
+    API --&gt; Logic
+    API --&gt; Verification
+    API --&gt; AI
+    Logic --&gt; DB
+    AI --&gt; DB
+    Verification --&gt; DB
+    DB --&gt; Logic
+    DB --&gt; AI
+    Logic --&gt; UI
+    AI --&gt; UI
+    Verification --&gt; UI
+
+    classDef titleClass font-weight:bold,fill:none,stroke:none;
+    classDef sectionClass fill:#d4f1f9,stroke:#333,stroke-width:2px,color:#000;
+    class title1,title2,title3 titleClass;
+    class ui_section,app_section,data_section sectionClass;
+
+    linkStyle default stroke:#0066cc,stroke-width:2px;
+</code></pre></div>
+<h2 id="4-code-implementation-notes">4. Code Implementation Notes</h2>
+<p><strong>Framework:</strong> React.</p>
+<p><strong>Props:</strong></p>
+<ul>
+<li>
+<p><strong>validationContext:</strong> (Object) Data describing the item being validated (e.g., { type: 'AI_RECOMMENDATION',
+data: recommendationObject }, { type: 'DATA_HANDLING', workflow: 'profile_update', fields: ['email', 'password'] }).</p>
+</li>
+<li>
+<p><strong>validationResults:</strong> (Object, Optional) Pre-computed results if validation happens elsewhere
+(e.g., { overallScore: 85, principles: { transparency: 'ok', bias: 'warning' }, concerns: [...] }).
+If not provided, the component might trigger its own backend call based on validationContext.</p>
+</li>
+<li>
+<p><strong>displayMode:</strong> (Enum: 'compact', 'detailed') Controls rendering detail.</p>
+</li>
+</ul>
+<p><strong>Logic:</strong></p>
+<ul>
+<li>
+<p>Component logic maps validationResults data to the appropriate UI elements and styling.</p>
+</li>
+<li>
+<p>Handles fetching validation results from the backend if validationResults prop is not provided.</p>
+</li>
+<li>
+<p>Manages internal state for displaying detailed sections (e.g., expanding principle breakdowns).</p>
+</li>
+</ul>
+<p><strong>Ethical Principle Mapping:</strong> Requires a clear mapping (e.g., a configuration object) between principle IDs/names used in
+the validation data and their display labels and icons in the UI.</p>
+<p><strong>Integration with Verification API:</strong> Define the request/response structure for interacting with the backend Verification
+System API.</p>
+<p><strong>Styling:</strong> Use project styles (style_guide.md) for colors, icons, and typography, ensuring clear visual distinction
+between alignment levels.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Example React Component Structure (Conceptual)</span>
+
+<span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="c1">// import { fetchEthicalValidation } from &#39;./apiService&#39;; // Example API call</span>
+<span class="c1">// Import ethical principle definitions/mapping</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">CoreValuesValidator</span><span class="p">({</span><span class="w"> </span><span class="nx">validationContext</span><span class="p">,</span><span class="w"> </span><span class="nx">validationResults</span><span class="p">,</span><span class="w"> </span><span class="nx">displayMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;compact&#39;</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">results</span><span class="p">,</span><span class="w"> </span><span class="nx">setResults</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="nx">validationResults</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isLoading</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsLoading</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">error</span><span class="p">,</span><span class="w"> </span><span class="nx">setError</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Fetch results from backend if not provided via props</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">validationResults</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">validationContext</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">      </span><span class="c1">// fetchEthicalValidation(validationContext)</span>
+<span class="w">      </span><span class="c1">//   .then(data =&gt; { setResults(data); setIsLoading(false); })</span>
+<span class="w">      </span><span class="c1">//   .catch(err =&gt; { setError(err); setIsLoading(false); });</span>
+<span class="w">       </span><span class="c1">// Placeholder for fetch logic</span>
+<span class="w">       </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Placeholder: Fetching validation for context:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">validationContext</span><span class="p">);</span>
+<span class="w">       </span><span class="nx">setIsLoading</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">       </span><span class="c1">// Example static result for dev/testing</span>
+<span class="w">       </span><span class="nx">setResults</span><span class="p">({</span><span class="w"> </span><span class="nx">overallScore</span><span class="o">:</span><span class="w"> </span><span class="mf">75</span><span class="p">,</span><span class="w"> </span><span class="nx">principles</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">transparency</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ok&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">bias</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;warning&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">userControl</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ok&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">                   </span><span class="nx">concerns</span><span class="o">:</span><span class="w"> </span><span class="p">[{</span><span class="nx">severity</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Medium&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Recommendation diversity below threshold.&#39;</span><span class="p">}]</span><span class="w"> </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">setResults</span><span class="p">(</span><span class="nx">validationResults</span><span class="p">);</span><span class="w"> </span><span class="c1">// Use results passed via props</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[</span><span class="nx">validationContext</span><span class="p">,</span><span class="w"> </span><span class="nx">validationResults</span><span class="p">]);</span><span class="w"> </span><span class="c1">// Re-run if context or prop results change</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">isLoading</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span><span class="nx">Loading</span><span class="w"> </span><span class="nx">Ethical</span><span class="w"> </span><span class="nx">Validation</span><span class="p">...&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;</span><span class="ne">Error</span><span class="w"> </span><span class="nx">fetching</span><span class="w"> </span><span class="nx">validation</span><span class="p">.&lt;/</span><span class="nt">div</span><span class="p">&gt;;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">results</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span><span class="w"> </span><span class="c1">// Nothing to display yet</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">getStatusColor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">score</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">80</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;green&#39;</span><span class="p">;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">score</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">60</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Using orange from palette</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Use a suitable red/neon orange</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`core-values-validator mode-</span><span class="si">${</span><span class="nx">displayMode</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`ethical-score color-</span><span class="si">${</span><span class="nx">getStatusColor</span><span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">overallScore</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="nx">Ethical</span><span class="w"> </span><span class="nx">Alignment</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">results</span><span class="p">.</span><span class="nx">overallScore</span><span class="p">}</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="cm">/* Or Qualitative */</span><span class="p">}</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="w">      </span><span class="p">{</span><span class="nx">displayMode</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;detailed&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;&gt;</span>
+<span class="w">          </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;principle-breakdown&quot;</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span><span class="nx">Principle</span><span class="w"> </span><span class="nx">Check</span><span class="o">:</span><span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<span class="w">            </span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="w">              </span><span class="p">{</span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">results</span><span class="p">.</span><span class="nx">principles</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">{}).</span><span class="nx">map</span><span class="p">(([</span><span class="nx">principle</span><span class="p">,</span><span class="w"> </span><span class="nx">status</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                </span><span class="p">&lt;</span><span class="nt">li</span><span class="w"> </span><span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">principle</span><span class="p">}</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`status-</span><span class="si">${</span><span class="nx">status</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+<span class="w">                  </span><span class="p">{</span><span class="cm">/* Icon? */</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="nx">principle</span><span class="p">}</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">status</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">()}</span>
+<span class="w">                  </span><span class="p">{</span><span class="cm">/* Add Tooltip/Popover with rationale here */</span><span class="p">}</span>
+<span class="w">                </span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="w">              </span><span class="p">))}</span>
+<span class="w">            </span><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">{</span><span class="nx">results</span><span class="p">.</span><span class="nx">concerns</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">results</span><span class="p">.</span><span class="nx">concerns</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">             </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;concerns-log&quot;</span><span class="p">&gt;</span>
+<span class="w">               </span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span><span class="nx">Identified</span><span class="w"> </span><span class="nx">Concerns</span><span class="o">:</span><span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<span class="w">               </span><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="w">                 </span><span class="p">{</span><span class="nx">results</span><span class="p">.</span><span class="nx">concerns</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">concern</span><span class="p">,</span><span class="w"> </span><span class="nx">index</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                   </span><span class="p">&lt;</span><span class="nt">li</span><span class="w"> </span><span class="na">key</span><span class="o">=</span><span class="p">{</span><span class="nx">index</span><span class="p">}</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="p">{</span><span class="sb">`severity-</span><span class="si">${</span><span class="nx">concern</span><span class="p">.</span><span class="nx">severity</span><span class="o">?</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span><span class="si">}</span><span class="sb">`</span><span class="p">}&gt;</span>
+<span class="w">                     </span><span class="p">[{</span><span class="nx">concern</span><span class="p">.</span><span class="nx">severity</span><span class="p">}]</span><span class="w"> </span><span class="p">{</span><span class="nx">concern</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span>
+<span class="w">                     </span><span class="p">{</span><span class="cm">/* Link to report? */</span><span class="p">}</span>
+<span class="w">                   </span><span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="w">                 </span><span class="p">))}</span>
+<span class="w">               </span><span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="w">             </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">           </span><span class="p">)}</span>
+<span class="w">           </span><span class="p">{</span><span class="cm">/* Optional Link to Verification System */</span><span class="p">}</span>
+<span class="w">        </span><span class="p">&lt;/&gt;</span>
+<span class="w">      </span><span class="p">)}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">CoreValuesValidator</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="5-testing-instructions">5. Testing Instructions</h2>
+<ul>
+<li>
+<p><strong>Alignment State Rendering:</strong> Provide mocked validationResults data representing high, medium, and low ethical alignment
+scores and various principle statuses (ok, warning, violation). Verify the component renders the correct colors, icons,
+scores, and status texts for each case.</p>
+</li>
+<li>
+<p><strong>Principle Breakdown Accuracy:</strong> For detailed mode, verify that all principles passed in the validationResults.principles
+object are displayed correctly with their corresponding statuses and that hover/click reveals the correct rationale.</p>
+</li>
+<li>
+<p><strong>Concerns Log Display:</strong> Provide mocked validationResults.concerns data with different severity levels. Verify the log
+displays correctly, lists all concerns, shows severity, and includes actionable links if provided.</p>
+</li>
+<li>
+<p><strong>Backend Integration (If applicable):</strong> If the component fetches data, mock the fetchEthicalValidation API call. Test
+successful fetch, loading state, and error handling (displaying an error message if the API call fails).</p>
+</li>
+<li>
+<p><strong>Contextual Rendering:</strong> Test rendering the component in both 'compact' and 'detailed' displayMode.</p>
+</li>
+<li>
+<p><strong>Integration with Parent Components:</strong> Test rendering the CoreValuesValidator within parent components (like AI
+Transparency Log or a testing dashboard) ensuring validationContext or validationResults are passed correctly.</p>
+</li>
+<li>
+<p><strong>Accessibility:</strong> Ensure colors have sufficient contrast, interactive elements are keyboard navigable, and ARIA
+attributes are used appropriately to convey status to screen readers.</p>
+</li>
+</ul>
+<h2 id="6-ui-mockup-placeholder">6. UI Mockup Placeholder</h2>
+<p>Refer to the project's central design repository for visual mockups.</p>
+<p>[Placeholder: Link or embed visual mockup of the CoreValuesValidator component in compact and detailed modes, showing
+different alignment states, here]</p>
+<h2 id="7-dependencies-integration">7. Dependencies &amp; Integration</h2>
+<p><strong>Depends On:</strong></p>
+<ul>
+<li>
+<p>Data (validationContext or validationResults prop).</p>
+</li>
+<li>
+<p>Backend Verification System API (optional, if fetching results).</p>
+</li>
+<li>
+<p>Core Ethical Principle definitions (for mapping/display).</p>
+</li>
+<li>
+<p>ThinkAlike Style Guide (colors, icons, typography).</p>
+</li>
+</ul>
+<p><strong>Integrates With:</strong></p>
+<ul>
+<li>
+<p>Testing dashboards and developer tools.</p>
+</li>
+<li>
+<p>Potentially Data Explorer Panel or AI Transparency Log for user-facing ethical insights.</p>
+</li>
+<li>
+<p>Automated testing frameworks (asserting on the rendered status/scores).</p>
+</li>
+</ul>
+<h2 id="8-future-enhancements">8. Future Enhancements</h2>
+<ul>
+<li>
+<p>More sophisticated visualization options for ethical alignment (e.g., radar charts).</p>
+</li>
+<li>
+<p>Direct feedback mechanism within the component for users/testers to report inaccuracies in ethical validation.</p>
+</li>
+<li>
+<p>Deeper integration with the Verification System to show audit trail snippets directly.</p>
+</li>
+<li>
+<p>Configuration options to customize which principles are displayed or prioritized.</p>
+</li>
+</ul>
+<h2 id="core-values-and-philosophical-principles">Core Values and Philosophical Principles</h2>
+<h3 id="core-values-our-guiding-principles">Core Values: Our Guiding Principles</h3>
+<ul>
+<li>
+<p><strong>Human-Centered Approach:</strong> We champion human dignity, agency, and well-being above all else. Technology serves user
+choice and freedom, validated by our UI.</p>
+</li>
+<li>
+<p><strong>Ethical AI:</strong> We develop AI that is transparent, accountable, and designed to amplify human capabilities, while
+respecting privacy, security, and human autonomy. Data parameters will always be clear and actionable.</p>
+</li>
+<li>
+<p><strong>Transparency &amp; Traceability:</strong> All processes are traceable via clear UI, rejecting "black box" technologies.</p>
+</li>
+<li>
+<p><strong>User Empowerment:</strong> Our technology enhances user agency and self-determination, using data to support, not dictate,
+individual needs.</p>
+</li>
+<li>
+<p><strong>Authenticity &amp; Meaningful Connections:</strong> We foster genuine, value-based relationships that extend beyond fleeting
+interactions into the real world.</p>
+</li>
+<li>
+<p><strong>Social Responsibility:</strong> We are dedicated to social equity and creating a positive impact, enhancing user skills,
+and solving real-world problems.</p>
+</li>
+<li>
+<p><strong>User Sovereignty:</strong> Users remain in charge of their data, decisions, and architectural preferences.</p>
+</li>
+<li>
+<p><strong>Community-Driven Growth:</strong> Our system is shaped by data, user experience, and unwavering ethical commitment.</p>
+</li>
+</ul>
+<h3 id="philosophical-principles-our-underlying-beliefs">Philosophical Principles: Our Underlying Beliefs</h3>
+<ul>
+<li>
+<p><strong>Technological Enlightenment:</strong> We are inspired by reason, knowledge, and progress, using technology as an instrument
+for self-knowledge, empathy, and critical thinking.</p>
+</li>
+<li>
+<p><strong>Humanism:</strong> We elevate empathy, compassion, and respect for all.</p>
+</li>
+<li>
+<p><strong>Positive Anarchism:</strong> We embrace self-organization, autonomy, and voluntary cooperation.</p>
+</li>
+<li>
+<p><strong>Natural Laws:</strong> We are inspired by natural systems of adaptability, resilience, and sustainability.</p>
+</li>
+<li>
+<p><strong>Data as a Tool for Progress:</strong> Data empowers human choice and highlights user agency, and will be used to promote
+human betterment.</p>
+</li>
+</ul>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Design Document: CoreValuesValidator UI Component</p>
+</li>
+<li>
+<p>Type: Component Specification</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

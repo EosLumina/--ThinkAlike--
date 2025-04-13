@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/api/api_endpoints_mode1/" />
+      <link rel="shortcut icon" href="../../../img/favicon.ico" />
+    <title>API Endpoints - Mode 1: Narrative Onboarding &amp; Match Reveal - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "API Endpoints - Mode 1: Narrative Onboarding \u0026amp; Match Reveal";
+        var mkdocs_page_input_path = "architecture/api/api_endpoints_mode1.md";
+        var mkdocs_page_url = "/--ThinkAlike--/architecture/api/api_endpoints_mode1/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">API Endpoints - Mode 1: Narrative Onboarding &amp; Match Reveal</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api-endpoints-mode-1-narrative-onboarding-match-reveal">API Endpoints - Mode 1: Narrative Onboarding &amp; Match Reveal</h1>
+<hr />
+<h2 id="1-introduction">1. Introduction</h2>
+<p>This document specifies the <strong>API endpoints for the ThinkAlike project backend, specifically for Mode 1 (Narrative Onboarding &amp; Match Reveal) functionality.</strong> It supplements the main <code>API_ENDPOINTS.md</code> and details the routes, methods, request/response formats, authentication, and functionality required to drive the interactive "Whispering Woods" choose-your-own-adventure experience. This mode serves as the primary onboarding mechanism, introduces core project values, elicits initial user Value Profile data, and culminates in a potential AI-driven "perfect match" reveal.</p>
+<p>Refer to <a href="../api_endpoints/"><code>API_ENDPOINTS.md</code></a> for general API conventions, authentication details (JWT Bearer), base URL (<code>/api/v1</code>), and standard error response formats. All endpoints listed here require <strong>Bearer Authentication</strong>.</p>
+<p>These endpoints facilitate the stateful progression through the narrative, interaction with the AI Narrative Engine, and the final match reveal based on the user's choices.</p>
+<hr />
+<h2 id="2-api-endpoints-mode-1-functionality">2. API Endpoints - Mode 1 Functionality</h2>
+<h3 id="21-narrative-flow-management">2.1 Narrative Flow Management</h3>
+<ul>
+<li>
+<p><code>GET /api/v1/narrative/start</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Initiate a new Mode 1 narrative ("Whispering Woods") or resume an existing session for the authenticated user.</p>
+</li>
+<li>
+<p><strong>Description:</strong> Retrieves the starting narrative node (scene description, initial prompt, first choices) for a user beginning Mode 1, or fetches their last saved position if they left mid-adventure. This is the entry point for the Mode 1 experience.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>GET</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Successfully retrieved the starting or current narrative state.</p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;narrativeNode&quot;: { // The current step/scene data
+    &quot;nodeId&quot;: &quot;string (Unique ID for this narrative step/scene, e.g., &#39;ww_intro_1&#39;)&quot;,
+    &quot;nodeType&quot;: &quot;string (Enum: &#39;prompt&#39;, &#39;scene_description&#39;, &#39;choice_point&#39;, &#39;match_reveal&#39;, &#39;narrative_end&#39;)&quot;,
+    &quot;content&quot;: {
+      &quot;text&quot;: &quot;string (Narrative text, AI agent dialogue, question)&quot;,
+      &quot;imageUrl&quot;: &quot;string (Optional URL for background/scene image)&quot;,
+      &quot;audioUrl&quot;: &quot;string (Optional URL for ambient sound/narration)&quot;
+    },
+    &quot;choices&quot;: [ // Array of choices if nodeType is &#39;choice_point&#39;
+      {
+        &quot;choiceId&quot;: &quot;string (Unique ID for this choice, e.g., &#39;ww_intro_1_choice_a&#39;)&quot;,
+        &quot;text&quot;: &quot;string (Text displayed for the user&#39;s choice option)&quot;
+        // &quot;value_implication&quot; field removed - backend infers value from choiceId
+      }
+      // ... more choices
+    ],
+    &quot;isEnding&quot;: &quot;boolean (True if this node represents an end state of the narrative flow)&quot;,
+    &quot;matchData&quot;: null // Typically null unless nodeType is &#39;match_reveal&#39;
+  },
+  &quot;sessionState&quot;: { // Identifier for the current narrative session/state
+      &quot;sessionId&quot;: &quot;string (Unique ID for this specific narrative playthrough)&quot;,
+      &quot;progressPercentage&quot;: &quot;float (Estimate of narrative completion, 0.0 to 1.0)&quot; // Optional
+  },
+  &quot;ui_feedback_components&quot;: {
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;description&quot;: &quot;UI components confirming successful narrative state retrieval.&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: Narrative definition unavailable or user state error.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Backend or AI Narrative Engine error retrieving state.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>POST /api/v1/narrative/choice</code></p>
+</li>
+<li>
+<p><strong>Purpose:</strong> Submit the user's selected choice for the current narrative step and retrieve the subsequent step or outcome.</p>
+</li>
+<li>
+<p><strong>Description:</strong> The core interaction endpoint for Mode 1. The frontend sends the <code>choiceId</code> selected by the user for the <code>currentNodeId</code> within the active <code>sessionId</code>. The backend interacts with the AI Narrative Engine and the matching logic to determine the next narrative state (including potential updates to the user's implicit Value Profile) and returns the corresponding <code>narrativeNode</code>. This endpoint drives the story forward and the underlying matching calculation.</p>
+</li>
+<li>
+<p><strong>Method:</strong> <code>POST</code></p>
+</li>
+<li>
+<p><strong>Authentication:</strong> Required.</p>
+</li>
+<li>
+<p><strong>Request Body (JSON):</strong></p>
+<div class="highlight"><pre><span></span><code>```json
+{
+  &quot;sessionId&quot;: &quot;string (Required, identifier for the ongoing narrative playthrough)&quot;,
+  &quot;currentNodeId&quot;: &quot;string (Required, ID of the node the user just responded to)&quot;,
+  &quot;chosenChoiceId&quot;: &quot;string (Required, ID of the choice the user selected)&quot;
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Responses:</strong></p>
+<ul>
+<li>
+<p><code>200 OK</code>: Choice successfully processed. Returns the next narrative state, which might be another step or the final match reveal.</p>
+<div class="highlight"><pre><span></span><code>```json
+// --- If narrative continues ---
+{
+  &quot;narrativeNode&quot;: { // The *next* step in the narrative
+    &quot;nodeId&quot;: &quot;string&quot;,
+    &quot;nodeType&quot;: &quot;string (e.g., &#39;prompt&#39;, &#39;choice_point&#39;)&quot;,
+    &quot;content&quot;: { &quot;...&quot;: &quot;...&quot; },
+    &quot;choices&quot;: [ /* ... */ ], // If applicable
+    &quot;isEnding&quot;: &quot;boolean (false)&quot;,
+    &quot;matchData&quot;: null
+  },
+  &quot;sessionState&quot;: { // Updated session state
+      &quot;sessionId&quot;: &quot;string&quot;,
+      &quot;progressPercentage&quot;: &quot;float&quot;
+  },
+  &quot;ui_feedback_components&quot;: {
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;description&quot;: &quot;UI components validating successful choice processing.&quot;
+  }
+}
+// --- If narrative ends with MATCH REVEAL ---
+{
+  &quot;narrativeNode&quot;: {
+    &quot;nodeId&quot;: &quot;string (e.g., &#39;ww_match_reveal&#39;)&quot;,
+    &quot;nodeType&quot;: &quot;string (&#39;match_reveal&#39;)&quot;,
+    &quot;content&quot;: {
+        &quot;text&quot;: &quot;string (Narrative text revealing the match, e.g., &#39;Through the clearing, you see a figure whose values resonate strongly with yours...&#39;)&quot;,
+        &quot;imageUrl&quot;: &quot;string (Optional image)&quot;
+     },
+    &quot;choices&quot;: [], // No further choices at this point
+    &quot;isEnding&quot;: &quot;boolean (true)&quot;,
+    &quot;matchData&quot;: { // Details of the revealed match
+        &quot;matchedUserId&quot;: &quot;integer&quot;,
+        &quot;matchingPercentage&quot;: &quot;float (The final calculated score)&quot;,
+        &quot;keySharedValues&quot;: [&quot;string&quot;, &quot;...&quot;], // Highlighted shared values
+        &quot;aiCloneData&quot;: { // Data to render the AI Clone of the match
+            &quot;videoIntroUrl&quot;: &quot;string&quot;,
+            &quot;styleParameters&quot;: {}
+        },
+        &quot;connectionUnlocked&quot;: &quot;boolean (True if direct connection is now enabled)&quot;
+    }
+  },
+  &quot;sessionState&quot;: { // Final session state
+      &quot;sessionId&quot;: &quot;string&quot;,
+      &quot;progressPercentage&quot;: 1.0
+  },
+  &quot;ui_feedback_components&quot;: {
+       &quot;type&quot;: &quot;object&quot;,
+       &quot;description&quot;: &quot;UI components validating the successful match reveal.&quot;
+  }
+}
+// --- If narrative ends WITHOUT a sufficient match ---
+{
+  &quot;narrativeNode&quot;: {
+    &quot;nodeId&quot;: &quot;string (e.g., &#39;ww_end_no_match&#39;)&quot;,
+    &quot;nodeType&quot;: &quot;string (&#39;narrative_end&#39;)&quot;,
+    &quot;content&quot;: {
+      &quot;text&quot;: &quot;string (Concluding text, e.g., &#39;Your journey through the woods concludes for now. Continue exploring connections in Mode 2.&#39;)&quot;
+    },
+    &quot;choices&quot;: [],
+    &quot;isEnding&quot;: &quot;boolean (true)&quot;,
+    &quot;matchData&quot;: null
+  },
+  &quot;sessionState&quot;: { // Final session state
+      &quot;sessionId&quot;: &quot;string&quot;,
+      &quot;progressPercentage&quot;: 1.0
+  },
+  &quot;ui_feedback_components&quot;: {
+     &quot;type&quot;: &quot;object&quot;,
+     &quot;description&quot;: &quot;UI components indicating narrative completion without immediate match.&quot;
+  }
+}
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>400 Bad Request</code>: Invalid input (e.g., invalid <code>chosenChoiceId</code> for <code>currentNodeId</code>, invalid <code>sessionId</code>).</p>
+<div class="highlight"><pre><span></span><code>```json
+ {
+   &quot;message&quot;: &quot;Invalid choice or session state for narrative progression.&quot;,
+   &quot;ui_validation_components&quot;: {
+      &quot;type&quot;: &quot;object&quot;,
+      &quot;description&quot;: &quot;UI components providing feedback on invalid input.&quot;
+   }
+ }
+```
+</code></pre></div>
+</li>
+<li>
+<p><code>401 Unauthorized</code>: Authentication required.</p>
+</li>
+<li>
+<p><code>404 Not Found</code>: Narrative definition error (<code>currentNodeId</code> has no path for <code>chosenChoiceId</code>).</p>
+</li>
+<li>
+<p><code>409 Conflict</code>: Invalid session state or sequence error.</p>
+</li>
+<li>
+<p><code>500 Internal Server Error</code>: Error in backend logic, AI Narrative Engine, or matching calculation during choice processing.</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="3-data-models">3. Data Models</h2>
+<ul>
+<li>
+<p><strong><code>NarrativeNode</code></strong>: Represents a single step/scene in the Mode 1 interactive narrative. Key fields: <code>nodeId</code>, <code>nodeType</code>, <code>content</code>, <code>choices</code>, <code>isEnding</code>, <code>matchData</code>. See structure in <code>GET /start</code> response. Note <code>matchData</code> is populated only on the final reveal node.</p>
+</li>
+<li>
+<p><strong><code>NarrativeChoice</code></strong>: Represents a selectable option within a <code>choice_point</code> node. Key fields: <code>choiceId</code>, <code>text</code>. The associated <em>value implication</em> is handled by the backend logic/AI based on the <code>choiceId</code>.</p>
+</li>
+<li>
+<p><strong><code>NarrativeSessionState</code></strong>: Contains identifiers (<code>sessionId</code>) and potentially progress indicators needed to maintain the user's state through the narrative flow.</p>
+</li>
+<li>
+<p><strong><code>MatchRevealData</code></strong>: Structure containing details of the revealed "perfect match" if the narrative path and matching score threshold are met. Key fields: <code>matchedUserId</code>, <code>matchingPercentage</code>, <code>keySharedValues</code>, <code>aiCloneData</code>, <code>connectionUnlocked</code>.</p>
+</li>
+</ul>
+<p><em>(Refer to the Mode 1 Spec (<code>mode1_narrative_onboarding_spec.md</code>) for more detailed conceptual data models if needed)</em>.</p>
+<hr />
+<h2 id="4-error-handling">4. Error Handling</h2>
+<p>Standard HTTP error codes (400, 401, 404, 409, 500) are used. Error responses should follow the standard format including <code>message</code> and potentially <code>ui_validation_components</code>. <code>409 Conflict</code> might indicate trying to submit a choice for an already completed session.</p>
+<hr />
+<h2 id="5-key-considerations-for-mode-1-api">5. Key Considerations for Mode 1 API</h2>
+<ul>
+<li>
+<p><strong>State Management:</strong> The backend needs robust state management for each user's <code>NarrativeSessionState</code>.</p>
+</li>
+<li>
+<p><strong>AI Integration:</strong> Endpoints need to efficiently interact with the AI Narrative Engine to get subsequent nodes based on choices and potentially update the underlying (implicit) Value Profile used by the matching algorithm.</p>
+</li>
+<li>
+<p><strong>Matching Logic Trigger:</strong> The logic determining if/when the <code>match_reveal</code> node is returned (based on accumulated choices and matching score) resides in the backend, triggered during the processing of <code>POST /narrative/choice</code>.</p>
+</li>
+<li>
+<p><strong>Idempotency:</strong> Consider if <code>POST /narrative/choice</code> needs to be idempotent in case of network retries (though typically advancing state isn't idempotent). Session state management should handle potential replays gracefully.</p>
+</li>
+</ul>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: API Endpoints - Mode 1: Narrative Onboarding &amp; Match Reveal</p>
+</li>
+<li>
+<p>Type: API Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of API Endpoints - Mode 1: Narrative Onboarding &amp; Match Reveal</p>
+<hr />
+<p>````markdown</p>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../..";</script>
+    <script src="../../../js/theme_extra.js"></script>
+    <script src="../../../js/theme.js"></script>
+      <script src="../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

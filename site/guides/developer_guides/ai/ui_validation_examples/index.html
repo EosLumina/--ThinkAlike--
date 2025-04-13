@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/ai/ui_validation_examples/" />
+      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
+    <title>Ethical Ai Implementation Guide for - ThinkAlike Documentation</title>
+    <link rel="stylesheet" href="../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Ethical Ai Implementation Guide for";
+        var mkdocs_page_input_path = "guides/developer_guides/ai/ui_validation_examples.md";
+        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/ai/ui_validation_examples/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Core</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Vision</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Architecture</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../architecture/architectural_overview/">Architectural Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Development</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../code_style_guide/">Code Style Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building_backend_endpoint/">Building Backend Endpoint Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../building_ui_component/">Building UI Component Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ui_validation_examples/">UI Validation Examples</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../git_workflow/">Git Workflow Standard</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">DevOps</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../../devops/devops_workflow.md">DevOps Workflow Guide</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../..">ThinkAlike Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Ethical Ai Implementation Guide for</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="ethical-ai-implementation-guide-for">Ethical Ai Implementation Guide for</h1>
+<p>This guide provides specific instructions and best practices for implementing Artificial Intelligence (AI) and Machine Learning (ML) components within ThinkAlike, ensuring strict adherence to our <a href="../../../../core/ethics/ethical_guidelines/"><code>Ethical Guidelines</code></a>. It complements the <a href="../ai_model_development_guide/"><code>AI Model Development Guide</code></a> and <a href="../ai_transparency_log/"><code>AI Transparency Log</code></a>.</p>
+<p>Building ethical AI is paramount. All AI/ML development must prioritize user well-being, fairness, transparency, and accountability.</p>
+<h2 id="core-principles-for-ai-implementation">Core Principles for AI Implementation</h2>
+<ol>
+<li><strong>Human-Centricity:</strong> AI should augment user understanding and connection, not manipulate or dictate outcomes. Users remain the focus.</li>
+<li><strong>Transparency &amp; Explainability:</strong> Users and developers must be able to understand <em>how</em> AI influences results (within practical limits). Use techniques that support explainability and meticulously log decisions (<a href="../ai_transparency_log/"><code>AI Transparency Log</code></a>).</li>
+<li><strong>Fairness &amp; Bias Mitigation:</strong> Actively identify and mitigate potential biases (demographic, cognitive, etc.) in data, algorithms, and evaluation metrics. See Guideline 4.</li>
+<li><strong>Privacy Preservation:</strong> AI models must be trained and operated using techniques that minimize exposure of sensitive user data. Adhere strictly to the <a href="../../data_handling_policy_guide/"><code>Data Handling Policy</code></a>.</li>
+<li><strong>Accountability &amp; Oversight:</strong> Establish clear ownership for AI models, processes for auditing their behavior, and mechanisms for addressing issues. The Verification System plays a role here.</li>
+<li><strong>User Control:</strong> Provide users with meaningful controls over how AI affects their experience (e.g., adjusting matching preferences, understanding profile generation).</li>
+</ol>
+<h2 id="implementation-guidelines">Implementation Guidelines</h2>
+<h3 id="1-data-handling-for-ai">1. Data Handling for AI</h3>
+<ul>
+<li>
+<p><strong>Consent:</strong> Only use user data for AI training/inference if explicit, granular consent has been obtained for that specific purpose (Guideline 2.a). Consent flags must be checked <em>before</em> data is fed into AI pipelines.</p>
+</li>
+<li>
+<p><strong>Anonymization/Pseudonymization:</strong> Apply strong anonymization or pseudonymization techniques to training data wherever possible, especially if sharing data or using third-party tools. Document the techniques used.</p>
+</li>
+<li>
+<p><strong>Data Minimization:</strong> Only collect and use the minimum data necessary for the AI task (Guideline 3.a). Avoid collecting sensitive attributes unless absolutely essential and ethically justified.</p>
+</li>
+<li>
+<p><strong>Secure Storage &amp; Access:</strong> Store AI training data and models securely, applying the same access controls and encryption standards as other sensitive data (<a href="../../../../architecture/security_deep_dive/"><code>Security Deep Dive</code></a>).</p>
+</li>
+</ul>
+<h3 id="2-model-development-training-ai-model-development-guide">2. Model Development &amp; Training (<a href="../ai_model_development_guide/"><code>AI Model Development Guide</code></a>)</h3>
+<ul>
+<li>
+<p><strong>Bias Assessment:</strong> Before and during training, rigorously analyze datasets for potential biases. Use tools and techniques (e.g., fairness metrics, subgroup analysis) to measure bias. Document findings.</p>
+</li>
+<li>
+<p><strong>Mitigation Strategies:</strong> Employ bias mitigation techniques (e.g., data augmentation, re-weighting, algorithmic adjustments like adversarial debiasing) as needed. Document the chosen strategies and their effectiveness.</p>
+</li>
+<li>
+<p><strong>Model Selection:</strong> Favor models known for better interpretability (e.g., LIME, SHAP applicable models) where feasible without significant performance loss for the specific task. Document the rationale for model choice.</p>
+</li>
+<li>
+<p><strong>Evaluation Metrics:</strong> Use a <em>suite</em> of evaluation metrics, including standard performance metrics (accuracy, precision, recall) AND fairness metrics (e.g., demographic parity, equal opportunity). Define acceptable thresholds for both.</p>
+</li>
+<li>
+<p><strong>Ethical Review:</strong> Incorporate an ethical review checkpoint before deploying significant AI model changes. This could involve a dedicated ethics council or checklist review process.</p>
+</li>
+</ul>
+<h3 id="3-ai-inference-integration">3. AI Inference &amp; Integration</h3>
+<ul>
+<li>
+<p><strong>Transparency Logging (<a href="../ai_transparency_log/"><code>AI Transparency Log</code></a>):</strong></p>
+</li>
+<li>
+<p>For every significant AI-driven decision affecting a user (e.g., profile generation element, match suggestion), log:</p>
+<ul>
+<li>
+<p>Input data/features used (or hashes/references).</p>
+</li>
+<li>
+<p>Model version used.</p>
+</li>
+<li>
+<p>The output/decision.</p>
+</li>
+<li>
+<p>Confidence score (if applicable).</p>
+</li>
+<li>
+<p>Explainability data (e.g., key features contributing to the decision, SHAP values).</p>
+</li>
+</ul>
+</li>
+<li>
+<p>This log must be accessible for generating user-facing explanations via the <code>DataTraceability</code> component and for internal auditing.</p>
+</li>
+<li>
+<p><strong>Verification System Hooks:</strong> Integrate AI components with the <a href="../../../../architecture/verification_system/verification_system_deep_dive/"><code>Verification System</code></a>:</p>
+</li>
+<li>
+<p><em>Pre-check:</em> Verify input data conforms to expected formats and potentially basic ethical constraints before feeding to the model.</p>
+</li>
+<li>
+<p><em>Post-check:</em> Verify AI outputs against defined constraints (e.g., ensure generated profile text doesn't violate content policies, check match suggestions against user blocks/preferences).</p>
+</li>
+<li>
+<p><strong>Human-in-the-Loop (HITL):</strong> For highly sensitive decisions or low-confidence predictions, consider implementing HITL workflows where a human reviews or confirms the AI suggestion before it affects the user.</p>
+</li>
+<li>
+<p><strong>User Controls:</strong> Design interfaces that allow users to:</p>
+</li>
+<li>
+<p>Understand <em>that</em> AI is being used.</p>
+</li>
+<li>
+<p>See <em>why</em> a particular suggestion was made (leveraging transparency logs).</p>
+</li>
+<li>
+<p>Adjust parameters influencing AI behavior (e.g., matching strictness, topic preferences).</p>
+</li>
+<li>
+<p>Provide feedback on AI suggestions (<a href="../../security_feedback_loops/"><code>Security Feedback Loops</code></a> can be adapted).</p>
+</li>
+</ul>
+<h3 id="4-example-ethical-matching-algorithm-implementation">4. Example: Ethical Matching Algorithm Implementation</h3>
+<p><em>(Conceptual Pseudocode/Steps)</em></p>
+<ol>
+<li><strong>Trigger:</strong> User requests profile matches (Mode 2).</li>
+<li><strong>Consent Check (Service Layer):</strong> Verify user has consented to profile matching (<code>has_consent(user_id, 'consent_profile_matching_v1')</code>). <strong>Block if no consent.</strong></li>
+<li><strong>Fetch User Profile (Service Layer):</strong> Retrieve user's <code>value_profile_summary</code> and <code>interests_vector</code> (only consented fields).</li>
+<li><strong>Pre-Verification (Verification System):</strong> Call <code>VerificationAPI.verify_matching_preconditions(user_id, parameters)</code> to check user status, parameter validity, etc.</li>
+<li><strong>Candidate Selection (Matching Service):</strong> Query database/index for potential candidates based on coarse criteria (e.g., activity status, basic filters). Anonymize candidate data retrieved.</li>
+<li>
+<p><strong>AI Scoring (Matching Service):</strong></p>
+<ul>
+<li>
+<p>For each candidate, calculate compatibility score using the trained matching model (<code>matching_model_v1.3.predict(user_vector, candidate_vector)</code>).</p>
+</li>
+<li>
+<p><strong>Log Input/Output:</strong> Log user vector ref, candidate vector ref, model version, raw score to <a href="../ai_transparency_log/"><code>AI Transparency Log</code></a>.</p>
+</li>
+<li>
+<p><strong>Get Explainability:</strong> Generate explanation data (e.g., key dimensions contributing to score) using LIME/SHAP applied to the model. Log this.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Post-Verification &amp; Filtering (Verification System):</strong> Call <code>VerificationAPI.verify_match_results(user_id, candidate_id, raw_score)</code> for each potential match. This checks:</p>
+<ul>
+<li>
+<p>Mutual blocking status.</p>
+</li>
+<li>
+<p>User-defined exclusion criteria.</p>
+</li>
+<li>
+<p>Ethical constraints on matching (e.g., prevent echo chamber extremes if designed).</p>
+</li>
+<li>
+<p>Score threshold checks.</p>
+</li>
+<li>
+<p><strong>Filter results based on Verification output.</strong></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Format Results (Service Layer):</strong> Prepare the final list of anonymized candidate snippets and associated (potentially simplified) explanations derived from the transparency log.</p>
+</li>
+<li><strong>Return to Frontend:</strong> Send the verified and formatted list.</li>
+<li><strong>Frontend Display:</strong> Use <code>DataTraceability</code> component (potentially simplified) to allow users to optionally see <em>why</em> a match was suggested.</li>
+</ol>
+<h2 id="maintaining-ethical-ai">Maintaining Ethical AI</h2>
+<ul>
+<li>
+<p><strong>Monitoring:</strong> Continuously monitor AI model performance <em>and</em> fairness metrics in production. Set up alerts for significant drifts or degradation.</p>
+</li>
+<li>
+<p><strong>Regular Audits:</strong> Perform periodic audits of AI components against these guidelines, reviewing transparency logs, fairness metrics, and user feedback.</p>
+</li>
+<li>
+<p><strong>Model Retraining &amp; Updates:</strong> Follow the full ethical development cycle (bias assessment, mitigation, testing) when retraining or updating models. Version models carefully.</p>
+</li>
+<li>
+<p><strong>Feedback Loops:</strong> Actively solicit and analyze user feedback regarding AI-driven features.</p>
+</li>
+</ul>
+<p>Implementing AI ethically is an ongoing commitment requiring vigilance and adherence to these guidelines throughout the entire lifecycle.
+Path: docs/guides/developer_guides/building_ui_component.md (New File)</p>
+<p>Markdown</p>
+<h1 id="guide-building-a-ui-component-in-thinkalike">Guide: Building a UI Component in ThinkAlike</h1>
+<p>This guide outlines the process and best practices for creating new UI components for the ThinkAlike frontend (React/TypeScript). It emphasizes consistency, testability, and integration with our core principles, including the "UI as Validation Framework."</p>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>
+<p>Familiarity with React, TypeScript, CSS Modules (or the project's styling solution).</p>
+</li>
+<li>
+<p>Understanding of the project's <a href="../code_style_guide/"><code>Code Style Guide</code></a> (Frontend section).</p>
+</li>
+<li>
+<p>Awareness of the "UI as Validation Framework" (<a href="../../vision/core_concepts.md"><code>Core Concepts Explained</code></a>, <a href="./"><code>UI Validation Examples</code></a>).</p>
+</li>
+</ul>
+<h2 id="1-planning-design">1. Planning &amp; Design</h2>
+<ul>
+<li>
+<p><strong>Define Purpose:</strong> Clearly state what the component does and why it's needed. Is it purely presentational, interactive, data-fetching, or a combination?</p>
+</li>
+<li>
+<p><strong>Define Props (API):</strong> Specify the component's interface. What data does it need? What configuration options? What callback functions (e.g., <code>onClick</code>, <code>onChange</code>, <code>onSubmit</code>)? Use TypeScript interfaces for strong typing.</p>
+</li>
+<li>
+<p><strong>Define State:</strong> Identify the internal state the component needs to manage (<code>useState</code>). Keep state minimal and lift it up when necessary.</p>
+</li>
+<li>
+<p><strong>Visual Design:</strong> How should it look? Refer to general style guides or existing component patterns.</p>
+</li>
+<li>
+<p><strong>Accessibility (a11y):</strong> Consider accessibility from the start. Use semantic HTML, ARIA attributes where appropriate, ensure keyboard navigability and screen reader compatibility.</p>
+</li>
+<li>
+<p><strong>Validation Integration:</strong> Does this component handle user input requiring ethical checks? Does it display sensitive data needing traceability? Does it trigger API calls needing schema validation? Identify which validation components (<code>CoreValuesValidator</code>, <code>APIValidator</code>, <code>DataTraceability</code>) need to be integrated.</p>
+</li>
+<li>
+<p><strong>Documentation (Optional but Recommended):</strong> For reusable or complex components, consider creating a basic spec document in <code>docs/components/ui_components/</code> outlining its purpose and props.</p>
+</li>
+</ul>
+<h2 id="2-file-structure">2. File Structure</h2>
+<p>Create a dedicated folder for your component within <code>frontend/src/components/</code> (or a relevant sub-directory):</p>
+<p>frontend/src/components/
+└── MyNewComponent/
+├── MyNewComponent.tsx         # Main component logic and JSX</p>
+<p>├── MyNewComponent.module.css  # CSS Modules for styling (or other standard)</p>
+<p>├── MyNewComponent.test.tsx    # Unit/Component tests (Jest/RTL)</p>
+<p>└── index.ts                   # Optional: Barrel file for exporting</p>
+<h2 id="3-implementation-steps">3. Implementation Steps</h2>
+<ol>
+<li>
+<p><strong>Create Component File (<code>.tsx</code>):</strong></p>
+<ul>
+<li>
+<p>Define the component function using React functional components and hooks.</p>
+</li>
+<li>
+<p>Define the <code>Props</code> interface using TypeScript.</p>
+</li>
+<li>
+<p>Implement the component's rendering logic using JSX. Use semantic HTML elements.</p>
+</li>
+<li>
+<p>Implement state management using <code>useState</code>.</p>
+</li>
+<li>
+<p>Implement side effects (like data fetching) using <code>useEffect</code>.</p>
+</li>
+<li>
+<p>Implement event handlers (e.g., <code>handleClick</code>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Apply Styling (<code>.module.css</code>):</strong></p>
+<ul>
+<li>
+<p>Write CSS rules using class names.</p>
+</li>
+<li>
+<p>Import and use the styles object in your <code>.tsx</code> file (e.g., <code>import styles from './MyNewComponent.module.css';</code>). Apply classes like <code>className={styles.myClass}</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Integrate Validation Components:</strong></p>
+<ul>
+<li>
+<p>Import necessary validation components (e.g., <code>import CoreValuesValidator from '../Validators/CoreValuesValidator';</code>).</p>
+</li>
+<li>
+<p>Embed them within your component's JSX where appropriate.</p>
+</li>
+<li>
+<p>Pass required props (data to validate, rules, API schemas, context, callback functions) as detailed in <a href="./"><code>UI Validation Examples</code></a>.</p>
+</li>
+<li>
+<p>Use the feedback/state provided by the validation components to modify your component's behavior (e.g., disable buttons, show error messages).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>TypeScript:</strong> Use TypeScript rigorously for props, state, function signatures, and variables to catch type errors early.</p>
+</li>
+<li><strong>Accessibility:</strong> Add necessary ARIA attributes, ensure proper focus management, use descriptive labels/alt text.</li>
+</ol>
+<h2 id="4-testing">4. Testing</h2>
+<ul>
+<li>
+<p><strong>Create Test File (<code>.test.tsx</code>):</strong> Use Jest and React Testing Library (RTL).</p>
+</li>
+<li>
+<p><strong>Basic Rendering:</strong> Test that the component renders without crashing.</p>
+</li>
+<li>
+<p><strong>Props Handling:</strong> Test that the component renders correctly with different prop values.</p>
+</li>
+<li>
+<p><strong>State Changes:</strong> Test that internal state updates correctly based on interactions.</p>
+</li>
+<li>
+<p><strong>Event Handlers:</strong> Test that callback props are called when expected (e.g., button clicks). Use RTL's <code>fireEvent</code> or <code>userEvent</code>.</p>
+</li>
+<li>
+<p><strong>Validation Integration:</strong></p>
+</li>
+<li>
+<p>Test that validation components are rendered when expected.</p>
+</li>
+<li>
+<p>Mock the validation components' callbacks/behavior to test how <em>your</em> component reacts to validation success or failure (e.g., ensure a button is disabled when validation fails).</p>
+</li>
+<li>
+<p><strong>Accessibility Testing:</strong> Consider adding <code>@axe-core/react</code> for automated accessibility checks within your tests.</p>
+</li>
+<li>
+<p><strong>Mocking:</strong> Mock API calls (<code>frontend/src/services/</code>), context providers, or complex child components as needed to isolate the component under test.</p>
+</li>
+</ul>
+<p>```typescript
+// Example Test Snippet (MyNewComponent.test.tsx)
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event'; // Recommended for user interactions
+import MyNewComponent from './MyNewComponent';</p>
+<p>// Mock validation component if needed
+jest.mock('../Validators/CoreValuesValidator', () =&gt; ({ textToValidate, onValidationResult }) =&gt; {
+  // Simplified mock behavior
+  const isValid = !textToValidate.includes('invalid');
+  React.useEffect(() =&gt; {
+    onValidationResult(isValid, isValid ? [] : ['Contains invalid text']);
+  }, [textToValidate, onValidationResult, isValid]);
+  return <div data-testid="mock-validator">{isValid ? 'Valid' : 'Invalid'}</div>;
+});</p>
+<p>describe('MyNewComponent', () =&gt; {
+  it('renders correctly with initial props', () =&gt; {
+    render(<MyNewComponent initialValue="test" />);
+    expect(screen.getByLabelText('My Input:')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Submit' })).toBeInTheDocument();
+  });</p>
+<p>it('updates input value on change', async () =&gt; {
+    render(<MyNewComponent initialValue="" />);
+    const input = screen.getByLabelText('My Input:');
+    await userEvent.type(input, 'new value');
+    expect(input).toHaveValue('new value');
+  });</p>
+<p>it('disables submit button when validator marks input as invalid', async () =&gt; {
+     render(<MyNewComponent initialValue="" />);
+     const input = screen.getByLabelText('My Input:');
+     const submitButton = screen.getByRole('button', { name: 'Submit' });</p>
+<div class="highlight"><pre><span></span><code> await userEvent.type(input, &#39;some valid text&#39;);
+ // Assuming validator passes for this text based on mock
+ expect(submitButton).not.toBeDisabled();
+ expect(screen.getByTestId(&#39;mock-validator&#39;)).toHaveTextContent(&#39;Valid&#39;);
+
+ await userEvent.clear(input);
+ await userEvent.type(input, &#39;contains invalid text&#39;);
+ // Assuming validator fails for this text based on mock
+ expect(submitButton).toBeDisabled(); // Check component reaction
+ expect(screen.getByTestId(&#39;mock-validator&#39;)).toHaveTextContent(&#39;Invalid&#39;);
+</code></pre></div>
+<p>});</p>
+<p>// Add more tests for edge cases, props, callbacks etc.
+});
+5. Integration
+Import and use your new component within parent components or pages (frontend/src/pages/).
+Pass necessary props down from the parent.
+Ensure data flows correctly (fetching data, passing callbacks).
+Perform manual testing in the browser across different scenarios.
+By following these steps, you contribute high-quality, consistent, testable, and ethically-aligned UI components to ThinkAlike.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Ethical Ai Implementation Guide for</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Ethical Ai Implementation Guide for</p>
+<hr />
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../../../..";</script>
+    <script src="../../../../js/theme_extra.js"></script>
+    <script src="../../../../js/theme.js"></script>
+      <script src="../../../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
