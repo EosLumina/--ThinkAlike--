@@ -12,7 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 5  # Increased timeout for potential long-running tests
+    timeout-minutes: 5 # Increased timeout for potential long-running tests
     strategy:
       matrix:
         python-version: ["3.10", "3.11"]
@@ -29,6 +29,7 @@ jobs:
         run: python --version
       - name: Install Python dependencies
         run: |
+          echo "Installing Python dependencies..."
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
           pip install -r requirements-test.txt
@@ -37,28 +38,33 @@ jobs:
         run: pip install httpx
       - name: Remove null bytes from source files
         run: |
+          echo "Removing null bytes from backend and test files..."
           find backend/ -type f -exec sed -i 's/\x0//g' {} \;
           find tests/ -type f -exec sed -i 's/\x0//g' {} \;
       - name: Run Backend tests with verbose output
         run: |
+          echo "Starting backend tests..."
           cd backend
           pytest --maxfail=5 --disable-warnings -q || (echo "Backend tests failed, review log output" && exit 1)
       - name: Echo Backend tests completed
-        run: echo "Backend tests finished running."      
+        run: echo "Backend tests finished running."
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Frontend dependencies
         run: |
+          echo "Installing Frontend dependencies..."
           cd frontend
           npm install
       - name: Build Frontend (if applicable)
         run: |
+          echo "Building Frontend..."
           cd frontend
           npm run build || echo "Skipping build because no build script defined"
       - name: Run Frontend tests
         run: |
+          echo "Running Frontend tests..."
           cd frontend
           npm test || (echo "Frontend tests failed, review logs" && exit 1)
       - name: Echo job completion
