@@ -1,6 +1,6 @@
 # Test dependencies for ThinkAlike
 pytest>=8.0.0
 pytest-cov>=6.0.0
-httpx>=0.24.0  # Required by starlette.testclient for FastAPI tests
-pandas>=2.0.0  # Required by tests/test_ethical_compliance.py
+httpx>=0.24.0
+pandas>=2.0.0
 fastapi>=0.95.0

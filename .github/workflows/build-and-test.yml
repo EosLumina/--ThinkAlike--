@@ -29,6 +29,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
           pip install -r requirements-test.txt
+      - name: Ensure httpx is installed
+        run: pip install httpx
+      - name: Remove null bytes from source files
+        run: |
+          find backend/ -type f -exec sed -i 's/\x0//g' {} \;
+          find tests/ -type f -exec sed -i 's/\x0//g' {} \;
       - name: Run Backend tests with pytest
         run: |
           cd backend
