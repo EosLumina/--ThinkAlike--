@@ -4,9 +4,20 @@ name: Consolidated CI
   push:
     branches:
     - main
+    paths:
+    - backend/**
+    - frontend/**
+    - tests/**
+    - requirements*.txt
+    - pyproject.toml
   pull_request:
     branches:
     - main
+    paths:
+    - backend/**
+    - frontend**
+    - tests/**
+    - requirements*.txt
   workflow_dispatch: {}
 
 jobs:
@@ -25,3 +36,20 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Test with pytest
         run: pytest
+  build:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install dependencies
+        working-directory: ./frontend
+        run: npm ci
+      - name: Build application
+        working-directory: ./frontend
+        run: npm run build

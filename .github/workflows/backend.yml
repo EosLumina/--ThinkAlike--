@@ -11,23 +11,6 @@ name: Backend CI
     - main
     paths: *id001
   workflow_dispatch: {}
-true:
-  push:
-    branches:
-    - main
-    paths:
-    - app/**
-    - main.py
-    - requirements.txt
-    - .github/workflows/backend.yml
-  pull_request:
-    branches:
-    - main
-    paths:
-    - app/**
-    - main.py
-    - requirements.txt
-    - .github/workflows/backend.yml
 jobs:
   lint:
     name: Lint Code

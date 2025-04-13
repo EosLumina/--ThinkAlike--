@@ -3,7 +3,7 @@ name: Frontend CI
   push:
     branches:
     - main
-    paths: &id001
+    paths:
     - frontend/**
     - '*.js'
     - '*.ts'
@@ -12,21 +12,13 @@ name: Frontend CI
   pull_request:
     branches:
     - main
-    paths: *id001
+    paths:
+    - frontend/**
+    - '*.js'
+    - '*.ts'
+    - '*.jsx'
+    - '*.tsx'
   workflow_dispatch: {}
-true:
-  push:
-    branches:
-    - main
-    paths:
-    - frontend/**
-    - .github/workflows/frontend.yml
-  pull_request:
-    branches:
-    - main
-    paths:
-    - frontend/**
-    - .github/workflows/frontend.yml
 jobs:
   lint:
     name: Lint Code

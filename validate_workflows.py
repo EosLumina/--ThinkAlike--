@@ -59,6 +59,23 @@ def validate_workflow(file_path, fix=True):
             if 'steps' not in job or not job['steps']:
                 print(f"⚠️ Warning: Job '{job_id}' has no steps defined")
 
+        # Check for duplicate path triggers and unnecessary sections
+        if 'push' in yaml_content['on'] and 'paths' in yaml_content['on']['push']:
+            paths = yaml_content['on']['push']['paths']
+            if len(paths) != len(set(paths)):
+                print(f"❌ Error: Duplicate path triggers found in 'push' section")
+                return False
+
+        if 'pull_request' in yaml_content['on'] and 'paths' in yaml_content['on']['pull_request']:
+            paths = yaml_content['on']['pull_request']['paths']
+            if len(paths) != len(set(paths)):
+                print(f"❌ Error: Duplicate path triggers found in 'pull_request' section")
+                return False
+
+        if 'true' in yaml_content:
+            print(f"❌ Error: Unnecessary 'true' section found")
+            return False
+
         print(f"✅ {file_path} passed basic validation")
         return True
     except yaml.YAMLError as e:
@@ -79,7 +96,8 @@ if __name__ == "__main__":
     workflow_files = [
         os.path.join(workflow_dir, "docs.yml"),
         os.path.join(workflow_dir, "backend.yml"),
-        os.path.join(workflow_dir, "frontend.yml")
+        os.path.join(workflow_dir, "frontend.yml"),
+        os.path.join(workflow_dir, "consolidated-ci.yml")
     ]
 
     fix_files = "--fix" in sys.argv
