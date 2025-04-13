@@ -29,7 +29,7 @@ jobs:
       - name: Run Backend tests with pytest
         run: |
           cd backend
-          pytest
+          pytest --override-ini addopts=""
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
