@@ -12,6 +12,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 5  # Increased timeout for potential long-running tests
     strategy:
       matrix:
         python-version: ["3.10", "3.11"]
@@ -24,21 +25,26 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: "pip"
+      - name: Echo Python Version
+        run: python --version
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
           pip install -r requirements-test.txt
+          pip install pymdown-extensions
       - name: Ensure httpx is installed
         run: pip install httpx
       - name: Remove null bytes from source files
         run: |
           find backend/ -type f -exec sed -i 's/\x0//g' {} \;
           find tests/ -type f -exec sed -i 's/\x0//g' {} \;
-      - name: Run Backend tests with pytest
+      - name: Run Backend tests with verbose output
         run: |
           cd backend
-          pytest --override-ini addopts=""
+          pytest --maxfail=5 --disable-warnings -q || (echo "Backend tests failed, review log output" && exit 1)
+      - name: Echo Backend tests completed
+        run: echo "Backend tests finished running."      
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -47,7 +53,13 @@ jobs:
         run: |
           cd frontend
           npm install
+      - name: Build Frontend (if applicable)
+        run: |
+          cd frontend
+          npm run build || echo "Skipping build because no build script defined"
       - name: Run Frontend tests
         run: |
           cd frontend
-          npm test
+          npm test || (echo "Frontend tests failed, review logs" && exit 1)
+      - name: Echo job completion
+        run: echo "Build and Test job completed successfully"

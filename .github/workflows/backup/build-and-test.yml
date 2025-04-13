@@ -15,6 +15,6 @@ jobs:
       - name: Setup
         run: |
           echo "Setting up..."
-          rm /workspaces/--ThinkAlike--/.github/workflows/backup/build-and-test.yml
+          rm /workspaces/--ThinkAlike--/.github/workflows/backup/build-and-test.yml  # Remove legacy workflow
       - name: Run tests
         run: echo "Running tests..."
