@@ -1,25 +1,18 @@
 name: Build And Test
-'on':
+
+on:
   push:
-    branches:
-    - main
+    branches: [main]
   pull_request:
-    branches:
-    - main
+    branches: [main]
   workflow_dispatch: {}
-true:
-  push:
-    branches:
-    - main
-  pull_request:
-    branches:
-    - main
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup
-      run: echo "Setting up..."
-    - name: Run tests
-      run: echo "Running tests..."
+      - uses: actions/checkout@v3
+      - name: Setup
+        run: echo "Setting up..."
+      - name: Run tests
+        run: echo "Running tests..."
