@@ -3,10 +3,16 @@ name: Documentation
 'on':
   push:
     branches:
-    - main
+      - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/documentation.yml'
   pull_request:
     branches:
-    - main
+      - main
+    paths:
+      - 'docs/**'
+      - '.github/workflows/documentation.yml'
   workflow_dispatch: {}
 
 jobs:
@@ -21,6 +27,23 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs
+          pip install mkdocs mkdocs-material
       - name: Build docs
-        run: mkdocs build
+        run: |
+          if [ -f mkdocs.yml ]; then
+            mkdocs build
+          else
+            echo "No mkdocs.yml found, creating minimal configuration"
+            echo "site_name: ThinkAlike Documentation" > mkdocs.yml
+            echo "docs_dir: docs" >> mkdocs.yml
+            mkdocs build
+          fi
+      - name: Check documentation build output
+        run: |
+          if [ -d "site" ]; then
+            echo "✅ Documentation built successfully"
+            find site -type f | wc -l
+          else
+            echo "❌ Documentation build failed"
+            exit 1
+          fi
