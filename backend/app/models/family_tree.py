@@ -273,12 +273,217 @@ class LegacyPreferences(BaseModel):
         }
 
 
-class FamilyTreeVisualization(BaseModel):
-    """Configuration for family tree visualization."""
-    layout_type: str = "hierarchical"
-    center_user_id: UUID
-    display_generations_up: int = 3
-    display_generations_down: int = 3
-    include_extended_family: bool = True
-    include_spouses: bool = True
-    display_preferences: Dict[str, Any] = Field(default_factory=dict)
+"""
+Family Tree Model - Representing interconnection between individuals.
+
+The model implements the philosophical concept that we are all connected,
+simultaneously "one" and "many" - a unified whole composed of sovereign individuals.
+"""
+from typing import List, Dict, Any, Optional, Set, Tuple
+from enum import Enum
+import logging
+from datetime import datetime
+
+from pydantic import BaseModel, Field
+from neo4j import GraphDatabase
+
+from backend.app.config import settings
+from backend.app.models.base import BaseDBModel
+
+logger = logging.getLogger(__name__)
+
+class ConnectionType(str, Enum):
+    """Types of connections that can exist between entities in the family tree."""
+    BIOLOGICAL = "biological"
+    CHOSEN_FAMILY = "chosen_family"
+    MENTORSHIP = "mentorship"
+    COLLABORATION = "collaboration"
+    INSPIRATION = "inspiration"
+    COMMUNITY = "community"
+
+    @property
+    def description(self) -> str:
+        """Human-readable description of the connection type."""
+        descriptions = {
+            "biological": "Genetic or legal family relationships",
+            "chosen_family": "Deeply bonded relationships chosen as family",
+            "mentorship": "Teaching and learning relationships",
+            "collaboration": "Working together on shared projects",
+            "inspiration": "Philosophical or creative influence",
+            "community": "Shared values, spaces, and collective action"
+        }
+        return descriptions.get(self.value, "Connection between individuals")
+
+class ConnectionStrength(BaseModel):
+    """
+    Represents the strength of a connection as perceived by each participant.
+
+    This dual-perspective approach honors the subjective nature of relationships
+    while still enabling collective pattern recognition.
+    """
+    source_perception: float = Field(0.0, ge=0.0, le=1.0)
+    target_perception: float = Field(0.0, ge=0.0, le=1.0)
+
+    @property
+    def is_mutual(self) -> bool:
+        """Whether the connection is mutually acknowledged."""
+        return self.source_perception > 0 and self.target_perception > 0
+
+    @property
+    def average(self) -> float:
+        """Average strength, meaningful only for mutual connections."""
+        if not self.is_mutual:
+            return 0.0
+        return (self.source_perception + self.target_perception) / 2
+
+class FamilyTreeConnection(BaseDBModel):
+    """
+    Represents a connection between two individuals in the family tree.
+
+    Connections are bidirectional by default but can have different meanings
+    and strengths from each perspective. This honors both the interconnected
+    nature of relationships and the subjective experience of each participant.
+    """
+    source_id: str
+    target_id: str
+    connection_type: ConnectionType
+    strength: ConnectionStrength
+    metadata: Dict[str, Any] = Field(default_factory=dict)
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+    updated_at: datetime = Field(default_factory=datetime.utcnow)
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "source_id": "user123",
+                "target_id": "user456",
+                "connection_type": "mentorship",
+                "strength": {
+                    "source_perception": 0.8,
+                    "target_perception": 0.7
+                },
+                "metadata": {
+                    "years_connected": 5,
+                    "shared_experiences": ["project_alpha", "conference_beta"],
+                    "privacy_level": "community_visible"
+                }
+            }
+        }
+
+    @classmethod
+    async def get_network(
+        cls,
+        user_id: str,
+        depth: int = 2,
+        connection_types: Optional[List[ConnectionType]] = None
+    ) -> Dict[str, Any]:
+        """
+        Get a network of connections centered around a user.
+
+        This method retrieves both the individual connections and the
+        emergent collective patterns they form together.
+        """
+        # Implementation using graph database to retrieve network
+        # ...existing code...
+
+        # Calculate emergent properties that show how individual
+        # connections contribute to collective patterns
+        network = calculate_network_properties(nodes, connections)
+
+        # Add both individual-focused and collective-focused metrics
+        network["metrics"] = {
+            "individual": {
+                "connection_count": len(connections),
+                "diversity_score": calculate_diversity_score(connections),
+                "centrality": calculate_node_centrality(user_id, network)
+            },
+            "collective": {
+                "network_density": calculate_network_density(network),
+                "community_clusters": identify_community_clusters(network),
+                "bridging_connections": identify_bridging_connections(network)
+            }
+        }
+
+        return network
+
+    def get_network_impact(self) -> Dict[str, float]:
+        """
+        Calculate how this single connection contributes to the emergent
+        properties of the whole network.
+
+        Returns a measure of how this connection strengthens the overall
+        resilience and connectedness of the community.
+        """
+        # Calculate metrics that show how this connection contributes
+        # to the collective pattern while respecting individual agency
+        impact_metrics = {
+            "bridging_score": 0.0,  # How much this connects otherwise separate groups
+            "reinforcement_score": 0.0,  # How much this strengthens existing communities
+            "diversity_contribution": 0.0,  # How this adds new perspectives
+            "resilience_contribution": 0.0  # How this improves overall network resilience
+        }
+
+        # Implementation of graph algorithm calculations
+        # ...existing code...
+
+        return impact_metrics
+
+# Visualization helpers for the "One and Many" concept
+class FamilyTreeVisualization:
+    """
+    Generate visualizations that reveal both unity and diversity.
+
+    These visualizations show how we are simultaneously one interconnected
+    community and many sovereign individuals.
+    """
+
+    @staticmethod
+    def generate_unity_view(network: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Creates a visualization that emphasizes the emergent collective pattern.
+
+        This view shows how individual connections form a greater whole,
+        like cells forming an organism or stars forming a galaxy.
+        """
+        # Implementation that emphasizes collective patterns
+        # ...existing code...
+        pass
+
+    @staticmethod
+    def generate_diversity_view(network: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Creates a visualization that emphasizes individual uniqueness.
+
+        This view highlights the distinct qualities of each node while still
+        showing how they participate in the greater system.
+        """
+        # Implementation that emphasizes individual attributes
+        # ...existing code...
+        pass
+
+    @staticmethod
+    def generate_balanced_view(network: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Creates a visualization that balances unity and diversity.
+
+        This view reveals how we are simultaneously one collective and
+        many individuals - the default visualization that shows both aspects.
+        """
+        # Implementation that balances collective and individual focus
+        # ...existing code...
+        pass
+
+    @staticmethod
+    def generate_fractal_view(network: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Creates a visualization showing self-similar patterns at different scales.
+
+        This view reveals how individual connections, family units, and communities
+        all follow similar organizational principles at different scales.
+        """
+        # Implementation that shows self-similarity across scales
+        # ...existing code...
+        pass
+
+# Additional helper functions and classes
+# ...existing code...

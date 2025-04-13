@@ -105,7 +105,7 @@ service of all. We need diverse skills:
 * Community Building & Moderation
 * Testing & Feedback
 
-Find tasks on [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues) (look for `good first issue` or `help wanted`). Discuss ideas on [GitHub Discussions](https://github.com/EosLumina/ThinkAlike/discussions) or Discord/Signal.
+Find tasks on [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues) (look for `good first issue` or `help wanted`). Discuss ideas on [GitHub Discussions](https://github.com/EosLumina/--ThinkAlike--/discussions) or Discord/Signal.
 
 ## Documentation
 
@@ -128,7 +128,7 @@ ThinkAlike contributes to the Commons through open principles:
 ## Contact
 
 * **Community Hub:** Discord [https://discord.gg/TnAcWezH](https://discord.gg/TnAcWezH) / Signal Community [https://signal.group/#thinkalike-community](https://signal.group/#thinkalike-community)
-* **Issues/Features:** [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues)
+* **Issues/Features:** [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues)
 * **General Inquiries:** [ThinkAlikeAI@proton.me](mailto:ThinkAlikeAI@proton.me)
 * **Lead Architect/Steward (Eos Lumina∴):** [Eos.Lumina@proton.me](mailto:Eos.Lumina@proton.me)
 

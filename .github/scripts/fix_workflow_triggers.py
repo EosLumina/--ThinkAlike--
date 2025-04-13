@@ -1,86 +1,181 @@
 #!/usr/bin/env python3
+"""
+Fix missing 'on' triggers in GitHub workflow files - Enhanced version
+"""
+
+import os
 import yaml
-import pathlib
 import sys
-from colorama import init, Fore, Style
+from pathlib import Path
+import re
 
-# Initialize colorama for colored output
-init()
+# YAML handling is more strict than what GitHub Actions accepts
+# This function will directly modify files without YAML parsing when needed
+def fix_workflow_file(file_path, force=False):
+    """Add missing 'on' trigger to workflow file"""
+    try:
+        # Read file content
+        with open(file_path, 'r') as f:
+            content = f.read()
 
-def add_missing_trigger(file_path):
-    """Add missing 'on' trigger to GitHub workflow file if needed."""
-    print(f"Processing {file_path}...")
+        # First try normal YAML parsing
+        try:
+            yaml_content = yaml.safe_load(content)
+            has_on_field = 'on' in yaml_content
+        except Exception as e:
+            print(f"⚠️ YAML parsing issue in {file_path}: {e}")
+            has_on_field = 'on:' in content
 
+        if not has_on_field or force:
+            print(f"Adding 'on' trigger to {file_path}")
+
+            # Determine appropriate triggers based on file name
+            if 'test' in file_path.lower() or 'ci' in file_path.lower():
+                on_trigger = """
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+      - 'tests/**'
+      - 'requirements*.txt'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+"""
+            elif 'deploy' in file_path.lower() or 'cd' in file_path.lower() or 'gh_pages' in file_path.lower():
+                on_trigger = """
+on:
+  push:
+    branches: [main]
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+"""
+            elif 'doc' in file_path.lower():
+                on_trigger = """
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+      - '*.md'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+"""
+            elif 'settings' in file_path.lower():
+                on_trigger = """
+on:
+  schedule:
+    - cron: "0 0 * * 0"  # Run weekly on Sundays
+  workflow_dispatch:
+"""
+            else:
+                # Default trigger
+                on_trigger = """
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+"""
+
+            # Insert trigger after name more robustly
+            if 'name:' in content:
+                # Find the line that starts with 'name:' and match the line ending
+                name_pattern = r'(name:.*?)(\r?\n)'
+                modified_content = re.sub(name_pattern, r'\1\2' + on_trigger, content, count=1)
+
+                # If that didn't work, try an alternative approach
+                if modified_content == content:
+                    parts = content.split('name:', 1)
+                    name_line_end = parts[1].find('\n')
+                    if name_line_end != -1:
+                        modified_content = parts[0] + 'name:' + parts[1][:name_line_end+1] + on_trigger + parts[1][name_line_end+1:]
+                    else:
+                        modified_content = content + on_trigger
+            else:
+                # If there's no name field, just add the trigger at the beginning
+                modified_content = on_trigger + content
+
+            # Write the modified content back
+            with open(file_path, 'w') as f:
+                f.write(modified_content)
+
+            return True
+    except Exception as e:
+        print(f"❌ Error fixing {file_path}: {e}")
+
+    return False
+
+def check_workflow_validity(file_path):
+    """Check if workflow file has valid 'on' trigger"""
     try:
         with open(file_path, 'r') as f:
             content = f.read()
 
-        # Parse YAML content
-        yaml_content = yaml.safe_load(content)
-
-        # Skip if not a valid workflow file or already has 'on' trigger
-        if not isinstance(yaml_content, dict):
-            print(f"{Fore.YELLOW}⚠ Not a valid workflow file, skipping{Style.RESET_ALL}")
+        # Simple text-based check for 'on:' field
+        if 'on:' not in content:
             return False
 
-        if 'on' in yaml_content:
-            print(f"{Fore.GREEN}✓ Already has trigger definition{Style.RESET_ALL}")
-            return False
-
-        # Add standard trigger (push to main, pull requests to main)
-        yaml_content['on'] = {
-            'push': {
-                'branches': ['main']
-            },
-            'pull_request': {
-                'branches': ['main']
-            },
-            'workflow_dispatch': {}
-        }
-
-        # Write updated content back to file
-        with open(file_path, 'w') as f:
-            # Make sure 'name' comes first, then 'on' trigger
-            ordered_content = {}
-            if 'name' in yaml_content:
-                ordered_content['name'] = yaml_content['name']
-                del yaml_content['name']
-
-            ordered_content['on'] = yaml_content['on']
-            del yaml_content['on']
-
-            # Add the rest of the content
-            for key, value in yaml_content.items():
-                ordered_content[key] = value
-
-            # Write to file with proper formatting
-            yaml.dump(ordered_content, f, default_flow_style=False, sort_keys=False)
-
-        print(f"{Fore.GREEN}✓ Added trigger definition{Style.RESET_ALL}")
-        return True
-
+        # Basic structure check using YAML
+        try:
+            yaml_content = yaml.safe_load(content)
+            return 'on' in yaml_content and yaml_content['on'] is not None
+        except:
+            # If YAML parsing fails, fall back to simple check
+            return 'on:' in content
     except Exception as e:
-        print(f"{Fore.RED}✗ Error processing file: {e}{Style.RESET_ALL}")
+        print(f"Error checking {file_path}: {e}")
         return False
 
 def main():
-    """Process all workflow files in the .github/workflows directory."""
-    workflow_dir = pathlib.Path('.github/workflows')
-    if not workflow_dir.exists():
-        print(f"{Fore.RED}Workflow directory not found: {workflow_dir}{Style.RESET_ALL}")
-        return 1
+    """Main function to fix workflow files"""
+    # Ensure we're in repository root
+    if os.path.exists('../.git') and not os.path.exists('.git'):
+        os.chdir('..')
+        print("Changed to repository root")
 
+    workflows_dir = Path(".github/workflows")
+
+    if not workflows_dir.exists():
+        print(f"Error: .github/workflows directory not found in {os.getcwd()}")
+        return
+
+    # Find all workflow files
+    workflow_files = list(workflows_dir.glob("*.yml"))
+
+    if not workflow_files:
+        print("No workflow files found")
+        return
+
+    print(f"Found {len(workflow_files)} workflow files")
+
+    # First pass: Fix files that don't have 'on' trigger
     fixed_count = 0
-    for file_path in workflow_dir.glob('*.yml'):
-        if add_missing_trigger(file_path):
+    for workflow_file in workflow_files:
+        if fix_workflow_file(str(workflow_file)):
             fixed_count += 1
 
-    if fixed_count > 0:
-        print(f"\n{Fore.GREEN}Fixed {fixed_count} workflow files{Style.RESET_ALL}")
-    else:
-        print(f"\n{Fore.YELLOW}No workflows needed fixing{Style.RESET_ALL}")
+    print(f"First pass: Fixed {fixed_count} workflow files")
 
-    return 0
+    # Second pass: Force fix for any remaining issues
+    problem_files = []
+    for workflow_file in workflow_files:
+        if not check_workflow_validity(str(workflow_file)):
+            problem_files.append(workflow_file)
 
-if __name__ == '__main__':
-    sys.exit(main())
+    if problem_files:
+        print(f"Found {len(problem_files)} files that still need fixing")
+        for workflow_file in problem_files:
+            if fix_workflow_file(str(workflow_file), force=True):
+                fixed_count += 1
+
+    print(f"Total fixed: {fixed_count} workflow files")
+    print("Run validation to see if all issues are resolved:")
+    print("python .github/scripts/validate_workflows.py")
+
+if __name__ == "__main__":
+    main()

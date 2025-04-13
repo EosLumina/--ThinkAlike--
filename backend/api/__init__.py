@@ -1,1 +1,3 @@
-# API package initializer
+"""
+API module for ThinkAlike.
+"""

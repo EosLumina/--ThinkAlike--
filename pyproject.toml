@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=42.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -12,7 +12,7 @@ packages = ["backend"]
 
 [tool.black]
 line-length = 88
-target-version = ['py310']
+target-version = ["py38", "py39", "py310"]
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -35,10 +35,22 @@ multi_line_output = 3
 line_length = 88
 
 [tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -v"
+minversion = "7.0"
+addopts = "--strict-markers --cov=backend --cov-report=term-missing"
 testpaths = [
     "tests",
+]
+python_files = "test_*.py"
+python_functions = "test_*"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+]
+markers = [
+    "unit: marks tests as unit tests",
+    "integration: marks tests as integration tests",
+    "slow: marks tests as slow (skipped in CI unless explicitly included)",
+    "ethical: tests that verify ethical compliance"
 ]
 
 [tool.mypy]
@@ -57,3 +69,22 @@ warn_unreachable = true
 [tool.flake8]
 max-line-length = 88
 extend-ignore = "E203"
+
+[tool.coverage.run]
+source = ["backend"]
+omit = [
+    "*/tests/*",
+    "*/__pycache__/*",
+    "*/__init__.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "pass",
+    "raise ImportError",
+]

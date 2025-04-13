@@ -1,0 +1,21 @@
+# Repository settings configuration
+repository:
+  name: --ThinkAlike--
+  description: "Platform for enhancing human autonomy through ethical technology"
+  homepage: https://github.com/EosLumina/--ThinkAlike--
+  private: false
+  has_issues: true
+  has_projects: true
+  has_wiki: true
+  has_downloads: true
+  default_branch: main
+
+# Branch protection rules
+branches:
+  - name: main
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+      required_status_checks:
+        strict: true
+      enforce_admins: false

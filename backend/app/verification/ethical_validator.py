@@ -1,9 +1,5 @@
 ﻿"""
-Ethical Validator for ThinkAlike
-
-This module provides tools for validating content and data handling against
-ThinkAlike's ethical guidelines. It implements checks for user sovereignty,
-radical transparency, data minimization, and bias mitigation.
+Ethical validation module.
 """
 
 import pandas as pd

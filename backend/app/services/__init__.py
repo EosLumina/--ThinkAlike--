@@ -1,1 +1,3 @@
-"""app.services package."""
+"""
+Services module for ThinkAlike.
+"""
