@@ -15,11 +15,10 @@
         "GitHub.vscode-github-actions"
       ],
       "settings": {
-        "python.linting.enabled": true,
-        "python.linting.pylintEnabled": true,
-        "python.testing.pytestEnabled": true,
-        "python.testing.unittestEnabled": false,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
         "editor.formatOnSave": true,
+        "python.linting.lintOnSave": true,
         "files.exclude": {
           "**/__pycache__": true,
           "**/.pytest_cache": true,

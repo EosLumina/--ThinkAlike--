@@ -23,14 +23,27 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Architecture: architecture/index.md
+  - Core:
+      - Enlightenment 2.0 Principles: core/enlightenment_2_0/enlightenment_2_0_principles.md
+      - Ethical Guidelines: core/ethics/ethical_guidelines.md
+      - Contributing: core/contributing.md
+      - Installation: core/installation.md
+      - Onboarding Guide: core/onboarding_guide.md
+  - Vision:
+      - Core Concepts Explained: vision/core_concepts.md
+  - Architecture:
+      - Architectural Overview: architecture/architectural_overview.md
+      - API Endpoints (Mode 2): architecture/api/api_endpoints_mode2.md
   - Development:
-    - Setup: development/setup.md
-    - Guidelines: development/guidelines.md
-  - Core Concepts:
-    - Vision: vision/core_concepts.md
-    - Ethical Guidelines: core/ethics/ethical_guidelines.md
-    - Enlightenment 2.0: core/enlightenment_2_0/enlightenment_2_0_principles.md
+      - Code Style Guide: guides/developer_guides/code_style_guide.md
+      - Building Backend Endpoint Guide: guides/developer_guides/building_backend_endpoint.md
+      - Building UI Component Guide: guides/developer_guides/building_ui_component.md
+      - UI Validation Examples: guides/developer_guides/ui_validation_examples.md
+      - Git Workflow Standard: guides/developer_guides/git_workflow.md
+      - GitHub Actions Workflow Format: guides/development/github_actions_workflow_format.md
+  - DevOps:
+      - DevOps Workflow Guide: guides/devops/devops_workflow.md
+      - CI/CD Workflow Reference: guides/devops/ci_cd_workflow_reference.md
 
 plugins:
   - search

@@ -14,7 +14,7 @@ entrypoints==0.4
 filelock==3.17.0
 fonttools==4.55.8
 fsspec==2024.12.0
-fastapi>=0.95.0
+fastapi==0.95.0
 great-expectations==0.18.21
 huggingface-hub==0.28.1
 idna==3.10
@@ -28,34 +28,33 @@ marshmallow==3.26.0
 matplotlib==3.5.0
 mistune==3.1.1
 monotonic==1.6
-numpy>=1.23
+numpy==1.23.0
 packaging==24.2
 pandas==2.0.3
 pillow==11.1.0
 pluggy==1.5.0
 posthog==3.11.0
 pycparser==2.22
-pydantic[email]>=1.10.7
-pydantic==1.10.13
+pydantic[email]==1.10.13
 pydantic_core==2.27.2
 PyMySQL
 pyparsing==3.2.1
-pytest>=7.3.1
-pytest-cov>=4.1.0
+pytest==7.3.1
+pytest-cov==4.1.0
 python-dateutil==2.9.0.post0
-python-dotenv>=1.0.0
+python-dotenv==1.0.0
 pytz==2024.2
 PyYAML==6.0.2
 referencing==0.36.2
 regex==2024.11.6
 requests==2.32.3
 rpds-py==0.22.3
-ruamel.yaml>=0.16
+ruamel.yaml==0.16
 ruamel.yaml.clib==0.2.12
 safetensors==0.5.2
-scipy>=1.7.3
+scipy==1.7.3
 six==1.17.0
-SQLAlchemy>=2.0.9
+SQLAlchemy==2.0.9
 tokenizers==0.21.0
 toolz==1.0.0
 tqdm==4.67.1
@@ -64,12 +63,10 @@ typing_extensions==4.12.2
 tzdata==2025.1
 tzlocal==5.2
 urllib3==2.3.0
-uvicorn>=0.21.1
-alembic>=1.10.3
-python-jose[cryptography]>=3.3.0
-passlib[bcrypt]>=1.7.4
-psycopg2-binary>=2.9.6  # For PostgreSQL later
-python-multipart>=0.0.6  # For OAuth2 form handling
-gunicorn>=20.1.0  # For production deployment
-
-pip install -e .
+uvicorn==0.21.1
+alembic==1.10.3
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+psycopg2-binary==2.9.6
+python-multipart==0.0.6
+gunicorn==20.1.0
