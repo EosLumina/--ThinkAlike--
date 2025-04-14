@@ -1,8 +1,4 @@
-# Test dependencies for ThinkAlike
 pytest>=7.0.0
 pytest-cov>=4.1.0
 httpx>=0.24.0
-pymdown-extensions>=10.0
-mkdocs>=1.5.0
-mkdocs-material>=9.0.0
-pyyaml>=6.0.0
+pyyaml>=6.0.0  # Required for test config parsing

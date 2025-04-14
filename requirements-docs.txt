@@ -1,0 +1,5 @@
+mkdocs>=1.5.3
+mkdocs-material>=9.4.6
+mkdocs-redirects>=1.2.0
+pymdown-extensions>=10.0
+pyyaml>=6.0.0
