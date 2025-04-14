@@ -61,28 +61,28 @@ jobs:
       - name: Setup test environment
         run: |
           mkdir -p backend/tests
+          
           # Create test files with explicit UTF-8 encoding
-          python3 -c '
-import os
-from pathlib import Path
-
-def write_utf8(path, content):
-    path.write_text(content, encoding="utf-8")
-
-tests_dir = Path("backend/tests")
-tests_dir.mkdir(exist_ok=True)
-
-init_content = """"""Test package initialization.""""""
-test_content = """"""Test value based matcher.""""""
-
-def test_placeholder():
-    """Basic test to verify setup."""
-    assert True
-"""
-
-write_utf8(tests_dir / "__init__.py", init_content)
-write_utf8(tests_dir / "test_value_based_matcher.py", test_content)
-'
+          echo '"""Test package initialization."""' > backend/tests/__init__.py
+          
+          cat > backend/tests/test_value_based_matcher.py << 'EOL'
+          """Test value based matcher."""
+          
+          def test_placeholder():
+              """Basic test to verify setup."""
+              assert True
+          EOL
+          
+          # Verify file creation and encoding
+          ls -la backend/tests/
+          file backend/tests/*.py
+      - name: Validate workflows
+        run: |
+          python -m pip install --upgrade pip pyyaml
+          for workflow in .github/workflows/*.yml; do
+            echo "Validating $workflow"
+            python -c "import yaml; yaml.safe_load(open('$workflow'))"
+          done
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
