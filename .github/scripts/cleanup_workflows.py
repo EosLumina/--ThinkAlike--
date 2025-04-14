@@ -165,6 +165,17 @@ def fix_workflow_triggers(workflow):
 
     return workflow
 
+def remove_redundant_workflows():
+    """Remove redundant workflows from the backup directory."""
+    backup_dir = Path('.github/workflows/backup')
+    redundant_files = ['ci.yml', 'docs.yml']
+
+    for filename in redundant_files:
+        file_path = backup_dir / filename
+        if file_path.exists():
+            file_path.unlink()
+            print_success(f"Removed redundant workflow: {filename}")
+
 def main():
     """Main function to analyze and fix workflows."""
     print_header("Analyzing workflows")
@@ -194,6 +205,9 @@ def main():
         fixed_workflow = fix_workflow_triggers(wf['content'])
         if fixed_workflow:
             save_workflow(wf['path'], fixed_workflow)
+
+    print_header("Removing redundant workflows")
+    remove_redundant_workflows()
 
     print_header("Suggested Next Steps")
 
