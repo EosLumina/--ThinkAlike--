@@ -76,7 +76,7 @@ The framework organizes testing into key categories, detailing how UI components
 
 ### 3.4 Ethical Compliance Tests
 
-* **Objective:** Validate adherence to ThinkAlike's [Ethical Guidelines](../../core/ethics/ethical_guidelines/ethical_guidelines.md), focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.
+* **Objective:** Validate adherence to ThinkAlike's [Ethical Guidelines](../core/ethics/ethical_guidelines.md), focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.
 
 * **UI as Testing Tool:**
 
@@ -124,7 +124,7 @@ To make UI-driven testing effective, the data used and generated must be actiona
 
 * **Contextual Data:** Tests should operate on data relevant to the specific user flow or component state being validated, not just generic placeholders. Leverage realistic data derived from [User Personas](../../use_cases/user_persona_profiles.md) and scenarios.
 
-* **User-Defined Data Sets:** Integrate with the [Customizable UI Tests](Customizable_UI_Tests.md) feature to allow testers to input specific data sets, edge cases, or demographic profiles directly via the UI, enabling targeted validation.
+* **User-Defined Data Sets:** Integrate with the [Customizable UI Tests](customizable_ui_tests.md) feature to allow testers to input specific data sets, edge cases, or demographic profiles directly via the UI, enabling targeted validation.
 
 * **Clear Correlation:** Test results displayed in the UI must be clearly correlated to the specific action, component, or data point being tested. Visual highlighting or clear labeling is essential.
 
@@ -138,9 +138,9 @@ To make UI-driven testing effective, the data used and generated must be actiona
 
 The output of this design is not just code, but a system:
 
-1. **This Documentation (`UI_Testing_Framework.md`):** Defines the philosophy and structure.
+1. **This Documentation (`ui_testing_framework.md`):** Defines the philosophy and structure.
 2. **Set of Reusable Testing UI Components:** Implementations of components like `APIValidator`, `CoreValuesValidator`, `AccessibilityHelper`, `PerformanceMonitorOverlay`, etc., with their own detailed specifications (linked from here).
-3. **Integration Guidelines:** Documentation within the main [Developer Guide](DeveloperGuide_MatchingAlgorithm.md) (or similar) explaining, for example, how to use tracking hooks and how to make components test-aware.
+3. **Integration Guidelines:** Documentation within the main [Developer Guide](developer_guide_matching_algorithm.md) (or similar) explaining, for example, how to use tracking hooks and how to make components test-aware.
 4. **Example Usage:** Concrete examples demonstrating how to use the framework to test different scenarios across the defined categories.
 
 By implementing this framework, ThinkAlike aims to build a uniquely transparent, robust, and ethically validated platform where quality assurance is an intrinsic part of the user and developer experience.

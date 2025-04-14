@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This AI module analyzes the audio track from user-uploaded short video introductions ([API Endpoint `POST /users/me/video`](../../architecture/api/api_endpoints.md)) to extract key vocal characteristics. Its **sole purpose** is to generate parameters that can inform a Text-to-Speech (TTS) or voice synthesis system, allowing the user's **AI Clone** avatar to potentially utter brief, generic phrases (e.g., greetings, confirmation sounds during narrative tests) with voice qualities generally similar to the user's (e.g., pitch range, cadence). This contributes to the "gradual clues" concept before direct communication is enabled.
+This AI module analyzes the audio track from user-uploaded short video introductions ([API Endpoint `POST /users/me/video`](../architecture/api/api_endpoints.md)) to extract key vocal characteristics. Its **sole purpose** is to generate parameters that can inform a Text-to-Speech (TTS) or voice synthesis system, allowing the user's **AI Clone** avatar to potentially utter brief, generic phrases (e.g., greetings, confirmation sounds during narrative tests) with voice qualities generally similar to the user's (e.g., pitch range, cadence). This contributes to the "gradual clues" concept before direct communication is enabled.
 
 **Crucially, this engine does NOT perform speech-to-text, analyze semantic content, or detect emotions.** It focuses only on measurable vocal features relevant for basic voice parameterization.
 
@@ -61,10 +61,10 @@ This AI module analyzes the audio track from user-uploaded short video introduct
 
 * **Purpose Limitation:** Generated parameters used *only* for AI Clone generic utterances within ThinkAlike. No other use permitted.
 
-* **Transparency:** Users must be informed analysis occurs and can view/delete generated parameters via [`Data Explorer Panel`](../../guides/ui_component_specs/data_explorer_panel.md). Use tracked in [`AI Transparency Log`](../../guides/developer_guides/ai/ai_transparency_log.md).
+* **Transparency:** Users must be informed analysis occurs and can view/delete generated parameters via [`Data Explorer Panel`](../guides/ui_component_specs/data_explorer_panel.md). Use tracked in [`AI Transparency Log`](../guides/developer_guides/ai/ai_transparency_log.md).
 
 * **Avoid Deepfakes:** Use feature extraction, not full voice cloning models, unless technology matures and ethical safeguards are exceptionally robust. Aim for characteristic similarity, not perfect mimicry.
 
-* **Bias:** Audio analysis models can have biases (e.g., based on gender, accent). Rigorous testing needed ([`AI Ethical Testing Guide`](../../guides/developer_guides/ai/AI_Ethical_Testing_Guide.md)).
+* **Bias:** Audio analysis models can have biases (e.g., based on gender, accent). Rigorous testing needed ([`AI Ethical Testing Guide`](../guides/developer_guides/ai/AI_Ethical_Testing_Guide.md)).
 
 * **Security:** Voice parameters are sensitive biometric data; store securely.

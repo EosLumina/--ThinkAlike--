@@ -79,7 +79,7 @@ The framework organizes testing into key categories, detailing how UI components
 
 ### 3.4 Ethical Compliance Tests
 
-* **Objective:** Validate adherence to ThinkAlike's [Ethical Guidelines](../../core/ethics/ethical_guidelines/ethical_guidelines.md), focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.
+* **Objective:** Validate adherence to ThinkAlike's [Ethical Guidelines](../core/ethics/ethical_guidelines.md), focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.
 
 * **UI as Testing Tool:**
 
@@ -141,7 +141,7 @@ To make UI-driven testing effective, the data used and generated must be actiona
 
 The output of this design is not just code, but a system:
 
-1. **This Documentation (`UI_Testing_Framework.md`):** Defines the philosophy and structure.
+1. **This Documentation (`ui_testing_framework.md`):** Defines the philosophy and structure.
 2. **Set of Reusable Testing UI Components:** Implementations of components like `APIValidator`, `CoreValuesValidator`, `AccessibilityHelper`, `PerformanceMonitorOverlay`, etc., with their own detailed specifications (linked from here).
 3. **Integration Guidelines:** Documentation within the main [Developer Guide](developerguide_matchingalgorithm.md) (or similar) explaining, for example, how to use tracking hooks and how to make components test-aware.
 4. **Example Usage:** Concrete examples demonstrating how to use the framework to test different scenarios across the defined categories.
@@ -226,7 +226,7 @@ End of Design Document: Ui Component Testing Framework
 
 This guide provides practical examples demonstrating how developers should utilize ThinkAlike's specific **validation-focused UI components** during development and testing. These components are central to the **"UI as Validation Framework"** concept, embedding ethical guidelines, data schema checks, API contract adherence, and other rules directly into the application flow. They provide immediate, contextual feedback, accelerating development and ensuring the final product aligns with ThinkAlike's core principles.
 
-Refer to the individual component specification documents in [`docs/components/ui_components/`](../../components/ui_components/) for detailed props, APIs, and implementation notes for each validation component mentioned here.
+Refer to the individual component specification documents in [`docs/components/ui_components/`](../components/ui/) for detailed props, APIs, and implementation notes for each validation component mentioned here.
 
 ---
 
@@ -234,15 +234,15 @@ Refer to the individual component specification documents in [`docs/components/u
 
 * **Purpose:** To provide real-time feedback to users (and developers during testing) about whether their input aligns with community content guidelines or ethical principles *before* submission.
 
-* **Component Spec:** [`docs/components/ui_components/CoreValuesValidator.md`](../../components/ui_components/CoreValuesValidator.md)
+* **Component Spec:** [`docs/components/ui_components/CoreValuesValidator.md`](../components/ui/CoreValuesValidator.md)
 
-* **Scenario:** A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the [`Ethical Guidelines`](../../core/ethics/ethical_guidelines.md).
+* **Scenario:** A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the [`Ethical Guidelines`](../core/ethics/ethical_guidelines.md).
 
 * **Conceptual React Implementation:**
 
     ```jsx
     import React, { useState, useCallback, useMemo } from 'react';
-    import CoreValuesValidator from '../../components/ui_components/CoreValuesValidator'; // Adjust import path
+    import CoreValuesValidator from '../components/ui/CoreValuesValidator'; // Adjust import path
     import { ethicalRules } from '../../config/ethicsConfig'; // Assume rules are defined here
 
     function CommunityPostForm({ onSubmit }) {
@@ -323,7 +323,7 @@ Refer to the individual component specification documents in [`docs/components/u
 
 * **Purpose:** To transparently show developers the details of API requests and responses during development, helping to debug communication issues and validate data against schemas.
 
-* **Component Spec:** [`docs/components/ui_components/APIValidator.md`](../../components/ui_components/APIValidator.md)
+* **Component Spec:** [`docs/components/ui_components/APIValidator.md`](../components/ui/APIValidator.md)
 
 * **Scenario:** A developer is working on the user profile update feature and wants to see the exact payload sent to the backend and the response received, including validation status against an expected schema.
 
@@ -408,7 +408,7 @@ Refer to the individual component specification documents in [`docs/components/u
 
         ```jsx
         import React from 'react';
-        import APIValidator from '../../components/ui_components/APIValidator'; // Adjust path
+        import APIValidator from '../components/ui/APIValidator'; // Adjust path
         import { useApiValidationLogStore } from './stores/apiValidationLogStore'; // Example Zustand hook
 
         function DeveloperToolsPanel() {
@@ -444,7 +444,7 @@ Refer to the individual component specification documents in [`docs/components/u
 
 * **Purpose:** To provide users with transparency into *why* a specific recommendation (e.g., a potential match in Mode 2, a suggested community in Mode 3) was made by an AI model.
 
-* **Component Spec:** [`docs/components/ui_components/DataTraceability.md`](../../components/ui_components/DataTraceability.md)
+* **Component Spec:** [`docs/components/ui_components/DataTraceability.md`](../components/ui/DataTraceability.md)
 
 * **Scenario:** A user sees a suggested community ("Ethical Tech Collaborators") in Mode 3 and wants to understand which of their profile values or activities led to this suggestion.
 
@@ -452,7 +452,7 @@ Refer to the individual component specification documents in [`docs/components/u
 
     ```jsx
     import React, { useState } from 'react';
-    import DataTraceability from '../../components/ui_components/DataTraceability'; // Adjust path
+    import DataTraceability from '../components/ui/DataTraceability'; // Adjust path
     import apiClient from './services/apiClient'; // Your API client instance
 
     function CommunityRecommendation({ recommendation }) {
@@ -496,7 +496,7 @@ Refer to the individual component specification documents in [`docs/components/u
                   visualizationConfig={{ /* Optional custom config */ }}
               />
                {/* Link to detailed usage examples */}
-               <p><small>See examples: [`docs/guides/examples/DataTraceability_Usage_Examples.md`](../../guides/examples/DataTraceability_Usage_Examples.md)</small></p>
+               <p><small>See examples: [`docs/guides/examples/DataTraceability_Usage_Examples.md`](../guides/examples/DataTraceability_Usage_Examples.md)</small></p>
             </div>
           )}
         </div>

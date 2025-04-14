@@ -83,7 +83,7 @@ The component is tested for:
 
 ## 7. Related Documentation
 
-* [DataTraceability Component Specification](../components/ui_components/data_traceability.md)
+* [DataTraceability Component Specification](../components/ui/data_traceability.md)
 
 * [AI Transparency Log Guide](../guides/developer_guides/ai/ai_transparency_log.md)
 

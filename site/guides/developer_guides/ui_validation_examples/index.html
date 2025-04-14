@@ -1,152 +1,1285 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/ui_validation_examples/" />
-      <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>UI Validation Examples - ThinkAlike Documentation</title>
-    <link rel="stylesheet" href="../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "UI Validation Examples";
-        var mkdocs_page_input_path = "guides/developer_guides/ui_validation_examples.md";
-        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/ui_validation_examples/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ThinkAlike project">
+      
+      
+      
+        <link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/ui_validation_examples/">
+      
+      
+        <link rel="prev" href="../building_ui_component/">
+      
+      
+        <link rel="next" href="../git_workflow/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
-    <!--[if lt IE 9]>
-      <script src="../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>UI Validation Examples - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Core</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Vision</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Architecture</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Development</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
-                  </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">UI Validation Examples</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#1-introduction-ui-as-a-real-time-validation-engine">1. Introduction: UI as a Real-Time Validation Engine</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#2-core-principles-of-the-ui-testing-framework">2. Core Principles of the UI Testing Framework</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#3-test-categories-definition-leveraging-ui-components">3. Test Categories Definition (Leveraging UI Components)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#31-usability-tests">3.1 Usability Tests</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#32-accessibility-tests">3.2 Accessibility Tests</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#33-code-performance-tests-frontendinteraction-focus">3.3 Code Performance Tests (Frontend/Interaction Focus)</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#34-ethical-compliance-tests">3.4 Ethical Compliance Tests</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#4-ui-as-a-testing-tool-implementation-strategy">4. UI as a Testing Tool: Implementation Strategy</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#5-actionable-testing-data">5. Actionable Testing Data</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#6-deliverable">6. Deliverable</a>
-    </li>
-    </ul>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">DevOps</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#design-document-ui-component-testing-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UI Validation Examples
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../..">ThinkAlike Documentation</a>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Development</li>
-      <li class="breadcrumb-item active">UI Validation Examples</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-tabs__link">
+          
+  
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../vision/core_concepts/" class="md-tabs__link">
+          
+  
+  
+  Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architecture/architectural_overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../code_style_guide/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../devops/devops_workflow.md" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="design-document-ui-component-testing-framework">Design Document: Ui Component Testing Framework</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightenment 2.0 Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/ethics/ethical_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethical Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/onboarding_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/blockchain_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architectural_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architectural Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/api/api_endpoints_mode2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Endpoints (Mode 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_style_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_backend_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Backend Endpoint Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_ui_component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building UI Component Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-ui-as-a-real-time-validation-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction: UI as a Real-Time Validation Engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-principles-of-the-ui-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Principles of the UI Testing Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-categories-definition-leveraging-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Test Categories Definition (Leveraging UI Components)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Test Categories Definition (Leveraging UI Components)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-usability-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Usability Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-accessibility-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Accessibility Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-code-performance-tests-frontendinteraction-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Code Performance Tests (Frontend/Interaction Focus)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ethical-compliance-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Ethical Compliance Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ui-as-a-testing-tool-implementation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. UI as a Testing Tool: Implementation Strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-actionable-testing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Actionable Testing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Deliverable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow Standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github_actions_workflow_format.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions Workflow Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/devops_workflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DevOps Workflow Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/ci_cd_workflow_reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-ui-as-a-real-time-validation-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction: UI as a Real-Time Validation Engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-principles-of-the-ui-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Principles of the UI Testing Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-categories-definition-leveraging-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Test Categories Definition (Leveraging UI Components)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Test Categories Definition (Leveraging UI Components)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-usability-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Usability Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-accessibility-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Accessibility Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-code-performance-tests-frontendinteraction-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Code Performance Tests (Frontend/Interaction Focus)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ethical-compliance-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Ethical Compliance Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ui-as-a-testing-tool-implementation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. UI as a Testing Tool: Implementation Strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-actionable-testing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Actionable Testing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Deliverable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="design-document-ui-component-testing-framework">Design Document: Ui Component Testing Framework<a class="headerlink" href="#design-document-ui-component-testing-framework" title="Permanent link">&para;</a></h1>
 <hr />
-<h2 id="1-introduction-ui-as-a-real-time-validation-engine">1. Introduction: UI as a Real-Time Validation Engine</h2>
+<h2 id="1-introduction-ui-as-a-real-time-validation-engine">1. Introduction: UI as a Real-Time Validation Engine<a class="headerlink" href="#1-introduction-ui-as-a-real-time-validation-engine" title="Permanent link">&para;</a></h2>
 <p>This document outlines the design philosophy and structure of the <strong>UI Component Testing Framework</strong> for the ThinkAlike project. Central to this framework is the principle of <strong>"UI as a Testing Tool,"</strong> where UI components transcend their traditional role as passive presentation elements to become active participants in the validation process. They serve as real-time instruments for verifying data handling, code implementation quality, ethical compliance, system performance, and accessibility standards.</p>
 <p>This approach ensures that testing is not a separate, isolated phase but a continuous, transparent, data-driven process deeply integrated into the user experience and the entire development workflow. It aims to provide immediate, actionable feedback to developers and testers, fostering a culture of quality and ethical awareness. This framework operationalizes the strategy detailed in the <a href="../testing_and_validation_plan/">ThinkAlike Testing and Validation Plan</a>.</p>
 <hr />
-<h2 id="2-core-principles-of-the-ui-testing-framework">2. Core Principles of the UI Testing Framework</h2>
+<h2 id="2-core-principles-of-the-ui-testing-framework">2. Core Principles of the UI Testing Framework<a class="headerlink" href="#2-core-principles-of-the-ui-testing-framework" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>UI as Test Engine:</strong> UI components are intentionally designed with hooks and capabilities to <em>generate</em> test data, <em>trigger</em> validation checks, and <em>display</em> results, effectively acting as dynamic test harnesses within the application itself.</p>
@@ -171,9 +1304,9 @@
 </li>
 </ul>
 <hr />
-<h2 id="3-test-categories-definition-leveraging-ui-components">3. Test Categories Definition (Leveraging UI Components)</h2>
+<h2 id="3-test-categories-definition-leveraging-ui-components">3. Test Categories Definition (Leveraging UI Components)<a class="headerlink" href="#3-test-categories-definition-leveraging-ui-components" title="Permanent link">&para;</a></h2>
 <p>The framework organizes testing into key categories, detailing how UI components facilitate validation within each:</p>
-<h3 id="31-usability-tests">3.1 Usability Tests</h3>
+<h3 id="31-usability-tests">3.1 Usability Tests<a class="headerlink" href="#31-usability-tests" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Objective:</strong> Ensure components and workflows are intuitive, efficient, discoverable, and easy to navigate for the target user personas.</p>
@@ -194,7 +1327,7 @@
 <p><strong>Generated Data:</strong> Quantitative metrics (task completion rates, time, error counts), qualitative user feedback, user flow diagrams.</p>
 </li>
 </ul>
-<h3 id="32-accessibility-tests">3.2 Accessibility Tests</h3>
+<h3 id="32-accessibility-tests">3.2 Accessibility Tests<a class="headerlink" href="#32-accessibility-tests" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Objective:</strong> Guarantee UI components and overall application adhere to accessibility standards (e.g., WCAG 2.1 AA/AAA), ensuring usability for people with diverse abilities.</p>
@@ -218,7 +1351,7 @@
 <p><strong>Generated Data:</strong> WCAG violation reports linked to specific UI elements, focus order maps, contrast ratio warnings.</p>
 </li>
 </ul>
-<h3 id="33-code-performance-tests-frontendinteraction-focus">3.3 Code Performance Tests (Frontend/Interaction Focus)</h3>
+<h3 id="33-code-performance-tests-frontendinteraction-focus">3.3 Code Performance Tests (Frontend/Interaction Focus)<a class="headerlink" href="#33-code-performance-tests-frontendinteraction-focus" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Objective:</strong> Measure and optimize the responsiveness, rendering speed, memory footprint, and overall efficiency of UI components and frontend interactions.</p>
@@ -239,10 +1372,10 @@
 <p><strong>Generated Data:</strong> Time-series charts of render times/FPS, memory usage graphs, identification of slow components or functions.</p>
 </li>
 </ul>
-<h3 id="34-ethical-compliance-tests">3.4 Ethical Compliance Tests</h3>
+<h3 id="34-ethical-compliance-tests">3.4 Ethical Compliance Tests<a class="headerlink" href="#34-ethical-compliance-tests" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p><strong>Objective:</strong> Validate adherence to ThinkAlike's <a href="../../core/ethics/ethical_guidelines/ethical_guidelines.md">Ethical Guidelines</a>, focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.</p>
+<p><strong>Objective:</strong> Validate adherence to ThinkAlike's <a href="../core/ethics/ethical_guidelines.md">Ethical Guidelines</a>, focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.</p>
 </li>
 <li>
 <p><strong>UI as Testing Tool:</strong></p>
@@ -264,7 +1397,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="4-ui-as-a-testing-tool-implementation-strategy">4. UI as a Testing Tool: Implementation Strategy</h2>
+<h2 id="4-ui-as-a-testing-tool-implementation-strategy">4. UI as a Testing Tool: Implementation Strategy<a class="headerlink" href="#4-ui-as-a-testing-tool-implementation-strategy" title="Permanent link">&para;</a></h2>
 <p>Key strategies for enabling the UI to function as a testing tool:</p>
 <ul>
 <li>
@@ -299,7 +1432,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="5-actionable-testing-data">5. Actionable Testing Data</h2>
+<h2 id="5-actionable-testing-data">5. Actionable Testing Data<a class="headerlink" href="#5-actionable-testing-data" title="Permanent link">&para;</a></h2>
 <p>To make UI-driven testing effective, the data used and generated must be actionable:</p>
 <ul>
 <li>
@@ -319,10 +1452,10 @@
 </li>
 </ul>
 <hr />
-<h2 id="6-deliverable">6. Deliverable</h2>
+<h2 id="6-deliverable">6. Deliverable<a class="headerlink" href="#6-deliverable" title="Permanent link">&para;</a></h2>
 <p>The output of this design is not just code, but a system:</p>
 <ol>
-<li><strong>This Documentation (<code>UI_Testing_Framework.md</code>):</strong> Defines the philosophy and structure.</li>
+<li><strong>This Documentation (<code>ui_testing_framework.md</code>):</strong> Defines the philosophy and structure.</li>
 <li><strong>Set of Reusable Testing UI Components:</strong> Implementations of components like <code>APIValidator</code>, <code>CoreValuesValidator</code>, <code>AccessibilityHelper</code>, <code>PerformanceMonitorOverlay</code>, etc., with their own detailed specifications (linked from here).</li>
 <li><strong>Integration Guidelines:</strong> Documentation within the main <a href="developerguide_matchingalgorithm.md">Developer Guide</a> (or similar) explaining, for example, how to use tracking hooks and how to make components test-aware.</li>
 <li><strong>Example Usage:</strong> Concrete examples demonstrating how to use the framework to test different scenarios across the defined categories.</li>
@@ -391,29 +1524,29 @@
 <hr />
 <p>End of Design Document: Ui Component Testing Framework</p>
 <hr />
-<h1 id="practical-guide-using-the-ui-as-validation-framework">Practical Guide: Using the UI as Validation Framework</h1>
+<h1 id="practical-guide-using-the-ui-as-validation-framework">Practical Guide: Using the UI as Validation Framework<a class="headerlink" href="#practical-guide-using-the-ui-as-validation-framework" title="Permanent link">&para;</a></h1>
 <p><strong>Version:</strong> 1.0</p>
 <p><strong>Date:</strong> March 26, 2025</p>
 <hr />
-<h2 id="1-introduction">1. Introduction</h2>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
 <p>This guide provides practical examples demonstrating how developers should utilize ThinkAlike's specific <strong>validation-focused UI components</strong> during development and testing. These components are central to the <strong>"UI as Validation Framework"</strong> concept, embedding ethical guidelines, data schema checks, API contract adherence, and other rules directly into the application flow. They provide immediate, contextual feedback, accelerating development and ensuring the final product aligns with ThinkAlike's core principles.</p>
-<p>Refer to the individual component specification documents in <a href="../../components/ui_components/"><code>docs/components/ui_components/</code></a> for detailed props, APIs, and implementation notes for each validation component mentioned here.</p>
+<p>Refer to the individual component specification documents in <a href="../components/ui/"><code>docs/components/ui_components/</code></a> for detailed props, APIs, and implementation notes for each validation component mentioned here.</p>
 <hr />
-<h2 id="2-example-using-corevaluesvalidator-for-content-moderation-hints">2. Example: Using <code>CoreValuesValidator</code> for Content Moderation Hints</h2>
+<h2 id="2-example-using-corevaluesvalidator-for-content-moderation-hints">2. Example: Using <code>CoreValuesValidator</code> for Content Moderation Hints<a class="headerlink" href="#2-example-using-corevaluesvalidator-for-content-moderation-hints" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>Purpose:</strong> To provide real-time feedback to users (and developers during testing) about whether their input aligns with community content guidelines or ethical principles <em>before</em> submission.</p>
 </li>
 <li>
-<p><strong>Component Spec:</strong> <a href="../../components/ui_components/CoreValuesValidator.md"><code>docs/components/ui_components/CoreValuesValidator.md</code></a></p>
+<p><strong>Component Spec:</strong> <a href="../components/ui/CoreValuesValidator.md"><code>docs/components/ui_components/CoreValuesValidator.md</code></a></p>
 </li>
 <li>
-<p><strong>Scenario:</strong> A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the <a href="../../../core/ethics/ethical_guidelines/"><code>Ethical Guidelines</code></a>.</p>
+<p><strong>Scenario:</strong> A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the <a href="../core/ethics/ethical_guidelines.md"><code>Ethical Guidelines</code></a>.</p>
 </li>
 <li>
 <p><strong>Conceptual React Implementation:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">,</span><span class="w"> </span><span class="nx">useMemo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">CoreValuesValidator</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../../components/ui_components/CoreValuesValidator&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust import path</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">CoreValuesValidator</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/ui/CoreValuesValidator&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust import path</span>
 <span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ethicalRules</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../../config/ethicsConfig&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Assume rules are defined here</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">CommunityPostForm</span><span class="p">({</span><span class="w"> </span><span class="nx">onSubmit</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
@@ -491,13 +1624,13 @@
 </li>
 </ul>
 <hr />
-<h2 id="3-example-using-apivalidator-in-developmentdebug-mode">3. Example: Using <code>APIValidator</code> in Development/Debug Mode</h2>
+<h2 id="3-example-using-apivalidator-in-developmentdebug-mode">3. Example: Using <code>APIValidator</code> in Development/Debug Mode<a class="headerlink" href="#3-example-using-apivalidator-in-developmentdebug-mode" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>Purpose:</strong> To transparently show developers the details of API requests and responses during development, helping to debug communication issues and validate data against schemas.</p>
 </li>
 <li>
-<p><strong>Component Spec:</strong> <a href="../../components/ui_components/APIValidator.md"><code>docs/components/ui_components/APIValidator.md</code></a></p>
+<p><strong>Component Spec:</strong> <a href="../components/ui/APIValidator.md"><code>docs/components/ui_components/APIValidator.md</code></a></p>
 </li>
 <li>
 <p><strong>Scenario:</strong> A developer is working on the user profile update feature and wants to see the exact payload sent to the backend and the response received, including validation status against an expected schema.</p>
@@ -585,7 +1718,7 @@ export default apiClient;
 <p><strong>Global Validator Display (<code>DeveloperToolsPanel.jsx</code>):</strong></p>
 <div class="highlight"><pre><span></span><code>```jsx
 import React from &#39;react&#39;;
-import APIValidator from &#39;../../components/ui_components/APIValidator&#39;; // Adjust path
+import APIValidator from &#39;../components/ui/APIValidator&#39;; // Adjust path
 import { useApiValidationLogStore } from &#39;./stores/apiValidationLogStore&#39;; // Example Zustand hook
 
 function DeveloperToolsPanel() {
@@ -619,13 +1752,13 @@ export default DeveloperToolsPanel;
 </li>
 </ul>
 <hr />
-<h2 id="4-example-using-datatraceability-for-ai-recommendation-insight">4. Example: Using <code>DataTraceability</code> for AI Recommendation Insight</h2>
+<h2 id="4-example-using-datatraceability-for-ai-recommendation-insight">4. Example: Using <code>DataTraceability</code> for AI Recommendation Insight<a class="headerlink" href="#4-example-using-datatraceability-for-ai-recommendation-insight" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>Purpose:</strong> To provide users with transparency into <em>why</em> a specific recommendation (e.g., a potential match in Mode 2, a suggested community in Mode 3) was made by an AI model.</p>
 </li>
 <li>
-<p><strong>Component Spec:</strong> <a href="../../components/ui_components/DataTraceability.md"><code>docs/components/ui_components/DataTraceability.md</code></a></p>
+<p><strong>Component Spec:</strong> <a href="../components/ui/DataTraceability.md"><code>docs/components/ui_components/DataTraceability.md</code></a></p>
 </li>
 <li>
 <p><strong>Scenario:</strong> A user sees a suggested community ("Ethical Tech Collaborators") in Mode 3 and wants to understand which of their profile values or activities led to this suggestion.</p>
@@ -633,7 +1766,7 @@ export default DeveloperToolsPanel;
 <li>
 <p><strong>Conceptual React Implementation:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
-<span class="k">import</span><span class="w"> </span><span class="nx">DataTraceability</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../../components/ui_components/DataTraceability&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust path</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">DataTraceability</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/ui/DataTraceability&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust path</span>
 <span class="k">import</span><span class="w"> </span><span class="nx">apiClient</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./services/apiClient&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your API client instance</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">CommunityRecommendation</span><span class="p">({</span><span class="w"> </span><span class="nx">recommendation</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
@@ -677,7 +1810,7 @@ export default DeveloperToolsPanel;
 <span class="w">              </span><span class="na">visualizationConfig</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="cm">/* Optional custom config */</span><span class="w"> </span><span class="p">}}</span>
 <span class="w">          </span><span class="p">/&gt;</span>
 <span class="w">           </span><span class="p">{</span><span class="cm">/* Link to detailed usage examples */</span><span class="p">}</span>
-<span class="w">           </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">small</span><span class="p">&gt;</span><span class="nx">See</span><span class="w"> </span><span class="nx">examples</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="sb">`docs/guides/examples/DataTraceability_Usage_Examples.md`</span><span class="p">](..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="nx">guides</span><span class="o">/</span><span class="nx">examples</span><span class="o">/</span><span class="nx">DataTraceability_Usage_Examples</span><span class="p">.</span><span class="nx">md</span><span class="p">)&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">           </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">small</span><span class="p">&gt;</span><span class="nx">See</span><span class="w"> </span><span class="nx">examples</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="sb">`docs/guides/examples/DataTraceability_Usage_Examples.md`</span><span class="p">](..</span><span class="o">/</span><span class="nx">guides</span><span class="o">/</span><span class="nx">examples</span><span class="o">/</span><span class="nx">DataTraceability_Usage_Examples</span><span class="p">.</span><span class="nx">md</span><span class="p">)&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 <span class="w">        </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="w">      </span><span class="p">)}</span>
 <span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
@@ -693,51 +1826,59 @@ export default DeveloperToolsPanel;
 </ul>
 <hr />
 <p>These examples illustrate how ThinkAlike's validation-focused UI components can be practically integrated into the development workflow to enforce standards, provide feedback, and enhance transparency, truly embodying the "UI as Validation Framework" principle. Remember to consult the specific component documentation for detailed props and usage.</p>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../building_ui_component/" class="btn btn-neutral float-left" title="Building UI Component Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../git_workflow/" class="btn btn-neutral float-right" title="Git Workflow Standard">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-      <span><a href="../building_ui_component/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../git_workflow/" style="color: #fcfcfc">Next &raquo;</a></span>
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../..";</script>
-    <script src="../../../js/theme_extra.js"></script>
-    <script src="../../../js/theme.js"></script>
-      <script src="../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
 </html>

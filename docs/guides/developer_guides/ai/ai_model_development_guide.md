@@ -52,23 +52,23 @@ All AI models developed and implemented for ThinkAlike **must be guided by the c
 
     AI models must actively promote exposure to diverse perspectives while respecting user values. This includes designing algorithms that balance value alignment with diversity, avoiding self-reinforcing feedback loops, and providing users with tools to explore alternative viewpoints.
 
-* **See Also:** [`AI Transparency Log Guide`](../ai/ai_transparency_log.md), [`Matching Algorithm Guide`](../matching_algorithm_guide.md), [`Mode 1 Spec`](../../../architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec.md), [`Mode 2 Spec`](../../../architecture/modes/mode2_profile_discovery_spec.md), [`Data Handling Policies`](../data_handling_policy_guide.md), [`Security & Privacy Plan`](../../../architecture/security/security_and_privacy_plan.md)
+* **See Also:** [`AI Transparency Log Guide`](../ai/ai_transparency_log.md), [`Matching Algorithm Guide`](../matching_algorithm_guide.md), [`Mode 1 Spec`](../../architecture/modes/narrative_onboarding_mode/mode1_narrative_onboarding_spec.md), [`Mode 2 Spec`](../../architecture/modes/mode2_profile_discovery_spec.md), [`Data Handling Policies`](../data_handling_policy_guide.md), [`Security & Privacy Plan`](../../architecture/security/security_and_privacy_plan.md)
 
 ## 3. AI Models in ThinkAlike (Examples)
 
-* **AI-Driven Narrative Engine:** Guides interactive narratives (e.g., Mode 1) using user inputs and choices to personalize the journey. *Inputs: User choices, session state. Outputs: Next narrative node.* See [Mode 1 Spec](../../../architecture/modes/mode1_narrative_onboarding_spec.md) for details.
+* **AI-Driven Narrative Engine:** Guides interactive narratives (e.g., Mode 1) using user inputs and choices to personalize the journey. *Inputs: User choices, session state. Outputs: Next narrative node.* See [Mode 1 Spec](../../architecture/modes/mode1_narrative_onboarding_spec.md) for details.
 
-* **Personalized Matching Engine (AI Match Engine):** Analyzes user profiles, interaction history, ethical values, video analysis insights, and lifestyle preferences to provide **intelligent and value-aligned match recommendations**. *Inputs: User profiles, preferences. Outputs: Match suggestions with compatibility scores.* See [Matching Algorithm Guide](../../../guides/developer_guides/matching_algorithm_guide.md) for details.
+* **Personalized Matching Engine (AI Match Engine):** Analyzes user profiles, interaction history, ethical values, video analysis insights, and lifestyle preferences to provide **intelligent and value-aligned match recommendations**. *Inputs: User profiles, preferences. Outputs: Match suggestions with compatibility scores.* See [Matching Algorithm Guide](../../guides/developer_guides/matching_algorithm_guide.md) for details.
 
 * **Community Building Engine (AI Community Engine):** Facilitates the formation of online communities based on **shared values, interests, and goals**. Leverages AI to suggest relevant communities and connections while empowering user agency and control. *(Purpose: [Details TBD])* <!-- TODO: Create and link spec file -->
 
-* **AI Video Analysis:** Analyzes video profiles (with consent) to extract features like body language, tone, micro-expressions, and general information (age, location, user-selected parameters). *Inputs: User-uploaded videos. Outputs: Extracted features for profile enhancement.* See [AI Video Analysis Spec](../../../components/ai_modules/ai_video_analysis.md) for details.
+* **AI Video Analysis:** Analyzes video profiles (with consent) to extract features like body language, tone, micro-expressions, and general information (age, location, user-selected parameters). *Inputs: User-uploaded videos. Outputs: Extracted features for profile enhancement.* See [AI Video Analysis Spec](../../components/ai_modules/ai_video_analysis.md) for details.
 
 * **AI User Data Analysis:** Analyzes data across implementation stages (profiles, actions, responses) to extract insights about user journeys and values. Aims to help users understand "the power of choices during a technology-driven workflow.” *(Purpose: [Details TBD])* <!-- TODO: Create and link spec file -->
 
-* **Data Validation and Ethical Compliance Tools / AI Data Validation and Testing Framework:** Develops **AI-powered tools and workflows for ensuring data quality, transparency, and ethical compliance**. Acts as a "partner" in validation cycles, testing code workflows and ensuring UI and AI alignment on transparency and ethics. *Inputs: Data pipelines, validation rules. Outputs: Validation reports, ethical compliance metrics.* See [Ethical Validation AI Spec](../../../components/ai_modules/ethical_validation_ai.md) for details.
+* **Data Validation and Ethical Compliance Tools / AI Data Validation and Testing Framework:** Develops **AI-powered tools and workflows for ensuring data quality, transparency, and ethical compliance**. Acts as a "partner" in validation cycles, testing code workflows and ensuring UI and AI alignment on transparency and ethics. *Inputs: Data pipelines, validation rules. Outputs: Validation reports, ethical compliance metrics.* See [Ethical Validation AI Spec](../../components/ai_modules/ethical_validation_ai.md) for details.
 
-* **AI Clone Persona Engine (Audiovisual Analysis):** Analyzes user-provided short video introductions (with explicit consent) to extract relevant audiovisual features (e.g., speech patterns, general tone, visual style cues) that inform the generation and dynamic styling of the user’s **AI Clone**. *Inputs: User video intro. Outputs: Style parameters for AI Clone rendering.* See [AI Clone Persona Engine Spec](../../../components/ai_modules/ai_clone_persona_engine.md) for details.
+* **AI Clone Persona Engine (Audiovisual Analysis):** Analyzes user-provided short video introductions (with explicit consent) to extract relevant audiovisual features (e.g., speech patterns, general tone, visual style cues) that inform the generation and dynamic styling of the user’s **AI Clone**. *Inputs: User video intro. Outputs: Style parameters for AI Clone rendering.* See [AI Clone Persona Engine Spec](../../components/ai_modules/ai_clone_persona_engine.md) for details.
 
 ## 4. Recommended Frameworks and Libraries
 
@@ -210,9 +210,9 @@ AI models must undergo constant improvement based on data analysis, user experie
 
 * [AI Transparency Log](ai_transparency_log.md)
 
-* [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+* [Ethical Guidelines](../../core/ethics/ethical_guidelines.md)
 
-* [Master Reference](../../../core/master_reference.md)
+* [Master Reference](../../core/master_reference.md)
 
 ---
 

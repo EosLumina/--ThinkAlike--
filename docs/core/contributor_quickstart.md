@@ -110,7 +110,7 @@ ThinkAlike uses collaborative coding sessions ("swarms") for complex features:
 
 * **Installation Issues:** See [Troubleshooting Guide](../architecture/deployment_troubleshooting.md)
 
-* **Contribution Guidelines:** Read our [Contributing Overview](/docs/contributing.md) or [Detailed Contributing Guide](/docs/core/contributing.md)
+* **Contribution Guidelines:** Read our [Contributing Overview](../contributing.md) or [Detailed Contributing Guide](../core/contributing.md)
 
 * **Questions:** Ask in Discord #help channel
 

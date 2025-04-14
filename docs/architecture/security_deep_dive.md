@@ -24,7 +24,7 @@ Our technical security architecture adheres to these guiding principles:
 
 * **Fail Secure:** Components should default to a secure state in case of failure (e.g., deny access if an authorization check fails unexpectedly).
 
-* **Transparency & Auditability:** Security controls and events should be logged and auditable (within operational security constraints). Components like the [`security-status-indicator.md`](../components/ui_components/security-status-indicator.md) provide user-facing transparency.
+* **Transparency & Auditability:** Security controls and events should be logged and auditable (within operational security constraints). Components like the [`security-status-indicator.md`](../components/ui/security-status-indicator.md) provide user-facing transparency.
 
 ---
 

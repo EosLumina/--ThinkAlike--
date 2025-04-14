@@ -651,7 +651,7 @@ Regularly evaluate and improve review processes:
 
 * [ThinkAlike Style Guides](../style_guides/)
 
-* [Architecture Decision Records](../../architecture/adrs/)
+* [Architecture Decision Records](../architecture/adrs/)
 
 * [Common Code Review Feedback Examples](../examples/code_review_examples.md)
 

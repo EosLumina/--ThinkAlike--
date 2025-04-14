@@ -6,9 +6,9 @@ Thank you for your interest in contributing to ThinkAlike! We welcome contributi
 
 This page provides a comprehensive guide to contributing. For a more concise overview, you can also refer to:
 
-**➡️ [View Contributing Overview](/docs/contributing_overview.md)**
+**➡️ [View Contributing Overview](../contributing_overview.md)**
 
-**➡️ [View Quick Contributing Guide](/docs/contributing_quick.md)**
+**➡️ [View Quick Contributing Guide](../contributing_quick.md)**
 
 ### Ways You Can Help - Quick Summary
 

@@ -6,7 +6,7 @@
 
 This document specifies the **API endpoints for the ThinkAlike project backend related to integrating with third-party external services** (e.g., Goodreads, Spotify). It supplements the main [`API_ENDPOINTS.md`](api_endpoints.md) and details routes for managing OAuth connections, fetching data, and handling user consent specific to these integrations.
 
-These endpoints support the features described in the [Data Integration Strategy](../data_integration_strategy.md) and are used by the [ConnectedServicesManager UI component](../../components/ui_components/connected_services_manager.md).
+These endpoints support the features described in the [Data Integration Strategy](../data_integration_strategy.md) and are used by the [ConnectedServicesManager UI component](../components/ui/connected_services_manager.md).
 
 Refer to [`API_ENDPOINTS.md`](api_endpoints.md) for general API conventions, authentication details (JWT Bearer), base URL (`/api/v1`), and standard error response formats. All endpoints listed here require **Bearer Authentication** unless explicitly related to the OAuth callback phase which involves state validation.
 
@@ -234,7 +234,7 @@ Refer to [`API_ENDPOINTS.md`](api_endpoints.md) for general API conventions, aut
 
 * **`UserExternalData`**: Database model to store minimally processed, relevant data harvested from external services (e.g., list of book IDs/genres, top artist IDs/genres), linked to `user_id` and `service_name`, including `last_retrieved` timestamp.
 
-*(Refer to [`unified_data_model_schema.md`](../../architecture/database/unified_data_model_schema.md) for detailed table definitions).*
+*(Refer to [`unified_data_model_schema.md`](../architecture/database/unified_data_model_schema.md) for detailed table definitions).*
 
 ---
 

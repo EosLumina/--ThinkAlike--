@@ -25,8 +25,8 @@ compliance points.
 the development and testing tools.
 
 This component interfaces conceptually and potentially directly with the backend **Verification System** and relies heavily
-on the principles defined in the [ThinkAlike Ethical Guidelines](../../core/ethics/ethical_guidelines/ethical_guidelines.md)
-and the [Philosophical Manifesto of Eos Lumina](../../core/manifesto/manifesto.md).
+on the principles defined in the [ThinkAlike Ethical Guidelines](../core/ethics/ethical_guidelines.md)
+and the [Philosophical Manifesto of Eos Lumina](../core/manifesto/manifesto.md).
 
 ---
 

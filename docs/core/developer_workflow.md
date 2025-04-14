@@ -2,17 +2,17 @@
 
 # Developer Workflow
 
-This guide provides a practical, step-by-step workflow for common development tasks within the ThinkAlike project. It integrates information from various guides like [`contributing.md`](../../core/contributing.md), [`installation.md`](../../core/installation.md), style guides, and testing procedures.
+This guide provides a practical, step-by-step workflow for common development tasks within the ThinkAlike project. It integrates information from various guides like [`contributing.md`](../core/contributing.md), [`installation.md`](../core/installation.md), style guides, and testing procedures.
 
 **Prerequisites:**
 
-1. **Environment Setup:** Ensure you have successfully completed the [`Installation Guide`](../../core/installation.md).
-2. **Understanding:** Familiarize yourself with the [`Onboarding Guide`](../../core/onboarding_guide.md), [`Architectural Overview`](../../architecture/architectural_overview.md), and especially the [`Core Concepts Explained`](../../vision/core_concepts.md) (including UI as Validation).
+1. **Environment Setup:** Ensure you have successfully completed the [`Installation Guide`](../core/installation.md).
+2. **Understanding:** Familiarize yourself with the [`Onboarding Guide`](../core/onboarding_guide.md), [`Architectural Overview`](../architecture/architectural_overview.md), and especially the [`Core Concepts Explained`](../../vision/core_concepts.md) (including UI as Validation).
 3. **Issue Tracking:** Have access to the project's GitHub issue tracker [Link - **TODO**].
 
 ## General Workflow Steps
 
-1. **Pick an Issue:** Find an issue to work on from the issue tracker (see [`contributing.md`](../../core/contributing.md) for guidance on finding issues). Assign it to yourself or comment your intention to work on it.
+1. **Pick an Issue:** Find an issue to work on from the issue tracker (see [`contributing.md`](../core/contributing.md) for guidance on finding issues). Assign it to yourself or comment your intention to work on it.
 2. **Create a Branch:** Based on the `main` branch (or `develop` if used), create a new branch following the naming convention: `type/issue-number-short-description` (e.g., `feat/215-add-profile-tagging`).
 
     ```bash
@@ -32,7 +32,7 @@ This guide provides a practical, step-by-step workflow for common development ta
 
     * Utilize UI Validation components for real-time feedback (see [`UI Validation Examples`](./ui_validation_examples.md)).
 
-    * Document code changes ([`Code Docs Template`](../../templates/code_documentation_template.md)).
+    * Document code changes ([`Code Docs Template`](../templates/code_documentation_template.md)).
 
 4. **Commit Changes:** Use Conventional Commit messages (e.g., `feat: add tagging feature to user profiles`). Commit frequently with meaningful messages.
 5. **Update Branch:** Regularly rebase or merge `main` into your branch to stay updated: `git fetch upstream && git rebase upstream/main`. Resolve conflicts locally.
@@ -54,7 +54,7 @@ This guide provides a practical, step-by-step workflow for common development ta
 
 ThinkAlike supports two primary workflows for development:
 
-1. **Swarming (Preferred for Complex Tasks):** Swarming is our collaborative coding methodology where contributors work together in real-time on the same task. This is ideal for feature development, complex problem-solving, and documentation writing. Refer to the [`Contribution Guidelines`](../../core/contributing.md#our-development-methodology-swarming-coding) for details on participating in Swarming sessions.
+1. **Swarming (Preferred for Complex Tasks):** Swarming is our collaborative coding methodology where contributors work together in real-time on the same task. This is ideal for feature development, complex problem-solving, and documentation writing. Refer to the [`Contribution Guidelines`](../core/contributing.md#our-development-methodology-swarming-coding) for details on participating in Swarming sessions.
 
 2. **Individual Contributions (For Smaller Tasks):** Individual contributions are encouraged for smaller bugs, documentation fixes, or pre-swarm research. Follow the standard Fork & PR workflow outlined below for individual contributions.
 
@@ -62,11 +62,11 @@ ThinkAlike supports two primary workflows for development:
 
 ### Workflow A: Adding a New Backend API Endpoint
 
-1. **Define Contract:** Define the endpoint path, HTTP method, request body/params (using Pydantic models), and response body (using Pydantic models) – document this briefly in the relevant API doc (e.g., [`api_endpoints_mode2.md`](../../architecture/api/api_endpoints_mode2.md)).
+1. **Define Contract:** Define the endpoint path, HTTP method, request body/params (using Pydantic models), and response body (using Pydantic models) – document this briefly in the relevant API doc (e.g., [`api_endpoints_mode2.md`](../architecture/api/api_endpoints_mode2.md)).
 2. **Create Route:** Add the new endpoint function within the appropriate FastAPI router file in `backend/routes/` (or `api/` if structured differently). Use dependency injection for services. See [`Building Backend Endpoint Guide`](./building_backend_endpoint.md).
 3. **Implement Service Logic:** Create or update a service function in `backend/services/` to handle the business logic for the endpoint. This layer interacts with models/database.
 4. **Database Interaction (if needed):** If data access is required, interact with SQLAlchemy models defined in `backend/models/`. Ensure efficient querying.
-5. **Verification System Hook (if needed):** If the action requires ethical or functional validation, call the appropriate Verification System function/endpoint. See [`Verification System Deep Dive`](../../architecture/verification_system/verification_system_deep_dive.md).
+5. **Verification System Hook (if needed):** If the action requires ethical or functional validation, call the appropriate Verification System function/endpoint. See [`Verification System Deep Dive`](../architecture/verification_system/verification_system_deep_dive.md).
 6. **Write Unit/Integration Tests:** Create tests in `backend/tests/` covering the service logic and the API endpoint interaction (using `TestClient`). Mock dependencies (like Verification System calls or database sessions) appropriately for unit tests.
 7. **Local Testing:** Run the backend server (`uvicorn ...`) and test the endpoint using `curl`, Postman, or ideally, by integrating it with the frontend (see Workflow C).
 

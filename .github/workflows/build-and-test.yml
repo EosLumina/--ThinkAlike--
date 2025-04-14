@@ -5,6 +5,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -20,6 +21,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Verify files
+        run: |
+          # Check if files exist and create backups if needed
+          for dir in backend frontend docs; do
+            if [ ! -d "$dir" ]; then
+              echo "Warning: $dir directory not found"
+              if [ -d ".backup/$dir" ]; then
+                echo "Restoring $dir from backup..."
+                cp -r ".backup/$dir" .
+              fi
+            fi
+          done
       - name: Clean files
         run: |
           echo "Removing null bytes from source files..."
@@ -40,65 +53,68 @@ jobs:
         python-version: ["3.10", "3.11"]
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
-
-      - name: Install dependencies
+      - name: Install test dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
-          # Install test dependencies first
           pip install -r requirements-test.txt
-          # Then install project dependencies
-          pip install -r requirements.txt
-          pip install -r backend/requirements.txt
-
+      - name: Install project dependencies
+        run: |
+          pip install -r requirements.txt || echo "Main requirements install failed"
+          pip install -r backend/requirements.txt || echo "Backend requirements install failed"
+      - name: Verify imports
+        run: |
+          python -c "import pytest; import fastapi; import uvicorn"
       - name: Run tests
         run: |
           cd backend
-          python -m pytest -v tests/
+          python -m pytest -v tests/ || exit 1
 
   docs:
     needs: verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-
+          cache: pip
       - name: Install doc dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material "pymdown-extensions>=10.0"
-
-      - name: Build docs
-        run: mkdocs build --clean --strict
+          python -m pip install \
+            mkdocs-material>=9.4.6 \
+            mkdocs>=1.5.3 \
+            mkdocs-redirects>=1.2.0 \
+            "pymdown-extensions>=10.0"
+      - name: Verify mkdocs
+        run: |
+          which mkdocs || echo "mkdocs not found in PATH"
+          python -m mkdocs --version
+      - name: Build documentation
+        run: python -m mkdocs build --clean --strict
 
   frontend:
     needs: verify
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: npm
           cache-dependency-path: frontend/package-lock.json
-
       - name: Install dependencies
         working-directory: frontend
-        run: npm ci
-
+        run: |
+          npm ci || npm install
       - name: Run tests
         working-directory: frontend
-        run: npm test -- --passWithNoTests
+        run: |
+          npm test -- --passWithNoTests || exit 1

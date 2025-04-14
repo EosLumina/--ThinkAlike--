@@ -6,7 +6,7 @@
 
 The **Security Status Indicator** is a vital UI component within the ThinkAlike platform, designed to provide users with **real-time, easily understandable awareness of their data security status**. It functions as a persistent visual cue, dynamically reflecting the current state of data encryption (in transit and at rest), the activity of core security protocols, and alerting users to potential security events or vulnerabilities requiring attention.
 
-This component is a cornerstone of ThinkAlike's commitment to **Radical Transparency** and **User Empowerment**. By making security status immediately visible and verifiable, it allows users to confirm that the platform's security measures are active and functioning as expected. It transforms abstract security concepts into tangible feedback, building trust and enabling users to feel more secure and in control of their digital environment. This component directly supports the security measures outlined in the [ThinkAlike Security and Privacy Implementation Plan](../../architecture/security/security_and_privacy_plan.md) and adheres to the visual language defined in the [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md).
+This component is a cornerstone of ThinkAlike's commitment to **Radical Transparency** and **User Empowerment**. By making security status immediately visible and verifiable, it allows users to confirm that the platform's security measures are active and functioning as expected. It transforms abstract security concepts into tangible feedback, building trust and enabling users to feel more secure and in control of their digital environment. This component directly supports the security measures outlined in the [ThinkAlike Security and Privacy Implementation Plan](../architecture/security/security_and_privacy_plan.md) and adheres to the visual language defined in the [ThinkAlike Style Guide](../guides/developer_guides/code_style_guide.md).
 
 ## 2. UI Components / Sub-components
 
@@ -80,7 +80,7 @@ The Security Status Indicator is typically integrated into a persistent part of 
 
 * **UI Elements:** A small settings icon (⚙️) or info icon (ℹ️) near the indicator or within the popover.
 
-* **Action:** Clicking the icon navigates the user to the "Security & Privacy Center" (detailed in [`Security_Feedback_Loops.md`](../../guides/developer_guides/Security_Feedback_Loops.md)).
+* **Action:** Clicking the icon navigates the user to the "Security & Privacy Center" (detailed in [`Security_Feedback_Loops.md`](../guides/developer_guides/Security_Feedback_Loops.md)).
 
 ## 3. Actionable Parameters (User Validation & Awareness)
 

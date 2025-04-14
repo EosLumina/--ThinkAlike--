@@ -1,8 +1,9 @@
 site_name: "ThinkAlike Documentation"
-site_description: Documentation for the ThinkAlike platform
-site_url: https://eoslumina.github.io/--ThinkAlike--/ # Replace with your actual project URL
+site_description: Documentation for the ThinkAlike project
+site_url: https://eoslumina.github.io/--ThinkAlike--/
+
 theme:
-  name: readthedocs
+  name: material
   palette:
     primary: indigo
     accent: amber
@@ -10,8 +11,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.sections
-    - navigation.expand
-    - content.code.annotate
+    - navigation.tabs
 
 markdown_extensions:
   - admonition
@@ -21,6 +21,45 @@ markdown_extensions:
   - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
+  - pymdownx.inlinehilite
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - redirects:
+      redirect_maps:
+        "guides/developer_guides/data_handling_policy_guide.md": "guides/developer_guides/data_handling.md"
+        "core/contributing.md": "core/contributing/index.md"
+        "core/installation.md": "core/setup/installation.md"
+        "core/onboarding_guide.md": "core/getting_started/onboarding.md"
+        "components/ui_components/data_traceability.md": "components/ui/data_traceability/index.md"
+        "core/ethics/ethical_guidelines/ethical_guidelines.md": "core/ethics/ethical_guidelines.md"
+        "templates/code_documentation_template.md": "core/templates/code_documentation.md"
+        "components/ui_components/CoreValuesValidator.md": "components/ui/core_values_validator.md"
+        "components/ui_components/APIValidator.md": "components/ui/api_validator.md"
+        "components/ui_components/DataTraceability.md": "components/ui/data_traceability.md"
+
+validation:
+  links: warn
+  absolute_links: info
+
+extra:
+  doc_roots:
+    - core
+    - guides
+    - components
+    - architecture
+    - templates
+
+hooks:
+  - scripts/docs_preprocessor.py
+
+strict: true
+docs_dir: "docs"
+site_dir: "site"
 
 nav:
   - Home: index.md
@@ -46,6 +85,3 @@ nav:
   - DevOps:
       - DevOps Workflow Guide: guides/devops/devops_workflow.md
       - CI/CD Workflow Reference: guides/devops/ci_cd_workflow_reference.md
-
-plugins:
-  - search

@@ -1,128 +1,1398 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/deployment_guidelines/" />
-      <link rel="shortcut icon" href="../../../img/favicon.ico" />
-    <title>Deployment Guidelines - ThinkAlike Documentation</title>
-    <link rel="stylesheet" href="../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Deployment Guidelines";
-        var mkdocs_page_input_path = "guides/developer_guides/deployment_guidelines.md";
-        var mkdocs_page_url = "/--ThinkAlike--/guides/developer_guides/deployment_guidelines/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ThinkAlike project">
+      
+      
+      
+        <link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/deployment_guidelines/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
-    <!--[if lt IE 9]>
-      <script src="../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Deployment Guidelines - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../.." class="icon icon-home"> ThinkAlike Documentation
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="" href="../../../index.md">Home</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Core</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/contributing/">Contributing</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/installation/">Installation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../core/onboarding_guide/">Onboarding Guide</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Vision</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/core_concepts/">Core Concepts Explained</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../vision/blockchain_integration/">Blockchain Integration</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Architecture</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/architectural_overview/">Architectural Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../architecture/api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Development</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../code_style_guide/">Code Style Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../building_backend_endpoint/">Building Backend Endpoint Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../building_ui_component/">Building UI Component Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../ui_validation_examples/">UI Validation Examples</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../git_workflow/">Git Workflow Standard</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">DevOps</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../devops/devops_workflow.md">DevOps Workflow Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deployment-guidelines" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment Guidelines
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../..">ThinkAlike Documentation</a>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Deployment Guidelines</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-tabs__link">
+          
+  
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../vision/core_concepts/" class="md-tabs__link">
+          
+  
+  
+  Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architecture/architectural_overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../code_style_guide/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../devops/devops_workflow.md" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h1 id="deployment-guidelines">Deployment Guidelines</h1>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightenment 2.0 Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/ethics/ethical_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethical Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/onboarding_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/blockchain_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architectural_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architectural Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/api/api_endpoints_mode2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Endpoints (Mode 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_style_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_backend_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Backend Endpoint Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_ui_component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building UI Component Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui_validation_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow Standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github_actions_workflow_format.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions Workflow Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/devops_workflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DevOps Workflow Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/ci_cd_workflow_reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deployment-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Deployment Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Deployment Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-environment-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Environment Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Environment Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-containerization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Containerization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Containerization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-docker-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Docker Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-example-dockerfile-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Example Dockerfile (Backend)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-example-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Example Docker Compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. CI/CD Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. CI/CD Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pipeline-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Pipeline Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-example-github-actions-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Example GitHub Actions Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-infrastructure-as-code-iac" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Infrastructure as Code (IaC)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Infrastructure as Code (IaC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-terraform-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Terraform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-iac-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 IaC Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Deployment Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Deployment Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-available-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Available Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-strategy-selection-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Strategy Selection Criteria
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-database-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Database Migrations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Database Migrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-migration-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Migration Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-migration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Migration Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-database-migration-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Database Migration Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-monitoring-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Monitoring and Observability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Monitoring and Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-monitoring-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Monitoring Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-observability-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Observability Stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-rollback-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Rollback Procedures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Rollback Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-automated-rollbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Automated Rollbacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-manual-rollback-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Manual Rollback Procedures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-deployment-security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Deployment Security Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-secret-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Secret Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-documentation-and-runbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Documentation and Runbooks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Documentation and Runbooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-required-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Required Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-incident-response-runbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Incident Response Runbooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deployment-guidelines">Deployment Guidelines<a class="headerlink" href="#deployment-guidelines" title="Permanent link">&para;</a></h1>
 <hr />
-<h2 id="1-introduction">1. Introduction</h2>
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
 <p>This document outlines the deployment standards and practices for the ThinkAlike project. Following these guidelines ensures consistent, reliable, and secure deployments across all environments. These practices apply to all components of the ThinkAlike platform, including backend services, frontend applications, and supporting infrastructure.</p>
 <hr />
-<h2 id="2-deployment-environments">2. Deployment Environments</h2>
+<h2 id="2-deployment-environments">2. Deployment Environments<a class="headerlink" href="#2-deployment-environments" title="Permanent link">&para;</a></h2>
 <p>ThinkAlike uses multiple environments to ensure quality and stability:</p>
-<h3 id="21-environment-types">2.1 Environment Types</h3>
+<h3 id="21-environment-types">2.1 Environment Types<a class="headerlink" href="#21-environment-types" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Development (dev)</strong>: For individual developers to test changes</p>
@@ -176,7 +1446,7 @@
 <p>Comprehensive monitoring and alerting</p>
 </li>
 </ul>
-<h3 id="22-environment-configuration">2.2 Environment Configuration</h3>
+<h3 id="22-environment-configuration">2.2 Environment Configuration<a class="headerlink" href="#22-environment-configuration" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Use environment variables for configuration</p>
@@ -225,9 +1495,9 @@ ML_SERVICE_URL=http://ml-service:8080
 ANALYTICS_API_KEY=apikey
 </code></pre></div>
 <hr />
-<h2 id="3-containerization">3. Containerization</h2>
+<h2 id="3-containerization">3. Containerization<a class="headerlink" href="#3-containerization" title="Permanent link">&para;</a></h2>
 <p>ThinkAlike services are containerized using Docker for consistency across environments:</p>
-<h3 id="31-docker-best-practices">3.1 Docker Best Practices</h3>
+<h3 id="31-docker-best-practices">3.1 Docker Best Practices<a class="headerlink" href="#31-docker-best-practices" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Use specific version tags for base images, not <code>latest</code></p>
@@ -248,7 +1518,7 @@ ANALYTICS_API_KEY=apikey
 <p>Scan images for vulnerabilities before deployment</p>
 </li>
 </ul>
-<h3 id="32-example-dockerfile-backend">3.2 Example Dockerfile (Backend)</h3>
+<h3 id="32-example-dockerfile-backend">3.2 Example Dockerfile (Backend)<a class="headerlink" href="#32-example-dockerfile-backend" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c"># Build stage</span>
 
 <span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10-slim</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
@@ -295,7 +1565,7 @@ ANALYTICS_API_KEY=apikey
 
 <span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uvicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.main:app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--port&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span><span class="p">]</span>
 </code></pre></div>
-<h3 id="33-example-docker-compose">3.3 Example Docker Compose</h3>
+<h3 id="33-example-docker-compose">3.3 Example Docker Compose<a class="headerlink" href="#33-example-docker-compose" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
 
 <span class="nt">services</span><span class="p">:</span>
@@ -360,9 +1630,9 @@ ANALYTICS_API_KEY=apikey
 <span class="w">  </span><span class="nt">postgres_data</span><span class="p">:</span>
 </code></pre></div>
 <hr />
-<h2 id="4-cicd-pipeline">4. CI/CD Pipeline</h2>
+<h2 id="4-cicd-pipeline">4. CI/CD Pipeline<a class="headerlink" href="#4-cicd-pipeline" title="Permanent link">&para;</a></h2>
 <p>ThinkAlike uses automated CI/CD pipelines for consistent and reliable deployments:</p>
-<h3 id="41-pipeline-components">4.1 Pipeline Components</h3>
+<h3 id="41-pipeline-components">4.1 Pipeline Components<a class="headerlink" href="#41-pipeline-components" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Continuous Integration (CI)</strong></p>
@@ -392,7 +1662,7 @@ ANALYTICS_API_KEY=apikey
 <p>Rollback capability if issues detected</p>
 </li>
 </ul>
-<h3 id="42-example-github-actions-workflow">4.2 Example GitHub Actions Workflow</h3>
+<h3 id="42-example-github-actions-workflow">4.2 Example GitHub Actions Workflow<a class="headerlink" href="#42-example-github-actions-workflow" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI/CD Pipeline</span>
 
 <span class="nt">on</span><span class="p">:</span>
@@ -492,9 +1762,9 @@ ANALYTICS_API_KEY=apikey
 <span class="w">            </span><span class="no">docker-compose up -d</span>
 </code></pre></div>
 <hr />
-<h2 id="5-infrastructure-as-code-iac">5. Infrastructure as Code (IaC)</h2>
+<h2 id="5-infrastructure-as-code-iac">5. Infrastructure as Code (IaC)<a class="headerlink" href="#5-infrastructure-as-code-iac" title="Permanent link">&para;</a></h2>
 <p>ThinkAlike uses Infrastructure as Code to manage and provision resources:</p>
-<h3 id="51-terraform-configuration">5.1 Terraform Configuration</h3>
+<h3 id="51-terraform-configuration">5.1 Terraform Configuration<a class="headerlink" href="#51-terraform-configuration" title="Permanent link">&para;</a></h3>
 <p>All cloud resources are defined and managed using Terraform:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Example Terraform configuration for AWS resources</span>
 
@@ -548,7 +1818,7 @@ ANALYTICS_API_KEY=apikey
 
 <span class="c1"># Additional resources like RDS, Elasticache, etc.</span>
 </code></pre></div>
-<h3 id="52-iac-best-practices">5.2 IaC Best Practices</h3>
+<h3 id="52-iac-best-practices">5.2 IaC Best Practices<a class="headerlink" href="#52-iac-best-practices" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Store IaC in version control</p>
@@ -573,8 +1843,8 @@ ANALYTICS_API_KEY=apikey
 </li>
 </ul>
 <hr />
-<h2 id="6-deployment-strategies">6. Deployment Strategies</h2>
-<h3 id="61-available-strategies">6.1 Available Strategies</h3>
+<h2 id="6-deployment-strategies">6. Deployment Strategies<a class="headerlink" href="#6-deployment-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="61-available-strategies">6.1 Available Strategies<a class="headerlink" href="#61-available-strategies" title="Permanent link">&para;</a></h3>
 <p>ThinkAlike uses different deployment strategies depending on the context:</p>
 <ul>
 <li>
@@ -617,7 +1887,7 @@ ANALYTICS_API_KEY=apikey
 <p>Standard approach for routine updates</p>
 </li>
 </ul>
-<h3 id="62-strategy-selection-criteria">6.2 Strategy Selection Criteria</h3>
+<h3 id="62-strategy-selection-criteria">6.2 Strategy Selection Criteria<a class="headerlink" href="#62-strategy-selection-criteria" title="Permanent link">&para;</a></h3>
 <p>Choose deployment strategies based on:</p>
 <ul>
 <li>
@@ -637,8 +1907,8 @@ ANALYTICS_API_KEY=apikey
 </li>
 </ul>
 <hr />
-<h2 id="7-database-migrations">7. Database Migrations</h2>
-<h3 id="71-migration-principles">7.1 Migration Principles</h3>
+<h2 id="7-database-migrations">7. Database Migrations<a class="headerlink" href="#7-database-migrations" title="Permanent link">&para;</a></h2>
+<h3 id="71-migration-principles">7.1 Migration Principles<a class="headerlink" href="#71-migration-principles" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Versioned</strong>: All database changes should be versioned</p>
@@ -656,7 +1926,7 @@ ANALYTICS_API_KEY=apikey
 <p><strong>Idempotent</strong>: Safe to run multiple times</p>
 </li>
 </ul>
-<h3 id="72-migration-process">7.2 Migration Process</h3>
+<h3 id="72-migration-process">7.2 Migration Process<a class="headerlink" href="#72-migration-process" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># Example migration using Alembic for Python/SQLAlchemy</span>
 
 <span class="sd">&quot;&quot;&quot;add user preferences table</span>
@@ -693,7 +1963,7 @@ ANALYTICS_API_KEY=apikey
     <span class="n">op</span><span class="o">.</span><span class="n">drop_index</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="s1">&#39;ix_user_preferences_user_id&#39;</span><span class="p">),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;user_preferences&#39;</span><span class="p">)</span>
     <span class="n">op</span><span class="o">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s1">&#39;user_preferences&#39;</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="73-database-migration-guidelines">7.3 Database Migration Guidelines</h3>
+<h3 id="73-database-migration-guidelines">7.3 Database Migration Guidelines<a class="headerlink" href="#73-database-migration-guidelines" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Test migrations thoroughly in development and staging</p>
@@ -712,8 +1982,8 @@ ANALYTICS_API_KEY=apikey
 </li>
 </ul>
 <hr />
-<h2 id="8-monitoring-and-observability">8. Monitoring and Observability</h2>
-<h3 id="81-monitoring-components">8.1 Monitoring Components</h3>
+<h2 id="8-monitoring-and-observability">8. Monitoring and Observability<a class="headerlink" href="#8-monitoring-and-observability" title="Permanent link">&para;</a></h2>
+<h3 id="81-monitoring-components">8.1 Monitoring Components<a class="headerlink" href="#81-monitoring-components" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Application Performance Monitoring (APM)</strong></p>
@@ -764,7 +2034,7 @@ ANALYTICS_API_KEY=apikey
 <p>Escalation procedures</p>
 </li>
 </ul>
-<h3 id="82-observability-stack">8.2 Observability Stack</h3>
+<h3 id="82-observability-stack">8.2 Observability Stack<a class="headerlink" href="#82-observability-stack" title="Permanent link">&para;</a></h3>
 <p>ThinkAlike uses the following observability tools:</p>
 <ul>
 <li>
@@ -813,8 +2083,8 @@ ANALYTICS_API_KEY=apikey
 <span class="w">  </span><span class="err">*</span><span class="w"> </span><span class="s">&quot;/etc/prometheus/rules/*.rules&quot;</span>
 </code></pre></div>
 <hr />
-<h2 id="9-rollback-procedures">9. Rollback Procedures</h2>
-<h3 id="91-automated-rollbacks">9.1 Automated Rollbacks</h3>
+<h2 id="9-rollback-procedures">9. Rollback Procedures<a class="headerlink" href="#9-rollback-procedures" title="Permanent link">&para;</a></h2>
+<h3 id="91-automated-rollbacks">9.1 Automated Rollbacks<a class="headerlink" href="#91-automated-rollbacks" title="Permanent link">&para;</a></h3>
 <p>Configure automated rollbacks based on health checks:</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Example Kubernetes rollout strategy</span>
 
@@ -859,7 +2129,7 @@ ANALYTICS_API_KEY=apikey
 <span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 </code></pre></div>
-<h3 id="92-manual-rollback-procedures">9.2 Manual Rollback Procedures</h3>
+<h3 id="92-manual-rollback-procedures">9.2 Manual Rollback Procedures<a class="headerlink" href="#92-manual-rollback-procedures" title="Permanent link">&para;</a></h3>
 <p>For situations requiring manual rollback:</p>
 <ol>
 <li><strong>Identify the Problem</strong>: Confirm that a rollback is necessary</li>
@@ -880,8 +2150,8 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 <li><strong>Document</strong>: Record the incident and resolution</li>
 </ol>
 <hr />
-<h2 id="10-security-considerations">10. Security Considerations</h2>
-<h3 id="101-deployment-security-checklist">10.1 Deployment Security Checklist</h3>
+<h2 id="10-security-considerations">10. Security Considerations<a class="headerlink" href="#10-security-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="101-deployment-security-checklist">10.1 Deployment Security Checklist<a class="headerlink" href="#101-deployment-security-checklist" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Scan container images for vulnerabilities</p>
@@ -905,7 +2175,7 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 <p>Configure Web Application Firewall (WAF) protection</p>
 </li>
 </ul>
-<h3 id="102-secret-management">10.2 Secret Management</h3>
+<h3 id="102-secret-management">10.2 Secret Management<a class="headerlink" href="#102-secret-management" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Use a dedicated secret management solution</p>
@@ -945,8 +2215,8 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api_tokens</span>
 </code></pre></div>
 <hr />
-<h2 id="11-documentation-and-runbooks">11. Documentation and Runbooks</h2>
-<h3 id="111-required-documentation">11.1 Required Documentation</h3>
+<h2 id="11-documentation-and-runbooks">11. Documentation and Runbooks<a class="headerlink" href="#11-documentation-and-runbooks" title="Permanent link">&para;</a></h2>
+<h3 id="111-required-documentation">11.1 Required Documentation<a class="headerlink" href="#111-required-documentation" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>System architecture diagrams</p>
@@ -964,7 +2234,7 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 <p>Alerting thresholds and responses</p>
 </li>
 </ul>
-<h3 id="112-incident-response-runbooks">11.2 Incident Response Runbooks</h3>
+<h3 id="112-incident-response-runbooks">11.2 Incident Response Runbooks<a class="headerlink" href="#112-incident-response-runbooks" title="Permanent link">&para;</a></h3>
 <p>Create runbooks for common deployment issues:</p>
 <ul>
 <li>
@@ -1004,43 +2274,59 @@ docker-compose<span class="w"> </span>up<span class="w"> </span>-d
 <hr />
 <p>End of Deployment Guidelines</p>
 <hr />
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../..";</script>
-    <script src="../../../js/theme_extra.js"></script>
-    <script src="../../../js/theme.js"></script>
-      <script src="../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
 </html>

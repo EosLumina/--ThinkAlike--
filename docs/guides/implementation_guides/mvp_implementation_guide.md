@@ -4,13 +4,13 @@ This document outlines the plan for implementing the Minimum Viable Product (MVP
 
 ## Key References
 
-* **Source of Truth:** [Master Reference](../../core/master_reference.md)
+* **Source of Truth:** [Master Reference](../core/master_reference.md)
 
-* **Manifesto:** [Philosophical Manifesto](../../core/manifesto/manifesto.md)
+* **Manifesto:** [Philosophical Manifesto](../core/manifesto/manifesto.md)
 
-* **Architectural Design Specs:** [Architectural Design Specifications](../../architecture/design/architectural_design_specifications.md)
+* **Architectural Design Specs:** [Architectural Design Specifications](../architecture/design/architectural_design_specifications.md)
 
-* **API Documentation:** [API Endpoints](../../architecture/api/api_endpoints.md)
+* **API Documentation:** [API Endpoints](../architecture/api/api_endpoints.md)
 
 ---
 

@@ -324,25 +324,25 @@ This section provides a detailed data dictionary, delineating each table and its
 
   * _Purpose:_ To generate a clear and organized structure of components to be used during data workflow implementations. Component names provide a readily identifiable reference for developers and designers, facilitating communication and collaboration during UI development and testing.
 
-  * **Example:** `CoreValuesValidator` (see [CoreValuesValidator.md](../../components/ui_components/CoreValuesValidator.md)).
+  * **Example:** `CoreValuesValidator` (see [CoreValuesValidator.md](../components/ui/CoreValuesValidator.md)).
 
 * **data_type (VARCHAR(255), NOT NULL):** Type of data that the component should handle (text, numeric, image, video, etc.) and specific parameters for implementation details with security and data integrity workflow validations by UI feedback.
 
   * _Purpose:_ To clearly track if the component is being used with a data type that fits its intended goal to perform a proper action (or validation workflow) based on the implemented design approach. Data type specifications ensure data integrity and facilitate UI component reusability across diverse data handling workflows.
 
-  * **Example:** `DataTraceability` (see [DataTraceability.md](../../components/ui_components/DataTraceability.md)).
+  * **Example:** `DataTraceability` (see [DataTraceability.md](../components/ui/DataTraceability.md)).
 
 * **workflow_implementation (TEXT):** Workflow implementation details or UI parameters for that specific architectural purpose that the component must validate or perform by coding logic and UI data workflow, that must always be implemented to "show its intended design purpose".
 
   * _Purpose:_ To create actionable validation workflow parameters that test UI component behaviors during a real-time, data-driven interaction with users and code. Workflow implementation details provide clear guidelines for developers and testers, ensuring consistent and predictable component behavior across various use cases.
 
-  * **Example:** `APIValidator` (see [APIValidator.md](../../components/ui_components/APIValidator.md)).
+  * **Example:** `APIValidator` (see [APIValidator.md](../components/ui/APIValidator.md)).
 
 * **access_control (VARCHAR(50), NOT NULL):** The level of access control to that component during different UI workflow implementation steps.
 
   * _Purpose:_ To enhance transparency and security while implementing different workflows through the platform data architecture design implementation parameters. Access control specifications ensure that UI components are appropriately secured and that user access privileges are enforced throughout data handling workflows.
 
-  * **Example:** `DataValidationError` (see [DataValidationError.md](../../components/ui_components/DataValidationError.md)).
+  * **Example:** `DataValidationError` (see [DataValidationError.md](../components/ui/DataValidationError.md)).
 
 * **created_at (TIMESTAMP, NOT NULL, DEFAULT CURRENT_TIMESTAMP):** The date and time when the component was created.
 

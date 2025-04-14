@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This document provides a comprehensive technical specification of the ThinkAlike platform's architectural design. It delineates the system's modular components, data flow pathways, integration points, and underlying technological framework. This document serves as a definitive reference for developers, technical stakeholders, and auditors seeking a detailed understanding of the system's internal structure and operational principles. The architectural design is predicated on the core tenets of Enlightenment 2.0, prioritizing transparency, user empowerment, ethical implementation, and data traceability, as elaborated in the [Master Reference](../../core/master_reference.md) document.
+This document provides a comprehensive technical specification of the ThinkAlike platform's architectural design. It delineates the system's modular components, data flow pathways, integration points, and underlying technological framework. This document serves as a definitive reference for developers, technical stakeholders, and auditors seeking a detailed understanding of the system's internal structure and operational principles. The architectural design is predicated on the core tenets of Enlightenment 2.0, prioritizing transparency, user empowerment, ethical implementation, and data traceability, as elaborated in the [Master Reference](../core/master_reference.md) document.
 
 ---
 

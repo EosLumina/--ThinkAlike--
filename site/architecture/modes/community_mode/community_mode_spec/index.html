@@ -1,122 +1,1182 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/modes/community_mode/community_mode_spec/" />
-      <link rel="shortcut icon" href="../../../../img/favicon.ico" />
-    <title>Community mode spec - ThinkAlike Documentation</title>
-    <link rel="stylesheet" href="../../../../css/theme.css" />
-    <link rel="stylesheet" href="../../../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = "Community mode spec";
-        var mkdocs_page_input_path = "architecture/modes/community_mode/community_mode_spec.md";
-        var mkdocs_page_url = "/--ThinkAlike--/architecture/modes/community_mode/community_mode_spec/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ThinkAlike project">
+      
+      
+      
+        <link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/modes/community_mode/community_mode_spec/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
     
-    <!--[if lt IE 9]>
-      <script src="../../../../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>Community mode spec - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href="../../../.." class="icon icon-home"> ThinkAlike Documentation
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="" href="../../../../index.md">Home</a>
-                </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Core</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Principles</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/contributing/">Contributing</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/installation/">Installation</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../core/onboarding_guide/">Onboarding Guide</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Vision</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/core_concepts/">Core Concepts Explained</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../vision/blockchain_integration/">Blockchain Integration</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Architecture</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../architectural_overview/">Architectural Overview</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../api/api_endpoints_mode2/">API Endpoints (Mode 2)</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">Development</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/code_style_guide/">Code Style Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_backend_endpoint/">Building Backend Endpoint Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/building_ui_component/">Building UI Component Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/ui_validation_examples/">UI Validation Examples</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../../../guides/developer_guides/git_workflow/">Git Workflow Standard</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../../../guides/development/github_actions_workflow_format.md">GitHub Actions Workflow Format</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">DevOps</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/devops_workflow.md">DevOps Workflow Guide</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="../../../../guides/devops/ci_cd_workflow_reference.md">CI/CD Workflow Reference</a>
-                  </li>
-              </ul>
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-introduction-vision" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Community mode spec
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../../..">ThinkAlike Documentation</a>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../../../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Community mode spec</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-tabs__link">
+          
+  
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../vision/core_concepts/" class="md-tabs__link">
+          
+  
+  
+  Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architectural_overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../guides/developer_guides/code_style_guide/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../guides/devops/devops_workflow.md" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <h2 id="1-introduction-vision">1. Introduction &amp; Vision</h2>
-<p><strong>Community Mode (Mode 3)</strong> embodies the <strong>Positive Anarchism</strong> principle of ThinkAlike's <a href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/">Enlightenment 2.0 Philosophy</a>. It provides users with the infrastructure and tools to create, discover, join, manage, and participate in <strong>decentralized, self-governing, value-aligned communities</strong>.</p>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightenment 2.0 Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../core/ethics/ethical_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethical Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../core/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../core/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../core/onboarding_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../vision/core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../vision/blockchain_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architectural_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architectural Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/api_endpoints_mode2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Endpoints (Mode 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/developer_guides/code_style_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/developer_guides/building_backend_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Backend Endpoint Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/developer_guides/building_ui_component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building UI Component Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/developer_guides/ui_validation_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/developer_guides/git_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow Standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/development/github_actions_workflow_format.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions Workflow Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/devops/devops_workflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DevOps Workflow Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guides/devops/ci_cd_workflow_reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-vision" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction &amp; Vision
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-functionality-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Functionality &amp; Features
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Core Functionality &amp; Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-community-discovery-joining" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Community Discovery &amp; Joining
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-community-creation-management-user-led" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Community Creation &amp; Management (User-Led)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-core-interaction-features-within-a-community" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 Core Interaction Features within a Community
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-decentralized-governance-moderation-optional-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 Decentralized Governance &amp; Moderation (Optional Tools)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-ai-assisted-governance-deliberation-optional-transparent" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 AI-Assisted Governance &amp; Deliberation (Optional &amp; Transparent)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-user-flows-high-level-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. User Flows (High-Level Examples)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. User Flows (High-Level Examples)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-workflow-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Workflow Diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-data-model-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Data Model Considerations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. UI Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. API Endpoints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-ethical-considerations-verification" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Ethical Considerations &amp; Verification
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-future-enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Future Enhancements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Community mode spec</h1>
+
+<h2 id="1-introduction-vision">1. Introduction &amp; Vision<a class="headerlink" href="#1-introduction-vision" title="Permanent link">&para;</a></h2>
+<p><strong>Community Mode (Mode 3)</strong> embodies the <strong>Positive Anarchism</strong> principle of ThinkAlike's <a href="../../core/enlightenment_2_0/enlightenment_2_0_principles.md">Enlightenment 2.0 Philosophy</a>. It provides users with the infrastructure and tools to create, discover, join, manage, and participate in <strong>decentralized, self-governing, value-aligned communities</strong>.</p>
 <p>Unlike traditional groups on centralized platforms, ThinkAlike communities aim for:</p>
 <ul>
 <li>
@@ -134,8 +1194,8 @@
 </ul>
 <p>Mode 3 serves as the "Output Layer" or "Collective Intelligence" hub of the ThinkAlike ecosystem, allowing connections formed in Modes 1 &amp; 2 to flourish into collaborative action and shared identity. Refer to the <a href="./modes_overview.md">Modes Overview</a>.</p>
 <hr />
-<h2 id="2-core-functionality-features">2. Core Functionality &amp; Features</h2>
-<h3 id="21-community-discovery-joining">2.1 Community Discovery &amp; Joining</h3>
+<h2 id="2-core-functionality-features">2. Core Functionality &amp; Features<a class="headerlink" href="#2-core-functionality-features" title="Permanent link">&para;</a></h2>
+<h3 id="21-community-discovery-joining">2.1 Community Discovery &amp; Joining<a class="headerlink" href="#21-community-discovery-joining" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Community Directory:</strong> A searchable/filterable central listing of <strong>public</strong> ThinkAlike communities accessible within Mode 3.</p>
@@ -156,7 +1216,7 @@
 <p>(Optional) Static Location data (<a href="../../../data_integration_strategy/">Data Integration Strategy</a>).</p>
 </li>
 <li>
-<p><strong>AI Recommendations:</strong> The platform suggests relevant communities based on user Value Profile, interests, and potentially activity/connections (requires user consent, logged via <a href="../../../../guides/developer_guides/ai/ai_transparency_log/">AI Transparency Log</a>).</p>
+<p><strong>AI Recommendations:</strong> The platform suggests relevant communities based on user Value Profile, interests, and potentially activity/connections (requires user consent, logged via <a href="../../guides/developer_guides/ai/ai_transparency_log.md">AI Transparency Log</a>).</p>
 </li>
 <li>
 <p><strong>Community Profiles:</strong> Each community has a profile page displaying: Name, Description, Tagline, Core Values/Guidelines, Privacy (Public/Private), Governance Model Summary, Member Count, and Recent Activity Snippet.</p>
@@ -168,16 +1228,16 @@
 <p><strong>Public Communities:</strong> Direct "Join" button.</p>
 </li>
 <li>
-<p><strong>Private Communities:</strong> "Request to Join" button, which triggers an approval workflow managed by community admins/moderators (potentially with AI assistance based on value alignment). May involve <a href="../../../../core/master_reference/">Narrative Compatibility Tests</a> similar to Mode 2 if configured by the community.</p>
+<p><strong>Private Communities:</strong> "Request to Join" button, which triggers an approval workflow managed by community admins/moderators (potentially with AI assistance based on value alignment). May involve <a href="../../core/master_reference.md">Narrative Compatibility Tests</a> similar to Mode 2 if configured by the community.</p>
 </li>
 </ul>
-<h3 id="22-community-creation-management-user-led">2.2 Community Creation &amp; Management (User-Led)</h3>
+<h3 id="22-community-creation-management-user-led">2.2 Community Creation &amp; Management (User-Led)<a class="headerlink" href="#22-community-creation-management-user-led" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>User Creation:</strong> Any authenticated user can initiate the creation of a new community.</p>
 </li>
 <li>
-<p><strong>Setup Wizard:</strong> A guided UI flow (<a href="../../../components/ui_components/user_form_spec.md">UserForm</a>) prompts the creator for:</p>
+<p><strong>Setup Wizard:</strong> A guided UI flow (<a href="../../components/ui/user_form_spec.md">UserForm</a>) prompts the creator for:</p>
 </li>
 <li>
 <p><code>communityName</code> (Unique), <code>description</code>, <code>tagline</code>.</p>
@@ -216,7 +1276,7 @@
 <p>Define moderation policies and view moderation logs (potentially integrated with the <a href="../../../verification_system/verification_system/">Verification System</a>).</p>
 </li>
 </ul>
-<h3 id="23-core-interaction-features-within-a-community">2.3 Core Interaction Features within a Community</h3>
+<h3 id="23-core-interaction-features-within-a-community">2.3 Core Interaction Features within a Community<a class="headerlink" href="#23-core-interaction-features-within-a-community" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Asynchronous Forums/Discussions:</strong></p>
@@ -228,7 +1288,7 @@
 <p>Supports posts, replies, threading, and basic formatting.</p>
 </li>
 <li>
-<p>Content can be validated against community guidelines via the <code>CoreValuesValidator</code> (<a href="../../../components/ui_components/core_values_validator_spec.md">Spec</a>).</p>
+<p>Content can be validated against community guidelines via the <code>CoreValuesValidator</code> (<a href="../../components/ui/core_values_validator_spec.md">Spec</a>).</p>
 </li>
 <li>
 <p><strong>Member Directory:</strong> View the list of community members and access their (privacy-permitting) profiles.</p>
@@ -243,7 +1303,7 @@
 <p><strong>(Future) Event Scheduling:</strong> Tools for organizing online or real‑world community events.</p>
 </li>
 </ul>
-<h3 id="24-decentralized-governance-moderation-optional-tools">2.4 Decentralized Governance &amp; Moderation (Optional Tools)</h3>
+<h3 id="24-decentralized-governance-moderation-optional-tools">2.4 Decentralized Governance &amp; Moderation (Optional Tools)<a class="headerlink" href="#24-decentralized-governance-moderation-optional-tools" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong>Community-Defined Rules:</strong> Each community operates under its own guidelines, defined and modifiable by its members/admins (process depends on the chosen governance model).</p>
@@ -264,7 +1324,7 @@
 <p><strong>(Future) Liquid/Direct Democracy:</strong> More advanced voting/delegation mechanisms if a community opts for higher formality.</p>
 </li>
 </ul>
-<h3 id="25-ai-assisted-governance-deliberation-optional-transparent">2.5 AI-Assisted Governance &amp; Deliberation (Optional &amp; Transparent)</h3>
+<h3 id="25-ai-assisted-governance-deliberation-optional-transparent">2.5 AI-Assisted Governance &amp; Deliberation (Optional &amp; Transparent)<a class="headerlink" href="#25-ai-assisted-governance-deliberation-optional-transparent" title="Permanent link">&para;</a></h3>
 <p>To enhance community self-governance without replacing human judgment, ThinkAlike plans to offer optional, transparent AI assistance tools that communities can choose to enable:</p>
 <ul>
 <li>
@@ -283,7 +1343,7 @@
 <p><em>Content Flagging:</em> AI models (trained on general hate speech/spam and potentially fine-tuned with <em>community-specific</em> guidelines) can automatically flag content that <em>potentially</em> violates rules for <strong>human moderator review</strong>. AI <em>never</em> takes automated censorship actions. Flagging logic and thresholds should be transparent to the community moderators.</p>
 </li>
 <li>
-<p><em>Requires:</em> Clear appeals process, human moderators retain final decision-making power, regular audits for AI bias (<a href="../../../../guides/developer_guides/ai/ai_ethical_testing_guide/">AI Ethical Testing Guide</a>).</p>
+<p><em>Requires:</em> Clear appeals process, human moderators retain final decision-making power, regular audits for AI bias (<a href="../../guides/developer_guides/ai/ai_ethical_testing_guide.md">AI Ethical Testing Guide</a>).</p>
 </li>
 <li>
 <p><strong>AI Proposal Assistance (Future):</strong> AI could help members format governance proposals or check them against existing community rules before submission.</p>
@@ -292,9 +1352,9 @@
 <p><strong>Resource Simulation (Advanced Future):</strong> For communities managing resources, AI might simulate outcomes of different allocation proposals based on community-defined goals, presenting scenarios to inform <em>human</em> decision-making via polls or voting.</p>
 </li>
 </ul>
-<p><strong>Ethical Imperatives:</strong> All AI governance tools must be strictly <strong>opt-in</strong> at the community level, operate with <strong>maximum transparency</strong> (logged via <a href="../../../../guides/developer_guides/ai/ai_transparency_log/">AI Transparency Log</a>, explained in UI), be regularly audited for <strong>bias</strong>, and always <strong>support, not supplant, human deliberation and decision-making.</strong></p>
+<p><strong>Ethical Imperatives:</strong> All AI governance tools must be strictly <strong>opt-in</strong> at the community level, operate with <strong>maximum transparency</strong> (logged via <a href="../../guides/developer_guides/ai/ai_transparency_log.md">AI Transparency Log</a>, explained in UI), be regularly audited for <strong>bias</strong>, and always <strong>support, not supplant, human deliberation and decision-making.</strong></p>
 <hr />
-<h2 id="3-user-flows-high-level-examples">3. User Flows (High-Level Examples)</h2>
+<h2 id="3-user-flows-high-level-examples">3. User Flows (High-Level Examples)<a class="headerlink" href="#3-user-flows-high-level-examples" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>Discovery &amp; Joining:</strong>
@@ -313,7 +1373,7 @@
   Admin/mod enters community → Accesses Admin Panel → Approves member requests / Edits guidelines / Creates polls / Moderates content.</p>
 </li>
 </ul>
-<h3 id="31-workflow-diagram">3.1 Workflow Diagram</h3>
+<h3 id="31-workflow-diagram">3.1 Workflow Diagram<a class="headerlink" href="#31-workflow-diagram" title="Permanent link">&para;</a></h3>
 <p>Below is a Mermaid sequence diagram illustrating a high-level community creation workflow:</p>
 <div class="highlight"><pre><span></span><code>sequenceDiagram
     participant User
@@ -334,7 +1394,7 @@
     FrontendUI-&gt;&gt;User: Display &quot;Community Created!&quot; Confirmation &amp; Redirect
 </code></pre></div>
 <hr />
-<h2 id="4-data-model-considerations">4. Data Model Considerations</h2>
+<h2 id="4-data-model-considerations">4. Data Model Considerations<a class="headerlink" href="#4-data-model-considerations" title="Permanent link">&para;</a></h2>
 <p>Community Mode requires extensions to the <a href="../../../database/unified_data_model_schema/">Unified Data Model Schema</a>:</p>
 <ul>
 <li>
@@ -354,7 +1414,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="5-ui-components">5. UI Components</h2>
+<h2 id="5-ui-components">5. UI Components<a class="headerlink" href="#5-ui-components" title="Permanent link">&para;</a></h2>
 <p>Key frontend components needed for Community Mode include:</p>
 <ul>
 <li>
@@ -386,7 +1446,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="6-api-endpoints">6. API Endpoints</h2>
+<h2 id="6-api-endpoints">6. API Endpoints<a class="headerlink" href="#6-api-endpoints" title="Permanent link">&para;</a></h2>
 <p>Dedicated backend endpoints (typically under <code>/api/v1/communities/</code>) should cover:</p>
 <ul>
 <li>
@@ -418,23 +1478,23 @@
 </li>
 </ul>
 <hr />
-<h2 id="7-ethical-considerations-verification">7. Ethical Considerations &amp; Verification</h2>
+<h2 id="7-ethical-considerations-verification">7. Ethical Considerations &amp; Verification<a class="headerlink" href="#7-ethical-considerations-verification" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p><strong>Freedom of Association vs. Safety:</strong> Balance community autonomy with platform‑wide safety standards (<a href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a>). The <a href="../../../verification_system/verification_system/">Verification System</a> may help flag harmful patterns, though moderation is primarily community‑led.</p>
+<p><strong>Freedom of Association vs. Safety:</strong> Balance community autonomy with platform‑wide safety standards (<a href="../../core/ethics/ethical_guidelines.md">Ethical Guidelines</a>). The <a href="../../../verification_system/verification_system/">Verification System</a> may help flag harmful patterns, though moderation is primarily community‑led.</p>
 </li>
 <li>
 <p><strong>Governance Transparency:</strong> Communities should be encouraged to make their rules and moderation logs transparent. Platform tools must facilitate this.</p>
 </li>
 <li>
-<p><strong>Inclusivity:</strong> Ensure tools are accessible (see <a href="../../../guides/developer_guides/accessibility_guide.md">Accessibility Guide</a>) and foster inclusive environments.</p>
+<p><strong>Inclusivity:</strong> Ensure tools are accessible (see <a href="../../guides/developer_guides/accessibility_guide.md">Accessibility Guide</a>) and foster inclusive environments.</p>
 </li>
 <li>
 <p><strong>Preventing Echo Chambers:</strong> Consider, optionally, mechanisms to expose members to diverse perspectives within or between communities.</p>
 </li>
 </ul>
 <hr />
-<h2 id="8-future-enhancements">8. Future Enhancements</h2>
+<h2 id="8-future-enhancements">8. Future Enhancements<a class="headerlink" href="#8-future-enhancements" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>Advanced governance tools (e.g., liquid democracy, ranked‑choice voting).</p>
@@ -456,7 +1516,7 @@
 </li>
 </ul>
 <hr />
-<h2 id="references">References</h2>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><a href="../../narrative_onboarding_mode/mode1_narrative_onboarding_spec/">Mode 1 Spec</a></p>
@@ -465,50 +1525,66 @@
 <p><a href="../../mode2_profile_discovery_spec/">Mode 2 Spec</a></p>
 </li>
 <li>
-<p><a href="../../../../core/ethics/ethical_guidelines/">Ethical Guidelines</a></p>
+<p><a href="../../core/ethics/ethical_guidelines.md">Ethical Guidelines</a></p>
 </li>
 <li>
-<p><a href="../../../../core/master_reference/">Master Reference</a></p>
+<p><a href="../../core/master_reference.md">Master Reference</a></p>
 </li>
 </ul>
 <p>Community Mode is where ThinkAlike's vision for decentralized, value‑driven collaboration truly takes shape. Its success depends on empowering users with effective tools while upholding our core ethical principles.</p>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
-    
-    
-    
-  </span>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
 </div>
-    <script src="../../../../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "../../../..";</script>
-    <script src="../../../../js/theme_extra.js"></script>
-    <script src="../../../../js/theme.js"></script>
-      <script src="../../../../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
-
-</body>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
 </html>
