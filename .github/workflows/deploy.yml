@@ -3,11 +3,13 @@ name: Deploy
 on:
   push:
     branches: [main]
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - name: Install deployment dependencies
@@ -25,3 +27,5 @@ jobs:
           echo "Deploying documentation..."
           # Additional deployment commands can be inserted here
           echo "Deployment simulation complete."
+      - name: Confirm successful deployment
+        run: echo "Deployment completed successfully"

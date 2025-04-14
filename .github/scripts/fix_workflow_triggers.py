@@ -104,6 +104,7 @@ on:
             with open(file_path, 'w') as f:
                 f.write(modified_content)
 
+            print(f"Fixed 'on' trigger in {file_path}")
             return True
     except Exception as e:
         print(f"❌ Error fixing {file_path}: {e}")
