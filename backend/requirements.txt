@@ -60,7 +60,7 @@ tokenizers==0.21.0
 toolz==1.0.0
 tqdm==4.67.1
 transformers==4.48.2
-typing_extensions==4.12.2
+typing_extensions==4.13.2
 tzdata==2025.1
 tzlocal==5.2
 urllib3==2.3.0

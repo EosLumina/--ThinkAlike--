@@ -11,7 +11,7 @@ uvicorn>=0.24.0
 urllib3==2.3.0
 tzlocal==5.2
 tzdata==2025.1
-typing_extensions==4.12.2
+typing_extensions==4.13.2
 transformers==4.48.2
 tqdm==4.67.1
 toolz==1.0.0
