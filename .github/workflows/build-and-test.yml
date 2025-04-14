@@ -10,14 +10,12 @@ permissions:
   actions_variables: read
 
 jobs:
-  build:
+  backend_tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 5 # Increased timeout for potential long-running tests
+    timeout-minutes: 5
     strategy:
       matrix:
         python-version: ["3.10", "3.11"]
-        node-version: ["18.x"]
-
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python ${{ matrix.python-version }}
@@ -33,39 +31,48 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
           pip install -r requirements-test.txt
-          pip install pymdown-extensions
-      - name: Ensure httpx is installed
-        run: pip install httpx
+          pip install pymdown-extensions httpx
       - name: Remove null bytes from source files
         run: |
-          echo "Removing null bytes from backend and test files..."
+          echo "Cleaning backend files..."
           find backend/ -type f -exec sed -i 's/\x0//g' {} \;
-          find tests/ -type f -exec sed -i 's/\x0//g' {} \;
-      - name: Run Backend tests with verbose output
+      - name: Run Backend tests
         run: |
-          echo "Starting backend tests..."
+          echo "Running backend tests..."
           cd backend
-          pytest --maxfail=5 --disable-warnings -q || (echo "Backend tests failed, review log output" && exit 1)
-      - name: Echo Backend tests completed
-        run: echo "Backend tests finished running."
+          pytest --maxfail=5 --disable-warnings -q || (echo "Backend tests failed" && exit 1)
+
+  frontend_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        node-version: ["18.x"]
+    steps:
+      - uses: actions/checkout@v4
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: "npm"
       - name: Install Frontend dependencies
         run: |
           echo "Installing Frontend dependencies..."
           cd frontend
-          npm install
+          npm ci
       - name: Build Frontend (if applicable)
         run: |
           echo "Building Frontend..."
           cd frontend
-          npm run build || echo "Skipping build because no build script defined"
+          npm run build || echo "No build script defined, skipping"
       - name: Run Frontend tests
         run: |
           echo "Running Frontend tests..."
           cd frontend
-          npm test || (echo "Frontend tests failed, review logs" && exit 1)
-      - name: Echo job completion
-        run: echo "Build and Test job completed successfully"
+          npm test || (echo "Frontend tests failed" && exit 1)
+
+  echo_completion:
+    runs-on: ubuntu-latest
+    needs: [backend_tests, frontend_tests]
+    steps:
+      - run: echo "All tests have completed successfully."
