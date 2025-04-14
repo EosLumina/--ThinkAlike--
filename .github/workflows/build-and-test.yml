@@ -80,7 +80,8 @@ p.mkdir(exist_ok=True)
           PYTHONPATH: ${{ github.workspace }}/backend
           DATABASE_URL: sqlite:///./test_thinkalike_ci.db
           SECRET_KEY: ci_test_secret_key
-        run: python -m pytest backend/tests/ -v --cov=backend/app --cov-report=xml
+        run: |
+          python -m pytest backend/tests/ -v --cov=backend/app --cov-report=xml
 
   docs:
     needs: verify
