@@ -22,7 +22,7 @@
         "files.exclude": {
           "**/__pycache__": true,
           "**/.pytest_cache": true,
-          "**/venv": false
+          "**/venv": true
         }
       }
     }

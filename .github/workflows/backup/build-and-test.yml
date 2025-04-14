@@ -14,7 +14,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup
         run: |
-          echo "Setting up..."
-          rm /workspaces/--ThinkAlike--/.github/workflows/backup/build-and-test.yml  # Remove legacy workflow
+          echo "Using legacy backup workflow. Consider migrating to the new 'build-and-test.yml' in the root."
       - name: Run tests
         run: echo "Running tests..."

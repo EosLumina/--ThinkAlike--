@@ -1,40 +1,28 @@
-import subprocess
 import sys
+import importlib.metadata
 
-def install_package(package):
-    try:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-    except Exception as e:
-        print(f"Failed to install {package}: {e}")
+def verify_dependencies(requirements_file="requirements.txt"):
+    print("Verifying installed Python packages against", requirements_file)
+    missing = []
+    with open(requirements_file, "r") as rf:
+        for line in rf:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            # Extract package name before any version specifiers
+            pkg = line.split("==")[0].strip()
+            try:
+                version = importlib.metadata.version(pkg)
+                print(f"Package {pkg} version {version} installed.")
+            except importlib.metadata.PackageNotFoundError:
+                missing.append(pkg)
+                print(f"⚠️ Package {pkg} is missing.")
 
-try:
-    import altair
-except ImportError:
-    print("Installing 'altair'...")
-    install_package("altair")
+    if missing:
+        print("Missing packages:", ", ".join(missing))
+        sys.exit(1)
+    else:
+        print("All dependencies verified successfully.")
 
-try:
-    import pandas
-except ImportError:
-    print("Installing 'pandas'...")
-    install_package("pandas")
-
-try:
-    import great_expectations
-except ImportError:
-    print("Installing 'great_expectations'...")
-    install_package("great-expectations")
-
-try:
-    import tensorflow
-except ImportError:
-    print("Installing 'tensorflow'...")
-    install_package("tensorflow")
-
-try:
-    import torch
-except ImportError:
-    print("Installing 'torch'...")
-    install_package("torch")
-
-print("Dependency check completed.")
+if __name__ == "__main__":
+    verify_dependencies()
