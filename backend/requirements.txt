@@ -40,7 +40,7 @@ pydantic[email]==1.10.13
 pydantic_core==2.27.2
 PyMySQL
 pyparsing==3.2.1
-pytest==7.3.1
+pytest==8.3.5
 pytest-cov==4.1.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.0.0
