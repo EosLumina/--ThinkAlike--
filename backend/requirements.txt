@@ -64,7 +64,7 @@ typing_extensions==4.12.2
 tzdata==2025.1
 tzlocal==5.2
 urllib3==2.3.0
-uvicorn==0.21.1
+uvicorn>=0.24.0  # Updated to match project-wide version
 alembic==1.10.3
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
