@@ -32,5 +32,6 @@
 
   "postCreateCommand": "bash scripts/setup_environment.sh",
 
+  "workspaceFolder": "/workspaces/--ThinkAlike--",
   "remoteUser": "vscode"
 }
