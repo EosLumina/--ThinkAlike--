@@ -2,7 +2,7 @@ altair==4.2.2
 fastapi>=0.104.1
 pymdown-extensions>=10.0
 gunicorn==23.0.0
-python-multipart==0.0.6
+python-multipart==0.0.18
 psycopg2-binary==2.9.6
 passlib[bcrypt]==1.7.4
 python-jose[cryptography]==3.3.0
