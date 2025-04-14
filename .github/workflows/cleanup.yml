@@ -1,8 +1,19 @@
-/workspaces/--ThinkAlike--/
-├── .github/          # GitHub workflows
-├── .vscode/          # VS Code settings
-├── backend/          # Backend code
-├── config/           # Configuration files
-├── docs/            # Documentation
-│   ├── guides/      # User guides
-│   ├── reports/     # Status reports│   └── core/        # Core documentation├── frontend/        # Frontend code├── scripts/         # Utility scripts└── requirements*    # Python requirements files
+name: Cleanup Workflow
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run cleanup script
+        run: |
+          python .github/scripts/cleanup_workflows.py
