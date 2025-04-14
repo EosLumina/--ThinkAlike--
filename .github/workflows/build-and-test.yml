@@ -27,6 +27,7 @@ jobs:
         run: python --version
       - name: Install Python dependencies
         run: |
+          set -e
           echo "Installing Python dependencies..."
           python -m pip install --upgrade pip
           pip install -r backend/requirements.txt
@@ -34,13 +35,15 @@ jobs:
           pip install pymdown-extensions httpx
       - name: Remove null bytes from source files
         run: |
+          set -e
           echo "Cleaning backend files..."
           find backend/ -type f -exec sed -i 's/\x0//g' {} \;
       - name: Run Backend tests
         run: |
+          set -e
           echo "Running backend tests..."
           cd backend
-          pytest --maxfail=5 --disable-warnings -q || (echo "Backend tests failed" && exit 1)
+          pytest --maxfail=5 --disable-warnings -q
 
   frontend_tests:
     runs-on: ubuntu-latest
@@ -57,19 +60,22 @@ jobs:
           cache: "npm"
       - name: Install Frontend dependencies
         run: |
+          set -e
           echo "Installing Frontend dependencies..."
           cd frontend
           npm ci
       - name: Build Frontend (if applicable)
         run: |
+          set -e
           echo "Building Frontend..."
           cd frontend
           npm run build || echo "No build script defined, skipping"
       - name: Run Frontend tests
         run: |
+          set -e
           echo "Running Frontend tests..."
           cd frontend
-          npm test || (echo "Frontend tests failed" && exit 1)
+          npm test
 
   echo_completion:
     runs-on: ubuntu-latest

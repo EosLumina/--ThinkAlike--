@@ -1,6 +1,7 @@
 import sys
 import importlib.metadata
 
+
 def verify_dependencies(requirements_file="requirements.txt"):
     print("Verifying installed Python packages against", requirements_file)
     missing = []
@@ -23,6 +24,7 @@ def verify_dependencies(requirements_file="requirements.txt"):
         sys.exit(1)
     else:
         print("All dependencies verified successfully.")
+
 
 if __name__ == "__main__":
     verify_dependencies()
