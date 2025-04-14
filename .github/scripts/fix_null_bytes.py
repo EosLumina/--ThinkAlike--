@@ -52,13 +52,13 @@ def fix_file_null_bytes(file_path):
 
 def main():
     """Fix null bytes in Python files."""
-    # Get list of Python files specified as arguments or scan tests/ directory
+    # Get list of Python files specified as arguments or scan the entire repository
     files_to_fix = sys.argv[1:] if len(sys.argv) > 1 else []
 
     if not files_to_fix:
-        print("Scanning for Python files in tests/ directory...")
-        test_files = Path('tests').glob('**/*.py')
-        files_to_fix = [str(f) for f in test_files]
+        print("Scanning for Python files in the repository...")
+        repo_files = Path('.').rglob('*.py')
+        files_to_fix = [str(f) for f in repo_files]
 
     if not files_to_fix:
         print("No Python files found to fix.")
