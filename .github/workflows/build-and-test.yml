@@ -68,15 +68,21 @@ jobs:
       - name: Create Test Files
         run: |
           mkdir -p backend/tests
-          python -c "import pathlib; p = pathlib.Path('backend/tests'); p.mkdir(exist_ok=True); (p / '__init__.py').write_text('\"\"\"Test package initialization.\"\"\"\\n'); (p / 'test_value_based_matcher.py').write_text('\"\"\"Test value based matcher.\"\"\"\\n\\ndef test_placeholder():\\n    \"\"\"Basic test to verify setup.\"\"\"\\n    assert True\\n')"
+          echo '"""Test package initialization."""' > backend/tests/__init__.py
+          cat > backend/tests/test_value_based_matcher.py << 'EOL'
+          """Test value based matcher."""
+
+          def test_placeholder():
+              """Basic test to verify setup."""
+              assert True
+          EOL
 
       - name: Run tests
         env:
           PYTHONPATH: ${{ github.workspace }}/backend
           DATABASE_URL: sqlite:///./test.db
           SECRET_KEY: test_key
-        run: |
-          pytest backend/tests/ -v --cov=backend/app --cov-report=xml
+        run: pytest backend/tests/ -v --cov=backend/app --cov-report=xml
 
   docs:
     needs: verify
