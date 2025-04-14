@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "thinkalike"
 version = "0.1.0"
 description = "ThinkAlike - Digital Liberation Technology"
+requires-python = ">=3.10"
 
 [tool.setuptools]
 packages = ["backend"]
@@ -91,7 +92,7 @@ exclude_lines = [
 ]
 
 [tool.pytest]
-pythonpath = "."
+pythonpath = ["."]
 testpaths = ["backend/tests"]
-python_files = "test_*.py"
+python_files = ["test_*.py"]
 addopts = "-v --cov=backend"
