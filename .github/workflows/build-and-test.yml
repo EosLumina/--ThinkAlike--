@@ -61,25 +61,28 @@ jobs:
       - name: Setup test environment
         run: |
           mkdir -p backend/tests
-          # Create test files using Python to ensure proper encoding
+          # Create test files with explicit UTF-8 encoding
           python3 -c '
-import pathlib
-tests_dir = pathlib.Path("backend/tests")
+import os
+from pathlib import Path
+
+def write_utf8(path, content):
+    path.write_text(content, encoding="utf-8")
+
+tests_dir = Path("backend/tests")
 tests_dir.mkdir(exist_ok=True)
 
-# Write __init__.py
-(tests_dir / "__init__.py").write_text("""\"\"\"Test package initialization.\"\"\"\n""")
-
-# Write test file
-test_content = """\
-\"\"\"Test value based matcher.\"\"\"
+init_content = """"""Test package initialization.""""""
+test_content = """"""Test value based matcher.""""""
 
 def test_placeholder():
-    \"\"\"Basic test to verify setup.\"\"\"
+    """Basic test to verify setup."""
     assert True
 """
-(tests_dir / "test_value_based_matcher.py").write_text(test_content)
-          '
+
+write_utf8(tests_dir / "__init__.py", init_content)
+write_utf8(tests_dir / "test_value_based_matcher.py", test_content)
+'
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip setuptools wheel
@@ -89,9 +92,8 @@ def test_placeholder():
         env:
           PYTHONPATH: ${{ github.workspace }}/backend
         run: |
-          # Clean any remaining null bytes
-          find backend/tests -type f -name "*.py" -exec tr -d '\000' < {} > {}.clean \;
-          find backend/tests -type f -name "*.py" -exec mv {}.clean {} \;
+          # Ensure files are readable and UTF-8 encoded
+          file backend/tests/*.py
           python -m pytest backend/tests/ -v
 
   docs:

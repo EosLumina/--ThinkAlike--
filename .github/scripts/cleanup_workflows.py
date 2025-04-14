@@ -45,16 +45,6 @@ def backup_workflow(file_path):
     print_success(f"Created backup of {source.name}")
 
 
-def load_workflow(file_path):
-    """Load and parse a workflow file."""
-    try:
-        with open(file_path, 'r') as f:
-            return yaml.safe_load(f)
-    except Exception as e:
-        print_error(f"Failed to load {file_path}: {e}")
-        return None
-
-
 def cleanup_workflows():
     """Move all workflows except the main one to backup."""
     print_header("Starting workflow cleanup")
