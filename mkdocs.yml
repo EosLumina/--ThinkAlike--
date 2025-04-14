@@ -43,17 +43,15 @@ plugins:
         "components/ui_components/DataTraceability.md": "components/ui/data_traceability.md"
 
 validation:
-  nav:
-    enabled: true
-    excludes:
-      - templates/*
-      - README.md
-  links:
-    enabled: true
-    excludes:
-      - mailto:*
-      - http*://*
-    warn_only: true
+  ignore_links:
+    - "mailto:*"
+    - "http*://*"
+  ignore_paths:
+    - "templates/*"
+    - "README.md"
+  absolute_links: warn
+  nav: warn
+  links: warn
 
 strict: true
 docs_dir: "docs"
