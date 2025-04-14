@@ -11,16 +11,11 @@ dependencies = [
     "fastapi>=0.104.1",
     "uvicorn>=0.24.0",
     "sqlalchemy>=2.0.23",
-    "pydantic>=2.4.2",
-    "pytest>=7.3.1",
-    "pytest-cov>=4.1.0",
-    "mkdocs>=1.5.3",
-    "mkdocs-material>=9.4.6",
-    "pymdown-extensions>=10.0"
+    "pydantic>=2.4.2"
 ]
 
 [tool.setuptools]
-package-dir = {"" = "src"}
+package-dir = {"" = "backend"}
 packages = ["backend"]
 
 [tool.black]
@@ -50,9 +45,9 @@ line_length = 88
 [tool.pytest.ini_options]
 minversion = "7.0"
 addopts = "-v"
-testpaths = ["tests"]
+testpaths = ["backend/tests"]
 python_files = ["test_*.py"]
-pythonpath = ["src"]
+pythonpath = [".", "backend"]
 
 [tool.mypy]
 python_version = "3.10"

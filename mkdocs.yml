@@ -8,16 +8,14 @@ theme:
     primary: indigo
     accent: amber
   features:
-    - navigation.instant
     - navigation.tracking
     - navigation.sections
-    - navigation.tabs
 
 markdown_extensions:
-  - admonition
-  - pymdownx.details
   - pymdownx.highlight
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
   - pymdownx.tabbed
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -30,28 +28,20 @@ markdown_extensions:
 plugins:
   - search
   - redirects:
-      redirect_maps:
-        "guides/developer_guides/data_handling_policy_guide.md": "guides/developer_guides/data_handling.md"
-        "core/contributing.md": "core/contributing/index.md"
-        "core/installation.md": "core/setup/installation.md"
-        "core/onboarding_guide.md": "core/getting_started/onboarding.md"
-        "components/ui_components/data_traceability.md": "components/ui/data_traceability/index.md"
-        "core/ethics/ethical_guidelines/ethical_guidelines.md": "core/ethics/ethical_guidelines.md"
-        "templates/code_documentation_template.md": "core/templates/code_documentation.md"
-        "components/ui_components/CoreValuesValidator.md": "components/ui/core_values_validator.md"
-        "components/ui_components/APIValidator.md": "components/ui/api_validator.md"
-        "components/ui_components/DataTraceability.md": "components/ui/data_traceability.md"
+      redirect_maps: {}
 
 validation:
-  ignore_links:
-    - "mailto:*"
-    - "http*://*"
-  ignore_paths:
-    - "templates/*"
-    - "README.md"
-  absolute_links: warn
-  nav: warn
-  links: warn
+  nav:
+    omitted_files: warn
+    not_found: warn
+    absolute_links: warn
+  links:
+    not_found: warn
+    absolute_links: warn
+  files:
+    ignore_paths:
+      - "templates/*"
+      - "README.md"
 
 strict: true
 docs_dir: "docs"
@@ -59,12 +49,12 @@ site_dir: "site"
 
 nav:
   - Home: index.md
+  - Getting Started:
+      - Installation: core/setup/installation.md
+      - Contributing: core/contributing/index.md
   - Core:
-      - Enlightenment 2.0 Principles: core/enlightenment_2_0/enlightenment_2_0_principles.md
-      - Ethical Guidelines: core/ethics/ethical_guidelines.md
-      - Contributing: core/contributing.md
-      - Installation: core/installation.md
-      - Onboarding Guide: core/onboarding_guide.md
+      - Ethics: core/ethics/ethical_guidelines.md
+      - Vision: core/enlightenment_2_0/enlightenment_2_0_principles.md
   - Vision:
       - Core Concepts Explained: vision/core_concepts.md
       - Blockchain Integration: vision/blockchain_integration.md
