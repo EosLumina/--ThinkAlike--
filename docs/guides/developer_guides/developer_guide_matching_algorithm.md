@@ -8,13 +8,13 @@ This guide provides a comprehensive overview for developers working on the Think
 
 Its central purpose is to facilitate connections based on **deep value alignment and shared ethical principles**, moving beyond superficial metrics. It implements **Ethical Weighting** and relies heavily on user **Value Profiles**, always prioritizing **User Agency** and **Radical Transparency**.
 
-This guide details the algorithm's architecture, data inputs, ethical weighting logic, integration with the Verification System, and requirements for transparency via UI components like [`DataTraceability`](../../components/ui_components/data_traceability.md). It adheres to principles in the [MASTER_REFERENCE.md](../../core/master_reference.md) and [Ethical Guidelines](../../core/ethics/ethical_guidelines.md).
+This guide details the algorithm's architecture, data inputs, ethical weighting logic, integration with the Verification System, and requirements for transparency via UI components like [`DataTraceability`](../components/ui/data_traceability.md). It adheres to principles in the [MASTER_REFERENCE.md](../core/master_reference.md) and [Ethical Guidelines](../core/ethics/ethical_guidelines.md).
 
 ## 2. Purpose and Goals
 
 * **Identify Value-Aligned Connections:** Ethically calculate compatibility scores based on user **Value Profiles**.
 
-* **Prioritize Ethical Congruence:** Implement **Ethical Weighting** favoring connections aligned with [Enlightenment 2.0 Principles](../../core/enlightenment_2_0/enlightenment_2_0_principles.md).
+* **Prioritize Ethical Congruence:** Implement **Ethical Weighting** favoring connections aligned with [Enlightenment 2.0 Principles](../core/enlightenment_2_0/enlightenment_2_0_principles.md).
 
 * **Empower User Choice:** Provide transparent **Matching Percentages** and rationale (via `DataTraceability`) to inform user decisions in Mode 2.
 
@@ -28,9 +28,9 @@ This guide details the algorithm's architecture, data inputs, ethical weighting 
 
 * **Ethical Weighting:** Explicitly prioritize core ThinkAlike values in scoring.
 
-* **Transparency & Explainability (XAI):** Logic, weights, data flows documented ([Unified Data Model Schema](../../architecture/database/unified_data_model_schema.md)) and designed for auditability ([Verification System Spec](../../architecture/verification_system/verification_system.md)) and visualization ([`DataTraceability Spec`](../../components/ui_components/data_traceability.md)).
+* **Transparency & Explainability (XAI):** Logic, weights, data flows documented ([Unified Data Model Schema](../architecture/database/unified_data_model_schema.md)) and designed for auditability ([Verification System Spec](../architecture/verification_system/verification_system.md)) and visualization ([`DataTraceability Spec`](../components/ui/data_traceability.md)).
 
-* **User Control:** Users manage their Value Profiles; algorithm respects consent for using external data ([Data Integration Strategy](../../architecture/data_integration_strategy.md)).
+* **User Control:** Users manage their Value Profiles; algorithm respects consent for using external data ([Data Integration Strategy](../architecture/data_integration_strategy.md)).
 
 * **Data Privacy & Minimization:** Operates within [Data Handling Policy](./data_handling_policy_guide.md), uses minimum necessary, consented data ethically.
 
@@ -80,7 +80,7 @@ The core process compares User A's Value Profile to User B's:
     * `WeightedValueScore = ValueSimilarity * EthicalWeight_ValueCategory`
 
 4. **Aggregation & Normalization:** Combine the weighted value scores and other component similarity scores (potentially with their own non-ethical weights reflecting importance) into a single **Matching Percentage** score, typically normalized to a 0-100 or 0.0-1.0 scale. The exact aggregation formula needs careful design and documentation.
-5. **Verification System Hook (Bias Check):** Optionally, before finalizing scores for a batch, send score distributions and relevant demographic data (anonymized if possible) to the [Verification System API](../../architecture/api/api_endpoints_verification_system.md) for fairness/bias checks. Results might flag potential issues for review but should not automatically alter scores without transparent rules. See [VS Integration Guide](./verification_system_integration_guide.md).
+5. **Verification System Hook (Bias Check):** Optionally, before finalizing scores for a batch, send score distributions and relevant demographic data (anonymized if possible) to the [Verification System API](../architecture/api/api_endpoints_verification_system.md) for fairness/bias checks. Results might flag potential issues for review but should not automatically alter scores without transparent rules. See [VS Integration Guide](./verification_system_integration_guide.md).
 
 ### 4.3 Output Data
 
@@ -92,11 +92,11 @@ The service utilizing the algorithm returns data suitable for the calling API en
 
 * `keySharedValues` / `contributingFactors`: Data points primarily responsible for the high score.
 
-* `traceability_data`: Structured graph data (`nodes`, `edges` with `ethicalWeight`) for rendering the match rationale in the [`DataTraceability`](../../components/ui_components/data_traceability.md) component.
+* `traceability_data`: Structured graph data (`nodes`, `edges` with `ethicalWeight`) for rendering the match rationale in the [`DataTraceability`](../components/ui/data_traceability.md) component.
 
 ## 5. Ethical Weighting Implementation
 
-* **Taxonomy & Weights:** Defined centrally (e.g., config file, database table managed via Verification System interface). Based on [Ethical Guidelines](../../core/ethics/ethical_guidelines.md). Rationale documented. Weights subject to review/adjustment based on ethical testing and community feedback.
+* **Taxonomy & Weights:** Defined centrally (e.g., config file, database table managed via Verification System interface). Based on [Ethical Guidelines](../core/ethics/ethical_guidelines.md). Rationale documented. Weights subject to review/adjustment based on ethical testing and community feedback.
 
     ```python
     # Example Weights (Illustrative - Define centrally)
@@ -145,7 +145,7 @@ The service utilizing the algorithm returns data suitable for the calling API en
 
   * Include specific ethical test cases as per [AI Ethical Testing Guide](./ai/ai_ethical_testing_guide.md) (e.g., testing fairness across simulated profiles).
 
-* **Documentation:** Use docstrings, inline comments. Update this guide and relevant specs. Use [Code Docs Template](../../templates/code_documentation_template.md).
+* **Documentation:** Use docstrings, inline comments. Update this guide and relevant specs. Use [Code Docs Template](../templates/code_documentation_template.md).
 
 * **Verification System:** Design for auditability. Log algorithm runs and key parameters used via the VS audit API. Respond appropriately to VS bias flags if implemented.
 

@@ -4,7 +4,7 @@
 
 ## 1. Introduction
 
-This document provides a detailed technical exploration of ThinkAlike's security architecture, controls, and processes. It expands upon the foundational policies outlined in the [`Security and Privacy Plan`](./security_and_privacy_plan.md) and aligns with the [`Ethical Guidelines`](../../core/ethics/ethical_guidelines.md). The goal is to detail specific mechanisms protecting user data, ensuring system integrity, and building trust through robust, verifiable security practices.
+This document provides a detailed technical exploration of ThinkAlike's security architecture, controls, and processes. It expands upon the foundational policies outlined in the [`Security and Privacy Plan`](./security_and_privacy_plan.md) and aligns with the [`Ethical Guidelines`](../core/ethics/ethical_guidelines.md). The goal is to detail specific mechanisms protecting user data, ensuring system integrity, and building trust through robust, verifiable security practices.
 
 Security uses **Defense in Depth**, "Security by Design", "Privacy by Design", and "Security through Transparency" principles.
 
@@ -22,7 +22,7 @@ Security uses **Defense in Depth**, "Security by Design", "Privacy by Design", a
 
 * **Privacy Preservation:** Minimize data exposure; use anonymization.
 
-* **Auditability & Monitoring:** Log security events; use tools like [`Security Status Indicator`](../../components/ui_components/security_status_indicator_spec.md).
+* **Auditability & Monitoring:** Log security events; use tools like [`Security Status Indicator`](../components/ui/security_status_indicator_spec.md).
 
 * **Regular Validation:** Continuous testing (automated/manual/pen-testing).
 
@@ -36,12 +36,12 @@ Security uses **Defense in Depth**, "Security by Design", "Privacy by Design", a
 | **Privilege Escalation**            | User/service gains unauthorized higher access.                              | Strict RBAC (FastAPI Dependencies), Input Validation, Secure Admin Interfaces (MFA).                                                                                                                               | [`Security Plan`](./security_and_privacy_plan.md) Sec 2                                                                                        |
 | **Data Interception (Transit)**     | Eavesdropping on network traffic.                                           | Mandatory TLS 1.2+ (HTTPS), HSTS Header, Secure internal comms (mTLS/VPC).                                                                                                                                         | [`Security Plan`](./security_and_privacy_plan.md) Sec 3                                                                                        |
 | **Data Breach (At Rest)**           | Unauthorized DB access, backup theft.                                      | DB Encryption (TDE/pgcrypto), Filesystem Encryption, Encrypted Backups, Strict DB Access Controls, Secure Key Mgmt (KMS/Vault).                                                                                     | [`Security Plan`](./security_and_privacy_plan.md) Sec 3, [`Data Model`](../database/unified_data_model_schema.md)                              |
-| **Injection Attacks (SQLi, XSS)**   | Malicious code/queries via input.                                          | **Backend:** ORM Parameterized Queries (SQLAlchemy), Input Validation (Pydantic). **Frontend:** React Encoding, Strict CSP Header, Input Sanitization (DOMPurify).                                                  | [`Security Plan`](./security_and_privacy_plan.md) Sec 4, [`Code Style Guide`](../../guides/developer_guides/code_style_guide.md)                  |
+| **Injection Attacks (SQLi, XSS)**   | Malicious code/queries via input.                                          | **Backend:** ORM Parameterized Queries (SQLAlchemy), Input Validation (Pydantic). **Frontend:** React Encoding, Strict CSP Header, Input Sanitization (DOMPurify).                                                  | [`Security Plan`](./security_and_privacy_plan.md) Sec 4, [`Code Style Guide`](../guides/developer_guides/code_style_guide.md)                  |
 | **Denial of Service (DoS/DDoS)**    | Resource exhaustion causing unavailability.                                | Cloud Provider Mitigation (Render), API Rate Limiting, Resource Optimization, Scalable Architecture.                                                                                                               | [`Security Plan`](./security_and_privacy_plan.md) Sec 4                                                                                        |
 | **IDOR (Insecure Direct Object Ref)**| Accessing other users' data via ID manipulation.                           | Strong API Authorization Checks (verify ownership/permissions for *every* resource access). Use non-sequential IDs (UUIDs).                                                                                          | [`Security Plan`](./security_and_privacy_plan.md) Sec 2                                                                                        |
 | **Vulnerable Dependencies**         | Exploiting known CVEs in libraries.                                        | Automated Dependency Scanning (CI), Prompt Patching Policy.                                                                                                                                                        | SDL (Sec 5)                                                                                                                                     |
 | **SSRF (Server-Side Request Forgery)**| Tricking server into making unintended requests.                          | Validate/Sanitize user-supplied URLs. Use allow-lists for outbound targets.                                                                                                                                        | Application Security (Sec 4)                                                                                                                    |
-| **Security Misconfiguration**       | Default credentials, verbose errors, open ports.                           | Hardening, Configuration Audits, Disable Debug Mode (Prod), IaC.                                                                                                                                                  | SDL (Sec 5), [`Deployment Guide`](../../guides/implementation_guides/deployment_guide.md)                                                       |
+| **Security Misconfiguration**       | Default credentials, verbose errors, open ports.                           | Hardening, Configuration Audits, Disable Debug Mode (Prod), IaC.                                                                                                                                                  | SDL (Sec 5), [`Deployment Guide`](../guides/implementation_guides/deployment_guide.md)                                                       |
 
 ## 4. Key Technology Implementations
 
@@ -75,7 +75,7 @@ Security uses **Defense in Depth**, "Security by Design", "Privacy by Design", a
 
 * **Monitoring:** Track key metrics (errors, auth failures, resource usage). Set up alerts (e.g., via Render metrics or external tool).
 
-* **Audit Trails:** Use [Verification System Audit Logs](../../architecture/verification_system/verification_system_data_models.md) for critical ethical/security actions.
+* **Audit Trails:** Use [Verification System Audit Logs](../architecture/verification_system/verification_system_data_models.md) for critical ethical/security actions.
 
 ## 5. Secure Development Lifecycle (SDL) Integration
 
@@ -107,7 +107,7 @@ Security uses **Defense in Depth**, "Security by Design", "Privacy by Design", a
 
 ## 7. Continuous Improvement
 
-Security posture reviewed regularly based on audits, incidents, new threats, community feedback ([Security Feedback Loops Guide](../../guides/developer_guides/Security_Feedback_Loops.md)).
+Security posture reviewed regularly based on audits, incidents, new threats, community feedback ([Security Feedback Loops Guide](../guides/developer_guides/Security_Feedback_Loops.md)).
 
 ---
 

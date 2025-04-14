@@ -18,7 +18,7 @@ Its primary purposes are to:
 
 * **Integrate with Testing:** Serve as a target for assertions in automated UI tests and provide visual confirmation during manual testing.
 
-This component supports the testing and validation strategies outlined in the [Testing and Validation Plan](../../guides/developer_guides/testing_and_validation_plan.md) and the data flow transparency goals in the [Technical Specification Guide](../../guides/developer_guides/technical_specification_guide.md).
+This component supports the testing and validation strategies outlined in the [Testing and Validation Plan](../guides/developer_guides/testing_and_validation_plan.md) and the data flow transparency goals in the [Technical Specification Guide](../guides/developer_guides/technical_specification_guide.md).
 
 ## 2. UI Components / Elements
 
@@ -284,7 +284,7 @@ Allow customization (e.g., via props or context) for default visibility of detai
 
   * Reusable StatusIcon component (optional).
 
-  * [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md) for colors and styles.
+  * [ThinkAlike Style Guide](../guides/developer_guides/code_style_guide.md) for colors and styles.
 
 * **Integrates With:**
 

@@ -1,6 +1,6 @@
 ## 1. Introduction & Vision
 
-**Community Mode (Mode 3)** embodies the **Positive Anarchism** principle of ThinkAlike's [Enlightenment 2.0 Philosophy](../../../core/enlightenment_2_0/enlightenment_2_0_principles.md). It provides users with the infrastructure and tools to create, discover, join, manage, and participate in **decentralized, self-governing, value-aligned communities**.
+**Community Mode (Mode 3)** embodies the **Positive Anarchism** principle of ThinkAlike's [Enlightenment 2.0 Philosophy](../../core/enlightenment_2_0/enlightenment_2_0_principles.md). It provides users with the infrastructure and tools to create, discover, join, manage, and participate in **decentralized, self-governing, value-aligned communities**.
 
 Unlike traditional groups on centralized platforms, ThinkAlike communities aim for:
 
@@ -32,7 +32,7 @@ Mode 3 serves as the "Output Layer" or "Collective Intelligence" hub of the Thin
 
   * (Optional) Static Location data ([Data Integration Strategy](../../data_integration_strategy.md)).
 
-* **AI Recommendations:** The platform suggests relevant communities based on user Value Profile, interests, and potentially activity/connections (requires user consent, logged via [AI Transparency Log](../../../guides/developer_guides/ai/ai_transparency_log.md)).
+* **AI Recommendations:** The platform suggests relevant communities based on user Value Profile, interests, and potentially activity/connections (requires user consent, logged via [AI Transparency Log](../../guides/developer_guides/ai/ai_transparency_log.md)).
 
 * **Community Profiles:** Each community has a profile page displaying: Name, Description, Tagline, Core Values/Guidelines, Privacy (Public/Private), Governance Model Summary, Member Count, and Recent Activity Snippet.
 
@@ -40,13 +40,13 @@ Mode 3 serves as the "Output Layer" or "Collective Intelligence" hub of the Thin
 
   * **Public Communities:** Direct "Join" button.
 
-  * **Private Communities:** "Request to Join" button, which triggers an approval workflow managed by community admins/moderators (potentially with AI assistance based on value alignment). May involve [Narrative Compatibility Tests](../../../core/master_reference.md) similar to Mode 2 if configured by the community.
+  * **Private Communities:** "Request to Join" button, which triggers an approval workflow managed by community admins/moderators (potentially with AI assistance based on value alignment). May involve [Narrative Compatibility Tests](../../core/master_reference.md) similar to Mode 2 if configured by the community.
 
 ### 2.2 Community Creation & Management (User-Led)
 
 * **User Creation:** Any authenticated user can initiate the creation of a new community.
 
-* **Setup Wizard:** A guided UI flow ([UserForm](../../../components/ui_components/user_form_spec.md)) prompts the creator for:
+* **Setup Wizard:** A guided UI flow ([UserForm](../../components/ui/user_form_spec.md)) prompts the creator for:
 
   * `communityName` (Unique), `description`, `tagline`.
 
@@ -80,7 +80,7 @@ Mode 3 serves as the "Output Layer" or "Collective Intelligence" hub of the Thin
 
   * Supports posts, replies, threading, and basic formatting.
 
-  * Content can be validated against community guidelines via the `CoreValuesValidator` ([Spec](../../../components/ui_components/core_values_validator_spec.md)).
+  * Content can be validated against community guidelines via the `CoreValuesValidator` ([Spec](../../components/ui/core_values_validator_spec.md)).
 
 * **Member Directory:** View the list of community members and access their (privacy-permitting) profiles.
 
@@ -118,13 +118,13 @@ To enhance community self-governance without replacing human judgment, ThinkAlik
 
   * *Content Flagging:* AI models (trained on general hate speech/spam and potentially fine-tuned with *community-specific* guidelines) can automatically flag content that *potentially* violates rules for **human moderator review**. AI *never* takes automated censorship actions. Flagging logic and thresholds should be transparent to the community moderators.
 
-  * *Requires:* Clear appeals process, human moderators retain final decision-making power, regular audits for AI bias ([AI Ethical Testing Guide](../../../guides/developer_guides/ai/ai_ethical_testing_guide.md)).
+  * *Requires:* Clear appeals process, human moderators retain final decision-making power, regular audits for AI bias ([AI Ethical Testing Guide](../../guides/developer_guides/ai/ai_ethical_testing_guide.md)).
 
 * **AI Proposal Assistance (Future):** AI could help members format governance proposals or check them against existing community rules before submission.
 
 * **Resource Simulation (Advanced Future):** For communities managing resources, AI might simulate outcomes of different allocation proposals based on community-defined goals, presenting scenarios to inform *human* decision-making via polls or voting.
 
-**Ethical Imperatives:** All AI governance tools must be strictly **opt-in** at the community level, operate with **maximum transparency** (logged via [AI Transparency Log](../../../guides/developer_guides/ai/ai_transparency_log.md), explained in UI), be regularly audited for **bias**, and always **support, not supplant, human deliberation and decision-making.**
+**Ethical Imperatives:** All AI governance tools must be strictly **opt-in** at the community level, operate with **maximum transparency** (logged via [AI Transparency Log](../../guides/developer_guides/ai/ai_transparency_log.md), explained in UI), be regularly audited for **bias**, and always **support, not supplant, human deliberation and decision-making.**
 
 ---
 
@@ -235,11 +235,11 @@ Dedicated backend endpoints (typically under `/api/v1/communities/`) should cove
 
 ## 7. Ethical Considerations & Verification
 
-* **Freedom of Association vs. Safety:** Balance community autonomy with platform‑wide safety standards ([Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)). The [Verification System](../../verification_system/verification_system.md) may help flag harmful patterns, though moderation is primarily community‑led.
+* **Freedom of Association vs. Safety:** Balance community autonomy with platform‑wide safety standards ([Ethical Guidelines](../../core/ethics/ethical_guidelines.md)). The [Verification System](../../verification_system/verification_system.md) may help flag harmful patterns, though moderation is primarily community‑led.
 
 * **Governance Transparency:** Communities should be encouraged to make their rules and moderation logs transparent. Platform tools must facilitate this.
 
-* **Inclusivity:** Ensure tools are accessible (see [Accessibility Guide](../../../guides/developer_guides/accessibility_guide.md)) and foster inclusive environments.
+* **Inclusivity:** Ensure tools are accessible (see [Accessibility Guide](../../guides/developer_guides/accessibility_guide.md)) and foster inclusive environments.
 
 * **Preventing Echo Chambers:** Consider, optionally, mechanisms to expose members to diverse perspectives within or between communities.
 
@@ -267,8 +267,8 @@ Dedicated backend endpoints (typically under `/api/v1/communities/`) should cove
 
 * [Mode 2 Spec](../mode2_profile_discovery_spec.md)
 
-* [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+* [Ethical Guidelines](../../core/ethics/ethical_guidelines.md)
 
-* [Master Reference](../../../core/master_reference.md)
+* [Master Reference](../../core/master_reference.md)
 
 Community Mode is where ThinkAlike's vision for decentralized, value‑driven collaboration truly takes shape. Its success depends on empowering users with effective tools while upholding our core ethical principles.

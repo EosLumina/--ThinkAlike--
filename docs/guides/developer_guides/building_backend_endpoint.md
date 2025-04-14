@@ -8,9 +8,9 @@ This guide details the process for creating new API endpoints within the ThinkAl
 
 * Understanding of the project's [Code Style Guide](./code_style_guide.md) (Backend section).
 
-* Familiarity with the [Architectural Overview](../../architecture/architectural_overview.md) and the role of the Verification System (see [Verification System Deep Dive](../../architecture/verification_system/verification_system_deep_dive.md)).
+* Familiarity with the [Architectural Overview](../architecture/architectural_overview.md) and the role of the Verification System (see [Verification System Deep Dive](../architecture/verification_system/verification_system_deep_dive.md)).
 
-* A local backend environment set up as per the [Installation Guide](../../core/installation.md).
+* A local backend environment set up as per the [Installation Guide](../core/installation.md).
 
 ---
 

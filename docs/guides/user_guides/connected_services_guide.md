@@ -8,7 +8,7 @@ Welcome to your **Connected Services & Data Sources** center! ThinkAlike offers 
 
 Connecting these services can provide ThinkAlike with supplementary insights into your interests and cultural tastes, which *might* help improve the relevance of suggested connections (in Mode 2: Profile Discovery) or communities (in Mode 3: Community Building).
 
-This guide explains how this feature works, putting **you in complete control**. You decide *if* you want to connect any service, *what specific permissions* you grant ThinkAlike on that service, and *exactly how* any retrieved data can be used within ThinkAlike. This feature is designed according to our strict [Ethical Guidelines](../../core/ethics/ethical_guidelines.md), prioritizing your privacy, consent, and data sovereignty.
+This guide explains how this feature works, putting **you in complete control**. You decide *if* you want to connect any service, *what specific permissions* you grant ThinkAlike on that service, and *exactly how* any retrieved data can be used within ThinkAlike. This feature is designed according to our strict [Ethical Guidelines](../core/ethics/ethical_guidelines.md), prioritizing your privacy, consent, and data sovereignty.
 
 **Connecting external services is entirely optional.** ThinkAlike's core functionality works effectively based on the information you provide directly within the platform (like your choices in Mode 1 or details in your profile).
 
@@ -28,7 +28,7 @@ By granting ThinkAlike limited, read-only access to data from services you choos
 
 * We only request **minimal necessary permissions**.
 
-* We are **transparent** about what data is accessed and how it's used ([DataTraceability](../../components/ui_components/data_traceability.md) will reflect this).
+* We are **transparent** about what data is accessed and how it's used ([DataTraceability](../components/ui/data_traceability.md) will reflect this).
 
 * **You control** if and how this data is used via simple toggles.
 

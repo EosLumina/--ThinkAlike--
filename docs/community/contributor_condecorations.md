@@ -1,4 +1,4 @@
-<!-- filepath: /workspaces/--ThinkAlike--/docs/community/contributor_condecorations.md -->
+<!-- filepath: /workspaces/--ThinkAlike--../community/contributor_condecorations.md -->
 # ThinkAlike Contributor Condecorations
 
 * --

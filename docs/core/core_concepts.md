@@ -2,7 +2,7 @@
 
 > **Note:** This is the definitive reference for ThinkAlike's core concepts. For architecture-specific concepts, see 
 > [Technical Architecture Concepts](./technical_architecture_concepts.md). For vision-specific principles, see 
-> [Vision Principles](/docs/vision/vision_principles.md).
+> [Vision Principles](../vision/vision_principles.md).
 
 ## 1. Introduction
 
@@ -43,14 +43,14 @@ rules (including ethical guidelines). It transforms the UI from a passive displa
 system's quality assurance, ethical enforcement, and transparency mechanisms.
 
 * **In ThinkAlike:** This is a cornerstone of our **development strategy and technical architecture**. Specific UI 
-components (like `CoreValuesValidator`, `APIValidator`, [`DataTraceability`](../components/ui_components/data_traceability.md), 
+components (like `CoreValuesValidator`, `APIValidator`, [`DataTraceability`](../components/ui/data_traceability.md), 
 `Security Status Indicator`) are built to receive context, perform checks (or display results of backend checks), and 
 provide immediate, visual feedback during development, testing, and potentially even to end-users in specific diagnostic 
 modes. It makes abstract rules and system states tangible and verifiable directly within the application interface.
 
 * **See Also:** [`UI Validation Examples`](../guides/developer_guides/ui_validation_examples.md), 
 [`Testing and Validation Plan`](../guides/developer_guides/testing_and_validation_plan.md), Individual Component Specs 
-(e.g., [`APIValidator.md`](../components/ui_components/APIValidator.md))
+(e.g., [`APIValidator.md`](../components/ui/APIValidator.md))
 
 ---
 
@@ -184,7 +184,7 @@ providing tools for transparency and control is itself an educational act. Furth
 * **In ThinkAlike:**
 
   * **Fostering Literacy:** Features like the 
-  [`DataTraceability`](../components/ui_components/datatraceability_component_spec.md) component and 
+  [`DataTraceability`](../components/ui/datatraceability_component_spec.md) component and 
   [`AI Transparency Log`](../guides/developer_guides/ai/ai_transparency_log.md) actively help users understand how 
   algorithms work and how their data is used, building crucial digital literacy.
 

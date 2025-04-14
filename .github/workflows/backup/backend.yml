@@ -3,9 +3,13 @@ name: Backend CI
   push:
     branches:
     - main
+    paths: &id001
+    - backend/**
+    - '*.py'
   pull_request:
     branches:
     - main
+    paths: *id001
   workflow_dispatch: {}
 true:
   push:

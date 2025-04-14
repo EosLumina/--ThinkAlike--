@@ -16,7 +16,7 @@ This feature moves beyond traditional, code-centric testing paradigms by:
 
 * **Closing the Feedback Loop:** Displaying test results immediately within the same UI environment where tests are defined.
 
-This feature is a key component of the strategy outlined in the [ThinkAlike Testing and Validation Plan](testing_and_validation_plan.md) and relies on underlying concepts from the [UI Testing Framework](UI_Testing_Framework.md) design.
+This feature is a key component of the strategy outlined in the [ThinkAlike Testing and Validation Plan](testing_and_validation_plan.md) and relies on underlying concepts from the [UI Testing Framework](ui_testing_framework.md) design.
 
 ---
 
@@ -257,7 +257,7 @@ Refer to the project's central design repository for visual mockups.
 
   * Browser automation frameworks (Cypress, Playwright, Selenium – depending on the chosen execution engine).
 
-  * [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md).
+  * [ThinkAlike Style Guide](../guides/developer_guides/code_style_guide.md).
 
 * **Integrates With:**
 

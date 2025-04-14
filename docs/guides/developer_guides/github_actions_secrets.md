@@ -70,7 +70,7 @@ To delete a secret:
 
 - [GitHub Actions Documentation](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 - [ThinkAlike CI/CD Workflow Guide](./ci_cd_workflow_guide.md)
-- [Deployment Troubleshooting](../../architecture/deployment_troubleshooting.md)
+- [Deployment Troubleshooting](../architecture/deployment_troubleshooting.md)
 
 ---
 

@@ -74,7 +74,7 @@ ThinkAlike is intentionally positioned as a counter-narrative to the techno-dyst
 
 * **Reclaiming Artificial Intelligence for Humanistic Endeavors:** ThinkAlike directly and proactively challenges the increasingly prevalent dystopian portrayal of Artificial Intelligence as an inherently manipulative, surveillance-oriented, and control-seeking force. Instead, it endeavors to demonstrably illustrate that AI can be ethically developed, transparently deployed, and humanistically purposed as a powerful tool to empower users and facilitate positive, authentic social interactions.
 
-(See the [`Architectural Overview`](../../architecture/architectural_overview.md) and [`Architectural Design Specifications`](../../architecture/design/architectural_design_specifications.md).)
+(See the [`Architectural Overview`](../architecture/architectural_overview.md) and [`Architectural Design Specifications`](../architecture/design/architectural_design_specifications.md).)
 
 ThinkAlike, with its foundational commitment to decentralization of power, unwavering user empowerment, and intrinsically collaborative, community-driven development model, resonates deeply with the principles of positive anarchism. In marked contrast to anarcho-capitalist or "dark enlightenment" interpretations of digital freedom, which often prioritize unrestrained individualism and the commodification of digital space, ThinkAlike embodies a **constructive, ethically grounded, and socially responsible anarchism** that proactively seeks to:
 

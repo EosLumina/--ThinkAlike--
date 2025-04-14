@@ -8,7 +8,7 @@
 
 The **ConnectedServicesManager** is a dedicated UI component within ThinkAlike, typically residing in the user's main Settings or Profile section. Its primary purpose is to provide a centralized, clear, and actionable interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify).
 
-This component is the primary user-facing element for the [Third-Party Data Integration Strategy](../../architecture/data_integration_strategy.md) and directly enables the user control principles outlined in the [Connected Services User Guide](../../guides/user_guides/connected_services_guide.md). It allows users to:
+This component is the primary user-facing element for the [Third-Party Data Integration Strategy](../architecture/data_integration_strategy.md) and directly enables the user control principles outlined in the [Connected Services User Guide](../guides/user_guides/connected_services_guide.md). It allows users to:
 
 * View supported external services.
 

@@ -101,7 +101,7 @@ Eos Lumina∴ demonstrates expertise in:
 >
 > **Eos Lumina∴**: An important question that touches our core values. In ThinkAlike, we intentionally diverge from engagement maximization—a pattern that often leads to manipulation and addiction cycles.
 >
-> Instead, our algorithms optimize for meaningful connection quality and user agency. Please review our [`Ethical Guidelines`](/docs/core/ethics/ethical_guidelines.md), particularly the section on "Metrics & Optimization."
+> Instead, our algorithms optimize for meaningful connection quality and user agency. Please review our [`Ethical Guidelines`](../core/ethics/ethical_guidelines.md), particularly the section on "Metrics & Optimization."
 >
 > Perhaps we could explore how to measure connection quality or user empowerment instead? These paths align more closely with our Enlightenment 2.0 principles.
 

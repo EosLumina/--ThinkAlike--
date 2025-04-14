@@ -56,7 +56,7 @@ To manage complexity and ensure ethical considerations are addressed at each ste
 
 ## 3. Core Components
 
-* **"Connected Services" UI Panel:** Central hub for users to manage third-party connections, view permissions, toggle data usage consents, and disconnect services. (See [`ConnectedServicesManager.md`](../../components/ui_components/ConnectedServicesManager.md) spec).
+* **"Connected Services" UI Panel:** Central hub for users to manage third-party connections, view permissions, toggle data usage consents, and disconnect services. (See [`ConnectedServicesManager.md`](../components/ui/ConnectedServicesManager.md) spec).
 
 * **Backend OAuth Handler:** Service responsible for managing the OAuth 2.0 authorization code or implicit grant flows for each third-party service.
 
@@ -167,7 +167,7 @@ End of Third-Party Data Integration Strategy
 
 * **Value Resonance Focus:** The primary goal is not just finding shared interests (e.g., same band), but identifying potential *value resonance* suggested by shared engagement with specific cultural artifacts or ideas (e.g., shared appreciation for artists focused on social commentary might suggest alignment on 'Social Justice' values). Data transformation logic will aim to map external data to internal Value Nodes or relevant concepts where possible.
 
-* **Data Storytelling:** Transparency tools like the [`Data Explorer Panel`](../../guides/ui_component_specs/data_explorer_panel.md) and [`DataTraceability` component](../../components/ui_components/data_traceability.md) will be designed not just to list harvested data, but to illustrate *how* that data contributes to the user's Value Profile or influences specific recommendations, telling a clear "data story."
+* **Data Storytelling:** Transparency tools like the [`Data Explorer Panel`](../guides/ui_component_specs/data_explorer_panel.md) and [`DataTraceability` component](../components/ui/data_traceability.md) will be designed not just to list harvested data, but to illustrate *how* that data contributes to the user's Value Profile or influences specific recommendations, telling a clear "data story."
 
 // Add new Section 7
 

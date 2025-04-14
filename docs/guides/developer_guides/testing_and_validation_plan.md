@@ -22,7 +22,7 @@ The ThinkAlike testing strategy is guided by the following core principles, ensu
 
 * **Continuous Integration:** Testing is seamlessly integrated into all phases of the software development lifecycle, ensuring continuous validation and proactive identification of potential issues or deviations from ethical and performance standards. Reusable UI components are strategically incorporated into continuous integration pipelines to provide automated data validation and workflow testing capabilities at every stage of development.
 
-This feature is a key component of the strategy outlined in the [ThinkAlike Testing and Validation Plan](testing_and_validation_plan.md) and relies on underlying concepts from the [UI Testing Framework](UI_Testing_Framework.md) design., WCAG) to promote equitable access and user empowerment for all.
+This feature is a key component of the strategy outlined in the [ThinkAlike Testing and Validation Plan](testing_and_validation_plan.md) and relies on underlying concepts from the [UI Testing Framework](ui_testing_framework.md) design., WCAG) to promote equitable access and user empowerment for all.
 
 ---. Testing Methodologies**
 
@@ -290,7 +290,7 @@ This comprehensive Testing and Validation Plan will ensure that the ThinkAlike p
 
 --- Browser automation frameworks (Cypress, Playwright, Selenium – depending on the chosen execution engine).
 
-End of Testing and Validation Plan/guides/developer_guides/style_guide.md).
+End of Testing and Validation Plan/guides/developer_guides/code_style_guide.md).
 
 ---*Integrates With:**
 

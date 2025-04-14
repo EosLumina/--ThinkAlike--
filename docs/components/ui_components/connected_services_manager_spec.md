@@ -4,9 +4,9 @@
 
 ## 1. Introduction and Description
 
-The **ConnectedServicesManager** is a dedicated UI component, typically within user Settings, providing a centralized interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify). It is the primary UI for the [Third-Party Data Integration Strategy](../../architecture/data_integration_strategy.md).
+The **ConnectedServicesManager** is a dedicated UI component, typically within user Settings, providing a centralized interface for users to manage connections to optional third-party services (e.g., Goodreads, Spotify). It is the primary UI for the [Third-Party Data Integration Strategy](../architecture/data_integration_strategy.md).
 
-It allows users to view supported services, initiate/revoke OAuth connections, view granted permissions, and exercise **granular, opt-in control over how harvested data is used**, embodying user control and transparency principles. See [Connected Services User Guide](../../guides/user_guides/connected_services_guide.md).
+It allows users to view supported services, initiate/revoke OAuth connections, view granted permissions, and exercise **granular, opt-in control over how harvested data is used**, embodying user control and transparency principles. See [Connected Services User Guide](../guides/user_guides/connected_services_guide.md).
 
 ## 2. UI Elements and Layout
 
@@ -46,7 +46,7 @@ Describes Load -> Connect -> Callback -> Panel Refresh -> Toggle Consent -> Disc
 
 * **Components:** Uses `ActionButton`, `ToggleSwitch`, `DataDisplay`, `Alert`.
 
-* **API Interaction:** Calls backend endpoints for status (`GET /integrations/status`), auth URLs (`GET /integrations/{service}/auth_url`), settings updates (`PUT /integrations/settings`), disconnection (`DELETE /integrations/{service}/connection`). See [Integration API Docs](../../architecture/api/api_endpoints_integrations.md). Handle loading/error states.
+* **API Interaction:** Calls backend endpoints for status (`GET /integrations/status`), auth URLs (`GET /integrations/{service}/auth_url`), settings updates (`PUT /integrations/settings`), disconnection (`DELETE /integrations/{service}/connection`). See [Integration API Docs](../architecture/api/api_endpoints_integrations.md). Handle loading/error states.
 
 ## 5. Testing Instructions
 

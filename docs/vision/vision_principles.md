@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-ThinkAlike's vision combines philosophical depth with technical innovation to create a platform focused on authentic connection. This document outlines the key vision principles that guide our development. For detailed explanations of core concepts, see the [Core Concepts Reference](/docs/core/core_concepts.md).
+ThinkAlike's vision combines philosophical depth with technical innovation to create a platform focused on authentic connection. This document outlines the key vision principles that guide our development. For detailed explanations of core concepts, see the [Core Concepts Reference](../core/core_concepts.md).
 
 ## 2. Enlightenment 2.0 Principles
 

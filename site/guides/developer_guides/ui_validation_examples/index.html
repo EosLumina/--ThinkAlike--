@@ -1,0 +1,1884 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ThinkAlike project">
+      
+      
+      
+        <link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/ui_validation_examples/">
+      
+      
+        <link rel="prev" href="../building_ui_component/">
+      
+      
+        <link rel="next" href="../git_workflow/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>UI Validation Examples - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#design-document-ui-component-testing-framework" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UI Validation Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-tabs__link">
+          
+  
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../vision/core_concepts/" class="md-tabs__link">
+          
+  
+  
+  Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architecture/architectural_overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../code_style_guide/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../devops/devops_workflow.md" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightenment 2.0 Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/ethics/ethical_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethical Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/onboarding_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/blockchain_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architectural_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architectural Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/api/api_endpoints_mode2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Endpoints (Mode 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_style_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_backend_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Backend Endpoint Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_ui_component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building UI Component Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-ui-as-a-real-time-validation-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction: UI as a Real-Time Validation Engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-principles-of-the-ui-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Principles of the UI Testing Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-categories-definition-leveraging-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Test Categories Definition (Leveraging UI Components)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Test Categories Definition (Leveraging UI Components)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-usability-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Usability Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-accessibility-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Accessibility Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-code-performance-tests-frontendinteraction-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Code Performance Tests (Frontend/Interaction Focus)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ethical-compliance-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Ethical Compliance Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ui-as-a-testing-tool-implementation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. UI as a Testing Tool: Implementation Strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-actionable-testing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Actionable Testing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Deliverable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow Standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github_actions_workflow_format.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions Workflow Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/devops_workflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DevOps Workflow Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/ci_cd_workflow_reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction-ui-as-a-real-time-validation-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction: UI as a Real-Time Validation Engine
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-principles-of-the-ui-testing-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Principles of the UI Testing Framework
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-test-categories-definition-leveraging-ui-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Test Categories Definition (Leveraging UI Components)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Test Categories Definition (Leveraging UI Components)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-usability-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Usability Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-accessibility-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Accessibility Tests
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-code-performance-tests-frontendinteraction-focus" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Code Performance Tests (Frontend/Interaction Focus)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-ethical-compliance-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4 Ethical Compliance Tests
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-ui-as-a-testing-tool-implementation-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. UI as a Testing Tool: Implementation Strategy
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-actionable-testing-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Actionable Testing Data
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deliverable" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Deliverable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="design-document-ui-component-testing-framework">Design Document: Ui Component Testing Framework<a class="headerlink" href="#design-document-ui-component-testing-framework" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-introduction-ui-as-a-real-time-validation-engine">1. Introduction: UI as a Real-Time Validation Engine<a class="headerlink" href="#1-introduction-ui-as-a-real-time-validation-engine" title="Permanent link">&para;</a></h2>
+<p>This document outlines the design philosophy and structure of the <strong>UI Component Testing Framework</strong> for the ThinkAlike project. Central to this framework is the principle of <strong>"UI as a Testing Tool,"</strong> where UI components transcend their traditional role as passive presentation elements to become active participants in the validation process. They serve as real-time instruments for verifying data handling, code implementation quality, ethical compliance, system performance, and accessibility standards.</p>
+<p>This approach ensures that testing is not a separate, isolated phase but a continuous, transparent, data-driven process deeply integrated into the user experience and the entire development workflow. It aims to provide immediate, actionable feedback to developers and testers, fostering a culture of quality and ethical awareness. This framework operationalizes the strategy detailed in the <a href="../testing_and_validation_plan/">ThinkAlike Testing and Validation Plan</a>.</p>
+<hr />
+<h2 id="2-core-principles-of-the-ui-testing-framework">2. Core Principles of the UI Testing Framework<a class="headerlink" href="#2-core-principles-of-the-ui-testing-framework" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>UI as Test Engine:</strong> UI components are intentionally designed with hooks and capabilities to <em>generate</em> test data, <em>trigger</em> validation checks, and <em>display</em> results, effectively acting as dynamic test harnesses within the application itself.</p>
+</li>
+<li>
+<p><strong>Real-Time Feedback:</strong> Validation outcomes (e.g., data integrity checks, ethical alignment scores, performance metrics, accessibility violations) are visualized directly within the UI during development and testing phases, providing immediate, contextual feedback.</p>
+</li>
+<li>
+<p><strong>Data-Driven &amp; Contextual Validation:</strong> Testing leverages real or realistic user interaction data, API responses, and application states. Validation checks are contextual, understanding the specific workflow or data being processed.</p>
+</li>
+<li>
+<p><strong>User-Centric Validation:</strong> The framework prioritizes validating the system from the end-user's perspective, focusing on usability, clarity, accessibility, and ethical empowerment, ensuring the technology truly serves human needs.</p>
+</li>
+<li>
+<p><strong>Transparency:</strong> The testing processes, the data used, and the results obtained are made visible and understandable through UI elements, demystifying quality assurance and fostering trust.</p>
+</li>
+<li>
+<p><strong>Holistic Testing:</strong> Integrates functional, performance, accessibility, security, and ethical validation into a unified framework accessible via the UI.</p>
+</li>
+<li>
+<p><strong>Reusability &amp; Modularity:</strong> Leverages dedicated, reusable UI components (like <code>APIValidator</code>, <code>CoreValuesValidator</code>) designed specifically for testing and validation tasks.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-test-categories-definition-leveraging-ui-components">3. Test Categories Definition (Leveraging UI Components)<a class="headerlink" href="#3-test-categories-definition-leveraging-ui-components" title="Permanent link">&para;</a></h2>
+<p>The framework organizes testing into key categories, detailing how UI components facilitate validation within each:</p>
+<h3 id="31-usability-tests">3.1 Usability Tests<a class="headerlink" href="#31-usability-tests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Objective:</strong> Ensure components and workflows are intuitive, efficient, discoverable, and easy to navigate for the target user personas.</p>
+</li>
+<li>
+<p><strong>UI as Testing Tool:</strong></p>
+</li>
+<li>
+<p><strong>Interaction Logging Components:</strong> Wrappers or hooks around interactive elements (buttons, forms, links) can automatically log user interaction sequences, timings (time-on-task), and error occurrences during specific test scenarios. This data can be visualized in a UI testing dashboard.</p>
+</li>
+<li>
+<p><strong>In-UI Feedback Collectors:</strong> Simple UI widgets (e.g., embedded rating scales, quick polls, comment boxes) can be conditionally rendered during UAT or specific test modes to gather direct user feedback immediately after task completion.</p>
+</li>
+<li>
+<p><strong>Workflow Visualization (<code>DataTraceability</code> Adaptation):</strong> The <code>DataTraceability</code> component can be adapted to visualize the <em>actual path</em> a user took through a workflow during a usability test, comparing it against the intended or optimal path, visually highlighting deviations or points of friction.</p>
+</li>
+<li>
+<p><strong>Generated Data:</strong> Quantitative metrics (task completion rates, time, error counts), qualitative user feedback, user flow diagrams.</p>
+</li>
+</ul>
+<h3 id="32-accessibility-tests">3.2 Accessibility Tests<a class="headerlink" href="#32-accessibility-tests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Objective:</strong> Guarantee UI components and overall application adhere to accessibility standards (e.g., WCAG 2.1 AA/AAA), ensuring usability for people with diverse abilities.</p>
+</li>
+<li>
+<p><strong>UI as Testing Tool:</strong></p>
+</li>
+<li>
+<p><strong>Live Accessibility Audit Display (<code>AccessibilityHelper</code> Component):</strong> A dedicated UI panel or overlay (visible in dev/test mode) integrates with libraries like <code>axe-core</code> to run audits on the currently rendered view. It lists violations directly in the UI, potentially highlighting the offending elements on the page.</p>
+</li>
+<li>
+<p><strong>Focus Order Visualization:</strong> A testing mode activated via the UI can visually overlay numbers or arrows on focusable elements to illustrate the keyboard navigation order, making it easy to spot illogical sequences.</p>
+</li>
+<li>
+<p><strong>Color Contrast Simulation/Check:</strong> UI tools within the test framework could simulate different types of color blindness or dynamically check contrast ratios of rendered elements against WCAG standards, displaying warnings directly.</p>
+</li>
+<li>
+<p><strong>Screen Reader Preview (Conceptual):</strong> A UI panel could display the text content as a screen reader might announce it, helping developers check semantic structure and ARIA attribute effectiveness.</p>
+</li>
+<li>
+<p><strong>Generated Data:</strong> WCAG violation reports linked to specific UI elements, focus order maps, contrast ratio warnings.</p>
+</li>
+</ul>
+<h3 id="33-code-performance-tests-frontendinteraction-focus">3.3 Code Performance Tests (Frontend/Interaction Focus)<a class="headerlink" href="#33-code-performance-tests-frontendinteraction-focus" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Objective:</strong> Measure and optimize the responsiveness, rendering speed, memory footprint, and overall efficiency of UI components and frontend interactions.</p>
+</li>
+<li>
+<p><strong>UI as Testing Tool:</strong></p>
+</li>
+<li>
+<p><strong>Real-time Performance Metrics Dashboard:</strong> A UI overlay or panel displaying key metrics like Component Render Time (using React Profiler API), JavaScript execution time for specific functions, Frames Per Second (FPS) during animations or interactions, and potentially memory usage snapshots.</p>
+</li>
+<li>
+<p><strong>Component Stress Test Triggers:</strong> UI buttons or controls (in dev/test mode) to deliberately trigger high-frequency re-renders, large data loads, or complex animations on specific components to observe performance under pressure, with results reflected in the metrics dashboard.</p>
+</li>
+<li>
+<p><strong>Network Latency Simulation:</strong> UI controls to simulate different network conditions (e.g., Slow 3G) to test the UI's responsiveness and handling of slow API calls (visualized via <code>APIValidator</code> timings).</p>
+</li>
+<li>
+<p><strong>Generated Data:</strong> Time-series charts of render times/FPS, memory usage graphs, identification of slow components or functions.</p>
+</li>
+</ul>
+<h3 id="34-ethical-compliance-tests">3.4 Ethical Compliance Tests<a class="headerlink" href="#34-ethical-compliance-tests" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Objective:</strong> Validate adherence to ThinkAlike's <a href="../core/ethics/ethical_guidelines.md">Ethical Guidelines</a>, focusing on transparency, user control, data minimization, fairness, and bias mitigation within the UI/UX and associated workflows.</p>
+</li>
+<li>
+<p><strong>UI as Testing Tool:</strong></p>
+</li>
+<li>
+<p><strong><code>CoreValuesValidator</code> Integration:</strong> This dedicated component is embedded at critical points in test workflows or developer tools. It receives contextual data (e.g., data used for a recommendation, parameters of an API call) and visually reports alignment scores/statuses against defined ethical principles.</p>
+</li>
+<li>
+<p><strong><code>DataTraceability.jsx</code> for Audit:</strong> Used extensively in testing modes to visually trace the flow of data for a specific workflow initiated via the UI. Testers verify that only necessary data is accessed/processed and that the flow matches ethical documentation.</p>
+</li>
+<li>
+<p><strong>Consent Flow Validation UI:</strong> Test harnesses simulate user consent flows. The UI components related to consent (checkboxes, explanations, links to policies) are checked for clarity, granularity, and functionality (ensuring state changes correctly and persists). The UI state reflecting consent is asserted upon.</p>
+</li>
+<li>
+<p><strong>Bias Check Visualization:</strong> Test modes can feed specific data segments (e.g., profiles from different demographics) through UI-triggered AI functions (like matching). The results, potentially visualized alongside fairness metrics (calculated by the backend Verification System but displayed via UI components like <code>CoreValuesValidator</code>), help identify potential biases manifested in the UI output.</p>
+</li>
+<li>
+<p><strong>Generated Data:</strong> Ethical alignment reports/scores, data flow diagrams for audit, consent state verification, bias indicator flags.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-ui-as-a-testing-tool-implementation-strategy">4. UI as a Testing Tool: Implementation Strategy<a class="headerlink" href="#4-ui-as-a-testing-tool-implementation-strategy" title="Permanent link">&para;</a></h2>
+<p>Key strategies for enabling the UI to function as a testing tool:</p>
+<ul>
+<li>
+<p><strong>Conditional Logic &amp; Environment Variables:</strong> Most testing-specific UI elements and logic are conditionally rendered or activated based on environment variables (<code>process.env.NODE_ENV === 'development'</code>), feature flags, or specific user roles/permissions. This ensures testing tools don't impact production users.</p>
+</li>
+<li>
+<p><strong>Wrapper Components &amp; Custom Hooks:</strong> Encapsulate testing logic (e.g., performance timing, interaction logging, accessibility checks) within reusable wrapper components (Higher-Order Components - HOCs) or custom React Hooks. This keeps the core application components clean.</p>
+</li>
+<li>
+<p><em>Example Hook:</em> <code>usePerformanceMonitor(componentName)</code> could track render times for the wrapped component.</p>
+</li>
+<li>
+<p><em>Example HOC:</em> <code>withInteractionTracking(WrappedComponent)</code> could log clicks and input changes within the component.</p>
+</li>
+<li>
+<p><strong>Global State for Test Data/Results:</strong> Utilize React Context or a state management library (Zustand, Redux) to manage the state of test scenarios, provide mock data or API responses during tests, and collect results/metrics from various UI validation components scattered across the application.</p>
+</li>
+<li>
+<p><strong>Dedicated Testing UI Components:</strong> Create a library of specific, reusable components designed solely for displaying test information and validation results within the UI (e.g., <code>APIValidator</code>, <code>CoreValuesValidator</code>, <code>PerformanceChart</code>, <code>AccessibilityViolationList</code>, <code>EthicalScoreGauge</code>). These components consume data from the test state/context.</p>
+</li>
+<li>
+<p><strong>Integration API for Automation Tools:</strong> Design the UI testing framework so that external E2E tools (Cypress, Playwright) can interact with it. This might involve:</p>
+</li>
+<li>
+<p>Exposing specific functions on the <code>window</code> object (in dev mode only) to trigger test modes or retrieve validation data.</p>
+</li>
+<li>
+<p>Using specific <code>data-testid</code> attributes that automation tools can reliably select to interact with testing components or assert on their state.</p>
+</li>
+<li>
+<p>Having UI components dispatch events that test runners can listen for.</p>
+</li>
+</ul>
+<hr />
+<h2 id="5-actionable-testing-data">5. Actionable Testing Data<a class="headerlink" href="#5-actionable-testing-data" title="Permanent link">&para;</a></h2>
+<p>To make UI-driven testing effective, the data used and generated must be actionable:</p>
+<ul>
+<li>
+<p><strong>Contextual Data:</strong> Tests should operate on data relevant to the specific user flow or component state being validated, not just generic placeholders. Leverage realistic data derived from <a href="../../../use_cases/user_persona_profiles/">User Personas</a> and scenarios.</p>
+</li>
+<li>
+<p><strong>User-Defined Data Sets:</strong> Integrate with the <a href="../customizable_ui_tests/">Customizable UI Tests</a> feature to allow testers to input specific data sets, edge cases, or demographic profiles directly via the UI, enabling targeted validation.</p>
+</li>
+<li>
+<p><strong>Clear Correlation:</strong> Test results displayed in the UI must be clearly correlated to the specific action, component, or data point being tested. Visual highlighting or clear labeling is essential.</p>
+</li>
+<li>
+<p><strong>Visual &amp; Quantitative Mix:</strong> Present results using both visual aids (charts, diagrams, color-coding) for quick comprehension and quantitative data (metrics, scores, logs) for detailed analysis.</p>
+</li>
+<li>
+<p><strong>Actionable Recommendations:</strong> Where possible, failed assertions (especially ethical or accessibility checks) displayed in the UI should link to relevant documentation or suggest specific remediation steps.</p>
+</li>
+</ul>
+<hr />
+<h2 id="6-deliverable">6. Deliverable<a class="headerlink" href="#6-deliverable" title="Permanent link">&para;</a></h2>
+<p>The output of this design is not just code, but a system:</p>
+<ol>
+<li><strong>This Documentation (<code>ui_testing_framework.md</code>):</strong> Defines the philosophy and structure.</li>
+<li><strong>Set of Reusable Testing UI Components:</strong> Implementations of components like <code>APIValidator</code>, <code>CoreValuesValidator</code>, <code>AccessibilityHelper</code>, <code>PerformanceMonitorOverlay</code>, etc., with their own detailed specifications (linked from here).</li>
+<li><strong>Integration Guidelines:</strong> Documentation within the main <a href="developerguide_matchingalgorithm.md">Developer Guide</a> (or similar) explaining, for example, how to use tracking hooks and how to make components test-aware.</li>
+<li><strong>Example Usage:</strong> Concrete examples demonstrating how to use the framework to test different scenarios across the defined categories.</li>
+</ol>
+<p>By implementing this framework, ThinkAlike aims to build a uniquely transparent, robust, and ethically validated platform where quality assurance is an intrinsic part of the user and developer experience.</p>
+<hr />
+<div class="highlight"><pre><span></span><code>sequenceDiagram
+    participant User
+    participant FrontendUI as React Frontend
+    participant FormComp as UserForm Component
+    participant ValidationComp as CoreValuesValidator / APIValidator (UI)
+    participant BackendAPI as FastAPI Backend
+    participant VerifySys as Verification System
+    participant DB as Database
+
+    User-&gt;&gt;FormComp: Enters data into profile form
+    FormComp-&gt;&gt;ValidationComp: (Optional/Dev Mode) Validate Field Data (e.g., CoreValuesValidator)
+    ValidationComp--&gt;&gt;FormComp: Display Inline Feedback
+
+    User-&gt;&gt;FrontendUI: Clicks &quot;Save Profile&quot;
+    FrontendUI-&gt;&gt;FormComp: Trigger Submit Handler
+    FormComp-&gt;&gt;FormComp: Perform Client-Side Validation
+    alt Client Validation Fails
+        FormComp-&gt;&gt;User: Display Field Errors
+    else Client Validation Passes
+        FormComp-&gt;&gt;FrontendUI: Call onSubmit prop with formData
+        FrontendUI-&gt;&gt;ValidationComp: (Dev Mode) Trigger APIValidator.validateRequest(formData, schema)
+        ValidationComp--&gt;&gt;FrontendUI: Log/Display Request Validation Attempt
+        FrontendUI-&gt;&gt;BackendAPI: PUT /api/v1/users/me (formData)
+
+        BackendAPI-&gt;&gt;VerifySys: POST /api/v1/verification/validate/data (context: profile_update, data: formData)
+        VerifySys-&gt;&gt;DB: Read Ethical Rules / Context (Optional)
+        VerifySys--&gt;&gt;BackendAPI: Return Validation Result (e.g., {status: &#39;pass&#39;})
+
+        alt Verification Fails
+            BackendAPI--&gt;&gt;FrontendUI: 400 Bad Request (Validation Failed: [Reason])
+            FrontendUI-&gt;&gt;ValidationComp: (Dev Mode) Trigger APIValidator.validateResponse(errorResponse)
+            ValidationComp--&gt;&gt;FrontendUI: Log/Display API Error Validation
+            FrontendUI-&gt;&gt;User: Display Specific Error Message
+        else Verification Passes
+            BackendAPI-&gt;&gt;DB: Update User Profile in Database
+            DB--&gt;&gt;BackendAPI: Confirm Write Success
+            BackendAPI--&gt;&gt;FrontendUI: 200 OK (updatedProfileData)
+            FrontendUI-&gt;&gt;ValidationComp: (Dev Mode) Trigger APIValidator.validateResponse(successResponse, schema)
+            ValidationComp--&gt;&gt;FrontendUI: Log/Display Response Validation
+            FrontendUI-&gt;&gt;User: Display Success Message
+        end
+    end
+</code></pre></div>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Design Document: Ui Component Testing Framework</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Design Document: Ui Component Testing Framework</p>
+<hr />
+<h1 id="practical-guide-using-the-ui-as-validation-framework">Practical Guide: Using the UI as Validation Framework<a class="headerlink" href="#practical-guide-using-the-ui-as-validation-framework" title="Permanent link">&para;</a></h1>
+<p><strong>Version:</strong> 1.0</p>
+<p><strong>Date:</strong> March 26, 2025</p>
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<p>This guide provides practical examples demonstrating how developers should utilize ThinkAlike's specific <strong>validation-focused UI components</strong> during development and testing. These components are central to the <strong>"UI as Validation Framework"</strong> concept, embedding ethical guidelines, data schema checks, API contract adherence, and other rules directly into the application flow. They provide immediate, contextual feedback, accelerating development and ensuring the final product aligns with ThinkAlike's core principles.</p>
+<p>Refer to the individual component specification documents in <a href="../components/ui/"><code>docs/components/ui_components/</code></a> for detailed props, APIs, and implementation notes for each validation component mentioned here.</p>
+<hr />
+<h2 id="2-example-using-corevaluesvalidator-for-content-moderation-hints">2. Example: Using <code>CoreValuesValidator</code> for Content Moderation Hints<a class="headerlink" href="#2-example-using-corevaluesvalidator-for-content-moderation-hints" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To provide real-time feedback to users (and developers during testing) about whether their input aligns with community content guidelines or ethical principles <em>before</em> submission.</p>
+</li>
+<li>
+<p><strong>Component Spec:</strong> <a href="../components/ui/CoreValuesValidator.md"><code>docs/components/ui_components/CoreValuesValidator.md</code></a></p>
+</li>
+<li>
+<p><strong>Scenario:</strong> A user is writing a post in a Mode 3 Community Forum. We want to subtly check for potential violations of hate speech or overly aggressive language rules defined in the <a href="../core/ethics/ethical_guidelines.md"><code>Ethical Guidelines</code></a>.</p>
+</li>
+<li>
+<p><strong>Conceptual React Implementation:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="p">,</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">,</span><span class="w"> </span><span class="nx">useMemo</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">CoreValuesValidator</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/ui/CoreValuesValidator&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust import path</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">ethicalRules</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../../config/ethicsConfig&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Assume rules are defined here</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">CommunityPostForm</span><span class="p">({</span><span class="w"> </span><span class="nx">onSubmit</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">postContent</span><span class="p">,</span><span class="w"> </span><span class="nx">setPostContent</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">validationStatus</span><span class="p">,</span><span class="w"> </span><span class="nx">setValidationStatus</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">({</span><span class="w"> </span><span class="nx">isValid</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">concerns</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">});</span>
+
+<span class="w">  </span><span class="c1">// Define the specific rules to apply for this context</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">relevantRules</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useMemo</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="nx">ethicalRules</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">noHateSpeech</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">ethicalRules</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">civilityTone</span>
+<span class="w">  </span><span class="p">],</span><span class="w"> </span><span class="p">[]);</span>
+
+<span class="w">  </span><span class="c1">// Callback to receive validation results from the component</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleValidationResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useCallback</span><span class="p">((</span><span class="nx">isValidResult</span><span class="p">,</span><span class="w"> </span><span class="nx">issues</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">setValidationStatus</span><span class="p">({</span><span class="w"> </span><span class="nx">isValid</span><span class="o">:</span><span class="w"> </span><span class="nx">isValidResult</span><span class="p">,</span><span class="w"> </span><span class="nx">concerns</span><span class="o">:</span><span class="w"> </span><span class="nx">issues</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="p">},</span><span class="w"> </span><span class="p">[]);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">handleSubmit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">event</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">isValid</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">onSubmit</span><span class="p">(</span><span class="nx">postContent</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">setPostContent</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Clear form on successful submit</span>
+<span class="w">      </span><span class="nx">setValidationStatus</span><span class="p">({</span><span class="w"> </span><span class="nx">isValid</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="nx">concerns</span><span class="o">:</span><span class="w"> </span><span class="p">[]</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// Reset validation</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;Please review your post content based on the guidelines.&#39;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">form</span><span class="w"> </span><span class="na">onSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">label</span><span class="w"> </span><span class="na">htmlFor</span><span class="o">=</span><span class="s">&quot;postContentInput&quot;</span><span class="p">&gt;</span><span class="nx">New</span><span class="w"> </span><span class="nx">Post</span><span class="o">:</span><span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">textarea</span>
+<span class="w">        </span><span class="na">id</span><span class="o">=</span><span class="s">&quot;postContentInput&quot;</span>
+<span class="w">        </span><span class="na">value</span><span class="o">=</span><span class="p">{</span><span class="nx">postContent</span><span class="p">}</span>
+<span class="w">        </span><span class="na">onChange</span><span class="o">=</span><span class="p">{(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setPostContent</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span><span class="p">)}</span>
+<span class="w">        </span><span class="na">rows</span><span class="o">=</span><span class="p">{</span><span class="mf">8</span><span class="p">}</span>
+<span class="w">        </span><span class="na">aria-invalid</span><span class="o">=</span><span class="p">{</span><span class="o">!</span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">isValid</span><span class="p">}</span>
+<span class="w">        </span><span class="na">aria-describedby</span><span class="o">=</span><span class="s">&quot;postValidationFeedback&quot;</span>
+<span class="w">      </span><span class="p">/&gt;</span>
+
+<span class="w">      </span><span class="p">{</span><span class="cm">/* Embed the validator - potentially debounced */</span><span class="p">}</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">CoreValuesValidator</span>
+<span class="w">        </span><span class="na">textToValidate</span><span class="o">=</span><span class="p">{</span><span class="nx">postContent</span><span class="p">}</span>
+<span class="w">        </span><span class="na">rules</span><span class="o">=</span><span class="p">{</span><span class="nx">relevantRules</span><span class="p">}</span>
+<span class="w">        </span><span class="na">onValidationResult</span><span class="o">=</span><span class="p">{</span><span class="nx">handleValidationResult</span><span class="p">}</span>
+<span class="w">        </span><span class="na">displayMode</span><span class="o">=</span><span class="s">&quot;compact&quot;</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="na">Show</span><span class="w"> </span><span class="na">only</span><span class="w"> </span><span class="na">status</span><span class="err">/</span><span class="na">icons</span><span class="w"> </span><span class="na">unless</span><span class="w"> </span><span class="na">hovered</span><span class="err">/</span><span class="na">clicked</span>
+<span class="w">        </span><span class="na">debounceTimeout</span><span class="o">=</span><span class="p">{</span><span class="mf">750</span><span class="p">}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="na">Validate</span><span class="w"> </span><span class="na">slightly</span><span class="w"> </span><span class="na">after</span><span class="w"> </span><span class="na">user</span><span class="w"> </span><span class="na">stops</span><span class="w"> </span><span class="na">typing</span>
+<span class="w">      </span><span class="p">/&gt;</span>
+
+<span class="w">      </span><span class="p">{</span><span class="cm">/* Display feedback based on validator&#39;s result */</span><span class="p">}</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">id</span><span class="o">=</span><span class="s">&quot;postValidationFeedback&quot;</span><span class="w"> </span><span class="na">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">marginTop</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;5px&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">minHeight</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;20px&#39;</span><span class="w"> </span><span class="p">}}&gt;</span>
+<span class="w">        </span><span class="p">{</span><span class="o">!</span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">isValid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">concerns</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">          </span><span class="p">&lt;</span><span class="nt">span</span><span class="w"> </span><span class="na">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;orange&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">fontSize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0.9em&#39;</span><span class="w"> </span><span class="p">}}&gt;</span>
+<span class="w">            </span><span class="p">{</span><span class="cm">/* Use a specific warning icon */</span><span class="p">}</span><span class="w"> </span><span class="err">⚠️</span><span class="w"> </span><span class="nx">Potential</span><span class="w"> </span><span class="nx">Guideline</span><span class="w"> </span><span class="nx">Issues</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">concerns</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;; &#39;</span><span class="p">)}</span>
+<span class="w">          </span><span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">)}</span>
+<span class="w">        </span><span class="p">{</span><span class="cm">/* Optionally show positive feedback when valid after typing */</span><span class="p">}</span>
+<span class="w">        </span><span class="p">{</span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">isValid</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">postContent</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">10</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">           </span><span class="p">&lt;</span><span class="nt">span</span><span class="w"> </span><span class="na">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">fontSize</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0.9em&#39;</span><span class="w"> </span><span class="p">}}&gt;</span><span class="err">✅</span><span class="w"> </span><span class="nx">Looks</span><span class="w"> </span><span class="nx">good</span><span class="p">.&lt;/</span><span class="nt">span</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">)}</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span><span class="w"> </span><span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span><span class="w"> </span><span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="o">!</span><span class="nx">validationStatus</span><span class="p">.</span><span class="nx">isValid</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">postContent</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">length</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="nx">Submit</span><span class="w"> </span><span class="nx">Post</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">CommunityPostForm</span><span class="p">;</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Explanation:</strong> The <code>CoreValuesValidator</code> is embedded directly within the form. As the user types (debounced), it validates the <code>postContent</code> against specific <code>ethicalRules</code>. The results (<code>isValid</code>, <code>issues</code>) are fed back to the parent form via the <code>onValidationResult</code> callback. The parent form then updates its state to display appropriate UI feedback (warnings, status messages) and controls the submit button's disabled state based on validation success. This provides an immediate, in-context ethical check.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-example-using-apivalidator-in-developmentdebug-mode">3. Example: Using <code>APIValidator</code> in Development/Debug Mode<a class="headerlink" href="#3-example-using-apivalidator-in-developmentdebug-mode" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To transparently show developers the details of API requests and responses during development, helping to debug communication issues and validate data against schemas.</p>
+</li>
+<li>
+<p><strong>Component Spec:</strong> <a href="../components/ui/APIValidator.md"><code>docs/components/ui_components/APIValidator.md</code></a></p>
+</li>
+<li>
+<p><strong>Scenario:</strong> A developer is working on the user profile update feature and wants to see the exact payload sent to the backend and the response received, including validation status against an expected schema.</p>
+</li>
+<li>
+<p><strong>Conceptual Implementation (API Client Wrapper &amp; Global Log):</strong></p>
+</li>
+<li>
+<p><strong>API Client Wrapper (<code>apiClient.js</code> or similar):</strong></p>
+<div class="highlight"><pre><span></span><code>```javascript
+import axios from &#39;axios&#39;;
+import { apiValidationLogStore } from &#39;./stores/apiValidationLogStore&#39;; // Example Zustand/Context store
+// import { schemas } from &#39;./config/apiSchemas&#39;; // Assume schemas are available
+
+const apiClient = axios.create({
+  baseURL: process.env.REACT_APP_BACKEND_URL || &#39;http://localhost:8000/api/v1&#39;,
+  // Other Axios config...
+});
+
+// Add interceptors ONLY in development mode
+if (process.env.NODE_ENV === &#39;development&#39;) {
+  apiClient.interceptors.request.use(request =&gt; {
+    const callData = {
+      type: &#39;request&#39;,
+      id: Date.now() + Math.random(), // Simple unique ID for the call
+      timestamp: new Date().toISOString(),
+      endpoint: request.url,
+      method: request.method?.toUpperCase(),
+      requestPayload: request.data,
+      // Find relevant schema if available based on url/method
+      // schema: schemas[request.url]?.[request.method?.toUpperCase()]?.request,
+      status: &#39;pending&#39;
+    };
+    apiValidationLogStore.getState().addLog(callData); // Add to global log store
+    request.meta = { callId: callData.id }; // Pass ID to response interceptor
+    return request;
+  });
+
+  apiClient.interceptors.response.use(response =&gt; {
+     const startTime = response.config.meta?.startTime || Date.now(); // Need to set startTime in request interceptor ideally
+     const duration = Date.now() - startTime;
+     const callData = {
+       type: &#39;response&#39;,
+       id: response.config.meta?.callId,
+       timestamp: new Date().toISOString(),
+       endpoint: response.config.url,
+       method: response.config.method?.toUpperCase(),
+       responseStatus: response.status,
+       responseBody: response.data,
+       durationMs: duration,
+       // Find relevant schema
+       // schema: schemas[response.config.url]?.[response.config.method?.toUpperCase()]?.response,
+       status: &#39;success&#39; // Or determine based on status code / response validation
+     };
+     // Perform frontend validation if needed:
+     // callData.frontendValidationStatus = validateData(response.data, callData.schema);
+     apiValidationLogStore.getState().updateLog(callData.id, callData); // Update log store
+     return response;
+  }, error =&gt; {
+     const startTime = error.config?.meta?.startTime || Date.now();
+     const duration = Date.now() - startTime;
+     const callData = {
+       type: &#39;response&#39;,
+       id: error.config?.meta?.callId,
+       timestamp: new Date().toISOString(),
+       endpoint: error.config?.url,
+       method: error.config?.method?.toUpperCase(),
+       responseStatus: error.response?.status,
+       responseBody: error.response?.data || { error: error.message },
+       durationMs: duration,
+       // Find relevant schema
+       // schema: schemas[error.config.url]?.[error.config.method?.toUpperCase()]?.errorResponse,
+       status: &#39;error&#39;
+     };
+     apiValidationLogStore.getState().updateLog(callData.id, callData);
+     return Promise.reject(error);
+  });
+}
+
+export default apiClient;
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Global Validator Display (<code>DeveloperToolsPanel.jsx</code>):</strong></p>
+<div class="highlight"><pre><span></span><code>```jsx
+import React from &#39;react&#39;;
+import APIValidator from &#39;../components/ui/APIValidator&#39;; // Adjust path
+import { useApiValidationLogStore } from &#39;./stores/apiValidationLogStore&#39;; // Example Zustand hook
+
+function DeveloperToolsPanel() {
+  const apiLogs = useApiValidationLogStore(state =&gt; state.logs);
+
+  // Only render in development
+  if (process.env.NODE_ENV !== &#39;development&#39;) {
+    return null;
+  }
+
+  return (
+    &lt;div className=&quot;dev-tools-panel&quot; style={{ border: &#39;2px solid red&#39;, position: &#39;fixed&#39;, bottom: 0, right: 0, maxHeight: &#39;300px&#39;, overflowY: &#39;auto&#39;, background: &#39;lightgray&#39;, zIndex: 9999 }}&gt;
+      &lt;h3&gt;API Call Log (Dev Mode)&lt;/h3&gt;
+      {apiLogs.length === 0 &amp;&amp; &lt;p&gt;No API calls logged yet.&lt;/p&gt;}
+      {apiLogs.slice(-10).reverse().map(log =&gt; ( // Show last 10, newest first
+         // The APIValidator component now takes structured log data
+         &lt;APIValidator key={log.id} apiCallData={log} /&gt;
+      ))}
+    &lt;/div&gt;
+  );
+}
+
+export default DeveloperToolsPanel;
+
+// Include &lt;DeveloperToolsPanel /&gt; somewhere in your main App layout
+```
+</code></pre></div>
+</li>
+<li>
+<p><strong>Explanation:</strong> This setup uses Axios interceptors (a common pattern) to automatically capture request/response data <em>only</em> in development mode. It stores this log data in a global state (e.g., using Zustand or React Context). A dedicated <code>DeveloperToolsPanel</code> component subscribes to this store and renders each log entry using the <code>APIValidator</code> component, providing a live feed of API interactions for the developer. The <code>APIValidator</code> itself focuses purely on displaying the structured <code>apiCallData</code> it receives.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-example-using-datatraceability-for-ai-recommendation-insight">4. Example: Using <code>DataTraceability</code> for AI Recommendation Insight<a class="headerlink" href="#4-example-using-datatraceability-for-ai-recommendation-insight" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p><strong>Purpose:</strong> To provide users with transparency into <em>why</em> a specific recommendation (e.g., a potential match in Mode 2, a suggested community in Mode 3) was made by an AI model.</p>
+</li>
+<li>
+<p><strong>Component Spec:</strong> <a href="../components/ui/DataTraceability.md"><code>docs/components/ui_components/DataTraceability.md</code></a></p>
+</li>
+<li>
+<p><strong>Scenario:</strong> A user sees a suggested community ("Ethical Tech Collaborators") in Mode 3 and wants to understand which of their profile values or activities led to this suggestion.</p>
+</li>
+<li>
+<p><strong>Conceptual React Implementation:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="nx">React</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useState</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">DataTraceability</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;../components/ui/DataTraceability&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Adjust path</span>
+<span class="k">import</span><span class="w"> </span><span class="nx">apiClient</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;./services/apiClient&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Your API client instance</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">CommunityRecommendation</span><span class="p">({</span><span class="w"> </span><span class="nx">recommendation</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">showTrace</span><span class="p">,</span><span class="w"> </span><span class="nx">setShowTrace</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">traceData</span><span class="p">,</span><span class="w"> </span><span class="nx">setTraceData</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">isLoadingTrace</span><span class="p">,</span><span class="w"> </span><span class="nx">setIsLoadingTrace</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">fetchTraceability</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">traceData</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// Toggle if already loaded</span>
+<span class="w">      </span><span class="nx">setShowTrace</span><span class="p">(</span><span class="o">!</span><span class="nx">showTrace</span><span class="p">);</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">setIsLoadingTrace</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// Assume API endpoint provides traceability data for a specific recommendation ID</span>
+<span class="w">      </span><span class="kd">const</span><span class="w"> </span><span class="nx">response</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">apiClient</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="sb">`/recommendations/community/</span><span class="si">${</span><span class="nx">recommendation</span><span class="p">.</span><span class="nx">id</span><span class="si">}</span><span class="sb">/trace`</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">setTraceData</span><span class="p">(</span><span class="nx">response</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span><span class="w"> </span><span class="c1">// Expects graphData format for the component</span>
+<span class="w">      </span><span class="nx">setShowTrace</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Failed to fetch traceability data:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">error</span><span class="p">);</span>
+<span class="w">      </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;Could not load traceability information.&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">finally</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">setIsLoadingTrace</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">};</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;community-card&quot;</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;{</span><span class="nx">recommendation</span><span class="p">.</span><span class="nx">name</span><span class="p">}&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;{</span><span class="nx">recommendation</span><span class="p">.</span><span class="nx">description</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="nx">Reason</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">recommendation</span><span class="p">.</span><span class="nx">reason</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;Based on your profile&#39;</span><span class="p">}&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">&lt;</span><span class="nt">button</span><span class="w"> </span><span class="na">onClick</span><span class="o">=</span><span class="p">{</span><span class="nx">fetchTraceability</span><span class="p">}</span><span class="w"> </span><span class="na">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">isLoadingTrace</span><span class="p">}&gt;</span>
+<span class="w">        </span><span class="p">{</span><span class="nx">isLoadingTrace</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Loading...&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span><span class="nx">showTrace</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Hide Details&#39;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Why was this recommended?&#39;</span><span class="p">)}</span>
+<span class="w">      </span><span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+<span class="w">      </span><span class="p">{</span><span class="nx">showTrace</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">traceData</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="p">&lt;</span><span class="nt">div</span><span class="w"> </span><span class="na">className</span><span class="o">=</span><span class="s">&quot;traceability-details&quot;</span><span class="w"> </span><span class="na">style</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">marginTop</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;10px&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">border</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;1px solid #ccc&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">padding</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;10px&#39;</span><span class="w"> </span><span class="p">}}&gt;</span>
+<span class="w">          </span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;</span><span class="nx">Data</span><span class="w"> </span><span class="nx">Traceability</span><span class="o">:</span><span class="p">&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+<span class="w">          </span><span class="p">&lt;</span><span class="nt">DataTraceability</span>
+<span class="w">              </span><span class="na">graphData</span><span class="o">=</span><span class="p">{</span><span class="nx">traceData</span><span class="p">}</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="na">Pass</span><span class="w"> </span><span class="na">the</span><span class="w"> </span><span class="na">fetched</span><span class="w"> </span><span class="na">graph</span><span class="w"> </span><span class="na">data</span>
+<span class="w">              </span><span class="na">visualizationConfig</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="cm">/* Optional custom config */</span><span class="w"> </span><span class="p">}}</span>
+<span class="w">          </span><span class="p">/&gt;</span>
+<span class="w">           </span><span class="p">{</span><span class="cm">/* Link to detailed usage examples */</span><span class="p">}</span>
+<span class="w">           </span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">small</span><span class="p">&gt;</span><span class="nx">See</span><span class="w"> </span><span class="nx">examples</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="sb">`docs/guides/examples/DataTraceability_Usage_Examples.md`</span><span class="p">](..</span><span class="o">/</span><span class="nx">guides</span><span class="o">/</span><span class="nx">examples</span><span class="o">/</span><span class="nx">DataTraceability_Usage_Examples</span><span class="p">.</span><span class="nx">md</span><span class="p">)&lt;/</span><span class="nt">small</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">      </span><span class="p">)}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="w">  </span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="nx">CommunityRecommendation</span><span class="p">;</span>
+</code></pre></div>
+</li>
+<li>
+<p><strong>Explanation:</strong> This component displays a community recommendation. A button allows the user to fetch and view the traceability data <em>on demand</em>. When clicked, it calls a hypothetical backend endpoint (<code>/recommendations/.../trace</code>) that returns data specifically formatted for the <code>DataTraceability</code> component (nodes representing user values/activities, edges representing influence, potentially weighted). The <code>DataTraceability</code> component then renders this graph, making the AI's reasoning transparent to the user.</p>
+</li>
+</ul>
+<hr />
+<p>These examples illustrate how ThinkAlike's validation-focused UI components can be practically integrated into the development workflow to enforce standards, provide feedback, and enhance transparency, truly embodying the "UI as Validation Framework" principle. Remember to consult the specific component documentation for detailed props and usage.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

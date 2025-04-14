@@ -1,0 +1,2332 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ThinkAlike project">
+      
+      
+      
+        <link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/guides/developer_guides/deployment_guidelines/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Deployment Guidelines - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deployment-guidelines" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deployment Guidelines
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-tabs__link">
+          
+  
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../vision/core_concepts/" class="md-tabs__link">
+          
+  
+  
+  Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../architecture/architectural_overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../code_style_guide/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../devops/devops_workflow.md" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightenment 2.0 Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/ethics/ethical_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethical Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/onboarding_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/blockchain_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/architectural_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architectural Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/api/api_endpoints_mode2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Endpoints (Mode 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../code_style_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_backend_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Backend Endpoint Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../building_ui_component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building UI Component Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ui_validation_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow Standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/github_actions_workflow_format.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions Workflow Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/devops_workflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DevOps Workflow Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devops/ci_cd_workflow_reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-deployment-environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Deployment Environments
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Deployment Environments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-environment-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 Environment Types
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-environment-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 Environment Configuration
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-containerization" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Containerization
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Containerization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-docker-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1 Docker Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-example-dockerfile-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2 Example Dockerfile (Backend)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-example-docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3 Example Docker Compose
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-cicd-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. CI/CD Pipeline
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. CI/CD Pipeline">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-pipeline-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1 Pipeline Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-example-github-actions-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2 Example GitHub Actions Workflow
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-infrastructure-as-code-iac" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Infrastructure as Code (IaC)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Infrastructure as Code (IaC)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-terraform-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 Terraform Configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-iac-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 IaC Best Practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-deployment-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Deployment Strategies
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Deployment Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-available-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Available Strategies
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-strategy-selection-criteria" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Strategy Selection Criteria
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-database-migrations" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Database Migrations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Database Migrations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-migration-principles" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 Migration Principles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-migration-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 Migration Process
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-database-migration-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3 Database Migration Guidelines
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-monitoring-and-observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Monitoring and Observability
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Monitoring and Observability">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-monitoring-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1 Monitoring Components
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-observability-stack" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2 Observability Stack
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-rollback-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Rollback Procedures
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. Rollback Procedures">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91-automated-rollbacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1 Automated Rollbacks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92-manual-rollback-procedures" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2 Manual Rollback Procedures
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Security Considerations
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Security Considerations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-deployment-security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.1 Deployment Security Checklist
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102-secret-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      10.2 Secret Management
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-documentation-and-runbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Documentation and Runbooks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Documentation and Runbooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#111-required-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.1 Required Documentation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#112-incident-response-runbooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.2 Incident Response Runbooks
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="deployment-guidelines">Deployment Guidelines<a class="headerlink" href="#deployment-guidelines" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<p>This document outlines the deployment standards and practices for the ThinkAlike project. Following these guidelines ensures consistent, reliable, and secure deployments across all environments. These practices apply to all components of the ThinkAlike platform, including backend services, frontend applications, and supporting infrastructure.</p>
+<hr />
+<h2 id="2-deployment-environments">2. Deployment Environments<a class="headerlink" href="#2-deployment-environments" title="Permanent link">&para;</a></h2>
+<p>ThinkAlike uses multiple environments to ensure quality and stability:</p>
+<h3 id="21-environment-types">2.1 Environment Types<a class="headerlink" href="#21-environment-types" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Development (dev)</strong>: For individual developers to test changes</p>
+</li>
+<li>
+<p>Ephemeral environments, often local or per-developer cloud instances</p>
+</li>
+<li>
+<p>May use mock services for external dependencies</p>
+</li>
+<li>
+<p>Non-critical data, can be reset as needed</p>
+</li>
+<li>
+<p><strong>Testing/QA</strong>: For thorough testing of changes before staging</p>
+</li>
+<li>
+<p>Shared environment for QA team</p>
+</li>
+<li>
+<p>Integrated with automated testing</p>
+</li>
+<li>
+<p>Refreshed with anonymized production data periodically</p>
+</li>
+<li>
+<p><strong>Staging</strong>: Production-like environment for final verification</p>
+</li>
+<li>
+<p>Mirrors production configuration</p>
+</li>
+<li>
+<p>Used for UAT (User Acceptance Testing)</p>
+</li>
+<li>
+<p>Final testing ground for deployment processes</p>
+</li>
+<li>
+<p>Regular data sync with production (anonymized if necessary)</p>
+</li>
+<li>
+<p><strong>Production</strong>: Live environment serving real users</p>
+</li>
+<li>
+<p>Highest security, stability, and performance requirements</p>
+</li>
+<li>
+<p>Strict access controls</p>
+</li>
+<li>
+<p>Comprehensive monitoring and alerting</p>
+</li>
+</ul>
+<h3 id="22-environment-configuration">2.2 Environment Configuration<a class="headerlink" href="#22-environment-configuration" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Use environment variables for configuration</p>
+</li>
+<li>
+<p>Store secrets in secure services (AWS Secrets Manager, HashiCorp Vault)</p>
+</li>
+<li>
+<p>Document required configuration for each environment</p>
+</li>
+<li>
+<p>Maintain parity between environments where possible</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code># Example environment variable schema
+
+# .env.example (Do not include actual values in version control)
+
+# App Configuration
+
+APP_ENV=development|testing|staging|production
+APP_DEBUG=true|false
+APP_PORT=3000
+
+# Database Configuration
+
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=thinkalike
+DB_USER=dbuser
+DB_PASSWORD=secretpassword
+
+# API Configuration
+
+API_TIMEOUT_MS=5000
+API_RATE_LIMIT=100
+
+# Authentication
+
+AUTH_SECRET_KEY=secret
+AUTH_TOKEN_EXPIRY=86400
+
+# External Services
+
+ML_SERVICE_URL=http://ml-service:8080
+ANALYTICS_API_KEY=apikey
+</code></pre></div>
+<hr />
+<h2 id="3-containerization">3. Containerization<a class="headerlink" href="#3-containerization" title="Permanent link">&para;</a></h2>
+<p>ThinkAlike services are containerized using Docker for consistency across environments:</p>
+<h3 id="31-docker-best-practices">3.1 Docker Best Practices<a class="headerlink" href="#31-docker-best-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Use specific version tags for base images, not <code>latest</code></p>
+</li>
+<li>
+<p>Implement multi-stage builds to minimize image size</p>
+</li>
+<li>
+<p>Include only necessary files in the container</p>
+</li>
+<li>
+<p>Run containers as non-root users</p>
+</li>
+<li>
+<p>Set appropriate resource limits</p>
+</li>
+<li>
+<p>Scan images for vulnerabilities before deployment</p>
+</li>
+</ul>
+<h3 id="32-example-dockerfile-backend">3.2 Example Dockerfile (Backend)<a class="headerlink" href="#32-example-dockerfile-backend" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c"># Build stage</span>
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10-slim</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">builder</span>
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Install dependencies</span>
+
+<span class="k">COPY</span><span class="w"> </span>requirements.txt<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>wheel<span class="w"> </span>--no-cache-dir<span class="w"> </span>--no-deps<span class="w"> </span>--wheel-dir<span class="w"> </span>/app/wheels<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+
+<span class="c"># Runtime stage</span>
+
+<span class="k">FROM</span><span class="w"> </span><span class="s">python:3.10-slim</span>
+
+<span class="c"># Create non-root user</span>
+
+<span class="k">RUN</span><span class="w"> </span>groupadd<span class="w"> </span>-g<span class="w"> </span><span class="m">1001</span><span class="w"> </span>appuser<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>useradd<span class="w"> </span>-r<span class="w"> </span>-u<span class="w"> </span><span class="m">1001</span><span class="w"> </span>-g<span class="w"> </span>appuser<span class="w"> </span>appuser
+
+<span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+
+<span class="c"># Install dependencies</span>
+
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/app/wheels<span class="w"> </span>/wheels
+<span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>builder<span class="w"> </span>/app/requirements.txt<span class="w"> </span>.
+<span class="k">RUN</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--no-cache<span class="w"> </span>/wheels/*
+
+<span class="c"># Copy application code</span>
+
+<span class="k">COPY</span><span class="w"> </span>./app<span class="w"> </span>./app
+
+<span class="c"># Set permissions</span>
+
+<span class="k">RUN</span><span class="w"> </span>chown<span class="w"> </span>-R<span class="w"> </span>appuser:appuser<span class="w"> </span>/app
+<span class="k">USER</span><span class="w"> </span><span class="s">appuser</span>
+
+<span class="c"># Configure environment</span>
+
+<span class="k">EXPOSE</span><span class="w"> </span><span class="s">8000</span>
+<span class="k">ENV</span><span class="w"> </span><span class="nv">PYTHONUNBUFFERED</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c"># Run the application</span>
+
+<span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;uvicorn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.main:app&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--host&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;--port&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;8000&quot;</span><span class="p">]</span>
+</code></pre></div>
+<h3 id="33-example-docker-compose">3.3 Example Docker Compose<a class="headerlink" href="#33-example-docker-compose" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.8&#39;</span>
+
+<span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">api</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./backend</span>
+<span class="w">      </span><span class="nt">dockerfile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dockerfile</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="s">&quot;8000:8000&quot;</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_HOST=db</span>
+
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">* DB_PORT=5432</span>
+
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">* DB_NAME=thinkalike</span>
+
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">* DB_USER=${DB_USER}</span>
+
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">* DB_PASSWORD=${DB_PASSWORD}</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;curl&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-f&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;http://localhost:8000/health&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30s</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+
+<span class="w">  </span><span class="nt">frontend</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./frontend</span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="s">&quot;3000:80&quot;</span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:14-alpine</span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres_data:/var/lib/postgresql/data</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+
+<span class="w">      </span><span class="err">*</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">POSTGRES_USER=${DB_USER}</span>
+
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">* POSTGRES_PASSWORD=${DB_PASSWORD}</span>
+
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">* POSTGRES_DB=thinkalike</span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unless-stopped</span>
+<span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pg_isready&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;-U&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;${DB_USER}&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10s</span>
+<span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+<span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+
+<span class="nt">volumes</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgres_data</span><span class="p">:</span>
+</code></pre></div>
+<hr />
+<h2 id="4-cicd-pipeline">4. CI/CD Pipeline<a class="headerlink" href="#4-cicd-pipeline" title="Permanent link">&para;</a></h2>
+<p>ThinkAlike uses automated CI/CD pipelines for consistent and reliable deployments:</p>
+<h3 id="41-pipeline-components">4.1 Pipeline Components<a class="headerlink" href="#41-pipeline-components" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Continuous Integration (CI)</strong></p>
+</li>
+<li>
+<p>Code linting and style checks</p>
+</li>
+<li>
+<p>Unit and integration testing</p>
+</li>
+<li>
+<p>Security vulnerability scanning</p>
+</li>
+<li>
+<p>Build artifacts (Docker images, etc.)</p>
+</li>
+<li>
+<p><strong>Continuous Deployment (CD)</strong></p>
+</li>
+<li>
+<p>Automated deployment to appropriate environments</p>
+</li>
+<li>
+<p>Post-deployment testing</p>
+</li>
+<li>
+<p>Rollback capability if issues detected</p>
+</li>
+</ul>
+<h3 id="42-example-github-actions-workflow">4.2 Example GitHub Actions Workflow<a class="headerlink" href="#42-example-github-actions-workflow" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI/CD Pipeline</span>
+
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">develop</span><span class="w"> </span><span class="p p-Indicator">]</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">test</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Python</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v4</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">python-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3.10&#39;</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">          </span><span class="no">pip install -r requirements.txt</span>
+<span class="w">          </span><span class="no">pip install -r requirements-dev.txt</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Lint with flake8</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test with pytest</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">run</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest --cov=app tests/</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Upload coverage to Codecov</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">codecov/codecov-action@v3</span>
+
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.event_name == &#39;push&#39;</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v3</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up Docker Buildx</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/setup-buildx-action@v2</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Login to DockerHub</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/login-action@v2</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_USERNAME }}</span>
+<span class="w">          </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.DOCKERHUB_TOKEN }}</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build and push</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker/build-push-action@v4</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">          </span><span class="nt">tags</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thinkalike/api:${{ github.sha }},thinkalike/api:latest</span>
+<span class="w">          </span><span class="nt">cache-from</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type=registry,ref=thinkalike/api:latest</span>
+<span class="w">          </span><span class="nt">cache-to</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">type=inline</span>
+
+<span class="w">  </span><span class="nt">deploy-staging</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/develop&#39;</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Staging</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/ssh-action@master</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.STAGING_HOST }}</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.STAGING_USERNAME }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.STAGING_SSH_KEY }}</span>
+<span class="w">          </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">cd /opt/thinkalike</span>
+<span class="w">            </span><span class="no">docker-compose pull</span>
+<span class="w">            </span><span class="no">docker-compose up -d</span>
+
+<span class="w">  </span><span class="nt">deploy-production</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">if</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">github.ref == &#39;refs/heads/main&#39;</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://thinkalike.com</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to Production</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">uses</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">appleboy/ssh-action@master</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">with</span><span class="p p-Indicator">:</span>
+<span class="w">          </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PROD_HOST }}</span>
+<span class="w">          </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PROD_USERNAME }}</span>
+<span class="w">          </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.PROD_SSH_KEY }}</span>
+<span class="w">          </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">cd /opt/thinkalike</span>
+<span class="w">            </span><span class="no">docker-compose pull</span>
+<span class="w">            </span><span class="no">docker-compose up -d</span>
+</code></pre></div>
+<hr />
+<h2 id="5-infrastructure-as-code-iac">5. Infrastructure as Code (IaC)<a class="headerlink" href="#5-infrastructure-as-code-iac" title="Permanent link">&para;</a></h2>
+<p>ThinkAlike uses Infrastructure as Code to manage and provision resources:</p>
+<h3 id="51-terraform-configuration">5.1 Terraform Configuration<a class="headerlink" href="#51-terraform-configuration" title="Permanent link">&para;</a></h3>
+<p>All cloud resources are defined and managed using Terraform:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example Terraform configuration for AWS resources</span>
+
+<span class="kr">provider</span><span class="w"> </span><span class="nv">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">region</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;us-west-2&quot;</span>
+<span class="p">}</span>
+
+<span class="kr">module</span><span class="w"> </span><span class="nv">&quot;vpc&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform-aws-modules/vpc/aws&quot;</span>
+<span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.14.0&quot;</span>
+
+<span class="w">  </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;thinkalike-${var.environment}&quot;</span>
+<span class="w">  </span><span class="na">cidr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;10.0.0.0/16&quot;</span>
+
+<span class="w">  </span><span class="na">azs</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;us-west-2a&quot;, &quot;us-west-2b&quot;, &quot;us-west-2c&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="na">private_subnets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;10.0.1.0/24&quot;, &quot;10.0.2.0/24&quot;, &quot;10.0.3.0/24&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="na">public_subnets</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;10.0.101.0/24&quot;, &quot;10.0.102.0/24&quot;, &quot;10.0.103.0/24&quot;</span><span class="p">]</span>
+
+<span class="w">  </span><span class="na">enable_nat_gateway</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+<span class="w">  </span><span class="na">single_nat_gateway</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">!=</span><span class="w"> </span><span class="s2">&quot;production&quot;</span>
+
+<span class="w">  </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">Environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span>
+<span class="w">    </span><span class="na">Project</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;thinkalike&quot;</span>
+<span class="w">    </span><span class="na">ManagedBy</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">module</span><span class="w"> </span><span class="nv">&quot;ecs&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="na">source</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform-aws-modules/ecs/aws&quot;</span>
+<span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;3.5.0&quot;</span>
+
+<span class="w">  </span><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;thinkalike-${var.environment}&quot;</span>
+
+<span class="w">  </span><span class="na">container_insights</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">&quot;production&quot;</span>
+
+<span class="w">  </span><span class="na">capacity_providers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;FARGATE&quot;, &quot;FARGATE_SPOT&quot;</span><span class="p">]</span>
+<span class="w">  </span><span class="na">default_capacity_provider_strategy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="na">capacity_provider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">&quot;production&quot; ? &quot;FARGATE&quot; : &quot;FARGATE_SPOT&quot;</span>
+<span class="w">      </span><span class="na">weight</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+
+<span class="w">  </span><span class="nb">tags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="na">Environment</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span>
+<span class="w">    </span><span class="na">Project</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;thinkalike&quot;</span>
+<span class="w">    </span><span class="na">ManagedBy</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;terraform&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Additional resources like RDS, Elasticache, etc.</span>
+</code></pre></div>
+<h3 id="52-iac-best-practices">5.2 IaC Best Practices<a class="headerlink" href="#52-iac-best-practices" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Store IaC in version control</p>
+</li>
+<li>
+<p>Use modules for reusable components</p>
+</li>
+<li>
+<p>Implement state locking for collaborative environments</p>
+</li>
+<li>
+<p>Use remote state storage (e.g., S3 with DynamoDB)</p>
+</li>
+<li>
+<p>Separate state files by environment</p>
+</li>
+<li>
+<p>Include documentation within code</p>
+</li>
+<li>
+<p>Review IaC changes like regular code</p>
+</li>
+</ul>
+<hr />
+<h2 id="6-deployment-strategies">6. Deployment Strategies<a class="headerlink" href="#6-deployment-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="61-available-strategies">6.1 Available Strategies<a class="headerlink" href="#61-available-strategies" title="Permanent link">&para;</a></h3>
+<p>ThinkAlike uses different deployment strategies depending on the context:</p>
+<ul>
+<li>
+<p><strong>Blue/Green Deployment</strong></p>
+</li>
+<li>
+<p>Two identical environments: "Blue" (current) and "Green" (new)</p>
+</li>
+<li>
+<p>Deploy to Green, test, then switch traffic from Blue to Green</p>
+</li>
+<li>
+<p>Enables quick rollback by switching back to Blue</p>
+</li>
+<li>
+<p>Used for major releases with significant changes</p>
+</li>
+<li>
+<p><strong>Canary Deployment</strong></p>
+</li>
+<li>
+<p>Gradual rollout to a subset of users/servers</p>
+</li>
+<li>
+<p>Monitor for issues before full deployment</p>
+</li>
+<li>
+<p>Used for features with uncertain impact or performance implications</p>
+</li>
+<li>
+<p><strong>Rolling Deployment</strong></p>
+</li>
+<li>
+<p>Update instances incrementally in small batches</p>
+</li>
+<li>
+<p>Ensures service availability during deployment</p>
+</li>
+<li>
+<p>Standard approach for routine updates</p>
+</li>
+</ul>
+<h3 id="62-strategy-selection-criteria">6.2 Strategy Selection Criteria<a class="headerlink" href="#62-strategy-selection-criteria" title="Permanent link">&para;</a></h3>
+<p>Choose deployment strategies based on:</p>
+<ul>
+<li>
+<p>Risk level of the change</p>
+</li>
+<li>
+<p>Impact of potential issues</p>
+</li>
+<li>
+<p>Urgency of the deployment</p>
+</li>
+<li>
+<p>Availability requirements</p>
+</li>
+<li>
+<p>Environment (staging vs production)</p>
+</li>
+</ul>
+<hr />
+<h2 id="7-database-migrations">7. Database Migrations<a class="headerlink" href="#7-database-migrations" title="Permanent link">&para;</a></h2>
+<h3 id="71-migration-principles">7.1 Migration Principles<a class="headerlink" href="#71-migration-principles" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Versioned</strong>: All database changes should be versioned</p>
+</li>
+<li>
+<p><strong>Automated</strong>: Migrations should run automatically during deployment</p>
+</li>
+<li>
+<p><strong>Incremental</strong>: Each migration should be small and focused</p>
+</li>
+<li>
+<p><strong>Backward Compatible</strong>: Database changes should not break previous versions</p>
+</li>
+<li>
+<p><strong>Idempotent</strong>: Safe to run multiple times</p>
+</li>
+</ul>
+<h3 id="72-migration-process">7.2 Migration Process<a class="headerlink" href="#72-migration-process" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example migration using Alembic for Python/SQLAlchemy</span>
+
+<span class="sd">&quot;&quot;&quot;add user preferences table</span>
+
+<span class="sd">Revision ID: a1b2c3d4e5f6</span>
+<span class="sd">Revises: g7h8i9j0k1l2</span>
+<span class="sd">Create Date: 2023-01-15 10:30:00.000000</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">alembic</span><span class="w"> </span><span class="kn">import</span> <span class="n">op</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sqlalchemy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sa</span>
+
+<span class="c1"># revision identifiers</span>
+
+<span class="n">revision</span> <span class="o">=</span> <span class="s1">&#39;a1b2c3d4e5f6&#39;</span>
+<span class="n">down_revision</span> <span class="o">=</span> <span class="s1">&#39;g7h8i9j0k1l2&#39;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">upgrade</span><span class="p">():</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">create_table</span><span class="p">(</span>
+        <span class="s1">&#39;user_preferences&#39;</span><span class="p">,</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Integer</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;preference_key&#39;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">String</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;preference_value&#39;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">Text</span><span class="p">(),</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">server_default</span><span class="o">=</span><span class="n">sa</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">now</span><span class="p">()),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">Column</span><span class="p">(</span><span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="n">sa</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(),</span> <span class="n">server_default</span><span class="o">=</span><span class="n">sa</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">onupdate</span><span class="o">=</span><span class="n">sa</span><span class="o">.</span><span class="n">func</span><span class="o">.</span><span class="n">now</span><span class="p">()),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">PrimaryKeyConstraint</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">ForeignKeyConstraint</span><span class="p">([</span><span class="s1">&#39;user_id&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;users.id&#39;</span><span class="p">],</span> <span class="n">ondelete</span><span class="o">=</span><span class="s1">&#39;CASCADE&#39;</span><span class="p">),</span>
+        <span class="n">sa</span><span class="o">.</span><span class="n">UniqueConstraint</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;preference_key&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;uq_user_preference&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">create_index</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="s1">&#39;ix_user_preferences_user_id&#39;</span><span class="p">),</span> <span class="s1">&#39;user_preferences&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">downgrade</span><span class="p">():</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">drop_index</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">f</span><span class="p">(</span><span class="s1">&#39;ix_user_preferences_user_id&#39;</span><span class="p">),</span> <span class="n">table_name</span><span class="o">=</span><span class="s1">&#39;user_preferences&#39;</span><span class="p">)</span>
+    <span class="n">op</span><span class="o">.</span><span class="n">drop_table</span><span class="p">(</span><span class="s1">&#39;user_preferences&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="73-database-migration-guidelines">7.3 Database Migration Guidelines<a class="headerlink" href="#73-database-migration-guidelines" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Test migrations thoroughly in development and staging</p>
+</li>
+<li>
+<p>Include rollback procedures for all migrations</p>
+</li>
+<li>
+<p>Consider performance impact for large tables</p>
+</li>
+<li>
+<p>Schedule complex migrations during off-peak hours</p>
+</li>
+<li>
+<p>Back up the database before applying migrations in production</p>
+</li>
+</ul>
+<hr />
+<h2 id="8-monitoring-and-observability">8. Monitoring and Observability<a class="headerlink" href="#8-monitoring-and-observability" title="Permanent link">&para;</a></h2>
+<h3 id="81-monitoring-components">8.1 Monitoring Components<a class="headerlink" href="#81-monitoring-components" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Application Performance Monitoring (APM)</strong></p>
+</li>
+<li>
+<p>Response times</p>
+</li>
+<li>
+<p>Error rates</p>
+</li>
+<li>
+<p>Throughput</p>
+</li>
+<li>
+<p><strong>Infrastructure Monitoring</strong></p>
+</li>
+<li>
+<p>CPU, memory, disk usage</p>
+</li>
+<li>
+<p>Network traffic</p>
+</li>
+<li>
+<p>Container health</p>
+</li>
+<li>
+<p><strong>Log Management</strong></p>
+</li>
+<li>
+<p>Centralized logging</p>
+</li>
+<li>
+<p>Log search and visualization</p>
+</li>
+<li>
+<p>Retention policies</p>
+</li>
+<li>
+<p><strong>Alerting</strong></p>
+</li>
+<li>
+<p>Alert thresholds</p>
+</li>
+<li>
+<p>On-call rotations</p>
+</li>
+<li>
+<p>Escalation procedures</p>
+</li>
+</ul>
+<h3 id="82-observability-stack">8.2 Observability Stack<a class="headerlink" href="#82-observability-stack" title="Permanent link">&para;</a></h3>
+<p>ThinkAlike uses the following observability tools:</p>
+<ul>
+<li>
+<p>Prometheus for metrics collection</p>
+</li>
+<li>
+<p>Grafana for visualization</p>
+</li>
+<li>
+<p>ELK Stack for log aggregation</p>
+</li>
+<li>
+<p>PagerDuty for alerting and on-call management</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example Prometheus configuration</span>
+
+<span class="nt">global</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+<span class="w">  </span><span class="nt">evaluation_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
+
+<span class="nt">scrape_configs</span><span class="p">:</span>
+
+<span class="w">  </span><span class="nt">* job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;api&#39;</span>
+<span class="w">    </span><span class="nt">metrics_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;/metrics&#39;</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;api:8000&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="w">  </span><span class="nt">* job_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;node-exporter&#39;</span>
+<span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* targets</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;node-exporter:9100&#39;</span><span class="p p-Indicator">]</span>
+
+<span class="nt">alerting</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">alertmanagers</span><span class="p">:</span>
+
+<span class="w">    </span><span class="nt">* static_configs</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* targets</span><span class="p">:</span>
+
+<span class="w">        </span><span class="err">*</span><span class="w"> </span><span class="s">&#39;alertmanager:9093&#39;</span>
+
+<span class="nt">rule_files</span><span class="p">:</span>
+
+<span class="w">  </span><span class="err">*</span><span class="w"> </span><span class="s">&quot;/etc/prometheus/rules/*.rules&quot;</span>
+</code></pre></div>
+<hr />
+<h2 id="9-rollback-procedures">9. Rollback Procedures<a class="headerlink" href="#9-rollback-procedures" title="Permanent link">&para;</a></h2>
+<h3 id="91-automated-rollbacks">9.1 Automated Rollbacks<a class="headerlink" href="#91-automated-rollbacks" title="Permanent link">&para;</a></h3>
+<p>Configure automated rollbacks based on health checks:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example Kubernetes rollout strategy</span>
+
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apps/v1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deployment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thinkalike-api</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thinkalike-api</span>
+<span class="w">  </span><span class="nt">strategy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RollingUpdate</span>
+<span class="w">    </span><span class="nt">rollingUpdate</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">maxSurge</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">      </span><span class="nt">maxUnavailable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<span class="w">  </span><span class="nt">minReadySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">  </span><span class="nt">revisionHistoryLimit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">  </span><span class="nt">template</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">metadata</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">labels</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thinkalike-api</span>
+<span class="w">    </span><span class="nt">spec</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">containers</span><span class="p">:</span>
+
+<span class="w">      </span><span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">image</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">thinkalike/api:latest</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">ports</span><span class="p p-Indicator">:</span>
+
+<span class="w">        </span><span class="nt">* containerPort</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8000</span>
+<span class="w">        </span><span class="nt">livenessProbe</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/health</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8000</span>
+<span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+<span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
+<span class="w">        </span><span class="nt">readinessProbe</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/ready</span>
+<span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8000</span>
+<span class="w">          </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+</code></pre></div>
+<h3 id="92-manual-rollback-procedures">9.2 Manual Rollback Procedures<a class="headerlink" href="#92-manual-rollback-procedures" title="Permanent link">&para;</a></h3>
+<p>For situations requiring manual rollback:</p>
+<ol>
+<li><strong>Identify the Problem</strong>: Confirm that a rollback is necessary</li>
+<li><strong>Communicate</strong>: Notify team members about the rollback</li>
+<li><strong>Execute Rollback</strong>: Deploy the previous known-good version</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example rollback command for Docker Compose</span>
+
+docker-compose<span class="w"> </span>down
+git<span class="w"> </span>checkout<span class="w"> </span>v1.2.3<span class="w">  </span><span class="c1"># Previous stable version</span>
+
+docker-compose<span class="w"> </span>build
+docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</code></pre></div>
+<ol>
+<li><strong>Verify</strong>: Confirm that the rollback resolves the issue</li>
+<li><strong>Root Cause Analysis</strong>: Investigate what went wrong</li>
+<li><strong>Document</strong>: Record the incident and resolution</li>
+</ol>
+<hr />
+<h2 id="10-security-considerations">10. Security Considerations<a class="headerlink" href="#10-security-considerations" title="Permanent link">&para;</a></h2>
+<h3 id="101-deployment-security-checklist">10.1 Deployment Security Checklist<a class="headerlink" href="#101-deployment-security-checklist" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Scan container images for vulnerabilities</p>
+</li>
+<li>
+<p>Implement network security controls</p>
+</li>
+<li>
+<p>Rotate secrets regularly</p>
+</li>
+<li>
+<p>Use least-privilege accounts for deployments</p>
+</li>
+<li>
+<p>Implement audit logging for all deployment actions</p>
+</li>
+<li>
+<p>Enable encryption for data in transit and at rest</p>
+</li>
+<li>
+<p>Configure Web Application Firewall (WAF) protection</p>
+</li>
+</ul>
+<h3 id="102-secret-management">10.2 Secret Management<a class="headerlink" href="#102-secret-management" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Use a dedicated secret management solution</p>
+</li>
+<li>
+<p>Never commit secrets to version control</p>
+</li>
+<li>
+<p>Rotate secrets regularly</p>
+</li>
+<li>
+<p>Implement access controls for secrets</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example Vault configuration for secret management</span>
+
+<span class="nt">api_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+
+<span class="nt">auth</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+<span class="w">  </span><span class="nt">mount_path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">auth/kubernetes</span>
+<span class="w">  </span><span class="nt">config</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">role</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;api-role&quot;</span>
+
+<span class="nt">secrets</span><span class="p">:</span>
+
+<span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECRET_KEY</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/thinkalike/api</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret_key</span>
+
+<span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">DB_PASSWORD</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/thinkalike/db</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
+
+<span class="nt">* name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">API_TOKENS</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">secret/data/thinkalike/integrations</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">key</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api_tokens</span>
+</code></pre></div>
+<hr />
+<h2 id="11-documentation-and-runbooks">11. Documentation and Runbooks<a class="headerlink" href="#11-documentation-and-runbooks" title="Permanent link">&para;</a></h2>
+<h3 id="111-required-documentation">11.1 Required Documentation<a class="headerlink" href="#111-required-documentation" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>System architecture diagrams</p>
+</li>
+<li>
+<p>Deployment workflows</p>
+</li>
+<li>
+<p>Environment configurations</p>
+</li>
+<li>
+<p>Dependencies and third-party services</p>
+</li>
+<li>
+<p>Alerting thresholds and responses</p>
+</li>
+</ul>
+<h3 id="112-incident-response-runbooks">11.2 Incident Response Runbooks<a class="headerlink" href="#112-incident-response-runbooks" title="Permanent link">&para;</a></h3>
+<p>Create runbooks for common deployment issues:</p>
+<ul>
+<li>
+<p>Database connection failures</p>
+</li>
+<li>
+<p>Memory/CPU spikes</p>
+</li>
+<li>
+<p>API latency issues</p>
+</li>
+<li>
+<p>Authentication problems</p>
+</li>
+<li>
+<p>Data inconsistency issues</p>
+</li>
+</ul>
+<hr />
+<p>By following these deployment guidelines, ThinkAlike ensures reliable, secure, and consistent deployments across all environments, minimizing downtime and maintaining high service quality.</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Deployment Guidelines</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Deployment Guidelines</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,26 +1,27 @@
 name: Deploy
 
-'on':
+on:
   push:
-    branches:
-    - main
-  pull_request:
-    branches:
-    - main
-  workflow_dispatch: {}
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
+      - uses: actions/checkout@v4
+      - name: Install deployment dependencies
         run: |
+          echo "Installing deployment dependencies..."
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Deploy
-        run: echo "Deploying application..."
+          pip install -r requirements.txt
+          pip install mkdocs==1.5.3 mkdocs-material==9.4.6 pymdown-extensions==9.10.1
+      - name: Build Documentation with MkDocs
+        run: |
+          echo "Starting MkDocs build..."
+          mkdocs build --verbose || (echo "MkDocs build failed, review logs" && exit 1)
+      - name: Deploy to GitHub Pages
+        run: |
+          echo "Deploying documentation..."
+          # Additional deployment commands can be inserted here
+          echo "Deployment simulation complete."

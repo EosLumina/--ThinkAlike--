@@ -12,6 +12,6 @@
 
 * [Community Mode Spec](../community_mode/community_mode_spec.md)
 
-* [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+* [Ethical Guidelines](../../core/ethics/ethical_guidelines.md)
 
-* [Master Reference](../../../core/master_reference.md)
+* [Master Reference](../../core/master_reference.md)
