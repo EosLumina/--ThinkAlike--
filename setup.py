@@ -4,6 +4,7 @@ setup(
     name="thinkalike",
     version="0.1.0",
     packages=find_packages(),
+    python_requires=">=3.10",
     install_requires=[
         "fastapi>=0.95.0",
         "uvicorn>=0.21.1",

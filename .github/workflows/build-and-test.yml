@@ -64,15 +64,14 @@ jobs:
           pip install -r requirements-test.txt
       - name: Install project dependencies
         run: |
-          pip install -r requirements.txt || echo "Main requirements install failed"
-          pip install -r backend/requirements.txt || echo "Backend requirements install failed"
+          pip install -e .
+          pip install -r backend/requirements.txt
       - name: Verify imports
         run: |
           python -c "import pytest; import fastapi; import uvicorn"
       - name: Run tests
         run: |
-          cd backend
-          python -m pytest -v tests/ || exit 1
+          PYTHONPATH=. pytest backend/tests/ -v
 
   docs:
     needs: verify

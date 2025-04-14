@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=42.0", "wheel"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -89,3 +89,13 @@ exclude_lines = [
     "pass",
     "raise ImportError",
 ]
+
+[tool.pytest]
+pythonpath = [
+    ".",
+    "backend"
+]
+testpaths = [
+    "backend/tests"
+]
+addopts = "-v --cov=backend"

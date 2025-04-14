@@ -43,19 +43,17 @@ plugins:
         "components/ui_components/DataTraceability.md": "components/ui/data_traceability.md"
 
 validation:
-  links: warn
-  absolute_links: info
-
-extra:
-  doc_roots:
-    - core
-    - guides
-    - components
-    - architecture
-    - templates
-
-hooks:
-  - scripts/docs_preprocessor.py
+  nav:
+    enabled: true
+    excludes:
+      - templates/*
+      - README.md
+  links:
+    enabled: true
+    excludes:
+      - mailto:*
+      - http*://*
+    warn_only: true
 
 strict: true
 docs_dir: "docs"
