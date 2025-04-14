@@ -15,8 +15,8 @@ dependencies = [
 ]
 
 [tool.setuptools]
-package-dir = {"" = "backend"}
 packages = ["backend"]
+package-dir = {"backend" = "backend"}
 
 [tool.black]
 line-length = 88

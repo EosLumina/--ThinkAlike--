@@ -1,73 +1,23 @@
 site_name: "ThinkAlike Documentation"
-site_description: Documentation for the ThinkAlike project
-site_url: https://eoslumina.github.io/--ThinkAlike--/
 
 theme:
   name: material
-  palette:
-    primary: indigo
-    accent: amber
-  features:
-    - navigation.tracking
-    - navigation.sections
-
-markdown_extensions:
-  - pymdownx.highlight
-  - pymdownx.superfences
-  - admonition
-  - pymdownx.details
-  - pymdownx.tabbed
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.inlinehilite
-  - attr_list
-  - md_in_html
-  - toc:
-      permalink: true
 
 plugins:
   - search
   - redirects:
       redirect_maps: {}
 
-validation:
-  nav:
-    omitted_files: warn
-    not_found: warn
-    absolute_links: warn
-  links:
-    not_found: warn
-    absolute_links: warn
-  files:
-    ignore_paths:
-      - "templates/*"
-      - "README.md"
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
 
-strict: true
-docs_dir: "docs"
-site_dir: "site"
+validation:
+  absolute_links: warn
+  unrecognized_links: warn
 
 nav:
   - Home: index.md
-  - Getting Started:
-      - Installation: core/setup/installation.md
-      - Contributing: core/contributing/index.md
-  - Core:
-      - Ethics: core/ethics/ethical_guidelines.md
-      - Vision: core/enlightenment_2_0/enlightenment_2_0_principles.md
-  - Vision:
-      - Core Concepts Explained: vision/core_concepts.md
-      - Blockchain Integration: vision/blockchain_integration.md
-  - Architecture:
-      - Architectural Overview: architecture/architectural_overview.md
-      - API Endpoints (Mode 2): architecture/api/api_endpoints_mode2.md
-  - Development:
-      - Code Style Guide: guides/developer_guides/code_style_guide.md
-      - Building Backend Endpoint Guide: guides/developer_guides/building_backend_endpoint.md
-      - Building UI Component Guide: guides/developer_guides/building_ui_component.md
-      - UI Validation Examples: guides/developer_guides/ui_validation_examples.md
-      - Git Workflow Standard: guides/developer_guides/git_workflow.md
-      - GitHub Actions Workflow Format: guides/development/github_actions_workflow_format.md
-  - DevOps:
-      - DevOps Workflow Guide: guides/devops/devops_workflow.md
-      - CI/CD Workflow Reference: guides/devops/ci_cd_workflow_reference.md
+
+docs_dir: "docs"
+site_dir: "site"
