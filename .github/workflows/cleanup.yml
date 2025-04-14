@@ -1,0 +1,54 @@
+name: Cleanup Workflow
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'  # Run weekly on Sundays at midnight UTC
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Create directory structure
+        run: |
+          mkdir -p \
+            .github/workflows \
+            .vscode \
+            backend/app \
+            config \
+            docs/{guides,reports,core} \
+            frontend/src \
+            scripts
+
+      - name: Move configuration files
+        run: |
+          # Move config files
+          for file in .editorconfig .env.example .gitconfig .markdownlint* .pre-commit-config.yaml; do
+            if [ -f "$file" ]; then
+              mv "$file" config/
+            fi
+          done
+
+      - name: Move documentation files
+        run: |
+          # Create doc directories
+          mkdir -p docs/{guides,reports,core}
+          
+          # Move markdown files preserving directory structure
+          find . -name "*.md" -not -path "./docs/*" -exec mv {} docs/ \;
+
+      - name: Move script files
+        run: |
+          # Move scripts
+          for script in *.sh *.py; do
+            if [ -f "$script" ] && [ "$script" != "main.py" ]; then
+              mv "$script" scripts/
+            fi
+          done
+
+      - name: Clean null bytes
+        run: |
+          find . -type f -name "*.py" -exec sed -i 's/\x0//g' {} \;

@@ -1,5 +1,5 @@
 {
     // ...existing settings...
-    "terminal.integrated.cwd": "C:\\--ThinkAlike--"
+    "terminal.integrated.cwd": "/workspaces/--ThinkAlike--"
     // ...existing settings...
 }
