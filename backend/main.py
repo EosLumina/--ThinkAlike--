@@ -1,35 +1,36 @@
-import sys
-import os
-from pathlib import Path
-
-# Add project root to Python path
-sys.path.append(str(Path(__file__).parent.parent))
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.core.config import settings
-from backend.routes import agent_routes
+import uvicorn
 
 # Create FastAPI app
 app = FastAPI(
     title="ThinkAlike API",
-    description="Backend API for the ThinkAlike platform",
-    version="0.1.0",
+    description="API for the ThinkAlike platform",
+    version="0.1.0"
 )
 
-# Configure CORS
+# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For development; restrict in production
+    allow_origins=["*"],  # Update with specific origins in production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Include routers
-app.include_router(agent_routes.router)
-
-# Root endpoint
 @app.get("/")
-def root():
-    return {"message": "Welcome to ThinkAlike API"}
+async def root():
+    # Root endpoint returning API information
+    return {
+        "service": "ThinkAlike API",
+        "status": "operational",
+        "version": "0.1.0"
+    }
+
+@app.get("/health")
+async def health_check():
+    # Health check endpoint
+    return {"status": "healthy"}
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

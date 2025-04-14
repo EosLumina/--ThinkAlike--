@@ -1,0 +1,4 @@
+# ThinkAlike Documentation Requirements
+mkdocs>=1.5.3
+mkdocs-material>=9.4.6
+pymdown-extensions>=10.0.1

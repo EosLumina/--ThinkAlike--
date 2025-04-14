@@ -1,0 +1,44 @@
+#!/bin/bash
+# Pre-commit hook for ThinkAlike
+# This script runs before every commit to ensure workflow files have valid syntax
+# 
+# To install this hook:
+# 1. Make it executable: chmod +x .git/hooks/pre-commit
+# 2. Copy to .git/hooks: cp .github/hooks/pre-commit .git/hooks/
+
+# Exit on any error
+set -e
+
+echo "🔍 ThinkAlike pre-commit hook running..."
+
+# Find all staged workflow files
+STAGED_WORKFLOWS=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.github/workflows/.*\.ya?ml$' || true)
+
+if [ -n "$STAGED_WORKFLOWS" ]; then
+    echo "🔍 Validating staged workflow files..."
+    
+    # Check if PyYAML is installed
+    if ! python -c "import yaml" &> /dev/null; then
+        echo "⚠️ PyYAML is required but not installed. Installing..."
+        pip install PyYAML
+    fi
+    
+    # Run the workflow validator with --fix
+    if ! python .github/scripts/validate_workflows.py --fix; then
+        echo "❌ Workflow validation failed! Please fix the issues before committing."
+        echo "💡 If the auto-fix didn't resolve all issues, you may need to edit the files manually."
+        exit 1
+    fi
+    
+    # If files were modified by the validator, re-add them to staging
+    for file in $STAGED_WORKFLOWS; do
+        git add "$file"
+    done
+    
+    echo "✅ Workflow validation passed!"
+fi
+
+# Continue with other pre-commit checks if needed
+# ...
+
+exit 0
