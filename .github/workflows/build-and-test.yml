@@ -71,7 +71,8 @@ jobs:
           python -c "import pytest; import fastapi; import uvicorn"
       - name: Run tests
         run: |
-          PYTHONPATH=. pytest backend/tests/ -v
+          # Add backend to PYTHONPATH
+          PYTHONPATH=$PYTHONPATH:$(pwd) pytest backend/tests/ -v
 
   docs:
     needs: verify
