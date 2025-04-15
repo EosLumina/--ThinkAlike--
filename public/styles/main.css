@@ -1,0 +1,132 @@
+/* 
+ * ThinkAlike Core Styles
+ * 
+ * These styles embody our commitment to ethical design:
+ * - Clarity over manipulation
+ * - Accessibility over exclusion
+ * - Transparency over obscurity
+ */
+
+:root {
+  --color-primary: #3a7ca5;
+  --color-secondary: #2f6690;
+  --color-accent: #d9dcd6;
+  --color-text: #16425b;
+  --color-background: #f2f9f1;
+  
+  --font-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 
+                  Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  
+  --spacing-unit: 1rem;
+}
+
+body {
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-background);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  background: var(--color-primary);
+  color: white;
+  padding: var(--spacing-unit);
+  text-align: center;
+}
+
+nav {
+  background: var(--color-secondary);
+  padding: 0.5rem var(--spacing-unit);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  gap: var(--spacing-unit);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+main {
+  flex: 1;
+  padding: var(--spacing-unit);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: var(--color-secondary);
+}
+
+/* Ethical UI components */
+.data-traceability {
+  border: 1px solid var(--color-accent);
+  background: rgba(255,255,255,0.8);
+  padding: var(--spacing-unit);
+  margin: var(--spacing-unit) 0;
+  border-radius: 4px;
+}
+
+.api-validator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.api-validator::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4CAF50;
+}
+
+.api-validator.warning::before {
+  background: #FFC107;
+}
+
+.api-validator.error::before {
+  background: #F44336;
+}
+
+/* Accessibility enhancements */
+@media (prefers-reduced-motion) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #e0e0e0;
+    --color-background: #121212;
+    --color-primary: #2a5674;
+    --color-secondary: #1a3c55;
+    --color-accent: #4d5d53;
+  }
+}
