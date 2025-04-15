@@ -36,7 +36,7 @@ ThinkAlike is guided by the following core values:
 
 * **Ethical AI:** Ensuring AI is transparent, explainable, fair, and user-controlled. ([AI Dev Guide](../guides/developer_guides/ai/ai_model_development_guide.md))
 
-* **Transparency & Traceability:** Open data workflows ([DataTraceability Spec](../components/ui_components/data_traceability.md)), auditable systems ([Verification System Spec](../architecture/verification_system/verification_system.md)), and auditable code.
+* **Transparency & Traceability:** Open data workflows ([DataTraceability Spec](../components/ui/data_traceability.md)), auditable systems ([Verification System Spec](../architecture/verification_system/verification_system.md)), and auditable code.
 
 * **User Empowerment & Sovereignty:** Giving users full control over their data and experience ([Data Handling Policy](../guides/developer_guides/data_handling_policy_guide.md), [Security Plan](../architecture/security/security_and_privacy_plan.md)).
 
@@ -83,7 +83,7 @@ ThinkAlike's functionality is organized around several key areas and concepts:
 
 * **Ethical AI Matching:** An intelligent system connecting users based on shared values and lifestyles, *not* superficial metrics. The AI's reasoning is transparent and explainable. ([Matching Algorithm Guide](../guides/developer_guides/matching_algorithm_guide.md)).
 
-* **Data Traceability Visualization:** A unique, interactive UI component visually demonstrating data origins, usage, and influence on AI recommendations, central to our transparency commitment. ([DataTraceability Spec](../components/ui_components/data_traceability.md))
+* **Data Traceability Visualization:** A unique, interactive UI component visually demonstrating data origins, usage, and influence on AI recommendations, central to our transparency commitment. ([DataTraceability Spec](../components/ui/data_traceability.md))
 
 * **AI Clones / AI-Powered Video Avatars:** Dynamic visual/interactive representations of users, enhancing understanding in Mode 1 & 2 before direct connection.
 

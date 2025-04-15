@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-This guide provides technical instructions and best practices for developers integrating third-party external APIs (like Goodreads, Spotify, etc.) into the ThinkAlike backend (FastAPI/Python). The goal is to fetch supplementary user data to enhance matching and recommendations, adhering strictly to the principles outlined in the [Data Integration Strategy](../../architecture/data_integration_strategy.md).
+This guide provides technical instructions and best practices for developers integrating third-party external APIs (like Goodreads, Spotify, etc.) into the ThinkAlike backend (FastAPI/Python). The goal is to fetch supplementary user data to enhance matching and recommendations, adhering strictly to the principles outlined in the [Data Integration Strategy](../architecture/data_integration_strategy.md).
 
 All integrations must prioritize security, data minimization, user consent enforcement, and robust error handling.
 

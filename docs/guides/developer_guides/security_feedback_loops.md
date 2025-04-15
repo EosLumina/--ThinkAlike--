@@ -6,7 +6,7 @@
 
 This document details the design for the **Security and Privacy Actionable Feedback Loops** within the ThinkAlike platform. This system goes beyond simply displaying security status (as covered by the `Security_Status_Indicator`) by providing users with **interactive dashboards, granular controls, and clear validation mechanisms** to actively manage and understand their security and privacy posture.
 
-The core principle is to create a transparent and empowering loop: the UI **shows** the current state and relevant data (Feedback), allows the user to **act** upon it (Actionable Controls), and then **validates** and reflects the results of those actions (Closing the Loop). This transforms security and privacy from abstract policies into tangible, user-driven experiences, directly implementing the vision outlined in the [ThinkAlike Security and Privacy Implementation Plan](../../architecture/security/security_and_privacy_plan.md) and building upon components like the [Security Status Indicator](../../components/ui_components/security_status_indicator.md).
+The core principle is to create a transparent and empowering loop: the UI **shows** the current state and relevant data (Feedback), allows the user to **act** upon it (Actionable Controls), and then **validates** and reflects the results of those actions (Closing the Loop). This transforms security and privacy from abstract policies into tangible, user-driven experiences, directly implementing the vision outlined in the [ThinkAlike Security and Privacy Implementation Plan](../architecture/security/security_and_privacy_plan.md) and building upon components like the [Security Status Indicator](../components/ui/security_status_indicator.md).
 
 ---
 
@@ -207,9 +207,9 @@ These features are primarily located within a dedicated "Security & Privacy Cent
 
   * Backend APIs for fetching/updating settings, permissions, consent, status, logs.
 
-  * Global State Management.de](developer_guides/style_guide.md).
+  * Global State Management.de](developer_guides/code_style_guide.md).
 
-  * [See Developer Style Guide](developer_guides/style_guide.md).
+  * [See Developer Style Guide](developer_guides/code_style_guide.md).
 
 * **Integrates With:**ion of the application.
 

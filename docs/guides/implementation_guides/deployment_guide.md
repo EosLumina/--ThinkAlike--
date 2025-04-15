@@ -6,7 +6,7 @@
 
 This guide provides step-by-step instructions for deploying the ThinkAlike platform (FastAPI backend and React frontend) to the [Render](https://render.com/) cloud platform. Render offers convenient services for hosting web applications, static sites, and databases, making it a suitable choice for deploying ThinkAlike.
 
-Following these steps assumes you have completed local development and testing as outlined in the [Installation Guide](../../core/installation.md) and [Testing and Validation Plan](../developer_guides/testing_and_validation_plan.md).
+Following these steps assumes you have completed local development and testing as outlined in the [Installation Guide](../core/installation.md) and [Testing and Validation Plan](../developer_guides/testing_and_validation_plan.md).
 
 **Target Environment:** Render Cloud Platform
 

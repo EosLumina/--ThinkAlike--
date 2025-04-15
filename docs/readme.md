@@ -164,9 +164,9 @@ Find tasks on [GitHub Issues](https://github.com/EosLumina/--ThinkAlike--/issues
 
 * **GitHub Discussions:** Broader ideas & Q&A ([Link Here - TODO: Enable/Link Discussions if applicable])
 
-* **Project Email:** [ThinkAlikeAI@proton.me](mailto:ThinkAlikeAI@proton.me) (General inquiries)
+* **Project Email:** ThinkAlikeAI@proton.me (General inquiries)
 
-* **Lead Design Architect:** [Eos.Lumina@proton.me](mailto:Eos.Lumina@proton.me) (Design/UI/UX/Vision questions)
+* **Lead Design Architect:** Eos.Lumina@proton.me (Design/UI/UX/Vision questions)
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## 1. Introduction: Ensuring AI Aligns with Our Values
 
-This guide outlines the specific methodologies, procedures, and tools for conducting **Ethical Testing** of Artificial Intelligence (AI) models and AI-driven workflows within the ThinkAlike platform. Ethical testing is a non-negotiable component of our development lifecycle, crucial for ensuring that our AI implementations align with the [ThinkAlike Ethical Guidelines](../../../core/ethics/ethical_guidelines.md), the principles of [Enlightenment 2.0](../../../core/enlightenment_2_0/ENLIGHTENMENT_2_0_PRINCIPLES.md), and our commitment to user empowerment, fairness, transparency, and accountability.
+This guide outlines the specific methodologies, procedures, and tools for conducting **Ethical Testing** of Artificial Intelligence (AI) models and AI-driven workflows within the ThinkAlike platform. Ethical testing is a non-negotiable component of our development lifecycle, crucial for ensuring that our AI implementations align with the [ThinkAlike Ethical Guidelines](../../core/ethics/ethical_guidelines.md), the principles of [Enlightenment 2.0](../../core/enlightenment_2_0/ENLIGHTENMENT_2_0_PRINCIPLES.md), and our commitment to user empowerment, fairness, transparency, and accountability.
 
 This guide complements the general [AI Model Development Guide](../ai/ai_model_development_guide.md) and the overall [Testing and Validation Plan](../testing_and_validation_plan.md) by providing focused strategies for assessing the *ethical performance* of our AI systems. It emphasizes the use of the **"UI as Validation Framework"** ([Core Concepts Explained](../../../vision/core_concepts.md)) to make ethical assessments tangible and verifiable.
 
@@ -16,7 +16,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 
 * **Data-Driven:** Uses diverse datasets, targeted test cases, quantitative metrics, and qualitative analysis.
 
-* **Transparency Focused:** Aims to uncover hidden biases and opaque processes. Results surfaced via UI components like [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md) or the [`AI Transparency Log`](ai_transparency_log.md).
+* **Transparency Focused:** Aims to uncover hidden biases and opaque processes. Results surfaced via UI components like [`CoreValuesValidator`](../../components/ui/CoreValuesValidator.md) or the [`AI Transparency Log`](ai_transparency_log.md).
 
 * **User-Centric:** Prioritizes outcomes that are fair, equitable, and empowering for all users.
 
@@ -32,13 +32,13 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 
 * **Methodologies:** Dataset analysis (representation, skew), metric-based evaluation (demographic parity, equal opportunity, etc. using tools like Fairlearn), intersectionality testing, counterfactual analysis.
 
-* **Tools & Techniques:** Statistical libraries (Pandas, SciPy), fairness toolkits (Fairlearn, AIF360), custom scripts, **UI Validation** (using [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md) in test modes to display fairness metrics from the backend [Verification System](../../../architecture/verification_system/verification_system.md)). Test reports ([Test Report Schema](../../../templates/test_report_schema.md)) must include fairness metrics.
+* **Tools & Techniques:** Statistical libraries (Pandas, SciPy), fairness toolkits (Fairlearn, AIF360), custom scripts, **UI Validation** (using [`CoreValuesValidator`](../../components/ui/CoreValuesValidator.md) in test modes to display fairness metrics from the backend [Verification System](../../architecture/verification_system/verification_system.md)). Test reports ([Test Report Schema](../../templates/test_report_schema.md)) must include fairness metrics.
 
 ### 3.2 Transparency and Explainability Testing (XAI Validation)
 
 * **Objective:** Verify AI decision-making is understandable, auditable, and accurately represented.
 
-* **Methodologies:** Model interpretability checks (for simpler models), Feature Importance analysis (SHAP, LIME), validation of the [`AI Transparency Log`](ai_transparency_log.md) accuracy, validation of [`DataTraceability`](../../../components/ui_components/data_traceability.md) component visualizations against known data flows and XAI results.
+* **Methodologies:** Model interpretability checks (for simpler models), Feature Importance analysis (SHAP, LIME), validation of the [`AI Transparency Log`](ai_transparency_log.md) accuracy, validation of [`DataTraceability`](../../components/ui/data_traceability.md) component visualizations against known data flows and XAI results.
 
 * **Tools & Techniques:** XAI libraries (SHAP, LIME), log analysis, **UI Validation** (testing `DataTraceability.jsx` rendering against ground truth; validating user-facing explanations).
 
@@ -86,7 +86,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 
   * **UI Validation:** Use components like `DataTraceability` to visualize recommendation diversity and ensure transparency in how suggestions are generated.
 
-* **Reporting:** Include diversity metrics and echo chamber risk assessments in the [Test Report Schema](../../../templates/test_report_schema.md).
+* **Reporting:** Include diversity metrics and echo chamber risk assessments in the [Test Report Schema](../../templates/test_report_schema.md).
 
 ---
 
@@ -96,7 +96,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 2. **Prepare Data:** Curate diverse, representative, and challenging datasets for ethical tests.
 3. **Execute:** Run tests manually and automatically as part of CI/CD and regular QA cycles. Utilize UI validation components.
 4. **Analyze:** Evaluate metrics (fairness, transparency scores), XAI outputs, privacy checks, user control results.
-5. **Report:** Document findings using the standard [Test Report Schema](../../../templates/test_report_schema.md), explicitly including ethical compliance sections (`ethicalComplianceResult`).
+5. **Report:** Document findings using the standard [Test Report Schema](../../templates/test_report_schema.md), explicitly including ethical compliance sections (`ethicalComplianceResult`).
 6. **Remediate:** Prioritize fixing identified ethical issues. Track fixes.
 7. **Regress:** Include ethical regression tests to prevent recurrence.
 
@@ -106,7 +106,7 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 
 * **Verification System:** Backend system providing APIs for complex ethical checks (bias calculation, rule validation). See [Verification System Integration Guide](../Verification_System_Integration_Guide.md).
 
-* **UI Components:** [`CoreValuesValidator`](../../../components/ui_components/CoreValuesValidator.md), [`DataTraceability`](../../../components/ui_components/data_traceability.md), [`AI Transparency Log`](ai_transparency_log.md) elements are used *within* tests.
+* **UI Components:** [`CoreValuesValidator`](../../components/ui/CoreValuesValidator.md), [`DataTraceability`](../../components/ui/data_traceability.md), [`AI Transparency Log`](ai_transparency_log.md) elements are used *within* tests.
 
 * **Libraries:** Fairlearn, AIF360 (Fairness); SHAP, LIME (XAI); Pytest, Jest, Cypress (Test Runners); NumPy, Pandas (Diversity Metrics).
 
@@ -116,9 +116,9 @@ This guide complements the general [AI Model Development Guide](../ai/ai_model_d
 
 * [AI Transparency Log](ai_transparency_log.md)
 
-* [Ethical Guidelines](../../../core/ethics/ethical_guidelines.md)
+* [Ethical Guidelines](../../core/ethics/ethical_guidelines.md)
 
-* [Master Reference](../../../core/master_reference.md)
+* [Master Reference](../../core/master_reference.md)
 
 ---
 

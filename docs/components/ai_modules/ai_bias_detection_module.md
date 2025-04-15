@@ -56,8 +56,8 @@ Example:
 
 ## Related Documentation
 
-* [AI Transparency Log Guide](../../guides/developer_guides/ai/ai_transparency_log.md)
+* [AI Transparency Log Guide](../guides/developer_guides/ai/ai_transparency_log.md)
 
-* [AI Ethical Testing Guide](../../guides/developer_guides/ai/AI_Ethical_Testing_Guide.md)
+* [AI Ethical Testing Guide](../guides/developer_guides/ai/AI_Ethical_Testing_Guide.md)
 
-* [Data Handling Policy Guide](../../guides/developer_guides/data_handling_policy_guide.md)
+* [Data Handling Policy Guide](../guides/developer_guides/data_handling_policy_guide.md)

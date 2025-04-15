@@ -1,6 +1,6 @@
 # ThinkAlike Core Values
 
-This document outlines the core values that guide all aspects of ThinkAlike's development and operation. While [Core Concepts](/docs/core/core_concepts.md) explains the fundamental ideas behind ThinkAlike and [Vision Principles](/docs/vision/vision_principles.md) addresses how these manifest in our vision, this document focuses specifically on our foundational values.
+This document outlines the core values that guide all aspects of ThinkAlike's development and operation. While [Core Concepts](../core/core_concepts.md) explains the fundamental ideas behind ThinkAlike and [Vision Principles](../vision/vision_principles.md) addresses how these manifest in our vision, this document focuses specifically on our foundational values.
 
 ## 1. Human-Centered Approach
 

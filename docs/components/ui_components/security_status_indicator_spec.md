@@ -9,8 +9,8 @@ awareness of their data security status**. It acts as a persistent visual cue re
 protocols, and potential security events, reinforcing **Radical Transparency** and **User Empowerment**.
 
 This component visualizes aspects of the [Security and Privacy
-Plan](../../architecture/security/security_and_privacy_plan.md) and adheres to the [Style
-Guide](../../architecture/design/style_guide.md).
+Plan](../architecture/security/security_and_privacy_plan.md) and adheres to the [Style
+Guide](../architecture/design/style_guide.md).
 
 ## 2. UI Elements / Sub-components
 
@@ -30,7 +30,7 @@ Typically integrated into a persistent header/footer/dashboard.
 
 * **Data Breach Alerts (Integrated):** Overrides indicator to Red + Alert Icon. Triggers separate prominent UI notification (banner/modal) with details and action links.
 
-* **Link to Security Center:** Small icon (⚙️/ℹ️) linking to the full Security & Privacy Center ([Security Feedback Loops Guide](../../guides/developer_guides/Security_Feedback_Loops.md)).
+* **Link to Security Center:** Small icon (⚙️/ℹ️) linking to the full Security & Privacy Center ([Security Feedback Loops Guide](../guides/developer_guides/Security_Feedback_Loops.md)).
 
 ## 3. Actionable Parameters (User Validation & Awareness)
 

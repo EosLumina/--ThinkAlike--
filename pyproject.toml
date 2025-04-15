@@ -1,14 +1,22 @@
 [build-system]
-requires = ["setuptools>=42.0", "wheel"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "thinkalike"
 version = "0.1.0"
-description = "ThinkAlike Application"
+description = "ThinkAlike - Digital Liberation Technology"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn>=0.24.0",
+    "sqlalchemy>=2.0.23",
+    "pydantic>=2.4.2"
+]
 
 [tool.setuptools]
 packages = ["backend"]
+package-dir = {"backend" = "backend"}
 
 [tool.black]
 line-length = 88
@@ -36,22 +44,10 @@ line_length = 88
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--strict-markers --cov=backend --cov-report=term-missing"
-testpaths = [
-    "tests",
-]
-python_files = "test_*.py"
-python_functions = "test_*"
-filterwarnings = [
-    "ignore::DeprecationWarning",
-    "ignore::PendingDeprecationWarning",
-]
-markers = [
-    "unit: marks tests as unit tests",
-    "integration: marks tests as integration tests",
-    "slow: marks tests as slow (skipped in CI unless explicitly included)",
-    "ethical: tests that verify ethical compliance"
-]
+addopts = "-v"
+testpaths = ["backend/tests"]
+python_files = ["test_*.py"]
+pythonpath = [".", "backend"]
 
 [tool.mypy]
 python_version = "3.10"
@@ -88,3 +84,9 @@ exclude_lines = [
     "pass",
     "raise ImportError",
 ]
+
+[tool.pytest]
+pythonpath = ["."]
+testpaths = ["backend/tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=backend"

@@ -1,0 +1,1513 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ThinkAlike project">
+      
+      
+      
+        <link rel="canonical" href="https://eoslumina.github.io/--ThinkAlike--/architecture/verification_system/verification_system_data_models/">
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Verification System Data Models - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#verification-system-data-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Verification System Data Models
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-tabs__link">
+          
+  
+  
+  Core
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../vision/core_concepts/" class="md-tabs__link">
+          
+  
+  
+  Vision
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../architectural_overview/" class="md-tabs__link">
+          
+  
+  
+  Architecture
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/developer_guides/code_style_guide/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/devops/devops_workflow.md" class="md-tabs__link">
+          
+  
+  
+  DevOps
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Core
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Core
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/enlightenment_2_0/enlightenment_2_0_principles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Enlightenment 2.0 Principles
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/ethics/ethical_guidelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ethical Guidelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/onboarding_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Onboarding Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Vision
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Vision
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/core_concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Core Concepts Explained
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../vision/blockchain_integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Blockchain Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Architecture
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architectural_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architectural Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api_endpoints_mode2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Endpoints (Mode 2)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Development
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Development
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/developer_guides/code_style_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Style Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/developer_guides/building_backend_endpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building Backend Endpoint Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/developer_guides/building_ui_component/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Building UI Component Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/developer_guides/ui_validation_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    UI Validation Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/developer_guides/git_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Workflow Standard
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/development/github_actions_workflow_format.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Actions Workflow Format
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DevOps
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            DevOps
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/devops/devops_workflow.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DevOps Workflow Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../guides/devops/ci_cd_workflow_reference.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CI/CD Workflow Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-core-data-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Core Data Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Core Data Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ethicalguideline" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1 EthicalGuideline
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-algorithmverificationstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2 AlgorithmVerificationStatus
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-algorithmverificationdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3 AlgorithmVerificationDetails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-traceableprocess" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4 TraceableProcess
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-traceableprocessdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5 TraceableProcessDetails
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26-auditlogentry" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6 AuditLogEntry
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-platformverificationstatussummary" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7 PlatformVerificationStatusSummary
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28-modeverificationstatus" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8 ModeVerificationStatus
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-relationships" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Relationships
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-storage-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Storage Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="verification-system-data-models">Verification System Data Models<a class="headerlink" href="#verification-system-data-models" title="Permanent link">&para;</a></h1>
+<hr />
+<h2 id="1-introduction">1. Introduction<a class="headerlink" href="#1-introduction" title="Permanent link">&para;</a></h2>
+<p>This document defines the core data models (schemas) used by the ThinkAlike <strong>Verification System</strong>. These models represent the structure of data related to ethical guidelines, algorithm verification, data traceability, audit logging, and overall platform verification status.</p>
+<p>These data models are essential for:</p>
+<ul>
+<li>
+<p>Structuring data returned by the Verification System API endpoints defined in <a href="../../api/api_endpoints_verification_system/">api_endpoints_verification_system.md</a>.</p>
+</li>
+<li>
+<p>Providing a clear schema for data stored persistently (likely within the main platform database, e.g., PostgreSQL) but managed logically by the Verification System.</p>
+</li>
+<li>
+<p>Ensuring consistency in how verification-related information is handled and represented throughout the platform.</p>
+</li>
+</ul>
+<p>These models are integral to the functioning of the Verification System as described in <a href="../verification_system/">verification_system.md</a>.</p>
+<hr />
+<h2 id="2-core-data-models">2. Core Data Models<a class="headerlink" href="#2-core-data-models" title="Permanent link">&para;</a></h2>
+<h3 id="21-ethicalguideline">2.1 EthicalGuideline<a class="headerlink" href="#21-ethicalguideline" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents a single ethical guideline defined within the ThinkAlike framework, used for validating platform components and AI models.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>guidelineId</code> (UUID/String, Primary Key): Unique identifier for the guideline.</p>
+</li>
+<li>
+<p><code>guidelineName</code> (String): Short, human-readable name of the guideline (e.g., "User Data Minimization", "Algorithmic Transparency").</p>
+</li>
+<li>
+<p><code>guidelineDescription</code> (String/Text): Detailed explanation of the guideline's principle and intent.</p>
+</li>
+<li>
+<p><code>principleArea</code> (Enum/String): Categorizes the guideline based on the core Enlightenment 2.0 principles (e.g., <code>user_sovereignty</code>, <code>transparency</code>, <code>ethical_humanism</code>, <code>positive_anarchism</code>, <code>authentic_connection</code>, <code>redefined_progress</code>).</p>
+</li>
+<li>
+<p><code>status</code> (Enum/String): Current status of the guideline (e.g., <code>active</code>, <code>draft</code>, <code>deprecated</code>).</p>
+</li>
+<li>
+<p><code>lastUpdated</code> (Timestamp): Date and time the guideline was last modified.</p>
+</li>
+<li>
+<p><code>relatedComponents</code> (Array[String], Optional): List of platform components or features particularly relevant to this guideline.</p>
+</li>
+</ul>
+<h3 id="22-algorithmverificationstatus">2.2 AlgorithmVerificationStatus<a class="headerlink" href="#22-algorithmverificationstatus" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents the high-level verification status of a specific algorithm used within ThinkAlike (e.g., the Matching Algorithm).</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>algorithmId</code> (UUID/String, Primary Key): Unique identifier for the algorithm instance/version being verified (e.g., <code>value_based_matching_v1.2</code>).</p>
+</li>
+<li>
+<p><code>algorithmName</code> (String): Human-readable name of the algorithm (e.g., "Value-Based Matching Algorithm").</p>
+</li>
+<li>
+<p><code>version</code> (String): Specific version identifier for the algorithm.</p>
+</li>
+<li>
+<p><code>verificationStatus</code> (Enum/String): Current verification status (e.g., <code>pending</code>, <code>in_progress</code>, <code>verified</code>, <code>failed_verification</code>, <code>needs_review</code>).</p>
+</li>
+<li>
+<p><code>lastVerificationDate</code> (Timestamp, Nullable): Date and time of the last verification attempt or success.</p>
+</li>
+<li>
+<p><code>verifiedBy</code> (UUID/String, Nullable): Identifier of the admin user or system process that performed the last verification.</p>
+</li>
+<li>
+<p><code>ethicalRationaleDocumentLink</code> (URL/String, Optional): Link to the detailed document explaining the algorithm's ethical design and rationale.</p>
+</li>
+<li>
+<p><code>auditLogsLink</code> (URL/String, Optional): Link to related audit log entries for this specific algorithm.</p>
+</li>
+</ul>
+<h3 id="23-algorithmverificationdetails">2.3 AlgorithmVerificationDetails<a class="headerlink" href="#23-algorithmverificationdetails" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides more detailed information about the verification status and context of a specific algorithm, often including fields from <code>AlgorithmVerificationStatus</code>.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><em>(Inherits/Includes fields from <code>AlgorithmVerificationStatus</code>)</em></p>
+</li>
+<li>
+<p><code>ethicalRationaleSummary</code> (String/Text, Optional): A brief summary of the ethical rationale.</p>
+</li>
+<li>
+<p><code>relatedGuidelines</code> (Array[UUID/String]): List of <code>guidelineId</code>s directly relevant to or checked against for this algorithm.</p>
+</li>
+<li>
+<p><code>biasAssessmentResult</code> (Enum/String, Optional): Summary result of the latest bias assessment (e.g., <code>passed</code>, <code>warning</code>, <code>failed</code>).</p>
+</li>
+<li>
+<p><code>transparencyScore</code> (Float/Integer, Optional): A quantitative or qualitative score representing the algorithm's explainability/transparency level.</p>
+</li>
+<li>
+<p><code>latestAuditReportLink</code> (URL/String, Optional): Link to the most recent detailed audit report.</p>
+</li>
+<li>
+<p><code>verificationHistory</code> (Array[Object], Optional): A list of past verification events (e.g., <code>{ timestamp: Timestamp, status: Enum, verifiedBy: UUID, notes: String }</code>).</p>
+</li>
+</ul>
+<h3 id="24-traceableprocess">2.4 TraceableProcess<a class="headerlink" href="#24-traceableprocess" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents a high-level business process or workflow within ThinkAlike for which data traceability is tracked and visualized.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>processId</code> (UUID/String, Primary Key): Unique identifier for the traceable process (e.g., <code>user_onboarding_mode1</code>, <code>value_matching_mode2</code>).</p>
+</li>
+<li>
+<p><code>processName</code> (String): Human-readable name of the process (e.g., "User Onboarding Narrative", "Value-Based Matching Workflow").</p>
+</li>
+<li>
+<p><code>description</code> (String/Text): Brief explanation of the process being traced.</p>
+</li>
+<li>
+<p><code>dataFlowDiagramLink</code> (URL/String, Optional): Link to an external or generated visual diagram of the data flow.</p>
+</li>
+<li>
+<p><code>lastTraceabilityAudit</code> (Timestamp, Nullable): Date of the last audit focusing on this process's traceability.</p>
+</li>
+</ul>
+<h3 id="25-traceableprocessdetails">2.5 TraceableProcessDetails<a class="headerlink" href="#25-traceableprocessdetails" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides detailed information for visualizing a specific traceable process, often including fields from <code>TraceableProcess</code>. This structure is designed to be directly consumable by UI components like <code>DataTraceability.jsx</code>.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><em>(Inherits/Includes fields from <code>TraceableProcess</code>)</em></p>
+</li>
+<li>
+<p><code>visualizationData</code> (JSON/Object): Data structured for graph visualization libraries.</p>
+<ul>
+<li>
+<p><code>nodes</code>: (Array[NodeObject]) - Represents data sources, processing steps, UI components, or data storage points.</p>
+</li>
+<li>
+<p><code>id</code> (String/Number): Unique identifier within the graph.</p>
+</li>
+<li>
+<p><code>label</code> (String): Display name for the node.</p>
+</li>
+<li>
+<p><code>type</code> (Enum/String): Category of the node (e.g., <code>ui_component</code>, <code>api_endpoint</code>, <code>ai_model</code>, <code>database_table</code>, <code>data_source</code>).</p>
+</li>
+<li>
+<p><em>(Other optional properties for styling/metadata)</em></p>
+</li>
+<li>
+<p><code>edges</code>: (Array[EdgeObject]) - Represents the flow of data between nodes.</p>
+</li>
+<li>
+<p><code>source</code> (String/Number): ID of the source node.</p>
+</li>
+<li>
+<p><code>target</code> (String/Number): ID of the target node.</p>
+</li>
+<li>
+<p><code>label</code> (String, Optional): Description of the data or action being transferred.</p>
+</li>
+<li>
+<p><code>dataType</code> (String, Optional): Type of data flowing along the edge.</p>
+</li>
+<li>
+<p><em>(Other optional properties for styling/metadata, e.g., <code>isEncrypted</code>, <code>validationStatus</code>)</em></p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>relatedGuidelines</code> (Array[UUID/String], Optional): List of <code>guidelineId</code>s relevant to data handling within this process.</p>
+</li>
+</ul>
+<h3 id="26-auditlogentry">2.6 AuditLogEntry<a class="headerlink" href="#26-auditlogentry" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Represents a single entry in the Verification System's audit log, tracking significant actions related to ethical validation, configuration changes, or security events within the verification scope.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>logId</code> (UUID/String, Primary Key): Unique identifier for the log entry.</p>
+</li>
+<li>
+<p><code>timestamp</code> (Timestamp): Date and time the action occurred.</p>
+</li>
+<li>
+<p><code>adminUser</code> (UUID/String, Nullable): Identifier of the admin user performing the action (or 'system' if automated).</p>
+</li>
+<li>
+<p><code>actionType</code> (Enum/String): Category of the action performed (e.g., <code>guideline_updated</code>, <code>algorithm_verified</code>, <code>verification_failed</code>, <code>data_traceability_audited</code>, <code>security_setting_changed</code>, <code>user_report_reviewed</code>).</p>
+</li>
+<li>
+<p><code>affectedObjectType</code> (Enum/String, Nullable): Type of object affected by the action (e.g., <code>EthicalGuideline</code>, <code>Algorithm</code>, <code>TraceableProcess</code>, <code>User</code>, <code>Community</code>).</p>
+</li>
+<li>
+<p><code>affectedObjectId</code> (UUID/String, Nullable): Identifier of the specific object affected.</p>
+</li>
+<li>
+<p><code>description</code> (String/Text): Human-readable summary of the event.</p>
+</li>
+<li>
+<p><code>details</code> (JSON/Object, Optional): Additional structured details about the event (e.g., specific changes made, parameters used).</p>
+</li>
+<li>
+<p><code>ipAddress</code> (String, Optional): IP address associated with the action (use with privacy considerations).</p>
+</li>
+</ul>
+<h3 id="27-platformverificationstatussummary">2.7 PlatformVerificationStatusSummary<a class="headerlink" href="#27-platformverificationstatussummary" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides a high-level overview of the overall verification status of the entire ThinkAlike platform.</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>platformVerificationStatus</code> (Enum/String): Overall status (e.g., <code>verified</code>, <code>partially_verified</code>, <code>unverified</code>, <code>needs_review</code>).</p>
+</li>
+<li>
+<p><code>verifiedComponentCounts</code> (JSON/Object): Counts of verified components by type (e.g., <code>{ "ethicalGuidelines": 15, "algorithms": 2, "dataTraceabilityProcesses": 5 }</code>).</p>
+</li>
+<li>
+<p><code>lastPlatformVerificationReportLink</code> (URL/String, Optional): Link to the latest comprehensive platform verification report.</p>
+</li>
+<li>
+<p><code>lastCheckedTimestamp</code> (Timestamp): When this summary was last generated/updated.</p>
+</li>
+</ul>
+<h3 id="28-modeverificationstatus">2.8 ModeVerificationStatus<a class="headerlink" href="#28-modeverificationstatus" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><strong>Description:</strong> Provides a verification status summary specific to one of ThinkAlike's core Modes (Narrative, Matching, Community).</p>
+</li>
+<li>
+<p><strong>Fields:</strong></p>
+</li>
+<li>
+<p><code>modeName</code> (String): Name of the Mode (e.g., "Narrative Mode", "Matching Mode", "Community Mode").</p>
+</li>
+<li>
+<p><code>verificationStatus</code> (Enum/String): Overall status for this Mode (e.g., <code>verified</code>, <code>partially_verified</code>, <code>unverified</code>).</p>
+</li>
+<li>
+<p><code>lastVerificationDate</code> (Timestamp, Nullable): Date of the last verification specific to this Mode.</p>
+</li>
+<li>
+<p><code>verifiedFeatureCounts</code> (JSON/Object): Counts of verified features or sub-components within this Mode (e.g., <code>{ "algorithms": 1, "ui_workflows": 10, "data_handling_points": 25 }</code>).</p>
+</li>
+<li>
+<p><code>modeSpecificReportLink</code> (URL/String, Optional): Link to a detailed verification report for this specific Mode.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-relationships">3. Relationships<a class="headerlink" href="#3-relationships" title="Permanent link">&para;</a></h2>
+<p>These data models are interconnected:</p>
+<ul>
+<li>
+<p><code>AlgorithmVerificationDetails</code> references <code>EthicalGuideline</code> (<code>relatedGuidelines</code>).</p>
+</li>
+<li>
+<p><code>AuditLogEntry</code> references various objects (<code>affectedObjectId</code>) like <code>EthicalGuideline</code>, <code>AlgorithmVerificationStatus</code>, <code>TraceableProcess</code> based on <code>affectedObjectType</code>.</p>
+</li>
+<li>
+<p><code>TraceableProcessDetails</code> may reference <code>EthicalGuideline</code> (<code>relatedGuidelines</code>).</p>
+</li>
+<li>
+<p><code>PlatformVerificationStatusSummary</code> aggregates status information, potentially derived from <code>AlgorithmVerificationStatus</code>, <code>ModeVerificationStatus</code>, etc.</p>
+</li>
+<li>
+<p><code>ModeVerificationStatus</code> aggregates status information for components within a specific mode.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-storage-considerations">4. Storage Considerations<a class="headerlink" href="#4-storage-considerations" title="Permanent link">&para;</a></h2>
+<p>While logically part of the Verification System, these data models will likely be stored as tables or collections within the main ThinkAlike platform database (e.g., PostgreSQL) for operational efficiency. Appropriate indexing and access controls must be applied to ensure performance and security, restricting access primarily to the Verification System services and authorized administrative interfaces.</p>
+<hr />
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Verification System Data Models</p>
+</li>
+<li>
+<p>Type: Architecture Documentation</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Verification System Data Models</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.sections", "navigation.tabs"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,6 +1,6 @@
 # Ethical Ai Implementation Guide
 
-This guide provides specific instructions and best practices for implementing Artificial Intelligence (AI) and Machine Learning (ML) components within ThinkAlike, ensuring strict adherence to our [`Ethical Guidelines`](../../../core/ethics/ethical_guidelines.md). It complements the [`AI Model Development Guide`](./ai_model_development_guide.md) and [`AI Transparency Log`](./ai_transparency_log.md).
+This guide provides specific instructions and best practices for implementing Artificial Intelligence (AI) and Machine Learning (ML) components within ThinkAlike, ensuring strict adherence to our [`Ethical Guidelines`](../../core/ethics/ethical_guidelines.md). It complements the [`AI Model Development Guide`](./ai_model_development_guide.md) and [`AI Transparency Log`](./ai_transparency_log.md).
 
 Building ethical AI is paramount. All AI/ML development must prioritize user well-being, fairness, transparency, and accountability.
 
@@ -23,7 +23,7 @@ Building ethical AI is paramount. All AI/ML development must prioritize user wel
 
 * **Data Minimization:** Only collect and use the minimum data necessary for the AI task (Guideline 3.a). Avoid collecting sensitive attributes unless absolutely essential and ethically justified.
 
-* **Secure Storage & Access:** Store AI training data and models securely, applying the same access controls and encryption standards as other sensitive data ([`Security Deep Dive`](../../../architecture/security_deep_dive.md)).
+* **Secure Storage & Access:** Store AI training data and models securely, applying the same access controls and encryption standards as other sensitive data ([`Security Deep Dive`](../../architecture/security_deep_dive.md)).
 
 ### 2. Model Development & Training ([`AI Model Development Guide`](./ai_model_development_guide.md))
 
@@ -55,7 +55,7 @@ Building ethical AI is paramount. All AI/ML development must prioritize user wel
 
   * This log must be accessible for generating user-facing explanations via the `DataTraceability` component and for internal auditing.
 
-* **Verification System Hooks:** Integrate AI components with the [`Verification System`](../../../architecture/verification_system/verification_system_deep_dive.md):
+* **Verification System Hooks:** Integrate AI components with the [`Verification System`](../../architecture/verification_system/verification_system_deep_dive.md):
 
   * *Pre-check:* Verify input data conforms to expected formats and potentially basic ethical constraints before feeding to the model.
 

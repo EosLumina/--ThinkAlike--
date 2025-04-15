@@ -6,7 +6,7 @@
 
 Welcome to your **Connected Services & Data Sources** center! ThinkAlike allows you to optionally connect certain external service accounts (like Goodreads or Spotify) to potentially enhance your experience by providing supplementary insights for discovering like-minded connections and communities.
 
-This guide explains how this feature works, emphasizing **your complete control** over which services you connect, what data is accessed, and exactly how that data is used within ThinkAlike. Connecting external services is **entirely optional** and designed with your privacy and agency as the top priority, adhering to our [Ethical Guidelines](../../core/ethics/ethical_guidelines.md).
+This guide explains how this feature works, emphasizing **your complete control** over which services you connect, what data is accessed, and exactly how that data is used within ThinkAlike. Connecting external services is **entirely optional** and designed with your privacy and agency as the top priority, adhering to our [Ethical Guidelines](../core/ethics/ethical_guidelines.md).
 
 ---
 

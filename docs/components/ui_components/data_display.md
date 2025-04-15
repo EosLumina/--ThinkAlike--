@@ -20,7 +20,7 @@ The `DataDisplay` component adapts its rendering based on the `dataType` prop an
 
 * **Purpose:** Clearly identify the data being displayed.
 
-* **UI Element:** A text label (e.g., `<strong>`, `<span>`) positioned typically above or beside the data value. Uses fonts and styles defined in the [ThinkAlike Style Guide](../../guides/developer_guides/style_guide.md).
+* **UI Element:** A text label (e.g., `<strong>`, `<span>`) positioned typically above or beside the data value. Uses fonts and styles defined in the [ThinkAlike Style Guide](../guides/developer_guides/code_style_guide.md).
 
 * **Content:** The human-readable name of the data field (e.g., "Username:", "Ethical Alignment Score:", "Last Login Date:").
 
@@ -190,9 +190,9 @@ describe('DataDisplay', () => {
 
 * [Component Library](../common/README.md)
 
-* [Performance Guidelines](../../guides/performance.md)
+* [Performance Guidelines](../guides/performance.md)
 
-* [Testing Standards](../../guides/testing.md)
+* [Testing Standards](../guides/testing.md)
 
 ---
 

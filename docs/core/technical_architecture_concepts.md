@@ -1,6 +1,6 @@
 # Technical Architecture Concepts
 
-This document explains the key technical architecture concepts that form the foundation of ThinkAlike's implementation. While [Core Concepts](/docs/core/core_concepts.md) covers the philosophical and functional concepts, and [Vision Principles](/docs/vision/vision_principles.md) addresses how these manifest in our vision, this document focuses specifically on the technical architecture patterns and decisions.
+This document explains the key technical architecture concepts that form the foundation of ThinkAlike's implementation. While [Core Concepts](../core/core_concepts.md) covers the philosophical and functional concepts, and [Vision Principles](../vision/vision_principles.md) addresses how these manifest in our vision, this document focuses specifically on the technical architecture patterns and decisions.
 
 ## 1. Layered Architecture
 

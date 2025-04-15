@@ -6,7 +6,7 @@ Accessibility (a11y) is fundamental to ThinkAlike's values of **Ethical Humanism
 
 Our target is **WCAG 2.1 Level AA** compliance. Accessibility must be integral to design, implementation, and testing, not an afterthought.
 
-Refer to [Ethical Guidelines](../../core/ethics/ethical_guidelines.md) and the [Testing Plan](./testing_and_validation_plan.md).
+Refer to [Ethical Guidelines](../core/ethics/ethical_guidelines.md) and the [Testing Plan](./testing_and_validation_plan.md).
 
 ---
 
@@ -110,7 +110,7 @@ Incorporate accessibility testing throughout the development cycle.
 
 * **WebAIM:** [webaim.org](https://webaim.org) (Resources, Contrast Checker)
 
-* **MDN Accessibility Docs:** [developer.mozilla.org/en-US/docs/Web/Accessibility](https://developer.mozilla.org/en-US/docs/Web/Accessibility)
+* **MDN Accessibility Docs:** [developer.mozilla.org/en-US../Web/Accessibility](https://developer.mozilla.org/en-US../Web/Accessibility)
 
 * **WAI-ARIA Authoring Practices:** [w3.org/WAI/ARIA/apg/](https://www.w3.org/WAI/ARIA/apg/) (Guidance for custom widgets)
 

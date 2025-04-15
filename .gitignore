@@ -109,3 +109,11 @@ yarn-error.log*
 .vscode/
 *.swp
 *.swo
+tests/.coverage# Backup and temporary files
+backup-*/
+*.save
+*.tmp
+*.temp
+*.log
+__pycache__/
+.pytest_cache/

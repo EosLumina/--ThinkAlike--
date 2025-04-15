@@ -4,7 +4,7 @@ This document provides a deeper architectural and implementation concept for the
 
 ## 1. Purpose & Vision
 
-The Verification System is a cornerstone of ThinkAlike’s commitment to its [Ethical Guidelines](../../core/ethics/ethical_guidelines.md) and operational integrity. It is **not** merely a set of validation rules but an **active, integrated component** designed to:
+The Verification System is a cornerstone of ThinkAlike’s commitment to its [Ethical Guidelines](../core/ethics/ethical_guidelines.md) and operational integrity. It is **not** merely a set of validation rules but an **active, integrated component** designed to:
 
 * **Enforce Ethical Boundaries:** Programmatically check actions and data against defined ethical rules (e.g., content policies, data usage constraints).
 

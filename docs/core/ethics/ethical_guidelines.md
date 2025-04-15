@@ -30,11 +30,11 @@ When AI is employed to assist community functions (Mode 3), the following specif
 
 * **Human Primacy:** AI tools may *assist* deliberation (summarization, perspective mapping) or moderation (content flagging), but **final decisions** (policy changes, moderation actions) **must rest with human members or designated human moderators** according to the community's chosen governance model. Automated enforcement or censorship based solely on AI is prohibited.
 
-* **Transparency of Assistance:** Any AI-generated summary, analysis, flag, or suggestion presented within a community context must be clearly labeled as such. The general logic or criteria used by the AI (e.g., "flagged for potential hate speech based on keyword analysis") should be accessible, at least to moderators. Usage must be logged ([AI Transparency Log](../../guides/developer_guides/ai/ai_transparency_log.md)).
+* **Transparency of Assistance:** Any AI-generated summary, analysis, flag, or suggestion presented within a community context must be clearly labeled as such. The general logic or criteria used by the AI (e.g., "flagged for potential hate speech based on keyword analysis") should be accessible, at least to moderators. Usage must be logged ([AI Transparency Log](../guides/developer_guides/ai/ai_transparency_log.md)).
 
 * **Opt-In at Community Level:** The deployment of specific AI assistance tools within a community must be an explicit, configurable choice made by that community through its governance process. It cannot be imposed platform-wide without opt-out.
 
-* **Bias Auditing:** AI models used for content flagging or analysis within communities must undergo regular bias testing ([AI Ethical Testing Guide](../../guides/developer_guides/ai/ai_ethical_testing_guide.md)) to ensure they do not disproportionately affect specific user groups or viewpoints unfairly.
+* **Bias Auditing:** AI models used for content flagging or analysis within communities must undergo regular bias testing ([AI Ethical Testing Guide](../guides/developer_guides/ai/ai_ethical_testing_guide.md)) to ensure they do not disproportionately affect specific user groups or viewpoints unfairly.
 
 * **Explainable Flagging:** When AI flags content, it should provide (where technically feasible) a reason or highlight the specific elements that triggered the flag to aid human moderator review.
 
@@ -56,9 +56,9 @@ These guidelines are not intended to be legally binding or to create any contrac
 
 ## References
 
-* [AI Transparency Log](../../guides/developer_guides/ai/ai_transparency_log.md)
+* [AI Transparency Log](../guides/developer_guides/ai/ai_transparency_log.md)
 
-* [AI Ethical Testing Guide](../../guides/developer_guides/ai/ai_ethical_testing_guide.md)
+* [AI Ethical Testing Guide](../guides/developer_guides/ai/ai_ethical_testing_guide.md)
 
 * [Master Reference](../master_reference.md)
 
