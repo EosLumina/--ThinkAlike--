@@ -36,7 +36,7 @@ pillow==11.1.0
 pluggy==1.5.0
 posthog==3.24.1
 pycparser==2.22
-pydantic[email]==1.10.13
+pydantic[email]==2.11.3
 pydantic_core==2.27.2
 PyMySQL
 pyparsing==3.2.1
