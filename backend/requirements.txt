@@ -34,7 +34,7 @@ packaging==24.2
 pandas==2.0.3
 pillow==11.1.0
 pluggy==1.5.0
-posthog==3.11.0
+posthog==3.24.1
 pycparser==2.22
 pydantic[email]==1.10.13
 pydantic_core==2.27.2
