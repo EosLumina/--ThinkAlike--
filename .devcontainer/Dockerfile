@@ -1,20 +1,22 @@
 FROM python:3.11-slim-bullseye AS python-base
 
-# Avoid warnings by switching to noninteractive
-ENV DEBIAN_FRONTEND=noninteractive
-
-# Install dependencies (upgraded from previous version)
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends \
-        git \
-        curl \
-        nodejs \
-        npm \
-        # Add additional security packages
-        ca-certificates \
-        gnupg \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# Install dependencies for development environment
+RUN apk add --no-cache \
+    git \
+    curl \
+    nodejs \
+    npm \
+    # Add additional security packages
+    ca-certificates \
+    # Add build dependencies
+    gcc \
+    musl-dev \
+    python3-dev \
+    libffi-dev \
+    openssl-dev \
+    postgresql-dev \
+    # Shell for development experience
+    bash
 
 # Security hardening
 RUN pip install --no-cache-dir --upgrade pip \
@@ -27,15 +29,11 @@ WORKDIR /app
 
 # Copy requirements and install Python dependencies
 COPY requirements.txt .
-RUN pip install --no-cache-dir --require-hashes -r requirements.txt || \
-    pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Create a non-root user and switch to it
-RUN useradd -m developer -s /bin/bash
+RUN addgroup -S developer && adduser -S developer -G developer -s /bin/bash
 USER developer
 
 # Set the working directory
 WORKDIR /workspaces
-
-# Switch back to dialog for any ad-hoc use of apt-get
-ENV DEBIAN_FRONTEND=dialog
