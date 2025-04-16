@@ -1,7 +1,5 @@
 # ThinkAlike: Architecting Connection for Enlightenment 2.0
 
-**A Collective Project to Build Ethical Technology for Conscious Evolution, Authentic Connection, and Universal Liberation.**
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Discord](https://img.shields.io/discord/1234567890123456789?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH)
