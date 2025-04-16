@@ -6,15 +6,16 @@
 
 This document provides a comprehensive summary of the ThinkAlike API architecture, embodying our principles of radical transparency and digital sovereignty.
 
-{% if api_endpoints %}
-## API Endpoints
+{% for category, endpoints in endpoints_by_category.items() %}
+## {{ category.replace('_', ' ').title() }} Endpoints
 
-| Endpoint | Method | Description | Authentication | Data Sovereignty |
-|----------|--------|-------------|----------------|------------------|
-{% for endpoint in api_endpoints %}
-| `{{ endpoint.path }}` | {{ endpoint.method }} | {{ endpoint.description }} | {{ endpoint.auth_required|default("None", true) }} | {{ endpoint.data_sovereignty|default("User-controlled", true) }} |
+| Method | Path | Description | Authentication | Data Sovereignty |
+|--------|------|-------------|----------------|------------------|
+{% for endpoint in endpoints %}
+| {{ endpoint.method }} | `{{ endpoint.path }}` | {{ endpoint.description.split('\n')[0] }} | {{ endpoint.auth_required|default("None", true) }} | {{ endpoint.data_sovereignty|default("User-controlled", true) }} |
 {% endfor %}
-{% endif %}
+
+{% endfor %}
 
 {% if models %}
 ## Data Models
