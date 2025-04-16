@@ -31,8 +31,8 @@ class DocumentationService:
         templates_dir = repo_root / 'docs' / 'templates'
 
         # Set up Jinja environment with boundary-respecting paths
-        self.template_env = jinja2.Environment(
-            loader=jinja2.FileSystemLoader(templates_dir)
+        self.template_env = Environment(
+            loader=FileSystemLoader(templates_dir)
         )
 
     def update_api_documentation(self) -> List[str]:
