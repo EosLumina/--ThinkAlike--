@@ -33,8 +33,6 @@ jobs:
         pip install pytest pytest-cov
 
         pip install -r requirements.txt'
-    - name: Install extra dependencies
-      run: pip install markdown jinja2 uvicorn>=0.24.0
     - name: Run tests
       run: pytest backend/tests --cov=backend --cov-report=xml
     - name: Upload coverage report
