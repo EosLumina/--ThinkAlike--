@@ -117,3 +117,11 @@ backup-*/
 *.log
 __pycache__/
 .pytest_cache/
+# Protect data sovereignty
+data/*
+# Preserve historical states while respecting size limitations
+backups/*
+# Protect data sovereignty
+data/*
+# Preserve historical states while respecting size limitations
+backups/*

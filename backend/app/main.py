@@ -1,35 +1,43 @@
+"""
+ThinkAlike FastAPI Application
+
+This module defines the main FastAPI application for ThinkAlike,
+implementing our principles of user sovereignty, radical transparency,
+and data minimization.
+"""
+
 import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+import logging
 
 from .core.config import settings
 from .api.api_v1.api import api_router
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+)
+logger = logging.getLogger("ThinkAlike")
+
 # Create FastAPI app
 app = FastAPI(
-    title=settings.PROJECT_NAME,
+    title="ThinkAlike API",
+    description="API for ThinkAlike - A platform for digital liberation",
+    version="0.1.0",
     openapi_url=f"{settings.API_V1_STR}/openapi.json",
 )
 
-# Set up CORS middleware
-if settings.BACKEND_CORS_ORIGINS is not None:
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=[str(origin) for origin in settings.BACKEND_CORS_ORIGINS],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
-else:
-    # Development fallback - allow localhost
-    app.add_middleware(
-        CORSMiddleware,
-        allow_origins=["http://localhost:3000"],
-        allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-    )
+# Configure CORS for frontend communication
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify actual origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Include routers
 app.include_router(api_router, prefix=settings.API_V1_STR)
@@ -41,11 +49,31 @@ if os.path.exists(static_dir):
 # Root endpoint
 @app.get("/")
 async def root():
+    """
+    Root endpoint for the ThinkAlike API.
+    
+    This endpoint embodies our principle of radical transparency
+    by providing clear information about the API and its purpose.
+    """
     return {
-        "message": "Welcome to ThinkAlike API",
-        "docs_url": "/docs",
-        "api_v1": settings.API_V1_STR
+        "message": "Welcome to the ThinkAlike API",
+        "documentation": "/docs",
+        "version": "0.1.0",
+        "status": "operational",
+        "principles": {
+            "user_sovereignty": "All data belongs to users, with explicit consent for every use",
+            "radical_transparency": "All operations are explainable and auditable",
+            "data_minimization": "We collect only what's necessary, with clear purpose"
+        }
     }
+
+# Health check endpoint
+@app.get("/health")
+async def health():
+    """
+    Health check endpoint for monitoring.
+    """
+    return {"status": "healthy"}
 
 @app.get("/api/v1/graph")
 async def get_graph_data():
@@ -68,6 +96,22 @@ async def set_connection_status(status: str):
     if status not in ["disconnected", "connecting", "connected"]:
         raise HTTPException(status_code=400, detail="Invalid status")
     return {"status": status}
+
+# Startup event
+@app.on_event("startup")
+async def startup_event():
+    """
+    Startup event for the FastAPI application.
+    """
+    logger.info("ThinkAlike API starting up")
+
+# Shutdown event
+@app.on_event("shutdown")
+async def shutdown_event():
+    """
+    Shutdown event for the FastAPI application.
+    """
+    logger.info("ThinkAlike API shutting down")
 
 if __name__ == "__main__":
     import uvicorn
