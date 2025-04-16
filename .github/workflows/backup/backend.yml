@@ -3,72 +3,39 @@ name: Backend CI
   push:
     branches:
     - main
-    paths: &id001
+    - develop
+    paths:
     - backend/**
-    - '*.py'
+    - .github/workflows/backend.yml
+    - requirements.txt
+    - pyproject.toml
   pull_request:
     branches:
     - main
-    paths: *id001
-  workflow_dispatch: {}
-true:
-  push:
-    branches:
-    - main
+    - develop
     paths:
-    - app/**
-    - main.py
-    - requirements.txt
+    - backend/**
     - .github/workflows/backend.yml
-  pull_request:
-    branches:
-    - main
-    paths:
-    - app/**
-    - main.py
     - requirements.txt
-    - .github/workflows/backend.yml
+    - pyproject.toml
 jobs:
-  lint:
-    name: Lint Code
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.10'
-    - name: Install dependencies
-      run: "python -m pip install --upgrade pip\npip install flake8 black isort\n\
-        if [ -f requirements.txt ]; then\n  grep -v \"^-e .*\" requirements.txt |\
-        \ grep -v \"^file:.*\" > github_requirements.txt\n  pip install -r github_requirements.txt\n\
-        fi\n"
-    - name: Run linters
-      run: 'flake8 app/ main.py
-
-        black --check app/ main.py
-
-        isort --check app/ main.py
-
-        '
   test:
-    name: Run Tests
     runs-on: ubuntu-latest
-    needs: lint
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+    - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.10'
     - name: Install dependencies
-      run: "python -m pip install --upgrade pip\npip install pytest pytest-cov\nif\
-        \ [ -f requirements.txt ]; then\n  grep -v \"^-e .*\" requirements.txt | grep\
-        \ -v \"^file:.*\" > github_requirements.txt\n  pip install -r github_requirements.txt\n\
-        fi\n"
-    - name: Run tests
-      run: 'pytest --cov=app tests/
+      run: 'python -m pip install --upgrade pip
 
-        '
+        pip install pytest pytest-cov
+
+        pip install -r requirements.txt'
+    - name: Run tests
+      run: pytest backend/tests --cov=backend --cov-report=xml
+    - name: Upload coverage report
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml

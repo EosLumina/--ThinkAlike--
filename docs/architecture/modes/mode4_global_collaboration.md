@@ -26,3 +26,13 @@ Mode 4 expands ThinkAlike's functionality to facilitate global collaboration on 
 * **Transparency:** Open documentation of decision-making processes.
 
 * **Accountability:** Mechanisms for tracking and reporting outcomes.
+
+## Sovereignty Foundations
+
+* **Collective Agency:** Enables groups to consciously shape systemic challenges rather than being shaped by them.
+
+* **Transparent Power Structures:** Makes decision-making processes visible and subject to collective governance.
+
+* **Boundary-Respecting Collaboration:** Ensures information flows across communities while respecting each community's sovereign domains.
+
+* **Provenance-Aware Knowledge:** Tracks the origins and transformations of collective knowledge to establish clear lines of accountability.

@@ -3,84 +3,27 @@ name: Frontend CI
   push:
     branches:
     - main
-    paths: &id001
-    - frontend/**
-    - '*.js'
-    - '*.ts'
-    - '*.jsx'
-    - '*.tsx'
-  pull_request:
-    branches:
-    - main
-    paths: *id001
-  workflow_dispatch: {}
-true:
-  push:
-    branches:
-    - main
+    - develop
     paths:
     - frontend/**
     - .github/workflows/frontend.yml
   pull_request:
     branches:
     - main
+    - develop
     paths:
     - frontend/**
     - .github/workflows/frontend.yml
 jobs:
-  lint:
-    name: Lint Code
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-        cache: npm
-        cache-dependency-path: frontend/package-lock.json
-    - name: Install dependencies
-      working-directory: ./frontend
-      run: npm ci
-    - name: Run linters
-      working-directory: ./frontend
-      run: npm run lint
   test:
-    name: Run Tests
     runs-on: ubuntu-latest
-    needs: lint
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Node.js
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
-        cache: npm
-        cache-dependency-path: frontend/package-lock.json
+        node-version: '18'
     - name: Install dependencies
-      working-directory: ./frontend
-      run: npm ci
+      run: cd frontend && npm ci
     - name: Run tests
-      working-directory: ./frontend
-      run: npm test
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-        cache: npm
-        cache-dependency-path: frontend/package-lock.json
-    - name: Install dependencies
-      working-directory: ./frontend
-      run: npm ci
-    - name: Build application
-      working-directory: ./frontend
-      run: npm run build
+      run: cd frontend && npm test
