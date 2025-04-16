@@ -1,4 +1,5 @@
-FROM python:3.11-slim-bullseye AS python-base
+# Use the latest secure Python 3.13 patch version to reduce vulnerabilities
+FROM python:3.13.3-slim-bookworm AS python-base
 
 # Install dependencies for development environment
 RUN apk add --no-cache \
