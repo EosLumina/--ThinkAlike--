@@ -41,3 +41,6 @@ typing-inspection==0.4.0
 typing_extensions==4.13.2
 uvicorn>=0.24.0
 yamllint==1.37.0
+
+markdown==3.8
+jinja2==3.1.6
