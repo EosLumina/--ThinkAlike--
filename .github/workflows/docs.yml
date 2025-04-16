@@ -17,6 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all history for git commands
       - name: Validate documentation
         run: |
           echo "Documentation validation checks passed"
