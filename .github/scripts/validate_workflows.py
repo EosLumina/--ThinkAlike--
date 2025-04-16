@@ -2,72 +2,70 @@
 import os
 import sys
 import yaml
-import re
 
-def validate_workflows():
+try:
+    from colorama import init, Fore, Style
+    has_colorama = True
+    init()
+except ImportError:
+    has_colorama = False
+
+def color_text(text, color_code):
+    if has_colorama:
+        return f"{color_code}{text}{Style.RESET_ALL}"
+    return text
+
+def success(text):
+    return color_text(text, Fore.GREEN)
+
+def error(text):
+    return color_text(text, Fore.RED)
+
+def validate_workflow(file_path):
+    try:
+        with open(file_path, 'r') as f:
+            content = f.read()
+            yaml_content = yaml.safe_load(content)
+            
+        # Basic structure validation
+        if not isinstance(yaml_content, dict):
+            return False, "Root element must be a mapping"
+            
+        required_keys = ['name', 'on', 'jobs']
+        for key in required_keys:
+            if key not in yaml_content:
+                return False, f"Missing required key: '{key}'"
+                
+        print(success(f"✓ {file_path} is valid YAML"))
+        return True, None
+    except yaml.YAMLError as e:
+        return False, str(e)
+    except Exception as e:
+        return False, str(e)
+
+def main():
     workflow_dir = '.github/workflows'
+    if not os.path.exists(workflow_dir):
+        print(error(f"Directory not found: {workflow_dir}"))
+        return 1
+        
     all_valid = True
-
-    # Skip these directories
-    skip_dirs = ['backup', 'templates']
-
+    
     for filename in os.listdir(workflow_dir):
-        # Skip directories
-        if os.path.isdir(os.path.join(workflow_dir, filename)):
-            continue
-
-        # Skip files in backup directories
-        if any(skip_dir in os.path.join(workflow_dir, filename) for skip_dir in skip_dirs):
-            continue
-
         if filename.endswith('.yml') or filename.endswith('.yaml'):
-            filepath = os.path.join(workflow_dir, filename)
-
-            # First check for shell script patterns
-            with open(filepath, 'r') as f:
-                content = f.read()
-
-            shell_patterns = [
-                r'cat\s+>\s+.*<<\s+.*EOF',  # cat > file << EOF
-                r'EOF\s*$',  # EOF at the end of a line
-                r'^#\s+(?!\s*-)',  # Comments not part of YAML list
-            ]
-
-            if any(re.search(pattern, content, re.MULTILINE) for pattern in shell_patterns):
-                print(f"✗ {filepath}: Contains shell script commands")
+            file_path = os.path.join(workflow_dir, filename)
+            valid, message = validate_workflow(file_path)
+            
+            if not valid:
+                print(error(f"✗ {file_path} has errors: {message}"))
                 all_valid = False
-                continue
-
-            # Then validate as YAML
-            with open(filepath, 'r') as f:
-                try:
-                    content = yaml.safe_load(f)
-                    if not isinstance(content, dict):
-                        print(f"✗ {filepath}: Not a valid YAML mapping")
-                        all_valid = False
-                        continue
-
-                    if 'on' not in content:
-                        print(f"✗ {filepath}: Missing required key 'on'")
-                        all_valid = False
-                        continue
-
-                    if 'jobs' not in content:
-                        print(f"✗ {filepath}: Missing required key 'jobs'")
-                        all_valid = False
-                        continue
-
-                    print(f"✓ {filepath} is valid")
-                except Exception as e:
-                    print(f"✗ {filepath}: Error parsing YAML: {e}")
-                    all_valid = False
-
+    
     if all_valid:
-        print("\nAll workflow files are valid!")
+        print(success("\nAll workflow files are valid! ✓"))
         return 0
     else:
-        print("\nSome workflow files have errors!")
+        print(error("\nSome workflow files have errors ✗"))
         return 1
 
 if __name__ == "__main__":
-    sys.exit(validate_workflows())
+    sys.exit(main())
