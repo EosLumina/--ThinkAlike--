@@ -1,40 +1,48 @@
+"""
+ThinkAlike Database Connection
+
+This module handles database connections and session management,
+embodying our commitment to data sovereignty and transparent
+data handling.
+"""
+
 import os
 from sqlalchemy import create_engine
-# Update import to use the newer API
-# from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import declarative_base  # This is the updated import
+from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from dotenv import load_dotenv
 
-# Load environment variables from .env file if present
+# Load environment variables
 load_dotenv()
 
-# Get DATABASE_URL from environment, with SQLite fallback for development
-DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./thinkalike.db")
-
-# SQLite connect_args needed only for SQLite
-connect_args = {}
-if DATABASE_URL.startswith("sqlite"):
-    connect_args = {"check_same_thread": False}
-
-# Create engine with appropriate parameters
-engine = create_engine(
-    DATABASE_URL,
-    connect_args=connect_args
+# Get database connection string from environment
+DATABASE_URL = os.getenv(
+    "DATABASE_URL", 
+    "sqlite:///./thinkalike.db"  # Default SQLite for development
 )
 
-# Create session factory bound to the engine
+# Create database engine
+engine = create_engine(
+    DATABASE_URL, 
+    # Echo SQL for development transparency, disable in production
+    echo=os.getenv("ENVIRONMENT", "development") == "development",
+    # Enable connection pooling for better performance
+    pool_pre_ping=True
+)
+
+# Create sessionmaker
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# Create a base class for declarative models
+# Create base class for declarative models
 Base = declarative_base()
 
-# Dependency function to get DB session for FastAPI
+# Database dependency for FastAPI endpoints
 def get_db():
-    """FastAPI dependency that provides a database session.
-
-    Yields:
-        Session: SQLAlchemy session for database operations
+    """
+    Get a database session for use in API endpoints.
+    
+    This pattern ensures sessions are properly closed even if
+    exceptions occur, supporting our commitment to data integrity.
     """
     db = SessionLocal()
     try:
