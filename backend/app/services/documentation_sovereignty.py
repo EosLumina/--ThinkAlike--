@@ -9,7 +9,9 @@ from typing import Dict, List, Any, Optional
 # Adjust the number based on your directory structure
 # This should resolve to the repository root
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-os.makedirs(PROJECT_ROOT / "data" / "integrity", exist_ok=True)
+
+# Don't create directories at module level - move this to the class methods
+# where it's actually needed to avoid initialization issues
 
 
 class DocumentationSovereigntyService:
@@ -27,8 +29,13 @@ class DocumentationSovereigntyService:
             'docs' if docs_dir is None else Path(docs_dir)
 
         # Create data directory for integrity files if specified, otherwise use docs dir
-        data_dir = self.repo_root / 'data' / \
-            'integrity' if output_dir is None else Path(output_dir)
+        if output_dir is None:
+            # Use a directory within the docs directory to ensure write permissions
+            data_dir = self.docs_dir / 'integrity'
+        else:
+            data_dir = Path(output_dir)
+
+        # Create the directory if it doesn't exist
         os.makedirs(data_dir, exist_ok=True)
 
         # Store integrity file in the appropriate location
