@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Get full history for provenance tracking
+          fetch-depth: 0
           
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -30,24 +30,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pyyaml gitpython
           
       - name: Verify documentation sovereignty
         run: |
-          python scripts/sovereignty/verify_integrity.py --verify || echo "Integrity verification failed but continuing"
-          
-      - name: Update documentation integrity map
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: |
-          python scripts/sovereignty/verify_integrity.py --fix
-          
-          # Configure git
-          git config --local user.email "sovereignty-bot@thinkalike.net"
-          git config --local user.name "Documentation Sovereignty Bot"
-          
-          # Commit and push if there are changes
-          if git status --porcelain | grep -q "INTEGRITY.json"; then
-            git add docs/INTEGRITY.json
-            git commit -m "docs: update documentation integrity map [skip ci]"
-            git push
-          fi
+          python backend/tools/documentation_cli.py verify
