@@ -1,13 +1,5 @@
 # Technical Architecture Specification
 
-## 1. Introduction
-
-This document outlines the major components, layers, and design principles that underpin the platform. It serves as an entry point to understanding the overall technical structure and provides links to more detailed specifications.
-
-## 2. System Architecture
-
-# Architectural Overview - ThinkAlike Project
-
 ## Document Purpose
 
 This document provides a **high-level overview of the ThinkAlike project's architecture.** It outlines the major components, layers, and design principles that underpin the platform. This document serves as an entry point to understanding the overall technical structure of ThinkAlike and provides links to more detailed architectural specifications for specific modules and components.
