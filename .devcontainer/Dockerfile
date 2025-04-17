@@ -1,8 +1,9 @@
-# Use the latest secure Python 3.13 patch version to reduce vulnerabilities
-FROM python:3.13.3-slim-bookworm AS python-base
+# Use the latest secure Python 3.10 version
+FROM mcr.microsoft.com/devcontainers/python:3.10
 
-# Install dependencies for development environment
-RUN apk add --no-cache \
+# Install additional dependencies for development environment
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
     git \
     curl \
     nodejs \
@@ -11,13 +12,14 @@ RUN apk add --no-cache \
     ca-certificates \
     # Add build dependencies
     gcc \
-    musl-dev \
     python3-dev \
     libffi-dev \
-    openssl-dev \
-    postgresql-dev \
-    # Shell for development experience
-    bash
+    libssl-dev \
+    libpq-dev \
+    # Clean up
+    && apt-get autoremove -y \
+    && apt-get clean -y \
+    && rm -rf /var/lib/apt/lists/*
 
 # Security hardening
 RUN pip install --no-cache-dir --upgrade pip \
@@ -26,15 +28,8 @@ RUN pip install --no-cache-dir --upgrade pip \
     && pip install pip-audit
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /workspaces
 
 # Copy requirements and install Python dependencies
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Create a non-root user and switch to it
-RUN addgroup -S developer && adduser -S developer -G developer -s /bin/bash
-USER developer
-
-# Set the working directory
-WORKDIR /workspaces
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
