@@ -102,6 +102,15 @@ Find tasks on [GitHub Issues](https://github.com/EosLumina/ThinkAlike/issues) (l
     *   [MASTER_REFERENCE.md](./docs/core/master_reference.md) (Source of Truth)
     *   [Ethical Guidelines](./docs/core/ethics/ethical_guidelines.md) (Our Compass)
     *   [Roadmap](./docs/roadmap.md) (The Plan)
+    *   [AI Onboarding Agent Spec](./docs/architecture/specs/ai_onboarding_agent_spec.md)
+    *   [Pluggable Modes System Spec](./docs/architecture/specs/pluggable_modes_system_spec.md)
+    *   [Time Banking & Review System Spec](./docs/architecture/specs/time_banking_review_system_spec.md)
+    *   [Collaborative Development Hub Spec](./docs/architecture/specs/collaborative_development_hub_spec.md)
+    *   [Contributor Recognition & Badges Spec](./docs/architecture/specs/contributor_recognition_badges_spec.md)
+    *   [Time-Based Currency & Digital Citizenship Spec](./docs/architecture/specs/time_based_currency_digital_citizenship_spec.md)
+    *   [Decentralized Community & Governance Tools Spec](./docs/architecture/specs/decentralized_community_governance_spec.md)
+    *   [Gamified, Ethical Engagement Mechanics Spec](./docs/architecture/specs/gamified_ethical_engagement_spec.md)
+    *   [Blockchain Integration & UBI Spec](./docs/architecture/specs/blockchain_integration_ubi_spec.md)
 *   Browse the full `docs/` directory for comprehensive information.
 
 ## License
