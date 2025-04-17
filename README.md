@@ -3,6 +3,7 @@
 ![Backend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml/badge.svg)
 ![Frontend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml/badge.svg)
 ![Docs CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml/badge.svg)
+![CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/ci.yml/badge.svg)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
