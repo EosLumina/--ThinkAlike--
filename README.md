@@ -3,17 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 [![Discord](https://img.shields.io/discord/1234567890123456789?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH)
-[![Docs CI Status](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml)
-[![Backend Status](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml)
-[![Frontend Status](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml)
-
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Docs License: CC BY-NC-ND 4.0](https://img.shields.io/badge/Docs%20License-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
-[![Discord](https://img.shields.io/discord/1234567890123456789?label=Discord&logo=discord&color=7289DA)](https://discord.gg/TnAcWezH)
-[![Docs CI Status](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml)
-[![Backend Status](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml)
-[![Frontend Status](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml)
+[![Backend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/backend.yml)
+[![Frontend CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/frontend.yml)
+[![Docs CI](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml/badge.svg)](https://github.com/EosLumina/--ThinkAlike--/actions/workflows/docs.yml)
 
 ## Introduction: The Mandate for a System Update
 
