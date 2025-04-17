@@ -13,7 +13,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple
 
-import markdown
+import markdown  # type: ignore  # Ensure markdown package is installed
+# type: ignore  # Ensure Jinja2 is installed
 from jinja2 import Environment, FileSystemLoader
 
 
@@ -26,8 +27,12 @@ class DocumentationService:
     """
 
     def __init__(self):
-        # Create environment-aware path to templates
-        repo_root = Path(os.environ.get('GITHUB_WORKSPACE', os.getcwd()))
+        # Determine project root for source and docs
+        env_root = os.environ.get('GITHUB_WORKSPACE')
+        repo_root = Path(env_root) if env_root else Path(os.getcwd())
+        # Set directories for code and documentation
+        self.src_dir = repo_root
+        self.docs_dir = repo_root / 'docs'
         templates_dir = repo_root / 'docs' / 'templates'
 
         # Set up Jinja environment with boundary-respecting paths

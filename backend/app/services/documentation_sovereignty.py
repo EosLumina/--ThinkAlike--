@@ -8,6 +8,7 @@ from typing import Dict, List, Any, Optional
 # Use a path relative to the project root
 # Adjust the number based on your directory structure
 # This should resolve to the repository root
+# Correct project root level
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
 # Don't create directories at module level - move this to the class methods
@@ -23,8 +24,9 @@ class DocumentationSovereigntyService:
     """
 
     def __init__(self, docs_dir=None, output_dir=None):
-        # Use the PROJECT_ROOT constant for consistency
-        self.repo_root = PROJECT_ROOT
+        # Determine project root, preferring GITHUB_WORKSPACE in CI environments
+        env_root = os.environ.get('GITHUB_WORKSPACE')
+        self.repo_root = Path(env_root) if env_root else PROJECT_ROOT
         self.docs_dir = self.repo_root / \
             'docs' if docs_dir is None else Path(docs_dir)
 
@@ -156,10 +158,14 @@ class DocumentationSovereigntyService:
             # Use relative paths for cross-environment compatibility
             rel_path = str(doc_file.relative_to(self.docs_dir))
 
-            # Generate cryptographic hash
-            with open(doc_file, 'rb') as f:
-                content = f.read()
-                doc_hash = hashlib.sha256(content).hexdigest()
+            # Generate cryptographic hash, skip if file missing
+            try:
+                with open(doc_file, 'rb') as f:
+                    content = f.read()
+                    doc_hash = hashlib.sha256(content).hexdigest()
+            except FileNotFoundError:
+                # File may have been removed, skip
+                continue
 
             # Store document integrity information
             integrity_map["documents"][rel_path] = {

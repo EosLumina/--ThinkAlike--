@@ -5,8 +5,6 @@ theme:
 
 plugins:
   - search
-  - redirects:
-      redirect_maps: {}
 
 markdown_extensions:
   - pymdownx.highlight

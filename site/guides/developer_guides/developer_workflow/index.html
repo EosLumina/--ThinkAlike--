@@ -1,0 +1,425 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Developer Workflow Guide - ThinkAlike Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.4af4bdda.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developer-workflow-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-header__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThinkAlike Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developer Workflow Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThinkAlike Documentation" class="md-nav__button md-logo" aria-label="ThinkAlike Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ThinkAlike Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="developer-workflow-guide">Developer Workflow Guide</h1>
+<h1 id="developer-workflow">Developer Workflow</h1>
+<p>This guide provides a practical, step-by-step workflow for common development tasks within the ThinkAlike project. It integrates information from various guides like <a href="../core/contributing.md"><code>contributing.md</code></a>, <a href="../core/installation.md"><code>installation.md</code></a>, style guides, and testing procedures.</p>
+<p><strong>Prerequisites:</strong></p>
+<ol>
+<li><strong>Environment Setup:</strong> Ensure you have successfully completed the <a href="../core/installation.md"><code>Installation Guide</code></a>.</li>
+<li><strong>Understanding:</strong> Familiarize yourself with the <a href="../core/onboarding_guide.md"><code>Onboarding Guide</code></a>, <a href="../architecture/architectural_overview.md"><code>Architectural Overview</code></a>, and especially the <a href="../../../vision/core_concepts/"><code>Core Concepts Explained</code></a> (including UI as Validation).</li>
+<li><strong>Issue Tracking:</strong> Have access to the project's GitHub issue tracker [Link - <strong>TODO</strong>].</li>
+</ol>
+<h2 id="general-workflow-steps">General Workflow Steps</h2>
+<ol>
+<li><strong>Pick an Issue:</strong> Find an issue to work on from the issue tracker (see <a href="../core/contributing.md"><code>contributing.md</code></a> for guidance on finding issues). Assign it to yourself or comment your intention to work on it.</li>
+<li>
+<p><strong>Create a Branch:</strong> Based on the <code>main</code> branch (or <code>develop</code> if used), create a new branch following the naming convention: <code>type/issue-number-short-description</code> (e.g., <code>feat/215-add-profile-tagging</code>).</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>main
+git<span class="w"> </span>pull<span class="w"> </span>upstream<span class="w"> </span>main<span class="w"> </span><span class="c1"># Ensure main is up-to-date</span>
+
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feat/215-add-profile-tagging
+</code></pre></div>
+</li>
+<li>
+<p><strong>Develop &amp; Test (Iterative):</strong> This is the core loop. See specific task workflows below.</p>
+<ul>
+<li>
+<p>Write code (adhering to <a href="../code_style_guide/"><code>Code Style Guide</code></a>).</p>
+</li>
+<li>
+<p>Write unit/integration tests.</p>
+</li>
+<li>
+<p>Run tests locally.</p>
+</li>
+<li>
+<p>Utilize UI Validation components for real-time feedback (see <a href="../ui_validation_examples/"><code>UI Validation Examples</code></a>).</p>
+</li>
+<li>
+<p>Document code changes (<a href="../templates/code_documentation_template.md"><code>Code Docs Template</code></a>).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Commit Changes:</strong> Use Conventional Commit messages (e.g., <code>feat: add tagging feature to user profiles</code>). Commit frequently with meaningful messages.</p>
+</li>
+<li><strong>Update Branch:</strong> Regularly rebase or merge <code>main</code> into your branch to stay updated: <code>git fetch upstream &amp;&amp; git rebase upstream/main</code>. Resolve conflicts locally.</li>
+<li>
+<p><strong>Run All Checks:</strong> Before pushing, ensure all tests pass and linters/formatters succeed:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Example commands (adjust based on project setup)</span>
+
+<span class="nb">cd</span><span class="w"> </span>backend<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>pytest<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+<span class="nb">cd</span><span class="w"> </span>frontend<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>lint<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>format<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+</li>
+<li>
+<p><strong>Push Branch:</strong> <code>git push origin feat/215-add-profile-tagging</code></p>
+</li>
+<li><strong>Open Pull Request (PR):</strong> Create a PR on GitHub against the <code>main</code> branch. Fill out the PR template, link the issue, and describe your changes.</li>
+<li><strong>Code Review &amp; Iteration:</strong> Respond to reviewer feedback, push additional commits to the <em>same branch</em> to address comments.</li>
+<li><strong>Merge:</strong> Once approved and checks pass, a maintainer will merge your PR.</li>
+</ol>
+<h2 id="development-workflows-swarming-and-individual-contributions">Development Workflows: Swarming and Individual Contributions</h2>
+<p>ThinkAlike supports two primary workflows for development:</p>
+<ol>
+<li>
+<p><strong>Swarming (Preferred for Complex Tasks):</strong> Swarming is our collaborative coding methodology where contributors work together in real-time on the same task. This is ideal for feature development, complex problem-solving, and documentation writing. Refer to the <a href="../core/contributing.md#our-development-methodology-swarming-coding"><code>Contribution Guidelines</code></a> for details on participating in Swarming sessions.</p>
+</li>
+<li>
+<p><strong>Individual Contributions (For Smaller Tasks):</strong> Individual contributions are encouraged for smaller bugs, documentation fixes, or pre-swarm research. Follow the standard Fork &amp; PR workflow outlined below for individual contributions.</p>
+</li>
+</ol>
+<h2 id="specific-task-workflows">Specific Task Workflows</h2>
+<h3 id="workflow-a-adding-a-new-backend-api-endpoint">Workflow A: Adding a New Backend API Endpoint</h3>
+<ol>
+<li><strong>Define Contract:</strong> Define the endpoint path, HTTP method, request body/params (using Pydantic models), and response body (using Pydantic models) – document this briefly in the relevant API doc (e.g., <a href="../architecture/api/api_endpoints_mode2.md"><code>api_endpoints_mode2.md</code></a>).</li>
+<li><strong>Create Route:</strong> Add the new endpoint function within the appropriate FastAPI router file in <code>backend/routes/</code> (or <code>api/</code> if structured differently). Use dependency injection for services. See <a href="../building_backend_endpoint/"><code>Building Backend Endpoint Guide</code></a>.</li>
+<li><strong>Implement Service Logic:</strong> Create or update a service function in <code>backend/services/</code> to handle the business logic for the endpoint. This layer interacts with models/database.</li>
+<li><strong>Database Interaction (if needed):</strong> If data access is required, interact with SQLAlchemy models defined in <code>backend/models/</code>. Ensure efficient querying.</li>
+<li><strong>Verification System Hook (if needed):</strong> If the action requires ethical or functional validation, call the appropriate Verification System function/endpoint. See <a href="../architecture/verification_system/verification_system_deep_dive.md"><code>Verification System Deep Dive</code></a>.</li>
+<li><strong>Write Unit/Integration Tests:</strong> Create tests in <code>backend/tests/</code> covering the service logic and the API endpoint interaction (using <code>TestClient</code>). Mock dependencies (like Verification System calls or database sessions) appropriately for unit tests.</li>
+<li><strong>Local Testing:</strong> Run the backend server (<code>uvicorn ...</code>) and test the endpoint using <code>curl</code>, Postman, or ideally, by integrating it with the frontend (see Workflow C).</li>
+</ol>
+<h3 id="workflow-b-creating-a-new-react-ui-component">Workflow B: Creating a New React UI Component</h3>
+<ol>
+<li><strong>Define Component:</strong> Determine the component's purpose, props (API), state, and visual appearance. Create a spec document if it's a complex/reusable component, potentially in <code>docs/components/ui_components/</code>. See <a href="../building_ui_component/"><code>Building UI Component Guide</code></a>.</li>
+<li><strong>Create Files:</strong> Create the component file (e.g., <code>frontend/src/components/NewFeature/NewFeature.tsx</code>) and associated style file (e.g., <code>NewFeature.module.css</code>).</li>
+<li><strong>Implement Component Logic:</strong> Write the React/TypeScript code. Use hooks (<code>useState</code>, <code>useEffect</code>, etc.) for state and side effects. Follow React best practices.</li>
+<li><strong>Styling:</strong> Apply styles using CSS Modules or the project's chosen styling solution, adhering to the general style guide.</li>
+<li><strong>Integrate Validation Components (Crucial):</strong> If the component handles user input subject to ethical rules, displays sensitive data, or interacts with specific APIs, integrate the relevant UI Validation components (<code>CoreValuesValidator</code>, <code>APIValidator</code>, <code>DataTraceability</code>) as per <a href="../ui_validation_examples/"><code>UI Validation Examples</code></a>.</li>
+<li><strong>Write Unit/Component Tests:</strong> Create tests in <code>frontend/src/components/NewFeature/NewFeature.test.tsx</code> using Jest and React Testing Library. Test component rendering, state changes, prop handling, and interactions. Mock API calls or context providers as needed.</li>
+<li><strong>Local Testing:</strong> Run the frontend dev server (<code>npm start</code>) and view/interact with the component in isolation (using Storybook, if set up) or integrated into a page. Check console for errors, including those from validation components.</li>
+</ol>
+<h3 id="workflow-c-connecting-frontend-component-to-backend-api">Workflow C: Connecting Frontend Component to Backend API</h3>
+<ol>
+<li><strong>Identify/Create API Service:</strong> In <code>frontend/src/services/</code>, locate or create the function responsible for calling the relevant backend endpoint (e.g., <code>apiClient.ts</code>, <code>userService.ts</code>). Use <code>Workspace</code> or <code>axios</code>.</li>
+<li><strong>Call Service from Component:</strong> Use <code>useEffect</code> or event handlers (e.g., <code>onSubmit</code>) in your component (from Workflow B) to call the API service function. Handle loading states, responses, and errors.</li>
+<li><strong>Integrate <code>APIValidator</code> (Dev Mode):</strong> Wrap the API call with <code>APIValidator</code> checks (as shown in <a href="../ui_validation_examples/"><code>UI Validation Examples</code></a>) to validate request/response schemas during development.</li>
+<li><strong>Update State:</strong> Update the component's state based on the API response.</li>
+<li><strong>Testing:</strong> Update component tests to mock the API service calls and verify the component behaves correctly in different API response scenarios (loading, success, error). Consider integration tests if applicable.</li>
+</ol>
+<h3 id="workflow-d-fixing-a-bug">Workflow D: Fixing a Bug</h3>
+<ol>
+<li><strong>Reproduce the Bug:</strong> Use the steps in the bug report issue to reliably reproduce the bug locally.</li>
+<li><strong>Identify the Cause:</strong> Use browser dev tools, backend logs, debuggers, and your understanding of the relevant code (frontend or backend) to pinpoint the source of the bug.</li>
+<li><strong>Write a Failing Test:</strong> Before fixing, write a unit or integration test that specifically fails because of the bug. This confirms you've identified the issue and prevents regressions.</li>
+<li><strong>Fix the Bug:</strong> Correct the code.</li>
+<li><strong>Run Tests:</strong> Ensure the previously failing test now passes, and <em>all other</em> tests still pass.</li>
+<li><strong>Verify Fix:</strong> Manually verify the fix locally by repeating the reproduction steps.</li>
+<li><strong>Commit:</strong> Use a <code>fix:</code> prefix in your Conventional Commit message (e.g., <code>fix: prevent duplicate profile submissions</code>).</li>
+</ol>
+<p>This guide provides a framework. Always refer to the specific linked documents for detailed standards and implementation patterns. Communicate early and often if you encounter roadblocks!</p>
+<hr />
+<p><strong>Document Details</strong></p>
+<ul>
+<li>
+<p>Title: Developer Workflow Guide</p>
+</li>
+<li>
+<p>Type: Developer Guide</p>
+</li>
+<li>
+<p>Version: 1.0.0</p>
+</li>
+<li>
+<p>Last Updated: 2025-04-05</p>
+</li>
+</ul>
+<hr />
+<p>End of Developer Workflow Guide</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>

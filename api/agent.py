@@ -1,6 +1,8 @@
+# type: ignore  # Pylance: ignore missing import for FastAPI
 from fastapi import APIRouter, FastAPI
 
 router = APIRouter()
+
 
 @router.get("")
 async def get_agent():

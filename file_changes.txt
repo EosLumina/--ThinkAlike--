@@ -1,0 +1,290 @@
+\nBranch: backup-original-state-20250414
+------------------------------------
+M backend/__init__.py
+M backend/ci.yml
+M backend/main.py
+\nBranch: clean-implementation-20250415
+------------------------------------
+\nBranch: cleanup-and-organization
+------------------------------------
+M backend/agents/test_writer_agent.py
+A docs/COPILOT_LINT_FIX.md
+A docs/COPILOT_PROMPT.md
+A docs/DIRECTORY_STRUCTURE.md
+A docs/IMPLEMENTATION_PLAN.md
+A docs/PROJECT_STATUS_REPORT.md
+A docs/README.md
+A docs/core/vision/algorithmic_ecosystem.md
+A docs/index.md
+A frontend/src/index.ts
+\nBranch: cleanup/disable-workflows
+------------------------------------
+\nBranch: dependabot/npm_and_yarn/frontend/http-proxy-middleware-2.0.9
+------------------------------------
+M frontend/package-lock.json
+\nBranch: dependabot/pip/altair-5.5.0
+------------------------------------
+\nBranch: dependabot/pip/backend/gunicorn-23.0.0
+------------------------------------
+\nBranch: dependabot/pip/backend/python-multipart-0.0.18
+------------------------------------
+\nBranch: dependabot/pip/contourpy-1.3.1
+------------------------------------
+\nBranch: dependabot/pip/filelock-3.18.0
+------------------------------------
+\nBranch: dependabot/pip/gunicorn-23.0.0
+------------------------------------
+\nBranch: dependabot/pip/posthog-3.24.1
+------------------------------------
+\nBranch: dependabot/pip/psycopg2-binary-2.9.10
+------------------------------------
+\nBranch: dependabot/pip/pydantic-email--2.11.3
+------------------------------------
+M backend/requirements.txt
+\nBranch: dependabot/pip/pyparsing-3.2.3
+------------------------------------
+M backend/requirements.txt
+\nBranch: dependabot/pip/pytest-8.3.5
+------------------------------------
+\nBranch: dependabot/pip/python-multipart-0.0.18
+------------------------------------
+\nBranch: dependabot/pip/pytz-2025.2
+------------------------------------
+\nBranch: dependabot/pip/typing-extensions-4.13.2
+------------------------------------
+\nBranch: develop
+------------------------------------
+\nBranch: docs
+------------------------------------
+\nBranch: feature/my-changes
+------------------------------------
+\nBranch: fix-github-actions-6
+------------------------------------
+\nBranch: fix-import-paths
+------------------------------------
+\nBranch: fix-structure
+------------------------------------
+\nBranch: fix-structure-1
+------------------------------------
+\nBranch: fix-workflow
+------------------------------------
+\nBranch: fix-workflow-files
+------------------------------------
+\nBranch: fix-workflows
+------------------------------------
+\nBranch: fix-workflows-1
+------------------------------------
+M backend/agents/test_writer_agent.py
+A docs/COPILOT_LINT_FIX.md
+A docs/COPILOT_PROMPT.md
+A docs/DIRECTORY_STRUCTURE.md
+A docs/IMPLEMENTATION_PLAN.md
+A docs/PROJECT_STATUS_REPORT.md
+A docs/README.md
+A docs/core/vision/algorithmic_ecosystem.md
+A docs/index.md
+A frontend/src/index.ts
+\nBranch: fix/integrated-workflow-fixes
+------------------------------------
+M backend/__init__.py
+M backend/main.py
+A docs/components/ui/data_traceability/index.md
+A docs/core/getting_started/onboarding.md
+A docs/core/setup/installation.md
+A docs/instructions/troubleshooting_failing_checks.ipynb
+\nBranch: fix/security-vulnerabilities
+------------------------------------
+\nBranch: full-backup-20250415
+------------------------------------
+M backend/__init__.py
+M backend/ci.yml
+M backend/main.py
+\nBranch: integration-temp
+------------------------------------
+A frontend/jest.config.js
+A frontend/tsconfig.json
+\nBranch: integration/pending-changes
+------------------------------------
+A backend/db/__init__.py
+A backend/models/__init__.py
+A backend/schemas/__init__.py
+A backend/utils/__init__.py
+A docs/knowledge-index.txt
+A docs/preserved-knowledge/COPILOT_LINT_FIX.md
+A docs/preserved-knowledge/COPILOT_PROMPT.md
+A docs/preserved-knowledge/DIRECTORY_STRUCTURE.md
+A docs/preserved-knowledge/IMPLEMENTATION_PLAN.md
+A docs/preserved-knowledge/Investor_deck.md
+A docs/preserved-knowledge/LICENSE.md
+A docs/preserved-knowledge/PROJECT_STATUS_REPORT.md
+A docs/preserved-knowledge/README.md
+A docs/preserved-knowledge/accessibility_guide.md
+A docs/preserved-knowledge/ai_bias_detection_module.md
+A docs/preserved-knowledge/ai_clone_persona_engine.md
+A docs/preserved-knowledge/ai_driven_workflow.md
+A docs/preserved-knowledge/ai_ethical_implementation.md
+A docs/preserved-knowledge/ai_ethical_testing_guide.md
+A docs/preserved-knowledge/ai_governance_model.md
+A docs/preserved-knowledge/ai_image_style_analysis_engine.md
+A docs/preserved-knowledge/ai_model_development_guide.md
+A docs/preserved-knowledge/ai_personalized_learning_engine.md
+A docs/preserved-knowledge/ai_risk_mitigation_framework.md
+A docs/preserved-knowledge/ai_text_analysis_engine.md
+A docs/preserved-knowledge/ai_transparency_log.md
+A docs/preserved-knowledge/ai_user_feedback_integration.md
+A docs/preserved-knowledge/ai_voice_profile_engine.md
+A docs/preserved-knowledge/api_design_guidelines.md
+A docs/preserved-knowledge/api_documentation_guidelines.md
+A docs/preserved-knowledge/api_endpoints.md
+A docs/preserved-knowledge/api_endpoints_community_mode.md
+A docs/preserved-knowledge/api_endpoints_integrations.md
+A docs/preserved-knowledge/api_endpoints_mode1.md
+A docs/preserved-knowledge/api_endpoints_mode2.md
+A docs/preserved-knowledge/api_endpoints_verification_system.md
+A docs/preserved-knowledge/api_validator.md
+A docs/preserved-knowledge/architectural_design_specifications.md
+A docs/preserved-knowledge/architectural_overview.md
+A docs/preserved-knowledge/architecture_concepts.md
+A docs/preserved-knowledge/backend_api_guidelines.md
+A docs/preserved-knowledge/blockchain_integration.md
+A docs/preserved-knowledge/blueprint.md
+A docs/preserved-knowledge/building_backend_endpoint.md
+A docs/preserved-knowledge/building_ui_component.md
+A docs/preserved-knowledge/challenge_examples.md
+A docs/preserved-knowledge/code_documentation_template.md
+A docs/preserved-knowledge/code_of_conduct.md
+A docs/preserved-knowledge/code_review_guidelines.md
+A docs/preserved-knowledge/code_style_guide.md
+A docs/preserved-knowledge/collaborative_development_hub.md
+A docs/preserved-knowledge/community_governance_guidelines.md
+A docs/preserved-knowledge/community_mode.md
+A docs/preserved-knowledge/community_mode_spec.md
+A docs/preserved-knowledge/community_mode_user_guide.md
+A docs/preserved-knowledge/connected_services_guide.md
+A docs/preserved-knowledge/connected_services_manager.md
+A docs/preserved-knowledge/connected_services_manager_spec.md
+A docs/preserved-knowledge/contributing.md
+A docs/preserved-knowledge/contributing_detailed.md
+A docs/preserved-knowledge/contributing_overview.md
+A docs/preserved-knowledge/contributing_quick.md
+A docs/preserved-knowledge/contributor_agreement.md
+A docs/preserved-knowledge/contributor_condecorations.md
+A docs/preserved-knowledge/contributor_faq.md
+A docs/preserved-knowledge/contributor_quickstart.md
+A docs/preserved-knowledge/copilot-instructions.md
+A docs/preserved-knowledge/copilot_integration.md
+A docs/preserved-knowledge/copilot_prompt.md
+A docs/preserved-knowledge/core_concepts.md
+A docs/preserved-knowledge/core_concepts_architecture.md
+A docs/preserved-knowledge/core_values.md
+A docs/preserved-knowledge/core_values_validator.md
+A docs/preserved-knowledge/customizable_ui_tests.md
+A docs/preserved-knowledge/data_display.md
+A docs/preserved-knowledge/data_explorer_panel_spec.md
+A docs/preserved-knowledge/data_handling_policy_guide.md
+A docs/preserved-knowledge/data_integration_strategy.md
+A docs/preserved-knowledge/data_output_schema.md
+A docs/preserved-knowledge/data_traceability.md
+A docs/preserved-knowledge/data_traceability_usage_examples.md
+A docs/preserved-knowledge/database_design_guidelines.md
+A docs/preserved-knowledge/database_migrations_guide.md
+A docs/preserved-knowledge/datatraceability_component_spec.md
+A docs/preserved-knowledge/datatraceability_documentation.md
+A docs/preserved-knowledge/deployment_guide.md
+A docs/preserved-knowledge/deployment_guidelines.md
+A docs/preserved-knowledge/deployment_troubleshooting.md
+A docs/preserved-knowledge/developer_guide_matching_algorithm.md
+A docs/preserved-knowledge/developer_workflow.md
+A docs/preserved-knowledge/devops_cicd_guidelines.md
+A docs/preserved-knowledge/digital_legacy_framework.md
+A docs/preserved-knowledge/digital_legacy_stories.md
+A docs/preserved-knowledge/enlightenment_2_0_principles.md
+A docs/preserved-knowledge/eos_lumina_message.md
+A docs/preserved-knowledge/eos_lumina_persona.md
+A docs/preserved-knowledge/error_handling_guidelines.md
+A docs/preserved-knowledge/ethical_guidelines.md
+A docs/preserved-knowledge/example_scenarios.md
+A docs/preserved-knowledge/external_api_integration_guide.md
+A docs/preserved-knowledge/family_tree_interconnection.md
+A docs/preserved-knowledge/fix: resolve workflow issues and improve.md
+A docs/preserved-knowledge/frontend_development_guidelines.md
+A docs/preserved-knowledge/funding_model.md
+A docs/preserved-knowledge/gamification_framework.md
+A docs/preserved-knowledge/git_workflow.md
+A docs/preserved-knowledge/github_actions_database_setup.md
+A docs/preserved-knowledge/github_actions_secrets.md
+A docs/preserved-knowledge/github_actions_workflow_format.md
+A docs/preserved-knowledge/glossary.md
+A docs/preserved-knowledge/governance.md
+A docs/preserved-knowledge/i18n_guide.md
+A docs/preserved-knowledge/implementation_roadmap.md
+A docs/preserved-knowledge/index.md
+A docs/preserved-knowledge/installation.md
+A docs/preserved-knowledge/integration_plan.md
+A docs/preserved-knowledge/issue_labels_guide.md
+A docs/preserved-knowledge/logging_standards.md
+A docs/preserved-knowledge/manifesto.md
+A docs/preserved-knowledge/markdown_style_guide.md
+A docs/preserved-knowledge/master_plan_confidential.md
+A docs/preserved-knowledge/master_reference.md
+A docs/preserved-knowledge/matching_algorithm_guide.md
+A docs/preserved-knowledge/ml_development_guidelines.md
+A docs/preserved-knowledge/mode1_narrative_onboarding_spec.md
+A docs/preserved-knowledge/mode1_onboarding_guide.md
+A docs/preserved-knowledge/mode2_discovery_guide.md
+A docs/preserved-knowledge/mode2_profile_discovery_spec.md
+A docs/preserved-knowledge/mode4_global_collaboration.md
+A docs/preserved-knowledge/modes_overview.md
+A docs/preserved-knowledge/mvp_implementation_guide.md
+A docs/preserved-knowledge/neural_resonance_network.md
+A docs/preserved-knowledge/onboarding.md
+A docs/preserved-knowledge/onboarding_guide.md
+A docs/preserved-knowledge/one_and_many_pattern.md
+A docs/preserved-knowledge/performance_scalability_guidelines.md
+A docs/preserved-knowledge/persona_design.md
+A docs/preserved-knowledge/project_overview.md
+A docs/preserved-knowledge/project_status.md
+A docs/preserved-knowledge/project_structure.md
+A docs/preserved-knowledge/pull_request_process.md
+A docs/preserved-knowledge/quick_start_integration.md
+A docs/preserved-knowledge/readme.md
+A docs/preserved-knowledge/roadmap.md
+A docs/preserved-knowledge/roadmap_visualization_and_gamification.md
+A docs/preserved-knowledge/security_and_privacy_plan.md
+A docs/preserved-knowledge/security_deep_dive.md
+A docs/preserved-knowledge/security_feedback_loops.md
+A docs/preserved-knowledge/security_guidelines.md
+A docs/preserved-knowledge/security_status_indicator.md
+A docs/preserved-knowledge/security_status_indicator_spec.md
+A docs/preserved-knowledge/swarming_methodology.md
+A docs/preserved-knowledge/technical_architecture.md
+A docs/preserved-knowledge/technical_architecture_concepts.md
+A docs/preserved-knowledge/technical_specification_guide.md
+A docs/preserved-knowledge/test_report_schema.md
+A docs/preserved-knowledge/testing_and_validation_plan.md
+A docs/preserved-knowledge/testing_standards.md
+A docs/preserved-knowledge/time_capsule.md
+A docs/preserved-knowledge/ui_accessibility_guide.md
+A docs/preserved-knowledge/ui_testing_framework.md
+A docs/preserved-knowledge/ui_validation_examples.md
+A docs/preserved-knowledge/unified_data_model_schema.md
+A docs/preserved-knowledge/user_form.md
+A docs/preserved-knowledge/user_persona_profiles.md
+A docs/preserved-knowledge/user_stories_matching_mode.md
+A docs/preserved-knowledge/user_stories_narrative_mode.md
+A docs/preserved-knowledge/verification_system.md
+A docs/preserved-knowledge/verification_system_data_models.md
+A docs/preserved-knowledge/verification_system_deep_dive.md
+A docs/preserved-knowledge/vision_concepts.md
+A docs/preserved-knowledge/vision_concepts_fixed.md
+A docs/preserved-knowledge/vision_principles.md
+A docs/preserved-knowledge/visual_style_guide.md
+A docs/preserved-knowledge/voice_synthesis_design.md
+A docs/preserved-knowledge/workflow_standards.md
+\nBranch: revert-8-update-docs
+------------------------------------
+M docs/guides/performance_scalability_guidelines.md
+\nBranch: update-ci-cd
+------------------------------------
+\nBranch: update-ci-cd-workflows
+------------------------------------
