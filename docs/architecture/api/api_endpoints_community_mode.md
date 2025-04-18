@@ -4,7 +4,7 @@
 
 This document specifies the **API endpoints for the ThinkAlike project backend, specifically for Community Mode functionality.**  It is a supplementary document to the main `API_ENDPOINTS.md` and outlines the routes, methods, request/response formats, authentication requirements, and functionality of endpoints related to community creation, management, membership, and features within Community Mode.  Refer to `API_ENDPOINTS.md` for general API conventions, authentication details, and base URL information.
 
-**I.  Base URL and Authentication:**
+**I. Base URL and Authentication:**
 
 Refer to the main `API_ENDPOINTS.md` document for the Base URL and general Authentication information (JWT Bearer tokens).  All endpoints in this document, unless explicitly stated otherwise, **require JWT authentication**.
 
@@ -281,7 +281,7 @@ These endpoints are organized by Community Mode features:
 
   * **Error Responses:** 401 Unauthorized (if not admin/moderator), 403 Forbidden (if not authorized), 404 Not Found (membership not found)
 
-* `(Further Admin Endpoints for Moderation, Governance Settings, etc. - to be specified as Community Mode features are further defined)`
+### (Further Admin Endpoints for Moderation, Governance Settings, etc. - to be specified as Community Mode features are further defined)
 
 **D. Community Forum Endpoints (`/api/communities/{communityId}/forums`)** *(Member-Authenticated)*
 
@@ -313,15 +313,15 @@ These endpoints are organized by Community Mode features:
 
   * **Error Responses:** 401 Unauthorized, 403 Forbidden (if not authorized), 400 Bad Request (validation errors), 404 Not Found
 
-*(Further Forum Endpoints for Threads, Posts, etc. - to be specified as Forum features are further defined)*
+### (Further Forum Endpoints for Threads, Posts, etc. - to be specified as Forum features are further defined)
 
 **E. Direct/Liquid Democracy Endpoints (`/api/communities/{communityId}/governance`)** *(Optional - Community-Driven Implementation)*
 
-*(These endpoints will be specified IF and WHEN Direct/Liquid Democracy tools are implemented in Community Mode, as these are optional, community-driven features)*
+### (These endpoints will be specified IF and WHEN Direct/Liquid Democracy tools are implemented in Community Mode, as these are optional, community-driven features)
 
 **F. Resource Sharing Endpoints (`/api/communities/{communityId}/resources`)** *(Member-Authenticated)*
 
-*(Resource sharing endpoints will be specified as Resource Sharing features are further defined in Community Mode)*
+### (Resource sharing endpoints will be specified as Resource Sharing features are further defined in Community Mode)
 
 **III. Data Models (Refer to Community Mode Specification):**
 
@@ -339,7 +339,7 @@ This document represents the initial set of Community Mode API endpoints. Future
 
 ---
 
-**Document Details**
+### Document Details
 
 * Title: Api Endpoints - Project Backend - Community Mode
 

@@ -52,6 +52,12 @@ logs/
 *.bak
 *.swp
 
+# --- Root-level generated files ---
+/*.txt
+/file_changes.txt
+/github_actions_failures_summary.log
+/workflow_fix_log.txt
+
 # --- Project Specific ---
 frontend/public/index . # Example of a problematic ghost file
 
