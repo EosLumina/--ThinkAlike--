@@ -167,9 +167,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        # Need to checkout at the root, so remove working-directory default for this step
-        with:
-          working-directory: ${{ github.workspace }} # Explicitly checkout to root
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -189,7 +186,6 @@ jobs:
         # Only run if package.json exists
         if: hashFiles('frontend/package.json') != ''
         # Assumes a 'test' script in package.json. Add --coverage if needed and supported.
-        # Removed the problematic '--silent' flag and comment.
         run: npm run test -- --coverage
 
       # Optional: Upload frontend coverage if generated
@@ -203,4 +199,4 @@ jobs:
       #     files: ./frontend/coverage/coverage-final.json # Adjust path based on your coverage reporter (e.g., lcov.info)
       #     fail_ci_if_error: true
       #   # Condition to run only on main/PRs and if coverage file exists
-      #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./frontend/coverage/coverage-final.json') != '')
+      #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./frontend/coverage-final.json') != '')
