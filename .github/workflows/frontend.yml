@@ -21,6 +21,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: false # Explicitly disable submodule checkout
 
       - name: Set up Node.js
         uses: actions/setup-node@v3

@@ -28,7 +28,7 @@ Employ rigorous bias detection and mitigation techniques throughout the AI model
 
 When AI is employed to assist community functions (Mode 3), the following specific guidelines apply:
 
-* **Human Primacy:** AI tools may *assist* deliberation (summarization, perspective mapping) or moderation (content flagging), but **final decisions** (policy changes, moderation actions) **must rest with human members or designated human moderators** according to the community's chosen governance model. Automated enforcement or censorship based solely on AI is prohibited.
+* **Human Primacy:** AI tools may **assist** deliberation (summarization, perspective mapping) or moderation (content flagging), but **final decisions** (policy changes, moderation actions) **must rest with human members or designated human moderators** according to the community's chosen governance model. Automated enforcement or censorship based solely on AI is prohibited.
 
 * **Transparency of Assistance:** Any AI-generated summary, analysis, flag, or suggestion presented within a community context must be clearly labeled as such. The general logic or criteria used by the AI (e.g., "flagged for potential hate speech based on keyword analysis") should be accessible, at least to moderators. Usage must be logged ([AI Transparency Log](../guides/developer_guides/ai/ai_transparency_log.md)).
 
@@ -64,7 +64,7 @@ These guidelines are not intended to be legally binding or to create any contrac
 
 ---
 
-**Document Details**
+## Document Details
 
 * Title: Ethical Guidelines
 
