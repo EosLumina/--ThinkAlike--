@@ -17,12 +17,12 @@ function fixMarkdownFile(filePath) {
   let fixed = false;
 
   // Fix line length (MD013)
-  const longLines = content.split('\n').filter(line => 
-    line.length > config.lineLength && 
-    !line.startsWith('```') && 
+  const longLines = content.split('\n').filter(line =>
+    line.length > config.lineLength &&
+    !line.startsWith('```') &&
     !line.startsWith('http')
   );
-  
+
   if (longLines.length > 0) {
     // We're not actually wrapping lines here as it's complex
     // Just reporting them for manual review
@@ -63,28 +63,28 @@ function fixMarkdownFile(filePath) {
   let inOrderedList = false;
   let currentNumber = 1;
   const lines = content.split('\n');
-  
+
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     const listMatch = line.match(/^([ \t]*)(\d+)\.[ \t]/);
-    
+
     if (listMatch) {
       if (!inOrderedList) {
         inOrderedList = true;
         currentNumber = 1;
       }
-      
+
       if (parseInt(listMatch[2]) !== currentNumber) {
         lines[i] = line.replace(/^([ \t]*)\d+\./, `$1${currentNumber}.`);
         fixed = true;
       }
-      
+
       currentNumber++;
     } else if (line.trim() === '') {
       inOrderedList = false;
     }
   }
-  
+
   content = lines.join('\n');
 
   // Handle document details sections consistently
@@ -102,27 +102,36 @@ function fixMarkdownFile(filePath) {
   } else {
     console.log(chalk.gray('  No issues to fix'));
   }
-  
+
   return fixed;
 }
 
 function fixAllMarkdownFiles() {
   // Find all markdown files in the docs directory
-  const files = glob.sync('docs/**/*.md');
-  
+  // Adjust the glob pattern if your markdown files are elsewhere
+  const files = glob.sync('docs/**/*.md', { cwd: path.resolve(__dirname, '..') }); // Ensure glob runs from project root
+
   console.log(chalk.blue(`Found ${files.length} markdown files to process`));
-  
+
   let fixedCount = 0;
-  
+
   for (const file of files) {
-    if (fixMarkdownFile(file)) {
+    // Construct the full path relative to the script's execution context
+    const fullPath = path.resolve(__dirname, '..', file);
+    if (fixMarkdownFile(fullPath)) {
       fixedCount++;
     }
   }
-  
+
   console.log(chalk.green(`Fixed issues in ${fixedCount} out of ${files.length} files`));
 }
 
-// Also process README.md
-fixMarkdownFile('README.md');
-fixAllMarkdownFiles();
+// Execute the function if the script is run directly
+if (require.main === module) {
+  fixAllMarkdownFiles();
+}
+
+module.exports = {
+  fixMarkdownFile,
+  fixAllMarkdownFiles
+};

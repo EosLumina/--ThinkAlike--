@@ -22,7 +22,10 @@ module.exports = {
   ],
   collectCoverageFrom: [
     "src/**/*.{js,jsx,ts,tsx}",
-    "!src/**/*.d.ts"
+    "!src/**/*.d.ts",
+    "!src/index.tsx", // Often excluded as it's mainly setup
+    "!src/reportWebVitals.ts", // Often excluded
+    "!src/setupTests.ts" // Exclude test setup file
   ],
   coverageThreshold: {
     global: {
@@ -33,6 +36,12 @@ module.exports = {
     }
   },
   transform: {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  }
+    "^.+\\.(ts|tsx)$": ["ts-jest", {
+      tsconfig: 'tsconfig.json' // Explicitly specify tsconfig
+    }]
+  },
+  // Optional: Add reporters if needed
+  // reporters: [ "default", "jest-junit" ],
+  // Optional: Configure module file extensions
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"]
 };

@@ -1,3 +1,9 @@
+# Fixing Workflow Push Errors with Personal Access Tokens (PATs)
+
+## Problem
+
+When pushing changes to a GitHub workflow file (e.g., `.github/workflows/ci.yml`), you might encounter an error like this:
+```
 # Workflow Security Fixes
 
 ## Issue

@@ -26,6 +26,18 @@ transparency.
   * Need to ensure phone number pattern detection in ethical_compliance.py works correctly
   * Created diagnostic tools (diagnose_workflows.py, fix_requirements.py) that need proper integration
 
+## Note for Non-Developers
+
+If you are encountering issues and are not a developer, the complexity of these files can be confusing. Many scripts (`fix_*.py`, `fix_*.sh`) are designed to automatically repair common problems, especially with GitHub Actions workflows (files in `.github/workflows/`).
+
+A potential first step to resolve issues is to run the emergency workflow fix script from your terminal in the project's main directory:
+
+```bash
+python scripts/emergency_workflow_fix.py
+```
+
+This script attempts to reset the workflow files to a known good state. If problems persist, please consult with a developer on the project.
+
 ## Work Completed So Far
 
 1. Created integration-temp branch based on remote/main

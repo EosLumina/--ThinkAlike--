@@ -1,0 +1,5 @@
+# Remove any entry referencing a submodule named "--ThinkAlike--"
+# Example of what to remove:
+# [submodule "--ThinkAlike--"]
+#   path = --ThinkAlike--
+#   url = <some-url> # This line might be missing, causing the error

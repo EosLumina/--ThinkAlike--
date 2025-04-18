@@ -131,3 +131,5 @@ backups/*
 data/*
 # Preserve historical states while respecting size limitations
 backups/*
+--ThinkAlike--
+--ThinkAlike---1
