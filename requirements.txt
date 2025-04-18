@@ -1,8 +1,11 @@
 fastapi
 uvicorn[standard]
-
-
-
-
-
-requirements/requirements.txtGitPython# Add GitPython for documentation sovereignty scriptpython-dotenvsqlalchemy
+sqlalchemy
+python-dotenv
+python-jose[cryptography]
+passlib[bcrypt]
+# Add other dependencies below
+pytest
+pytest-cov
+GitPython
+# Add any other direct dependencies needed by your project

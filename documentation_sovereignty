@@ -9,6 +9,7 @@ except ImportError:
 from pathlib import Path
 import sys
 import argparse  # Import argparse
+from typing import Type  # Import Type for type hinting
 
 # Add project root to path so we can import backend services if available
 # This assumes the script is run from the root or scripts directory
@@ -19,13 +20,18 @@ sys.path.insert(0, str(project_root))
 
 # Attempt to import the real services, fall back to placeholders if needed
 try:
-    from backend.app.services.traceability_service import TraceabilityService
+    # Use a type alias to avoid direct conflict if placeholder is used
+    from backend.app.services.traceability_service import TraceabilityService as RealTraceabilityService
 except ImportError:
     print("Warning: Real TraceabilityService not found, using placeholder.")
-    class TraceabilityService:  # Placeholder - Renamed from RealTraceabilityService
+    class PlaceholderTraceabilityService:  # Placeholder class
         def __init__(self, db=None): pass
         def record_data_creation(self, **kwargs): pass
         def record_data_access(self, **kwargs): pass
+    RealTraceabilityService = PlaceholderTraceabilityService  # Assign placeholder to the alias
+
+# Define the type for TraceabilityService based on what was imported
+TraceabilityServiceType: Type[RealTraceabilityService] = RealTraceabilityService
 
 try:
     # Try importing the service from its expected location
@@ -49,8 +55,10 @@ class LocalDocumentationSovereigntyService:
         self.db = db
         # Default to docs directory relative to project root
         self.docs_dir = docs_dir or (project_root / 'docs')
+        # Default integrity file path based on docs_dir
         self.integrity_file = integrity_file or (self.docs_dir / 'INTEGRITY.json')
-        self.traceability = TraceabilityService(db)  # Use real or placeholder traceability
+        # Use the imported or placeholder TraceabilityService
+        self.traceability: RealTraceabilityService = TraceabilityServiceType(db)
 
         if not self.docs_dir.exists():
             print(f"Warning: Documentation directory not found: {self.docs_dir}")
@@ -236,7 +244,7 @@ def cli_main():
     docs_dir_path = Path(args.docs_dir) if args.docs_dir else None
     integrity_file_path = Path(args.integrity_file) if args.integrity_file else None
 
-    # Create service instance
+    # Create service instance, passing paths explicitly
     service = DocumentationSovereigntyService(docs_dir=docs_dir_path, integrity_file=integrity_file_path)
 
     if args.generate:
@@ -257,11 +265,14 @@ def cli_main():
         elif result["status"] == "integrity_violated":
             print("🚨 Documentation sovereignty violations detected:")
             for violation in result.get("violations", []):
-                # Assign to variables to help type checker
-                file_path = violation.get('file', 'N/A')
-                violation_type = violation.get('type', 'N/A')
-                details = violation.get('details', 'N/A')
-                print(f"  - {file_path}: {violation_type} - {details}")
+                # Check if violation is a dictionary before accessing keys
+                if isinstance(violation, dict):
+                    file_path = violation.get('file', 'N/A')
+                    violation_type = violation.get('type', 'N/A')
+                    details = violation.get('details', 'N/A')
+                    print(f"  - {file_path}: {violation_type} - {details}")
+                else:
+                    print(f"  - Invalid violation format: {violation}")
 
             if result.get("new_files"):
                 print("\n📄 New files detected (not in integrity map):")
