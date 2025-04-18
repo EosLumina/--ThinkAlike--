@@ -1,3 +1,0 @@
-"""
-Development tools for ThinkAlike.
-"""
