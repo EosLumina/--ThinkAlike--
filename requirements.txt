@@ -1,1 +1,8 @@
-requirements/requirements.txt
+fastapi
+uvicorn[standard]
+
+
+
+
+
+requirements/requirements.txtGitPython# Add GitPython for documentation sovereignty scriptpython-dotenvsqlalchemy
