@@ -15,9 +15,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: frontend
 
     steps:
       - uses: actions/checkout@v3
@@ -30,15 +27,19 @@ jobs:
           node-version: "18"
 
       - name: Install dependencies
+        working-directory: frontend
         run: npm ci
 
       - name: Install missing Babel plugin
+        working-directory: frontend
         run: npm install --save-dev @babel/plugin-proposal-private-property-in-object
 
       - name: Create .npmrc for legacy dependencies
+        working-directory: frontend
         run: echo "legacy-peer-deps=true" > .npmrc
 
       - name: Run tests
+        working-directory: frontend
         run: npm test
         env:
           CI: true
