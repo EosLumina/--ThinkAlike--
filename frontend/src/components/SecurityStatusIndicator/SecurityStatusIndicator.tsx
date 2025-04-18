@@ -30,16 +30,13 @@ interface SecurityContextValue {
 }
 
 // Placeholder components with basic structure and prop types
-const StatusIcon: React.FC<StatusIconProps> = ({ level }) => {
-  // Basic implementation - replace with actual icon logic
-  return <span className={`icon status-icon-${level?.toLowerCase()}`}>🔒</span>; // Added nullish coalescing for safety
+const StatusIcon: React.FC<{ level: string }> = ({ level }: { level: string }) => {
+  return <span className={`icon status-icon-${level?.toLowerCase()}`}>🔒</span>;
 };
 
-const ProtocolLogPopover: React.FC<ProtocolLogPopoverProps> = ({ logData, children }) => {
+const ProtocolLogPopover: React.FC<{ logData: Array<{ timestamp: string; message: string }>; children: React.ReactNode }> = ({ logData, children }: { logData: Array<{ timestamp: string; message: string }>; children: React.ReactNode }) => {
   const [isVisible, setIsVisible] = useState(false);
   const popoverRef = useRef<HTMLDivElement>(null);
-
-  // Basic popover logic - replace with actual implementation (e.g., using a library)
   return (
     <div
       className="popover-container"
@@ -52,7 +49,7 @@ const ProtocolLogPopover: React.FC<ProtocolLogPopoverProps> = ({ logData, childr
           <h4>Security Log</h4>
           {logData && logData.length > 0 ? (
             <ul>
-              {logData.map((entry, index) => (
+              {logData.map((entry: { timestamp: string; message: string }, index: number) => (
                 <li key={index}>[{entry.timestamp}] {entry.message}</li>
               ))}
             </ul>
@@ -65,13 +62,11 @@ const ProtocolLogPopover: React.FC<ProtocolLogPopoverProps> = ({ logData, childr
   );
 };
 
-const AlertIcon: React.FC<AlertIconProps> = ({ severity }) => {
-  // Basic implementation - replace with actual icon logic
-  return <span className={`icon alert-icon severity-${severity?.toLowerCase()}`}>⚠️</span>; // Added nullish coalescing for safety
+const AlertIcon: React.FC<{ severity: string }> = ({ severity }: { severity: string }) => {
+  return <span className={`icon alert-icon severity-${severity?.toLowerCase()}`}>⚠️</span>;
 };
 
 const SettingsLink: React.FC = () => {
-  // Basic implementation - replace with actual link/button logic
   return <a href="/security-center" aria-label="Security Settings" className="settings-link">⚙️</a>;
 };
 
