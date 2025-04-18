@@ -4,8 +4,8 @@
 
 ## 1. Introduction
 
-This document outlines ThinkAlike's code review standards and best practices. Effective code reviews improve code quality, 
-reduce bugs, share knowledge across the team, and ensure consistency in our codebase. These guidelines provide a framework 
+This document outlines ThinkAlike's code review standards and best practices. Effective code reviews improve code quality,
+reduce bugs, share knowledge across the team, and ensure consistency in our codebase. These guidelines provide a framework
 for constructive, efficient, and respectful code review processes.
 
 ---
@@ -429,29 +429,66 @@ ThinkAlike uses the following static analysis tools:
 ThinkAlike maintains custom linting rules for project-specific requirements:
 
 ```javascript
-// Example ESLint rule configuration
+// Example ESLint rule configuration in .eslintrc.js or similar
 module.exports = {
+  // ... other ESLint config ...
+  plugins: [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    // Add custom plugin if rules are defined separately
+    // "thinkalike-custom"
+  ],
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier", // Ensure Prettier runs last to override formatting rules
+  ],
   rules: {
-    // Require type annotations on public API functions
-    "@typescript-eslint/explicit-function-return-type": ["error", {
+    // Require type annotations on public API functions (example adjustment)
+    "@typescript-eslint/explicit-function-return-type": ["warn", { // Changed to warn
       "allowExpressions": true,
       "allowTypedFunctionExpressions": true,
-      "allowHigherOrderFunctions": false
+      "allowHigherOrderFunctions": true, // Often useful to allow
+      "allowDirectConstAssertionInArrowFunctions": true,
+      "allowConciseArrowFunctionExpressionsStartingWithVoid": true,
     }],
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }], // Warn unused vars, ignore if prefixed with _
 
-    // Prevent direct DOM manipulation in React components
-    "react/no-direct-mutation-state": "error",
+    // Prevent direct DOM manipulation in React components (example custom rule or existing react rule)
+    "react/no-find-dom-node": "error", // Standard React rule
+    // "thinkalike-custom/no-direct-dom": "error", // Example custom rule
 
-    // Custom rule for ThinkAlike-specific patterns
-    "thinkalike/no-deprecated-api": "error",
+    // Enforce consistent naming conventions
+    "@typescript-eslint/naming-convention": [
+      "warn",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "UPPER_CASE", "PascalCase"], // Allow different styles based on context
+        "leadingUnderscore": "allow", // Allow underscores for private/unused
+      },
+      {
+        "selector": "function",
+        "format": ["camelCase", "PascalCase"],
+      },
+      {
+        "selector": "typeLike", // Classes, interfaces, types, enums
+        "format": ["PascalCase"],
+      },
+    ],
 
-    // Enforce consistent import ordering
-    "import/order": ["error", {
-      "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-      "newlines-between": "always",
-      "alphabetize": { "order": "asc", "caseInsensitive": true }
-    }]
-  }
+    // Other project-specific rules can be added here
+    "no-console": ["warn", { "allow": ["warn", "error"] }], // Allow console.warn and console.error
+    "react-hooks/rules-of-hooks": "error", // Enforce Rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Check effect dependencies
+  },
+  settings: {
+    react: {
+      version: "detect", // Automatically detect React version
+    },
+  },
 };
 ```
 
@@ -657,7 +694,7 @@ Regularly evaluate and improve review processes:
 
 ---
 
-By following these code review guidelines, ThinkAlike ensures high-quality code, knowledge sharing across the team, and a 
+By following these code review guidelines, ThinkAlike ensures high-quality code, knowledge sharing across the team, and a
 collaborative development culture.
 
 ---

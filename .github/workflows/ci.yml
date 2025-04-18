@@ -1,60 +1,99 @@
+# Workflow name displayed on GitHub Actions tab
 name: ThinkAlike CI
 
+# Controls when the workflow will run
 on:
+  # Triggers the workflow on push events but only for the main branch
   push:
     branches: [ main ]
+    # Do not run workflow for changes solely in documentation files
     paths-ignore:
       - '**.md'
       - 'docs/**'
+  # Triggers the workflow on pull request events but only for the main branch
   pull_request:
     branches: [ main ]
+    # Do not run workflow for changes solely in documentation files
     paths-ignore:
       - '**.md'
       - 'docs/**'
-  workflow_dispatch: # Allow manual trigger
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  # This job performs code linting
   lint:
     name: Lint Code
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout code
-        uses: actions/checkout@v4 # Use latest major version
+        uses: actions/checkout@v4 # Use latest major version for security and features
 
+      # Sets up a Python environment for use in actions
       - name: Set up Python
         uses: actions/setup-python@v5 # Use latest major version
         with:
-          python-version: '3.10' # Or your project's version
-          cache: 'pip'
+          python-version: '3.10' # Specify the Python version your project uses
+          cache: 'pip' # Cache pip dependencies for faster builds
+          cache-dependency-path: | # Cache based on requirements files
+            **/requirements*.txt
 
-      - name: Install lint dependencies
+      # Installs necessary linting tools
+      - name: Install Python lint dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 black isort # Add other linters if needed
+          pip install flake8 black isort mypy # Added mypy for type checking
 
+      # Runs the Python linters to check code style and quality
       - name: Run Python Linters
         run: |
           echo "Running Flake8..."
-          # Adjust paths if your code is not in the root or standard locations
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics || true # Allow failure for now
+          # flake8 checks for style guide enforcement (PEP8) and simple errors
+          # --count shows total errors, --max-line-length=100 sets line length
+          # --show-source shows the problematic code line, --statistics provides counts per error code
+          # Exclude migrations, auto-generated files if necessary: --exclude=migrations,venv,__pycache__
+          flake8 . --count --max-line-length=100 --show-source --statistics --exclude=venv,__pycache__
           echo "Running Black check..."
-          black . --check || true # Allow failure for now
+          # black checks if the code is formatted according to its opinionated style
+          # --check doesn't modify files but exits with an error if changes are needed
+          black . --check --line-length=100 --exclude=venv/__pycache__
           echo "Running isort check..."
-          isort . --check-only || true # Allow failure for now
+          # isort checks if imports are sorted correctly
+          # --check-only doesn't modify files but exits with an error if changes are needed
+          isort . --check-only --profile black --line-length=100 --skip-glob=venv/* --skip-glob=__pycache__/*
+          # echo "Running mypy..." # Optional: Add type checking
+          # mypy . --ignore-missing-imports # Adjust path and options as needed
 
-      # Add frontend linting steps if applicable (e.g., ESLint)
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '18' # Or your project's version
-      #     cache: 'npm'
-      # - name: Install Node dependencies
-      #   run: npm ci # Assuming package-lock.json exists in the root or frontend/
-      # - name: Run ESLint
-      #   run: npm run lint # Assuming a lint script exists in package.json
+      # Setup Node.js for frontend linting
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Specify your Node.js version
+          cache: 'npm' # Cache npm dependencies
+          cache-dependency-path: 'frontend/package-lock.json' # Specify lock file path
 
+      # Install frontend dependencies
+      - name: Install Node dependencies (Frontend)
+        working-directory: ./frontend # Specify working directory
+        run: npm ci # Use 'ci' for faster, reliable installs
+
+      # Run frontend linters (ESLint, Prettier check)
+      - name: Run Frontend Linters
+        working-directory: ./frontend
+        run: |
+          echo "Running ESLint..."
+          npm run lint # Assumes a 'lint' script in your package.json
+          echo "Running Prettier check..."
+          npm run format:check # Assumes a 'format:check' script for Prettier
+
+  # This job runs the backend tests
   test-backend:
     name: Test Backend (Python)
+    # This job depends on the 'lint' job completing successfully
     needs: lint
     runs-on: ubuntu-latest
     steps:
@@ -66,49 +105,74 @@ jobs:
         with:
           python-version: '3.10'
           cache: 'pip'
+          cache-dependency-path: |
+            **/requirements*.txt
 
-      - name: Install dependencies
+      # Installs testing tools and project dependencies
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov # Add other test deps
-          # Install main dependencies - adjust path if needed
-          # Check both root and backend/ for requirements.txt
+          pip install pytest pytest-cov # Common Python testing tools
+          # Install main project dependencies. Adjust paths if your requirements file is elsewhere.
+          # Check if root requirements.txt exists
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # Check if backend-specific requirements.txt exists
           if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
-          # Add test-specific requirements if they exist
-          if [ -f requirements-test.txt ]; then pip install -r requirements-test.txt; fi
+          # Install test-specific requirements if they exist
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+          if [ -f backend/requirements-dev.txt ]; then pip install -r backend/requirements-dev.txt; fi
 
 
+      # Runs the tests using pytest and generates coverage reports
       - name: Run Python tests with coverage
         run: |
-          # Adjust path to tests and source code as needed. Assuming tests are in 'tests/' or 'backend/tests/'
-          # and source code is in '.' or 'backend/'
-          pytest --cov=. --cov-report=xml --cov-report=term || true # Allow failure for now
-        # Optionally upload coverage
-      # - name: Upload coverage reports to Codecov
+          # Adjust paths if your tests or source code are in different directories
+          # Example: pytest backend/tests --cov=backend ...
+          # --cov specifies the package/directory to measure coverage for
+          # --cov-report=xml generates an XML report (e.g., for Codecov)
+          # --cov-report=term shows a summary in the terminal
+          pytest --cov=backend --cov-report=xml --cov-report=term backend/tests # Assuming tests are in backend/tests
+
+      # Optional step to upload coverage reports to a service like Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # Requires setting a CODECOV_TOKEN secret
+          files: ./coverage.xml # Path to the generated coverage report
+          fail_ci_if_error: true # Optional: Fail CI if Codecov upload fails
+        # Only run on push to main or PRs to main to avoid uploading for every commit
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+
+  # This job runs the frontend tests
+  test-frontend:
+    name: Test Frontend (JS/TS)
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'frontend/package-lock.json'
+
+      - name: Install Node dependencies (Frontend)
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: npm test -- --coverage # Assumes a 'test' script, add --coverage flag if needed
+
+      # Optional: Upload frontend coverage if generated
+      # - name: Upload Frontend Coverage to Codecov
       #   uses: codecov/codecov-action@v4
       #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }} # Optional: Requires Codecov setup
-      #     files: ./coverage.xml
-
-  # Add test-frontend job if applicable
-  # test-frontend:
-  #   name: Test Frontend (JS/TS)
-  #   needs: lint
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v4
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: '18'
-  #         cache: 'npm'
-  #     - name: Install Node dependencies
-  #       # Adjust path if package.json is in frontend/
-  #       run: |
-  #         if [ -f frontend/package.json ]; then cd frontend && npm ci; else npm ci; fi
-  #     - name: Run frontend tests
-  #       # Adjust path if package.json is in frontend/
-  #       run: |
-  #         if [ -f frontend/package.json ]; then cd frontend && npm test; else npm test; fi # Assuming a test script exists
+      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     working-directory: ./frontend # Specify working directory for coverage report
+      #     files: ./coverage/coverage-final.json # Adjust path based on your coverage reporter (e.g., lcov.info)
+      #     fail_ci_if_error: true
+      #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
