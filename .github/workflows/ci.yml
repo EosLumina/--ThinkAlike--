@@ -41,34 +41,32 @@ jobs:
         with:
           python-version: "3.10" # Specify the Python version your project uses
           cache: "pip" # Cache pip dependencies for faster builds
-          cache-dependency-path: | # Cache based on requirements files
-            **/requirements*.txt
+          # Cache based on backend requirements file
+          cache-dependency-path: backend/requirements.txt
 
       # Installs necessary linting tools
       - name: Install Python lint dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 black isort mypy # Added mypy for type checking
+          # Install linters - consider adding these to a requirements-dev.txt
+          pip install flake8 black isort mypy
+          # Install backend dependencies needed for mypy/other checks if necessary
+          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
 
       # Runs the Python linters to check code style and quality
       - name: Run Python Linters
         run: |
           echo "Running Flake8..."
-          # flake8 checks for style guide enforcement (PEP8) and simple errors
-          # --count shows total errors, --max-line-length=100 sets line length
-          # --show-source shows the problematic code line, --statistics provides counts per error code
-          # Exclude migrations, venv, __pycache__, generated site, etc.
-          flake8 . --count --max-line-length=100 --show-source --statistics --exclude=venv,__pycache__,site,docs/build,migrations
+          # Run flake8 from root, targeting backend or specific directories
+          flake8 backend --count --max-line-length=100 --show-source --statistics --exclude=venv,__pycache__,migrations
           echo "Running Black check..."
-          # black checks if the code is formatted according to its opinionated style
-          # --check doesn't modify files but exits with an error if changes are needed
+          # Run black from root
           black . --check --line-length=100 --exclude=venv/__pycache__|site/|docs/build/|migrations/
           echo "Running isort check..."
-          # isort checks if imports are sorted correctly
-          # --check-only doesn't modify files but exits with an error if changes are needed
+          # Run isort from root
           isort . --check-only --profile black --line-length=100 --skip-glob=venv/* --skip-glob=__pycache__/* --skip-glob=site/* --skip-glob=docs/build/* --skip-glob=migrations/*
           # echo "Running mypy..." # Optional: Add type checking
-          # mypy . --ignore-missing-imports # Adjust path and options as needed
+          # mypy backend --ignore-missing-imports # Adjust path and options as needed
 
       # Setup Node.js for frontend linting
       - name: Set up Node.js
@@ -95,8 +93,8 @@ jobs:
           # Check if lint script exists before running
           if npm run --silent lint; then npm run lint; else echo "No lint script found, skipping ESLint."; fi
           echo "Running Prettier check..."
-          # Check if format:check script exists before running
-          if npm run --silent format:check; then npm run format:check; else echo "No format:check script found, skipping Prettier."; fi
+          # Check if format:check script exists before running, assuming it's named 'format:check' or similar
+          if npm run --silent format:check; then npm run format:check; else echo "No format:check script found, skipping Prettier check."; fi
 
   # This job runs the backend tests
   test-backend:
@@ -106,7 +104,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        id: checkout # Give the checkout step an ID
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -114,37 +111,33 @@ jobs:
         with:
           python-version: "3.10"
           cache: "pip"
+          # Cache based on backend requirements files
           cache-dependency-path: |
-            **/requirements*.txt
+            backend/requirements*.txt
+            backend/pyproject.toml
 
       # Installs testing tools and project dependencies
       - name: Install Python dependencies
+        working-directory: ./backend # Run pip installs within backend dir
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-cov # Common Python testing tools
-          # Install main project dependencies. Adjust paths if your requirements file is elsewhere.
-          # Check if root requirements.txt exists
+          # Install main project dependencies from backend requirements
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # Check if backend-specific requirements.txt exists
-          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
-          # Install test-specific requirements if they exist
+          # Install test-specific requirements if they exist (e.g., requirements-dev.txt)
           if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
-          if [ -f backend/requirements-dev.txt ]; then pip install -r backend/requirements-dev.txt; fi
+          # Or install using pyproject.toml if setup for extras
+          # pip install .[test] # Uncomment if using pyproject.toml extras
 
       # Runs the tests using pytest and generates coverage reports
       - name: Run Python tests with coverage
+        working-directory: ./backend # Run pytest within backend dir
         run: |
-          # Adjust paths if your tests or source code are in different directories
-          # Example: pytest backend/tests --cov=backend ...
-          # --cov specifies the package/directory to measure coverage for
-          # --cov-report=xml generates an XML report (e.g., for Codecov)
-          # --cov-report=term shows a summary in the terminal
-          # Check if backend/tests directory exists before running pytest
-          if [ -d "backend/tests" ]; then
-            pytest --cov=backend --cov-report=xml --cov-report=term backend/tests
-          else
-            echo "backend/tests directory not found, skipping backend tests."
-          fi
+          # Run tests from backend directory, assuming tests are in backend/tests
+          # Adjust --cov path if needed
+          pytest tests --cov=. --cov-report=xml --cov-report=term
+          # Previous command: pytest --cov=backend --cov-report=xml --cov-report=term backend/tests
+          # The above assumes running from root. Running from ./backend simplifies paths.
 
       # Optional step to upload coverage reports to a service like Codecov
       - name: Upload coverage to Codecov
@@ -152,73 +145,62 @@ jobs:
         # The token is usually optional for public repos on common CI providers
         # token: ${{ secrets.CODECOV_TOKEN }} # Requires setting a CODECOV_TOKEN secret if private repo or needed
         with:
-          files: ./coverage.xml # Path to the generated coverage report
+          # Specify coverage file relative to workspace root
+          files: ./backend/coverage.xml
+          # Specify working directory if needed by codecov action, but files path should be relative to root
+          # working-directory: ./backend
           fail_ci_if_error: true # Optional: Fail CI if Codecov upload fails
         # Only run on push to main or PRs to main to avoid uploading for every commit
         # Also check if coverage.xml was actually generated
-        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./coverage.xml') != '')
-
-      - name: Run Backend Tests
-        if: hashFiles('backend/requirements.txt') != ''
-        run: |
-          cd backend
-          pip install -r requirements.txt
-          # Add backend test command here, e.g., pytest
-          echo "Backend tests would run here"
-        working-directory: ${{ github.workspace }}
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./backend/coverage.xml') != '')
 
   # This job runs the frontend tests
   test-frontend:
     name: Test Frontend (JS/TS)
     needs: lint
     runs-on: ubuntu-latest
+    # Set working directory for all steps in this job
+    defaults:
+      run:
+        working-directory: ./frontend
+
     steps:
       - name: Checkout code
-        id: checkout # Give the checkout step an ID
         uses: actions/checkout@v4
+        # Need to checkout at the root, so remove working-directory default for this step
+        with:
+          working-directory: ${{ github.workspace }} # Explicitly checkout to root
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: "npm"
-          cache-dependency-path: "frontend/package-lock.json"
+          cache-dependency-path: "frontend/package-lock.json" # Path relative to root
 
-      - name: Install Node dependencies (Frontend)
-        # Only run if frontend directory and package-lock.json exist
+      - name: Install Node dependencies
+        # working-directory is ./frontend (from job defaults)
+        # Only run if package-lock.json exists
         if: hashFiles('frontend/package-lock.json') != ''
-        working-directory: ./frontend
         run: npm ci
 
-      - name: Run Frontend Lint
-        if: hashFiles('frontend/package.json') != ''
-        run: |
-          cd frontend
-          npm ci
-          npm run lint
-        working-directory: ${{ github.workspace }}
-
-      - name: Run Frontend Tests
-        if: hashFiles('frontend/package.json') != ''
-        run: |
-          cd frontend
-          npm ci
-          npm run test --silent # Removed --silent as it caused an error, adjust if needed for your test runner
-        working-directory: ${{ github.workspace }}
-
       - name: Run frontend tests
-        # Only run if frontend directory and package.json exist
+        # working-directory is ./frontend (from job defaults)
+        # Only run if package.json exists
         if: hashFiles('frontend/package.json') != ''
-        working-directory: ./frontend
-        run: npm test -- --coverage # Assumes a 'test' script, add --coverage flag if needed
-
+        # Assumes a 'test' script in package.json. Add --coverage if needed and supported.
+        # Removed the problematic '--silent' flag and comment.
+        run: npm run test -- --coverage
 
       # Optional: Upload frontend coverage if generated
       # - name: Upload Frontend Coverage to Codecov
       #   uses: codecov/codecov-action@v4
       #   with:
       #     # token: ${{ secrets.CODECOV_TOKEN }}
-      #     working-directory: ./frontend # Specify working directory for coverage report
-      #     files: ./coverage/coverage-final.json # Adjust path based on your coverage reporter (e.g., lcov.info)
+      #     # Specify working directory for codecov action if needed
+      #     # working-directory: ./frontend
+      #     # Path to coverage file relative to workspace root
+      #     files: ./frontend/coverage/coverage-final.json # Adjust path based on your coverage reporter (e.g., lcov.info)
       #     fail_ci_if_error: true
+      #   # Condition to run only on main/PRs and if coverage file exists
       #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./frontend/coverage/coverage-final.json') != '')
