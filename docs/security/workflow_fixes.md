@@ -1,3 +1,9 @@
+# Workflow Fixes and Security Notes
+
+## GitHub Actions PAT Scope Error
+
+**Error Message:**
+```
 # Workflow Security Fixes
 
 ## Issue
