@@ -80,21 +80,21 @@ jobs:
       - name: Install Node dependencies (Frontend)
         # Only run if frontend directory and package-lock.json exist
         if: hashFiles('frontend/package-lock.json') != ''
-        working-directory: ./frontend # Specify working directory
-        run: npm ci # Use 'ci' for faster, reliable installs
+        working-directory: frontend
+        run: npm ci --ignore-scripts
 
       # Run frontend linters (ESLint, Prettier check)
       - name: Run Frontend Linters
         # Only run if frontend directory and package.json exist
         if: hashFiles('frontend/package.json') != ''
-        working-directory: ./frontend
+        working-directory: frontend
         run: |
           echo "Running ESLint..."
           # Check if lint script exists before running
-          if npm run --silent lint; then npm run lint; else echo "No lint script found, skipping ESLint."; fi
+          if npm run lint; then npm run lint; else echo "No lint script found, skipping ESLint."; fi
           echo "Running Prettier check..."
           # Check if format:check script exists before running, assuming it's named 'format:check' or similar
-          if npm run --silent format:check; then npm run format:check; else echo "No format:check script found, skipping Prettier check."; fi
+          if npm run format:check; then npm run format:check; else echo "No format:check script found, skipping Prettier check."; fi
 
   # This job runs the backend tests
   test-backend:
@@ -118,7 +118,7 @@ jobs:
 
       # Installs testing tools and project dependencies
       - name: Install Python dependencies
-        working-directory: ./backend # Run pip installs within backend dir
+        working-directory: backend # Run pip installs within backend dir
         run: |
           python -m pip install --upgrade pip
           pip install pytest pytest-cov # Common Python testing tools
@@ -129,9 +129,15 @@ jobs:
           # Or install using pyproject.toml if setup for extras
           # pip install .[test] # Uncomment if using pyproject.toml extras
 
+      - name: Install backend dependencies
+        if: hashFiles('backend/requirements.txt') != ''
+        run: pip install -r backend/requirements.txt
+        working-directory: backend
+
       # Runs the tests using pytest and generates coverage reports
       - name: Run Python tests with coverage
-        working-directory: ./backend # Run pytest within backend dir
+        if: hashFiles('backend/requirements.txt') != ''
+        working-directory: backend # Run pytest within backend dir
         run: |
           # Run tests from backend directory, assuming tests are in backend/tests
           # Adjust --cov path if needed
@@ -162,7 +168,7 @@ jobs:
     # Set working directory for all steps in this job
     defaults:
       run:
-        working-directory: ./frontend
+        working-directory: frontend
 
     steps:
       - name: Checkout code
@@ -179,24 +185,14 @@ jobs:
         # working-directory is ./frontend (from job defaults)
         # Only run if package-lock.json exists
         if: hashFiles('frontend/package-lock.json') != ''
-        run: npm ci
+        run: npm ci --ignore-scripts
+
+      - name: Build frontend
+        if: hashFiles('frontend/package.json') != ''
+        run: npm run build --if-present
+        working-directory: frontend
 
       - name: Run frontend tests
-        # working-directory is ./frontend (from job defaults)
-        # Only run if package.json exists
         if: hashFiles('frontend/package.json') != ''
         # Assumes a 'test' script in package.json. Add --coverage if needed and supported.
-        run: npm run test -- --coverage
-
-      # Optional: Upload frontend coverage if generated
-      # - name: Upload Frontend Coverage to Codecov
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     # token: ${{ secrets.CODECOV_TOKEN }}
-      #     # Specify working directory for codecov action if needed
-      #     # working-directory: ./frontend
-      #     # Path to coverage file relative to workspace root
-      #     files: ./frontend/coverage/coverage-final.json # Adjust path based on your coverage reporter (e.g., lcov.info)
-      #     fail_ci_if_error: true
-      #   # Condition to run only on main/PRs and if coverage file exists
-      #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./frontend/coverage-final.json') != '')
+        run: npm run test
