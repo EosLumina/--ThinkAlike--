@@ -8,11 +8,9 @@ except ImportError:
     git = None  # Make git optional if not installed
 from pathlib import Path
 import sys
-import argparse  # Import argparse
-from typing import Type  # Import Type for type hinting
+import argparse
 
 # Add project root to path so we can import backend services if available
-# This assumes the script is run from the root or scripts directory
 project_root = Path(__file__).resolve().parent
 if project_root.name == 'scripts':
     project_root = project_root.parent
@@ -20,49 +18,35 @@ sys.path.insert(0, str(project_root))
 
 # Attempt to import the real services, fall back to placeholders if needed
 try:
-    # Use a type alias to avoid direct conflict if placeholder is used
     from backend.app.services.traceability_service import TraceabilityService as RealTraceabilityService
 except ImportError:
     print("Warning: Real TraceabilityService not found, using placeholder.")
-    class PlaceholderTraceabilityService:  # Placeholder class
+    class PlaceholderTraceabilityService:
         def __init__(self, db=None): pass
         def record_data_creation(self, **kwargs): pass
         def record_data_access(self, **kwargs): pass
-    RealTraceabilityService = PlaceholderTraceabilityService  # Assign placeholder to the alias
+    RealTraceabilityService = PlaceholderTraceabilityService
 
-# Define the type for TraceabilityService based on what was imported
-TraceabilityServiceType: Type[RealTraceabilityService] = RealTraceabilityService
+TraceabilityServiceType = RealTraceabilityService
 
 try:
-    # Try importing the service from its expected location
     from backend.app.services.documentation_sovereignty import DocumentationSovereigntyService as RealDocSovereigntyService
 except ImportError:
     print("Warning: Real DocumentationSovereigntyService not found in backend.app.services, using local definition.")
-    RealDocSovereigntyService = None  # Indicate that the real service wasn't found
+    RealDocSovereigntyService = None
 
-# Define the service locally. This will be used if the backend service isn't available.
 class LocalDocumentationSovereigntyService:
-    """Service that embodies our radical transparency principle for documentation.
+    """Service that embodies our radical transparency principle for documentation."""
 
-    This service ensures documentation sovereignty by:
-    1. Tracking all changes to documentation
-    2. Creating integrity proofs for verification
-    3. Establishing clear provenance chains
-    4. Preventing unauthorized modifications
-    """
-
-    def __init__(self, db=None, docs_dir=None, integrity_file=None):  # Added integrity_file parameter
+    def __init__(self, db=None, docs_dir=None, integrity_file=None):
         self.db = db
-        # Default to docs directory relative to project root
-        self.docs_dir = docs_dir or (project_root / 'docs')
-        # Default integrity file path based on docs_dir
-        self.integrity_file = integrity_file or (self.docs_dir / 'INTEGRITY.json')
-        # Use the imported or placeholder TraceabilityService
-        self.traceability: RealTraceabilityService = TraceabilityServiceType(db)
+        self.docs_dir = docs_dir if docs_dir is not None else (project_root / 'docs')
+        self.integrity_file = integrity_file if integrity_file is not None else (self.docs_dir / 'INTEGRITY.json')
+        self.traceability: TraceabilityServiceType = TraceabilityServiceType(db)
 
         if not self.docs_dir.exists():
             print(f"Warning: Documentation directory not found: {self.docs_dir}")
-            self.docs_dir.mkdir(parents=True, exist_ok=True)  # Create if missing
+            self.docs_dir.mkdir(parents=True, exist_ok=True)
 
     def generate_integrity_map(self):
         """Create verifiable integrity proofs for all documentation."""
@@ -71,13 +55,13 @@ class LocalDocumentationSovereigntyService:
             "documents": {}
         }
 
-        # Process all markdown files
-        for doc_file in self.docs_dir.glob('**/*.md'):
-            if not doc_file.is_file(): continue  # Skip directories
+        for doc_file in self.docs_dir.rglob('*.md'):
+            if not doc_file.is_file(): continue
+            if doc_file.resolve() == self.integrity_file.resolve():
+                continue
 
-            relative_path = str(doc_file.relative_to(self.docs_dir)).replace('\\', '/')  # Use forward slashes
+            relative_path = str(doc_file.relative_to(self.docs_dir)).replace('\\', '/')
 
-            # Generate hash for integrity verification
             try:
                 with open(doc_file, 'rb') as f:
                     content = f.read()
@@ -86,15 +70,12 @@ class LocalDocumentationSovereigntyService:
                 print(f"Error reading file {doc_file}: {e}")
                 continue
 
-            # Get git history if available and git is installed
             last_commit = None
             last_author = None
             if git:
                 try:
-                    # Search upwards from the docs_dir for the repo root
                     repo = git.Repo(self.docs_dir, search_parent_directories=True)
                     repo_root = Path(repo.working_dir)
-                    # Get path relative to repo root for git commands
                     repo_relative_path = str(doc_file.relative_to(repo_root)).replace('\\', '/')
                     commits = list(repo.iter_commits(paths=repo_relative_path, max_count=1))
                     if commits:
@@ -109,12 +90,10 @@ class LocalDocumentationSovereigntyService:
                             "email": commit.author.email
                         }
                 except (git.InvalidGitRepositoryError, git.NoSuchPathError):
-                    # Handle cases where the file is not in a git repo or git fails
                     pass
                 except Exception as e:
                     print(f"Error getting git history for {doc_file}: {e}")
 
-            # Store document metadata
             try:
                 integrity_map["documents"][relative_path] = {
                     "hash": doc_hash,
@@ -128,20 +107,18 @@ class LocalDocumentationSovereigntyService:
             except Exception as e:
                 print(f"Error getting file metadata for {doc_file}: {e}")
 
-        # Write integrity map to file
         try:
-            self.integrity_file.parent.mkdir(parents=True, exist_ok=True)  # Ensure directory exists
+            self.integrity_file.parent.mkdir(parents=True, exist_ok=True)
             with open(self.integrity_file, 'w') as f:
                 json.dump(integrity_map, f, indent=2, sort_keys=True)
         except Exception as e:
             print(f"Error writing integrity map to {self.integrity_file}: {e}")
-            return None  # Indicate failure
+            return None
 
-        # Record in traceability system
         self.traceability.record_data_creation(
             user_id="system",
             data_type="documentation_integrity_map",
-            data_id=str(self.integrity_file),
+            data_id=str(self.integrity_file.relative_to(project_root)),
             purpose="documentation_sovereignty"
         )
 
@@ -162,16 +139,16 @@ class LocalDocumentationSovereigntyService:
             "verified_at": datetime.utcnow().isoformat(),
             "status": "verified",
             "violations": [],
-            "new_files": []
+            "new_files": [],
+            "checked_files": 0
         }
-        found_files = set()
+        found_files_in_map = set()
 
-        # Check each document in the integrity map
         for rel_path, expected in integrity_map.get("documents", {}).items():
-            found_files.add(rel_path)
+            found_files_in_map.add(rel_path)
             doc_file = self.docs_dir / rel_path
+            results["checked_files"] += 1
 
-            # Check if file exists
             if not doc_file.exists():
                 results["violations"].append({
                     "file": rel_path,
@@ -180,7 +157,6 @@ class LocalDocumentationSovereigntyService:
                 })
                 continue
 
-            # Verify hash
             try:
                 with open(doc_file, 'rb') as f:
                     content = f.read()
@@ -200,20 +176,25 @@ class LocalDocumentationSovereigntyService:
                     "details": "Content hash doesn't match integrity map"
                 })
 
-        # Look for new files not in integrity map
-        for doc_file in self.docs_dir.glob('**/*.md'):
+        for doc_file in self.docs_dir.rglob('*.md'):
             if not doc_file.is_file(): continue
+            if doc_file.resolve() == self.integrity_file.resolve():
+                continue
             rel_path = str(doc_file.relative_to(self.docs_dir)).replace('\\', '/')
-            if rel_path not in found_files:
+            if rel_path not in found_files_in_map:
                 results["new_files"].append(rel_path)
 
-        # Update status if violations found
         if results["violations"]:
             results["status"] = "integrity_violated"
         elif not integrity_map.get("documents"):
-            results["status"] = "empty_map"  # Map exists but is empty
+            has_md_files = any(self.docs_dir.rglob('*.md'))
+            if has_md_files:
+                results["status"] = "empty_map"
+            else:
+                results["status"] = "verified"
+        elif not results["violations"] and not results["new_files"]:
+            results["status"] = "verified"
 
-        # Record verification in traceability system
         self.traceability.record_data_access(
             user_id="system",
             data_type="documentation_integrity_verification",
@@ -222,13 +203,7 @@ class LocalDocumentationSovereigntyService:
 
         return results
 
-# Use the real service if it was imported, otherwise use the local definition
 DocumentationSovereigntyService = RealDocSovereigntyService if RealDocSovereigntyService else LocalDocumentationSovereigntyService
-
-
-# --- CLI Section ---
-# Create in scripts/documentation_sovereignty.py (or keep combined if preferred)
-# If separating, ensure this part imports the service class correctly.
 
 def cli_main():
     parser = argparse.ArgumentParser(description="Documentation Sovereignty Tool")
@@ -240,32 +215,37 @@ def cli_main():
 
     args = parser.parse_args()
 
-    # Determine paths relative to the project root
-    docs_dir_path = Path(args.docs_dir) if args.docs_dir else None
-    integrity_file_path = Path(args.integrity_file) if args.integrity_file else None
+    docs_dir_path = Path(args.docs_dir).resolve() if args.docs_dir else (project_root / 'docs')
+    integrity_file_path = Path(args.integrity_file).resolve() if args.integrity_file else (docs_dir_path / 'INTEGRITY.json')
 
-    # Create service instance, passing paths explicitly
     service = DocumentationSovereigntyService(docs_dir=docs_dir_path, integrity_file=integrity_file_path)
 
-    if args.generate:
-        print(f"Generating documentation integrity map for '{service.docs_dir}'...")
+    if args.generate or args.fix:
+        action = "Generating" if args.generate else "Regenerating (fixing)"
+        print(f"{action} documentation integrity map for '{service.docs_dir}'...")
         result = service.generate_integrity_map()
         if result:
-            print(f"✅ Integrity map generated at '{service.integrity_file}' with {len(result.get('documents', {}))} documents")
+            print(f"✅ Integrity map {'generated' if args.generate else 'regenerated'} at '{service.integrity_file}' with {len(result.get('documents', {}))} documents")
         else:
-            print(f"❌ Failed to generate integrity map.")
+            print(f"❌ Failed to {'generate' if args.generate else 'regenerate'} integrity map.")
             sys.exit(1)
 
     elif args.verify:
         print(f"Verifying documentation integrity using '{service.integrity_file}'...")
         result = service.verify_integrity()
+        checked_count = result.get("checked_files", 0)
 
         if result["status"] == "verified":
-            print("✅ All documentation verified - sovereignty intact")
+            print(f"✅ All {checked_count} documentation file(s) verified - sovereignty intact")
+            if result.get("new_files"):
+                print("\n📄 New files detected (not yet tracked in integrity map):")
+                for new_file in result["new_files"]:
+                    print(f"  - {new_file}")
+                print("\nRun with --generate to include these files.")
+
         elif result["status"] == "integrity_violated":
-            print("🚨 Documentation sovereignty violations detected:")
+            print(f"🚨 Documentation sovereignty violations detected ({checked_count} file(s) checked):")
             for violation in result.get("violations", []):
-                # Check if violation is a dictionary before accessing keys
                 if isinstance(violation, dict):
                     file_path = violation.get('file', 'N/A')
                     violation_type = violation.get('type', 'N/A')
@@ -278,36 +258,25 @@ def cli_main():
                 print("\n📄 New files detected (not in integrity map):")
                 for new_file in result["new_files"]:
                     print(f"  - {new_file}")
-            print("\nRun with --generate to update the integrity map if changes are intentional.")
-            sys.exit(1)  # Exit with error code for CI/CD pipelines
+            print("\nRun with --fix to accept current state and regenerate the integrity map.")
+            sys.exit(1)
         elif result["status"] == "no_integrity_map":
             print(f"❌ {result['message']}")
             print("Run with --generate to create one.")
             sys.exit(1)
         elif result["status"] == "empty_map":
             print(f"🟡 Integrity map '{service.integrity_file}' exists but contains no documents.")
-            print("Run with --generate to populate it.")
+            print("Run with --generate to populate it if documentation files exist.")
         elif result["status"] == "error":
             print(f"❌ {result['message']}")
             sys.exit(1)
         else:
             print(f"❓ Unknown verification status: {result['status']}")
 
-    elif args.fix:
-        print(f"Attempting to resolve documentation sovereignty issues by regenerating map '{service.integrity_file}'...")
-        # This essentially accepts the current state as the new baseline
-        result = service.generate_integrity_map()
-        if result:
-            print(f"✅ New integrity map generated at '{service.integrity_file}' to incorporate current state.")
-        else:
-            print(f"❌ Failed to regenerate integrity map.")
-            sys.exit(1)
-
     else:
         parser.print_help()
 
 if __name__ == "__main__":
-    # Check if git is installed and warn if not
     if not git:
         print("Warning: GitPython is not installed or 'git' command not found. Git history will not be recorded.")
         print("Install it with: pip install GitPython")

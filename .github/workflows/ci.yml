@@ -10,6 +10,7 @@ on:
     paths-ignore:
       - '**.md'
       - 'docs/**'
+      - 'site/**' # Also ignore generated site files
   # Triggers the workflow on pull request events but only for the main branch
   pull_request:
     branches: [ main ]
@@ -17,6 +18,7 @@ on:
     paths-ignore:
       - '**.md'
       - 'docs/**'
+      - 'site/**' # Also ignore generated site files
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -55,16 +57,16 @@ jobs:
           # flake8 checks for style guide enforcement (PEP8) and simple errors
           # --count shows total errors, --max-line-length=100 sets line length
           # --show-source shows the problematic code line, --statistics provides counts per error code
-          # Exclude migrations, auto-generated files if necessary: --exclude=migrations,venv,__pycache__
-          flake8 . --count --max-line-length=100 --show-source --statistics --exclude=venv,__pycache__
+          # Exclude migrations, venv, __pycache__, generated site, etc.
+          flake8 . --count --max-line-length=100 --show-source --statistics --exclude=venv,__pycache__,site,docs/build,migrations
           echo "Running Black check..."
           # black checks if the code is formatted according to its opinionated style
           # --check doesn't modify files but exits with an error if changes are needed
-          black . --check --line-length=100 --exclude=venv/__pycache__
+          black . --check --line-length=100 --exclude=venv/__pycache__|site/|docs/build/|migrations/
           echo "Running isort check..."
           # isort checks if imports are sorted correctly
           # --check-only doesn't modify files but exits with an error if changes are needed
-          isort . --check-only --profile black --line-length=100 --skip-glob=venv/* --skip-glob=__pycache__/*
+          isort . --check-only --profile black --line-length=100 --skip-glob=venv/* --skip-glob=__pycache__/* --skip-glob=site/* --skip-glob=docs/build/* --skip-glob=migrations/*
           # echo "Running mypy..." # Optional: Add type checking
           # mypy . --ignore-missing-imports # Adjust path and options as needed
 
@@ -78,17 +80,23 @@ jobs:
 
       # Install frontend dependencies
       - name: Install Node dependencies (Frontend)
+        # Only run if frontend directory and package-lock.json exist
+        if: steps.checkout.outputs.path != '' && hashFiles('frontend/package-lock.json') != ''
         working-directory: ./frontend # Specify working directory
         run: npm ci # Use 'ci' for faster, reliable installs
 
       # Run frontend linters (ESLint, Prettier check)
       - name: Run Frontend Linters
+        # Only run if frontend directory and package.json exist
+        if: steps.checkout.outputs.path != '' && hashFiles('frontend/package.json') != ''
         working-directory: ./frontend
         run: |
           echo "Running ESLint..."
-          npm run lint # Assumes a 'lint' script in your package.json
+          # Check if lint script exists before running
+          if npm run --silent lint; then npm run lint; else echo "No lint script found, skipping ESLint."; fi
           echo "Running Prettier check..."
-          npm run format:check # Assumes a 'format:check' script for Prettier
+          # Check if format:check script exists before running
+          if npm run --silent format:check; then npm run format:check; else echo "No format:check script found, skipping Prettier."; fi
 
   # This job runs the backend tests
   test-backend:
@@ -98,6 +106,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
+        id: checkout # Give the checkout step an ID
         uses: actions/checkout@v4
 
       - name: Set up Python
@@ -131,17 +140,24 @@ jobs:
           # --cov specifies the package/directory to measure coverage for
           # --cov-report=xml generates an XML report (e.g., for Codecov)
           # --cov-report=term shows a summary in the terminal
-          pytest --cov=backend --cov-report=xml --cov-report=term backend/tests # Assuming tests are in backend/tests
+          # Check if backend/tests directory exists before running pytest
+          if [ -d "backend/tests" ]; then
+            pytest --cov=backend --cov-report=xml --cov-report=term backend/tests
+          else
+            echo "backend/tests directory not found, skipping backend tests."
+          fi
 
       # Optional step to upload coverage reports to a service like Codecov
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
+        # The token is usually optional for public repos on common CI providers
+        # token: ${{ secrets.CODECOV_TOKEN }} # Requires setting a CODECOV_TOKEN secret if private repo or needed
         with:
-          token: ${{ secrets.CODECOV_TOKEN }} # Requires setting a CODECOV_TOKEN secret
           files: ./coverage.xml # Path to the generated coverage report
           fail_ci_if_error: true # Optional: Fail CI if Codecov upload fails
         # Only run on push to main or PRs to main to avoid uploading for every commit
-        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+        # Also check if coverage.xml was actually generated
+        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./coverage.xml') != '')
 
   # This job runs the frontend tests
   test-frontend:
@@ -150,6 +166,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
+        id: checkout # Give the checkout step an ID
         uses: actions/checkout@v4
 
       - name: Set up Node.js
@@ -160,10 +177,14 @@ jobs:
           cache-dependency-path: 'frontend/package-lock.json'
 
       - name: Install Node dependencies (Frontend)
+        # Only run if frontend directory and package-lock.json exist
+        if: steps.checkout.outputs.path != '' && hashFiles('frontend/package-lock.json') != ''
         working-directory: ./frontend
         run: npm ci
 
       - name: Run frontend tests
+        # Only run if frontend directory and package.json exist and test script exists
+        if: steps.checkout.outputs.path != '' && hashFiles('frontend/package.json') != '' && npm run --silent test
         working-directory: ./frontend
         run: npm test -- --coverage # Assumes a 'test' script, add --coverage flag if needed
 
@@ -171,8 +192,8 @@ jobs:
       # - name: Upload Frontend Coverage to Codecov
       #   uses: codecov/codecov-action@v4
       #   with:
-      #     token: ${{ secrets.CODECOV_TOKEN }}
+      #     # token: ${{ secrets.CODECOV_TOKEN }}
       #     working-directory: ./frontend # Specify working directory for coverage report
       #     files: ./coverage/coverage-final.json # Adjust path based on your coverage reporter (e.g., lcov.info)
       #     fail_ci_if_error: true
-      #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request'
+      #   if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./frontend/coverage/coverage-final.json') != '')

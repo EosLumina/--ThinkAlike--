@@ -47,7 +47,7 @@ def create_access_token(
         ValueError: If SECRET_KEY or ALGORITHM is not configured.
     """
     if not SECRET_KEY or not ALGORITHM:
-        raise ValueError("JWT SECRET_KEY and ALGORITHM must be configured.")
+        raise ValueError("JWT SECRET_KEY and ALGORITHM must be configured in settings.")
 
     if expires_delta:
         expire = datetime.now(timezone.utc) + expires_delta
@@ -80,14 +80,12 @@ def decode_access_token(token: str) -> Optional[TokenPayload]:
         payload = jwt.decode(
             token, SECRET_KEY, algorithms=[ALGORITHM]
         )
+        # Ensure 'sub' exists before creating TokenPayload
+        if "sub" not in payload:
+            return None
         token_data = TokenPayload(**payload)
-        # Optional: Check if token is expired (though jwt.decode usually handles this)
-        # if token_data.exp < datetime.now(timezone.utc):
-        #     return None
         return token_data
-    except (JWTError, ValidationError):
-        # Log the error appropriately in a real application
-        # print(f"Token validation error: {e}")
+    except (JWTError, ValidationError, KeyError):  # Added KeyError for missing payload keys
         return None
 
 
