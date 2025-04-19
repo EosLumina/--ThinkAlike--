@@ -13,361 +13,276 @@ from pathlib import Path
 
 # Dictionary of workflow files to create with their content
 WORKFLOW_TEMPLATES = {
-    "consolidated-ci.yml": """name: Consolidated CI
+    "backend.yml": """name: Backend CI
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
-        run: pytest
-""",
-
-    "fixed_consolidated-ci.yml": """name: Consolidated CI (Fixed)
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
-        run: pytest
-""",
-
-    "fixed_run-tests.yml": """name: Run Tests (Fixed)
-
-on:
-  push:
-    branches: [main]
+    branches: [main, develop]
     paths:
       - 'backend/**'
-      - 'tests/**'
-      - 'requirements*.txt'
   pull_request:
-    branches: [main]
-  workflow_dispatch:
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
-        run: pytest
-""",
-
-    "fixed_documentation.yml": """name: Documentation (Fixed)
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - 'docs/**'
-      - '*.md'
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs
-      - name: Build docs
-        run: mkdocs build
-""",
-
-    "deploy_to_gh_pages.yml": """name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - 'docs/**'
-      - '*.md'
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material
-      - name: Build site
-        run: mkdocs build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-""",
-
-    "fixed_settings.yml": """name: Repository Settings (Fixed)
-
-on:
-  schedule:
-    - cron: "0 0 * * 0"  # Run weekly on Sundays
-  workflow_dispatch:
-
-jobs:
-  settings:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Apply repository settings
-        uses: probot/settings@v1
-        with:
-          settings_file: .github/config/repository-settings.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-""",
-
-    "fixed_deploy_to_gh_pages.yml": """name: Deploy to GitHub Pages (Fixed)
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - 'docs/**'
-      - '*.md'
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs mkdocs-material
-      - name: Build site
-        run: mkdocs build
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./site
-""",
-
-    "unified-workflow.yml": """name: Unified Workflow
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
-        run: pytest
-""",
-
-    "run-tests.yml": """name: Run Tests
-
-on:
-  push:
-    branches: [main]
+    branches: [main, develop]
     paths:
       - 'backend/**'
-      - 'tests/**'
-      - 'requirements*.txt'
-  pull_request:
-    branches: [main]
-  workflow_dispatch:
 
 jobs:
+  lint:
+    name: Lint Backend Code
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements-dev.txt
+
+      - name: Lint with flake8
+        run: flake8 backend --count --select=E9,F63,F7,F82 --show-source --statistics
+
   test:
+    name: Test Backend
     runs-on: ubuntu-latest
+    needs: lint
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
       - uses: actions/checkout@v3
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
-      - name: Install dependencies
+          cache: 'pip'
+
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pytest
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Test with pytest
-        run: pytest
+          pip install -r backend/requirements.txt
+          pip install -r backend/requirements-dev.txt
+
+      - name: Run backend tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+          TESTING: true
+        run: |
+          cd backend
+          pytest --cov=app tests/
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          flags: backend
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: [lint, test]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run Bandit (Python)
+        uses: jpetrucciani/bandit-check@master
+        with:
+          path: 'backend'
+          bandit_flags: '-r -x backend/tests/'
 """,
 
-    "deploy.yml": """name: Deploy
+    "frontend.yml": """name: Frontend CI
 
 on:
   push:
-    branches: [main]
-    tags:
-      - 'v*.*.*'
-  workflow_dispatch:
+    branches: [main, develop]
+    paths:
+      - 'frontend/**'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'frontend/**'
 
 jobs:
-  deploy:
+  lint:
+    name: Lint Frontend Code
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          python-version: '3.10'
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Deploy
-        run: echo "Deploying application..."
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Lint frontend code
+        working-directory: ./frontend
+        run: npm run lint
+
+  test:
+    name: Test Frontend
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: npm test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          flags: frontend
+
+  build:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: frontend-build
+          path: frontend/build
 """,
 
-    "documentation.yml": """name: Documentation
+    "docs.yml": """name: Documentation CI
 
 on:
   push:
-    branches: [main]
     paths:
       - 'docs/**'
-      - '*.md'
+      - '**.md'
+    branches: [ main, develop ]
   pull_request:
-    branches: [main]
-  workflow_dispatch:
+    paths:
+      - 'docs/**'
+      - '**.md'
+    branches: [ main, develop ]
 
 jobs:
-  build:
+  markdown-lint:
+    name: Markdown Linting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          python-version: '3.10'
-      - name: Install dependencies
+          node-version: 16
+
+      - name: Install markdownlint
+        run: npm install -g markdownlint-cli
+
+      - name: Run markdownlint
+        run: markdownlint "**/*.md" --ignore node_modules
+
+  check-links:
+    name: Check Markdown Links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install markdown-link-check
+        run: npm install -g markdown-link-check
+
+      - name: Check links in Markdown files
         run: |
-          python -m pip install --upgrade pip
-          pip install mkdocs
-      - name: Build docs
-        run: mkdocs build
-""",
+          find . -name "*.md" | xargs -n1 markdown-link-check -q
 
-    "settings.yml": """name: Repository Settings
-
-on:
-  schedule:
-    - cron: "0 0 * * 0"  # Run weekly on Sundays
-  workflow_dispatch:
-
-jobs:
-  settings:
+  build-docs-site:
+    name: Build Documentation Site
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Apply repository settings
-        uses: probot/settings@v1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          settings_file: .github/config/repository-settings.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-""",
+          node-version: 16
+          cache: 'npm'
 
-    "fixed_deploy.yml": """name: Fixed Deploy
-
-on:
-  push:
-    branches: [main]
-    tags:
-      - 'v*.*.*'
-  workflow_dispatch:
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10'
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Deploy
-        run: echo "Deploying application..."
+        run: npm ci
+        working-directory: ./docs-site
+
+      - name: Build documentation site
+        run: npm run build
+        working-directory: ./docs-site
+
+      - name: Upload documentation site artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: docs-site-build
+          path: docs-site/build
+
+  generate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Generate Docs
+        run: npm run docs
 """
 }
 
