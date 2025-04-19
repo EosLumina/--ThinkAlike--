@@ -143,6 +143,62 @@ def fix_workflow_file(file_path, reference_content, reference_name):
             print(f"Restored {file_path} from backup")
         return False
 
+def fix_security_scan_job(file_path):
+    """Fix the security-scan job in a workflow file"""
+    try:
+        with open(file_path, 'r') as f:
+            content = f.read()
+
+        # Check if the security-scan job exists
+        if 'security-scan' not in content:
+            print(f"⚠️ No security-scan job found in {file_path}")
+            return False
+
+        # Ensure the security-scan job has the correct steps
+        content = re.sub(
+            r'(security-scan:\s*[\s\S]*?steps:\s*[\s\S]*?)(\n\s*-\s*name:\s*Run Bandit \(Python\)[\s\S]*?)(\n\s*-\s*name:\s*Run npm audit[\s\S]*?)',
+            r'\1\2\n        with:\n          path: backend\n          bandit_flags: -r -x backend/tests/\3\n        with:\n          working-directory: ./frontend',
+            content
+        )
+
+        with open(file_path, 'w') as f:
+            f.write(content)
+
+        print(f"✅ Fixed security-scan job in {file_path}")
+        return True
+
+    except Exception as e:
+        print(f"❌ Error fixing security-scan job in {file_path}: {e}")
+        return False
+
+def fix_build_job(file_path):
+    """Fix the build job in a workflow file"""
+    try:
+        with open(file_path, 'r') as f:
+            content = f.read()
+
+        # Check if the build job exists
+        if 'build' not in content:
+            print(f"⚠️ No build job found in {file_path}")
+            return False
+
+        # Ensure the build job has the correct steps
+        content = re.sub(
+            r'(build:\s*[\s\S]*?steps:\s*[\s\S]*?)(\n\s*-\s*name:\s*Login to DockerHub[\s\S]*?)(\n\s*-\s*name:\s*Build and push backend[\s\S]*?)(\n\s*-\s*name:\s*Build and push frontend[\s\S]*?)',
+            r'\1\2\n        with:\n          username: ${{ secrets.DOCKERHUB_USERNAME }}\n          password: ${{ secrets.DOCKERHUB_TOKEN }}\3\n        with:\n          context: ./backend\n          push: true\n          tags: thinkalike/api:${{ github.sha }},thinkalike/api:latest\n          cache-from: type=registry,ref=thinkalike/api:latest\n          cache-to: type=inline\4\n        with:\n          context: ./frontend\n          push: true\n          tags: thinkalike/web:${{ github.sha }},thinkalike/web:latest\n          cache-from: type=registry,ref=thinkalike/web:latest\n          cache-to: type=inline',
+            content
+        )
+
+        with open(file_path, 'w') as f:
+            f.write(content)
+
+        print(f"✅ Fixed build job in {file_path}")
+        return True
+
+    except Exception as e:
+        print(f"❌ Error fixing build job in {file_path}: {e}")
+        return False
+
 def main():
     """Main function"""
     # Ensure we're in the repository root
@@ -171,6 +227,9 @@ def main():
         if file_path.exists():
             if fix_workflow_file(str(file_path), reference_content, reference_name):
                 fixed_count += 1
+            # Fix security-scan and build jobs
+            fix_security_scan_job(str(file_path))
+            fix_build_job(str(file_path))
         else:
             print(f"⚠️ File {filename} not found")
 
