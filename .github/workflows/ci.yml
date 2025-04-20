@@ -1,4 +1,4 @@
-# filepath: /workspace/--ThinkAlike--/.github/workflows/ci.yml
+---
 name: CI Pipeline
 
 on:
@@ -8,7 +8,9 @@ on:
   pull_request:
     branches:
       - main
+  # yamllint disable rule:truthy
   workflow_dispatch: {}
+  # yamllint enable rule:truthy
 
 jobs:
   cleanup:
@@ -17,7 +19,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Clean up legacy workflows
-        run: bash scripts/cleanup_workflows.sh
+        run: |
+          if [ -f scripts/cleanup_workflows.sh ]; then
+            bash scripts/cleanup_workflows.sh
+          else
+            echo "Cleanup script not found, skipping."
 
   build-and-test:
     runs-on: ubuntu-latest
@@ -28,6 +34,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      # Backend
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
@@ -42,6 +50,8 @@ jobs:
         run: |
           cd backend
           pytest
+
+      # Frontend
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
@@ -49,7 +59,7 @@ jobs:
       - name: Install Frontend dependencies
         run: |
           cd frontend
-          npm install
+          npm ci
       - name: Run Frontend Tests
         run: |
           cd frontend
@@ -84,9 +94,15 @@ jobs:
         with:
           context: ./frontend
           push: true
-          tags: thinkalike/web:${{ github.sha }},thinkalike/web:latest
+          tags: |
+            thinkalike/web:${{ github.sha }}
+            thinkalike/web:latest
           cache-from: type=registry,ref=thinkalike/web:latest
           cache-to: type=inline
 
-# Removed duplicate workflow definition for Backend CI.
-# Ensure backend-specific paths are handled in the existing CI pipeline.
+# filepath: .yamllint
+extends: default
+
+rules:
+  truthy:
+    level: disable
