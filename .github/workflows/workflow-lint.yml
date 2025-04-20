@@ -26,8 +26,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # Use a current version here too
 
+      # ----- THIS IS THE CRITICAL FIX -----
       # Updated: Removed search paths for workflows-backup
       - name: Find all workflow YAMLs
         id: find-files
@@ -36,36 +37,29 @@ jobs:
           find . -type f \( -path "./.github/workflows/*.yml" -o -path "./.github/workflows/*.yaml" \) > all-workflows.txt
           echo "Found workflow files:"
           cat all-workflows.txt
+      # ----- END CRITICAL FIX -----
 
       - name: Install actionlint
         id: install-actionlint
         run: |
-          # Run the official download script
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-          # Ensure the target directory exists
           mkdir -p "${HOME}/.local/bin"
-          # Move the downloaded executable to the target directory
           mv actionlint "${HOME}/.local/bin/"
-          # Add the target directory to the PATH for subsequent steps
           echo "${HOME}/.local/bin" >> $GITHUB_PATH
         shell: bash
 
       - name: Run actionlint on all workflow YAMLs
         run: |
           while IFS= read -r file; do
-            # Skip empty lines if any
             if [ -z "$file" ]; then continue; fi
-            # Check if the file actually exists before trying to lint
             if [ ! -f "$file" ]; then
               echo "Skipping non-existent file: $file"
               continue
             fi
             echo "Linting $file"
-            # Run actionlint on the file
             actionlint "$file"
           done < all-workflows.txt
         env:
-          # GITHUB_TOKEN is often needed by actionlint for checking referenced actions/secrets
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Show success message
