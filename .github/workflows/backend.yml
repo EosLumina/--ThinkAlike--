@@ -1,7 +1,7 @@
-# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:15:00
+# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:19:00
 # Current User's Login: EosLumina
 
-# actionlint-disable-shellcheck: All shellcheck checks disabled for this file due to persistent SC2102 misattribution
+# Removed global disable comment for now
 name: Backend CI
 
 on:
@@ -34,7 +34,6 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./backend
-        # Removed the specific disable comment from here
         run: |
           echo "Listing backend directory contents:"
           ls -la
@@ -48,9 +47,8 @@ jobs:
 
       - name: Lint with flake8
         working-directory: ./backend
+        # This is the 'run' key for the flake8 step (around line 50/51)
         run: |
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-
-        run: |
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Ensure there is NO other 'run:' key below this line within this step
 
