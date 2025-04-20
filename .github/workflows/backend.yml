@@ -1,7 +1,6 @@
-# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:19:00
+# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:25:00
 # Current User's Login: EosLumina
 
-# Removed global disable comment for now
 name: Backend CI
 
 on:
@@ -38,7 +37,8 @@ jobs:
           echo "Listing backend directory contents:"
           ls -la
           python -m pip install --upgrade pip
-          pip install -e .[test,lint]
+          # Try quoting the extras to avoid shellcheck SC2102
+          pip install -e ".[test,lint]"
 
       - name: Run tests
         working-directory: ./backend
@@ -47,8 +47,5 @@ jobs:
 
       - name: Lint with flake8
         working-directory: ./backend
-        # This is the 'run' key for the flake8 step (around line 50/51)
         run: |
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # Ensure there is NO other 'run:' key below this line within this step
-
