@@ -1,67 +1,177 @@
-name: Lint All GitHub Workflow Files
+name: ThinkAlike CI
 
 on:
   push:
-    paths:
-      - ".github/workflows/*.yml"
-      - ".github/workflows/*.yaml"
-      - "**/.github/workflows/*.yml"
-      - "**/.github/workflows/*.yaml"
-      - ".github/workflows-backup/*.yml"
-      - ".github/workflows-backup/*.yaml"
+    branches: [ main, develop ]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
   pull_request:
-    paths:
-      - ".github/workflows/*.yml"
-      - ".github/workflows/*.yaml"
-      - "**/.github/workflows/*.yml"
-      - "**/.github/workflows/*.yaml"
-      - ".github/workflows-backup/*.yml"
-      - ".github/workflows-backup/*.yaml"
-  workflow_dispatch:
+    branches: [ main, develop ]
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
 
 jobs:
-  actionlint:
-    name: Lint workflow YAMLs with actionlint
+  lint:
+    name: Lint Code
     runs-on: ubuntu-latest
+    # This job has no dependencies, so it will run first - which is necessary for workflow validation
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3 # Consider updating this to v4 as well
 
-      - name: Find all workflow YAMLs
-        id: find-files
-        run: |
-          find . -type f \( -path "./.github/workflows/*.yml" -o -path "./.github/workflows/*.yaml" -o -path "./.github/workflows-backup/*.yml" -o -path "./.github/workflows-backup/*.yaml" \) > all-workflows.txt
-          echo "Found workflow files:"
-          cat all-workflows.txt
+      - name: Set up Python
+        uses: actions/setup-python@v4 # Consider updating this to v5 as well
+        with:
+          python-version: '3.10'
+          cache: 'pip'
 
-      # --- Corrected Step ---
-      - name: Install actionlint
-        id: install-actionlint
+      - name: Install Python dependencies
         run: |
-          # Run the official download script
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
-          # Ensure the target directory exists
-          mkdir -p "${HOME}/.local/bin"
-          # Move the downloaded executable to the target directory
-          mv actionlint "${HOME}/.local/bin/"
-          # Add the target directory to the PATH for subsequent steps
-          echo "${HOME}/.local/bin" >> $GITHUB_PATH
-        shell: bash
-      # --- End Corrected Step ---
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements-dev.txt
 
-      - name: Run actionlint on all workflow YAMLs
-        run: |
-          while IFS= read -r file; do
-            # Skip empty lines if any
-            if [ -z "$file" ]; then continue; fi
-            echo "Linting $file"
-            # Run actionlint on the file
-            actionlint "$file"
-          done < all-workflows.txt
+      - name: Lint with flake8
+        run: flake8 backend --count --select=E9,F63,F7,F82 --show-source --statistics
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3 # Consider updating this to v4 as well
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Lint frontend code
+        working-directory: ./frontend
+        run: npm run lint
+
+  test-backend:
+    name: Test Backend
+    runs-on: ubuntu-latest
+    needs: lint
+    services:
+      postgres:
+        image: postgres:13
         env:
-          # GITHUB_TOKEN is often needed by actionlint for checking referenced actions/secrets
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
-      - name: Show success message
-        if: ${{ success() }}
-        run: echo "All workflow files passed linting!"
+    steps:
+      - uses: actions/checkout@v3 # Consider updating this to v4 as well
+
+      - name: Set up Python
+        uses: actions/setup-python@v4 # Consider updating this to v5 as well
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+          pip install -r backend/requirements-dev.txt
+
+      - name: Run backend tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+          TESTING: true
+        run: |
+          cd backend
+          pytest --cov=app tests/
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3 # Consider updating this to v4 as well
+        with:
+          flags: backend
+
+  test-frontend:
+    name: Test Frontend
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v3 # Consider updating this to v4 as well
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3 # Consider updating this to v4 as well
+        with:
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
+
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: npm test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3 # Consider updating this to v4 as well
+        with:
+          flags: frontend
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: [lint, test-backend, test-frontend]
+    steps:
+      - uses: actions/checkout@v3 # Consider updating this to v4 as well
+
+      - name: Run Bandit (Python)
+        uses: jpetrucciani/bandit-check@master # Check if a newer version exists
+        with:
+          path: 'backend'
+          bandit_flags: '-r -x backend/tests/'
+
+      - name: Run npm audit
+        working-directory: ./frontend
+        run: npm audit --audit-level=high
+
+  build:
+    name: Build Artifacts
+    runs-on: ubuntu-latest
+    needs: [security-scan]
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
+    steps:
+      - uses: actions/checkout@v3 # Consider updating this to v4 as well
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2 # Consider updating this to v3 as well
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v2 # Consider updating this to v3 as well
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }} # Use secrets, not env vars here
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push backend
+        uses: docker/build-push-action@v5 # <<< Updated from v4
+        with:
+          context: ./backend
+          push: true
+          tags: thinkalike/api:${{ github.sha }},thinkalike/api:latest
+          cache-from: type=registry,ref=thinkalike/api:latest
+          cache-to: type=inline
+
+      - name: Build and push frontend
+        uses: docker/build-push-action@v5 # <<< Updated from v4
+        with:
+          context: ./frontend
+          push: true
+          tags: thinkalike/web:${{ github.sha }},thinkalike/web:latest
+          cache-from: type=registry,ref=thinkalike/web:latest
+          cache-to: type=inline
+
