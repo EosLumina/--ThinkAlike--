@@ -21,14 +21,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        # Updated action version (was v3)
+        uses: actions/checkout@v4
         with:
           submodules: false # Explicitly disable submodule checkout
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        # Updated action version (was v3)
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version: "16" # Consider updating Node version if needed for newer tooling
 
       - name: Install markdownlint
         run: npm install -g markdownlint-cli
@@ -52,12 +54,14 @@ jobs:
     needs: markdown_lint
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        # Updated action version (was v3)
+        uses: actions/checkout@v4
         with:
           submodules: false # Explicitly disable submodule checkout
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        # Updated action version (was v4)
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
@@ -72,7 +76,9 @@ jobs:
         run: mkdocs build
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        # Updated action version (was v3)
+        uses: actions/upload-artifact@v4
         with:
           name: docs-build
           path: ./docs/site
+
