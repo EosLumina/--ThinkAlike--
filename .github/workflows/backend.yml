@@ -1,3 +1,6 @@
+# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:05:00
+# Current User's Login: EosLumina
+
 name: Backend CI
 
 on:
@@ -32,9 +35,8 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./backend
+        # Disable SC2102 for the pip install line
         # actionlint-disable-shellcheck: SC2102
-        # The SC2102 warning from shellcheck is likely a false positive
-        # triggered by the pip install extras syntax '.[test,lint]'.
         run: |
           echo "Listing backend directory contents:"
           ls -la
@@ -43,13 +45,14 @@ jobs:
 
       - name: Run tests
         working-directory: ./backend
+        # Disable SC2102 for this block too, even if misattributed
+        # actionlint-disable-shellcheck: SC2102
         run: |
           pytest tests --cov=.
 
       - name: Lint with flake8
         working-directory: ./backend
         run: |
-          # Consider adding --exit-zero if you want linting errors to not fail the build
-          # Or add --max-complexity, --max-line-length etc.
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
 
