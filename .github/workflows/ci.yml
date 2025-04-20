@@ -8,9 +8,7 @@ on:
   pull_request:
     branches:
       - main
-  # yamllint disable rule:truthy
-  workflow_dispatch: {}
-  # yamllint enable rule:truthy
+  workflow_dispatch: true
 
 jobs:
   cleanup:
