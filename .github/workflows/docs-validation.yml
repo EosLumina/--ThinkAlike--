@@ -16,7 +16,8 @@ jobs:
   markdown-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # Updated action version
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: false # Explicitly disable submodule checkout
@@ -24,3 +25,6 @@ jobs:
         run: |
           echo "Running markdown validation"
           # Add actual validation command here
+          # Example using markdownlint-cli:
+          # npm install -g markdownlint-cli
+          # markdownlint "**/*.md" --ignore node_modules
