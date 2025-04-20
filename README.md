@@ -16,7 +16,7 @@ Our current civilizational operating system (System v1.0) is failing. We face in
 
 This is more than software development; it is an act of **systemic transformation**, built openly and collaboratively by the **Swarm Intelligence** (the power of the many) it seeks to empower, dedicated to the service of all.
 
-*(For the full philosophical context, read the [Manifesto](./docs/core/manifesto/manifesto.md)).*
+*(For the full context, read the [Manifesto](./docs/core/manifesto/manifesto.md)).*
 
 ## Our Vision: Catalyzing Enlightenment 2.0
 
