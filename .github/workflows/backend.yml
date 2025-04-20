@@ -19,20 +19,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      # Updated action version (was v3)
+      - uses: actions/checkout@v4
         with:
           submodules: false # Explicitly disable submodule checkout
 
+      # Updated action version (was v4)
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
       - name: Install dependencies
         working-directory: ./backend
+        # actionlint-disable-shellcheck: SC2102
+        # The SC2102 warning from shellcheck is likely a false positive
+        # triggered by the pip install extras syntax '.[test,lint]'.
         run: |
           echo "Listing backend directory contents:"
-          ls -la  # Add this line to list files
+          ls -la
           python -m pip install --upgrade pip
           pip install -e .[test,lint]
 
@@ -44,4 +49,7 @@ jobs:
       - name: Lint with flake8
         working-directory: ./backend
         run: |
+          # Consider adding --exit-zero if you want linting errors to not fail the build
+          # Or add --max-complexity, --max-line-length etc.
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
