@@ -1,21 +1,19 @@
+# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:30:00
+# Current User's Login: EosLumina
+
 name: Lint GitHub Workflow Files
 
 on:
   push:
     paths:
-      # Only trigger on changes within the main workflows directory
       - ".github/workflows/*.yml"
       - ".github/workflows/*.yaml"
-      # Optional: Include if you have workflows in subdirectories like .github/workflows/nested/some.yml
-      # You might not need the "**/" if all workflows are directly in .github/workflows
       - ".github/workflows/**/*.yml"
       - ".github/workflows/**/*.yaml"
   pull_request:
     paths:
-      # Only trigger on changes within the main workflows directory
       - ".github/workflows/*.yml"
       - ".github/workflows/*.yaml"
-      # Optional: Include if you have workflows in subdirectories
       - ".github/workflows/**/*.yml"
       - ".github/workflows/**/*.yaml"
   workflow_dispatch:
@@ -26,18 +24,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 # Use a current version here too
+        uses: actions/checkout@v4
 
-      # ----- THIS IS THE CRITICAL FIX -----
-      # Updated: Removed search paths for workflows-backup
       - name: Find all workflow YAMLs
         id: find-files
         run: |
-          # Only search within the main .github/workflows directory and its subdirectories
           find . -type f \( -path "./.github/workflows/*.yml" -o -path "./.github/workflows/*.yaml" \) > all-workflows.txt
           echo "Found workflow files:"
           cat all-workflows.txt
-      # ----- END CRITICAL FIX -----
 
       - name: Install actionlint
         id: install-actionlint
@@ -53,10 +47,12 @@ jobs:
           while IFS= read -r file; do
             if [ -z "$file" ]; then continue; fi
             if [ ! -f "$file" ]; then
-              echo "Skipping non-existent file: $file"
+              # Fixed: Quoted "$file"
+              echo "Skipping non-existent file: \"$file\""
               continue
             fi
-            echo "Linting $file"
+            # Fixed: Quoted "$file"
+            echo "Linting \"$file\""
             actionlint "$file"
           done < all-workflows.txt
         env:
