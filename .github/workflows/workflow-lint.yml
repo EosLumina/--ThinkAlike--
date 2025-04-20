@@ -5,19 +5,18 @@ on:
     paths:
       - ".github/workflows/*.yml"
       - ".github/workflows/*.yaml"
-      # Use more specific paths if possible, but **/.github/*.yml covers nested cases
-      - "**/.github/workflows/*.yml" # More specific than **/.github/*.yml if only workflows are intended
-      - "**/.github/workflows/*.yaml" # More specific than **/.github/*.yaml
-      - ".github/workflows-backup/*.yml" # Corrected path prefix
-      - ".github/workflows-backup/*.yaml" # Corrected path prefix
+      - "**/.github/workflows/*.yml"
+      - "**/.github/workflows/*.yaml"
+      - ".github/workflows-backup/*.yml"
+      - ".github/workflows-backup/*.yaml"
   pull_request:
     paths:
       - ".github/workflows/*.yml"
       - ".github/workflows/*.yaml"
       - "**/.github/workflows/*.yml"
       - "**/.github/workflows/*.yaml"
-      - ".github/workflows-backup/*.yml" # Corrected path prefix
-      - ".github/workflows-backup/*.yaml" # Corrected path prefix
+      - ".github/workflows-backup/*.yml"
+      - ".github/workflows-backup/*.yaml"
   workflow_dispatch:
 
 jobs:
@@ -31,7 +30,6 @@ jobs:
       - name: Find all workflow YAMLs
         id: find-files
         run: |
-          # Adjusted find command to match trigger paths more closely
           find . -type f \( -path "./.github/workflows/*.yml" -o -path "./.github/workflows/*.yaml" -o -path "./.github/workflows-backup/*.yml" -o -path "./.github/workflows-backup/*.yaml" \) > all-workflows.txt
           echo "Found workflow files:"
           cat all-workflows.txt
@@ -46,8 +44,7 @@ jobs:
       # --- End Added Step ---
 
       - name: Run actionlint on all workflow YAMLs
-        # Depends on the installation step completing successfully
-        needs: [install-actionlint]
+        # Removed the invalid 'needs:' line here
         run: |
           while IFS= read -r file; do
             # Skip empty lines if any
