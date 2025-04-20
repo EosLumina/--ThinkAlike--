@@ -1,4 +1,4 @@
-# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:08:00
+# Current Date and Time (UTC - YYYY-MM-DD HH:MM:SS formatted): 2025-04-20 09:12:00
 # Current User's Login: EosLumina
 
 name: Backend CI
@@ -31,18 +31,21 @@ jobs:
         with:
           python-version: "3.10"
 
+      # --- THIS IS THE STEP TO CHECK CAREFULLY ---
       - name: Install dependencies
         working-directory: ./backend
+        # Place the disable comment EXACTLY here, before the 'run:' key
+        # actionlint-disable-shellcheck: SC2102
         run: |
           echo "Listing backend directory contents:"
           ls -la
           python -m pip install --upgrade pip
-          # actionlint-disable-shellcheck: SC2102
           pip install -e .[test,lint]
+      # --- END STEP TO CHECK ---
 
       - name: Run tests
         working-directory: ./backend
-        # Removed disable comment from here
+        # Ensure no disable comment is here
         run: |
           pytest tests --cov=.
 
@@ -50,4 +53,5 @@ jobs:
         working-directory: ./backend
         run: |
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
 
