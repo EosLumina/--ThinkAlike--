@@ -34,17 +34,22 @@ jobs:
           echo "Found workflow files:"
           cat all-workflows.txt
 
-      # --- Added Step ---
+      # --- Corrected Step ---
       - name: Install actionlint
         id: install-actionlint
         run: |
+          # Run the official download script
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          # Ensure the target directory exists
+          mkdir -p "${HOME}/.local/bin"
+          # Move the downloaded executable to the target directory
+          mv actionlint "${HOME}/.local/bin/"
+          # Add the target directory to the PATH for subsequent steps
           echo "${HOME}/.local/bin" >> $GITHUB_PATH
         shell: bash
-      # --- End Added Step ---
+      # --- End Corrected Step ---
 
       - name: Run actionlint on all workflow YAMLs
-        # Removed the invalid 'needs:' line here
         run: |
           while IFS= read -r file; do
             # Skip empty lines if any
@@ -60,4 +65,3 @@ jobs:
       - name: Show success message
         if: ${{ success() }}
         run: echo "All workflow files passed linting!"
-
