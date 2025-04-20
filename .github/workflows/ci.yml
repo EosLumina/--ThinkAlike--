@@ -1,198 +1,172 @@
-# Workflow name displayed on GitHub Actions tab
 name: ThinkAlike CI
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push events but only for the main branch
   push:
-    branches: [main]
-    # Do not run workflow for changes solely in documentation files
+    branches: [ main, develop ]
     paths-ignore:
-      - "**.md"
-      - "docs/**"
-      - "site/**" # Also ignore generated site files
-  # Triggers the workflow on pull request events but only for the main branch
+      - 'docs/**'
+      - '**.md'
   pull_request:
-    branches: [main]
-    # Do not run workflow for changes solely in documentation files
+    branches: [ main, develop ]
     paths-ignore:
-      - "**.md"
-      - "docs/**"
-      - "site/**" # Also ignore generated site files
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+      - 'docs/**'
+      - '**.md'
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This job performs code linting
   lint:
     name: Lint Code
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Checkout code
-        uses: actions/checkout@v4 # Use latest major version for security and features
+      - uses: actions/checkout@v4 # Updated
 
-      # Sets up a Python environment for use in actions
       - name: Set up Python
-        uses: actions/setup-python@v5 # Use latest major version
+        uses: actions/setup-python@v5 # Updated
         with:
-          python-version: "3.10" # Specify the Python version your project uses
-          cache: "pip" # Cache pip dependencies for faster builds
-          # Cache based on backend requirements file
-          cache-dependency-path: backend/requirements.txt
+          python-version: '3.10'
+          cache: 'pip'
 
-      # Installs necessary linting tools
-      - name: Install Python lint dependencies
+      - name: Install Python dependencies # Corrected: Install dev requirements for linting
         run: |
           python -m pip install --upgrade pip
-          # Install linters - consider adding these to a requirements-dev.txt
-          pip install flake8 black isort mypy
-          # Install backend dependencies needed for mypy/other checks if necessary
-          if [ -f backend/requirements.txt ]; then pip install -r backend/requirements.txt; fi
+          pip install -r backend/requirements-dev.txt # Use dev requirements
+      - name: Lint with flake8
+        run: flake8 backend --count --select=E9,F63,F7,F82 --show-source --statistics
 
-      # Runs the Python linters to check code style and quality
-      - name: Run Python Linters
-        run: |
-          echo "Running Flake8..."
-          # Run flake8 from root, targeting backend or specific directories
-          flake8 backend --count --max-line-length=100 --show-source --statistics --exclude=venv,__pycache__,migrations
-          echo "Running Black check..."
-          # Run black from root
-          black . --check --line-length=100 --exclude=venv/__pycache__|site/|docs/build/|migrations/
-          echo "Running isort check..."
-          # Run isort from root
-          isort . --check-only --profile black --line-length=100 --skip-glob=venv/* --skip-glob=__pycache__/* --skip-glob=site/* --skip-glob=docs/build/* --skip-glob=migrations/*
-          # echo "Running mypy..." # Optional: Add type checking
-          # mypy backend --ignore-missing-imports # Adjust path and options as needed
-
-      # Setup Node.js for frontend linting
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4 # Updated
         with:
-          node-version: "18" # Specify your Node.js version
-          cache: "npm" # Cache npm dependencies
-          cache-dependency-path: "frontend/package-lock.json" # Specify lock file path
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
 
-      # Install frontend dependencies
-      - name: Install Node dependencies (Frontend)
-        # Only run if frontend directory and package-lock.json exist
-        if: hashFiles('frontend/package-lock.json') != ''
-        working-directory: frontend
-        run: npm ci --ignore-scripts
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
 
-      # Run frontend linters (ESLint, Prettier check)
-      - name: Run Frontend Linters
-        # Only run if frontend directory and package.json exist
-        if: hashFiles('frontend/package.json') != ''
-        working-directory: frontend
-        run: |
-          echo "Running ESLint..."
-          # Check if lint script exists before running
-          if npm run lint; then npm run lint; else echo "No lint script found, skipping ESLint."; fi
-          echo "Running Prettier check..."
-          # Check if format:check script exists before running, assuming it's named 'format:check' or similar
-          if npm run format:check; then npm run format:check; else echo "No format:check script found, skipping Prettier check."; fi
+      - name: Lint frontend code
+        working-directory: ./frontend
+        run: npm run lint
 
-  # This job runs the backend tests
   test-backend:
-    name: Test Backend (Python)
-    # This job depends on the 'lint' job completing successfully
-    needs: lint
+    name: Test Backend
     runs-on: ubuntu-latest
+    needs: lint
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # Updated
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5 # Updated
         with:
-          python-version: "3.10"
-          cache: "pip"
-          # Cache based on backend requirements files
-          cache-dependency-path: |
-            backend/requirements*.txt
-            backend/pyproject.toml
+          python-version: '3.10'
+          cache: 'pip'
 
-      # Installs testing tools and project dependencies
-      - name: Install Python dependencies
-        working-directory: backend # Run pip installs within backend dir
+      - name: Install Python dependencies # Corrected: Install BOTH runtime and dev requirements for testing
         run: |
           python -m pip install --upgrade pip
-          pip install pytest pytest-cov # Common Python testing tools
-          # Install main project dependencies from backend requirements
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-          # Install test-specific requirements if they exist (e.g., requirements-dev.txt)
-          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
-          # Or install using pyproject.toml if setup for extras
-          # pip install .[test] # Uncomment if using pyproject.toml extras
-
-      - name: Install backend dependencies
-        if: hashFiles('backend/requirements.txt') != ''
-        run: pip install -r backend/requirements.txt
-        working-directory: backend
-
-      # Runs the tests using pytest and generates coverage reports
-      - name: Run Python tests with coverage
-        if: hashFiles('backend/requirements.txt') != ''
-        working-directory: backend # Run pytest within backend dir
+          pip install -r backend/requirements.txt
+          pip install -r backend/requirements-dev.txt # Add dev requirements for pytest etc.
+      - name: Run backend tests
+        env:
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/test_db
+          TESTING: true
         run: |
-          # Run tests from backend directory, assuming tests are in backend/tests
-          # Adjust --cov path if needed
-          pytest tests --cov=. --cov-report=xml --cov-report=term
-          # Previous command: pytest --cov=backend --cov-report=xml --cov-report=term backend/tests
-          # The above assumes running from root. Running from ./backend simplifies paths.
-
-      # Optional step to upload coverage reports to a service like Codecov
+          cd backend
+          pytest --cov=app tests/
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
-        # The token is usually optional for public repos on common CI providers
-        # token: ${{ secrets.CODECOV_TOKEN }} # Requires setting a CODECOV_TOKEN secret if private repo or needed
+        uses: codecov/codecov-action@v4 # Updated
         with:
-          # Specify coverage file relative to workspace root
-          files: ./backend/coverage.xml
-          # Specify working directory if needed by codecov action, but files path should be relative to root
-          # working-directory: ./backend
-          fail_ci_if_error: true # Optional: Fail CI if Codecov upload fails
-        # Only run on push to main or PRs to main to avoid uploading for every commit
-        # Also check if coverage.xml was actually generated
-        if: (github.event_name == 'push' && github.ref == 'refs/heads/main') || (github.event_name == 'pull_request' && hashFiles('./backend/coverage.xml') != '')
+          flags: backend
 
-  # This job runs the frontend tests
   test-frontend:
-    name: Test Frontend (JS/TS)
-    needs: lint
+    name: Test Frontend
     runs-on: ubuntu-latest
-    # Set working directory for all steps in this job
-    defaults:
-      run:
-        working-directory: frontend
-
+    needs: lint
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # Updated
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4 # Updated
         with:
-          node-version: "18"
-          cache: "npm"
-          cache-dependency-path: "frontend/package-lock.json" # Path relative to root
+          node-version: 16
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
 
-      - name: Install Node dependencies
-        # working-directory is ./frontend (from job defaults)
-        # Only run if package-lock.json exists
-        if: hashFiles('frontend/package-lock.json') != ''
-        run: npm ci --ignore-scripts
-
-      - name: Build frontend
-        if: hashFiles('frontend/package.json') != ''
-        run: npm run build --if-present
-        working-directory: frontend
+      - name: Install Node.js dependencies
+        working-directory: ./frontend
+        run: npm ci
 
       - name: Run frontend tests
-        if: hashFiles('frontend/package.json') != ''
-        # Assumes a 'test' script in package.json. Add --coverage if needed and supported.
-        run: npm run test
+        working-directory: ./frontend
+        run: npm test -- --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4 # Updated
+        with:
+          flags: frontend
+
+  security-scan:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    needs: [lint, test-backend, test-frontend]
+    steps:
+      - uses: actions/checkout@v4 # Updated
+
+      # Assuming bandit is installed via requirements-dev.txt in the lint job
+      - name: Run Bandit (Python)
+        uses: jpetrucciani/bandit-check@master # Keep as master unless a specific version is needed
+        with:
+          path: 'backend'
+          bandit_flags: '-r -x backend/tests/'
+
+      - name: Run npm audit
+        working-directory: ./frontend
+        run: npm audit --audit-level=high
+
+  build:
+    name: Build Artifacts
+    runs-on: ubuntu-latest
+    needs: [security-scan]
+    if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop') }}
+    steps:
+      - uses: actions/checkout@v4 # Updated
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3 # Updated
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v3 # Updated
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push backend
+        uses: docker/build-push-action@v5 # Updated
+        with:
+          context: ./backend
+          push: true
+          tags: thinkalike/api:${{ github.sha }},thinkalike/api:latest
+          cache-from: type=registry,ref=thinkalike/api:latest
+          cache-to: type=inline
+
+      - name: Build and push frontend
+        uses: docker/build-push-action@v5 # Updated
+        with:
+          context: ./frontend
+          push: true
+          tags: thinkalike/web:${{ github.sha }},thinkalike/web:latest
+          cache-from: type=registry,ref=thinkalike/web:latest
+          cache-to: type=inline
