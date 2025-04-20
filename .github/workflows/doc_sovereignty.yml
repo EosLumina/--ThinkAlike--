@@ -17,21 +17,27 @@ jobs:
   verify-integrity:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      # Updated action version
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           submodules: false # Explicitly disable submodule checkout
 
+      # Updated action version
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          # Assuming requirements.txt is at the root. Adjust path if needed.
+          # Consider adding a specific requirements file for this job if appropriate.
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # If dependencies are specifically for documentation_cli.py, consider a more targeted install
 
       - name: Verify documentation sovereignty
         run: |
           python backend/tools/documentation_cli.py verify
+
