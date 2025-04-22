@@ -269,8 +269,6 @@ sequenceDiagram
 
 ---
 
-End of Matching Mode Specification - Project
-
 ---
 
 ````markdown
