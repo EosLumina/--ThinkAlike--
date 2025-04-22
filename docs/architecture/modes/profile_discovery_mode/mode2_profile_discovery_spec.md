@@ -254,21 +254,6 @@ sequenceDiagram
     Frontend->>User: Display connection pending status
 
 ```
-
----
-
-**Document Details**
-
-* Title: Matching Mode Specification - Project
-
-* Type: Architecture Documentation
-
-* Version: 1.0.0
-
-* Last Updated: 2025-04-05
-
----
-
 ---
 
 ````markdown
