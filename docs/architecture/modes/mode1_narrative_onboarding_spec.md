@@ -1,4 +1,4 @@
-# Narrative Mode Specification - Project
+# Narrative Mode Specification 
 
 **Document Purpose:**
 
